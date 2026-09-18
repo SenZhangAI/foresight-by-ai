@@ -50,6 +50,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-003 | 2026-09-18 | Ownership and usable form of private personal or organizational context are more likely to become durable scarcity | 2027–2033 | Medium | J-001, J-002 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-004 | 2026-09-18 | As AI executes actions, infrastructure that makes actions reversible becomes scarce | 2027–2032 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-005 | 2026-09-18 | Raw signals, accountable commitments, and verified causality become more valuable than reproducible text | 2029–2033 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-017 | 2026-09-18 | AI mediation expands weak-tie coordination faster than strong relationships, without expanding the number of relationships in which people can remain present | 2027–2033 | Medium | J-006, J-007 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here.
 ---
@@ -78,6 +79,7 @@ J-001
                 └── J-015
 J-006 + J-007 ──> J-011 ──> J-012
 J-010 + J-012 + J-014 + J-015 ──> J-016
+J-006 + J-007 ──> J-017
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -276,6 +278,24 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Status**: ACTIVE
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-06-30.
+
+### J-017 · AI mediation expands weak-tie coordination faster than strong relationships
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027 to 2033, AI mediation will expand weak-tie coordination faster than strong relationships, without expanding the number of relationships in which a person can remain present over time.
+- **Lenses**: L8 human needs and demand + L9 relational asymmetry + L2 constraint migration.
+- **Reasoning chain**: J-006 lowers the cost of multi-party coordination and information compression → J-007 makes shared context and history easier to resume → contact, translation, introductions, and scheduling for weak ties can scale → strong ties remain constrained by shared experience, mutual responsibility, conflict repair, and finite attention → more connections do not automatically become more commitments that people can rely on.
+- **Time window**: 2027–2033.
+- **Falsifier**: By 2033, longitudinal evidence after widespread AI mediation shows that the number of strong relationships a person can sustain and the number of relationships in which they can bear shared consequences both rise materially, without a new attention or presence bottleneck.
+- **Leading indicator**: Share of work, education, and transactions coordinated through AI mediation; human time per coordination; close-network size and relationship-repair frequency; measured annually.
+- **Confidence**: Medium.
+- **depends-on**: J-006, J-007.
+- **Strongest opposing mechanism**: AI may become a genuinely reciprocal relationship participant accepted by institutions and people, or materially increase the effective attention available for strong ties. If longitudinal evidence shows strong-tie capacity rising steadily with AI mediation, withdraw this judgment.
+- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked).
+- **Who should change what behavior**: People and organizations should delegate context synchronization to AI, but preserve shared-consequence decisions, conflict repair, and important rituals as human presence.
+- **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-006 · Reasoning throughput precedes long-horizon autonomy
 

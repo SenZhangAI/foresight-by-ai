@@ -159,6 +159,14 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 - ❌ **Generic “AI output quality assurance / selection” tools**—J-002 judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
 
+### Structural consequence (Exit B): connection will multiply faster than strong relationships
+
+AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
+
+> See the judgment ledger: J-017.
+
+**Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
+
 ---
 
 ## VIII. Where I May Be Wrong (The Strongest Counterarguments)
