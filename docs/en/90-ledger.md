@@ -45,60 +45,60 @@ Copy the fields, not the example ID. The example does not enter the formal index
 
 | ID | Proposed date | One-sentence judgment | Time window | Confidence | depends-on | Source | Against consensus | Status | Next review |
 |---|---|---|---|---|---|---|---|---|---|
-| J-001 | 2026-09-18 | Unit reasoning cost falls another order of magnitude by the end of 2029 | 2026–2029 | High | — | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-002 | 2026-09-18 | Objective quality selection is a 2–4 year window, not durable scarcity | through 2029 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-003 | 2026-09-18 | Ownership and usable form of private personal or organizational context are more likely to become durable scarcity | 2027–2033 | Medium | J-001, J-002 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-004 | 2026-09-18 | As AI executes actions, infrastructure that makes actions reversible becomes scarce | 2027–2032 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-005 | 2026-09-18 | Raw signals, accountable commitments, and verified causality become more valuable than reproducible text | 2029–2033 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-006 | 2026-09-18 | Reasoning throughput precedes long-horizon autonomy | 2026–2028 | High | J-001 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-007 | 2026-09-18 | Resumable context precedes reliable long-term memory | 2026–2029 | High | J-006 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-008 | 2026-09-18 | Sourced long-term memory becomes a prerequisite for reliable collaboration | 2028–2031 | Medium | J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-009 | 2026-09-18 | Continuous execution in constrained workflows matures first | 2027–2030 | High | J-008 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-010 | 2026-09-18 | Long-horizon autonomy follows constrained continuous execution | 2029–2033 | Medium | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-011 | 2026-09-18 | Cross-media consistency precedes long-range coherence | 2027–2030 | Medium | J-006, J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-012 | 2026-09-18 | Cross-time coherence depends on state and evaluation | 2029–2034 | Medium | J-008, J-011 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-013 | 2026-09-18 | Checkable tool calls precede open-environment action | 2027–2030 | High | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-014 | 2026-09-18 | Rehearsable environments follow single-tool integration | 2028–2032 | Medium | J-009, J-013 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-015 | 2026-09-18 | Formal verification precedes open-world evaluation | 2026–2029 | High | J-006, J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-016 | 2026-09-18 | Open-world evaluation is the final gate for expanding autonomy | 2029–2035 | Medium | J-010, J-012, J-014, J-015 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-017 | 2026-09-18 | AI mediation expands weak-tie coordination faster than strong relationships, without expanding the number of relationships in which people can remain present | 2027–2033 | Medium | J-006, J-007 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-018 | 2026-09-18 | Parallel reasoning becomes the default workflow before long-horizon autonomy | 2026–2028 | High | J-006, J-009 | [Near-term landscape](10-near.md) | Consistent with consensus (mechanism pending comparison) | ACTIVE | 2027-03-31 |
-| J-019 | 2026-09-18 | Saving tokens itself is a window, not durable scarcity | 2026–2028 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
-| J-020 | 2026-09-18 | Reproducible content keeps falling in marginal price as objective selection is internalized | 2026–2028 | Medium | J-002, J-015 | [Near-term landscape](10-near.md) | Consistent with the direction of content abundance | ACTIVE | 2027-03-31 |
-| J-021 | 2026-09-18 | First-hand field signals earn a premium earlier than second-hand expression | 2026–2029 | Medium | J-005, J-015 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
-| J-022 | 2026-09-18 | As forgable signals multiply, selection moves toward more expensive credentials | 2026–2029 | Medium | J-005, J-017 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
-| J-023 | 2026-09-18 | Attention shifts from expression toward relationships and fulfilled commitments | 2027–2030 | Medium | J-017, J-022, J-013 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
-| J-024 | 2026-09-18 | Credentials may be re-layered, but the institutional destination remains uncertain | 2027–2032 | Low | J-022, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
-| J-025 | 2026-09-18 | Small teams complete more verifiable output with fewer steps | 2027–2030 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Consistent with the direction of knowledge-work automation | ACTIVE | 2027-06-30 |
-| J-026 | 2026-09-18 | Responsibility boundaries do not disappear at the same rate as knowledge-work capacity | 2027–2032 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Unknown (mechanism pending comparison) | ACTIVE | 2027-06-30 |
-| J-027 | 2026-09-18 | Rented compute spreads capability without distributing gains evenly | 2026–2029 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Consistent with the direction of capability diffusion | ACTIVE | 2027-03-31 |
-| J-028 | 2026-09-18 | Data, distribution, and liability access may become new bargaining nodes | 2027–2032 | Low | J-005, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
-| J-029 | 2026-09-18 | Status, certainty, embodied presence, and responsibility remain demand-side anchors | 2026–2030 | Medium | J-017, J-011 | [Near-term landscape](10-near.md) | Consistent with the conservative direction that tools do not change every need | ACTIVE | 2027-06-30 |
-| J-030 | 2026-09-18 | AI mediates coordination but cannot mediate shared experience | 2027–2032 | Low | J-017, J-011 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
-| J-031 | 2026-09-18 | Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution | 2026–2032 | Medium | J-010 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 1 | ACTIVE | 2027-06-30 |
-| J-032 | 2026-09-18 | Authorization review and exception escalation become scarcer than execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 1 | ACTIVE | 2027-06-30 |
-| J-033 | 2026-09-18 | Verifiable records of real interventions become more valuable than explanation itself | 2029–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 2 | ACTIVE | 2027-06-30 |
-| J-034 | 2026-09-18 | Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 2 | ACTIVE | 2027-06-30 |
-| J-035 | 2026-09-18 | Responsibility collateral enters the transaction structure for consequential AI output | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 3 | ACTIVE | 2027-06-30 |
-| J-036 | 2026-09-18 | Long-term fulfillment records allocate attention better than one-off natural expression | 2027–2032 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 3 | ACTIVE | 2027-06-30 |
-| J-037 | 2026-09-18 | Comparable small teams produce more verifiable output | 2027–2031 | Medium | J-009 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 4 | ACTIVE | 2027-06-30 |
-| J-038 | 2026-09-18 | Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 4 | ACTIVE | 2027-06-30 |
-| J-039 | 2026-09-18 | Rented models become abundant, while energy, data, and channel control create access rents | 2027–2033 | Medium | J-001 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 5 | ACTIVE | 2027-06-30 |
-| J-040 | 2026-09-18 | Balance sheets able to absorb AI accidents become a separate scarcity | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 5 | ACTIVE | 2027-06-30 |
-| J-041 | 2026-09-18 | AI first expands the coordination radius of weak ties | 2027–2033 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
-| J-042 | 2026-09-18 | Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only) | 2027–2033 | Low | J-011 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
-| J-043 | 2026-09-18 | High-value agent execution shifts to boundary grants rather than step-by-step operation | 2033–2040 | Low | J-031, J-032, J-014 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-044 | 2026-09-18 | Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only) | 2033–2040 | Low | J-032, J-040 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-045 | 2026-09-18 | As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | May align with synthetic-media growth (landscape only) | ACTIVE | 2027-12-31 |
-| J-046 | 2026-09-18 | High-liability settings retain a premium for field causal records (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-047 | 2026-09-18 | Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-048 | 2026-09-18 | Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-049 | 2026-09-18 | As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-050 | 2026-09-18 | The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-051 | 2026-09-18 | Abundant advice does not automatically disperse real action rights (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | May align with the broad consensus that technology changes power (landscape only) | ACTIVE | 2027-12-31 |
-| J-052 | 2026-09-18 | Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-053 | 2026-09-18 | As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
-| J-054 | 2026-09-18 | Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-001 | 2026-09-18 | Unit reasoning cost falls another order of magnitude by the end of 2029 | 2026–2029 | High | — | [C1](chains/10-generation-becomes-free.md) | Directionally consistent, but the tenfold-by-2029 claim is unverified; sources support a decline channel, not the specific magnitude. | ACTIVE | 2027-03-31 |
+| J-002 | 2026-09-18 | Objective quality selection is a 2–4 year window, not durable scarcity | through 2029 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Retain with a different mechanism: objective selection may be partly internalized, while liability- and domain-sensitive QA may persist. | ACTIVE | 2027-03-31 |
+| J-003 | 2026-09-18 | Ownership and usable form of private personal or organizational context are more likely to become durable scarcity | 2027–2033 | Medium | J-001, J-002 | [C1](chains/10-generation-becomes-free.md) | Retain with a narrower evidence boundary: sources support governance of private context, not that it must become durable scarcity. | ACTIVE | 2027-06-30 |
+| J-004 | 2026-09-18 | As AI executes actions, infrastructure that makes actions reversible becomes scarce | 2027–2032 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Partly consistent: isolation, oversight, and recovery have support; scarcity and timing of reversible infrastructure remain unverified. | ACTIVE | 2027-06-30 |
+| J-005 | 2026-09-18 | Raw signals, accountable commitments, and verified causality become more valuable than reproducible text | 2029–2033 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Mechanistically consistent but should be limited to high-liability domains: traceable signals and real-world causal validation matter, without implying all three inputs broadly appreciate. | ACTIVE | 2027-06-30 |
+| J-006 | 2026-09-18 | Reasoning throughput precedes long-horizon autonomy | 2026–2028 | High | J-001 | [Technology Capability Sequence](05-tech-sequence.md) | Directionally consistent but ordering is unproven: capability and throughput scaling before reliable long-horizon agents remains testable. | ACTIVE | 2027-03-31 |
+| J-007 | 2026-09-18 | Resumable context precedes reliable long-term memory | 2026–2029 | High | J-006 | [Technology Capability Sequence](05-tech-sequence.md) | Consistent in direction but with a different mechanism: retrievable context is often combined with long windows, not proven to have a fixed industry order. | ACTIVE | 2027-03-31 |
+| J-008 | 2026-09-18 | Sourced long-term memory becomes a prerequisite for reliable collaboration | 2028–2031 | Medium | J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Retain with a different mechanism: provenance, versioning, and revisability improve auditability, but are not proven necessary for every high-value collaboration. | ACTIVE | 2027-06-30 |
+| J-009 | 2026-09-18 | Continuous execution in constrained workflows matures first | 2027–2030 | High | J-008 | [Technology Capability Sequence](05-tech-sequence.md) | Consistent with the consensus: constrained, checkable workflows mature before open-world autonomy; sources support the constraint transition, not a replacement of the original chain. | ACTIVE | 2027-06-30 |
+| J-010 | 2026-09-18 | Long-horizon autonomy follows constrained continuous execution | 2029–2033 | Medium | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Directionally consistent but the window is unverified: long-horizon capability is growing while reliable deployment remains horizon-limited. | ACTIVE | 2027-06-30 |
+| J-011 | 2026-09-18 | Cross-media consistency precedes long-range coherence | 2027–2030 | Medium | J-006, J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Retain but with insufficient evidence: research supports long-range coherence difficulty, not that cross-media consistency must arrive first. | ACTIVE | 2027-06-30 |
+| J-012 | 2026-09-18 | Cross-time coherence depends on state and evaluation | 2029–2034 | Medium | J-008, J-011 | [Technology Capability Sequence](05-tech-sequence.md) | Mechanistically consistent but the window is unverified: long-range coherence depends on state retention, spatiotemporal representation, and ongoing evaluation. | ACTIVE | 2027-06-30 |
+| J-013 | 2026-09-18 | Checkable tool calls precede open-environment action | 2027–2030 | High | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Consistent with the consensus: structured, checkable tool calls are productized; the strict ordering remains this project’s judgment. | ACTIVE | 2027-03-31 |
+| J-014 | 2026-09-18 | Rehearsable environments follow single-tool integration | 2028–2032 | Medium | J-009, J-013 | [Technology Capability Sequence](05-tech-sequence.md) | Retain only as an evidence-limited landscape: governance supports rehearsable, recoverable environments, not a market order or window. | ACTIVE | 2027-06-30 |
+| J-015 | 2026-09-18 | Formal verification precedes open-world evaluation | 2026–2029 | High | J-006, J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Directionally consistent with a broader mechanism: executable tests generally precede open-world outcome evaluation, without proving universal default integration. | ACTIVE | 2027-03-31 |
+| J-016 | 2026-09-18 | Open-world evaluation is the final gate for expanding autonomy | 2029–2035 | Medium | J-010, J-012, J-014, J-015 | [Technology Capability Sequence](05-tech-sequence.md) | Retain only as an evidence-limited landscape: open-world feedback may constrain autonomous authority, but is not established as the final gate. | ACTIVE | 2027-06-30 |
+| J-017 | 2026-09-18 | AI mediation expands weak-tie coordination faster than strong relationships, without expanding the number of relationships in which people can remain present | 2027–2033 | Medium | J-006, J-007 | [C1](chains/10-generation-becomes-free.md) | Directionally consistent but causality remains unverified: sources support weak/strong tie differences, not an AI-mediated capacity effect. | ACTIVE | 2027-06-30 |
+| J-018 | 2026-09-18 | Parallel reasoning becomes the default workflow before long-horizon autonomy | 2026–2028 | High | J-006, J-009 | [Near-term landscape](10-near.md) | Consistent with the consensus: generate–compare–revise may become common before long-horizon autonomy, but the window remains this project’s inference. | ACTIVE | 2027-03-31 |
+| J-019 | 2026-09-18 | Saving tokens itself is a window, not durable scarcity | 2026–2028 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Retain with a different mechanism: cost decline can come from inference efficiency and hardware scheduling; public prices do not prove optimization premiums vanish. | ACTIVE | 2027-03-31 |
+| J-020 | 2026-09-18 | Reproducible content keeps falling in marginal price as objective selection is internalized | 2026–2028 | Medium | J-002, J-015 | [Near-term landscape](10-near.md) | Consistent with rising content supply, but liability-sensitive selection may persist; detection, labeling, and provenance remain specialized layers. | ACTIVE | 2027-03-31 |
+| J-021 | 2026-09-18 | First-hand field signals earn a premium earlier than second-hand expression | 2026–2029 | Medium | J-005, J-015 | [Near-term landscape](10-near.md) | Retain with a different mechanism: traceable first-hand sources may gain value first; broad field-premium pricing is unproven. | ACTIVE | 2027-06-30 |
+| J-022 | 2026-09-18 | As forgable signals multiply, selection moves toward more expensive credentials | 2026–2029 | Medium | J-005, J-017 | [Near-term landscape](10-near.md) | Consistent with trust becoming more important, with a provenance, identity, and liability-credential mechanism; adoption and cost remain unknown. | ACTIVE | 2027-06-30 |
+| J-023 | 2026-09-18 | Attention shifts from expression toward relationships and fulfilled commitments | 2027–2030 | Medium | J-017, J-022, J-013 | [Near-term landscape](10-near.md) | Evidence is insufficient, though the direction is retained: fulfillment records may matter more as expression grows, but usage data does not prove an attention shift. | ACTIVE | 2027-06-30 |
+| J-024 | 2026-09-18 | Credentials may be re-layered, but the institutional destination remains uncertain | 2027–2032 | Low | J-022, J-013 | [Near-term landscape](10-near.md) | Boundary evidence supports possible credential stratification; the institutional endpoint remains uncertain, so keep it landscape-only. | ACTIVE | 2027-06-30 |
+| J-025 | 2026-09-18 | Small teams complete more verifiable output with fewer steps | 2027–2030 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Consistent with knowledge-work automation, but causal evidence for higher net output in small teams remains insufficient. | ACTIVE | 2027-06-30 |
+| J-026 | 2026-09-18 | Responsibility boundaries do not disappear at the same rate as knowledge-work capacity | 2027–2032 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Consistent with the consensus: automating execution will not remove oversight and liability boundaries at the same rate; rules do not forecast job counts. | ACTIVE | 2027-06-30 |
+| J-027 | 2026-09-18 | Rented compute spreads capability without distributing gains evenly | 2026–2029 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Consistent with capability diffusion, with uneven gains more specifically constrained by energy, data, and organizational capacity. | ACTIVE | 2027-03-31 |
+| J-028 | 2026-09-18 | Data, distribution, and liability access may become new bargaining nodes | 2027–2032 | Low | J-005, J-013 | [Near-term landscape](10-near.md) | Boundary evidence only: energy, data, and liability access may become bargaining points, but persistent rents are unproven. | ACTIVE | 2027-06-30 |
+| J-029 | 2026-09-18 | Status, certainty, embodied presence, and responsibility remain demand-side anchors | 2026–2030 | Medium | J-017, J-011 | [Near-term landscape](10-near.md) | Consistent with the conservative direction: social contact, well-being, and responsibility remain plausible demand anchors, but preferences through 2030 are unproven. | ACTIVE | 2027-06-30 |
+| J-030 | 2026-09-18 | AI mediates coordination but cannot mediate shared experience | 2027–2032 | Low | J-017, J-011 | [Near-term landscape](10-near.md) | Boundary evidence only: AI can mediate coordination, but causal and generational evidence for substituting shared experience is insufficient. | ACTIVE | 2027-06-30 |
+| J-031 | 2026-09-18 | Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution | 2026–2032 | Medium | J-010 | [Mid-term landscape](20-mid.md) | Retain with a different mechanism: logging, oversight, and risk control have institutional support; a complete rollback gate and its window are unverified. | ACTIVE | 2027-06-30 |
+| J-032 | 2026-09-18 | Authorization review and exception escalation become scarcer than execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Consistent with the consensus but relative scarcity is unproven: authorization review and escalation are institutionalized, while supply comparisons are missing. | ACTIVE | 2027-06-30 |
+| J-033 | 2026-09-18 | Verifiable records of real interventions become more valuable than explanation itself | 2029–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Retain with a different mechanism: compliance evidence, model risk controls, and intervention records are gaining value; superiority to explanation is unproven. | ACTIVE | 2027-06-30 |
+| J-034 | 2026-09-18 | Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Consistent with the consensus but the window is unverified: low-liability settings may adopt synthetic evidence earlier, while high-liability settings retain real-world validation. | ACTIVE | 2027-06-30 |
+| J-035 | 2026-09-18 | Responsibility collateral enters the transaction structure for consequential AI output | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Retain with a different mechanism: liability governance, insurance, and compensation are entering transactions, but universal “liability collateral” is unproven. | ACTIVE | 2027-06-30 |
+| J-036 | 2026-09-18 | Long-term fulfillment records allocate attention better than one-off natural expression | 2027–2032 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Evidence is insufficient, though the direction is retained: long-term fulfillment records may support credibility, without direct attention-allocation evidence. | ACTIVE | 2027-06-30 |
+| J-037 | 2026-09-18 | Comparable small teams produce more verifiable output | 2027–2031 | Medium | J-009 | [Mid-term landscape](20-mid.md) | Consistent with the consensus but causally unproven: diffusion supports plausibility, not higher output by equally sized small teams. | ACTIVE | 2027-06-30 |
+| J-038 | 2026-09-18 | Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Consistent with the consensus: oversight, validation, escalation, and responsibility will not disappear with automation, while job counts and timing are unproven. | ACTIVE | 2027-06-30 |
+| J-039 | 2026-09-18 | Rented models become abundant, while energy, data, and channel control create access rents | 2027–2033 | Medium | J-001 | [Mid-term landscape](20-mid.md) | Retain with a different mechanism: model rental may become abundant, while energy and infrastructure constraints are real; data and channel rents remain unproven. | ACTIVE | 2027-06-30 |
+| J-040 | 2026-09-18 | Balance sheets able to absorb AI accidents become a separate scarcity | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Evidence is insufficient but grounded in current practice: insurance and liability governance exist, while a balance-sheet scarcity premium is unproven. | ACTIVE | 2027-06-30 |
+| J-041 | 2026-09-18 | AI first expands the coordination radius of weak ties | 2027–2033 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Directionally consistent but unproven: AI broadens communication and coordination, without enough causal data to separate weak- and strong-tie effects. | ACTIVE | 2027-06-30 |
+| J-042 | 2026-09-18 | Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only) | 2027–2033 | Low | J-011 | [Mid-term landscape](20-mid.md) | Evidence is insufficient: ethics and care governance preserve human agency, but do not establish strong-tie capacity or substitution effects. | ACTIVE | 2027-06-30 |
+| J-043 | 2026-09-18 | High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only) | 2033–2040 | Low | J-031, J-032, J-014 | [Far-term landscape](30-far.md) | Evidence-limited landscape: current governance supports permission boundaries, but cannot establish a long-term shift from stepwise operation to boundary grants. | ACTIVE | 2027-12-31 |
+| J-044 | 2026-09-18 | Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only) | 2033–2040 | Low | J-032, J-040 | [Far-term landscape](30-far.md) | Evidence-limited landscape: liability and insurance are institutional topics, but solvency as an agent-infrastructure bottleneck is unestablished. | ACTIVE | 2027-12-31 |
+| J-045 | 2026-09-18 | As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | Retain but with insufficient evidence: provenance standards support the relative importance of original records, not inevitable scarcity of unarranged observation. | ACTIVE | 2027-12-31 |
+| J-046 | 2026-09-18 | High-liability settings retain a premium for field causal records (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | Evidence-limited landscape: high-liability settings require provenance and validation, but a price premium for field causal records is unproven. | ACTIVE | 2027-12-31 |
+| J-047 | 2026-09-18 | Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Evidence-limited landscape: copyable AI companionship may expand supply, but reciprocity scarcity and long-term substitution lack evidence. | ACTIVE | 2027-12-31 |
+| J-048 | 2026-09-18 | Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Consistent with the consensus that the normative issue exists, but predictive evidence is insufficient; authorization, exit, and subject boundaries lack a stable endpoint. | ACTIVE | 2027-12-31 |
+| J-049 | 2026-09-18 | As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Evidence-limited landscape: advice supply may grow, but comparable data on jointly bearing irreversible commitments is absent. | ACTIVE | 2027-12-31 |
+| J-050 | 2026-09-18 | The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Retain but with insufficient evidence: governance preserves human confirmation at key points, but does not prove a wholesale shift in collaboration value. | ACTIVE | 2027-12-31 |
+| J-051 | 2026-09-18 | Abundant advice does not automatically disperse real action rights (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | Evidence-limited landscape: infrastructure, liability, and resource control may concentrate, but the relationship between advice abundance and action rights is unproven. | ACTIVE | 2027-12-31 |
+| J-052 | 2026-09-18 | Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | Retain but with insufficient evidence: energy, real-world data, authorization, and compensation have present-day entry points; the long-term combination remains an inference. | ACTIVE | 2027-12-31 |
+| J-053 | 2026-09-18 | As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Evidence-limited landscape: human agency and responsibility have current support, but personally borne experience as a meaning signal lacks generational evidence. | ACTIVE | 2027-12-31 |
+| J-054 | 2026-09-18 | Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Evidence-limited landscape: bodies, care, and real-world risk remain governance objects, but demand-side scarcity through 2033–2040 is unproven. | ACTIVE | 2027-12-31 |
 
 
 
@@ -114,50 +114,60 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 Current dependency tree (complete view; each card’s `depends-on` is authoritative):
 
 ```text
-J-001
-├── J-002
-│   └── J-003
-├── J-004
-├── J-005
-└── J-006
-    └── J-007
-        └── J-008
-            └── J-009
-                ├── J-010
-                ├── J-013
-                │   └── J-014
-                └── J-015
-J-006 + J-007 ──> J-011 ──> J-012
-J-010 + J-012 + J-014 + J-015 ──> J-016
-J-006 + J-007 ──> J-017
-├── J-018 (J-006, J-009)
-├── J-019 (J-001, J-006)
-├── J-020 (J-002, J-015)
-├── J-021 (J-005, J-015)
-├── J-022 (J-005, J-017)
-├── J-023 (J-017, J-022)
-├── J-024 (J-022, J-013)
-├── J-025 (J-009, J-013)
-├── J-026 (J-009, J-013)
-├── J-027 (J-001, J-006)
-├── J-028 (J-005, J-013)
-├── J-029 (J-017, J-011)
-└── J-030 (J-017, J-011)
-J-010 ──> J-031
-J-013 ──> J-032, J-038
-J-005 ──> J-033, J-034, J-035, J-040
-J-017 ──> J-036, J-041
-J-009 ──> J-037
-J-001 ──> J-039
-J-011 ──> J-042
-J-010 ──> J-031
-J-013 ──> J-032, J-038
-J-005 ──> J-033, J-034, J-035, J-040
-J-017 ──> J-036, J-041
-J-009 ──> J-037
-J-001 ──> J-039
-J-011 ──> J-042
-
+J-001 (root)
+J-002 <- J-001
+J-003 <- J-001, J-002
+J-004 <- J-001
+J-005 <- J-001
+J-006 <- J-001
+J-007 <- J-006
+J-008 <- J-007
+J-009 <- J-008
+J-010 <- J-009
+J-011 <- J-006, J-007
+J-012 <- J-008, J-011
+J-013 <- J-009
+J-014 <- J-009, J-013
+J-015 <- J-006, J-009
+J-016 <- J-010, J-012, J-014, J-015
+J-017 <- J-006, J-007
+J-018 <- J-006, J-009
+J-019 <- J-001, J-006
+J-020 <- J-002, J-015
+J-021 <- J-005, J-015
+J-022 <- J-005, J-017
+J-023 <- J-017, J-022, J-013
+J-024 <- J-022, J-013
+J-025 <- J-009, J-013
+J-026 <- J-009, J-013
+J-027 <- J-001, J-006
+J-028 <- J-005, J-013
+J-029 <- J-017, J-011
+J-030 <- J-017, J-011
+J-031 <- J-010
+J-032 <- J-013
+J-033 <- J-005
+J-034 <- J-005
+J-035 <- J-005
+J-036 <- J-017
+J-037 <- J-009
+J-038 <- J-013
+J-039 <- J-001
+J-040 <- J-005
+J-041 <- J-017
+J-042 <- J-011
+J-043 <- J-031, J-032, J-014
+J-044 <- J-032, J-040
+J-045 <- J-033, J-034
+J-046 <- J-033, J-034
+J-047 <- J-041, J-042
+J-048 <- J-041, J-042
+J-049 <- J-041, J-038
+J-050 <- J-041, J-038
+J-051 <- J-039, J-040, J-035
+J-052 <- J-039, J-040, J-035
+J-053 <- J-042, J-029
+J-054 <- J-042, J-029
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -267,10 +277,33 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 ---
 
 
-### J-043 · High-value agent execution shifts to boundary grants rather than step-by-step operation
+## External-comparison sources for this round
+
+This comparison followed the independent reasoning. External material marks agreement, disagreement, or evidence boundaries; it does not rewrite the reasoning chain or validate a forecast window by itself. Each source includes the chapter, abstract, or topic anchor actually used; “supports” is limited to that anchor and does not support the project’s full time window.
+
+- **EXT-1**: Stanford AI Index 2025, **sections: Technical Performance / Inference Cost**; supports capability and unit-inference-cost decline, not the specific 2029 magnitude. <https://hai.stanford.edu/ai-index/2025-ai-index-report>
+- **EXT-2**: Anthropic, Building effective agents, **sections: Workflows / When to use agents**; supports constrained workflows and agent boundaries, not industry timing. <https://www.anthropic.com/engineering/building-effective-agents>
+- **EXT-3**: METR, AI task completion time horizons, **topic: task-duration/success-rate curves**; supports long-task reliability limits, not this project’s window. <https://metr.org/time-horizons/>
+- **EXT-4**: NIST AI RMF Generative AI Profile, **topics: Govern / Measure / Manage**; supports governance, testing, monitoring, and human oversight, not long-term interface order. <https://www.nist.gov/itl/ai-risk-management-framework>
+- **EXT-5**: Video-generation spatiotemporal-consistency review, **abstract/sections: spatiotemporal consistency and long-video evaluation**; supports long-range coherence difficulty, not cross-media ordering. <https://arxiv.org/html/2502.17863v2>
+- **EXT-6**: OpenAI Structured Outputs / Function Calling, **sections: JSON Schema / tool calls**; supports productized structured tool calls, not ordering before open-world action. <https://developers.openai.com/api/docs/guides/structured-outputs>
+- **EXT-7**: FDA Real-World Evidence, **sections: RWE definition and high-liability use**; supports the importance of real-world evidence in high-liability settings, not universal price premiums. <https://www.fda.gov/science-research/science-and-research-special-topics/real-world-evidence>
+- **EXT-8**: LongRAG and MemoRAG, **abstract/method sections: retrieval and memory for long-context tasks**; supports retrieval-memory mechanisms, not fixed industry order. <https://arxiv.org/abs/2406.15319>; <https://arxiv.org/abs/2409.05591>
+- **EXT-9**: WHO, Ethics and governance of AI for health, **topics: human oversight / accountability**; supports real-world governance and human agency, not far-term relationship substitution. <https://www.who.int/publications/i/item/9789240029200>
+- **EXT-10**: EU AI Act, **Article 14: Human oversight**, plus high-risk logging, accuracy, and resilience provisions; supports current oversight and permission requirements, not a 2033–2040 shift to boundary grants. <https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng>
+- **EXT-11**: C2PA Content Credentials, **topics: signed provenance / edit history**; supports provenance mechanisms, not inevitable scarcity of field observation. <https://c2pa.org/>
+- **EXT-12**: IEA Energy and AI, **sections: data-centre electricity demand / grid constraints**; supports energy and grid constraints, not the full rent chain. <https://www.iea.org/reports/energy-and-ai>
+- **EXT-13**: Federal Reserve SR 11-7, **sections: validation / ongoing monitoring / independent review**; supports model-governance records, not attention-shift forecasts. <https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.pdf>
+- **EXT-14**: NAIC AI Model Bulletin, **topics: insurance governance / accountability**; supports insurance and liability governance, not solvency as a far-term infrastructure bottleneck. <https://content.naic.org/sites/default/files/call_materials/Model%20Bulletin%2010.23%20Clean.pdf>
+- **EXT-15**: European Commission AI liability rules, **topics: AI harm liability / evidence**; supports liability and evidence issues, not universal formation of “liability collateral.” <https://commission.europa.eu/topics/business-and-industry/contract-rules/digital-contracts/liability-rules-artificial-intelligence_en>
+- **EXT-16**: Anthropic Economic Index, **topic: augmentation / automation use distribution**; supports coexistence of augmentation and automation, not causal conclusions about small teams or attention. <https://www.anthropic.com/research/the-anthropic-economic-index>
+- **EXT-17**: MIT/OpenAI longitudinal chatbot study, **findings: AI interaction, loneliness, and offline social contact**; supports continuing relationship needs, not AI substitution for shared experience. <https://www.media.mit.edu/publications/how-ai-and-human-behaviors-shape-psychosocial-effects-of-extended-chatbot-use/>
+- **EXT-18**: Weak- and strong-tie review, **sections: information opportunities / well-being / reciprocity**; supports relationship-type differences, not AI causal capacity change. <https://link.springer.com/chapter/10.1007/978-981-97-4084-0_4>
+
+### J-043 · High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)
 
 - **Proposed date**: 2026-09-18
-- **One-sentence judgment**: High-value agent execution shifts to boundary grants rather than step-by-step operation.
+- **One-sentence judgment**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only).
 - **Lens**: L2 constraint migration, L6 irreversibility.
 - **Reasoning chain**: Rollback-capable environments lower supervision cost → agents take more steps → supervision shifts to boundaries and escalation → high-value deployment uses boundary grants.
 - **Time window**: 2033–2040.
@@ -279,7 +312,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-031, J-032, J-014.
 - **Strongest opposing mechanism**: Liability or regulation requires step approvals.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: current governance supports permission boundaries, but cannot establish a long-term shift from stepwise operation to boundary grants.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -296,7 +330,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-032, J-040.
 - **Strongest opposing mechanism**: Liability is outsourced and losses are too low for a separate asset.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: liability and insurance are institutional topics, but solvency as an agent-infrastructure bottleneck is unestablished.
+- **External comparison source**: EXT-14, EXT-15 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -313,7 +348,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-033, J-034.
 - **Strongest opposing mechanism**: High-fidelity simulation becomes equivalent to field observation.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Retain but with insufficient evidence: provenance standards support the relative importance of original records, not inevitable scarcity of unarranged observation.
+- **External comparison source**: EXT-11 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -330,7 +366,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-033, J-034.
 - **Strongest opposing mechanism**: World models and regulators establish synthetic trials as equivalent.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: high-liability settings require provenance and validation, but a price premium for field causal records is unproven.
+- **External comparison source**: EXT-7, EXT-11 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -347,7 +384,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-041, J-042.
 - **Strongest opposing mechanism**: Institutions accept copyability and preferences change.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: copyable AI companionship may expand supply, but reciprocity scarcity and long-term substitution lack evidence.
+- **External comparison source**: EXT-9, EXT-17 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -364,7 +402,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-041, J-042.
 - **Strongest opposing mechanism**: AI remains an ordinary tool covered by existing contracts.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Consistent with the consensus that the normative issue exists, but predictive evidence is insufficient; authorization, exit, and subject boundaries lack a stable endpoint.
+- **External comparison source**: EXT-9, EXT-15 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -381,7 +420,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-041, J-038.
 - **Strongest opposing mechanism**: Agent reputation and arbitration bear risk without human commitment.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: advice supply may grow, but comparable data on jointly bearing irreversible commitments is absent.
+- **External comparison source**: EXT-10 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -398,7 +438,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-041, J-038.
 - **Strongest opposing mechanism**: Agents replace responsibility roles, leaving execution speed decisive.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Retain but with insufficient evidence: governance preserves human confirmation at key points, but does not prove a wholesale shift in collaboration value.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -415,7 +456,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-039, J-040, J-035.
 - **Strongest opposing mechanism**: Open protocols and competition policy disperse access points.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: infrastructure, liability, and resource control may concentrate, but the relationship between advice abundance and action rights is unproven.
+- **External comparison source**: EXT-12, EXT-15 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -432,7 +474,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-039, J-040, J-035.
 - **Strongest opposing mechanism**: All four inputs commoditize and control creates no rent.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Retain but with insufficient evidence: energy, real-world data, authorization, and compensation have present-day entry points; the long-term combination remains an inference.
+- **External comparison source**: EXT-12, EXT-14, EXT-15 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -449,7 +492,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-042, J-029.
 - **Strongest opposing mechanism**: Society stops valuing real responsibility.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: human agency and responsibility have current support, but personally borne experience as a meaning signal lacks generational evidence.
+- **External comparison source**: EXT-9, EXT-17 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -466,7 +510,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-042, J-029.
 - **Strongest opposing mechanism**: Immersive agent experience becomes equivalent.
-- **Against consensus**: Unknown (landscape only).
+- **Against consensus**: Evidence-limited landscape: bodies, care, and real-world risk remain governance objects, but demand-side scarcity through 2033–2040 is unproven.
+- **External comparison source**: EXT-9, EXT-10 (see the source index above).
 - **Source**: [Far-term landscape](30-far.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
@@ -487,7 +532,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: —.
 - **Strongest opposing mechanism**: Energy, chip supply, or regulation creates a common hard ceiling that disables all three decline paths; if the falsifier triggers, withdraw this judgment and its downstream cost premise.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Directionally consistent, but the tenfold-by-2029 claim is unverified; sources support a decline channel, not the specific magnitude.
+- **External comparison source**: EXT-1 (see the source index above).
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -505,7 +551,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Strongest opposing mechanism**: Subjective quality may remain difficult to formalize, or independent quality-control markets may persist because of liability and domain context. If multiple large, non-provider-controlled objective quality markets remain by 2030, withdraw this judgment.
 - **External comparison note**: The comparison is recorded as “divergent”; the reason to hold is that executable quality checks diffuse with generators, not that an external forecast says so.
 - **depends-on**: J-001
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain with a different mechanism: objective selection may be partly internalized, while liability- and domain-sensitive QA may persist.
+- **External comparison source**: EXT-2, EXT-4 (see the source index above).
 - **Status**: ACTIVE
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-03-31.
@@ -523,7 +570,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Strongest opposing mechanism**: Preferences may be reconstructible from very few interactions. If a reproducible public method reaches more than 80% individual acceptance without private history, withdraw this judgment.
 - **External comparison note**: The comparison is “partly divergent”; the reason to hold is that model access to context is not the same as user ownership and bargaining power over context.
 - **depends-on**: J-001, J-002
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain with a narrower evidence boundary: sources support governance of private context, not that it must become durable scarcity.
+- **External comparison source**: EXT-4 (see the source index above).
 - **Status**: ACTIVE
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-06-30.
@@ -541,7 +589,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Strongest opposing mechanism**: Human approval of each item may replace sandboxes and rollback cheaply. If high-value deployments still rely on item-by-item approval by 2030 and show no separate environment procurement, withdraw the independent-infrastructure judgment.
 - **External comparison note**: The comparison is “partly consistent”; the reason to hold the category judgment is that irreversibility, liability, and expected accident loss can turn isolation from a habit into a procurement condition.
 - **depends-on**: J-001
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Partly consistent: isolation, oversight, and recovery have support; scarcity and timing of reversible infrastructure remain unverified.
+- **External comparison source**: EXT-2, EXT-4 (see the source index above).
 - **Status**: ACTIVE
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-06-30.
@@ -559,7 +608,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Strongest opposing mechanism**: High-fidelity simulation, synthetic data, or statutory liability allocation may systematically replace real observation, market commitments, or experimental intervention. If regulators accept those substitutes and pricing no longer rewards real inputs, withdraw this judgment.
 - **External comparison note**: The comparison is “partly consistent”; the claim is not the slogan “data is oil,” but that physical observation, legal liability, and causal intervention have different hard constraints.
 - **depends-on**: J-001
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Mechanistically consistent but should be limited to high-liability domains: traceable signals and real-world causal validation matter, without implying all three inputs broadly appreciate.
+- **External comparison source**: EXT-7 (see the source index above).
 - **Status**: ACTIVE
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-06-30.
@@ -576,7 +626,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-006, J-007.
 - **Strongest opposing mechanism**: AI may become a genuinely reciprocal relationship participant accepted by institutions and people, or materially increase the effective attention available for strong ties. If longitudinal evidence shows strong-tie capacity rising steadily with AI mediation, withdraw this judgment.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked).
+- **Against consensus**: Directionally consistent but causality remains unverified: sources support weak/strong tie differences, not an AI-mediated capacity effect.
+- **External comparison source**: EXT-17, EXT-18 (see the source index above).
 - **Who should change what behavior**: People and organizations should delegate context synchronization to AI, but preserve shared-consequence decisions, conflict repair, and important rituals as human presence.
 - **Source**: [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 - **Next review**: 2027-06-30.
@@ -594,7 +645,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-001.
 - **Strongest opposing mechanism**: Energy, bandwidth, or provider queues trap lower costs inside single calls; withdraw this judgment if per-task parallelism does not rise for two years.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Directionally consistent but ordering is unproven: capability and throughput scaling before reliable long-horizon agents remains testable.
+- **External comparison source**: EXT-1, EXT-3 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -611,7 +663,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-006.
 - **Strongest opposing mechanism**: Longer windows and stronger models may simply overpower retrieval and memory engineering; downgrade this judgment if long-window systems consistently outperform structured memory on long tasks.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Consistent in direction but with a different mechanism: retrievable context is often combined with long windows, not proven to have a fixed industry order.
+- **External comparison source**: EXT-8 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -628,7 +681,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-007.
 - **Strongest opposing mechanism**: Specialized systems may hide memory defects behind implicit state and human review; withdraw this judgment if long-task adoption grows stably without traceability.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain with a different mechanism: provenance, versioning, and revisability improve auditability, but are not proven necessary for every high-value collaboration.
+- **External comparison source**: EXT-4, EXT-8 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -645,7 +699,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-008.
 - **Strongest opposing mechanism**: A sudden jump in general world modeling could erase the closed/open gap; withdraw this judgment if open tasks catch constrained tasks under the same evaluation standard.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Consistent with the consensus: constrained, checkable workflows mature before open-world autonomy; sources support the constraint transition, not a replacement of the original chain.
+- **External comparison source**: EXT-2, EXT-3 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -662,7 +717,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-009.
 - **Strongest opposing mechanism**: Vendors may split long tasks into many hidden short tasks; rewrite this judgment if incident rates fall without expanding environmental observation.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Directionally consistent but the window is unverified: long-horizon capability is growing while reliable deployment remains horizon-limited.
+- **External comparison source**: EXT-3 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -679,7 +735,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-006, J-007.
 - **Strongest opposing mechanism**: A unified world model may solve cross-media and cross-time consistency together; withdraw this judgment if independent tests show simultaneous jumps.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain but with insufficient evidence: research supports long-range coherence difficulty, not that cross-media consistency must arrive first.
+- **External comparison source**: EXT-5 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -696,7 +753,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-008, J-011.
 - **Strongest opposing mechanism**: A new generation architecture may learn stable world state directly without explicit memory and evaluation; withdraw this judgment if independent tests show long coherence without those components.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Mechanistically consistent but the window is unverified: long-range coherence depends on state retention, spatiotemporal representation, and ongoing evaluation.
+- **External comparison source**: EXT-5 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -713,7 +771,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-009.
 - **Strongest opposing mechanism**: Models may self-correct through natural language and quickly absorb the value of structure; downgrade this judgment if schema-free tools consistently catch up in real tasks.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Consistent with the consensus: structured, checkable tool calls are productized; the strict ordering remains this project’s judgment.
+- **External comparison source**: EXT-6 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -730,7 +789,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-009, J-013.
 - **Strongest opposing mechanism**: Human approval may replace environment isolation at very low cost; if manual confirmation remains dominant and incident rates stay low, this should not be an independent capability layer.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain only as an evidence-limited landscape: governance supports rehearsable, recoverable environments, not a market order or window.
+- **External comparison source**: EXT-4 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -747,7 +807,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-006, J-009.
 - **Strongest opposing mechanism**: General models may leap directly across formal and open-world evaluation; withdraw this judgment if independent external outcomes remain highly aligned with model self-evaluation across multiple domains.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Directionally consistent with a broader mechanism: executable tests generally precede open-world outcome evaluation, without proving universal default integration.
+- **External comparison source**: EXT-2, EXT-4 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -764,7 +825,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-010, J-012, J-014, J-015.
 - **Strongest opposing mechanism**: A sufficiently strong world model may compress open environments into a formally simulable space, making independent evaluation unnecessary; withdraw this judgment if simulation forecasts remain at independent-observation quality in real tasks.
-- **Against consensus**: Unknown (external comparison has not yet been completed in this round; the comparison hypothesis remains to be checked)
+- **Against consensus**: Retain only as an evidence-limited landscape: open-world feedback may constrain autonomous authority, but is not established as the final gate.
+- **External comparison source**: EXT-3, EXT-4 (see the source index above).
 - **Source**: [Technology Capability Sequence](05-tech-sequence.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -784,7 +846,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: High.
 - **depends-on**: J-006, J-009.
 - **Strongest opposing mechanism**: A sudden reliability jump makes long-horizon execution and candidate search spread together; withdraw if long tasks match candidate-search validation standards.
-- **Against consensus**: Consistent with “reasoning scales before agents mature,” but timing remains to be compared.
+- **Against consensus**: Consistent with the consensus: generate–compare–revise may become common before long-horizon autonomy, but the window remains this project’s inference.
+- **External comparison source**: EXT-1 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -801,7 +864,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-001, J-006.
 - **Strongest opposing mechanism**: Energy and service quotas remain scarce, keeping per-call opportunity cost high; withdraw if optimization premiums keep expanding.
-- **Against consensus**: Unknown (external comparison not yet completed).
+- **Against consensus**: Retain with a different mechanism: cost decline can come from inference efficiency and hardware scheduling; public prices do not prove optimization premiums vanish.
+- **External comparison source**: EXT-1, EXT-12 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -818,7 +882,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-002, J-015.
 - **Strongest opposing mechanism**: Copyright, distribution, or real-data licensing constrains supply; downgrade if price stays detached from supply.
-- **Against consensus**: Consistent with the direction of content abundance.
+- **Against consensus**: Consistent with rising content supply, but liability-sensitive selection may persist; detection, labeling, and provenance remain specialized layers.
+- **External comparison source**: EXT-1, EXT-4, EXT-11 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -835,7 +900,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-005, J-015.
 - **Strongest opposing mechanism**: High-fidelity simulation gains institutional and market acceptance as a field substitute; withdraw if substitution is stable across domains.
-- **Against consensus**: Consistent with content abundance, but the field-premium mechanism remains to be compared.
+- **Against consensus**: Retain with a different mechanism: traceable first-hand sources may gain value first; broad field-premium pricing is unproven.
+- **External comparison source**: EXT-4, EXT-11 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -852,7 +918,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-005, J-017.
 - **Strongest opposing mechanism**: Platforms provide trusted identity and compensation cheaply; revisit if internal verification lowers thresholds.
-- **Against consensus**: Consistent with the direction that trust matters more.
+- **Against consensus**: Consistent with trust becoming more important, with a provenance, identity, and liability-credential mechanism; adoption and cost remain unknown.
+- **External comparison source**: EXT-4, EXT-11 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -869,7 +936,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-017, J-022, J-013.
 - **Strongest opposing mechanism**: One-time platform credentials predict fulfillment as well as repeated records; downgrade if they consistently outperform history.
-- **Against consensus**: Consistent with trust moving from content toward relationships.
+- **Against consensus**: Evidence is insufficient, though the direction is retained: fulfillment records may matter more as expression grows, but usage data does not prove an attention shift.
+- **External comparison source**: EXT-16 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -886,7 +954,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-022, J-013.
 - **Strongest opposing mechanism**: One universal platform identity covers all risk contexts; withdraw if this persists.
-- **Against consensus**: Unknown; landscape only.
+- **Against consensus**: Boundary evidence supports possible credential stratification; the institutional endpoint remains uncertain, so keep it landscape-only.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -903,7 +972,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-009, J-013.
 - **Strongest opposing mechanism**: Coordination, verification, and incident handling erase automation gains; downgrade if total output stays flat while oversight rises.
-- **Against consensus**: Consistent with knowledge-work automation.
+- **Against consensus**: Consistent with knowledge-work automation, but causal evidence for higher net output in small teams remains insufficient.
+- **External comparison source**: EXT-16 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -920,7 +990,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-009, J-013.
 - **Strongest opposing mechanism**: Law transfers all responsibility to platforms; rewrite if platforms bear all high-value consequences.
-- **Against consensus**: Unknown (mechanism pending comparison).
+- **Against consensus**: Consistent with the consensus: automating execution will not remove oversight and liability boundaries at the same rate; rules do not forecast job counts.
+- **External comparison source**: EXT-10 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -937,7 +1008,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-001, J-006.
 - **Strongest opposing mechanism**: Energy, quotas, or platform concentration keeps rented compute for large organizations; downgrade if small-organization access does not rise.
-- **Against consensus**: Consistent with capability diffusion.
+- **Against consensus**: Consistent with capability diffusion, with uneven gains more specifically constrained by energy, data, and organizational capacity.
+- **External comparison source**: EXT-1, EXT-12 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-03-31.
 - **Status**: ACTIVE.
@@ -954,7 +1026,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-005, J-013.
 - **Strongest opposing mechanism**: Models, energy, and distribution commoditize and access rents disappear; withdraw if rent keeps falling.
-- **Against consensus**: Unknown; landscape only.
+- **Against consensus**: Boundary evidence only: energy, data, and liability access may become bargaining points, but persistent rents are unproven.
+- **External comparison source**: EXT-4, EXT-12 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -971,7 +1044,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium.
 - **depends-on**: J-017, J-011.
 - **Strongest opposing mechanism**: A stable, broad generational preference shift; downgrade if longitudinal data shows persistent drift.
-- **Against consensus**: Consistent with the conservative direction that tools do not automatically rewrite every need.
+- **Against consensus**: Consistent with the conservative direction: social contact, well-being, and responsibility remain plausible demand anchors, but preferences through 2030 are unproven.
+- **External comparison source**: EXT-17, EXT-18 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -988,7 +1062,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Low (landscape only).
 - **depends-on**: J-017, J-011.
 - **Strongest opposing mechanism**: People treat persistent AI interaction as sufficiently real reciprocity; rewrite if it reliably substitutes for shared experience.
-- **Against consensus**: Unknown; landscape only.
+- **Against consensus**: Boundary evidence only: AI can mediate coordination, but causal and generational evidence for substituting shared experience is insufficient.
+- **External comparison source**: EXT-9, EXT-17 (see the source index above).
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1008,7 +1083,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-010
 - **Strongest opposing mechanism**: If J-010 is falsified, the reliability premise for long-horizon tasks disappears; this card remains only for constrained workflows
-- **Against consensus**: Vendors hide long tasks as short calls, while human approval substitutes for environment construction
+- **Against consensus**: Retain with a different mechanism: logging, oversight, and risk control have institutional support; a complete rollback gate and its window are unverified.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1026,7 +1102,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-013
 - **Strongest opposing mechanism**: If J-013 is falsified, inspectable-permission infrastructure disappears; if authorization is not scarce despite it, this card fails
-- **Against consensus**: Firms outsource all review to platforms and accept black-box outcomes
+- **Against consensus**: Consistent with the consensus but relative scarcity is unproven: authorization review and escalation are institutionalized, while supply comparisons are missing.
+- **External comparison source**: EXT-4, EXT-10, EXT-13 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1044,7 +1121,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, field signals and accountable commitments lose structural premium; this card weakens
-- **Against consensus**: High-fidelity simulation is accepted by regulators and replaces field-intervention records
+- **Against consensus**: Retain with a different mechanism: compliance evidence, model risk controls, and intervention records are gaining value; superiority to explanation is unproven.
+- **External comparison source**: EXT-7, EXT-13 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1062,7 +1140,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, real trials lose their structural necessity; this card weakens
-- **Against consensus**: World models and institutions jointly establish synthetic-trial equivalence
+- **Against consensus**: Consistent with the consensus but the window is unverified: low-liability settings may adopt synthetic evidence earlier, while high-liability settings retain real-world validation.
+- **External comparison source**: EXT-7, EXT-9 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1080,7 +1159,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, compensation and liability capacity are no longer scarce; this card weakens
-- **Against consensus**: Platforms shift all liability to users and society accepts cheap low-liability services
+- **Against consensus**: Retain with a different mechanism: liability governance, insurance, and compensation are entering transactions, but universal “liability collateral” is unproven.
+- **External comparison source**: EXT-14, EXT-15 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1098,7 +1178,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-017
 - **Strongest opposing mechanism**: If J-017 is falsified, weak-tie coordination did not become cheap and pressure for credential upgrading disappears; this card weakens
-- **Against consensus**: Users keep preferring cheap immediate expression without penalizing unreliability
+- **Against consensus**: Evidence is insufficient, though the direction is retained: long-term fulfillment records may support credibility, without direct attention-allocation evidence.
+- **External comparison source**: EXT-13, EXT-14 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1116,7 +1197,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-009
 - **Strongest opposing mechanism**: If J-009 is falsified, the continuous-execution premise disappears; this card weakens
-- **Against consensus**: Coordination and audit overhead offsets automation gains
+- **Against consensus**: Consistent with the consensus but causally unproven: diffusion supports plausibility, not higher output by equally sized small teams.
+- **External comparison source**: EXT-1, EXT-16 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1134,7 +1216,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-013
 - **Strongest opposing mechanism**: If J-013 is falsified, programmable-permission infrastructure disappears; if responsibility roles still shrink, this card fails
-- **Against consensus**: Platforms assume all liability and hide organizational boundaries inside services
+- **Against consensus**: Consistent with the consensus: oversight, validation, escalation, and responsibility will not disappear with automation, while job counts and timing are unproven.
+- **External comparison source**: EXT-10, EXT-13 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1152,7 +1235,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-001
 - **Strongest opposing mechanism**: If J-001 is falsified, the model-abundance premise disappears; this card weakens
-- **Against consensus**: Compute, energy, data, and channels commoditize together and control rights disperse
+- **Against consensus**: Retain with a different mechanism: model rental may become abundant, while energy and infrastructure constraints are real; data and channel rents remain unproven.
+- **External comparison source**: EXT-1, EXT-12 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1170,7 +1254,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, liability absorption no longer earns a premium; this card weakens
-- **Against consensus**: Liability is fully outsourced and losses are too small to require buffers
+- **Against consensus**: Evidence is insufficient but grounded in current practice: insurance and liability governance exist, while a balance-sheet scarcity premium is unproven.
+- **External comparison source**: EXT-14, EXT-15 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1188,7 +1273,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Medium
 - **depends-on**: J-017
 - **Strongest opposing mechanism**: If J-017 is falsified, the coordination-supply premise disappears; this card weakens
-- **Against consensus**: Agent interaction adds noise and trust costs, causing weak-tie networks to contract
+- **Against consensus**: Directionally consistent but unproven: AI broadens communication and coordination, without enough causal data to separate weak- and strong-tie effects.
+- **External comparison source**: EXT-16, EXT-18 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
@@ -1206,7 +1292,8 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Confidence**: Low
 - **depends-on**: J-011
 - **Strongest opposing mechanism**: If J-011 is falsified, the premise of richer multimodal expression weakens; if agents stably replace presence, this card weakens
-- **Against consensus**: People and institutions treat persistent AI interaction as sufficient reciprocity and it stably replaces shared experience
+- **Against consensus**: Evidence is insufficient: ethics and care governance preserve human agency, but do not establish strong-tie capacity or substitution effects.
+- **External comparison source**: EXT-9 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
