@@ -803,9 +803,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-010
 - **Strongest opposing mechanism**: If J-010 is falsified, the reliability premise for long-horizon tasks disappears; this card remains only for constrained workflows
 - **Against consensus**: Vendors hide long tasks as short calls, while human approval substitutes for environment construction
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 1
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-032 · Authorization review and exception escalation become scarcer than execution steps
 
@@ -820,9 +820,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-013
 - **Strongest opposing mechanism**: If J-013 is falsified, inspectable-permission infrastructure disappears; if authorization is not scarce despite it, this card fails
 - **Against consensus**: Firms outsource all review to platforms and accept black-box outcomes
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 1
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-033 · Verifiable records of real interventions become more valuable than explanation itself
 
@@ -837,9 +837,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, field signals and accountable commitments lose structural premium; this card weakens
 - **Against consensus**: High-fidelity simulation is accepted by regulators and replaces field-intervention records
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 2
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-034 · Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
 
@@ -854,9 +854,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, real trials lose their structural necessity; this card weakens
 - **Against consensus**: World models and institutions jointly establish synthetic-trial equivalence
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 2
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-035 · Responsibility collateral enters the transaction structure for consequential AI output
 
@@ -871,9 +871,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, compensation and liability capacity are no longer scarce; this card weakens
 - **Against consensus**: Platforms shift all liability to users and society accepts cheap low-liability services
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 3
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-036 · Long-term fulfillment records allocate attention better than one-off natural expression
 
@@ -888,9 +888,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-017
 - **Strongest opposing mechanism**: If J-017 is falsified, weak-tie coordination did not become cheap and pressure for credential upgrading disappears; this card weakens
 - **Against consensus**: Users keep preferring cheap immediate expression without penalizing unreliability
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 3
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-037 · Comparable small teams produce more verifiable output
 
@@ -905,9 +905,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-009
 - **Strongest opposing mechanism**: If J-009 is falsified, the continuous-execution premise disappears; this card weakens
 - **Against consensus**: Coordination and audit overhead offsets automation gains
-- **Source**: Consistent with the direction of knowledge-work automation
-- **Next review**: Mid-term landscape section 4
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-038 · Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
 
@@ -922,9 +922,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-013
 - **Strongest opposing mechanism**: If J-013 is falsified, programmable-permission infrastructure disappears; if responsibility roles still shrink, this card fails
 - **Against consensus**: Platforms assume all liability and hide organizational boundaries inside services
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 4
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-039 · Rented models become abundant, while energy, data, and channel control create access rents
 
@@ -939,9 +939,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-001
 - **Strongest opposing mechanism**: If J-001 is falsified, the model-abundance premise disappears; this card weakens
 - **Against consensus**: Compute, energy, data, and channels commoditize together and control rights disperse
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 5
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-040 · Balance sheets able to absorb AI accidents become a separate scarcity
 
@@ -956,9 +956,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-005
 - **Strongest opposing mechanism**: If J-005 is falsified, liability absorption no longer earns a premium; this card weakens
 - **Against consensus**: Liability is fully outsourced and losses are too small to require buffers
-- **Source**: Unknown (external comparison not yet completed)
-- **Next review**: Mid-term landscape section 5
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-041 · AI first expands the coordination radius of weak ties
 
@@ -973,9 +973,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-017
 - **Strongest opposing mechanism**: If J-017 is falsified, the coordination-supply premise disappears; this card weakens
 - **Against consensus**: Agent interaction adds noise and trust costs, causing weak-tie networks to contract
-- **Source**: Consistent with the direction that AI expands coordination
-- **Next review**: Mid-term landscape section 6
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ### J-042 · Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
 
@@ -990,9 +990,9 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **depends-on**: J-011
 - **Strongest opposing mechanism**: If J-011 is falsified, the premise of richer multimodal expression weakens; if agents stably replace presence, this card weakens
 - **Against consensus**: People and institutions treat persistent AI interaction as sufficient reciprocity and it stably replaces shared experience
-- **Source**: Unknown; landscape only
-- **Next review**: Mid-term landscape section 6
-- **Status**: 2027-06-30
+- **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ## 10. Pre-publication checklist
 
