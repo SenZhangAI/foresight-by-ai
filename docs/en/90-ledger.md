@@ -51,6 +51,19 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-004 | 2026-09-18 | As AI executes actions, infrastructure that makes actions reversible becomes scarce | 2027–2032 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-005 | 2026-09-18 | Raw signals, accountable commitments, and verified causality become more valuable than reproducible text | 2029–2033 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-017 | 2026-09-18 | AI mediation expands weak-tie coordination faster than strong relationships, without expanding the number of relationships in which people can remain present | 2027–2033 | Medium | J-006, J-007 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-018 | 2026-09-18 | Parallel reasoning becomes the default workflow before long-horizon autonomy | 2026–2028 | High | J-006, J-009 | [Near-term landscape](10-near.md) | Consistent with consensus (mechanism pending comparison) | ACTIVE | 2027-03-31 |
+| J-019 | 2026-09-18 | Saving tokens itself is a window, not durable scarcity | 2026–2028 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
+| J-020 | 2026-09-18 | Reproducible content keeps falling in marginal price as objective selection is internalized | 2026–2028 | Medium | J-002, J-015 | [Near-term landscape](10-near.md) | Consistent with the direction of content abundance | ACTIVE | 2027-03-31 |
+| J-021 | 2026-09-18 | First-hand field signals earn a premium earlier than second-hand expression | 2026–2029 | Medium | J-005, J-015 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-022 | 2026-09-18 | As forgable signals multiply, selection moves toward more expensive credentials | 2026–2029 | Medium | J-005, J-017 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
+| J-023 | 2026-09-18 | Attention shifts from expression toward relationships and fulfilled commitments | 2027–2030 | Medium | J-017, J-005 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
+| J-024 | 2026-09-18 | Credentials may be re-layered, but the institutional destination remains uncertain | 2027–2032 | Low | J-022, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
+| J-025 | 2026-09-18 | Small teams complete more verifiable output with fewer steps | 2027–2030 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Consistent with the direction of knowledge-work automation | ACTIVE | 2027-06-30 |
+| J-026 | 2026-09-18 | Responsibility boundaries do not disappear at the same rate as knowledge-work capacity | 2027–2032 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Unknown (mechanism pending comparison) | ACTIVE | 2027-06-30 |
+| J-027 | 2026-09-18 | Rented compute spreads capability without distributing gains evenly | 2026–2029 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Consistent with the direction of capability diffusion | ACTIVE | 2027-03-31 |
+| J-028 | 2026-09-18 | Data, distribution, and liability access may become new bargaining nodes | 2027–2032 | Low | J-005, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
+| J-029 | 2026-09-18 | Status, certainty, embodied presence, and responsibility remain demand-side anchors | 2026–2030 | Medium | J-017, J-011 | [Near-term landscape](10-near.md) | Consistent with the conservative direction that tools do not change every need | ACTIVE | 2027-06-30 |
+| J-030 | 2026-09-18 | AI mediates coordination but cannot mediate shared experience | 2027–2032 | Low | J-017, J-011 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here.
 ---
@@ -485,6 +498,228 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Status**: ACTIVE.
 
 ---
+
+
+### J-018 · Parallel reasoning before long-horizon autonomy
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: By 2028, generate–compare–revise becomes the default workflow before long-horizon autonomy.
+- **Lens**: Abundance → scarcity + capability sequence.
+- **Reasoning chain**: J-006 raises parallel throughput → candidate search becomes cheap first → reliable long-horizon environmental control still requires J-009 boundaries and evaluation → parallel reasoning spreads first.
+- **Time window**: 2026–2028.
+- **Falsifier**: By end-2028, high-value workflows mainly rely on low-confirmation long-horizon autonomy rather than candidate search.
+- **Leading indicator**: Samples per task, automatic comparison share, and action span without human takeover; semiannual.
+- **Confidence**: High.
+- **depends-on**: J-006, J-009.
+- **Strongest opposing mechanism**: A sudden reliability jump makes long-horizon execution and candidate search spread together; withdraw if long tasks match candidate-search validation standards.
+- **Against consensus**: Consistent with “reasoning scales before agents mature,” but timing remains to be compared.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-03-31.
+- **Status**: ACTIVE.
+
+### J-019 · Token saving is a window
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2026–2028, stronger models and cheaper repeated attempts compress the value of saving tokens; it is a window, not durable scarcity.
+- **Lens**: Abundance → scarcity + L7 rent windows.
+- **Reasoning chain**: J-001 lowers unit cost → J-006 enables sampling → dud token cost falls → the independent premium for token saving shrinks.
+- **Time window**: 2026–2028.
+- **Falsifier**: By 2028, buyers still pay a structural premium for fewer model calls, without supply constraints explaining it.
+- **Leading indicator**: Calls per task, call price, and retention premium for token-optimization services; quarterly.
+- **Confidence**: Medium.
+- **depends-on**: J-001, J-006.
+- **Strongest opposing mechanism**: Energy and service quotas remain scarce, keeping per-call opportunity cost high; withdraw if optimization premiums keep expanding.
+- **Against consensus**: Unknown (external comparison not yet completed).
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-03-31.
+- **Status**: ACTIVE.
+
+### J-020 · Reproducible content keeps falling in price
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: By 2028, reproducible content keeps falling in marginal price as objective selection becomes part of generation.
+- **Lens**: Abundance → scarcity + capability sequence.
+- **Reasoning chain**: J-002 formalizable quality is tested automatically → J-015 expands the generate–verify loop → homogeneous supply increases → mere content delivery loses price.
+- **Time window**: 2026–2028.
+- **Falsifier**: By 2028, generic reproducible content retains broad scarcity premiums without copyright or compute constraints.
+- **Leading indicator**: Generation cost, delivery price, and automatic-selection coverage; quarterly.
+- **Confidence**: Medium.
+- **depends-on**: J-002, J-015.
+- **Strongest opposing mechanism**: Copyright, distribution, or real-data licensing constrains supply; downgrade if price stays detached from supply.
+- **Against consensus**: Consistent with the direction of content abundance.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-03-31.
+- **Status**: ACTIVE.
+
+### J-021 · First-hand field signals earn a premium first
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2026–2029, unrecorded field observations and traceable sources earn a premium earlier than second-hand expression.
+- **Lens**: Abundance → scarcity + L5 signal forgery.
+- **Reasoning chain**: J-005’s raw signals cannot be recombined → J-015 makes second-hand expression easier to screen → buyers shift premiums to field reality, sources, and accountability.
+- **Time window**: 2026–2029.
+- **Falsifier**: By 2029, buyers pay no differential for verifiable field reality over high-fidelity recombination.
+- **Leading indicator**: Premium for sourced material and field-data contracts; semiannual.
+- **Confidence**: Medium.
+- **depends-on**: J-005, J-015.
+- **Strongest opposing mechanism**: High-fidelity simulation gains institutional and market acceptance as a field substitute; withdraw if substitution is stable across domains.
+- **Against consensus**: Consistent with content abundance, but the field-premium mechanism remains to be compared.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-022 · Forgable signals drive credential upgrades
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2026–2029, more forgable personalized signals push important decisions toward costlier identity, fulfillment, and liability credentials.
+- **Lens**: Abundance → scarcity + L5 signal forgery.
+- **Reasoning chain**: J-005 raises accountable entities → J-017 cheapens weak-tie coordination → surface interaction is harder to distinguish → high-value decisions raise credential thresholds.
+- **Time window**: 2026–2029.
+- **Falsifier**: Acceptance of low-cost generated identity signals rises in high-value transactions without added liability or verification.
+- **Leading indicator**: Multifactor credential adoption, guarantees, and liability clauses; semiannual.
+- **Confidence**: Medium.
+- **depends-on**: J-005, J-017.
+- **Strongest opposing mechanism**: Platforms provide trusted identity and compensation cheaply; revisit if internal verification lowers thresholds.
+- **Against consensus**: Consistent with the direction that trust matters more.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-023 · Attention shifts toward fulfilled commitments
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2030, important attention allocation shifts from expression quality toward relationship continuity and fulfilled commitments.
+- **Lens**: Abundance → scarcity + L8 human constants.
+- **Reasoning chain**: J-017 expands coordination supply → J-022 makes surface signals easier to forge → one-off expression loses distinction → repeated fulfillment records gain weight.
+- **Time window**: 2027–2030.
+- **Falsifier**: By 2030, important choices are still predicted mainly by one-off generated expression rather than fulfillment records.
+- **Leading indicator**: Use of fulfillment, repeat relationships, and breach records; annual.
+- **Confidence**: Medium.
+- **depends-on**: J-017, J-022.
+- **Strongest opposing mechanism**: One-time platform credentials predict fulfillment as well as repeated records; downgrade if they consistently outperform history.
+- **Against consensus**: Consistent with trust moving from content toward relationships.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-024 · Credentials re-layer (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2032, credentials may re-layer around fulfillment, liability, and presence, but the institutional form is uncertain.
+- **Lens**: Abundance → scarcity + L5 signal forgery.
+- **Reasoning chain**: J-022 raises verification cost → J-023 raises the value of long records → risk contexts adopt different credential layers, subject to platform and legal choices.
+- **Time window**: 2027–2032.
+- **Falsifier**: By 2032, high-risk transactions still rely on one low-cost identity signal without contextual layers.
+- **Leading indicator**: Guarantees, audits, and presence proofs in high-risk services; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-022, J-013.
+- **Strongest opposing mechanism**: One universal platform identity covers all risk contexts; withdraw if this persists.
+- **Against consensus**: Unknown; landscape only.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-025 · Small-team output rises
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2030, small teams complete more verifiable output with fewer steps.
+- **Lens**: Abundance → scarcity + organizational boundaries.
+- **Reasoning chain**: J-009 constrained continuity → J-013 inspectable tools → repeated knowledge steps become agent-mediated → verifiable output rises at constant headcount.
+- **Time window**: 2027–2030.
+- **Falsifier**: By 2030, comparable teams using constrained agents do not produce more verifiable output.
+- **Leading indicator**: Auditable tasks per employee, takeover rate, and output per unit; quarterly.
+- **Confidence**: Medium.
+- **depends-on**: J-009, J-013.
+- **Strongest opposing mechanism**: Coordination, verification, and incident handling erase automation gains; downgrade if total output stays flat while oversight rises.
+- **Against consensus**: Consistent with knowledge-work automation.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-026 · Responsibility boundaries remain
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2032, responsibility boundaries do not disappear at the same rate as knowledge-work steps.
+- **Lens**: Abundance → scarcity + L3 organizational form.
+- **Reasoning chain**: J-009 expands executable steps → J-013 makes permissions programmable → accidents still need a legal entity → authorization, review, and escalation remain scarce.
+- **Time window**: 2027–2032.
+- **Falsifier**: By 2032, high-value AI actions routinely have no identifiable person or organization bearing consequences.
+- **Leading indicator**: Liability clauses, escalation roles, and insurance claims; semiannual.
+- **Confidence**: Medium.
+- **depends-on**: J-009, J-013.
+- **Strongest opposing mechanism**: Law transfers all responsibility to platforms; rewrite if platforms bear all high-value consequences.
+- **Against consensus**: Unknown (mechanism pending comparison).
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-027 · Rented compute spreads capability
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2026–2029, rented compute spreads access to AI capability for small organizations without distributing gains evenly.
+- **Lens**: Abundance → scarcity + L7 rent windows.
+- **Reasoning chain**: J-001 lowers call cost → J-006 raises affordable attempts → renting lowers fixed-capital barriers → data, access, and liability capacity still differentiate gains.
+- **Time window**: 2026–2029.
+- **Falsifier**: By 2029, small organizations cannot obtain comparable general reasoning by renting, or diffusion eliminates gain differences.
+- **Leading indicator**: Small-organization call share, fixed compute capex, and rental price; quarterly.
+- **Confidence**: Medium.
+- **depends-on**: J-001, J-006.
+- **Strongest opposing mechanism**: Energy, quotas, or platform concentration keeps rented compute for large organizations; downgrade if small-organization access does not rise.
+- **Against consensus**: Consistent with capability diffusion.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-03-31.
+- **Status**: ACTIVE.
+
+### J-028 · Access becomes a bargaining node (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2032, proprietary data, distribution, and liability capacity may become more important bargaining nodes than models.
+- **Lens**: Abundance → scarcity + L7 rent windows.
+- **Reasoning chain**: J-027 expands model access → J-005 raises the value of real inputs and responsibility → models become more reproducible → control of inputs, exits, and losses may earn rent.
+- **Time window**: 2027–2032.
+- **Falsifier**: By 2032, access controllers have no persistent premium over non-controllers absent regulatory constraints.
+- **Leading indicator**: Data licenses, distribution take rates, AI liability insurance, and channel exclusivity; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-005, J-013.
+- **Strongest opposing mechanism**: Models, energy, and distribution commoditize and access rents disappear; withdraw if rent keeps falling.
+- **Against consensus**: Unknown; landscape only.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-029 · Demand-side anchors persist
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2026–2030, status, certainty, embodied presence, and responsibility remain demand-side anchors despite richer expression and choice.
+- **Lens**: L8 human constants + abundance → scarcity.
+- **Reasoning chain**: J-017 expands coordination → J-011 expands trial identities and expression → more options do not create shared consequences → demand remains organized around status, certainty, presence, and responsibility.
+- **Time window**: 2026–2030.
+- **Falsifier**: By 2030, these needs no longer predict important choices across groups, independent of measurement or institutional change.
+- **Leading indicator**: Preferences for presence and responsibility in high-value consumption, relationship, and commitment decisions; annual.
+- **Confidence**: Medium.
+- **depends-on**: J-017, J-011.
+- **Strongest opposing mechanism**: A stable, broad generational preference shift; downgrade if longitudinal data shows persistent drift.
+- **Against consensus**: Consistent with the conservative direction that tools do not automatically rewrite every need.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-030 · AI mediates coordination, not shared experience (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: From 2027–2032, AI mediates context synchronization and relationship coordination but not experiences requiring embodied presence and shared consequences.
+- **Lens**: L8 human constants + embodied-presence constraint.
+- **Reasoning chain**: J-017 cheapens weak-tie coordination → J-011 enriches multimodal expression → shared experience still requires bodies, time, and reciprocal consequences → coordination agents do not expand strong-relationship capacity automatically.
+- **Time window**: 2027–2032.
+- **Falsifier**: By 2032, agent-mediated interaction reliably replaces shared experience in long relationships with no behavioral or reported difference.
+- **Leading indicator**: Agent messages versus shared activities, conflict-repair results, and retention; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-017, J-011.
+- **Strongest opposing mechanism**: People treat persistent AI interaction as sufficiently real reciprocity; rewrite if it reliably substitutes for shared experience.
+- **Against consensus**: Unknown; landscape only.
+- **Source**: [Near-term landscape](10-near.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
 
 ## 10. Pre-publication checklist
 
