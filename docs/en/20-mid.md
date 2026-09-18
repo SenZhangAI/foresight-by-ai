@@ -35,7 +35,7 @@ Near-term [`J-017`](90-ledger.md#j-017) separates weak-tie coordination from str
 - **Third question:** faces, language, and instant patience can be copied; repeated exchange, relationship repair, and legal responsibility cannot be generated in one step.
 - **Who should change behavior:** organizations should build liability, audit, and compensation paths around consequential AI output; individuals should treat credibility as accountability, not natural-sounding tone.
 
-[`J-005`](90-ledger.md#j-030) is a medium-confidence structural landscape, not yet an opportunity judgment, because the institutional destination is uncertain. The strongest opposing mechanism is platforms shifting all responsibility to users while society accepts cheap, low-liability services; then a responsibility-collateral layer is a window rather than a structural opportunity.
+[`J-005`](90-ledger.md#j-005) is a medium-confidence structural landscape, not yet an opportunity judgment, because the institutional destination is uncertain. The strongest opposing mechanism is platforms shifting all responsibility to users while society accepts cheap, low-liability services; then a responsibility-collateral layer is a window rather than a structural opportunity.
 
 ## 4. Organizations and employment: firm boundaries are set by responsibility, not production capacity
 
