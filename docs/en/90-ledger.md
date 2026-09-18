@@ -278,6 +278,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
 | 2026-09-18 | C2 successor chain and J-055 bilingual delivery | Added the real-signal contract-asset chain; connected bilingual C1 links; synchronized J-055 in the overview, dependency graph, and full card; kept the law-and-property gap partially covered | c4e4adcc |
+| 2026-09-19 | Dependency-graph completeness and duplicate review (J-001–J-055, both languages) | Edge-by-edge check: 55 graph entries, 55 cards, and 55 overview rows agree exactly; no duplicate edges, no edge pointing at a non-existent ID, no cycles, every node traces back to J-001; the Chinese and English graphs match edge for edge. Also recorded the three-place synchronization rule in section 3 and in the pre-publication checklist |
+
 ---
 
 
