@@ -74,7 +74,7 @@ Regulators may directly prescribe the allocation of liability for AI output, ass
 | Window | Source | Why it is only a window | Expected to close |
 |---|---|---|---|
 | General “AI output quality-control / selection” tools | [J-002](90-ledger.md#j-002-selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) | Objective quality can be formalized → model providers will internalize it as default behavior | By the end of 2029 |
-| Prompt optimization / token-saving tools | [J-019](90-ledger.md#j-019-token-saving-is-a-window) | Rejection rate is a function of model capability; stronger models and falling costs squeeze it from both sides | By the end of 2028 |
+| Prompt optimization / token-saving tools | [J-019](90-ledger.md#j-019--token-saving-is-a-window) | Rejection rate is a function of model capability; stronger models and falling costs squeeze it from both sides | By the end of 2028 |
 
 ---
 
