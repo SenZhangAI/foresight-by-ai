@@ -75,6 +75,20 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-028 | 2026-09-18 | Data, distribution, and liability access may become new bargaining nodes | 2027–2032 | Low | J-005, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
 | J-029 | 2026-09-18 | Status, certainty, embodied presence, and responsibility remain demand-side anchors | 2026–2030 | Medium | J-017, J-011 | [Near-term landscape](10-near.md) | Consistent with the conservative direction that tools do not change every need | ACTIVE | 2027-06-30 |
 | J-030 | 2026-09-18 | AI mediates coordination but cannot mediate shared experience | 2027–2032 | Low | J-017, J-011 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
+| J-031 | 2026-09-18 | Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution | 2026–2032 | Medium | J-010 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 1 | ACTIVE | 2027-06-30 |
+| J-032 | 2026-09-18 | Authorization review and exception escalation become scarcer than execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 1 | ACTIVE | 2027-06-30 |
+| J-033 | 2026-09-18 | Verifiable records of real interventions become more valuable than explanation itself | 2029–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 2 | ACTIVE | 2027-06-30 |
+| J-034 | 2026-09-18 | Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 2 | ACTIVE | 2027-06-30 |
+| J-035 | 2026-09-18 | Responsibility collateral enters the transaction structure for consequential AI output | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 3 | ACTIVE | 2027-06-30 |
+| J-036 | 2026-09-18 | Long-term fulfillment records allocate attention better than one-off natural expression | 2027–2032 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 3 | ACTIVE | 2027-06-30 |
+| J-037 | 2026-09-18 | Comparable small teams produce more verifiable output | 2027–2031 | Medium | J-009 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 4 | ACTIVE | 2027-06-30 |
+| J-038 | 2026-09-18 | Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps | 2027–2032 | Medium | J-013 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 4 | ACTIVE | 2027-06-30 |
+| J-039 | 2026-09-18 | Rented models become abundant, while energy, data, and channel control create access rents | 2027–2033 | Medium | J-001 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 5 | ACTIVE | 2027-06-30 |
+| J-040 | 2026-09-18 | Balance sheets able to absorb AI accidents become a separate scarcity | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 5 | ACTIVE | 2027-06-30 |
+| J-041 | 2026-09-18 | AI first expands the coordination radius of weak ties | 2027–2033 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
+| J-042 | 2026-09-18 | Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only) | 2027–2033 | Low | J-011 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
+
+
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 ---
@@ -117,6 +131,33 @@ J-006 + J-007 ──> J-017
 ├── J-028 (J-005, J-013)
 ├── J-029 (J-017, J-011)
 └── J-030 (J-017, J-011)
+J-010 ──> J-031
+J-013 ──> J-032, J-038
+J-005 ──> J-033, J-034, J-035, J-040
+J-017 ──> J-036, J-041
+J-009 ──> J-037
+J-001 ──> J-039
+J-011 ──> J-042
+J-010 ──> J-031
+J-013 ──> J-032, J-038
+J-005 ──> J-033, J-034, J-035, J-040
+J-017 ──> J-036, J-041
+J-009 ──> J-037
+J-001 ──> J-039
+J-011 ──> J-042
+
+J-010 + J-014 ──> J-031
+J-009 + J-010 + J-015 ──> J-032
+J-002 + J-005 + J-015 ──> J-033
+J-005 + J-015 ──> J-034
+J-005 + J-017 + J-022 ──> J-035
+J-017 + J-022 + J-023 ──> J-036
+J-009 + J-013 + J-025 + J-026 ──> J-037
+J-009 + J-013 + J-026 ──> J-038
+J-001 + J-005 + J-027 + J-028 ──> J-039
+J-005 + J-026 + J-035 ──> J-040
+J-017 + J-023 + J-029 ──> J-041
+J-011 + J-029 + J-030 ──> J-042
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -194,12 +235,12 @@ The full-landscape promise remains open. The first chain is not full coverage. E
 | Education and skill formation | When “knowing how” becomes cheap, where do learning, screening, and qualification become scarce? | High | Not covered |
 | Geopolitics and institutions | How do compute, data, and critical infrastructure change bargaining power among states and organizations? | Medium | Not covered |
 | Law and property | How do liability, data ownership, model output, and licensing rewrite transaction boundaries? | High | Not covered |
-| Organizations and employment | How do coordination costs, employment relationships, and firm boundaries change? | High | Not covered |
+| Organizations and employment | How do coordination costs, employment relationships, and firm boundaries change? | High | Covered (J-037–J-038; expansion remains) |
 | Collaboration between people | How does AI mediation change division of labor, trust, negotiation, and joint decisions? | High | Not covered |
 | Relationships between people and AI | What norms grow from asymmetries in memory, patience, copyability, and exclusivity? | High | Not covered |
-| Attention and trust | When content is unlimited and signals are easy to forge, how are attention and credible credentials allocated? | High | Not covered |
-| Capital and power | What new bottlenecks form around compute ownership, financing, and distribution of returns? | Medium | Not covered |
-| Human needs, meaning, and embodied presence | Which needs remain stable under supply change, and which preferences actually drift? | Medium | Not covered |
+| Attention and trust | When content is unlimited and signals are easy to forge, how are attention and credible credentials allocated? | High | Covered (J-035–J-036; expansion remains) |
+| Capital and power | What new bottlenecks form around compute ownership, financing, and distribution of returns? | Medium | Covered (J-039–J-040; expansion remains) |
+| Human needs, meaning, and embodied presence | Which needs remain stable under supply change, and which preferences actually drift? | Medium | Covered (J-041–J-042; expansion remains) |
 
 Gaps may be filled or explicitly downgraded later, but never silently removed.
 
@@ -219,6 +260,8 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 
 | Date | Action | Result |
 |---|---|---|
+| 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
+| 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
 
 ---
@@ -744,6 +787,212 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Source**: [Near-term landscape](10-near.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
+
+
+
+### J-031 · Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
+- **Reasoning chain**: Organizations delegate long-horizon tasks → failure states and liability accumulate → observable, pausable, rollback-capable environments reduce irreversible loss → high-value deployments make the environment an admission condition
+- **Dependency impact**: If J-010 is falsified, the reliability premise for long-horizon tasks disappears; this card remains only for constrained workflows
+- **Time window**: 2026–2032
+- **Falsifier**: By 2032, high-value agent execution still commonly connects directly to production systems without incident costs driving separate isolation procurement
+- **Leading indicator**: Sandbox, shadow-environment, and rollback items in procurement; agent incidents; semiannual
+- **Confidence**: Medium
+- **depends-on**: J-010
+- **Strongest opposing mechanism**: If J-010 is falsified, the reliability premise for long-horizon tasks disappears; this card remains only for constrained workflows
+- **Against consensus**: Vendors hide long tasks as short calls, while human approval substitutes for environment construction
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 1
+- **Status**: 2027-06-30
+
+### J-032 · Authorization review and exception escalation become scarcer than execution steps
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Authorization review and exception escalation become scarcer than execution steps
+- **Reasoning chain**: Inspectable tool calls spread → execution steps become templated → cross-boundary authorization, exception escalation, and final responsibility still require judgment → review roles appreciate relative to execution steps
+- **Dependency impact**: If J-013 is falsified, inspectable-permission infrastructure disappears; if authorization is not scarce despite it, this card fails
+- **Time window**: 2027–2032
+- **Falsifier**: By 2032, authorization-review hours fall at the same rate as execution hours without increased incidents
+- **Leading indicator**: Permission-denial rate, human escalation hours, responsibility-role hiring; quarterly
+- **Confidence**: Medium
+- **depends-on**: J-013
+- **Strongest opposing mechanism**: If J-013 is falsified, inspectable-permission infrastructure disappears; if authorization is not scarce despite it, this card fails
+- **Against consensus**: Firms outsource all review to platforms and accept black-box outcomes
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 1
+- **Status**: 2027-06-30
+
+### J-033 · Verifiable records of real interventions become more valuable than explanation itself
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Verifiable records of real interventions become more valuable than explanation itself
+- **Reasoning chain**: Generated explanations become cheap → explanation supply becomes abundant → real interventions produce non-recombinable outcomes → verifiable records connect causality and responsibility → records earn a premium
+- **Dependency impact**: If J-005 is falsified, field signals and accountable commitments lose structural premium; this card weakens
+- **Time window**: 2029–2033
+- **Falsifier**: By 2033, high-liability markets no longer pay a premium for intervention records with field evidence
+- **Leading indicator**: First-hand intervention-license prices, audit requirements, evidence-backed renewal rates; semiannual
+- **Confidence**: Medium
+- **depends-on**: J-005
+- **Strongest opposing mechanism**: If J-005 is falsified, field signals and accountable commitments lose structural premium; this card weakens
+- **Against consensus**: High-fidelity simulation is accepted by regulators and replaces field-intervention records
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 2
+- **Status**: 2027-06-30
+
+### J-034 · Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
+- **Reasoning chain**: Synthetic material lowers exploration cost → low-liability contexts tolerate model error → high-liability contexts bear bodily, legal, and compensation consequences → regulators retain real trials
+- **Dependency impact**: If J-005 is falsified, real trials lose their structural necessity; this card weakens
+- **Time window**: 2028–2033
+- **Falsifier**: By 2033, high-liability fields broadly replace real trials with synthetic evidence without higher incident rates
+- **Leading indicator**: Regulatory acceptance scope, trial budgets, insurance clauses; annual
+- **Confidence**: Medium
+- **depends-on**: J-005
+- **Strongest opposing mechanism**: If J-005 is falsified, real trials lose their structural necessity; this card weakens
+- **Against consensus**: World models and institutions jointly establish synthetic-trial equivalence
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 2
+- **Status**: 2027-06-30
+
+### J-035 · Responsibility collateral enters the transaction structure for consequential AI output
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Responsibility collateral enters the transaction structure for consequential AI output
+- **Reasoning chain**: Reproducible expression increases → error losses become harder to attribute → buyers ask who bears consequences → insurance, reserves, and audits enter contracts → responsibility collateral becomes a transaction condition
+- **Dependency impact**: If J-005 is falsified, compensation and liability capacity are no longer scarce; this card weakens
+- **Time window**: 2028–2033
+- **Falsifier**: By 2033, high-value AI services still lack liability pricing, compensation clauses, or audit requirements
+- **Leading indicator**: AI liability premiums, contractual caps, audit procurement; semiannual
+- **Confidence**: Medium
+- **depends-on**: J-005
+- **Strongest opposing mechanism**: If J-005 is falsified, compensation and liability capacity are no longer scarce; this card weakens
+- **Against consensus**: Platforms shift all liability to users and society accepts cheap low-liability services
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 3
+- **Status**: 2027-06-30
+
+### J-036 · Long-term fulfillment records allocate attention better than one-off natural expression
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Long-term fulfillment records allocate attention better than one-off natural expression
+- **Reasoning chain**: Expression generation becomes cheap → surface credibility becomes hard to distinguish → repeated fulfillment leaves verifiable records → attention shifts to longitudinal consistency and delivery rate
+- **Dependency impact**: If J-017 is falsified, weak-tie coordination did not become cheap and pressure for credential upgrading disappears; this card weakens
+- **Time window**: 2027–2032
+- **Falsifier**: By 2032, important choices are still driven mainly by one-off expression rather than fulfillment records
+- **Leading indicator**: Adoption of performance-history recommendations, repeat and default rates; annual
+- **Confidence**: Medium
+- **depends-on**: J-017
+- **Strongest opposing mechanism**: If J-017 is falsified, weak-tie coordination did not become cheap and pressure for credential upgrading disappears; this card weakens
+- **Against consensus**: Users keep preferring cheap immediate expression without penalizing unreliability
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 3
+- **Status**: 2027-06-30
+
+### J-037 · Comparable small teams produce more verifiable output
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Comparable small teams produce more verifiable output
+- **Reasoning chain**: Constrained workflows stabilize → tool calls become inspectable → a few people orchestrate more agent steps → per-team output and audit records increase
+- **Dependency impact**: If J-009 is falsified, the continuous-execution premise disappears; this card weakens
+- **Time window**: 2027–2031
+- **Falsifier**: By 2031, agent-using small teams show no repeatable output gain over baseline
+- **Leading indicator**: Per-person delivery, rework, auditable-output share; quarterly
+- **Confidence**: Medium
+- **depends-on**: J-009
+- **Strongest opposing mechanism**: If J-009 is falsified, the continuous-execution premise disappears; this card weakens
+- **Against consensus**: Coordination and audit overhead offsets automation gains
+- **Source**: Consistent with the direction of knowledge-work automation
+- **Next review**: Mid-term landscape section 4
+- **Status**: 2027-06-30
+
+### J-038 · Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
+- **Reasoning chain**: Inspectable tool calls spread → permission boundaries clarify → normal steps automate → exceptions and cross-boundary consequences cannot be fully precomputed → responsibility roles remain
+- **Dependency impact**: If J-013 is falsified, programmable-permission infrastructure disappears; if responsibility roles still shrink, this card fails
+- **Time window**: 2027–2032
+- **Falsifier**: By 2032, responsibility-role share falls at the same rate as execution roles without more high-risk incidents
+- **Leading indicator**: Exception volume, responsibility-role hiring, post-incident human intervention; quarterly
+- **Confidence**: Medium
+- **depends-on**: J-013
+- **Strongest opposing mechanism**: If J-013 is falsified, programmable-permission infrastructure disappears; if responsibility roles still shrink, this card fails
+- **Against consensus**: Platforms assume all liability and hide organizational boundaries inside services
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 4
+- **Status**: 2027-06-30
+
+### J-039 · Rented models become abundant, while energy, data, and channel control create access rents
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Rented models become abundant, while energy, data, and channel control create access rents
+- **Reasoning chain**: Unit reasoning cost falls → model capability becomes rentable → model differences narrow → energy access, exclusive data, and channels remain constrained by physics and ownership → controllers earn access rents
+- **Dependency impact**: If J-001 is falsified, the model-abundance premise disappears; this card weakens
+- **Time window**: 2027–2033
+- **Falsifier**: By 2033, controllers of energy, data, and channels have no persistent premium over non-controllers
+- **Leading indicator**: Rented-model prices, data-license fees, channel take rates, energy-access spreads; annual
+- **Confidence**: Medium
+- **depends-on**: J-001
+- **Strongest opposing mechanism**: If J-001 is falsified, the model-abundance premise disappears; this card weakens
+- **Against consensus**: Compute, energy, data, and channels commoditize together and control rights disperse
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 5
+- **Status**: 2027-06-30
+
+### J-040 · Balance sheets able to absorb AI accidents become a separate scarcity
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Balance sheets able to absorb AI accidents become a separate scarcity
+- **Reasoning chain**: Real interventions and commitments appreciate → AI accident losses become measurable → contracts require compensation capacity → capital and insurance price solvency → large balance sheets gain admission advantage
+- **Dependency impact**: If J-005 is falsified, liability absorption no longer earns a premium; this card weakens
+- **Time window**: 2028–2033
+- **Falsifier**: By 2033, compensation capacity does not affect AI contract prices, financing, or deployment eligibility
+- **Leading indicator**: Liability premiums, reserves, contract asset requirements; annual
+- **Confidence**: Medium
+- **depends-on**: J-005
+- **Strongest opposing mechanism**: If J-005 is falsified, liability absorption no longer earns a premium; this card weakens
+- **Against consensus**: Liability is fully outsourced and losses are too small to require buffers
+- **Source**: Unknown (external comparison not yet completed)
+- **Next review**: Mid-term landscape section 5
+- **Status**: 2027-06-30
+
+### J-041 · AI first expands the coordination radius of weak ties
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: AI first expands the coordination radius of weak ties
+- **Reasoning chain**: Communication and context-sync costs fall → translation, introductions, and scheduling scale → weak-tie connection radius expands → strong ties remain constrained by shared consequences
+- **Dependency impact**: If J-017 is falsified, the coordination-supply premise disappears; this card weakens
+- **Time window**: 2027–2033
+- **Falsifier**: By 2033, AI mediation neither increases cross-organization weak-tie connections nor reduces coordination time
+- **Leading indicator**: AI-mediated coordination share, cross-organization contacts, human time per coordination; annual
+- **Confidence**: Medium
+- **depends-on**: J-017
+- **Strongest opposing mechanism**: If J-017 is falsified, the coordination-supply premise disappears; this card weakens
+- **Against consensus**: Agent interaction adds noise and trust costs, causing weak-tie networks to contract
+- **Source**: Consistent with the direction that AI expands coordination
+- **Next review**: Mid-term landscape section 6
+- **Status**: 2027-06-30
+
+### J-042 · Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
+- **Reasoning chain**: Multimodal expression becomes abundant → mediated companionship and reminders spread → shared experience still requires bodies, time, and reciprocal consequences → strong-tie capacity remains presence-constrained
+- **Dependency impact**: If J-011 is falsified, the premise of richer multimodal expression weakens; if agents stably replace presence, this card weakens
+- **Time window**: 2027–2033
+- **Falsifier**: By 2033, agent-mediated interaction reliably replaces shared experience in long relationships with no reported or behavioral difference
+- **Leading indicator**: Agent interaction versus shared activity, conflict repair, relationship retention; annual
+- **Confidence**: Low
+- **depends-on**: J-011
+- **Strongest opposing mechanism**: If J-011 is falsified, the premise of richer multimodal expression weakens; if agents stably replace presence, this card weakens
+- **Against consensus**: People and institutions treat persistent AI interaction as sufficient reciprocity and it stably replaces shared experience
+- **Source**: Unknown; landscape only
+- **Next review**: Mid-term landscape section 6
+- **Status**: 2027-06-30
 
 ## 10. Pre-publication checklist
 
