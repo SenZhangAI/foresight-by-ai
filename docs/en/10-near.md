@@ -72,4 +72,4 @@ Falling reasoning cost will not distribute gains evenly. [`J-027`](90-ledger.md#
 
 ## Boundary of this layer
 
-Biology and medicine, educational qualification, energy infrastructure, geopolitics and institutions, and intimate human–AI relationships remain uncovered; see [`90-ledger.md#six-explicit-gaps-dimensions-not-yet-covered`](90-ledger.md#six-explicit-gaps-dimensions-not-yet-covered). This layer does not turn an automatable window into a structural opportunity or a weaker landscape into fact; the full five-part cards and formal confidence remain in the ledger.
+Biology and medicine, educational qualification, energy infrastructure, geopolitics and institutions, and intimate human–AI relationships remain uncovered; see [`90-ledger.md#explicit-gaps-dimensions-not-yet-covered`](90-ledger.md#explicit-gaps-dimensions-not-yet-covered). This layer does not turn an automatable window into a structural opportunity or a weaker landscape into fact; the full five-part cards and formal confidence remain in the ledger.
