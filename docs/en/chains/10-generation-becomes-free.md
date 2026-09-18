@@ -163,7 +163,7 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
 
-> This is a structural consequence recorded as landscape only; it is not yet a formal judgment card.
+> See [judgment ledger J-017](../90-ledger.md#j-017).
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
 

@@ -283,7 +283,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: From 2027 to 2033, AI mediation will expand weak-tie coordination faster than strong relationships, without expanding the number of relationships in which a person can remain present over time.
-- **Lenses**: L8 human needs and demand + L9 relational asymmetry + L2 constraint migration.
+- **Lens**: L8 human needs and demand + L9 relational asymmetry + L2 constraint migration.
 - **Reasoning chain**: J-006 lowers the cost of multi-party coordination and information compression → J-007 makes shared context and history easier to resume → contact, translation, introductions, and scheduling for weak ties can scale → strong ties remain constrained by shared experience, mutual responsibility, conflict repair, and finite attention → more connections do not automatically become more commitments that people can rely on.
 - **Time window**: 2027–2033.
 - **Falsifier**: By 2033, longitudinal evidence after widespread AI mediation shows that the number of strong relationships a person can sustain and the number of relationships in which they can bear shared consequences both rise materially, without a new attention or presence bottleneck.
