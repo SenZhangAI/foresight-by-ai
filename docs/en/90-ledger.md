@@ -782,6 +782,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
+- **Lens**: L2 (constraint migration) + technology sequence
 - **Reasoning chain**: Organizations delegate long-horizon tasks → failure states and liability accumulate → observable, pausable, rollback-capable environments reduce irreversible loss → high-value deployments make the environment an admission condition
 - **Dependency impact**: If J-010 is falsified, the reliability premise for long-horizon tasks disappears; this card remains only for constrained workflows
 - **Time window**: 2026–2032
@@ -799,6 +800,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Authorization review and exception escalation become scarcer than execution steps
+- **Lens**: L2 (constraint migration) + L7 (institutional-rent window)
 - **Reasoning chain**: Inspectable tool calls spread → execution steps become templated → cross-boundary authorization, exception escalation, and final responsibility still require judgment → review roles appreciate relative to execution steps
 - **Dependency impact**: If J-013 is falsified, inspectable-permission infrastructure disappears; if authorization is not scarce despite it, this card fails
 - **Time window**: 2027–2032
@@ -816,6 +818,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Verifiable records of real interventions become more valuable than explanation itself
+- **Lens**: L1 (abundance-to-scarcity) + L2 (constraint migration)
 - **Reasoning chain**: Generated explanations become cheap → explanation supply becomes abundant → real interventions produce non-recombinable outcomes → verifiable records connect causality and responsibility → records earn a premium
 - **Dependency impact**: If J-005 is falsified, field signals and accountable commitments lose structural premium; this card weakens
 - **Time window**: 2029–2033
@@ -833,6 +836,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
+- **Lens**: L2 (constraint migration) + L7 (institutional-rent window)
 - **Reasoning chain**: Synthetic material lowers exploration cost → low-liability contexts tolerate model error → high-liability contexts bear bodily, legal, and compensation consequences → regulators retain real trials
 - **Dependency impact**: If J-005 is falsified, real trials lose their structural necessity; this card weakens
 - **Time window**: 2028–2033
@@ -850,6 +854,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Responsibility collateral enters the transaction structure for consequential AI output
+- **Lens**: L2 (constraint migration) + L7 (institutional-rent window)
 - **Reasoning chain**: Reproducible expression increases → error losses become harder to attribute → buyers ask who bears consequences → insurance, reserves, and audits enter contracts → responsibility collateral becomes a transaction condition
 - **Dependency impact**: If J-005 is falsified, compensation and liability capacity are no longer scarce; this card weakens
 - **Time window**: 2028–2033
@@ -867,6 +872,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Long-term fulfillment records allocate attention better than one-off natural expression
+- **Lens**: L8 (human constants) + L9 (relationship asymmetry)
 - **Reasoning chain**: Expression generation becomes cheap → surface credibility becomes hard to distinguish → repeated fulfillment leaves verifiable records → attention shifts to longitudinal consistency and delivery rate
 - **Dependency impact**: If J-017 is falsified, weak-tie coordination did not become cheap and pressure for credential upgrading disappears; this card weakens
 - **Time window**: 2027–2032
@@ -884,6 +890,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Comparable small teams produce more verifiable output
+- **Lens**: cost structure determines organizational form + technology sequence
 - **Reasoning chain**: Constrained workflows stabilize → tool calls become inspectable → a few people orchestrate more agent steps → per-team output and audit records increase
 - **Dependency impact**: If J-009 is falsified, the continuous-execution premise disappears; this card weakens
 - **Time window**: 2027–2031
@@ -901,6 +908,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
+- **Lens**: L2 (constraint migration) + cost structure determines organizational form
 - **Reasoning chain**: Inspectable tool calls spread → permission boundaries clarify → normal steps automate → exceptions and cross-boundary consequences cannot be fully precomputed → responsibility roles remain
 - **Dependency impact**: If J-013 is falsified, programmable-permission infrastructure disappears; if responsibility roles still shrink, this card fails
 - **Time window**: 2027–2032
@@ -918,6 +926,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Rented models become abundant, while energy, data, and channel control create access rents
+- **Lens**: L1 (abundance-to-scarcity) + L2 (constraint migration) + L7 (institutional-rent window)
 - **Reasoning chain**: Unit reasoning cost falls → model capability becomes rentable → model differences narrow → energy access, exclusive data, and channels remain constrained by physics and ownership → controllers earn access rents
 - **Dependency impact**: If J-001 is falsified, the model-abundance premise disappears; this card weakens
 - **Time window**: 2027–2033
@@ -935,6 +944,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Balance sheets able to absorb AI accidents become a separate scarcity
+- **Lens**: L2 (constraint migration) + L7 (institutional-rent window)
 - **Reasoning chain**: Real interventions and commitments appreciate → AI accident losses become measurable → contracts require compensation capacity → capital and insurance price solvency → large balance sheets gain admission advantage
 - **Dependency impact**: If J-005 is falsified, liability absorption no longer earns a premium; this card weakens
 - **Time window**: 2028–2033
@@ -952,6 +962,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: AI first expands the coordination radius of weak ties
+- **Lens**: L8 (human constants) + L9 (relationship asymmetry)
 - **Reasoning chain**: Communication and context-sync costs fall → translation, introductions, and scheduling scale → weak-tie connection radius expands → strong ties remain constrained by shared consequences
 - **Dependency impact**: If J-017 is falsified, the coordination-supply premise disappears; this card weakens
 - **Time window**: 2027–2033
@@ -969,6 +980,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
+- **Lens**: L2 (constraint migration) + L8 (human constants) + L9 (relationship asymmetry)
 - **Reasoning chain**: Multimodal expression becomes abundant → mediated companionship and reminders spread → shared experience still requires bodies, time, and reciprocal consequences → strong-tie capacity remains presence-constrained
 - **Dependency impact**: If J-011 is falsified, the premise of richer multimodal expression weakens; if agents stably replace presence, this card weakens
 - **Time window**: 2027–2033
