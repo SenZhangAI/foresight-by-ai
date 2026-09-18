@@ -7,7 +7,7 @@
 
 ## O-001 · Ownership Layer for Private Context
 
-**Source judgment**: [J-003](90-ledger.md#j-003) ｜ **Hard constraint**: ownership / private property
+**Source judgment**: [J-003](90-ledger.md#j-003-the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) ｜ **Hard constraint**: ownership / private property
 
 **What exactly is scarce**
 It is not a “memory feature,” but **a record of trade-offs that belongs to you, can be carried with you, authorized, and priced**: who we are, what we have rejected, and why we rejected it. Today it is scattered across thousands of conversations and hundreds of killed proposals; it has never been structured, so every time we change tools we start from zero. The difficulty of self-describing preferences is a demand-side fact, not a sixth hard-constraint category; what blocks automatic copying is the lawful ownership and access boundary around this historical context.
@@ -20,7 +20,7 @@ It is not a “memory feature,” but **a record of trade-offs that belongs to y
 After candidate solutions changed from “one at a time” to “sixty at a time,” the bottleneck moved from **capacity** to **selection** for the first time. Before this, no one needed this record because there were so few options that each could be judged manually; three years later, general models may reconstruct most preferences from a small amount of interaction, so the window may be validated rather than expand.
 
 **Strongest counterargument**
-Preferences may be easier to reproduce than I think (see [C1’s first counterargument](chains/10-generation-becomes-free.md#viii-where-i-may-be-wrong-the-strongest-counterarguments)). If a small amount of generic interaction can recover an individual’s trade-offs, this record is merely a cache that can be rebuilt in a few weeks, not an asset.
+Preferences may be easier to reproduce than I think (see the counterargument under [J-003](90-ledger.md#j-003-the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form)). If a small amount of generic interaction can recover an individual’s trade-offs, this record is merely a cache that can be rebuilt in a few weeks, not an asset.
 **Withdrawal signal**: a public, reproducible result reaches high individual approval in few-shot preference reconstruction without continuous access to the original private data.
 
 **Indicator to watch**: whether public few-shot preference-reconstruction results reach high individual approval; whether organizations require context export, revocable authorization, and cross-tool portability.
@@ -29,7 +29,7 @@ Preferences may be easier to reproduce than I think (see [C1’s first counterar
 
 ## O-002 · Reversible Infrastructure for AI Action
 
-**Source judgment**: [J-004](90-ledger.md#j-004) ｜ **Hard constraint**: physical + law / liability (irreversibility is only a supporting lens)
+**Source judgment**: [J-004](90-ledger.md#j-004-as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible) ｜ **Hard constraint**: physical + law / liability (irreversibility is only a supporting lens)
 
 **What exactly is scarce**
 Shadow environments, action sandboxes, one-click rollback, and step-by-step post hoc tracing—these let the act of “AI actually doing something” **run once in a place structurally equivalent to the real world, but where the consequences can be recovered**. In the world of generation, trial and error is cheap; in the world of execution, an error moves money, changes system state, triggers contractual duties, or causes bodily and property harm. The physical constraint is that real execution must wait, consume resources, and change the world; the law / liability constraint is that an accident must be borne by an entity that can be pursued, licensed, or sued.
@@ -42,7 +42,7 @@ Shadow environments, action sandboxes, one-click rollback, and step-by-step post
 AI is moving from “producing content for people to see” to “executing directly.” At that crossing, the isolation layer changes from an “optional good practice” into a prerequisite without which people will not dare to use AI; three years ago action automation had not widely reached payments, deployment, and signing, while three years from now platforms may bundle simple rollback and narrow the independent-vendor window.
 
 **Strongest counterargument**
-It may be absorbed by the [human-per-item approval mechanism](chains/10-generation-becomes-free.md#viii-where-i-may-be-wrong-the-strongest-counterarguments) and never grow into an independent category. If per-item confirmation remains the mainstream form in high-value scenarios by 2030, and procurement lists contain no separate sandbox / rollback category, downgrade this to a window opportunity.
+It may be absorbed by the [human-per-item approval mechanism described under J-004](90-ledger.md#j-004-as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible)—a zero-cost process—and never grow into an independent category. If per-item confirmation remains the mainstream form in high-value scenarios by 2030, and procurement lists contain no separate sandbox / rollback category, downgrade this to a window opportunity.
 
 **Indicator to watch**: whether procurement lists contain separate sandbox / rollback line items; whether insurers begin pricing autonomous AI execution; whether per-item human approvals decline in high-risk workflows.
 
@@ -50,7 +50,7 @@ It may be absorbed by the [human-per-item approval mechanism](chains/10-generati
 
 ## O-003 · Accountable Commitment Layer
 
-**Source judgment**: [J-005](90-ledger.md#j-005) ｜ **Hard constraint**: law / liability
+**Source judgment**: [J-005](90-ledger.md#j-005-after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) ｜ **Hard constraint**: law / liability
 
 **What exactly is scarce**
 When content is unlimited and its quality is broadly adequate, content itself is no longer a filter. The only remaining usable filter is: **if this statement is wrong, who pays?** What is scarce, therefore, is **a party willing to bear payment liability for an answer**, along with the underwriting, evidence-preservation, and recovery mechanisms that support such a commitment. A model can copy expression, but computation cannot create a legal entity that can be sued, licensed, compensate, and continue to bear responsibility.
@@ -73,8 +73,8 @@ Regulators may directly prescribe the allocation of liability for AI output, ass
 
 | Window | Source | Why it is only a window | Expected to close |
 |---|---|---|---|
-| General “AI output quality-control / selection” tools | [J-002](90-ledger.md#j-002) | Objective quality can be formalized → model providers will internalize it as default behavior | By the end of 2029 |
-| Prompt optimization / token-saving tools | [C1 Third Loop](chains/10-generation-becomes-free.md#v-the-third-loop-the-second-popular-answerproduce-fewer-duds) | Rejection rate is a function of model capability; stronger models and falling costs squeeze it from both sides | By the end of 2028 |
+| General “AI output quality-control / selection” tools | [J-002](90-ledger.md#j-002-selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-2-4-year-window) | Objective quality can be formalized → model providers will internalize it as default behavior | By the end of 2029 |
+| Prompt optimization / token-saving tools | [J-019](90-ledger.md#j-019-token-saving-is-a-window) | Rejection rate is a function of model capability; stronger models and falling costs squeeze it from both sides | By the end of 2028 |
 
 ---
 
