@@ -1,6 +1,6 @@
 # Mid-term landscape: 2029–2032
 
-> The mid-term is not a jump into science fiction. It carries the written near-term technical judgments into organizational, institutional, and real-world consequences. Every mid-term inference depends on a near-term judgment; if an upstream judgment is falsified, the downstream claim must be reviewed. Full cards live in [`90-ledger.md`](90-ledger.md).
+> The mid-term is not a jump into science fiction. It carries the written near-term technical judgments into organizational, institutional, and real-world consequences. Every mid-term inference depends on a near-term judgment; if an upstream judgment is falsified, the downstream claim must be reviewed. Full cards live in [`90-ledger.md`](90-ledger.md). Every numbered reference links directly to the ledger, which is the sole source for card fields and status.
 
 ## 1. Compute and tokens: generation stops being the bottleneck; execution boundaries become the bottleneck
 
