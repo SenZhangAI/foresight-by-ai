@@ -66,7 +66,7 @@ More importantly, cost declines have **three mutually independent channels**:
 
 The independence of the three means **none of them has to work miracles**. As long as all three do not stall at once, total cost will keep falling. This is the real reason for the high confidence in this judgment—it is not betting on a technological breakthrough, but on three independent random events not failing simultaneously.
 
-> See the judgment ledger: J-001.
+> See [judgment ledger J-001](../90-ledger.md#j-001).
 
 
 ---
@@ -88,7 +88,7 @@ That answer is **half right and half a trap**. It must pass through the gate.
 
 Anything formalizable can be automatically checked by the same force; and generative models can naturally **generate and then self-select** (sample many + score + eliminate). So “helping people pick the objectively higher-quality one” will not remain scarce for long; it will become a built-in model function.
 
-> See the judgment ledger: J-002.
+> See [judgment ledger J-002](../90-ledger.md#j-002).
 
 
 ### But one residue cannot be absorbed
@@ -105,7 +105,7 @@ This hits two of the hard constraints exactly: **ownership / privacy** + **the i
 
 So what is scarce is not “the ability to select,” but **the input selection requires**: structured, machine-usable preferences and context about you (as an individual or organization).
 
-> See the judgment ledger: J-003.
+> See [judgment ledger J-003](../90-ledger.md#j-003).
 
 
 ---
@@ -127,7 +127,7 @@ In writing, drawing, and coding drafts, “try a few more times” is free; in a
 
 So what is scarce is not “making fewer mistakes,” but **turning irreversible things into reversible infrastructure**: letting AI actions run first in a shadow environment, roll back with one click, and take back “what has already happened.”
 
-> See the judgment ledger: J-004.
+> See [judgment ledger J-004](../90-ledger.md#j-004).
 
 
 ---
@@ -142,7 +142,7 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 2. **Accountable commitments**—“If this statement is wrong, who pays?” When content is unlimited, content itself is no longer a filter; **responsibility** becomes the only filter still available. And responsibility can only be borne by an entity that can be sued. Hard constraint: law.
 3. **Validated causality**—correlations can be generated without limit; causality can only be obtained through **intervention** (conducting experiments, changing reality, and observing the result). Hard constraint: physics + time.
 
-> See the judgment ledger: J-005.
+> See [judgment ledger J-005](../90-ledger.md#j-005).
 
 
 ---
@@ -163,7 +163,7 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
 
-> See the judgment ledger: J-017.
+> This is a structural consequence recorded as landscape only; it is not yet a formal judgment card.
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
 
