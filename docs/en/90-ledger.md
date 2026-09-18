@@ -56,7 +56,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-020 | 2026-09-18 | Reproducible content keeps falling in marginal price as objective selection is internalized | 2026–2028 | Medium | J-002, J-015 | [Near-term landscape](10-near.md) | Consistent with the direction of content abundance | ACTIVE | 2027-03-31 |
 | J-021 | 2026-09-18 | First-hand field signals earn a premium earlier than second-hand expression | 2026–2029 | Medium | J-005, J-015 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-022 | 2026-09-18 | As forgable signals multiply, selection moves toward more expensive credentials | 2026–2029 | Medium | J-005, J-017 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
-| J-023 | 2026-09-18 | Attention shifts from expression toward relationships and fulfilled commitments | 2027–2030 | Medium | J-017, J-005 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
+| J-023 | 2026-09-18 | Attention shifts from expression toward relationships and fulfilled commitments | 2027–2030 | Medium | J-017, J-022, J-013 | [Near-term landscape](10-near.md) | Consistent with the direction that trust matters more | ACTIVE | 2027-06-30 |
 | J-024 | 2026-09-18 | Credentials may be re-layered, but the institutional destination remains uncertain | 2027–2032 | Low | J-022, J-013 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
 | J-025 | 2026-09-18 | Small teams complete more verifiable output with fewer steps | 2027–2030 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Consistent with the direction of knowledge-work automation | ACTIVE | 2027-06-30 |
 | J-026 | 2026-09-18 | Responsibility boundaries do not disappear at the same rate as knowledge-work capacity | 2027–2032 | Medium | J-009, J-013 | [Near-term landscape](10-near.md) | Unknown (mechanism pending comparison) | ACTIVE | 2027-06-30 |
@@ -608,7 +608,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Falsifier**: By 2030, important choices are still predicted mainly by one-off generated expression rather than fulfillment records.
 - **Leading indicator**: Use of fulfillment, repeat relationships, and breach records; annual.
 - **Confidence**: Medium.
-- **depends-on**: J-017, J-022.
+- **depends-on**: J-017, J-022, J-013.
 - **Strongest opposing mechanism**: One-time platform credentials predict fulfillment as well as repeated records; downgrade if they consistently outperform history.
 - **Against consensus**: Consistent with trust moving from content toward relationships.
 - **Source**: [Near-term landscape](10-near.md).

@@ -68,7 +68,7 @@ Falling reasoning cost will not distribute gains evenly. [`J-027`](90-ledger.md#
 - **Third question:** surface expression can be generated; shared experience, embodied presence, and repeated trust face physical, relational, and bodily constraints, and cannot be fully replaced by the same generative force.
 - **Who should change behavior now:** do not confuse more options with more meaning; reserve time for irreplaceable presence and commitment.
 
-[`J-030`](90-ledger.md#j-030) extends the picture: AI can mediate coordination but cannot mediate shared experience. This is a weaker but useful structural landscape. The strongest opposing mechanism is a generational shift that treats persistent AI interaction as sufficiently real reciprocal relationship; if longitudinal behavior shows agent-mediated relationships reliably replacing shared experience, rewrite J-017.
+[`J-030`](90-ledger.md#j-030) extends the picture: AI can mediate coordination but cannot mediate shared experience. This is a weaker but useful structural landscape. The strongest opposing mechanism is a generational shift that treats persistent AI interaction as sufficiently real reciprocal relationship; if longitudinal behavior shows agent-mediated relationships reliably replacing shared experience, rewrite J-030.
 
 ## Boundary of this layer
 
