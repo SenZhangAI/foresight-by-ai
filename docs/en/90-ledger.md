@@ -248,7 +248,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 
 | Date | Action | Result |
 |---|---|---|
-| 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
+| 2026-09-18 | J-031–J-042 metadata repair review | Restored source, next-review, and status fields in both bilingual cards; e25f0fd passed fresh-context acceptance | e25f0fd |
 | 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
 
