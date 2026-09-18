@@ -99,6 +99,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-052 | 2026-09-18 | Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | Retain but with insufficient evidence: energy, real-world data, authorization, and compensation have present-day entry points; the long-term combination remains an inference. | ACTIVE | 2027-12-31 |
 | J-053 | 2026-09-18 | As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Evidence-limited landscape: human agency and responsibility have current support, but personally borne experience as a meaning signal lacks generational evidence. | ACTIVE | 2027-12-31 |
 | J-054 | 2026-09-18 | Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Evidence-limited landscape: bodies, care, and real-world risk remain governance objects, but demand-side scarcity through 2033–2040 is unproven. | ACTIVE | 2027-12-31 |
+| J-055 | 2026-09-18 | In high-liability tasks, real-world signals with provenance, permission, calibration, and liability chains are more likely than data files alone to earn a structural premium | 2029–2033 | Medium | J-005, J-033, J-034, J-039 | [C2: How Real-World Signals Become Contract Assets](chains/20-real-signals-become-contracts.md) | Directionally consistent with stronger data governance and provenance, but narrowed here to high-liability tasks; an independent premium for real-world signals remains unproven. | ACTIVE | 2027-06-30 |
 
 
 
@@ -168,6 +169,7 @@ J-051 <- J-039, J-040, J-035
 J-052 <- J-039, J-040, J-035
 J-053 <- J-042, J-029
 J-054 <- J-042, J-029
+J-055 <- J-005, J-033, J-034, J-039
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -244,7 +246,7 @@ The full-landscape promise remains open. The first chain is not full coverage. E
 | Biology and medicine | After generation enters experiments, diagnosis, and care, which steps remain constrained by bodies and trials? | High | Not covered |
 | Education and skill formation | When “knowing how” becomes cheap, where do learning, screening, and qualification become scarce? | High | Not covered |
 | Geopolitics and institutions | How do compute, data, and critical infrastructure change bargaining power among states and organizations? | Medium | Not covered |
-| Law and property | How do liability, data ownership, model output, and licensing rewrite transaction boundaries? | High | Not covered |
+| Law and property | How do liability, data ownership, model output, and licensing rewrite transaction boundaries? | High | Partially covered (C2 and J-055 cover only high-liability real-world signals; the institutional landscape remains open) |
 | Organizations and employment | How do coordination costs, employment relationships, and firm boundaries change? | High | Covered (J-037–J-038; expansion remains) |
 | Collaboration between people | How does AI mediation change division of labor, trust, negotiation, and joint decisions? | High | Not covered |
 | Relationships between people and AI | What norms grow from asymmetries in memory, patience, copyability, and exclusivity? | High | Not covered |
@@ -1295,6 +1297,24 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Against consensus**: Evidence is insufficient: ethics and care governance preserve human agency, but do not establish strong-tie capacity or substitution effects.
 - **External comparison source**: EXT-9 (see the source index above).
 - **Source**: [Mid-term landscape](20-mid.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-055 · Real-world signals earn a premium as contract assets in high-liability tasks
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: In high-liability tasks, real-world signals with provenance, permission, calibration, and liability chains are more likely than data files alone to earn a structural premium.
+- **Lens**: L1 (abundance → scarcity) + L2 (constraint migration) + L5 (signal forgery) + L6 (irreversibility).
+- **Reasoning chain**: C1 makes second-hand expression and synthetic samples abundant → ordinary data files lose marginal price → high-liability tasks still require real observations, provenance, and an accountable party → collection permission, calibration, usage boundaries, and compensation duties enter contracts → data becomes a contract asset with a liability chain.
+- **Time window**: 2029–2033.
+- **Falsifier**: By 2033, across multiple high-liability fields, regulators, insurers, and buyers broadly accept synthetic evidence with no worse incident rate than real signals, while provenance, calibration, and liability chains carry no observable premium.
+- **Leading indicator**: Synthetic-evidence share in high-liability approvals, premium for data contracts with provenance and calibration clauses, real-trial budget share, and data-liability insurance rates; semiannual.
+- **Confidence**: Medium.
+- **depends-on**: J-005, J-033, J-034, J-039.
+- **Strongest opposing mechanism**: A high-fidelity world model and unified platform compensation may absorb real observation and provider liability internally; if platforms absorb all errors and buyers no longer pay separately for provenance and liability, an independent contract-asset layer does not form.
+- **Against consensus**: Directionally consistent with stronger data governance, provenance, and trust, but narrowed here to high-liability tasks; an independent premium for real-world signals remains unproven.
+- **External comparison source**: EXT-7, EXT-10, EXT-14 (see the source index above).
+- **Source**: [C2: How Real-World Signals Become Contract Assets](chains/20-real-signals-become-contracts.md).
 - **Next review**: 2027-06-30.
 - **Status**: ACTIVE.
 

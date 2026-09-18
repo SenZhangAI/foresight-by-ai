@@ -187,7 +187,7 @@ If energy, supply chains, or regulation impose a hard ceiling on compute, J-001 
 
 ## IX. What This Chain Grows Into
 
-- From J-005 (raw signals appreciate) → follows the medium-term **shift from free data collection to contractual pricing for data**, see C2.
+- From J-005 (raw signals appreciate) → follows the medium-term **shift from free data collection to contractual pricing for data**, see [C2: When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md).
 - From J-002 + J-005 (accountable commitments become the filter) → follows the long-term **collateralization of trust**: when “speaking well” is no longer a capability signal, society returns to older, more expensive credentials—guarantees, collateral, long-term relationships, and identity. See C3 (mostly “scenario only”).
 
-> C2 and C3 have not yet been written; they are registered under “Explicit Gaps” in [`../90-ledger.md`](../90-ledger.md).
+> C2 is now a testable successor chain; C3 has not yet been written and remains a later far-term direction.
