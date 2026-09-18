@@ -50,6 +50,17 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-003 | 2026-09-18 | Ownership and usable form of private personal or organizational context are more likely to become durable scarcity | 2027–2033 | Medium | J-001, J-002 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-004 | 2026-09-18 | As AI executes actions, infrastructure that makes actions reversible becomes scarce | 2027–2032 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-005 | 2026-09-18 | Raw signals, accountable commitments, and verified causality become more valuable than reproducible text | 2029–2033 | Medium | J-001 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-006 | 2026-09-18 | Reasoning throughput precedes long-horizon autonomy | 2026–2028 | High | J-001 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
+| J-007 | 2026-09-18 | Resumable context precedes reliable long-term memory | 2026–2029 | High | J-006 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
+| J-008 | 2026-09-18 | Sourced long-term memory becomes a prerequisite for reliable collaboration | 2028–2031 | Medium | J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-009 | 2026-09-18 | Continuous execution in constrained workflows matures first | 2027–2030 | High | J-008 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-010 | 2026-09-18 | Long-horizon autonomy follows constrained continuous execution | 2029–2033 | Medium | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-011 | 2026-09-18 | Cross-media consistency precedes long-range coherence | 2027–2030 | Medium | J-006, J-007 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-012 | 2026-09-18 | Cross-time coherence depends on state and evaluation | 2029–2034 | Medium | J-008, J-011 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-013 | 2026-09-18 | Checkable tool calls precede open-environment action | 2027–2030 | High | J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
+| J-014 | 2026-09-18 | Rehearsable environments follow single-tool integration | 2028–2032 | Medium | J-009, J-013 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
+| J-015 | 2026-09-18 | Formal verification precedes open-world evaluation | 2026–2029 | High | J-006, J-009 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
+| J-016 | 2026-09-18 | Open-world evaluation is the final gate for expanding autonomy | 2029–2035 | Medium | J-010, J-012, J-014, J-015 | [Technology Capability Sequence](05-tech-sequence.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-017 | 2026-09-18 | AI mediation expands weak-tie coordination faster than strong relationships, without expanding the number of relationships in which people can remain present | 2027–2033 | Medium | J-006, J-007 | [C1](chains/10-generation-becomes-free.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-06-30 |
 | J-018 | 2026-09-18 | Parallel reasoning becomes the default workflow before long-horizon autonomy | 2026–2028 | High | J-006, J-009 | [Near-term landscape](10-near.md) | Consistent with consensus (mechanism pending comparison) | ACTIVE | 2027-03-31 |
 | J-019 | 2026-09-18 | Saving tokens itself is a window, not durable scarcity | 2026–2028 | Medium | J-001, J-006 | [Near-term landscape](10-near.md) | Unknown (external comparison not yet completed) | ACTIVE | 2027-03-31 |
@@ -65,7 +76,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-029 | 2026-09-18 | Status, certainty, embodied presence, and responsibility remain demand-side anchors | 2026–2030 | Medium | J-017, J-011 | [Near-term landscape](10-near.md) | Consistent with the conservative direction that tools do not change every need | ACTIVE | 2027-06-30 |
 | J-030 | 2026-09-18 | AI mediates coordination but cannot mediate shared experience | 2027–2032 | Low | J-017, J-011 | [Near-term landscape](10-near.md) | Unknown (landscape only) | ACTIVE | 2027-06-30 |
 
-The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here.
+The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 ---
 
 ## 3. The `depends-on` graph
@@ -177,7 +188,7 @@ The full-landscape promise remains open. The first chain is not full coverage. E
 
 | Gap dimension | Question to answer | Priority | Status |
 |---|---|---|---|
-| Technology sequence as a standalone chain | Which capability arrives first, and what does it enable next? | High | Not covered |
+| Social consequences of the technology sequence | The technology chain exists; its full consequences for society and organizations still need a dedicated reasoning chain. | High | Partially covered (technology chain is covered by J-006–J-016; social consequences remain open) |
 | Energy and physical infrastructure | How do hard constraints in compute, data centers, grids, chips, and materials migrate? | High | Not covered |
 | Biology and medicine | After generation enters experiments, diagnosis, and care, which steps remain constrained by bodies and trials? | High | Not covered |
 | Education and skill formation | When “knowing how” becomes cheap, where do learning, screening, and qualification become scarce? | High | Not covered |
@@ -208,7 +219,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 
 | Date | Action | Result |
 |---|---|---|
-| 2026-09-18 | Added field definitions, example, dependency propagation, confidence history, expiry procedure, and explicit gap register | Awaiting subsequent judgments |
+| 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
 
 ---
 
