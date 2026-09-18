@@ -87,6 +87,18 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | J-040 | 2026-09-18 | Balance sheets able to absorb AI accidents become a separate scarcity | 2028–2033 | Medium | J-005 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 5 | ACTIVE | 2027-06-30 |
 | J-041 | 2026-09-18 | AI first expands the coordination radius of weak ties | 2027–2033 | Medium | J-017 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
 | J-042 | 2026-09-18 | Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only) | 2027–2033 | Low | J-011 | [Mid-term landscape](20-mid.md) | Mid-term landscape section 6 | ACTIVE | 2027-06-30 |
+| J-043 | 2026-09-18 | High-value agent execution shifts to boundary grants rather than step-by-step operation | 2033–2040 | Low | J-031, J-032, J-014 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-044 | 2026-09-18 | Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only) | 2033–2040 | Low | J-032, J-040 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-045 | 2026-09-18 | As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | May align with synthetic-media growth (landscape only) | ACTIVE | 2027-12-31 |
+| J-046 | 2026-09-18 | High-liability settings retain a premium for field causal records (landscape only) | 2033–2040 | Low | J-033, J-034 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-047 | 2026-09-18 | Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-048 | 2026-09-18 | Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only) | 2033–2040 | Low | J-041, J-042 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-049 | 2026-09-18 | As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-050 | 2026-09-18 | The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only) | 2033–2040 | Low | J-041, J-038 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-051 | 2026-09-18 | Abundant advice does not automatically disperse real action rights (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | May align with the broad consensus that technology changes power (landscape only) | ACTIVE | 2027-12-31 |
+| J-052 | 2026-09-18 | Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only) | 2033–2040 | Low | J-039, J-040, J-035 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-053 | 2026-09-18 | As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
+| J-054 | 2026-09-18 | Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only) | 2033–2040 | Low | J-042, J-029 | [Far-term landscape](30-far.md) | Unknown (landscape only) | ACTIVE | 2027-12-31 |
 
 
 
@@ -131,6 +143,13 @@ J-006 + J-007 ──> J-017
 ├── J-028 (J-005, J-013)
 ├── J-029 (J-017, J-011)
 └── J-030 (J-017, J-011)
+J-010 ──> J-031
+J-013 ──> J-032, J-038
+J-005 ──> J-033, J-034, J-035, J-040
+J-017 ──> J-036, J-041
+J-009 ──> J-037
+J-001 ──> J-039
+J-011 ──> J-042
 J-010 ──> J-031
 J-013 ──> J-032, J-038
 J-005 ──> J-033, J-034, J-035, J-040
@@ -246,6 +265,211 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
 
 ---
+
+
+### J-043 · High-value agent execution shifts to boundary grants rather than step-by-step operation
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: High-value agent execution shifts to boundary grants rather than step-by-step operation.
+- **Lens**: L2 constraint migration, L6 irreversibility.
+- **Reasoning chain**: Rollback-capable environments lower supervision cost → agents take more steps → supervision shifts to boundaries and escalation → high-value deployment uses boundary grants.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, high-value agents still require step approval and rollback has not lowered supervision cost.
+- **Leading indicator**: Boundary-grant share, step approvals, rehearsal procurement; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-031, J-032, J-014.
+- **Strongest opposing mechanism**: Liability or regulation requires step approvals.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-044 · Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only).
+- **Lens**: L2 constraint migration, L7 institutional lag.
+- **Reasoning chain**: Execution scales → tail losses exceed one user’s capacity → collateral and balance sheets become admission conditions → solvent entities support infrastructure.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, solvency does not affect deployment, pricing, or financing.
+- **Leading indicator**: Liability premiums, reserves, solvency clauses; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-032, J-040.
+- **Strongest opposing mechanism**: Liability is outsourced and losses are too low for a separate asset.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-045 · As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only).
+- **Lens**: L1 abundance-to-scarcity, L5 signals and forgery.
+- **Reasoning chain**: Replayable supply grows → narrative loses distinctiveness → unarranged field observation becomes scarce → preserving conditions and causality gains value.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, high-liability decision-makers do not distinguish field from synthetic evidence.
+- **Leading indicator**: Field-evidence premium, raw-record requirements, synthetic substitution; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-033, J-034.
+- **Strongest opposing mechanism**: High-fidelity simulation becomes equivalent to field observation.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-046 · High-liability settings retain a premium for field causal records (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: High-liability settings retain a premium for field causal records (landscape only).
+- **Lens**: L5 signals and forgery, L6 irreversibility.
+- **Reasoning chain**: Cheap explanations → liable parties distinguish advice from intervention → field records connect action, outcome and compensation → high-liability transactions pay.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, replacing field records with synthetic evidence changes neither accidents nor prices.
+- **Leading indicator**: Record licensing, insurance discounts, trial requirements; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-033, J-034.
+- **Strongest opposing mechanism**: World models and regulators establish synthetic trials as equivalent.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-047 · Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only).
+- **Lens**: L1 abundance-to-scarcity, L9 relational asymmetry.
+- **Reasoning chain**: Copyable memory, patience and style → companionship scales → copyability reduces exclusivity and shared risk → non-copyable reciprocity is scarce.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, copyable companionship replaces human reciprocity with no behavioral difference.
+- **Leading indicator**: Copy rate, exit rate, retention and repair outcomes; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-042.
+- **Strongest opposing mechanism**: Institutions accept copyability and preferences change.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-048 · Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only).
+- **Lens**: L7 institutional lag, L9 relational asymmetry.
+- **Reasoning chain**: Copyable, pausable relationships → memory and commitment boundaries diverge → data, exit and liability conflicts grow → institutions define subjects.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, relationship-data and exit disputes do not persist and ordinary contracts suffice.
+- **Leading indicator**: Data disputes, exit clauses, dedicated rules or cases; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-042.
+- **Strongest opposing mechanism**: AI remains an ordinary tool covered by existing contracts.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-049 · As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only).
+- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
+- **Reasoning chain**: Coordination costs fall → candidates multiply → choosing is not commitment; commitment bears failure → willing groups are scarce.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, more coordination also raises joint bearing of long-term failure and repair is no bottleneck.
+- **Leading indicator**: Commitment retention, exit rate, repair time; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-038.
+- **Strongest opposing mechanism**: Agent reputation and arbitration bear risk without human commitment.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-050 · The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only).
+- **Lens**: L3 cost structure, L8 human nature and demand.
+- **Reasoning chain**: Agents absorb coordination → human intervention shrinks → it concentrates on irreversible choices and joint liability → commitment quality measures collaboration.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, collaboration value remains step execution rather than commitment choice.
+- **Leading indicator**: Human-confirmed commitments, irreversible decisions, fulfillment; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-038.
+- **Strongest opposing mechanism**: Agents replace responsibility roles, leaving execution speed decisive.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-051 · Abundant advice does not automatically disperse real action rights (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Abundant advice does not automatically disperse real action rights (landscape only).
+- **Lens**: L2 constraint migration, L7 institutional lag.
+- **Reasoning chain**: Advice is cheap → information grows → permissions, resources and compensation remain concentrated → advice does not disperse action rights.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, advice growth coincides with broad dispersion of energy, data, licensing, and compensation access.
+- **Leading indicator**: Resource concentration, authorization holders, advice-to-action distribution; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-039, J-040, J-035.
+- **Strongest opposing mechanism**: Open protocols and competition policy disperse access points.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-052 · Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only).
+- **Lens**: L1 abundance-to-scarcity, L7 institutional lag.
+- **Reasoning chain**: Model supply expands → control migrates to real inputs, permissions and losses → institutions price four access points → control creates bargaining power.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, four access points create no persistent price, licensing, or financing advantage.
+- **Leading indicator**: Energy spreads, data fees, review fees, insurance reserves; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-039, J-040, J-035.
+- **Strongest opposing mechanism**: All four inputs commoditize and control creates no rent.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-053 · As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only).
+- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
+- **Reasoning chain**: Generatable output loses distinction → real time, bodily risk and responsibility leave cost signals → personal burden becomes meaning/status signal.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, real responsibility no longer affects trust, status, or long-term choices.
+- **Leading indicator**: Trust premium for commitments, experience verification, narrative/outcome coupling; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-042, J-029.
+- **Strongest opposing mechanism**: Society stops valuing real responsibility.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+### J-054 · Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only).
+- **Lens**: L6 irreversibility, L8 human nature and demand.
+- **Reasoning chain**: Choice grows but lifetime does not → bodily risk and long commitments remain personal → scarcity moves to non-delegable experience.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, agent substitution leaves no observable difference in preferences or outcomes around time and risk.
+- **Leading indicator**: Non-delegable time, long-commitment completion, embodied premium; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-042, J-029.
+- **Strongest opposing mechanism**: Immersive agent experience becomes equivalent.
+- **Against consensus**: Unknown (landscape only).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
 
 ## 9. Judgment cards for the technology capability sequence
 

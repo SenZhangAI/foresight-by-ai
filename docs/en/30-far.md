@@ -1,73 +1,67 @@
 # Far-term landscape: 2033–2040
 
-> The far horizon is not a straight line projected from near-term trends. Its purpose is to expose load-bearing walls: which judgments would reshape people and organizations if they hold, and which branches are only landscapes that must not be disguised as precise forecasts. Far-term claims depend on written near- or mid-term judgments, and confidence is generally lower.
+> The far horizon is not a straight line from near-term trends. It tests the load-bearing walls: if the mid-term judgments hold, what must people and organizations rearrange? Each section states its dependencies, branches, and action boundary. Low-confidence judgments remain structural landscapes, not disguised forecasts.
 
-## 1. When execution becomes infrastructure: people grant boundaries instead of operating every step
+## 1. Execution and infrastructure: people grant boundaries instead of operating every step
 
-If [`J-010`](90-ledger.md#j-010)’s long-horizon execution, [`J-014`](90-ledger.md#j-014)’s rehearsal environments, and [`J-016`](90-ledger.md#j-016)’s open-world evaluation arrive in sequence, the important interface after 2033 may not be “ask AI to do this step,” but “within these boundaries, you own the result.”
+If [`J-031`](90-ledger.md#j-031)’s rollback-capable environments, [`J-032`](90-ledger.md#j-032)’s authorization review, and [`J-014`](90-ledger.md#j-014)’s rehearsal environments take shape in the mid term, the high-value AI interface in 2033–2040 may no longer be “perform this step,” but “act within these boundaries; who owns the result?”
 
-- **More abundant:** agent actions across tools, organizations, and time.
-- **More scarce:** understandable authorization boundaries, genuinely reversible responsibility, and a person willing to own the final decision.
-- **Third question:** plans and permission descriptions can be generated; real harm, legal liability, and bodily consequences cannot be copied.
-- **Who should change behavior:** organizations should write permissions as auditable boundaries, never treating “the model is smart” as authorization.
+- **More abundant:** agent execution across tools, organizations, and time, with continuous task monitoring.
+- **More scarce:** understandable authorization boundaries, genuinely reversible responsibility, and organizational positions able to absorb accidents.
+- **Third question:** permissions, plans, and exception categories can scale through the same automation; physical harm, legal liability, and bodily consequences remain hard constraints and cannot become free copies.
+- **What can be done now:** write agent permissions as auditable, pausable, rollback-capable boundaries; build incident rehearsal and human escalation before buying longer autonomy.
+- **Boundary:** This is a low-confidence structural landscape. If high-fidelity simulation replaces real observation in high-liability settings, or accident rates keep falling without independent intervention, rewrite this section. The corresponding judgments are [`J-043`](90-ledger.md#j-043) and [`J-044`](90-ledger.md#j-044).
 
-This is a medium-low-confidence structural landscape, not an independent opportunity judgment. The strongest opposing mechanism is open-world evaluation being fully replaced by sufficiently strong simulation; if real-world accident rates fall for a long period without independent observation and intervention, the entire sequence must be rewritten.
+## 2. Information and content: expression becomes infinite; unarranged reality becomes a scarce input
 
-## 2. The information reversal: expression becomes infinite; unmediated reality becomes rare
+If [`J-033`](90-ledger.md#j-033)’s verified records of real intervention and [`J-034`](90-ledger.md#j-034)’s liability separation hold, the far-term content industry may focus less on who generates the most convincing artifact and more on who observed, intervened, and bears the result. Synthetic content does not disappear; it becomes a cheap substrate for exploring and explaining reality.
 
-If [`J-005`](90-ledger.md#j-005)’s judgment about raw signals, accountability, and causality holds, the far-term “content industry” may center less on content and more on who actually observes, intervenes, and bears the result. This may be **consistent with the broad direction that synthetic media will grow, but it remains a low-confidence inference and external comparison is incomplete**.
-
-- **More abundant:** simulated histories, personalities, settings, and explanations.
-- **More scarce:** unarranged presence, shared experience, and events that cannot be replayed.
-- **Third question:** replay and synthesis will continue to grow; physical presence, elapsed time, and bodily participation are hard constraints.
-- **Who should change behavior:** education, media, and organizations should preserve raw observation separately from second-order interpretation, rather than treating a generatable narrative as an event that occurred.
-
-This is an Exit-B structural consequence, low confidence, landscape only. The strongest opposing mechanism is immersive simulation becoming broadly equivalent to reality in human judgment; if most high-stakes decisions no longer require contact with reality, withdraw this section.
+- **More abundant:** replayable histories, personalities, settings, explanations, and counterfactual simulations.
+- **More scarce:** unarranged presence, shared experience, raw signals across elapsed time, and accountable causal records.
+- **Third question:** synthesis, compression, and remixing can keep expanding automatically; physical presence, ownership, liability, and non-replayable time are hard constraints that more tokens cannot manufacture.
+- **What can be done now:** preserve raw observation, collection conditions, accountable parties, and second-order interpretation as separate layers; in high-liability use, ask first who was present, who intervened, and who pays.
+- **Boundary:** Low confidence. If high-liability fields broadly accept synthetic evidence without higher accident rates, withdraw the premium assigned to field reality. The corresponding judgments are [`J-045`](90-ledger.md#j-045) and [`J-046`](90-ledger.md#j-046).
 
 ## 3. People and AI: the most intimate object may be the most asymmetric
 
-[`J-017`](90-ledger.md#j-017) depends on [`J-006`](90-ledger.md#j-006) and [`J-007`](90-ledger.md#j-007); it says only that coordination and memory costs fall, not how people will define relationships. The far horizon must face four asymmetries: AI remembers more, is patient longer, can be copied and paused, and may maintain “exclusive” interactions with many people at once.
+If [`J-041`](90-ledger.md#j-041)’s expansion of weak-tie coordination and [`J-042`](90-ledger.md#j-042)’s embodied-presence ceiling persist, AI may become the most enduring, patient, and copyable interaction object. The issue is not only whether AI resembles a person, but that memory, patience, copyability, and refusal are asymmetric between the sides.
 
-- **More abundant:** always-available replies, long memory, and personalized emotional mirroring.
-- **More scarce:** non-copyable reciprocity, commitments made meaningful by finite life, and the other party’s genuine ability to refuse you.
-- **Third question:** companion language and memory retrieval can scale; embodied presence, legal personhood, shared risk, and real refusal cannot be automatically copied by the same force.
-- **Who should change behavior:** people and institutions should specify which relationships AI may mediate and which decisions require a human subject to be present and accountable.
+- **More abundant:** always-available companionship, long memory, personalized emotional mirroring, and relationship agents that can be paused, copied, and moved.
+- **More scarce:** non-copyable reciprocity, commitments made meaningful by finite life, the other party’s genuine freedom to refuse, and relationships that share risk.
+- **Third question:** language, reminders, retrieval, and personality style can scale; embodied presence, legal personhood, shared risk, and genuine refusal cannot be copied at zero cost by the same force.
+- **What can be done now:** distinguish tool service from human commitment in product and family rules; preserve data portability, relationship exit, and records of real authorization.
+- **Boundary:** Low-confidence landscape only. If institutions recognize copyable AI as a full relationship subject and longitudinal behavior shows that non-copyable reciprocity is no longer needed, rewrite this section. The corresponding judgments are [`J-047`](90-ledger.md#j-047) and [`J-048`](90-ledger.md#j-048).
 
-This is an Exit-B, low-confidence, landscape-only claim. The strongest opposing mechanism is institutions accepting copyable AI as a full relationship subject while people stop treating non-copyable reciprocity as necessary; if that preference stabilizes, L9 must be rewritten.
+## 4. Collaboration between people: from doing steps together to choosing commitments together
 
-## 4. Collaboration between people: from doing things together to choosing commitments together
+If [`J-041`](90-ledger.md#j-041)’s coordination radius expands while [`J-038`](90-ledger.md#j-038)’s responsibility roles persist, AI will handle translation, scheduling, negotiation drafts, and context synchronization; people will appear together mainly at a few irreversible choice points.
 
-If [`J-017`](90-ledger.md#j-017)’s weak-tie expansion and [`J-010`](90-ledger.md#j-010)’s long-horizon agents both hold, human collaboration may split into two layers: AI handles abundant coordination, while people appear together only at a few irreversible choice points.
+- **More abundant:** instant collaboration drafts and agent negotiation across time zones, languages, and organizations.
+- **More scarce:** human groups willing to give up alternatives for one future, share failure, and repair conflict.
+- **Third question:** coordination text and candidate plans can scale automatically; trust, conflict repair, shared risk, and long-term reputation cannot be generated in one step.
+- **What can be done now:** organizations should record what was jointly undertaken, not only message volume; make key commitments human-confirmed and traceable events.
+- **Boundary:** Low-confidence landscape only. If agent reputation and negotiation reliably replace human trust, reconsider the strong-tie capacity constraint. The corresponding judgments are [`J-049`](90-ledger.md#j-049) and [`J-050`](90-ledger.md#j-050).
 
-- **More abundant:** instant collaboration drafts across time zones, languages, and organizations.
-- **More scarce:** human groups willing to give up alternatives for one future and share failure.
-- **Third question:** coordination text can scale automatically; trust, conflict repair, and shared risk cannot be generated in one step.
-- **Who should change behavior:** organizations should measure what was jointly undertaken, not only message volume and meeting count; design key commitments as events requiring human co-confirmation.
+## 5. Power and institutions: more answers do not mean dispersed action rights
 
-This is a low-confidence structural landscape with no independent business opportunity. The strongest opposing mechanism is negotiation and reputation among agents becoming reliable enough that humans no longer need to build direct relationships; if observable outcomes show agent reputation replacing human trust, downgrade or withdraw this section.
+If [`J-039`](90-ledger.md#j-039)’s access rents, [`J-040`](90-ledger.md#j-040)’s liability balance sheets, and [`J-035`](90-ledger.md#j-035)’s responsibility collateral enter institutions, far-term power may reorganize around four access points: energy and compute, real-world data, action authorization, and compensation for accidents.
 
-## 5. Power and institutions: the scarce thing is not answers, but who may act
+- **More abundant:** advice, forecasts, candidate policies, and simulated decisions for organizations and individuals.
+- **More scarce:** institutional positions able to allocate real resources, sign permissions, access critical infrastructure, and bear losses.
+- **Third question:** opinions, plans, and arguments can be generated without limit; ownership, state responsibility, enforcement, resource access, and solvency cannot scale at the same rate.
+- **What can be done now:** record separately who may advise, execute, and compensate; evaluate AI projects by asking who controls inputs, exits, and accident losses.
+- **Boundary:** Low-confidence landscape only. If open protocols continue dispersing critical resources and authorization and controllers lose structural premiums, withdraw the concentration direction. The corresponding judgments are [`J-051`](90-ledger.md#j-051) and [`J-052`](90-ledger.md#j-052).
 
-If [`J-001`](90-ledger.md#j-001), [`J-005`](90-ledger.md#j-005), and the technology sequence hold together, far-term power may concentrate around four access points: energy and compute, real-world data, action authorization, and the ability to compensate for harm. This overlaps with the broad consensus that technology changes power, but the specific concentration pattern remains a low-confidence landscape.
+## 6. Human needs, meaning, and embodied presence: scarcity may move from objects to responsibility
 
-- **More abundant:** advice, forecasts, and candidate policies available to organizations and individuals.
-- **More scarce:** institutional positions able to allocate real resources, sign permissions, and bear losses.
-- **Third question:** opinions can be generated without limit; ownership, state responsibility, enforcement, and resource access cannot scale at the same rate.
-- **Who should change behavior:** institutional designers should separate who may advise from who may execute and compensate, rather than mistaking the number of suggestions for dispersed power.
+If [`J-042`](90-ledger.md#j-042)’s presence ceiling and [`J-029`](90-ledger.md#j-029)’s demand anchors are not overturned by new preferences, a reversal may appear: when answers, works, companionship, and identities can all be generated, “what I personally bore” becomes a source of status, trust, and meaning.
 
-This is an Exit-B, low-confidence, landscape-only claim. The strongest opposing mechanism is open protocols dispersing action authorization and critical resources so completely that no durable access rent forms; if control points remain dispersed, withdraw the concentration direction.
+- **More abundant:** lives to try, generated achievement narratives, instant consolation, and replaceable identities.
+- **More scarce:** non-delegable responsibility, experiences that consume real lifetime, bodily risk, and commitments witnessed by others over time.
+- **Third question:** narratives and consolation can be automated; lifetime, bodily risk, relationship trust, and shared consequences are hard constraints.
+- **What can be done now:** people and organizations should not only accumulate reproducible outputs; reserve time for experiences, commitments, and presence that agents cannot perform. Other institutional and commercial paths are **landscape only**, not opportunities.
+- **Boundary:** This is the lowest-confidence Exit-B landscape. If a new generation broadly stops treating real experience, responsibility, and presence as sources of value, withdraw or rewrite the relevant judgments. The corresponding judgments are [`J-053`](90-ledger.md#j-053) and [`J-054`](90-ledger.md#j-054).
 
-## 6. The far-term demand fork: meaning may move from scarce objects to irreplaceable responsibility
+## Honest far-term boundary and uncovered list
 
-All preceding chains rely on a boundary that has not been proven: people continue to value real presence, responsibility, and non-copyable experience. If [`J-017`](90-ledger.md#j-017)’s relational asymmetry is not overturned by new preferences, a reversal may appear: when answers, works, companionship, and identity can all be generated, “what I personally bore” becomes a source of status and meaning.
-
-- **More abundant:** lives to try, generated achievement narratives, and instant consolation.
-- **More scarce:** responsibility that cannot be delegated, experiences that consume real time, and long commitments witnessed by others.
-- **Third question:** narratives and consolation can be automated; lifetime, bodily risk, and long-term trust are hard constraints.
-- **Who should change behavior:** people should not only accumulate reproducible outputs; they should preserve experiences and commitments that an agent cannot perform on their behalf.
-
-This is the lowest-confidence Exit-B landscape. It is not a conclusion that human nature never changes; if a new generation broadly stops treating real experience, responsibility, and presence as sources of value, withdraw or rewrite this section.
-
-## Honest far-term boundary
-
-The far horizon is not a completed full-spectrum prophecy. Energy, climate, and physical infrastructure; biology and medicine; education and qualification; geopolitics and institutions; and concrete human–AI relationship norms still need independent reasoning chains. These sections mark dependencies and branches; unless new evidence completes the five-part requirement, they remain low-confidence or landscape-only and do not enter the structural opportunity list.
+The far horizon is not a completed full-spectrum prophecy. Energy and physical infrastructure, biology and medicine, education and qualification, geopolitics, and law and property still need independent chains; concrete human–AI relationship norms cannot be inferred directly from capability. The gaps remain in [`90-ledger.md#explicit-gaps-dimensions-not-yet-covered`](90-ledger.md#explicit-gaps-dimensions-not-yet-covered) and must not be silently removed because this layer has structural landscapes. The far horizon’s purpose is to show which current judgments are load-bearing and where the next evidence must be gathered.
