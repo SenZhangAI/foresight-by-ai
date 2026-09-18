@@ -34,7 +34,7 @@ This chain uses L1 (abundance → scarcity), L2 (constraint migration), L5 (sign
 
 ## III. First step: split “data” into layers
 
-C1’s [J-005](../90-ledger.md#j-005) does not say that total data volume becomes scarce. It identifies three inputs that recombination cannot easily supply: raw signals, accountable commitments, and validated causality. In data transactions, at least four layers must be separated:
+C1’s [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) does not say that total data volume becomes scarce. It identifies three inputs that recombination cannot easily supply: raw signals, accountable commitments, and validated causality. In data transactions, at least four layers must be separated:
 
 1. **Expression layer**: summaries, labels, reports, and forecasts. These become easier to generate, so ordinary use cases face price pressure.
 2. **Observation layer**: what actually happened at a time, place, device, or body. It requires presence, sensors, or an experiment.
@@ -53,7 +53,7 @@ High-liability settings share three conditions:
 
 The buyer therefore purchases not “more data,” but a bounded commitment package: permitted uses, covered time and place, tamper evidence, notification duties, recollection duties, and compensation if it fails.
 
-This extends [J-033](../90-ledger.md#j-033) and [J-034](../90-ledger.md#j-034): verifiable records of real interventions may be worth more than explanations, while synthetic evidence may be accepted first in low-liability settings and real trials retained in high-liability settings.
+This extends [J-033](../90-ledger.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself) and [J-034](../90-ledger.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials): verifiable records of real interventions may be worth more than explanations, while synthetic evidence may be accepted first in low-liability settings and real trials retained in high-liability settings.
 
 ## V. Third step: pass the “same force can automate it” gate
 
@@ -82,8 +82,8 @@ This is not automatically a durable business. An independent value layer exists 
 
 ## VIII. What this chain grows into
 
-- It extends C1’s [J-005](../90-ledger.md#j-005) and makes it more specific as judgment [J-055](../90-ledger.md#j-055).
-- It gives [J-039](../90-ledger.md#j-039)’s “data access rent” a narrower test: not all data collects rent; real-world signals can do so only when permission and liability bind them to high-liability tasks.
+- It extends C1’s [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) and makes it more specific as judgment [J-055](../90-ledger.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks).
+- It gives [J-039](../90-ledger.md#j-039--rented-models-become-abundant-while-energy-data-and-channel-control-create-access-rents)’s “data access rent” a narrower test: not all data collects rent; real-world signals can do so only when permission and liability bind them to high-liability tasks.
 - If J-055 is supported, the next chain should study who gains bargaining power over cross-organizational real-world signals. If it is falsified, data contractualization should be downgraded from structural judgment to sector-specific compliance cost.
 
-> **Current status**: This is a testable mid-term reasoning chain, not a conclusion about all data markets. The full judgment card is [J-055](../90-ledger.md#j-055).
+> **Current status**: This is a testable mid-term reasoning chain, not a conclusion about all data markets. The full judgment card is [J-055](../90-ledger.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks).

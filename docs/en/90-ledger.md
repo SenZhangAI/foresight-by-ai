@@ -112,7 +112,9 @@ The overview is a navigation aid. Every full card, strongest opposing mechanism,
 
 Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A dependency means “if the upstream mechanism fails, this judgment must be reviewed”; it does not mean that both judgments happen simultaneously or point to an article location. A far-horizon judgment without an explicit near-term dependency should be downgraded to landscape only.
 
-Current dependency tree (complete view; each card’s `depends-on` is authoritative):
+Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
+
+Current dependency tree (complete view, covering J-001–J-055; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -275,7 +277,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-18 | J-031–J-042 metadata repair review | Restored source, next-review, and status fields in both bilingual cards; e25f0fd passed fresh-context acceptance | e25f0fd |
 | 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative |
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative |
-
+| 2026-09-18 | C2 successor chain and J-055 bilingual delivery | Added the real-signal contract-asset chain; connected bilingual C1 links; synchronized J-055 in the overview, dependency graph, and full card; kept the law-and-property gap partially covered | c4e4adcc |
 ---
 
 
@@ -1325,4 +1327,5 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - [ ] Every judgment card has ID, proposed date, one-sentence judgment, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, consensus comparison, source, status, and next review.
 - [ ] Every internal link resolves and returns to the source argument.
 - [ ] Chinese and English files are updated as equivalent projections in the same commit.
+- [ ] Dependency edges agree in all three places: each card's `depends-on`, the section-3 graph, and the depends-on column of the section-2 overview; the graph covers every registered ID, has no duplicate lines, and has no edge pointing at a non-existent ID.
 - [ ] Hard constraints use only the five-item whitelist: physical, legal/liability, trust/relationship, ownership/privacy, or embodied presence.
