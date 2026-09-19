@@ -53,7 +53,7 @@ To read backward from a far judgment, open its ledger card and follow every `dep
 
 ## Git discipline
 
-The Chinese and English trees must be updated in the same commit. Each commit must state **which judgment (J-NNN) changed and what new evidence motivated the change**; empty log messages such as `update docs` are prohibited. A judgment status transition (`ACTIVE`, `HIT`, `FALSIFIED`, or `REVISED`) should be recorded as its own commit so git can serve as the evolution history.
+Run `python3 scripts/check.py` (no dependencies) before committing: it checks internal links and anchors, required judgment-card fields, dependency edges agreeing in all three places, and bilingual parity. It does not replace the judgment items in the [pre-publication checklist](docs/en/90-ledger.md#10-pre-publication-checklist). The Chinese and English trees must be updated in the same commit. Each commit must state **which judgment (J-NNN) changed and what new evidence motivated the change**; empty log messages such as `update docs` are prohibited. A judgment status transition (`ACTIVE`, `HIT`, `FALSIFIED`, or `REVISED`) should be recorded as its own commit so git can serve as the evolution history.
 
 ## Current boundary
 

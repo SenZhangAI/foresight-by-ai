@@ -1513,6 +1513,23 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 
 ## 10. Pre-publication checklist
 
+Run the script first, then walk the items it cannot judge:
+
+```
+python3 scripts/check.py
+```
+
+It covers the machine-checkable half of the list below — internal links and
+heading anchors, required card fields, the confidence whitelist, dependency
+edges agreeing in all three places, and bilingual file and card parity. Exit
+code 0 means pass; otherwise it prints each failure. One recurring trap:
+GitHub does **not** collapse runs of hyphens in heading anchors, so
+`J-001 · Title` is `#j-001--title`; a short `#j-001` fragment silently fails
+to jump (43 of them were repaired in one pass on 2026-09-19).
+
+The remaining items are judgment calls a script cannot make. Walk them by
+hand before publishing:
+
 - [ ] Year boundaries match the single authority in `00-method.md`.
 - [ ] Confidence uses only the whitelist: high / medium / low.
 - [ ] Every judgment card has ID, proposed date, one-sentence judgment, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, consensus comparison, source, status, and next review.
