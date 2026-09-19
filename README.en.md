@@ -45,7 +45,7 @@ To read backward from a far judgment, open its ledger card and follow every `dep
 | [Mid-term landscape, 2029–2032](docs/en/20-mid.md) | [中期图景](docs/zh/20-mid.md) | Once the near-term judgments hold, how organizations, content, trust, and collaboration are forced to rearrange |
 | [Far-term landscape, 2033–2040](docs/en/30-far.md) | [远期图景](docs/zh/30-far.md) | Load-bearing-wall check: if the mid term holds, what must people and institutions rearrange |
 | [Opportunity Candidates](docs/en/40-opportunities.md) | [商机候选](docs/zh/40-opportunities.md) | Directions that pass the hard-constraint gate and have a named payer, plus the list judged to be windows |
-| [Reasoning chains C1–C3](#chain-registry) | [推演链 C1–C3](README.md#推演链登记) | Three long vertical arguments; identifiers, topics, status, and file paths all live in the [chain registry](#chain-registry) below |
+| [Chain registry](#chain-registry) | [推演链登记](README.md#推演链登记) | Every long vertical argument chain: identifier, topic, status, and file paths; elsewhere the prose only cites identifiers, it does not allocate them |
 | [Judgment Ledger](docs/en/90-ledger.md) | [判断台账](docs/zh/90-ledger.md) | Sixty-five judgment cards, the dependency graph, confidence history, review log, and explicit gaps |
 | [Glossary](docs/glossary.zh-en.md) | Same file | Chinese–English terminology; judgment identifiers are never translated or renumbered |
 
@@ -62,7 +62,7 @@ To read backward from a far judgment, open its ledger card and follow every `dep
 
 **Rules**: identifiers are allocated in the order chains are written — never reserved, never reused; the filename is `<ID×10>-<english-slug>.md`, identical in both languages. **A direction that has been announced but not yet written receives no identifier**; it is registered here with its topic and where it currently lives.
 
-Why this table exists: before 2026-09-19 the tail of C1 announced “collateralization of trust” as C3, while the file actually written as C3 was the power-and-permits chain — two unrelated chains colliding on one identifier. The unit that wrote the announcement and the unit that wrote the file had no point of contact, and nowhere in the repository was it recorded what C3 was, so neither could have detected the conflict. The collision was closed on the rule that an identifier must point at a file you can actually open: C3 belongs to the power chain, and the announcement gave its number back and moved to the last row of this table.
+Why this table exists: before 2026-09-19 the tail of C1 announced “collateralization of trust” as C3, while the file actually written as C3 was the power-and-permits chain — two unrelated chains colliding on one identifier. The announcement was not hidden: it sat in section IX of C1, and whoever wrote C3 had certainly read C1 (C3 opens by taking apart C1’s default premise). What was actually missing is **a place to look an identifier up** — stumbling on the conflict would have meant reading every chain’s tail on the off-chance, and nobody does that to pick a number. This table is that place. The collision was closed on the rule that an identifier must point at a file you can actually open: C3 belongs to the power chain, and the announcement gave its number back and moved to the last row of this table.
 
 ## Git discipline
 
