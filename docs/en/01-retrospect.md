@@ -182,7 +182,7 @@ A rough speed table can be read off the cases:
 | Several parties must change together and nobody can compel | the container (1956 → ISO 1968–70 → mainstream around the 1980s) | 20 years or more |
 | The carrier exists only for this one thing | the Picturephone (1964 → service shut down in the mid-to-late 1970s) | does not happen, until the carrier is built for other reasons |
 
-The time windows on this project's existing judgments were written without this table in hand. **Re-reviewing them against it is downstream work; this document does not touch a single existing card.**
+The time windows on this project's existing judgments were written without this table in hand. **When this section was written (2026-09-19), re-reviewing them against it was downstream work and this document did not touch a single existing card. That card-by-card re-review finished on 2026-09-20; the current result is authoritative in each ledger card's “Diffusion-gate review” field, status, and visible prose marker.**
 
 ---
 
@@ -265,7 +265,7 @@ The people who satisfy all three are concentrated in the **decision-making tier*
 
 There is a sharper attack on ourselves, and writing it down beats hiding it: **"pick one out of a large pile of candidates" is something e-commerce recommendation has already done for a billion people every day, for years.** There, "generating candidates" was never the bottleneck, and "ranking" was automated away long ago. That lines up exactly with this project's existing [J-002](90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window): selection gets eaten by the same force that produced the abundance.
 
-**This section deletes nothing and downgrades nothing.** It only attaches an audience-size qualifier to the existing judgments; re-reviewing every card in the ledger against the new gates is a separate job.
+**When this section was written (2026-09-19) it deleted nothing and downgraded nothing.** It only attached an audience-size qualifier to the existing judgments, and explicitly left “re-reviewing every card in the ledger against the new gates” to a separate job. **That downstream job was completed on 2026-09-20**: all 72 registered cards now record an audience-scale magnitude and a Gate 1 (scale) verdict, and **61 cards** currently carry a diffusion-gate narrowing note — the 60 newly set to `REVISED` this round, plus [J-004](90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), which was already `REVISED` on 2026-09-19 for a different reason; the original card text is still kept word for word and identifiers are not reused. The paragraphs above are therefore the record of what was true then: **this section is not the authority on the downgrades**. The authority is the “Diffusion-gate review” field on each card in the [judgment ledger](90-ledger.md#8-review-log) and the markers fed back into the prose files.
 
 ---
 
@@ -296,7 +296,7 @@ So who should change what behavior:
 
 - **Anyone writing a new judgment**: before writing down any society-level assertion, run Gate 1 first—count the headcount and frequency of the activity, and state whether it "raises the ceiling for people who already do this professionally" or "lets people who could not do it do it now." If the scale cannot be answered, write it as an occupational judgment.
 - **Anyone writing a time window**: do not hand out a year by feel. Answer Gate 3 and Gate 4 first—who pays for the carrier, in whose hands the decision sits—and then take a range from the speed table in section 4.
-- **Anyone re-reviewing existing judgments**: the time windows and the audience voice of the cards in the ledger were written before these gates existed. Going through them one by one is downstream work; this document only erects the gates and does not touch a single existing card.
+- **Anyone re-reviewing existing judgments**: the time windows and the audience voice of the cards in the ledger were written before these gates existed. When this document was written (2026-09-19) it only erected the gates and touched not a single existing card; **that card-by-card re-review was completed on 2026-09-20**. Its results are not written back here: the authority is the “Diffusion-gate review” field on each card in the [judgment ledger](90-ledger.md#8-review-log) and the downgrade markers in the [technology capability sequence](05-tech-sequence.md), the three time layers, the three reasoning chains, and the opportunity candidates.
 - **Anyone attacking this set of gates**: the exclusive-case table in section 5 is the most fragile place. **Show that the "exclusivity" of any one row does not hold—that is, that the case is in fact also stopped by another gate—and that gate should be merged away, and this document's conclusions must shrink accordingly.**
 
 ---

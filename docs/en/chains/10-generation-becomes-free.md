@@ -17,7 +17,7 @@ The system can generate everything—except **her**.
 
 On the third day she does something: she digs out every proposal rejected over the past seven years and writes down, one by one, “why it was rejected at the time.” The document ultimately becomes the company’s most valuable asset—because it alone can reduce sixty options to three.
 
-What this chain argues is that **the scenario above is not a joke; it is an inevitable result that can be derived from the cost structure**. And it asks what unbuyable things this will create.
+What this chain argues is that **the scenario above is not a joke—but neither is it "an inevitable result for the whole of society." It is an occupational scenario that can be derived from the cost structure.** Whoever performs this activity must satisfy three conditions at once—producing candidates in bulk as part of the job, holding the decision personally, and doing so at least weekly—which puts the global figure at **million-scale, weekly**. It therefore does not pass Gate 1 of the [diffusion gates](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written), and is recorded as [J-072](../90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend). The reasoning in this chain therefore holds only within that occupational population and may not be restated in the voice of "the whole of society," "generally," or "becomes the norm"; on this same chain, what could actually reach society scale is not "choosing" but "making." And it asks what unbuyable things this will create.
 
 ---
 
@@ -68,6 +68,8 @@ The independence of the three means **none of them has to work miracles**. As lo
 
 > See [judgment ledger J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling).
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-001, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 
 ---
 
@@ -90,6 +92,8 @@ Anything formalizable can be automatically checked by the same force; and genera
 
 > See [judgment ledger J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window).
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 
 ### But one residue cannot be absorbed
 
@@ -106,6 +110,8 @@ This hits two of the hard constraints exactly: **ownership / privacy** + **the i
 So what is scarce is not “the ability to select,” but **the input selection requires**: structured, machine-usable preferences and context about you (as an individual or organization).
 
 > See [judgment ledger J-003](../90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-003, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 
 ---
@@ -133,6 +139,8 @@ What genuinely cannot be copied is the other half: the **right to reverse across
 
 > See [judgment ledger J-065](../90-ledger.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse). The original judgment, [J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), is kept in the ledger rather than deleted, with status now `REVISED`—keeping it is what makes it visible how this step was turned back by the project’s own gate.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 
 ---
 
@@ -147,6 +155,8 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 3. **Validated causality**—correlations can be generated without limit; causality can only be obtained through **intervention** (conducting experiments, changing reality, and observing the result). Hard constraint: physics + time.
 
 > See [judgment ledger J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 
 ---
@@ -163,6 +173,8 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 - ❌ **Generic “AI output quality assurance / selection” tools**—[J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, J-003, J-005, J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ### Structural consequence (Exit B): connection will multiply faster than strong relationships
 
 AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
@@ -170,6 +182,8 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 > See [judgment ledger J-017](../90-ledger.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships).
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-017, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ---
 
@@ -187,6 +201,8 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) fails, the premise of “extremely abundant generation” itself does not hold, and everything afterward is void. I judge this probability to be low (because the three decline channels are mutually independent), but it is the only mechanism capable of overturning the entire chain in one stroke.
 **Signal that would make me withdraw it**: The falsification condition for [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) is triggered.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-001, J-003, J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ---
 
 ## IX. What This Chain Grows Into
@@ -195,3 +211,5 @@ If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001
 - From [J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) + [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) (accountable commitments become the filter) → follows the long-term **collateralization of trust**: when “speaking well” is no longer a capability signal, society returns to older, more expensive credentials—guarantees, collateral, long-term relationships, and identity. That direction has not yet been written as a chain of its own; for now it sits in [section 5 of the far-term landscape](../30-far.md#5-power-and-institutions-more-answers-do-not-mean-dispersed-action-rights) and in [J-035](../90-ledger.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output), mostly as “scenario only.” It also **holds no chain identifier**: this chain tail once announced it as “C3,” while the file written as C3 is the power-and-permits chain; identifier ownership is recorded in the [chain registry](../../../README.en.md#chain-registry).
 
 > C2 and C3 are both written as testable successor chains: [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md) continues along the raw-signal line, while [C3 · Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits](30-power-land-and-permits.md) takes apart the premise this chain has quietly assumed throughout—that compute can be had as long as you are willing to pay for it. Every chain's identifier, topic, and status is listed in the [chain registry](../../../README.en.md#chain-registry).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, J-005, J-035, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”

@@ -9,6 +9,8 @@
 
 **Source judgment**: [J-003](90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) ｜ **Hard constraint**: ownership / private property
 
+> **Upstream downgraded by the diffusion gate**: The source judgment behind this opportunity was downgraded on 2026-09-20 by Gate 1 (audience scale) to occupational/organizational judgments — J-003 (million-scale, weekly). This opportunity therefore holds only within that occupational/organizational scale; it may not be sized as a society-wide market, nor restated in the voice of “the whole of society” or “generally.” For the test see [01-retrospect](01-retrospect.md).
+
 **What exactly is scarce**
 It is not a “memory feature,” but **a record of trade-offs that belongs to you, can be carried with you, authorized, and priced**: who we are, what we have rejected, and why we rejected it. Today it is scattered across thousands of conversations and hundreds of killed proposals; it has never been structured, so every time we change tools we start from zero. The difficulty of self-describing preferences is a demand-side fact, not a sixth hard-constraint category; what blocks automatic copying is the lawful ownership and access boundary around this historical context.
 
@@ -30,6 +32,8 @@ Preferences may be easier to reproduce than I think (see the counterargument und
 ## O-002 · The Access Layer for Cross-Party Reversal Rights
 
 **Source judgment**: [J-065](90-ledger.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse) ｜ **Hard constraint**: ownership / private property + trust / relationship
+
+> **Upstream downgraded by the diffusion gate**: The source judgment behind this opportunity was downgraded on 2026-09-20 by Gate 1 (audience scale) to occupational/organizational judgments — J-065 (ten-million-scale, weekly). This opportunity therefore holds only within that occupational/organizational scale; it may not be sized as a society-wide market, nor restated in the voice of “the whole of society” or “generally.” For the test see [01-retrospect](01-retrospect.md).
 
 > **2026-09-19 gate re-review: this candidate has been narrowed.** It used to be called “Reversible Infrastructure for AI Action,” and it treated shadow environments, action sandboxes, and one-click rollback as a single scarce item—without one sentence answering the gate’s second question. Taken apart, only half of it survives:
 > - **The half that does not survive**—when an action does **not** cross an ownership boundary (your own database, your own cloud resources, a test sandbox), rollback is pure software, precisely what the same force that makes generation abundant is best at producing; and the system being operated on is held by the platform itself, which has every incentive to bundle rollback as a default and give it away. This half has payers but fails the gate, and has been moved to the [Window List](#window-list-can-be-harvested-but-do-not-treat-as-structural-opportunities) at the end of this file.
@@ -59,6 +63,8 @@ Two, and each severs the reasoning chain. First, **the holders internalize it**�
 
 **Source judgment**: [J-005](90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) ｜ **Hard constraint**: law / liability
 
+> **Upstream downgraded by the diffusion gate**: The source judgment behind this opportunity was downgraded on 2026-09-20 by Gate 1 (audience scale) to occupational/organizational judgments — J-005 (million-scale, weekly). This opportunity therefore holds only within that occupational/organizational scale; it may not be sized as a society-wide market, nor restated in the voice of “the whole of society” or “generally.” For the test see [01-retrospect](01-retrospect.md).
+
 **What exactly is scarce**
 When content is unlimited and its quality is broadly adequate, content itself is no longer a filter. The only remaining usable filter is: **if this statement is wrong, who pays?** What is scarce, therefore, is **a party willing to bear payment liability for an answer**, along with the underwriting, evidence-preservation, and recovery mechanisms that support such a commitment. A model can copy expression, but compute cannot conjure **a legally identifiable, accountable party that can actually pay, or that holds a license it would lose if it could not**.
 
@@ -85,6 +91,8 @@ A closer counterargument follows precisely from how wide the set of bearers is: 
 ## O-004 · Certainty Layer for Deliverable Power and Permitted Sites
 
 **Source judgment**: [J-057](90-ledger.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date) ｜ **Hard constraint**: physical + law / liability + ownership
+
+> **Upstream downgraded by the diffusion gate**: The source judgment behind this opportunity was downgraded on 2026-09-20 by Gate 1 (audience scale) to occupational/organizational judgments — J-056 (ten-million-scale, weekly); J-057 (ten-million-scale, weekly); J-064 (ten-million-scale, annual). This opportunity therefore holds only within that occupational/organizational scale; it may not be sized as a society-wide market, nor restated in the voice of “the whole of society” or “generally.” For the test see [01-retrospect](01-retrospect.md).
 
 **What exactly is scarce**
 Not electricity and not land, but **a position that can be energized on the promised date**: a site whose interconnection permit is granted, whose substation capacity is locked, whose water and land conditions are settled and where construction can start immediately — together with the ability to turn that certainty into tradable terms (capacity reservation, in-service date guarantees, delay damages, bridge power). The same force that makes everything abundant can drive the cost of siting studies, power-flow simulation, design, and filing packages very low, but it cannot manufacture a transformer that has not been built, and it cannot make a hearing unnecessary. The physical constraint comes from having to move mass and wait; the legal constraint from the fact that interconnection and land permits can only be granted by an authorized body; the ownership constraint from key sites being lawfully held by someone else.
@@ -117,3 +125,5 @@ One sharp pullback in compute demand, or energy per unit of service falling fast
 ---
 
 > The small number of candidates is deliberate. Section 3 of the methodology states: **better one fewer candidate than one more false opportunity.** All scarcity items that fail the gate remain in the Window List; they will not be quietly upgraded.
+
+> **Upstream downgraded by the diffusion gate**: The source judgments behind the rows of this list were downgraded on 2026-09-20 by Gate 1 (audience scale) to occupational/organizational judgments — J-002 (million-scale, weekly); J-019 (ten-million-scale, weekly); J-031 (ten-million-scale, weekly); J-057 (ten-million-scale, weekly); J-065 (ten-million-scale, weekly). These windows therefore hold only within the corresponding occupational/organizational scale; it may not be sized as a society-wide market, nor restated in the voice of “the whole of society” or “generally.” For the test see [01-retrospect](01-retrospect.md).

@@ -50,6 +50,8 @@ Only the first curve steepens materially in this investment wave. So the conclus
 
 It can be wrong. The strongest counter is not "there will be enough power" but **demand collapsing on its own**: if energy per unit of service falls faster than service volume grows, the load curve never catches the grid curve and the constraint never binds. That is written into the card's falsifier, and it gets its own long-run branch in section 9.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-056, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ## 4. Step two: what is scarce is not energy but "live on that date"
 
 Once the bottleneck sits in a queue, the scarce good becomes certainty about time, not energy itself.
@@ -61,6 +63,8 @@ Contract structure deforms accordingly. It stops being mainly "price per kilowat
 **Power you can buy and power you can buy on schedule are two different commodities.**
 
 This judgment also yields a counterintuitive corollary: over these few years the geography of compute is better explained by **queue length and permitting speed** than by electricity price. Once grid expansion catches up, the corollary expires; until then it is observable and falsifiable as [J-063](../90-ledger.md#j-063--the-geography-of-compute-is-decided-by-interconnection-queues-and-permitting-speed-not-by-electricity-price).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-057, J-063, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## 5. Step three: the split personality of AI load
 
@@ -75,6 +79,8 @@ What grids are shortest of is precisely flexibility. So schedulable compute is n
 
 Its falsifier is clean: if, by the end of the window, contracted data-centre capacity in interruptible or demand-response programs is still negligible, this half of the personality does not exist commercially.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-058, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ## 6. Step four: control follows the constraint — from hardware export to the use side
 
 The technology chain already noted that renting compute widens capability diffusion ([J-027](../90-ledger.md#j-027--rented-compute-spreads-capability)). For a control regime, that sentence is a problem.
@@ -84,6 +90,8 @@ Chips are an ideal object of control because they are discrete, countable, trace
 Facing that gap, a regulator has two options: accept that control has failed, or move the handle to the use side — identity and purpose declaration for accounts, restrictions on cross-border remote access, rules on transferring model weights, authorization of sites and operators, logging and reporting duties. **When the controlled object cannot be stopped at the border, control migrates onto people and contracts.** That is [J-059](../90-ledger.md#j-059--the-handle-of-compute-control-moves-from-hardware-export-to-the-use-side).
 
 Part of this is already observable, so it is **partly consistent with consensus** and must be labelled as such. What this chain adds is not the direction but the mechanism and the falsifier: if, by the end of the window, the major control regimes are still anchored only in hardware and entity lists, with no enforceable duties on remote access or weight transfer and no enforcement cases, the reasoning is wrong. Its counter-mechanism is equally concrete: if open weights and local models make high-value capability broadly available outside any control perimeter, use-side control degrades into symbolic text.
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-027, J-059, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## 7. Step five: site here, hardware there, jurisdiction elsewhere (landscape only)
 
@@ -99,6 +107,8 @@ A new state role appears: countries with surplus energy, fast approvals, and geo
 
 This is a structural consequence with no identifiable payer, so it belongs to Exit B; but its evidence chain is incomplete and confidence can only be low, so per the methodology it is recorded as [J-060](../90-ledger.md#j-060--energy-rich-hosts-trade-sites-for-compute-and-gain-rent-rather-than-capability-sovereignty-landscape-only) (landscape only). Upgrading it requires an observable class of contract terms: whether host states obtain local usage quotas, weight escrow, or audit rights.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-060, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ## 8. Step six: who receives the bill
 
 Heavy assets must land somewhere specific, and the people who live there see the bill.
@@ -108,6 +118,8 @@ The asymmetry is here: a data centre is a very large investment with very few jo
 The result is a line item that was previously priced at roughly zero: **social licence**. That is [J-061](../90-ledger.md#j-061--local-externalities-of-data-centres-become-explicit-and-social-licence-becomes-a-real-siting-constraint). Its counter-mechanism is solid too: if data centres broadly bring their own generation and storage and switch to closed-loop cooling, decoupling from the public grid and public water, local externalities fall sharply and the conflict does not arise.
 
 One step further is weaker but worth keeping: **what can be taxed is the immovable heavy asset; what earns the profit is the instantly mobile value layer.** A locality can reach electricity prices, property tax, and a little employment; it cannot reach the profit. So localities keep raising their demands on the heavy asset while firms hedge through siting competition. Whether this mismatch gets absorbed by international tax reform is not something current evidence can settle, so it is kept as [J-062](../90-ledger.md#j-062--heavy-assets-are-taxable-while-the-value-layer-is-mobile-so-local-shares-stay-structurally-low-landscape-only) (landscape only).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-061, J-062, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## 9. The gate: what gets eaten by the same force
 
@@ -121,6 +133,8 @@ So the opportunity exit of this chain is narrow rather than broad. It is not the
 Bridge generation is only a **window**, not a structural opportunity: its value comes entirely from the queue and closes when grid expansion catches up. It must be treated as such.
 
 Finally, one self-falsifying long-run branch: if efficiency gains keep outpacing load growth and schedulable load can migrate freely across regions, this chain's constraint dissolves on its own. It has no adequate evidence chain and is labelled [J-064](../90-ledger.md#j-064--if-efficiency-gains-keep-outpacing-load-growth-the-constraint-in-this-chain-dissolves-in-the-long-run-landscape-only) (landscape only), but it stays in the ledger as the single most important opposing hypothesis for the whole chain.
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-057, J-064, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## 10. So who should change what
 
@@ -140,6 +154,8 @@ Finally, one self-falsifying long-run branch: if efficiency gains keep outpacing
 
 **Counter four: latency-sensitive load dominates.** If interactive inference is an overwhelming share of total load and service-level agreements forbid interruption, the flexible share in [J-058](../90-ledger.md#j-058--ai-load-splits-into-latency-sensitive-and-schedulable-halves-and-the-schedulable-half-becomes-a-grid-flexibility-resource) is too small to matter commercially.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-056, J-057, J-058, J-059, J-060, J-061, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ## 12. Comparison with external material
 
 The comparison was made after the reasoning above, and is used only to mark agreement, divergence, and the boundary of evidence. It does not write back into the reasoning chain.
@@ -147,6 +163,8 @@ The comparison was made after the reasoning above, and is used only to mark agre
 - **Agreement**: external material supports the direction that data-centre electricity growth and grid interconnection are real constraints, and supports the existence of control measures now reaching model weights and data-centre operator authorization (see the "external comparison source" field on each card).
 - **Divergence**: external material generally discusses **totals** (demand growth, installed capacity, emissions), whereas this chain is about **where the binding constraint sits** and **the pricing of delivery time**; the former does not imply the latter. The queue evidence obtained this round covers generation-side interconnection only and explicitly does not cover large-load queues. On control, the observed handle so far is weights plus site and operator authorization, not the account-level remote-access licensing this chain's independent reasoning expected — that divergence is recorded on the card rather than smoothed over.
 - **Why I still hold the line**: the slope difference between the three supply curves is structural and does not depend on any specific demand forecast; even if total forecasts are revised down sharply, concentrated investment plus unchanged approval cycles still exhausts the queue before the wafers. If large-load interconnection waits fall systematically, I withdraw [J-056](../90-ledger.md#j-056--the-binding-constraint-on-compute-expansion-moves-from-chip-supply-to-power-delivery-and-interconnection-permits) first and then re-review the rest of the chain along the dependency links.
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-056, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## 13. What grows out of this chain
 
@@ -157,3 +175,5 @@ The comparison was made after the reasoning above, and is used only to mark agre
 - This chain and [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md) each take apart one of C1's default assumptions: C2 removes "real-world signals can be picked up free of charge," this chain removes "compute can be had as long as you are willing to pay." Both point at the same structure: the cheaper the generation side gets, the more the constraint shifts onto things recombination cannot supply and some party has to deliver.
 
 > **Current status**: this is a near-to-mid-term chain whose tests are observable queues and contract terms. The full judgment cards are [J-056](../90-ledger.md#j-056--the-binding-constraint-on-compute-expansion-moves-from-chip-supply-to-power-delivery-and-interconnection-permits) through [J-064](../90-ledger.md#j-064--if-efficiency-gains-keep-outpacing-load-growth-the-constraint-in-this-chain-dissolves-in-the-long-run-landscape-only). Every written chain, and every direction announced but not yet written, is listed in the [chain registry](../../../README.en.md#chain-registry).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-027, J-039, J-056, J-063, J-064, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”

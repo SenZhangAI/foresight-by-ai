@@ -43,6 +43,8 @@ C1’s [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-co
 
 Only when the latter three layers matter to the task can data earn structural premium. Provenance for ordinary marketing copy does not automatically become a valuable asset; an observation that determines a shutdown or treatment path can push error cost into the contract.
 
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+
 ## IV. Second step: why high-liability settings contract first
 
 High-liability settings share three conditions:
@@ -54,6 +56,8 @@ High-liability settings share three conditions:
 The buyer therefore purchases not “more data,” but a bounded commitment package: permitted uses, covered time and place, tamper evidence, notification duties, recollection duties, and compensation if it fails.
 
 This extends [J-033](../90-ledger.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself) and [J-034](../90-ledger.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials): verifiable records of real interventions may be worth more than explanations, while synthetic evidence may be accepted first in low-liability settings and real trials retained in high-liability settings.
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-033, J-034, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
 ## V. Third step: pass the “same force can automate it” gate
 
@@ -88,3 +92,5 @@ This is not automatically a durable business. An independent value layer exists 
 - This chain shares one premise with C1: that compute can be bought if you are willing to pay. C1 does interrogate it, but only as one of its strongest counterarguments (counterargument 3: a hard ceiling on compute from energy, supply chains, or regulation voids the whole chain), without developing it; what develops it into a chain of its own is [C3 · Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits](30-power-land-and-permits.md) — and if delivery dates are set by interconnection queues rather than by price, then the “update duty” and “continued supply” clauses in this chain carry an extra layer of delivery risk, one the seller understands no better than the buyer does.
 
 > **Current status**: This is a testable mid-term reasoning chain, not a conclusion about all data markets. The full judgment card is [J-055](../90-ledger.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks). Every written chain, and every direction announced but not yet written, is listed in the [chain registry](../../../README.en.md#chain-registry).
+
+> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, J-039, J-055, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
