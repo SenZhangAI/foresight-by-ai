@@ -35,10 +35,17 @@ CONFIDENCE = {
     "en": {"high", "medium", "low"},
 }
 CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
-# The value stops at the first sentence end or opening parenthesis, so
-# `Low (landscape only).` and `低（仅图景）。` both reduce to a bare grade.
+# The WHOLE field value is read, up to end of line. Truncating it at the first
+# `。` / `.` / `(` / `（` — which is what this used to do — meant only a prefix
+# was ever compared, so `中（偏高）` and `Medium (leaning high).` passed while
+# the bare `中高` was caught: the same invented grade, waved through by writing
+# it in brackets.
 CONFIDENCE_VALUE = (r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*[:\uff1a]"
-                    r"\s*([^\n\u3002.(\uff08]*)")
+                    r"\s*([^\n]*)")
+# A value may carry exactly one qualifier, and only the standing one: the
+# ledger marks low-confidence judgments as landscape-only. Anything else in the
+# brackets is a grade the whitelist does not define.
+CONFIDENCE_QUALIFIER = {"zh": {u"\u4ec5\u56fe\u666f"}, "en": {"landscape only"}}
 CARD_FIELDS = {
     "zh": [u"\u63d0\u51fa\u65e5\u671f", u"\u4e00\u53e5\u8bdd\u5224\u65ad", u"\u900f\u955c",
            u"\u63a8\u7406\u94fe", u"\u65f6\u95f4\u7a97", u"\u8bc1\u4f2a\u6761\u4ef6",
@@ -122,7 +129,13 @@ def parse_ledger(lang):
     cards = {}
     parts = re.split(r"^### (J-\d{3})", text, flags=re.M)
     for i in range(1, len(parts), 2):
-        cards[parts[i]] = parts[i + 1]
+        body = parts[i + 1]
+        # A card ends at the next top-level section. Without this the LAST
+        # card's body runs to end of file and swallows whatever follows it
+        # (section 10 today), so that text would be checked — and reported —
+        # as if it belonged to the card.
+        end = re.search(r"^## ", body, re.M)
+        cards[parts[i]] = body[:end.start()] if end else body
     graph = {}
     pattern = r"^(J-\d{3})\s*%s\s*([^\n]*)$" % re.escape(GRAPH_ARROW[lang])
     for m in re.finditer(pattern, text, re.M):
@@ -192,6 +205,31 @@ def check_comparison(lang, cards, overview_consensus):
                  % (lang, jid, ext))
 
 
+def allowed_confidence(lang):
+    """Human-readable description of the values this check accepts."""
+    grades = " / ".join(sorted(CONFIDENCE[lang]))
+    quals = " / ".join(sorted(CONFIDENCE_QUALIFIER[lang]))
+    return "%s, optionally followed by (%s)" % (grades, quals)
+
+
+def confidence_is_whitelisted(lang, raw):
+    """True when the whole field value states a whitelisted grade.
+
+    Accepts `低`, `Low.`, `低（仅图景）。`, `Low (landscape only).` — a grade,
+    an optional trailing sentence period, and at most the one standing
+    qualifier. It rejects `中高`, `极高`, `very high` and, since the value is
+    read whole rather than up to the first bracket, `中（偏高）` as well: a
+    bracket is not a place to smuggle a grade the whitelist does not define.
+    """
+    value = raw.strip().rstrip(u"\u3002.").strip()
+    m = re.match(u"^([^(\uff08]*)[(\uff08]([^)\uff09]*)[)\uff09]$", value)
+    if m:
+        if m.group(2).strip().lower() not in CONFIDENCE_QUALIFIER[lang]:
+            return False
+        value = m.group(1).strip()
+    return value.lower() in CONFIDENCE[lang]
+
+
 def check_ledger(lang):
     cards, graph, overview, overview_consensus = parse_ledger(lang)
     if not cards:
@@ -203,10 +241,11 @@ def check_ledger(lang):
                    if ("**%s**" % f) not in body]
         if missing:
             fail("card-fields", "%s %s missing %s" % (lang, jid, ", ".join(missing)))
-        # Exact membership, never substring. `极高` contains `高` and
-        # `very high` contains `high`, so a substring test passes every
-        # positive case while letting through exactly the invented grades this
-        # check exists to catch — which is what it did until 2026-09-19. Every
+        # Exact membership over the WHOLE value, never substring over a prefix.
+        # `极高` contains `高` and `very high` contains `high`, so a substring
+        # test passes every positive case while letting through exactly the
+        # invented grades this check exists to catch; truncating the value at
+        # the first bracket let the same grades back in as `中（偏高）`. Every
         # occurrence in the card is tested, not only the first, and a field
         # whose value cannot be read is a failure rather than a silent skip.
         found = list(re.finditer(CONFIDENCE_VALUE, body))
@@ -216,10 +255,9 @@ def check_ledger(lang):
                  "%s %s: confidence field present but no value could be read"
                  % (lang, jid))
         for m in found:
-            value = m.group(1).strip().lower()
-            if value not in CONFIDENCE[lang]:
-                fail("confidence", "%s %s: %r is not one of %s"
-                     % (lang, jid, value, sorted(CONFIDENCE[lang])))
+            if not confidence_is_whitelisted(lang, m.group(1)):
+                fail("confidence", "%s %s: %r is not %s"
+                     % (lang, jid, m.group(1).strip(), allowed_confidence(lang)))
         declared = set(re.findall(r"J-\d{3}",
                        (re.search(r"\*\*depends-on\*\*[:\uff1a]\s*([^\n]*)", body)
                         or re.match("", "")).group(1) if re.search(
@@ -227,8 +265,10 @@ def check_ledger(lang):
         for dep in declared:
             if dep not in cards:
                 fail("depends-on", "%s %s depends on %s, which has no card" % (lang, jid, dep))
-        if jid == min(cards):
-            continue  # root card carries no edge in the graph
+        # The root card is NOT exempt: it carries no edge in the graph, which
+        # is exactly the claim `declared == graph.get(jid, set())` makes when
+        # both are empty. Skipping it let the root declare an upstream that
+        # neither the graph nor the overview knows about.
         if declared != graph.get(jid, set()):
             fail("dep-graph", "%s %s: card %s vs graph %s"
                  % (lang, jid, sorted(declared), sorted(graph.get(jid, set()))))
@@ -335,10 +375,16 @@ def _write_file(path, text):
 
 
 def _first_card(text):
-    m = re.search(r"^### J-\d{3}", text, re.M)
+    """(offset, id) of the first card IN FILE ORDER.
+
+    The ledger is not sorted by id — today the file opens with J-043 — so this
+    is deliberately not the same card as `min(ids)`, which is the one the
+    dependency comparison used to exempt.
+    """
+    m = re.search(r"^### (J-\d{3})", text, re.M)
     if not m:
         raise AssertionError("fixture carries no judgment card")
-    return m.start()
+    return m.start(), m.group(1)
 
 
 def _last_card(text):
@@ -375,6 +421,33 @@ def _break_dep_edge(root):
             u"overview still carry the edge" % jid)
 
 
+def _break_root_dep_edge(root):
+    """The root card — `min(ids)` — used to be exempt from both comparisons.
+
+    It must be located by id, not by position: the ledger opens with J-043,
+    and mutating that card would exercise the ordinary path and pass whether
+    or not the exemption is still there.
+    """
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    ids = re.findall(r"^### (J-\d{3})", text, re.M)
+    if len(ids) < 2:
+        raise AssertionError("fixture needs at least two cards")
+    root_id = min(ids)
+    borrowed = min(i for i in ids if i != root_id)
+    head = re.search(r"^### %s\b" % root_id, text, re.M).start()
+    m = re.search(r"^- \*\*depends-on\*\*[:\uff1a][^\n]*$", text[head:], re.M)
+    if not m:
+        raise AssertionError("root card %s carries no depends-on line" % root_id)
+    if re.search(r"J-\d{3}", m.group(0)):
+        raise AssertionError("root card %s already declares an upstream, so "
+                             "this fixture proves nothing" % root_id)
+    line = u"- **depends-on**\uff1a%s\u3002" % borrowed
+    _write_file(path, text[:head + m.start()] + line + text[head + m.end():])
+    return (u"zh %s (lowest id, the exempted card): declares %s while the "
+            u"graph and the overview give it no upstream" % (root_id, borrowed))
+
+
 def _break_single_language_card(root):
     path = _ledger(root, "en")
     text = _read_file(path)
@@ -386,14 +459,14 @@ def _break_single_language_card(root):
 def _break_missing_field(root):
     path = _ledger(root, "zh")
     text = _read_file(path)
-    head = _first_card(text)
+    head, jid = _first_card(text)
     field = u"\u8bc1\u4f2a\u6761\u4ef6"  # 证伪条件
     m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*\n" % re.escape(field),
                   text[head:], re.M)
     if not m:
-        raise AssertionError("first zh card carries no %s line" % field)
+        raise AssertionError("zh %s carries no %s line" % (jid, field))
     _write_file(path, text[:head + m.start()] + text[head + m.end():])
-    return u"zh first card: the %s line is gone" % field
+    return u"zh %s: the %s line is gone" % (jid, field)
 
 
 def _set_confidence(lang, value):
@@ -404,31 +477,93 @@ def _set_confidence(lang, value):
     def mutate(root):
         path = _ledger(root, lang)
         text = _read_file(path)
-        head = _first_card(text)
+        head, jid = _first_card(text)
         m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*$" % re.escape(field),
                       text[head:], re.M)
         if not m:
-            raise AssertionError("first %s card carries no %s line"
-                                 % (lang, field))
+            raise AssertionError("%s %s carries no %s line"
+                                 % (lang, jid, field))
         line = u"- **%s**%s%s" % (field, sep, value)
         _write_file(path, text[:head + m.start()] + line
                     + text[head + m.end():])
         if line not in _read_file(path):
             raise AssertionError("confidence fixture was not applied")
-        return u"%s first card: confidence = %s" % (lang, value)
+        return u"%s %s: confidence = %s" % (lang, jid, value)
 
     return mutate
 
 
-# Five breakages, each with the check tag that must report it.
+def _break_second_confidence(root):
+    """A card whose FIRST confidence value is fine and second is not."""
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    head, jid = _first_card(text)
+    field = CONFIDENCE_FIELD["zh"]
+    m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*\n" % re.escape(field),
+                  text[head:], re.M)
+    if not m:
+        raise AssertionError("zh %s carries no %s line" % (jid, field))
+    extra = u"- **%s**\uff1a\u6781\u9ad8\n" % field  # 极高
+    _write_file(path, text[:head + m.end()] + extra + text[head + m.end():])
+    return (u"zh %s: a second confidence line, 极高, below a valid one"
+            % jid)
+
+
+def _break_unreadable_confidence(root):
+    """Field present, value unreachable: the check must not silently skip."""
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    head, jid = _first_card(text)
+    field = CONFIDENCE_FIELD["zh"]
+    m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*$" % re.escape(field),
+                  text[head:], re.M)
+    if not m:
+        raise AssertionError("zh %s carries no %s line" % (jid, field))
+    line = u"- **%s** \u6781\u9ad8" % field  # no separator after the field
+    _write_file(path, text[:head + m.start()] + line + text[head + m.end():])
+    return (u"zh %s: `- **置信度** 极高` — field present, no separator"
+            % jid)
+
+
+def _text_after_last_card(root):
+    """Not a breakage: prose BELOW the last card belongs to no card.
+
+    The card body used to run to end of file, so a confidence example in the
+    checklist section was read as if J-064 had written it.
+    """
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    _start, end, _jid = _last_card(text)
+    if end >= len(text):
+        raise AssertionError("fixture has no section after the last card")
+    nl = text.find("\n", end)
+    if nl == -1:
+        raise AssertionError("section after the last card has no body")
+    extra = u"\n- **%s**\uff1a\u6781\u9ad8\n" % CONFIDENCE_FIELD["zh"]
+    _write_file(path, text[:nl + 1] + extra + text[nl + 1:])
+    return u"zh: `- **置信度**：极高` added to the section after the last card"
+
+
+# Breakages that must be caught, each with the check tag that must report it.
 NEGATIVE_CASES = [
     (u"dangling anchor", "links", _break_dangling_anchor),
     (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
+    (u"root card's dependency edge disagrees", "dep-graph",
+     _break_root_dep_edge),
     (u"card exists in one language only", "bilingual-cards",
      _break_single_language_card),
     (u"confidence outside the whitelist", "confidence",
      _set_confidence("zh", u"\u6781\u9ad8")),  # 极高
+    (u"second confidence value in the same card", "confidence",
+     _break_second_confidence),
+    (u"confidence value unreadable", "confidence",
+     _break_unreadable_confidence),
     (u"required card field missing", "card-fields", _break_missing_field),
+]
+
+# Edits that must NOT be reported: the checker has to stay usable.
+POSITIVE_CASES = [
+    (u"prose below the last card belongs to no card", _text_after_last_card),
 ]
 
 # The whitelist is per language, so a value must be an exact member of ITS
@@ -437,6 +572,8 @@ CONFIDENCE_REJECTED = [
     ("zh", u"\u6781\u9ad8"),        # 极高  — contains 高
     ("zh", u"\u5f88\u4f4e"),        # 很低  — contains 低
     ("zh", u"\u4e2d\u9ad8"),        # 中高  — the grade that actually shipped once
+    ("zh", u"\u4e2d\uff08\u504f\u9ad8\uff09"),   # 中（偏高） — same grade, in brackets
+    ("en", "Medium (leaning high)."),
     ("zh", u"\u672a\u77e5"),        # 未知
     ("zh", "0.8"),
     ("en", "very high"),
@@ -447,6 +584,9 @@ CONFIDENCE_REJECTED = [
 CONFIDENCE_ACCEPTED = [
     ("zh", u"\u9ad8"), ("zh", u"\u4e2d"), ("zh", u"\u4f4e"),
     ("en", "high"), ("en", "medium"), ("en", "low"),
+    # The form the ledger actually uses for landscape-only judgments.
+    ("zh", u"\u4f4e\uff08\u4ec5\u56fe\u666f\uff09\u3002"),
+    ("en", "Low (landscape only)."),
 ]
 
 
@@ -501,6 +641,15 @@ def self_test():
             ok = code == 0
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
+
+        print("\nedits that must NOT be reported:")
+        for title, mutate in POSITIVE_CASES:
+            work = fresh()
+            detail = mutate(work)
+            code, out = _run_checker(work)
+            ok = code == 0
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, u"exit %d — %s" % (code, detail))
 
         print("\nself-test: %d passed, %d failed" % (passed, failed))
         return 1 if failed else 0
