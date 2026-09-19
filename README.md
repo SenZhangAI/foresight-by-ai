@@ -17,7 +17,7 @@
 - **想被一个故事击中** → 读推演链。[C1 · 生成变得免费之后，什么反而买不到了](docs/zh/chains/10-generation-becomes-free.md) 从一个下午讲起：六十套方案摆在面前，市场负责人却什么也决定不了。[C2 · 当数据不再免费：现实信号如何变成合同资产](docs/zh/chains/20-real-signals-become-contracts.md) 接着回答，一次真实观测凭什么值钱、又凭什么能写进合同。[C3 · 电子落地：为什么算力的上限不在芯片而在变压器与许可证](docs/zh/chains/30-power-land-and-permits.md) 把链条推到地面：当模型可以租、芯片可以买，真正排不到的是一台尚未制造的变压器和一场必须召开的听证会。
 - **想要全景** → 按时间层读三篇正文：[近期 2026–2028](docs/zh/10-near.md) → [中期 2029–2032](docs/zh/20-mid.md) → [远期 2033–2040](docs/zh/30-far.md)。每篇横向覆盖六个维度，从技术、内容、信任一路走到权力与意义。
 - **想找可下注的方向** → 直接读[商机候选](docs/zh/40-opportunities.md)：四条通过硬约束闸门的候选（谁付钱、付多少、为什么是现在、最强反方），外加一份「现在能吃、但会被同一股力量吃掉」的窗口清单。
-- **想检验我有没有胡说** → 打开[判断台账](docs/zh/90-ledger.md)。64 张判断卡片，每张写明推理链、时间窗、证伪条件、领先指标、置信度，以及它踩在哪几条上游判断之上。规则本身写在[推演方法论](docs/zh/00-method.md)，先看第 3 节的硬约束闸门。
+- **想检验我有没有胡说** → 打开[判断台账](docs/zh/90-ledger.md)。65 张判断卡片，每张写明推理链、时间窗、证伪条件、领先指标、置信度，以及它踩在哪几条上游判断之上。规则本身写在[推演方法论](docs/zh/00-method.md)，先看第 3 节的硬约束闸门。
 
 推演链和时间层正文讲的是同一批判断，切法不同：**链**沿一条因果线纵向讲到底，适合第一次阅读；**时间层正文**横向铺开同一时间窗里的多个维度，适合查全。两者都只在行文中内联 `J-NNN`，元数据一律退到台账。
 
@@ -45,11 +45,24 @@
 | [中期图景 2029–2032](docs/zh/20-mid.md) | [Mid-term landscape](docs/en/20-mid.md) | 近期判断成立之后，组织、内容、信任与协作被迫重排成什么样 |
 | [远期图景 2033–2040](docs/zh/30-far.md) | [Far-term landscape](docs/en/30-far.md) | 承重墙检查：若中期成立，人与制度必须重新安排什么 |
 | [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 通过硬约束闸门、有明确付费者的方向，以及被判定为窗口的清单 |
-| [C1 · 生成变得免费之后](docs/zh/chains/10-generation-becomes-free.md) | [C1 · After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md) | 长论证：成本下降如何一路推到「什么反而买不到了」 |
-| [C2 · 当数据不再免费](docs/zh/chains/20-real-signals-become-contracts.md) | [C2 · When Data Is No Longer Free](docs/en/chains/20-real-signals-become-contracts.md) | 长论证：现实信号怎样从素材变成可追责的合同资产 |
-| [C3 · 电子落地](docs/zh/chains/30-power-land-and-permits.md) | [C3 · Electrons on the Ground](docs/en/chains/30-power-land-and-permits.md) | 长论证：算力的绑定约束如何从芯片转移到电力交付、许可与地方政治 |
-| [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 64 张判断卡片、依赖图、置信度变更史、检查日志与显式缺口 |
+| [推演链 C1–C3](#推演链登记) | [Reasoning chains C1–C3](README.en.md#chain-registry) | 三条纵向长论证；编号、主题、状态与文件路径统一见下方[推演链登记](#推演链登记) |
+| [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 65 张判断卡片、依赖图、置信度变更史、检查日志与显式缺口 |
 | [术语对照](docs/glossary.zh-en.md) | 同一文件 | 中英术语一一对应；判断编号不翻译、不重新编号 |
+
+## 推演链登记
+
+**链的编号在这里分配，且只在这里分配。** 要写一条新链，先看这张表：哪些号已经用掉、哪个方向已经被预告过。正文其他位置可以引用编号，但不新开编号、不改写状态——只有这一张表说了算。
+
+| 编号 | 主题 | 状态 | 文件 |
+|---|---|---|---|
+| C1 | 生成变得免费之后，什么反而买不到了 | 已写成 | [中文](docs/zh/chains/10-generation-becomes-free.md) · [English](docs/en/chains/10-generation-becomes-free.md) |
+| C2 | 当数据不再免费：现实信号如何变成合同资产 | 已写成 | [中文](docs/zh/chains/20-real-signals-become-contracts.md) · [English](docs/en/chains/20-real-signals-become-contracts.md) |
+| C3 | 电子落地：算力的瓶颈从芯片移到电网、土地与许可 | 已写成 | [中文](docs/zh/chains/30-power-land-and-permits.md) · [English](docs/en/chains/30-power-land-and-permits.md) |
+| —（不占编号） | 信任抵押化：当「说得好」不再是能力信号，社会退回担保、抵押与长期关系 | 已被预告，尚未写成独立链 | 现落在[远期图景第 5 节](docs/zh/30-far.md#5-权力与制度答案变多不等于行动权分散)与 [J-035](docs/zh/90-ledger.md#j-035--责任抵押进入重要-ai-输出的交易结构)，多为「仅图景」 |
+
+**规则**：编号按写成的先后顺序分配，不预留、不复用；文件名用 `<编号×10>-<英文 slug>.md`，中英同名同号。**被预告但尚未写成的方向不给编号**，只在本表登记主题与当前落点。
+
+为什么要有这张表：2026-09-19 之前，C1 链尾把「信任抵押化」预告成 C3，而实际写成 C3 文件的是电力与许可链——两条不相干的链撞在同一个号上。写预告的人和写文件的人没有交汇点，仓库里也没有任何一处登记过「C3 是什么」，双方都不可能发现冲突。撞号已按「编号只指向一份真能点开的文件」收口：C3 归电力链，预告收回编号并登记在本表末行。
 
 ## Git 记录纪律
 
@@ -57,4 +70,4 @@
 
 ## 当前边界
 
-首轮已有：一条技术能力顺序链、近／中／远三层图景、三条独立推演链、四条商机候选，以及台账里 64 张判断卡片。但「全方位图景」仍未完成——能源与物理基础设施已由 C3 覆盖，地缘制度与法律产权上升为部分覆盖；生物医疗、教育与资格的完整链条，人与 AI 的具体关系规范，以及芯片制造上游材料与气候耦合，仍未覆盖或只部分覆盖。这些缺口以显式条目保留在[台账第六节](docs/zh/90-ledger.md#六未覆盖维度缺口清单)，不会因为首轮有产出就被静默删除。
+首轮已有：一条技术能力顺序链、近／中／远三层图景、三条独立推演链、四条商机候选，以及台账里 65 张判断卡片。但「全方位图景」仍未完成——能源与物理基础设施已由 C3 覆盖，地缘制度与法律产权上升为部分覆盖；生物医疗、教育与资格的完整链条，人与 AI 的具体关系规范，以及芯片制造上游材料与气候耦合，仍未覆盖或只部分覆盖。这些缺口以显式条目保留在[台账第六节](docs/zh/90-ledger.md#六未覆盖维度缺口清单)，不会因为首轮有产出就被静默删除。
