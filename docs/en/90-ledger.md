@@ -1557,10 +1557,26 @@ Run the script first, then walk the items it cannot judge:
 python3 scripts/check.py
 ```
 
-It covers the machine-checkable half of the list below — internal links and
+It covers the machine-checkable half of the list below. Exit code 0 means
+pass; otherwise it prints each failure. On the ledger side: internal links and
 heading anchors, required card fields, the confidence whitelist, dependency
-edges agreeing in all three places, and bilingual file and card parity. Exit
-code 0 means pass; otherwise it prints each failure. One recurring trap:
+edges agreeing in all three places, and bilingual parity — where "parity"
+means exactly three things, that the two trees hold the **same filenames**,
+the **same judgment-card identifiers**, and the **same number of `##`
+sections per same-named file**. It does **not** compare prose, so two files
+with the same name saying different things pass. On the README side: the
+chain registry and the chain files on disk cover each other (every chain file
+is linked by both registries; every row's files exist, are linked on both
+sides, and are named by the `<ID x 10>-` rule; the two registries allocate the
+same identifiers), every `C<n>` cited anywhere is an identifier the registry
+allocated, a chain cited by title carries a title taken verbatim from that
+file's own H1 (an abbreviation is allowed, a rename is not), and the two
+counts the READMEs state — "N judgment cards" and "N independent reasoning
+chains" — equal what the repository holds. State the count check's boundary
+plainly: it reads only those two fixed phrasings, and its reach is held by the
+rule that both languages must state each count the same number of times and
+may never both fall to zero. A rewrite on one side is caught; **dropping the
+same count from both languages in one commit is not**. One recurring trap:
 GitHub does **not** collapse runs of hyphens in heading anchors, so
 `J-001 · Title` is `#j-001--title`; a short `#j-001` fragment silently fails
 to jump (43 of them were repaired in one pass on 2026-09-19).
@@ -1574,18 +1590,30 @@ python3 scripts/check.py --self-test
 It copies the tree into a temporary directory and breaks that copy one way at a
 time — dangling anchor, a dependency edge disagreeing with its card, a card in
 one language only, an out-of-whitelist confidence value, a missing required
-field, plus an accept/reject matrix over confidence values — and asserts every
-breakage is caught **by the right check**; the repository itself is not
-modified. Run it whenever the script changes: on 2026-09-19 the confidence
-whitelist was compared by substring, so `极高` ("extremely high", which
-contains `高`) passed while every positive case stayed green — only a negative
-case exposes a criterion written too wide.
+field; a chain file landing on disk with no registry row, a registry row
+deleted while its file stays, a row registering one language only, an
+identifier registered in one README only, a row linking a file that is not
+there, the announced-direction row claiming an identifier, a row id written as
+`C3 (draft)`, prose citing an unallocated identifier, a chain cited under a
+title its file does not carry; a card count off by one, a count spelled so it
+cannot be read, a stale chain count, a count dropped from one language — plus
+an accept/reject matrix over confidence values and the edits that must **not**
+be reported (an abbreviated title citation, a second announced row holding no
+number, prose naming cards without counting them). It asserts every breakage
+is caught **by the right check**; the repository itself is not modified. Run
+it whenever the script changes: on 2026-09-19 the confidence whitelist was
+compared by substring, so `极高` ("extremely high", which contains `高`)
+passed while every positive case stayed green — only a negative case exposes a
+criterion written too wide. The second lesson of that same day is the other
+half: `ee3a5eb` claimed "verified against four deliberate breakages" but left
+nothing re-runnable behind, and one of the four turned out not to work at all.
+**A claim does not count; only a negative case sitting in `NEGATIVE_CASES`,
+which the next person can re-run unchanged, counts.**
 
 The remaining items are judgment calls a script cannot make. Walk them by
 hand before publishing:
 
 - [ ] Year boundaries match the single authority in `00-method.md`.
-- [ ] Confidence uses only the whitelist: high / medium / low.
 - [ ] Every judgment card has ID, proposed date, one-sentence judgment, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, consensus comparison, source, status, and next review.
 - [ ] Every internal link resolves and returns to the source argument.
 - [ ] Chinese and English files are updated as equivalent projections in the same commit.

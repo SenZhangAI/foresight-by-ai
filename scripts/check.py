@@ -312,15 +312,321 @@ def check_parity(per_lang_cards):
                  % (name, h["zh"], h["en"]))
 
 
+# ---------------------------------------------------------------------------
+# The chain registry, and the counts the READMEs state about the tree.
+#
+# Everything above this line reads the ledger. The two READMEs were checked by
+# nothing at all — and they are where a human hand writes the two quantities
+# that change every round: how many judgment cards the ledger holds, and which
+# reasoning chains exist. Two of the three cross-file drifts this repository
+# has shipped started exactly there.
+#
+# These checks are mechanical invariants only — two numbers equal, a link
+# resolves, two sets match. None of them judges whether a chain is any good.
+# ---------------------------------------------------------------------------
+
+REGISTRY_README = {"zh": "README.md", "en": "README.en.md"}
+CHAIN_DIR = "docs/%s/chains/"
+# A registry row's first cell must be exactly this, never merely contain it.
+CHAIN_ID = re.compile(r"^C(\d+)$")
+# A citation anywhere in the prose. The boundary is written by hand because
+# `\b` does not fire between a CJK character and `C`: both are word characters
+# to Python, so `\bC3` misses `预告成C3`.
+CHAIN_ID_TOKEN = re.compile(r"(?<![0-9A-Za-z])C(\d+)(?![0-9])")
+CHAIN_LINK = re.compile(r"\]\((docs/(?:zh|en)/chains/[^)#\s]+)\)")
+# `[C3 · full title](path)`, `[C3：short title](path)` — any citation that
+# names a chain, whichever separator it uses. A bare `[C1](path)` names no
+# title and is not one of these.
+CHAIN_CITE = re.compile(u"\\[(C\\d+)\\s*[\u00b7:\uff1a]\\s*([^\\]]*)\\]"
+                        u"\\(([^)\\s]+)\\)")
+CHAIN_H1 = re.compile(u"^#\\s+(C\\d+)\\s*[\u00b7:\uff1a]\\s*(.*)$")
+
+# 〇零一二三四五六七八九十百两 — the numerals a Chinese count may be spelled with.
+ZH_NUMERALS = (u"\u3007\u96f6\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b"
+               u"\u4e5d\u5341\u767e\u4e24")
+ZH_DIGIT = {u"\u3007": 0, u"\u96f6": 0, u"\u4e00": 1, u"\u4e8c": 2,
+            u"\u4e24": 2, u"\u4e09": 3, u"\u56db": 4, u"\u4e94": 5,
+            u"\u516d": 6, u"\u4e03": 7, u"\u516b": 8, u"\u4e5d": 9}
+ZH_UNIT = {u"\u5341": 10, u"\u767e": 100}
+EN_ONES = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+           "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+           "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
+           "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
+           "nineteen": 19}
+EN_TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60,
+           "seventy": 70, "eighty": 80, "ninety": 90}
+
+# The exact phrases the count check reads. A rewrite that drops one of them
+# does not silently shrink the check's reach: the site counts below must stay
+# equal across the two languages and must never both fall to zero.
+COUNT_ANCHOR = {
+    # 张判断卡片 / 条独立推演链
+    "cards": {"zh": u"\u5f20\u5224\u65ad\u5361\u7247", "en": "judgment cards"},
+    "chains": {"zh": u"\u6761\u72ec\u7acb\u63a8\u6f14\u94fe",
+               "en": "independent reasoning chains"},
+}
+
+
+def parse_count(lang, token):
+    """`65` / `六十五` / `sixty-five` -> 65; anything else -> None."""
+    raw = token.strip()
+    if re.match(r"^\d+$", raw):
+        return int(raw)
+    if lang == "zh":
+        total, section, seen = 0, 0, False
+        for ch in raw:
+            if ch in ZH_DIGIT:
+                section, seen = ZH_DIGIT[ch], True
+            elif ch in ZH_UNIT:
+                section = (section or 1) * ZH_UNIT[ch]
+                total, section, seen = total + section, 0, True
+            else:
+                return None
+        return total + section if seen else None
+    total, seen = 0, False
+    for part in re.split(r"[-\s]+", raw.lower()):
+        if not part or part == "and":
+            continue
+        if part in EN_ONES:
+            total, seen = total + EN_ONES[part], True
+        elif part in EN_TENS:
+            total, seen = total + EN_TENS[part], True
+        elif part == "hundred":
+            total, seen = (total or 1) * 100, True
+        else:
+            return None
+    return total if seen else None
+
+
+def chain_files_on_disk():
+    found = set()
+    for lang in LANGS:
+        root = os.path.join(REPO, "docs", lang, "chains")
+        if not os.path.isdir(root):
+            continue
+        for r, _d, fs in os.walk(root):
+            for f in sorted(fs):
+                if f.endswith(".md"):
+                    rel = os.path.relpath(os.path.join(r, f), REPO)
+                    found.add(rel.replace(os.sep, "/"))
+    return found
+
+
+def table_rows(text):
+    for line in text.split("\n"):
+        s = line.strip()
+        if s.startswith("|"):
+            yield [c.strip() for c in s.strip("|").split("|")]
+
+
+def parse_registry(lang):
+    """{C-id: set of chain files that row links} for one README.
+
+    A row takes part only when its first cell is exactly `C<n>`. The table's
+    last row is an announced direction (`—（不占编号）` / `— (holds no
+    number)`) which links a landscape file rather than a chain: a looser match
+    would drag it in and the whole check would collapse on it. A cell that
+    CONTAINS an identifier without being one (`C4 (draft)`) is reported rather
+    than skipped — silently ignoring such a row is how a chain stops being
+    checked while still reading as registered.
+    """
+    readme = REGISTRY_README[lang]
+    rows = {}
+    for cols in table_rows(read(readme)):
+        cell = re.sub(r"[`*\s]", "", cols[0] if cols else "")
+        if not CHAIN_ID.match(cell):
+            if CHAIN_ID_TOKEN.search(cell):
+                fail("chain-registry",
+                     "%s: registry row starts with %r, which is not a bare "
+                     "C<n>, so the row would not be checked" % (readme, cols[0]))
+            continue
+        if cell in rows:
+            fail("chain-registry", "%s: %s has more than one registry row"
+                 % (readme, cell))
+        links = set()
+        for col in cols:
+            for m in CHAIN_LINK.finditer(col):
+                links.add(os.path.normpath(m.group(1)).replace(os.sep, "/"))
+        rows.setdefault(cell, set()).update(links)
+    return rows
+
+
+def check_chain_registry():
+    """Registry, disk and citations agree. Returns the registered ids."""
+    disk = chain_files_on_disk()
+    if not disk:
+        fail("chain-registry", "no chain file found under docs/*/chains/")
+    registry = {}
+    for lang in LANGS:
+        registry[lang] = parse_registry(lang)
+        if not registry[lang]:
+            fail("chain-registry", "%s: no registry row found, so no chain is "
+                 "checked at all" % REGISTRY_README[lang])
+    if set(registry["zh"]) != set(registry["en"]):
+        fail("chain-registry",
+             "the two registries allocate different identifiers: %s"
+             % sorted(set(registry["zh"]) ^ set(registry["en"])))
+    for lang in LANGS:
+        readme = REGISTRY_README[lang]
+        for cid in sorted(registry[lang]):
+            paths = registry[lang][cid]
+            for p in sorted(paths):
+                if not os.path.exists(os.path.join(REPO, p)):
+                    fail("chain-registry", "%s: %s links %s, which does not "
+                         "exist" % (readme, cid, p))
+            for side in LANGS:
+                if not any(p.startswith(CHAIN_DIR % side) for p in paths):
+                    fail("chain-registry", "%s: %s links no %s chain file "
+                         "(one side registered only)" % (readme, cid, side))
+            # The rule the README states: the filename is `<id x 10>-<slug>.md`,
+            # identical in both languages.
+            prefix = "%d-" % (int(cid[1:]) * 10)
+            for p in sorted(paths):
+                if not os.path.basename(p).startswith(prefix):
+                    fail("chain-registry", "%s: %s links %s, whose filename "
+                         "does not start with %s" % (readme, cid, p, prefix))
+            names = set(os.path.basename(p) for p in paths)
+            if len(names) > 1:
+                fail("chain-registry", "%s: %s links differently named files: "
+                     "%s" % (readme, cid, sorted(names)))
+    for cid in sorted(set(registry["zh"]) & set(registry["en"])):
+        if registry["zh"][cid] != registry["en"][cid]:
+            fail("chain-registry", "%s: the zh registry links %s, the en "
+                 "registry links %s" % (cid, sorted(registry["zh"][cid]),
+                                        sorted(registry["en"][cid])))
+    for lang in LANGS:
+        linked = set()
+        for paths in registry[lang].values():
+            linked |= paths
+        for p in sorted(disk - linked):
+            fail("chain-registry", "%s: %s exists on disk but no registry row "
+                 "links it" % (REGISTRY_README[lang], p))
+    known = set(registry["zh"]) | set(registry["en"])
+    for f in markdown_files():
+        cited = set()
+        for m in CHAIN_ID_TOKEN.finditer(read(f)):
+            cited.add("C%s" % m.group(1))
+        for cid in sorted(cited - known):
+            fail("chain-id", "%s cites %s, which the chain registry does not "
+                 "allocate" % (f, cid))
+    return known
+
+
+def check_chain_titles():
+    """A citation may shorten a chain's title; it may not rename it.
+
+    The defect this closes: the same chain was called one thing by its own H1
+    and the registry, and another by the "where to start" paragraph, so a
+    reader following the identifier met a second name for the file they had
+    just opened.
+
+    The rule is containment, not equality, because the repository abbreviates
+    in two directions and both are honest: the ledger cites C1 by the opening
+    of its title and C2 by its subtitle. What containment still refuses is a
+    title the file does not contain at all — `[C3 · 电子落地：为什么算力的上限
+    不在芯片]` against a file titled `电子落地：算力的瓶颈从芯片移到电网`. It is
+    separator-agnostic (the ledger cites with `：`, the READMEs with `·`), and
+    a citation carrying no title (`[C1](path)`) asserts nothing that could
+    contradict the file, so it is not read here.
+    """
+    for f in markdown_files():
+        base = os.path.dirname(f)
+        for m in CHAIN_CITE.finditer(read(f)):
+            cid, title = m.group(1), m.group(2).strip()
+            path = m.group(3).partition("#")[0]
+            if not path:
+                continue
+            target = os.path.normpath(os.path.join(base, path))
+            if not os.path.exists(os.path.join(REPO, target)):
+                continue  # check_links reports the missing file
+            h1 = re.search(r"^#\s+(.*)$", read(target), re.M)
+            if not h1:
+                fail("chain-title", "%s: %s links %s, which has no H1"
+                     % (f, cid, target))
+                continue
+            head = CHAIN_H1.match("# " + h1.group(1).strip())
+            if not head:
+                fail("chain-title", "%s: %s links %s, whose H1 %r does not "
+                     "open with an identifier"
+                     % (f, cid, target, h1.group(1).strip()))
+            elif head.group(1) != cid:
+                fail("chain-title", "%s: cited as %s, but %s is titled %s"
+                     % (f, cid, target, head.group(1)))
+            elif title and title not in head.group(2):
+                fail("chain-title", "%s: %s is cited as %r, which is no part "
+                     "of %s's title %r"
+                     % (f, cid, title, target, head.group(2)))
+
+
+def count_claims(lang, anchor):
+    """(values, unreadable) for one count phrase in one README."""
+    text = read(REGISTRY_README[lang])
+    if lang == "zh":
+        pattern = u"([0-9%s]+)\\s*%s" % (ZH_NUMERALS, re.escape(anchor))
+    else:
+        pattern = r"([A-Za-z0-9-]+)\s+%s" % re.escape(anchor)
+    values, unreadable = [], []
+    for m in re.finditer(pattern, text):
+        raw = m.group(1)
+        n = parse_count(lang, raw)
+        if n is not None:
+            values.append((n, raw))
+        elif lang == "zh" or re.search(r"\d", raw):
+            # An English anchor can legitimately follow an ordinary word
+            # ("all the judgment cards"), which is prose and not a claim. A
+            # Chinese match always begins with a numeral, and an English one
+            # carrying a digit is a number that failed to parse: both are a
+            # count nobody can read, and neither is waved through.
+            unreadable.append(raw)
+    return values, unreadable
+
+
+def check_readme_counts(per_lang_cards, chains):
+    """Every count the READMEs state equals what the repository holds.
+
+    Coverage is held by the two site invariants rather than by trying to parse
+    every sentence: the two languages must state each count the same number of
+    times, and a count may not vanish from both at once. A rewrite that drops
+    one side is therefore caught; one that drops both in a single commit is
+    not, and that is the honest boundary of this check.
+    """
+    for kind in ("cards", "chains"):
+        sites = {}
+        for lang in LANGS:
+            readme, anchor = REGISTRY_README[lang], COUNT_ANCHOR[kind][lang]
+            values, unreadable = count_claims(lang, anchor)
+            for raw in unreadable:
+                fail("readme-counts", "%s: %r before %r is not a number"
+                     % (readme, raw, anchor))
+            want = len(per_lang_cards[lang]) if kind == "cards" else chains
+            for n, raw in values:
+                if n != want:
+                    fail("readme-counts",
+                         "%s says %r %s, the repository has %d"
+                         % (readme, raw, anchor, want))
+            sites[lang] = len(values)
+        if sites["zh"] != sites["en"]:
+            fail("readme-counts", "the %s count is stated %d time(s) in %s and "
+                 "%d time(s) in %s" % (kind, sites["zh"], REGISTRY_README["zh"],
+                                       sites["en"], REGISTRY_README["en"]))
+        if not sites["zh"] and not sites["en"]:
+            fail("readme-counts", "neither README states the %s count, so this "
+                 "check covers nothing" % kind)
+
+
 def run_checks():
     files = markdown_files()
     links = check_links(files)
     cards = {lang: check_ledger(lang) for lang in LANGS}
     check_parity(cards)
+    chains = check_chain_registry()
+    check_chain_titles()
+    check_readme_counts(cards, len(chains))
 
     print("files checked      : %d" % len(files))
     print("internal links     : %d" % links)
     print("judgment cards     : zh %d / en %d" % (len(cards["zh"]), len(cards["en"])))
+    print("chains registered  : %d (%s)" % (len(chains), ", ".join(sorted(chains))))
     if failures:
         print("\nFAILED (%d):" % len(failures))
         for check, detail in failures:
@@ -576,6 +882,215 @@ def _text_after_last_card(root):
     return u"zh: `- **置信度**：极高` added to the section after the last card"
 
 
+# --- fixtures for the registry and the README counts -----------------------
+
+def _readme(root, lang):
+    return os.path.join(root, REGISTRY_README[lang])
+
+
+def _registry_row_indexes(text):
+    """Line numbers of the README lines that are `C<n>` registry rows."""
+    out = []
+    for i, line in enumerate(text.split("\n")):
+        s = line.strip()
+        if not s.startswith("|"):
+            continue
+        first = re.sub(r"[`*\s]", "", s.strip("|").split("|")[0])
+        if CHAIN_ID.match(first):
+            out.append(i)
+    if not out:
+        raise AssertionError("fixture README carries no registry row")
+    return out
+
+
+def _edit_registry_row(root, lang, which, edit):
+    """Rewrite one registry row in place; `edit` takes and returns the line."""
+    path = _readme(root, lang)
+    lines = _read_file(path).split("\n")
+    i = _registry_row_indexes("\n".join(lines))[which]
+    before = lines[i]
+    lines[i] = edit(before)
+    if lines[i] == before:
+        raise AssertionError("registry fixture changed nothing: %r" % before)
+    _write_file(path, "\n".join(lines))
+    return lines[i]
+
+
+def _add_chain_file(root, stem, langs=LANGS):
+    for lang in langs:
+        d = os.path.join(root, "docs", lang, "chains")
+        if not os.path.isdir(d):
+            raise AssertionError("fixture has no docs/%s/chains/" % lang)
+        _write_file(os.path.join(d, "%s.md" % stem),
+                    u"# C9 \u00b7 fixture chain\n\nBody.\n")
+
+
+def _break_unregistered_chain_file(root):
+    """A chain file lands on disk and no registry row mentions it."""
+    _add_chain_file(root, "90-unregistered-fixture")
+    return u"docs/{zh,en}/chains/90-unregistered-fixture.md added, registered nowhere"
+
+
+def _break_registry_row_removed(root):
+    """The chain file stays; its registry row is deleted."""
+    path = _readme(root, "zh")
+    lines = _read_file(path).split("\n")
+    i = _registry_row_indexes("\n".join(lines))[-1]
+    gone = lines.pop(i)
+    _write_file(path, "\n".join(lines))
+    return u"README.md: last registry row deleted (%s)" % gone.strip()[:40]
+
+
+def _break_registry_single_language_link(root):
+    """A row that registers the chain in one language only."""
+    def edit(line):
+        return re.sub(r"\s*\u00b7\s*\[[^\]]*\]\(docs/en/chains/[^)]*\)", "", line)
+    row = _edit_registry_row(root, "zh", 0, edit)
+    return u"README.md: first row now links no English chain file"
+
+
+def _break_registry_id_unreadable(root):
+    """`C3 (draft)` — an id a strict first-column match would skip."""
+    def edit(line):
+        head, sep, rest = line.partition("|")
+        cid, sep2, tail = rest.partition("|")
+        return head + sep + cid.rstrip() + u" (draft) " + sep2 + tail
+    row = _edit_registry_row(root, "zh", -1, edit)
+    return u"README.md: %s" % row.strip()[:52]
+
+
+def _break_registry_dangling_link(root):
+    """A row pointing at a chain file that is not there."""
+    def edit(line):
+        return line.replace("chains/10-", "chains/10-no-such-")
+    row = _edit_registry_row(root, "zh", 0, edit)
+    return u"README.md: first row links docs/*/chains/10-no-such-*.md"
+
+
+def _break_registry_one_sided_id(root):
+    """A new chain registered in the Chinese README only."""
+    _add_chain_file(root, "90-one-sided-fixture")
+    path = _readme(root, "zh")
+    lines = _read_file(path).split("\n")
+    i = _registry_row_indexes("\n".join(lines))[-1]
+    lines.insert(i + 1,
+                 u"| C9 | fixture | \u5df2\u5199\u6210 | "
+                 u"[\u4e2d\u6587](docs/zh/chains/90-one-sided-fixture.md) \u00b7 "
+                 u"[English](docs/en/chains/90-one-sided-fixture.md) |")
+    _write_file(path, "\n".join(lines))
+    return u"C9 registered in README.md only, files present in both languages"
+
+
+def _break_forecast_row_numbered(root):
+    """The announced-direction row takes a number it must not have.
+
+    It links a landscape file rather than a chain, so the moment it claims an
+    identifier the registry is describing a chain that does not exist.
+    """
+    path = _readme(root, "zh")
+    lines = _read_file(path).split("\n")
+    last = _registry_row_indexes("\n".join(lines))[-1]
+    for i in range(last + 1, len(lines)):
+        if lines[i].strip().startswith("|"):
+            cells = lines[i].strip().strip("|").split("|")
+            lines[i] = "| C4 |" + "|".join(cells[1:]) + "|"
+            _write_file(path, "\n".join(lines))
+            return u"README.md: the announced-direction row now claims C4"
+    raise AssertionError("fixture has no row after the last registry row")
+
+
+def _break_chain_title(root):
+    """The prose calls a chain something its own H1 does not.
+
+    The replacement is not a truncation but a different name: a shortened
+    title is legitimate and must stay green.
+    """
+    path = _readme(root, "zh")
+    text = _read_file(path)
+    m = CHAIN_CITE.search(text)
+    if not m:
+        raise AssertionError("fixture README cites no chain by title")
+    renamed = u"\u53e6\u4e00\u4e2a\u540d\u5b57"  # 另一个名字
+    _write_file(path, text[:m.start(2)] + renamed + text[m.end(2):])
+    return u"README.md: %s is cited under a title its file does not carry" % m.group(1)
+
+
+def _shorten_chain_title(root):
+    """Not a breakage: a citation that abbreviates the title it points at.
+
+    The slice deliberately starts past the first character, so this proves the
+    rule accepts an abbreviation taken from the MIDDLE of the title — the form
+    the ledger actually uses when it cites C2 by its subtitle.
+    """
+    path = _readme(root, "zh")
+    text = _read_file(path)
+    m = CHAIN_CITE.search(text)
+    if not m:
+        raise AssertionError("fixture README cites no chain by title")
+    title = m.group(2).strip()
+    if len(title) < 5:
+        raise AssertionError("fixture title is too short to abbreviate")
+    part = title[1:4]
+    _write_file(path, text[:m.start(2)] + part + text[m.end(2):])
+    return u"README.md: %s cited as %r, taken from inside its title" % (
+        m.group(1), part)
+
+
+def _set_count(lang, anchor_kind, replacement):
+    """Rewrite the FIRST count claim of one kind in one README."""
+    def mutate(root):
+        path = _readme(root, lang)
+        text = _read_file(path)
+        anchor = COUNT_ANCHOR[anchor_kind][lang]
+        if lang == "zh":
+            pattern = u"([0-9%s]+)(\\s*%s)" % (ZH_NUMERALS, re.escape(anchor))
+        else:
+            pattern = r"([A-Za-z0-9-]+)(\s+%s)" % re.escape(anchor)
+        m = re.search(pattern, text)
+        if not m:
+            raise AssertionError("%s states no %s count" % (lang, anchor_kind))
+        _write_file(path, text[:m.start(1)] + replacement + text[m.end(1):])
+        return u"%s: %r -> %r before %r" % (REGISTRY_README[lang], m.group(1),
+                                            replacement, anchor)
+
+    return mutate
+
+
+def _break_count_site_removed(root):
+    """One language stops stating a count the other still states."""
+    path = _readme(root, "zh")
+    text = _read_file(path)
+    anchor = COUNT_ANCHOR["cards"]["zh"]
+    m = re.search(u"[0-9%s]+\\s*%s" % (ZH_NUMERALS, re.escape(anchor)), text)
+    if not m:
+        raise AssertionError("zh README states no card count")
+    _write_file(path, text[:m.start()] + anchor + text[m.end():])
+    return u"README.md: one card-count claim rewritten without its number"
+
+
+def _extra_announced_row(root):
+    """Not a breakage: a second announced direction, holding no number."""
+    for lang in LANGS:
+        path = _readme(root, lang)
+        lines = _read_file(path).split("\n")
+        i = _registry_row_indexes("\n".join(lines))[-1]
+        lines.insert(i + 1, u"| \u2014 | fixture direction | announced | "
+                            u"[far](docs/%s/30-far.md) |" % lang)
+        _write_file(path, "\n".join(lines))
+    return u"a second `—` row added to both registries"
+
+
+def _prose_mentioning_the_anchor(root):
+    """Not a breakage: prose that names cards without counting them."""
+    zh = _readme(root, "zh")
+    _write_file(zh, _read_file(zh)
+                + u"\n\u6bcf\u5f20\u5224\u65ad\u5361\u7247\u90fd\u6709\u7f16\u53f7\u3002\n")
+    en = _readme(root, "en")
+    _write_file(en, _read_file(en)
+                + u"\nAll the judgment cards carry a falsifier.\n")
+    return u"`每张判断卡片…` / `All the judgment cards…` appended to the READMEs"
+
+
 # Breakages that must be caught, each with the check tag that must report it.
 NEGATIVE_CASES = [
     (u"dangling anchor", "links", _break_dangling_anchor),
@@ -595,11 +1110,49 @@ NEGATIVE_CASES = [
     (u"one value readable, one field unreadable", "confidence",
      _break_partial_readable_confidence),
     (u"required card field missing", "card-fields", _break_missing_field),
+    (u"chain file on disk, registered nowhere", "chain-registry",
+     _break_unregistered_chain_file),
+    (u"registry row deleted, chain file still there", "chain-registry",
+     _break_registry_row_removed),
+    (u"row registers one language only", "chain-registry",
+     _break_registry_single_language_link),
+    (u"row id is `C3 (draft)`, not a bare id", "chain-registry",
+     _break_registry_id_unreadable),
+    (u"registry row links a file that is not there", "chain-registry",
+     _break_registry_dangling_link),
+    (u"identifier registered in one README only", "chain-registry",
+     _break_registry_one_sided_id),
+    (u"the announced row claims an identifier", "chain-registry",
+     _break_forecast_row_numbered),
+    (u"prose cites an unallocated identifier", "chain-id",
+     lambda root: (_write_file(
+         _readme(root, "zh"),
+         _read_file(_readme(root, "zh")) + u"\n\u53c2\u89c1 C7\u3002\n"),
+         u"README.md: prose cites C7")[1]),
+    (u"chain linked under a title its file lacks", "chain-title",
+     _break_chain_title),
+    (u"zh card count off by one", "readme-counts",
+     _set_count("zh", "cards", "66")),
+    (u"en card count off by one", "readme-counts",
+     _set_count("en", "cards", "Sixty-six")),
+    (u"en card count spelled unparseably", "readme-counts",
+     _set_count("en", "cards", "65x")),
+    (u"chain count stale in zh", "readme-counts",
+     _set_count("zh", "chains", u"\u56db")),  # 四
+    (u"chain count stale in en", "readme-counts",
+     _set_count("en", "chains", "four")),
+    (u"one language stops stating the card count", "readme-counts",
+     _break_count_site_removed),
 ]
 
 # Edits that must NOT be reported: the checker has to stay usable.
 POSITIVE_CASES = [
     (u"prose below the last card belongs to no card", _text_after_last_card),
+    (u"a second announced direction holding no number", _extra_announced_row),
+    (u"prose naming cards without counting them",
+     _prose_mentioning_the_anchor),
+    (u"a citation that abbreviates the title it points at",
+     _shorten_chain_title),
 ]
 
 # The whitelist is per language, so a value must be an exact member of ITS
@@ -697,8 +1250,11 @@ USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test]
 
   (no argument)  check this repository
   --repo DIR     check the tree rooted at DIR instead
-  --self-test    break a temporary copy of the tree five ways and assert the
-                 checker catches each one (the repository is not touched)"""
+  --self-test    break a temporary copy of the tree one way at a time and
+                 assert every breakage is caught by the right check, plus the
+                 edits that must NOT be reported (the repository is not
+                 touched). The count is printed; it is not fixed here, because
+                 a number in prose goes stale the moment a case is added."""
 
 
 def main(argv):
