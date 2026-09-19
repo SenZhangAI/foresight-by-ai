@@ -74,18 +74,18 @@ C3 推演链引入的术语，中英文档须照此一一对应。
 |---|---|---|
 | 并网许可 | interconnection permit | 授权主体批准某一负载或电源接入电网的行政许可 |
 | 并网排队 | interconnection queue | 等待并网审批与容量分配的项目序列；排队位置本身具有价值 |
-| 大负载接入 | large-load interconnection | 数据中心类大容量用电主体的接入申请，区别于发电侧排队 |
+| 大负荷接入 | large-load interconnection | 数据中心类大容量用电主体的接入申请，区别于发电侧排队 |
 | 可交付电力 | deliverable power | 不是发电能力，而是能在承诺日期真正送到某一位置的电力 |
 | 投产日期担保 | in-service date guarantee | 合同条款：承诺通电日期并为延迟负赔偿责任 |
 | 容量预留费 | capacity reservation fee | 为锁定尚未使用的变电容量而支付的费用 |
 | 过桥供电 | bridge power | 在并网完成前用自备发电或储能临时供电的安排 |
-| 可调度负载 | schedulable load | 可暂停、可延后、可跨区迁移的算力负载，与延迟敏感负载相对 |
+| 可调度负荷 | schedulable load | 可暂停、可延后、可跨区迁移的算力负荷，与延迟敏感负荷相对 |
 | 需求响应 | demand response | 电网付费购买用户侧减载或移负荷的机制 |
 | 可中断电价 | interruptible tariff | 以接受被中断为条件换取更低电价的安排 |
 | 社会许可 | social licence | 本地居民与地方政治对项目的默认容忍；失去它会变成真实选址成本 |
 | 本地外部性 | local externality | 成本落在本地、收益归于外部股东的部分 |
 | 使用侧管制 | use-side control | 管制对象从硬件实物转向主体、用途与场址授权 |
-| 权重转移 | weight transfer | 模型权重的跳转与跮境传递，已成为管制客体 |
+| 权重转移 | weight transfer | 模型权重的跳转与跨境传递，已成为管制客体 |
 | 东道国 | host state | 提供场址与电力以换取算力投资的国家 |
 | 能力主权 | capability sovereignty | 对能力本身的处置权，区别于仅获得租金与就业 |
 

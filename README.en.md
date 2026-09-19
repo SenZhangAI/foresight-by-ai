@@ -49,7 +49,7 @@ To read backward from a far judgment, open its ledger card and follow every `dep
 | [C2 · When Data Is No Longer Free](docs/en/chains/20-real-signals-become-contracts.md) | [C2 · 当数据不再免费](docs/zh/chains/20-real-signals-become-contracts.md) | Long argument: how a real-world signal turns from raw material into an accountable contract asset |
 | [C3 · Electrons on the Ground](docs/en/chains/30-power-land-and-permits.md) | [C3 · 电子落地](docs/zh/chains/30-power-land-and-permits.md) | Long argument: how the binding constraint on compute moves from the chip to power delivery, permitting, and local politics |
 | [Judgment Ledger](docs/en/90-ledger.md) | [判断台账](docs/zh/90-ledger.md) | Sixty-four judgment cards, the dependency graph, confidence history, review log, and explicit gaps |
-| [Glossary](docs/glossary.zh-en.md) | 同一文件 | Chinese–English terminology; judgment identifiers are never translated or renumbered |
+| [Glossary](docs/glossary.zh-en.md) | Same file | Chinese–English terminology; judgment identifiers are never translated or renumbered |
 
 ## Git discipline
 
