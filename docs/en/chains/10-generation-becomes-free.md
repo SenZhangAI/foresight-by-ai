@@ -66,7 +66,7 @@ More importantly, cost declines have **three mutually independent channels**:
 
 The independence of the three means **none of them has to work miracles**. As long as all three do not stall at once, total cost will keep falling. This is the real reason for the high confidence in this judgment—it is not betting on a technological breakthrough, but on three independent random events not failing simultaneously.
 
-> See [judgment ledger J-001](../90-ledger.md#j-001).
+> See [judgment ledger J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling).
 
 
 ---
@@ -88,7 +88,7 @@ That answer is **half right and half a trap**. It must pass through the gate.
 
 Anything formalizable can be automatically checked by the same force; and generative models can naturally **generate and then self-select** (sample many + score + eliminate). So “helping people pick the objectively higher-quality one” will not remain scarce for long; it will become a built-in model function.
 
-> See [judgment ledger J-002](../90-ledger.md#j-002).
+> See [judgment ledger J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window).
 
 
 ### But one residue cannot be absorbed
@@ -105,7 +105,7 @@ This hits two of the hard constraints exactly: **ownership / privacy** + **the i
 
 So what is scarce is not “the ability to select,” but **the input selection requires**: structured, machine-usable preferences and context about you (as an individual or organization).
 
-> See [judgment ledger J-003](../90-ledger.md#j-003).
+> See [judgment ledger J-003](../90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form).
 
 
 ---
@@ -127,7 +127,7 @@ In writing, drawing, and coding drafts, “try a few more times” is free; in a
 
 So what is scarce is not “making fewer mistakes,” but **turning irreversible things into reversible infrastructure**: letting AI actions run first in a shadow environment, roll back with one click, and take back “what has already happened.”
 
-> See [judgment ledger J-004](../90-ledger.md#j-004).
+> See [judgment ledger J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible).
 
 
 ---
@@ -142,7 +142,7 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 2. **Accountable commitments**—“If this statement is wrong, who pays?” When content is unlimited, content itself is no longer a filter; **responsibility** becomes the only filter still available. And responsibility can only be borne by an entity that can be sued. Hard constraint: law.
 3. **Validated causality**—correlations can be generated without limit; causality can only be obtained through **intervention** (conducting experiments, changing reality, and observing the result). Hard constraint: physics + time.
 
-> See [judgment ledger J-005](../90-ledger.md#j-005).
+> See [judgment ledger J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality).
 
 
 ---
@@ -151,19 +151,19 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 
 Three opportunity candidates that fall directly out of this chain (full reasoning in [`../40-opportunities.md`](../40-opportunities.md)):
 
-- **O-001 Ownership layer for private context**—turn “who we are, what we have rejected, and why we rejected it” into a portable, licensable, and priceable asset. Derived from J-003.
-- **O-002 Reversible infrastructure for AI actions**—shadow environments, action sandboxes, one-click rollback, and after-the-fact traceability. Derived from J-004.
-- **O-003 Accountable commitment layer**—an intermediary layer that attaches real compensation liability to AI output. Derived from J-005.
+- **[O-001](../40-opportunities.md#o-001--ownership-layer-for-private-context) Ownership layer for private context**—turn “who we are, what we have rejected, and why we rejected it” into a portable, licensable, and priceable asset. Derived from [J-003](../90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form).
+- **[O-002](../40-opportunities.md#o-002--reversible-infrastructure-for-ai-action) Reversible infrastructure for AI actions**—shadow environments, action sandboxes, one-click rollback, and after-the-fact traceability. Derived from [J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible).
+- **[O-003](../40-opportunities.md#o-003--accountable-commitment-layer) Accountable commitment layer**—an intermediary layer that attaches real compensation liability to AI output. Derived from [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality).
 
 One thing explicitly **not** recommended as a structural opportunity:
 
-- ❌ **Generic “AI output quality assurance / selection” tools**—J-002 judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
+- ❌ **Generic “AI output quality assurance / selection” tools**—[J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
 
 ### Structural consequence (Exit B): connection will multiply faster than strong relationships
 
 AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
 
-> See [judgment ledger J-017](../90-ledger.md#j-017).
+> See [judgment ledger J-017](../90-ledger.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships).
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
 
@@ -172,22 +172,22 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 ## VIII. Where I May Be Wrong (The Strongest Counterarguments)
 
 **Counterargument 1: Preferences may be easier to reproduce than I think.**
-J-003 rests on “your choices cannot be reconstructed from a small amount of interaction.” If a model can reliably infer individual preferences from very few examples (for example, reaching 80% approval from you after observing two weeks of ordinary use), then “private context” is not an asset but a temporary cache that can be rebuilt in a few weeks, and the entire O-001 thesis collapses.
+[J-003](../90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) rests on “your choices cannot be reconstructed from a small amount of interaction.” If a model can reliably infer individual preferences from very few examples (for example, reaching 80% approval from you after observing two weeks of ordinary use), then “private context” is not an asset but a temporary cache that can be rebuilt in a few weeks, and the entire [O-001](../40-opportunities.md#o-001--ownership-layer-for-private-context) thesis collapses.
 **Signal that would make me withdraw it**: A publicly reproducible result showing that a small amount of general interaction is enough to reconstruct preferences with high individual approval.
 
 **Counterargument 2: Irreversibility may be handled by a “review before execution” human workflow rather than by a new category.**
-J-004 assumes that “reversibilization” will become independent infrastructure. But companies might simply add a human approval button before each irreversible action; the cost is low, no new category is needed, and the problem is solved in place.
+[J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible) assumes that “reversibilization” will become independent infrastructure. But companies might simply add a human approval button before each irreversible action; the cost is low, no new category is needed, and the problem is solved in place.
 **Signal that would make me withdraw it**: By 2030, the mainstream form of AI execution of irreversible actions in high-value scenarios is still “a human clicking to confirm each item,” with no independent sandbox/rollback procurement category emerging.
 
 **Counterargument 3: The chain as a whole assumes falling costs will not be blocked by non-technical factors.**
-If energy, supply chains, or regulation impose a hard ceiling on compute, J-001 fails, the premise of “extremely abundant generation” itself does not hold, and everything afterward is void. I judge this probability to be low (because the three decline channels are mutually independent), but it is the only mechanism capable of overturning the entire chain in one stroke.
-**Signal that would make me withdraw it**: The falsification condition for J-001 is triggered.
+If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) fails, the premise of “extremely abundant generation” itself does not hold, and everything afterward is void. I judge this probability to be low (because the three decline channels are mutually independent), but it is the only mechanism capable of overturning the entire chain in one stroke.
+**Signal that would make me withdraw it**: The falsification condition for [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) is triggered.
 
 ---
 
 ## IX. What This Chain Grows Into
 
-- From J-005 (raw signals appreciate) → follows the medium-term **shift from free data collection to contractual pricing for data**, see [C2: When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md).
-- From J-002 + J-005 (accountable commitments become the filter) → follows the long-term **collateralization of trust**: when “speaking well” is no longer a capability signal, society returns to older, more expensive credentials—guarantees, collateral, long-term relationships, and identity. See C3 (mostly “scenario only”).
+- From [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) (raw signals appreciate) → follows the medium-term **shift from free data collection to contractual pricing for data**, see [C2: When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md).
+- From [J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) + [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) (accountable commitments become the filter) → follows the long-term **collateralization of trust**: when “speaking well” is no longer a capability signal, society returns to older, more expensive credentials—guarantees, collateral, long-term relationships, and identity. See C3 (mostly “scenario only”).
 
 > C2 is now a testable successor chain; C3 has not yet been written and remains a later far-term direction.

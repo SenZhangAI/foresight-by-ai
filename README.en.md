@@ -10,15 +10,24 @@ Business opportunities are not the only destination. The project also records **
 
 The project does not use anyone else’s forecast as an argument. It reasons first from supply and demand, human behavior, historical regularities, technology diffusion, and social dynamics. When a conclusion overlaps with common consensus, it is explicitly marked “consistent with consensus.”
 
-## How to read
+## Where to start
 
-- **Enter through the stories:** start with the [reasoning chains](docs/en/chains/). The recommended first read is [What Becomes Unbuyable After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md).
-- **Understand the method:** read the [foresight methodology](docs/en/00-method.md).
-- **Follow technical sequencing:** read the [technology capability sequence](docs/en/05-tech-sequence.md).
-- **Look for investable directions:** read the [opportunity candidates](docs/en/40-opportunities.md).
-- **Audit the reasoning:** open the [judgment ledger](docs/en/90-ledger.md).
+Four paths. Pick the one that matches what you want — each lands directly on a file, and none of them requires reading the methodology first.
 
-Reasoning chains make a complete story readable; the technology file answers separately “what arrives first, and what does that make possible next”; the ledger stores structured judgment metadata. Narratives cite `J-NNN`; the ledger records each judgment’s time window, lenses, dependencies, and status. Farther judgments step forward through dependencies rather than being forced into calendar folders.
+- **You want a story that lands** → read the reasoning chains. [C1 · What Becomes Unbuyable After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md) opens on an afternoon when sixty finished options sit on the screen and the person in charge still cannot decide anything. [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](docs/en/chains/20-real-signals-become-contracts.md) then answers why a single real observation is worth money, and what it takes to write one into a contract. [C3 · Electrons on the Ground: Why the Ceiling on Compute Is Not the Chip but the Transformer and the Permit](docs/en/chains/30-power-land-and-permits.md) pushes the chain down to ground level: once models can be rented and chips can be bought, what you still cannot queue past is a transformer that has not been built and a hearing that has to be held.
+- **You want the whole landscape** → read the three time layers in order: [near term, 2026–2028](docs/en/10-near.md) → [mid term, 2029–2032](docs/en/20-mid.md) → [far term, 2033–2040](docs/en/30-far.md). Each covers six dimensions side by side, from technology, content, and trust through to power and meaning.
+- **You want directions worth betting on** → go straight to [opportunity candidates](docs/en/40-opportunities.md): four candidates that pass the hard-constraint gate (who pays, how much, why now, strongest counterargument), plus a list of windows you can profit from now but that the same force will close.
+- **You want to check whether any of this holds up** → open the [judgment ledger](docs/en/90-ledger.md). Sixty-four judgment cards, each with its reasoning chain, time window, falsifier, leading indicator, confidence, and the upstream judgments it stands on. The rules themselves are in the [foresight methodology](docs/en/00-method.md); start with the hard-constraint gate in section 3.
+
+The chains and the time-layer files cover the same judgments, cut differently: a **chain** follows one causal line all the way down and reads best first; a **time layer** spreads several dimensions across the same window and reads best when you want coverage. Both inline only `J-NNN` in the prose; all metadata lives in the ledger.
+
+The arrival order of technical capability has its own file: [Technology Capability Sequence](docs/en/05-tech-sequence.md) answers only “what arrives first, and what does that make possible next,” without importing social consequences ahead of time.
+
+## How to use `J-NNN`
+
+Every judgment receives a globally unique `J-NNN` identifier (for example, `J-001`). Chinese and English share the same identifier, and identifiers are never reused; opportunity candidates use `O-NNN`.
+
+**Every identifier in the prose is a link** — clicking [J-003](docs/en/90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) lands directly on its ledger card, with the full reasoning chain, falsifier, leading indicator, confidence, and `depends-on` links. When a judgment is falsified, every downstream dependency must be reviewed; the old version remains in git history.
 
 ## How to read the structure
 
@@ -26,22 +35,21 @@ Near, mid, and far are coarse containers, not a strict calendar; each judgment�
 
 To read backward from a far judgment, open its ledger card and follow every `depends-on` link upstream until the chain ends. If a near-term judgment is falsified, search for cards that depend on it and walk downstream layer by layer, marking and reviewing every affected far-horizon judgment. The result keeps the story readable while making the reasoning order traceable.
 
-## How to use `J-NNN`
-
-Every judgment receives a globally unique `J-NNN` identifier (for example, `J-001`). Chinese and English share the same identifier, and identifiers are never reused. From a narrative, follow `J-NNN` to the ledger for its reasoning chain, falsifier, leading indicator, confidence, and `depends-on` links. When a judgment is falsified, every downstream dependency must be reviewed; the old version remains in git history.
-
 ## Document map
 
-| Path | Purpose |
-|---|---|
-| `docs/{zh,en}/00-method.md` | Foresight rules, nine lenses, three exits, and judgment fields |
-| `docs/{zh,en}/chains/` | Reader-facing reasoning stories; one chain may cross near, mid, and far horizons |
-| `docs/{zh,en}/05-tech-sequence.md` | Technology capability order and dependency chain |
-| `docs/{zh,en}/40-opportunities.md` | Opportunity candidates that pass the hard-constraint gate and have a named payer |
-| `docs/{zh,en}/90-ledger.md` | Judgment overview, dependency graph, review log, and explicit gaps |
-| `docs/glossary.zh-en.md` | Chinese–English terminology |
-
-Near, mid, and far are coarse fields on judgment cards, not narrative folders. Farther judgments necessarily depend on nearer ones, and time windows move as evidence changes; splitting prose by time layer would create duplication and drift. Git commits record how judgments evolve with new evidence.
+| English | 中文 | What you get |
+|---|---|---|
+| [Foresight Methodology](docs/en/00-method.md) | [推演方法论](docs/zh/00-method.md) | What makes a judgment count: the five required fields, nine lenses, the hard-constraint gate, and three exits |
+| [Technology Capability Sequence](docs/en/05-tech-sequence.md) | [技术能力演进链](docs/zh/05-tech-sequence.md) | The arrival order of capability: twelve gates from unit reasoning cost to open-world evaluation |
+| [Near-term landscape, 2026–2028](docs/en/10-near.md) | [近期图景](docs/zh/10-near.md) | What is becoming abundant across six dimensions, and what becomes scarce as a result |
+| [Mid-term landscape, 2029–2032](docs/en/20-mid.md) | [中期图景](docs/zh/20-mid.md) | Once the near-term judgments hold, how organizations, content, trust, and collaboration are forced to rearrange |
+| [Far-term landscape, 2033–2040](docs/en/30-far.md) | [远期图景](docs/zh/30-far.md) | Load-bearing-wall check: if the mid term holds, what must people and institutions rearrange |
+| [Opportunity Candidates](docs/en/40-opportunities.md) | [商机候选](docs/zh/40-opportunities.md) | Directions that pass the hard-constraint gate and have a named payer, plus the list judged to be windows |
+| [C1 · After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md) | [C1 · 生成变得免费之后](docs/zh/chains/10-generation-becomes-free.md) | Long argument: how falling cost pushes all the way to “what becomes unbuyable” |
+| [C2 · When Data Is No Longer Free](docs/en/chains/20-real-signals-become-contracts.md) | [C2 · 当数据不再免费](docs/zh/chains/20-real-signals-become-contracts.md) | Long argument: how a real-world signal turns from raw material into an accountable contract asset |
+| [C3 · Electrons on the Ground](docs/en/chains/30-power-land-and-permits.md) | [C3 · 电子落地](docs/zh/chains/30-power-land-and-permits.md) | Long argument: how the binding constraint on compute moves from the chip to power delivery, permitting, and local politics |
+| [Judgment Ledger](docs/en/90-ledger.md) | [判断台账](docs/zh/90-ledger.md) | Sixty-four judgment cards, the dependency graph, confidence history, review log, and explicit gaps |
+| [Glossary](docs/glossary.zh-en.md) | 同一文件 | Chinese–English terminology; judgment identifiers are never translated or renumbered |
 
 ## Git discipline
 
@@ -49,4 +57,4 @@ The Chinese and English trees must be updated in the same commit. Each commit mu
 
 ## Current boundary
 
-The first round now contains one complete reasoning chain and one technology-capability sequence, but the “full landscape” promise remains open. Organizations and employment, attention and trust, capital and power, energy, biology and medicine, education, collaboration between people, and relationships between people and AI remain explicit gaps in the ledger and must not be silently treated as covered.
+The first round now contains one technology-capability sequence, three time layers, three independent reasoning chains, four opportunity candidates, and sixty-four judgment cards in the ledger. The “full landscape” promise nevertheless remains open: energy and physical infrastructure is now covered by C3, and geopolitics, institutions, law, and property have risen to partial coverage; complete chains for biology and medicine and for education and qualification, concrete human–AI relationship norms, and the upstream materials and climate coupling of chip manufacturing remain uncovered or only partially covered. Those gaps are kept as explicit entries in [section 6 of the ledger](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered) and will not be silently dropped just because the first round produced output.
