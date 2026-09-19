@@ -69,12 +69,36 @@ Regulators may directly prescribe the allocation of liability for AI output, ass
 
 ---
 
+## O-004 · Certainty Layer for Deliverable Power and Permitted Sites
+
+**Source judgment**: [J-057](90-ledger.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date) ｜ **Hard constraint**: physical + law / liability + ownership
+
+**What exactly is scarce**
+Not electricity and not land, but **a position that can be energized on the promised date**: a site whose interconnection permit is granted, whose substation capacity is locked, whose water and land conditions are settled and where construction can start immediately — together with the ability to turn that certainty into tradable terms (capacity reservation, in-service date guarantees, delay damages, bridge power). The same force that makes everything abundant can drive the cost of siting studies, power-flow simulation, design, and filing packages very low, but it cannot manufacture a transformer that has not been built, and it cannot make a hearing unnecessary. The physical constraint comes from having to move mass and wait; the legal constraint from the fact that interconnection and land permits can only be granted by an authorized body; the ownership constraint from key sites being lawfully held by someone else.
+
+**Who pays, and how much**
+- Compute buyers and operators (primary): model generations turn over quickly, so capacity that arrives late faces models that have already been superseded. **The ceiling on willingness to pay is set by the present value of energizing earlier** — if being live twelve months sooner covers one additional model generation's commercial window, paying a low single-digit percentage of project cost for that certainty is rational. This is an order-of-magnitude anchor derived from the value of lead time, **not a market quote**; to test it, look for in-service date guarantees and delay damages actually appearing in contracts.
+- Developers and site holders (secondary): selling or subleasing the queue position itself as a transferable asset, where the return comes from the difference in waiting time rather than from a tariff spread.
+
+**Why now**
+The queue is scarce only during the period when demand arrives in a rush **and grid expansion has not yet caught up**. A few years earlier, spare capacity was common and certainty was worth little; once expansion completes or on-site generation becomes widespread, waiting times stop discriminating and this layer disappears along with its premium. Both the opening and the closing of the window are governed by [J-056](90-ledger.md#j-056--the-binding-constraint-on-compute-expansion-moves-from-chip-supply-to-power-delivery-and-interconnection-permits).
+
+**Strongest counterargument**
+One sharp pullback in compute demand, or energy per unit of service falling faster than service volume grows — either would empty the queue and end the scarcity of certainty (see [J-064](90-ledger.md#j-064--if-efficiency-gains-keep-outpacing-load-growth-the-constraint-in-this-chain-dissolves-in-the-long-run-landscape-only)). A second counterargument is that on-site generation and storage become standard, letting projects bypass the public interconnection process entirely and internalizing this layer's permitting value.
+
+**Signal that would make me withdraw it**: average large-load interconnection wait times in major markets fall below their 2026 level, and the transaction price gap between permitted sites and bare land converges toward construction cost.
+
+**Indicator to watch**: share of power and capacity contracts carrying in-service date guarantees and delay-damages clauses; price gap between permitted sites and bare land in the same region; adoption of on-site generation and storage as a bridging solution.
+
+---
+
 ## Window List (can be harvested, but do not treat as structural opportunities)
 
 | Window | Source | Why it is only a window | Expected to close |
 |---|---|---|---|
 | General “AI output quality-control / selection” tools | [J-002](90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) | Objective quality can be formalized → model providers will internalize it as default behavior | By the end of 2029 |
 | Prompt optimization / token-saving tools | [J-019](90-ledger.md#j-019--token-saving-is-a-window) | Rejection rate is a function of model capability; stronger models and falling costs squeeze it from both sides | By the end of 2028 |
+| Bridge power and interconnection-acceleration services | [J-057](90-ledger.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date) | The value comes entirely from queue length; grid expansion and faster permitting will kill it simultaneously | Closes when the queue disappears, possibly as early as around 2032 |
 
 ---
 
