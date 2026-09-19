@@ -246,14 +246,19 @@ def check_ledger(lang):
         # test passes every positive case while letting through exactly the
         # invented grades this check exists to catch; truncating the value at
         # the first bracket let the same grades back in as `中（偏高）`. Every
-        # occurrence in the card is tested, not only the first, and a field
-        # whose value cannot be read is a failure rather than a silent skip.
+        # occurrence in the card is tested, not only the first, and as many
+        # values must be readable as there are fields.
         found = list(re.finditer(CONFIDENCE_VALUE, body))
-        if not found and any(("**%s**" % CONFIDENCE_FIELD[l]) in body
-                             for l in LANGS):
+        markers = len(re.findall(r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*",
+                                 body))
+        if len(found) != markers:
+            # Not "no value at all" but "fewer values than fields": a card
+            # carrying one readable grade plus a `- **置信度** 极高` line with no
+            # separator would otherwise have its second field read by nobody —
+            # present enough for the field check, invisible to the whitelist.
             fail("confidence",
-                 "%s %s: confidence field present but no value could be read"
-                 % (lang, jid))
+                 "%s %s: %d confidence field(s) but %d readable value(s)"
+                 % (lang, jid, markers, len(found)))
         for m in found:
             if not confidence_is_whitelisted(lang, m.group(1)):
                 fail("confidence", "%s %s: %r is not %s"
@@ -448,12 +453,19 @@ def _break_root_dep_edge(root):
             u"graph and the overview give it no upstream" % (root_id, borrowed))
 
 
-def _break_single_language_card(root):
-    path = _ledger(root, "en")
-    text = _read_file(path)
-    start, end, jid = _last_card(text)
-    _write_file(path, text[:start] + text[end:])
-    return u"en ledger: card %s removed, zh still carries it" % jid
+def _break_single_language_card(lang):
+    """Remove the last card from one language; parity must notice either way."""
+    other = "en" if lang == "zh" else "zh"
+
+    def mutate(root):
+        path = _ledger(root, lang)
+        text = _read_file(path)
+        start, end, jid = _last_card(text)
+        _write_file(path, text[:start] + text[end:])
+        return u"%s ledger: card %s removed, %s still carries it" % (
+            lang, jid, other)
+
+    return mutate
 
 
 def _break_missing_field(root):
@@ -525,6 +537,26 @@ def _break_unreadable_confidence(root):
             % jid)
 
 
+def _break_partial_readable_confidence(root):
+    """One readable value beside one unreadable field, in the same card.
+
+    Each fix alone leaves this open: `found` is non-empty so "no value at all"
+    never fires, and the unreadable line never enters the whitelist loop.
+    """
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    head, jid = _first_card(text)
+    field = CONFIDENCE_FIELD["zh"]
+    m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*\n" % re.escape(field),
+                  text[head:], re.M)
+    if not m:
+        raise AssertionError("zh %s carries no %s line" % (jid, field))
+    extra = u"- **%s** \u6781\u9ad8\n" % field  # readable line above, none here
+    _write_file(path, text[:head + m.end()] + extra + text[head + m.end():])
+    return (u"zh %s: a valid value, plus a second field with no separator"
+            % jid)
+
+
 def _text_after_last_card(root):
     """Not a breakage: prose BELOW the last card belongs to no card.
 
@@ -550,14 +582,18 @@ NEGATIVE_CASES = [
     (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
-    (u"card exists in one language only", "bilingual-cards",
-     _break_single_language_card),
+    (u"card exists in zh only", "bilingual-cards",
+     _break_single_language_card("en")),
+    (u"card exists in en only", "bilingual-cards",
+     _break_single_language_card("zh")),
     (u"confidence outside the whitelist", "confidence",
      _set_confidence("zh", u"\u6781\u9ad8")),  # 极高
     (u"second confidence value in the same card", "confidence",
      _break_second_confidence),
     (u"confidence value unreadable", "confidence",
      _break_unreadable_confidence),
+    (u"one value readable, one field unreadable", "confidence",
+     _break_partial_readable_confidence),
     (u"required card field missing", "card-fields", _break_missing_field),
 ]
 
