@@ -1,0 +1,336 @@
+# Retrospect: What It Takes to Become a Society-Wide Habit
+
+> **Where this document sits**: after the methodology, before every chain of reasoning. It predicts nothing. It looks back at successes and failures that have already happened and extracts a set of gates from them—a way to judge whether a capability can become **the way a whole society does things**.
+> **In one sentence**: a technology working is not the same thing as it happening. In the most expensive failures of the past sixty years, the technology worked every time.
+
+---
+
+## 1. In 1964, someone had already finished building the future
+
+In April 1964 a queue formed at the Bell Labs pavilion at the New York World's Fair. Visitors took turns sitting in a small booth and talking, through a screen, to a stranger far away in California—**and they could see the other person's face**. That same month, Bell also completed a transcontinental video call between New York and Anaheim.
+
+This was not a prototype. On 1 July 1970 the Picturephone entered commercial service in Pittsburgh, and expanded to Chicago the following year. AT&T's 1969 annual report put the forecast in writing: by 1980, one million sets, a billion-dollar business.
+
+What actually happened: Pittsburgh peaked at 32 sets, Chicago at 453. **Fewer than 500 in total.** Cutting the monthly rent from $160 to $75 did not help either. A few years later the service was quietly shut down ([ETHW](https://ethw.org/Picturephone), [Wikipedia](https://en.wikipedia.org/wiki/Picturephone)).
+
+Fifty-six years later, in March 2020, the same thing—**talking to someone while looking at their face**—was learned by hundreds of millions of people in three months. Zoom's daily meeting participants went from 10 million in December 2019 to 300 million in April 2020, a thirtyfold rise ([Zoom, official](https://www.zoom.com/en/blog/reflecting-looking-ahead/)).
+
+Notice what did **not** change between the two events:
+
+- Demand did not change. People in 1964 wanted to see each other's faces exactly as much as people in 2020 did.
+- The technology did not become more "possible." The 1964 video call was already clear, usable, and ready for commercial service.
+
+Something else changed. **Finding that something is this document's entire task.**
+
+Before going further, one thing we did has to be admitted as a mistake: this project's reasoning has quietly assumed throughout that *technical capability arrives → the trend happens*. All nine lenses answer "how does change happen"; not one of them asks "will the change diffuse at all, and to enough people?" The Picturephone on its own is enough to show that default is wrong.
+
+---
+
+## 2. Three locks first: explanatory power is not evidence
+
+The great danger of hindsight is that **it can always make itself come out right**. Hand me any failure and I can compose a set of very reasonable-sounding causes; hand me any success and I can do the same. A rule that explains every case is not a filter, it is a narrative.
+
+So before proposing any rule at all, three locks:
+
+1. **Every rule needs a control group**: at least 2 successes + 2 failures, with cases spanning technology, politics, and business. Anything supported only by successes is treated as survivorship bias.
+2. **Every rule needs an exclusive case**: there must be at least one case that **only this rule stops**, with the other rules all letting it through. A rule with no exclusive case is a restatement of another rule and should be merged away.
+3. **The set as a whole needs a counterexample**: we must be able to name a case that **passes all of them and still fails**. If we cannot, the set is quietly posing as a sufficient condition—and that is prophecy, not filtering.
+
+Lock 2 is the heaviest attack this document makes on itself; section 5 is given over entirely to carrying it out. The answer to lock 3 is in section 6, and the answer is: **yes—and it is the most famous case in business history.**
+
+---
+
+## 3. The five gates
+
+Each gate was induced from the batch of cases above; the gates did not come first, with cases hunted down afterwards to fit them. The test is the first line under each subtitle, ready to be used as it stands.
+
+### Gate 1 · Count the people before you look at the technology
+
+**The test**: the activity this capability serves—**how many people do it, and how often**? The ceiling on how many people a capability can reach is set by the headcount × frequency of that activity, not by the ceiling of the technology.
+
+Ask one layer deeper: does it **raise the ceiling for people who already do this professionally**, or does it **let people who could not do it at all do it now**? The ceiling of the first is the headcount of that occupation; only the second can enlarge the activity itself.
+
+**Passes, and did reach society scale**:
+
+- *Technology*—the smartphone. The activity served is "contact someone, look at something, find your way, pay for something," which a billion people do dozens of times a day. In 2023, 4.3 billion people worldwide owned a smartphone, 54% of the world's population ([GSMA](https://www.gsma.com/newsroom/press-release/smartphone-owners-are-now-the-global-majority-new-gsma-report-reveals/)).
+- *Politics*—China's health code. The activity served is "entering a venue," which the entire population does many times a day. By April 2020 it covered more than 200 cities.
+- *Business*—mobile payment. The activity served is "paying for something," and a billion-scale population does it many times a day. Annual mobile-payment consumption in China runs into the trillions of dollars (industry figures differ widely; see section 10's weak-evidence list—**this is used only to indicate the order of magnitude, and the conclusion here does not rest on the number**, but on the headcount and frequency of the activity itself).
+
+**Stopped by this gate**:
+
+- *Business*—Concorde. The activity served is "crossing the Atlantic, and being willing to pay several times the fare to save three or four hours." The people doing that are counted on the order of a hundred thousand trips a year. Result: 27 years in service from 1976 to 2003, only 20 aircraft built in all, and only 14 ever in commercial operation ([Wikipedia](https://en.wikipedia.org/wiki/Concorde)). The technology was a complete success.
+- *Business / technology*—the Iridium phone. The activity served is "making a call where there is no cellular signal." At bankruptcy in 1999 it had 55,000 subscribers, against the million-plus needed to break even ([Forbes 2001](https://www.forbes.com/2001/11/30/1130tentech.html), [Wikipedia](https://en.wikipedia.org/wiki/Iridium_Communications)). All 66 satellites launched successfully and the system worked exactly as designed.
+- *Politics / society*—Esperanto. Published in 1887, more than one hundred and thirty years ago. The language itself is well designed, easy to learn, and neutral. But in the world of 1887, the overwhelming majority of people would never in their lives meet an occasion requiring everyday conversation across native languages—that activity simply did not exist for enough people. Estimates of fluent speakers today range from 63,000 to two million, a thirtyfold spread; that the range is disputed at all tells you the scale is small ([Wikipedia](https://en.wikipedia.org/wiki/Esperanto)).
+
+**An important property of this gate: failing it is not the same as failing.** Professional video-editing software does not pass Gate 1—its ceiling is the number of editors there are—yet its adoption among editors approaches 100% and it is a good business. The correct reading of a Gate 1 failure is: **the ceiling equals the size of that group, and it will never become a society-wide habit.** That distinction is the most important correction this document makes to the project, and section 7 uses it on our own writing.
+
+This rule is recorded as [J-067](90-ledger.md#j-067--the-audience-ceiling-of-a-capability-is-the-headcount-and-frequency-of-the-activity-it-serves).
+
+### Gate 2 · Whatever diffuses was substituted in, never added on
+
+**The test**: which activity that users **already do today** does it replace? Once replaced, how far does the unit cost of that activity (money, time, attention) fall? If the answer is "it replaces nothing, it is just one more thing to do," the ceiling is hobbyists.
+
+**This gate has exactly one failing condition: it replaces nothing.** The size of the cost drop is not a pass mark but a speed variable—a capability that cuts cost by an order of magnitude (the container, 97%) moves fast, and one whose cost barely falls, or does not fall at all, still counts as replacement; it simply needs another gate to explain why it did not happen. Writing a cost threshold into the failing condition would let this gate swallow Gate 3; section 5 faces that fork head-on rather than stepping around it.
+
+The logic lies in what the cost is measured against. Adopting a new capability means paying fixed costs—learning it, buying it, reorganizing a process around it—and those costs only pencil out when there is an old activity to charge them against. Replace nothing and the benefit has to prove itself from scratch, so adoption runs on curiosity alone—and the stock of curiosity is exactly the number of hobbyists.
+
+**Passes**:
+
+- *Business*—the shipping container. It replaced break-bulk loading. In 1956 the traditional method cost $5.83 per ton; the container method cost 15.8 cents per ton, a fall of about 97% (Marc Levinson, *The Box*, Princeton University Press).
+- *Politics*—China's household responsibility system. It replaced work-point accounting by the production team. Same land, same people, same seed; the only thing that changed was who bore the cost of supervision. Justin Yifu Lin's 1992 study in the *American Economic Review* attributes **about half** of the growth in agricultural output between 1978 and 1984 to this decollectivization ([AER 82(1): 34-51](https://econpapers.repec.org/RePEc:aea:aecrev:v:82:y:1992:i:1:p:34-51)).
+- *Business / technology*—QR-code payment. It replaced pulling out cash, making change, and reconciling the till.
+
+**Stopped**:
+
+- *Technology*—Google Glass. It replaces no activity you do today; it adds one to your face. The 2013 Explorer edition was priced at $1,500, and consumer sales ended in January 2015 ([Wikipedia](https://en.wikipedia.org/wiki/Google_Glass), [BBC](https://www.bbc.com/news/technology-30831128)).
+- *Business*—3D television. It does not replace "watching television"; it adds an attribute to watching television, and that attribute costs extra. ESPN 3D launched on 11 June 2010 alongside the World Cup and closed on 30 September 2013, the official reason being "limited viewer adoption" ([Wikipedia](https://en.wikipedia.org/wiki/ESPN_3D)).
+- *Politics / education*—MOOCs. This is the case most worth studying, because it **replaced the wrong thing**. A MOOC replaces "attending the lecture," but what students are actually buying is the credential—and the credential was not replaced at all. A peer-reviewed study published in *IRRODL* in 2015 gives a median completion rate of 12.6% (range 0.7%–52.1%, [Jordan 2015](https://www.irrodl.org/index.php/irrodl/article/view/2112)). The San Jose State University / Udacity pilot of spring 2013 had pass rates of only 20%–44% and was suspended that July ([LA Times](https://www.latimes.com/local/lanow/la-me-ln-san-jose-online-20130718-story.html)). Udacity founder Sebastian Thrun's own words at the time were "We have a lousy product" (*Fast Company*, November 2013).
+
+This rule is recorded as [J-068](90-ledger.md#j-068--what-diffuses-replaces-an-activity-already-happening-not-something-added-on-top).
+
+### Gate 3 · Nobody builds a road for one thing
+
+**The test**: what new infrastructure does this capability need **exclusively for itself**? Who pays for it, and why? If that infrastructure has no second use beyond this capability and no independent revenue stream, then either it will not get built, or the capability has to wait until somebody else builds it for reasons of their own.
+
+This is the thing that changed between 1964 and 2020. The Picturephone needed dedicated broadband loops and dedicated terminals, and that kit had no second use—AT&T had to carry the entire cost alone and recover it from a user base that did not yet exist. Video calling in 2020 needed no dedicated infrastructure whatsoever: front-facing cameras, broadband, and screens were already in billions of pockets **for other reasons**, and an adopter's marginal hardware cost was zero.
+
+**Passes**:
+
+- *Technology*—video calling, 2020. The carrier was supplied free of charge by the spread of the smartphone.
+- *Business / technology*—television in the United States. Broadcast towers really were new, dedicated infrastructure—but they had an independent revenue stream: advertising. So they got built. American household television ownership was about 1% in 1948 and about 75% in 1955 ([Wikipedia](https://en.wikipedia.org/wiki/Television_in_the_United_States)).
+- *Politics*—the health code. It ran inside Alipay and WeChat, which were already installed; it was a mini-program, and **it made nobody install a new app** ([Social Media + Society, 2020](https://journals.sagepub.com/doi/pdf/10.1177/2056305120947657)).
+
+**Stopped**:
+
+- *Technology*—the Picturephone, 1964. See above.
+- *Business*—Iridium. 66 satellites plus dedicated handsets, roughly $5 billion, existing for this one thing only.
+- *Business*—Better Place battery swapping. It needed a network of swap stations, and it needed carmakers to change their designs. It raised about $850 million and went bankrupt in May 2013; Israel sold 518 cars in all of 2012, against the founder's earlier promise of a hundred thousand by 2010 ([Wikipedia](https://en.wikipedia.org/wiki/Better_Place_(company))).
+
+This rule is recorded as [J-069](90-ledger.md#j-069--infrastructure-that-serves-only-one-capability-does-not-get-built).
+
+### Gate 4 · Who holds the decision settles the outcome earlier than how good the technology is
+
+**The test**: in whose hands does the adoption decision land? If one party can decide unilaterally, this gate passes automatically. If **several parties must change at the same time**, then one of the following three is required; without one, it stops at the pilot:
+
+- **(a) authority that can compel, and whose enforcement can be seen**—both conditions, neither optional;
+- **(b) a single party able to subsidize away every side's start-up cost in one stroke**;
+- **(c) a local closed loop**—two machines, one port dealing with one port, or one industry internally can get it working first, without waiting for society as a whole.
+
+The "can be seen" half of clause (a) is the half history most often forgets.
+
+**Passes**:
+
+- *Politics*—the health code. It could compel, and enforcement was visible at the entrance of every venue. Nationwide within a few months.
+- *Politics*—the household responsibility system. In 1978, 18 households in Xiaogang divided the land; by the end of 1979, 51% of production teams in Anhui had adopted some form of responsibility system; in 1982 Central Document No. 1 established it as national policy; in 1983 it was rolled out everywhere. Roughly four to five years from experiment to nationwide ([Wikipedia](https://en.wikipedia.org/wiki/Household_responsibility_system)).
+- *Business*—the ATM. A bank deploys unilaterally, a depositor uses it unilaterally, neither has to wait for the other. Barclays installed the first one in Enfield, London, on 27 June 1967 ([Barclays](https://home.barclays/news/2017/06/from-the-archives-the-atm-is-50/)).
+- *Business*—the BankAmericard "Fresno drop" of 1958. This is the textbook specimen of clause (b): credit cards have the classic chicken-and-egg problem—no cardholders, so merchants do not accept; no merchants, so nobody signs up. Bank of America's answer was to mail roughly 60,000 pre-activated cards to residents of Fresno **without anyone applying**, using its own balance sheet to buy out an entire city's start-up cost in one stroke.
+
+**Stopped**:
+
+- *Politics*—American Prohibition. It could compel, but it **could not be seen**. The Bureau of Prohibition had only about 1,520 federal agents for a 1920 population of roughly 106 million—about one agent per seventy thousand people. New York alone had between thirty thousand and a hundred thousand speakeasies, and the bootleg economy ran at around $3 billion a year. Repealed in 1933 by the Twenty-first Amendment ([Wikipedia](https://en.wikipedia.org/wiki/Prohibition_in_the_United_States)).
+- *Politics*—American metric conversion. The Metric Conversion Act of 1975 states in so many words that conversion is "completely voluntary," with no deadline and no penalty, and the US Metric Board was abolished in 1982 ([Wikipedia](https://en.wikipedia.org/wiki/Metric_Conversion_Act)). **But note that it did not fail across the board**: American science, medicine, and the military use the metric system entirely—wherever a **local closed loop** held, it diffused; in daily life, which requires the whole of society to change at once, it did not. Here both sides of clause (c) appear in the very same case.
+- *Technology*—the Picturephone. The value of installing one depends on whether the other party installs one too, and AT&T had no power to compel anyone.
+
+**One correction about the container**: from 1956 to the publication of the ISO standards (1968–1970) took more than a decade, and becoming the mainstream way general cargo moved took another ten years or so—the resistance being exactly the multi-party coordination Gate 4 describes (ports, railroads, trucking, unions, insurers, box standards). The popular economic-history account says that "Vietnam War military shipping supplied a buyer who could give orders unilaterally, and that forced standardization." This document **does not adopt** that account: the primary material points the other way. The US Department of Defense was adapting to a civilian container system that had already been commercialized, and the military's own CONEX boxes (introduced in 1952, more than 200,000 of them by 1967) were a separate system. Between 1967 and 1973 Sea-Land did ship roughly 1,200 containers a month to Indochina and did take about $450 million in revenue from the Department of Defense—**that one large buyer held up the economics of the route is a fact; that it forced standardization is an unproven narrative.**
+
+This rule is recorded as [J-070](90-ledger.md#j-070--when-many-parties-must-change-together-change-needs-enforceable-and-observable-authority-a-single-subsidizing-party-or-a-local-closed-loop).
+
+### Gate 5 · One-time costs can be subsidized; recurring costs cannot
+
+**The test**: what bodily cost, social cost, and learning cost does a user pay **on every single use**? A one-time cost (buy once, register once, learn once) can be subsidized by the vendor, and it is amortized across uses; a recurring cost is not amortized—it accumulates linearly with frequency. So the more frequent the activity, the more lethal a recurring cost is.
+
+**Passes**:
+
+- *Technology*—the touchscreen phone. The learning cost is close to zero, a three-year-old can use one, and it is paid once.
+- *Business*—QR payment and the credit card. Point the camera; sign your name. Both are zero recurring cost on a high-frequency activity.
+- *Politics*—the health code. Each entry to a venue adds one scan: two seconds, zero learning, zero social cost—one of the preconditions for something done daily by an entire population spreading within months. **To be explicit**: the health code also passes Gate 4 (compellable and observable), so it is not isolated evidence for Gate 5, only a passing sample for this gate in the political domain; whether Gate 5 stands on its own is answered by the exclusivity test in section 5.
+
+**Stopped**:
+
+- *Business*—3D television. Every single time: put the glasses on, sit square to the screen, and risk eye strain.
+- *Technology*—Google Glass. Its recurring cost was **social**: wearers were barred from casinos and cinemas, a wearer was set upon in a San Francisco bar in 2014, and "Glasshole" became a word. The cost of the camera had long since gone to zero; the cost of being stared at had not.
+- *Politics / society*—Esperanto. The learning cost runs to hundreds of hours, and the return on that cost depends on **whether the other person has paid it too**. It is stopped by Gate 1 and Gate 5 at once.
+
+**One boundary on this gate must be stated plainly: a recurring cost can be absorbed by compulsion.** Seat belts, helmets, and airport security screening are all bodily costs paid on every single use, and all of them diffused—because they took Gate 4's compulsion route. So Gate 5 stated precisely reads: **under voluntary adoption, recurring cost sets the ceiling**; once a party that can compel and observe enforcement exists, this gate can be bypassed. That is a real narrowing of Gate 5, not a patch.
+
+This rule is recorded as [J-071](90-ledger.md#j-071--one-time-costs-can-be-subsidized-recurring-costs-cannot).
+
+---
+
+## 4. Two layers of gate: one rules on the ceiling, one rules on the speed
+
+The five gates are not peers. They fall into two layers that do different work:
+
+| Layer | Gates | Failing means |
+|---|---|---|
+| **Ceiling layer** | Gate 1 scale, Gate 5 cost | The audience is capped at that group or at hobbyists forever; waiting changes nothing |
+| **Speed layer** | Gate 2 replacement, Gate 3 carrier, Gate 4 decision | It stops at the pilot, **until the unlocking condition appears**; if no unlocking condition can be written down, treat it as "will not happen" |
+
+**The two layers are not equally strong, and the boundary note under Gate 5 in section 3 already shows the difference**: fail Gate 1 and waiting changes nothing, ever; fail Gate 5 and waiting changes nothing *until a compelling party appears*—seat belts and security screening are recurring costs absorbed by compulsion. Strictly, then, Gate 1 is a ceiling and Gate 5 is a ceiling under voluntary adoption.
+
+The most useful thing about the speed layer is not that it says no. It is that **it forces you to write down the unlocking condition, which makes the judgment checkable.** The Picturephone in 1964 was stopped by Gate 3 and Gate 4 at once, and the unlocking condition was: "the carrier gets built for other reasons, and the person on the other end has a terminal too." Smartphones satisfied that condition between 2007 and 2015—and so it diffused within three months in 2020. **The gates did not merely rule that it would not happen; they spelled out the conditions under which the ruling would be overturned, and that overturning actually occurred.** This is the strongest form of proof a filter can offer.
+
+A rough speed table can be read off the cases:
+
+| Situation | Sample | From technically available to society-scale diffusion |
+|---|---|---|
+| The carrier is already widespread for other reasons, and adopters can decide unilaterally | video calling 2020 (3 months), the health code (months) | months – a few years (both samples land in the months range; the upper bound is extrapolated and **rests on no case**) |
+| The carrier must be newly built, but an independent revenue stream pays for it | American television (1% in 1948 → 75% in 1955) | 7 – 20 years |
+| Several parties must change together and nobody can compel | the container (1956 → ISO 1968–70 → mainstream around the 1980s) | 20 years or more |
+| The carrier exists only for this one thing | the Picturephone (1964 → service shut down in the mid-to-late 1970s) | does not happen, until the carrier is built for other reasons |
+
+The time windows on this project's existing judgments were written without this table in hand. **Re-reviewing them against it is downstream work; this document does not touch a single existing card.**
+
+---
+
+## 5. Independence test: every gate must have a case only it can stop
+
+This is the second lock from section 2. If a gate has no exclusive case, it is a restatement of another gate and should be merged away. Gate by gate, the results:
+
+| Gate | Exclusive case | How the other four rule | Control |
+|---|---|---|---|
+| **1 · Scale** | Professional video-editing software | Replacement (replaces cutting by hand) ✓, carrier (runs on an ordinary computer) ✓, decision (an editor buys it unilaterally) ✓, cost (professional training, but one-time) ✓ | Editing on a phone: same activity, ceiling moves from a few million editors to a billion people |
+| **2 · Replacement** | MOOCs | Scale (tens of millions of university students) ✓, carrier (rides on the existing internet) ✓, decision (a student enrolls unilaterally) ✓, cost (no higher than the "attending a lecture" it replaces—the hours of self-study are the product itself, not a toll paid before use) ✓ | The same courses as **for-credit courses on campus**: connect them to the credential and adoption happens at once |
+| **3 · Carrier** | Hydrogen fuel-cell cars | Scale (driving) ✓, replacement (replaces the act of refueling, in almost exactly the same form: a 3–5 minute fill, comparable range) ✓, decision (a consumer buys unilaterally) ✓, cost (refueling is as quick as filling a tank) ✓ | Battery-electric cars: same activity, same replacement; the only difference is that sockets were spread everywhere long ago for other reasons |
+| **4 · Decision** | American metric conversion | Scale (weights and measures; everyone, daily) ✓, replacement (replaces imperial, and the arithmetic is simpler) ✓, carrier (change the ruler; cost is minimal) ✓, cost (learn once) ✓ | Science and medicine in the same country: the local closed loop holds, so diffusion is complete |
+| **5 · Cost** | The Dvorak keyboard | Scale (typing) ✓, replacement (claims to be faster) ✓, carrier (switch inside the operating system, zero hardware) ✓, decision (an individual decides unilaterally) ✓ | QWERTY: its only advantage is that you already know it, and that it is on everybody else's machine too |
+
+Each of the five gates has its own exclusive case, so they are not five ways of stating one rule.
+
+Three things must be said plainly, or this table will be read as stronger than it is:
+
+- **The hydrogen fuel-cell cell is the weakest square in this table, and the fork is written here rather than hidden.** A hydrogen car replaces the act of refueling in almost exactly the same form, so by Gate 2's failing condition (it replaces nothing) it passes. But its **fuel cost per kilometre is higher than gasoline**—retail hydrogen has long run above $30 per kilogram. If a reader holds that "unit cost must fall" belongs in Gate 2's failing condition, then the hydrogen car is stopped by Gate 2 as well, Gate 3 immediately loses its exclusive case, and **by section 9's own rule Gate 3 should be merged into Gate 2, leaving four gates rather than five**. The reason this document does not write it that way: hydrogen's high retail price is to a large degree a *consequence* of the missing carrier (few stations → low utilization → high cost per unit), and treating a consequence as an independent second obstacle counts one cause twice. But that reason can be broken—the fuel-cell energy chain (electrolysis + compression + fuel cell, round-trip efficiency around thirty percent) means its cost disadvantage against electricity would not disappear even with stations everywhere. **Show that a hydrogen car still fails Gate 2 in the counterfactual where the carrier is fully built, and Gate 3 should be merged.**
+- **Whether Dvorak is "faster" is itself disputed.** Paul David's 1985 "Clio and the Economics of QWERTY" used it as a specimen of path dependence, and Liebowitz and Margolis later challenged the premise that "QWERTY is inefficient." This does not affect its standing as Gate 5's exclusive case—**even if Dvorak really is faster, it still did not diffuse**, and the only thing that could have stopped it is recurring cost.
+- **No sales figures are given here for the hydrogen-versus-battery-electric comparison.** That pair is a qualitative control; the conclusion reaches only as far as "the difference lies in the carrier," and does not extend to market share.
+
+---
+
+## 6. The sufficiency counterexample: all five passed, withdrawn 79 days later
+
+The third lock from section 2: can we name a case that passes all five gates and still fails?
+
+We can, and it is the most famous case in business history. On 23 April 1985 Coca-Cola replaced a formula it had used for 99 years and launched New Coke. Gate by gate:
+
+- **Scale**: people who drink cola every day number in the billions. ✓
+- **Replacement**: what it replaced was old Coke—same activity, same price, same shelf. ✓
+- **Carrier**: exactly the same production lines, bottlers, and distribution network; marginal deployment cost zero. ✓
+- **Decision**: Coca-Cola decided unilaterally to make it, consumers decided unilaterally to buy it. ✓
+- **Cost**: zero learning cost, zero bodily cost, zero social cost—and **it tasted better in blind tests**, which is precisely why the formula was changed. ✓
+
+All five gates passed. On 11 July 1985, that is **79 days later**, Coca-Cola announced the return of the old formula ([The Coca-Cola Company](https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever), [Wikipedia](https://en.wikipedia.org/wiki/New_Coke)).
+
+What was missed? L8 in this project's methodology: **a change in supply does not guarantee that demand stays unchanged—but demand is not only function, either.** What people buy is not always the thing itself. Coca-Cola was never selling a flavor; it was selling a token of identity, and the value of a token comes precisely from its not changing.
+
+The conclusion has to be written hard: **these five gates are a veto-style filter, not a predictor.** Fail a gate and it will essentially not become a society-wide habit; pass all five and you have merely qualified to compete. This is recorded as [J-066](90-ledger.md#j-066--the-five-gates-are-necessary-not-sufficient).
+
+---
+
+## 7. Running these gates on what we ourselves have written
+
+This project's C1 chain opens with a scene: a head of marketing receives sixty complete proposals and spends two afternoons deciding nothing. The whole chain starts from there and derives "choosing and trading off become scarce."
+
+Now run Gate 1 on it, and count the people mechanically.
+
+**Definition of the activity**: faced with a batch of already-generated candidate proposals, **pick one and be accountable for the result**.
+
+**Who does this?** Three things must hold at once:
+
+1. the job requires producing candidates in bulk (advertising and marketing creative, design and product, architecture and engineering proposals, consulting proposals);
+2. the person holds the final call rather than executing someone else's;
+3. the frequency is at least once a week.
+
+The people who satisfy all three are concentrated in the **decision-making tier** of those job families. Reasoning from occupational structure, the global order of magnitude is **10⁶ (millions)**, and the frequency is **weekly, not daily**.
+
+**This has to be stated explicitly: it is an estimate, not a statistic.** No citable global occupational statistics were obtained this round; the order of magnitude above comes from a constructed estimate of "which job families satisfy all three conditions at once." A reader is free to attack that construction—which is exactly why it is written down.
+
+**Gate by gate**:
+
+| Gate | Ruling | Reason |
+|---|---|---|
+| 1 · Scale | **Fails** | Ceiling in the millions, weekly frequency. Against the society-scale threshold (a billion people daily, or a hundred million people weekly) that is two to three orders of magnitude short |
+| 2 · Replacement | Passes | It replaces "make three versions first, then pick one of the three"; on the making side, cost falls by more than an order of magnitude |
+| 3 · Carrier | Passes | It rides on generation tools that are already widespread; an adopter's marginal deployment cost is close to zero |
+| 4 · Decision | Passes | One person can decide unilaterally whether to use it |
+| 5 · Cost | Borderline | The attention cost **rises**: candidates to look through go from 3 to 60 |
+
+**Conclusion: this is an occupational judgment, not a society-level trend.** It may hold perfectly well within its own audience, but by this project's rules it may not be written in the voice of "the whole of society," "generally," or "becomes the norm," and no society-level consequence may be derived from it. This is recorded as [J-072](90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend).
+
+**So what *is* society-level?** On the same chain, the thing that passes Gate 1 is not "choosing" but "making." "Needing a usable document, diagram, piece of copy, or program"—a billion people need that occasionally, and until now most of them **could not do it**. That belongs to the "lets people who could not do it do it now" category, and only there is the ceiling society-level. So this project's genuinely society-level judgments ought to grow on the "making" side, not on the "choosing" side.
+
+There is a sharper attack on ourselves, and writing it down beats hiding it: **"pick one out of a large pile of candidates" is something e-commerce recommendation has already done for a billion people every day, for years.** There, "generating candidates" was never the bottleneck, and "ranking" was automated away long ago. That lines up exactly with this project's existing [J-002](90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window): selection gets eaten by the same force that produced the abundance.
+
+**This section deletes nothing and downgrades nothing.** It only attaches an audience-size qualifier to the existing judgments; re-reviewing every card in the ledger against the new gates is a separate job.
+
+---
+
+## 8. External comparison: where we overlap with consensus, and where we add to it
+
+Per §1.2 of this project's methodology, once independent reasoning is complete an explicit comparison must be made, stating agreement, disagreement, and why we still hold our view.
+
+**Agreement (consistent with consensus here; not disguised as an independent discovery)**:
+
+- Gate 2, "replacement," overlaps heavily with **relative advantage**, one of the five attributes in Everett Rogers's 1962 *Diffusion of Innovations*; Gate 5, "cost," partly overlaps with **complexity** among those same five ([Rogers's five attributes](https://en.wikipedia.org/wiki/Diffusion_of_innovations)).
+- Gate 4, "decision," is consistent with Mancur Olson's 1965 *The Logic of Collective Action*: rational self-interested individuals do not automatically act for a common interest unless the group is small or coercion and selective incentives exist ([Wikipedia](https://en.wikipedia.org/wiki/The_Logic_of_Collective_Action)).
+- "Whether a technology is adopted is not decided by technical merit alone" is consistent with Paul David's 1985 path dependence and with Katz and Shapiro's 1985 network externalities ([path dependence](https://en.wikipedia.org/wiki/Path_dependence)).
+- "There is a break between early adopters and the early majority" is consistent with Geoffrey Moore's 1991 *Crossing the Chasm* ([Wikipedia](https://en.wikipedia.org/wiki/Crossing_the_Chasm)).
+
+**Disagreement and additions**:
+
+- **This document rewrites attributes into veto-style necessary conditions.** Rogers's five attributes are a scoring scheme—the higher an innovation scores across the five dimensions, the faster it spreads. The five gates here are **fail one and the answer is no**, and they demand that you name the specific object (which activity is being replaced? who pays for the carrier? in whose hands is the decision?). A scoring framework is very hard to falsify; a veto checklist can be.
+- **Gate 3, "carrier," has no precise counterpart in the existing literature.** Teece's 1986 complementary assets, the installed base of the network-effects literature, and Zittrain's 2006 generativity are all adjacent without being equivalent: they answer "who can profit from an innovation" and "why standards lock in," whereas Gate 3 asks "will this dedicated infrastructure actually get built at all?"
+- **Gate 1, "scale," is a genuine gap in the literature.** This round's search found no existing diffusion framework that uses "the headcount and frequency of the activity served" as a screening variable placed ahead of everything else: Rogers's five attributes characterize properties of the innovation itself, and Bass's 1969 diffusion model characterizes the shape of the adoption curve; neither asks "how many people actually do this activity?" **This is the real increment this document adds to the existing consensus—but it also means nobody has ever calibrated it, so its confidence is no higher than medium.**
+
+---
+
+## 9. How these rules enter the reasoning that follows
+
+The seven judgments distilled here are already recorded in the ledger, numbered [J-066](90-ledger.md#j-066--the-five-gates-are-necessary-not-sufficient) through [J-072](90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend). They hold a peculiar position in this project's dependency graph: **These seven are the only judgments in the whole ledger that do not depend on J-001**, of which J-067 through J-071 are roots (no upstream at all) while J-066 and J-072 stand only on those five. Every other judgment stands on the technical judgment that "unit reasoning cost keeps falling," whereas these seven come out of historical retrospect and need no premise about AI at all—if AI stopped improving tomorrow, they would still hold.
+
+So who should change what behavior:
+
+- **Anyone writing a new judgment**: before writing down any society-level assertion, run Gate 1 first—count the headcount and frequency of the activity, and state whether it "raises the ceiling for people who already do this professionally" or "lets people who could not do it do it now." If the scale cannot be answered, write it as an occupational judgment.
+- **Anyone writing a time window**: do not hand out a year by feel. Answer Gate 3 and Gate 4 first—who pays for the carrier, in whose hands the decision sits—and then take a range from the speed table in section 4.
+- **Anyone re-reviewing existing judgments**: the time windows and the audience voice of the cards in the ledger were written before these gates existed. Going through them one by one is downstream work; this document only erects the gates and does not touch a single existing card.
+- **Anyone attacking this set of gates**: the exclusive-case table in section 5 is the most fragile place. **Show that the "exclusivity" of any one row does not hold—that is, that the case is in fact also stopped by another gate—and that gate should be merged away, and this document's conclusions must shrink accordingly.**
+
+---
+
+## 10. Sources for the history cited here, and how strong each one is
+
+Historical fact is the foundation of every argument here, so each item is tagged with its strength. **Nothing in the weak tier carries argumentative weight**: every conclusion in this document still holds once all weak-tier evidence is removed.
+
+**Strong (primary sources or authoritative institutions)**
+
+- Zoom daily meeting participants 10 million → 300 million: [Zoom's official blog](https://www.zoom.com/en/blog/reflecting-looking-ahead/)
+- 4.3 billion people worldwide own a smartphone (2023): [GSMA](https://www.gsma.com/newsroom/press-release/smartphone-owners-are-now-the-global-majority-new-gsma-report-reveals/)
+- The first ATM (1967-06-27, Enfield, London): [Barclays' own archive](https://home.barclays/news/2017/06/from-the-archives-the-atm-is-50/)
+- New Coke withdrawn after 79 days: [The Coca-Cola Company, official](https://www.coca-colacompany.com/about-us/history/new-coke-the-most-memorable-marketing-blunder-ever)
+- MOOC median completion rate 12.6%: [Jordan 2015, IRRODL (peer-reviewed)](https://www.irrodl.org/index.php/irrodl/article/view/2112)
+- The health code ran as a mini-program and added no new app: [Social Media + Society, 2020 (peer-reviewed)](https://journals.sagepub.com/doi/pdf/10.1177/2056305120947657)
+- Decollectivization accounts for about half of 1978–1984 agricultural output growth: [Lin 1992, AER 82(1): 34-51](https://econpapers.repec.org/RePEc:aea:aecrev:v:82:y:1992:i:1:p:34-51)
+- The Metric Conversion Act of 1975 says "completely voluntary" in so many words: [Wikipedia (quoting the US Code)](https://en.wikipedia.org/wiki/Metric_Conversion_Act)
+- Container handling cost $5.83/ton → 15.8 cents/ton: Marc Levinson, *The Box*, Princeton University Press
+
+**Medium (encyclopedias / authoritative media / multiple consistent sources)**
+
+- Picturephone commercial details, monthly rent, and peak set counts: [ETHW](https://ethw.org/Picturephone), [Wikipedia](https://en.wikipedia.org/wiki/Picturephone)
+- Iridium bankruptcy figures and break-even subscriber count: [Wikipedia](https://en.wikipedia.org/wiki/Iridium_Communications), [Forbes 2001](https://www.forbes.com/2001/11/30/1130tentech.html)
+- Concorde's years in service and number built: [Wikipedia](https://en.wikipedia.org/wiki/Concorde)
+- Google Glass pricing and the end of consumer sales in January 2015: [Wikipedia](https://en.wikipedia.org/wiki/Google_Glass), [BBC](https://www.bbc.com/news/technology-30831128)
+- ESPN 3D start and end dates and the official reason for closing: [Wikipedia](https://en.wikipedia.org/wiki/ESPN_3D)
+- San Jose State / Udacity pilot pass rates and suspension: [LA Times](https://www.latimes.com/local/lanow/la-me-ln-san-jose-online-20130718-story.html)
+- Prohibition agent count, speakeasy count, and repeal date: [Wikipedia](https://en.wikipedia.org/wiki/Prohibition_in_the_United_States)
+- Better Place funding, bankruptcy, and sales: [Wikipedia](https://en.wikipedia.org/wiki/Better_Place_(company))
+- Timeline of the household responsibility system: [Wikipedia](https://en.wikipedia.org/wiki/Household_responsibility_system)
+- American household television ownership (1% in 1948, 75% in 1955): [Wikipedia](https://en.wikipedia.org/wiki/Television_in_the_United_States); different yearbooks vary slightly in what they count
+- Sea-Land's Vietnam shipping volume and Department of Defense revenue, and CONEX as a separate system: [Wikipedia](https://en.wikipedia.org/wiki/Sea-Land_Service), [GlobalSecurity](https://www.globalsecurity.org/military/systems/ship/container-mil.htm)
+- Estimates of fluent Esperanto speakers (63,000 to two million, heavily disputed): [Wikipedia](https://en.wikipedia.org/wiki/Esperanto)
+
+**Weak (second-hand, leaked, or disputed figures—this document does not let them carry the argument)**
+
+- AT&T's "more than $500 million" spent on the Picturephone: only second-hand retellings; the body of this document does not use that figure
+- Dean Kamen's "ten thousand a week" forecast: widely retold but the primary source is doubtful; the body of this document does not use that figure
+- Segway cumulative sales of about 140,000 units, the peak shipment share of 3D televisions, cumulative Meta Quest sales: sourced from aggregator sites or leaked reports; the body of this document does not use these figures
+- China's 2019 mobile-payment consumption exceeding US$6.5 trillion: an industry-media figure whose different statistical definitions diverge widely; the body has been rewritten to "runs into the trillions of dollars" and states explicitly that the conclusion there does not rest on the number
+- Retail hydrogen above $30 per kilogram (California): industry and media reporting; no first-hand price series was obtained here. It is used only to indicate the direction of the hydrogen car's cost, and that direction is precisely the attack point section 5 names as able to overturn Gate 3's exclusivity
+- "QR-code merchant costs are far below NFC terminal costs": at present only a qualitative consensus in industry media, with no strong quantitative literature found; [BIS Working Paper 1011](https://www.bis.org/publications/working-paper-1011-big-techs-qr-code-payments-and-financial-inclusion.pdf) supports the mechanism that "QR codes let merchants without POS terminals get connected," but provides no cost-comparison figures
