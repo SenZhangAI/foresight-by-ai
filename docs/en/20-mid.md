@@ -1,6 +1,16 @@
 # Mid-term landscape: 2029–2032
 
-> The mid-term is not a jump into science fiction. It carries the written near-term technical judgments into organizational, institutional, and real-world consequences. Every mid-term inference depends on a near-term judgment; if an upstream judgment is falsified, the downstream claim must be reviewed. Full cards live in [`90-ledger.md`](90-ledger.md). Every numbered reference links directly to the ledger, which is the sole source for card fields and status.
+> In July 2031, a company that handles cross-border returns and claims replaced the dashboard on its wall. The old one showed how many steps had been completed automatically that month; the number kept climbing and stopped meaning anything. The new one keeps a single column, headed “Waiting for a person.” That afternoon the column holds six items, and the one at the top has been waiting nine hours.
+>
+> Two people in the company can clear that column, and one of them is on parental leave. The other is not short of information: every item arrives with three pages of reasoning the system has written, well organized, better phrased than she would put it herself. What she wants is a different field—what actually happened in the world the last time this procedure ran to the end, rather than what the system expected at the time. That field is often empty. For the empty ones the system can reconstruct a perfectly plausible account, which is good enough for ordering the queue; the moment it goes into a compensation claim, the other side does not accept it.
+>
+> She is not short of authority either. What she is short of is herself: every item she clears has a line in the contract saying who compensates and up to which tier, and her name goes under that line. That is where the nine hours come from—not a slow system, but her unwillingness to turn something she has not understood into a sentence she is answerable for.
+>
+> That afternoon she clears four and sends two back. There is still a call to make in the evening: one of the brands lost a great deal this time, and the system has already drafted the email, the compensation plan, and three ways to word it, but the call itself she has to make herself.
+>
+> That is roughly the shape of the mid term: execution is no longer the bottleneck. The bottleneck becomes that one column—which actions may complete on their own, who decides once one crosses the boundary, and who pays when that decision is wrong. The six dimensions below take that apart. The mid-term is not a jump into science fiction; it carries the written near-term technical judgments into organizational, institutional, and real-world consequences. Every mid-term inference depends on a near-term judgment; if an upstream judgment is falsified, the downstream claim must be reviewed. Full cards live in [`90-ledger.md`](90-ledger.md), and every numbered reference links directly to the ledger, which is the sole source for card fields and status.
+>
+> This layer spreads one time window out horizontally. To follow a single causal line vertically instead, read [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](chains/20-real-signals-become-contracts.md)—its argument sits in exactly these years.
 
 ## 1. Compute and tokens: generation stops being the bottleneck; execution boundaries become the bottleneck
 
