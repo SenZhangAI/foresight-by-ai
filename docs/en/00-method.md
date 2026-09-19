@@ -101,7 +101,7 @@ Every time we discover that “X becomes abundant,” complete a full inversion 
 
 | Exit | Condition | Destination | Example |
 |---|---|---|---|
-| **A · Business opportunity candidate** | Passes the gate (has a hard constraint) **and** someone who will pay can be named | `40-opportunities.md` | Infrastructure that makes irreversible actions reversible |
+| **A · Business opportunity candidate** | Passes the gate (has a hard constraint) **and** someone who will pay can be named | `40-opportunities.md` | An accountable promise layer that bears compensation for AI answers and actions |
 | **B · Structural consequence** | Passes the gate (has a hard constraint) **but** has no payer | The chain’s narrative section “So who should change what behavior?” | Strong-relationship counts stay fixed while weak relationships explode: how will friendship’s screening mechanism be rearranged? |
 | **C · Landscape only** | Missing any of the five-part fields, or confidence is low | Keep it in place and label it explicitly | A directional intuition about preference drift in the distant future |
 
