@@ -1,0 +1,89 @@
+name: "证伪一条判断 · Falsify a judgment"
+description: "你手上有事实，它推翻了某条 J-NNN 判断 · You hold a fact that overturns a J-NNN judgment"
+title: "[证伪 / Falsify] J-NNN · "
+labels: ["falsification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        一次能被处理的证伪是三样东西的组合：**编号 + 那一条证伪条件的原文 + 可核验的证据锚点**。
+        完整说明见仓库根目录的 `CONTRIBUTING.md`；判断卡片在 `docs/zh/90-ledger.md`。
+
+        A falsification that can be processed combines three things: **the identifier + the verbatim
+        falsifier it triggers + a verifiable evidence anchor**. Full guidance is in `CONTRIBUTING.en.md`
+        at the repository root; the cards live in `docs/en/90-ledger.md`.
+
+  - type: input
+    id: judgment-id
+    attributes:
+      label: "判断编号 · Judgment identifier"
+      description: "从台账总览里取，写成 J-NNN。不要用标题指代：标题会被改写，编号不复用。 / Take it from the ledger overview. Do not refer to a card by its title — titles get rewritten, identifiers never do."
+      placeholder: "J-042"
+    validations:
+      required: true
+
+  - type: textarea
+    id: falsifier-quoted
+    attributes:
+      label: "该卡「证伪条件」原文（逐字引用） · The card's falsifier, quoted verbatim"
+      description: "一条判断可能写了多个触发点，指明你认为已触发的是哪一个。 / A card may list several triggers; name the one you believe fired."
+      placeholder: "证伪条件：……（原文照抄） / Falsifier: … (copied word for word)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: trigger-event
+    attributes:
+      label: "触发事件：发生了什么，什么时候 · The triggering event: what happened, and when"
+      description: "写事件发生的日期，不是你看到它的日期。 / Give the date the event happened, not the date you saw it."
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence-anchor
+    attributes:
+      label: "证据锚点：链接 / 数据口径 / 日期 · Evidence anchor: links, measurement basis, dates"
+      description: "一手来源优先；数据请写明统计口径（口径不同的数字不能相减）；二手转述请追到一手，追不到就说明追不到。 / Primary sources first. State the measurement basis for any number — figures measured differently cannot be subtracted. Chase second-hand accounts back to the original, and say so if you cannot."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: claimed-outcome
+    attributes:
+      label: "你主张的结果 · The outcome you are claiming"
+      description: "用台账自己的状态词。 / Uses the ledger's own status vocabulary."
+      options:
+        - "FALSIFIED — 证伪条件已触发，这条判断错了 / the falsifier has triggered; the judgment is wrong"
+        - "REVISED — 判断需要改写，而不是推翻 / the judgment needs rewriting, not overturning"
+        - "证伪条件本身写得太松，应当收紧 / the falsifier itself is too loose and should be tightened"
+    validations:
+      required: true
+
+  - type: textarea
+    id: loose-falsifier-case
+    attributes:
+      label: "若你主张「证伪条件太松」：举一个本该被它挡住却没被挡住的案例 · If you claim the falsifier is too loose: one case it should have caught and did not"
+      description: "选填，但这是这类主张唯一能被处理的形式。 / Optional, but this is the only form in which such a claim can be processed."
+    validations:
+      required: false
+
+  - type: textarea
+    id: downstream
+    attributes:
+      label: "受牵连的下游判断（选填） · Downstream judgments affected (optional)"
+      description: "卡片上的 depends-on 构成一张依赖图。上游倒下，踩在它上面的判断都要重审——你若顺手列出，影响面一次就说清了。 / The depends-on field forms a graph. When an upstream judgment falls, everything standing on it must be reviewed."
+      placeholder: "J-0NN, J-0NN"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: self-check
+    attributes:
+      label: "提交前自检 · Before you submit"
+      options:
+        - label: "我引用的是台账里的证伪条件原文，不是我的复述 / I quoted the ledger's falsifier verbatim, not my paraphrase of it"
+          required: true
+        - label: "我的证据可以被第三方独立打开并复核 / A third party can open and check my evidence independently"
+          required: true
+        - label: "我没有拿「某机构预测」当论据 / I am not using somebody else's forecast as an argument"
+          required: true

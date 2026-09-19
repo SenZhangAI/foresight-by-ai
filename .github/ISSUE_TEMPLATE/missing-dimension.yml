@@ -1,0 +1,112 @@
+name: "补一个缺口维度 · Propose a missing dimension"
+description: "图景里少了一群人、一个物理约束或一个制度侧面 · The landscape is missing a population, a physical constraint, or an institutional side"
+title: "[缺口 / Gap] "
+labels: ["missing-dimension"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **先看已登记的缺口清单**：`docs/zh/90-ledger.md` 的「未覆盖维度缺口清单」一节。
+        你要说的可能已经在上面、状态是「部分覆盖」——那就说清楚缺的是哪一半，这比重新提一遍有用得多。
+        规模口径见 `docs/zh/01-retrospect.md` 的「闸一 · 先数人，再看技术」；完整说明见 `CONTRIBUTING.md`。
+
+        **Read the registered gap list first**: the “dimensions not yet covered” section of `docs/en/90-ledger.md`.
+        What you have in mind may already be there as “partially covered” — in which case naming the missing
+        half is far more useful. The scale yardstick is Gate 1 in `docs/en/01-retrospect.md`; full guidance is
+        in `CONTRIBUTING.en.md`.
+
+  - type: input
+    id: gap-name
+    attributes:
+      label: "缺口一行概括 · The gap in one line"
+      placeholder: "照护工作者的身体在场约束 / The bodily-presence constraint on care work"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: gap-kind
+    attributes:
+      label: "缺的是什么 · What kind of gap"
+      options:
+        - "一群人 / a population"
+        - "一个物理侧面：身体、能源、土地、材料、运输、气候 / a physical side: bodies, energy, land, materials, transport, climate"
+        - "一个制度侧面：法律、产权、监管、许可、赔付 / an institutional side: law, property rights, regulation, permitting, compensation"
+        - "其他 / something else"
+    validations:
+      required: true
+
+  - type: textarea
+    id: where-missing
+    attributes:
+      label: "它缺在哪里 · Where it is missing"
+      description: "指出哪份正文、哪一节没有覆盖它；若缺口清单里已登记为「部分覆盖」，说明缺的是哪一半。 / Name the file and section that fails to cover it. If the gap list already carries it as “partially covered,” say which half is missing."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scale-magnitude
+    attributes:
+      label: "受影响人群的数量级 · Order of magnitude of the affected population"
+      options:
+        - "十万 / a hundred thousand"
+        - "百万 / a million"
+        - "千万 / ten million"
+        - "十亿 / a billion"
+    validations:
+      required: true
+
+  - type: input
+    id: scale-who
+    attributes:
+      label: "他们是谁 · Who they are"
+      description: "职业、身份、地区。「用户」不是一个人群。 / Occupation, role, region. “Users” is not a population."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scale-frequency
+    attributes:
+      label: "这个动作的频次 · Frequency of the activity"
+      options:
+        - "日频 / daily"
+        - "周频 / weekly"
+        - "月频 / monthly"
+        - "年频或更低 / yearly or less"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scale-kind
+    attributes:
+      label: "它属于哪一类 · Which kind it is"
+      options:
+        - "提高既有专业者的上限（天花板 = 该职业人数） / raises the ceiling for people who already do this professionally (the ceiling is that occupation's headcount)"
+        - "让原本不会的人也能做（可能把动作本身做大） / lets people who could not do it do it at all (which can enlarge the activity itself)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scale-argument
+    attributes:
+      label: "为什么它撑得起这个规模 · Why it carries that scale"
+      description: "数人的依据。若你选了「让原本不会的人也能做」，必须指名机制，不能只声称。 / How the headcount was arrived at. If you chose the second kind above, name the mechanism rather than claiming it."
+    validations:
+      required: true
+
+  - type: textarea
+    id: starting-point
+    attributes:
+      label: "你能给出的起点（选填） · A starting point, if you have one (optional)"
+      description: "一条可以写成判断卡的命题，外加它的证伪条件与领先指标。给出这些，这个缺口就已经完成大半。 / A proposition that could become a judgment card, plus its falsifier and leading indicator. With those, most of the work is already done."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: self-check
+    attributes:
+      label: "提交前自检 · Before you submit"
+      options:
+        - label: "我已经看过缺口清单，这一条不是已登记且已覆盖的 / I have read the gap list and this is not an already-covered entry"
+          required: true
+        - label: "我指名了具体的人群或约束，而不是一个方向性的呼吁 / I named a concrete population or constraint, not a directional appeal"
+          required: true

@@ -95,13 +95,25 @@ def is_markdown(name):
     return name.lower().endswith(".md")
 
 
+ROOT_MARKDOWN = ("README.md", "README.en.md",
+                 "CONTRIBUTING.md", "CONTRIBUTING.en.md")
+
+
 def markdown_files():
+    """Every markdown file whose links are checked.
+
+    `docs/` plus the top-level pair files. CONTRIBUTING is in here for the same
+    reason the READMEs are: it is almost entirely links INTO the ledger and the
+    methodology — it is where a stranger is told which heading defines
+    `证伪条件`, `置信度` and the status words — so a link that stops landing
+    sends the one reader who came to argue to a 404.
+    """
     out = []
     for root, _dirs, files in os.walk(os.path.join(REPO, "docs")):
         for f in sorted(files):
             if is_markdown(f):
                 out.append(os.path.relpath(os.path.join(root, f), REPO))
-    for f in ("README.md", "README.en.md"):
+    for f in ROOT_MARKDOWN:
         if os.path.exists(os.path.join(REPO, f)):
             out.append(f)
     return out
@@ -790,9 +802,9 @@ def run_checks():
 # ---------------------------------------------------------------------------
 
 def _copy_checkable_tree(dst):
-    """Copy exactly what the checks read: docs/ plus the top-level READMEs."""
+    """Copy exactly what the checks read: docs/ plus the top-level pair files."""
     shutil.copytree(os.path.join(REPO, "docs"), os.path.join(dst, "docs"))
-    for name in ("README.md", "README.en.md"):
+    for name in ROOT_MARKDOWN:
         src = os.path.join(REPO, name)
         if os.path.exists(src):
             shutil.copy2(src, os.path.join(dst, name))
@@ -852,6 +864,28 @@ def _break_dangling_anchor(root):
     _write_file(path, text[:m.start(1)] + "no-such-heading-" + m.group(1)
                 + text[m.end(1):])
     return u"zh ledger: first anchor link now points at #no-such-heading-…"
+
+
+def _break_contributing_anchor(root):
+    """A CONTRIBUTING link into the ledger that no longer lands.
+
+    This case is what keeps CONTRIBUTING inside `markdown_files()` honest:
+    drop it from `ROOT_MARKDOWN` and this is the one case that goes red, while
+    every other link case stays green off the READMEs and docs/. The submission
+    guide is nothing but links into the vocabulary it tells a stranger to use,
+    so a heading rename that silently unhooks them is exactly the failure the
+    file exists to prevent.
+    """
+    path = os.path.join(root, "CONTRIBUTING.md")
+    if not os.path.exists(path):
+        raise AssertionError("fixture carries no CONTRIBUTING.md")
+    text = _read_file(path)
+    m = re.search(r"\]\(docs/zh/90-ledger\.md#([^)\s]+)\)", text)
+    if not m:
+        raise AssertionError("CONTRIBUTING.md carries no ledger anchor link")
+    _write_file(path, text[:m.start(1)] + "no-such-heading-" + m.group(1)
+                + text[m.end(1):])
+    return u"CONTRIBUTING.md: first ledger anchor now points at a dead heading"
 
 
 def _break_dep_edge(root):
@@ -1021,8 +1055,8 @@ def _text_after_last_card(root):
         # reason that has nothing to do with what it asserts.
         for lang, title in (("zh", u"\u9644\u5f55\uff08fixture\uff09"),
                             ("en", u"Appendix (fixture)")):
-            p2 = _ledger(root, lang)
-            _write_file(p2, _read_file(p2).rstrip("\n")
+            p = _ledger(root, lang)
+            _write_file(p, _read_file(p).rstrip("\n")
                         + u"\n\n## %s\n\n" % title)
         text = _read_file(path)
         _start, end, _jid = _last_card(text)
@@ -1541,6 +1575,8 @@ def _embolden_correct_count(root):
 # Breakages that must be caught, each with the check tag that must report it.
 NEGATIVE_CASES = [
     (u"dangling anchor", "links", _break_dangling_anchor),
+    (u"CONTRIBUTING link into the ledger goes dead", "links",
+     _break_contributing_anchor),
     (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
