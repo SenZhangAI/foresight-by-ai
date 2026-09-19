@@ -124,11 +124,64 @@ def parse_ledger(lang):
         if len(cols) < 8:
             continue
         overview.setdefault(m.group(1), set(re.findall(r"J-\d{3}", cols[6])))
-    return cards, graph, overview
+    overview_consensus = {}
+    for line in text.split("\n"):
+        m = re.match(r"^\|\s*\[(J-\d{3})\]\([^)]*\)\s*\|", line)
+        if not m:
+            continue
+        cols = [c.strip() for c in line.split("|")]
+        if len(cols) < 10:
+            continue
+        overview_consensus.setdefault(m.group(1), cols[8])
+    return cards, graph, overview, overview_consensus
+
+
+# A judgment may legitimately carry no external comparison yet, but then it must
+# say so in BOTH places. The failure this catches is a card whose body records a
+# completed comparison while the overview table still reads "unknown" (or the
+# reverse) — two statements of the same fact drifting apart.
+UNCOMPARED = {
+    "zh": u"\u672c\u8f6e\u672a\u5b8c\u6210\u5916\u90e8\u5bf9\u7167",
+    "en": "not completed this round",
+}
+CONSENSUS_FIELD = {"zh": u"\u4e0e\u5171\u8bc6", "en": "Against consensus"}
+SOURCE_FIELD = {"zh": u"\u5916\u90e8\u5bf9\u7167\u6765\u6e90",
+                "en": "External comparison source"}
+
+
+def check_comparison(lang, cards, overview_consensus):
+    text = read("docs/%s/90-ledger.md" % lang)
+    defined = set(re.findall(r"^- \*\*(EXT-\d+)\*\*", text, re.M))
+    marker = UNCOMPARED[lang]
+    for jid in sorted(cards):
+        body = cards[jid]
+        m = re.search(r"\*\*%s\*\*[:\uff1a]\s*([^\n]*)" % CONSENSUS_FIELD[lang], body)
+        card_uncompared = bool(m) and marker in m.group(1)
+        row = overview_consensus.get(jid)
+        if row is None:
+            fail("overview-consensus", "%s %s: no overview row carrying a consensus column"
+                 % (lang, jid))
+            continue
+        if card_uncompared != (marker in row):
+            fail("consensus-drift",
+                 "%s %s: card says %s, overview says %s"
+                 % (lang, jid,
+                    "not compared" if card_uncompared else "compared",
+                    "not compared" if marker in row else "compared"))
+        src = re.search(r"\*\*%s\*\*[:\uff1a]\s*([^\n]*)" % SOURCE_FIELD[lang], body)
+        cited = set(re.findall(r"EXT-\d+", src.group(1))) if src else set()
+        if not card_uncompared and not cited:
+            fail("comparison-source",
+                 "%s %s: comparison is recorded as done but cites no EXT source"
+                 % (lang, jid))
+        for ext in sorted(cited - defined):
+            fail("comparison-source",
+                 "%s %s cites %s, which the source index does not define"
+                 % (lang, jid, ext))
 
 
 def check_ledger(lang):
-    cards, graph, overview = parse_ledger(lang)
+    cards, graph, overview, overview_consensus = parse_ledger(lang)
     if not cards:
         fail("ledger", "%s: no judgment cards found" % lang)
         return cards
@@ -159,6 +212,7 @@ def check_ledger(lang):
         if declared != overview.get(jid, set()):
             fail("dep-overview", "%s %s: card %s vs overview %s"
                  % (lang, jid, sorted(declared), sorted(overview.get(jid, set()))))
+    check_comparison(lang, cards, overview_consensus)
     return cards
 
 
