@@ -1003,12 +1003,29 @@ def _text_after_last_card(root):
 
     The card body used to run to end of file, so a confidence example in the
     checklist section was read as if J-064 had written it.
+
+    The fixture no longer depends on the ledger happening to carry a section
+    after its last card. It did until 2026-09-19, when a round of cards was
+    appended at the end of the file — and this case then raised, which aborts
+    the whole self-test run rather than reporting one failure. The section is
+    now created when it is missing, so what is asserted is the rule itself and
+    not the current layout of the ledger.
     """
     path = _ledger(root, "zh")
     text = _read_file(path)
     _start, end, _jid = _last_card(text)
     if end >= len(text):
-        raise AssertionError("fixture has no section after the last card")
+        # The section has to be added to BOTH ledgers: the two are compared
+        # section for section, so a fixture that appends one only to zh would
+        # be reported for that instead, and the case would then "pass" for a
+        # reason that has nothing to do with what it asserts.
+        for lang, title in (("zh", u"\u9644\u5f55\uff08fixture\uff09"),
+                            ("en", u"Appendix (fixture)")):
+            p2 = _ledger(root, lang)
+            _write_file(p2, _read_file(p2).rstrip("\n")
+                        + u"\n\n## %s\n\n" % title)
+        text = _read_file(path)
+        _start, end, _jid = _last_card(text)
     nl = text.find("\n", end)
     if nl == -1:
         raise AssertionError("section after the last card has no body")
