@@ -25,6 +25,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import unicodedata
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ("zh", "en")
@@ -146,6 +147,14 @@ def parse_ledger(lang):
         # (section 10 today), so that text would be checked — and reported —
         # as if it belonged to the card.
         end = re.search(r"^## ", body, re.M)
+        if parts[i] in cards:
+            # The same defect the registry already refuses one row above the
+            # chain table (`%s has more than one registry row`), on the sibling
+            # path nobody had walked: a card pasted twice renders as two cards
+            # to a reader while `len(cards)` still counts identifiers, so the
+            # ledger shows 66 and the README's 65 stays "correct".
+            fail("ledger", "docs/%s/90-ledger.md: %s has more than one card"
+                 % (lang, parts[i]))
         cards[parts[i]] = body[:end.start()] if end else body
     graph = {}
     pattern = r"^(J-\d{3})\s*%s\s*([^\n]*)$" % re.escape(GRAPH_ARROW[lang])
@@ -377,8 +386,7 @@ COUNT_ANCHOR = {
                "en": "independent reasoning chains"},
 }
 
-# Markup a reader does not see: emphasis and code markers, the zero-width
-# space, the BOM, and HTML comments.
+# Markup a reader does not see: emphasis and code markers, and HTML comments.
 #
 # Why the count check must strip these before reading anything. The two site
 # invariants below (equal site counts, never both zero) assume the two READMEs
@@ -387,16 +395,32 @@ COUNT_ANCHOR = {
 # `**66**张判断卡片` / `**Sixty-six** judgment cards` removes that site from
 # both languages at once: the site counts stay equal, neither falls to zero,
 # the other sites still read 65, and the checker exits 0 while the README shows
-# a reader `66`. Verified by hand on 2026-09-19 against commit `aadb15d`. The
-# same hole is opened by a zero-width space or an empty HTML comment wedged
-# between the number and its anchor, which is why this is a class and not the
-# three characters that were tried.
-INVISIBLE = re.compile(u"<!--[\\s\\S]*?-->|[`*_\u200b\ufeff]")
+# a reader `66`. Verified by hand on 2026-09-19 against commit `aadb15d`.
+#
+# The class is "anything a reader still reads as a number, sitting between the
+# number and its anchor, that a plain regex breaks on" — NOT a list of the
+# characters that have been tried. The first attempt here was such a list, and
+# a review broke it the same day with `[66](docs/zh/90-ledger.md) 张判断卡片`
+# — the most natural edit in a README whose counts already sit beside links.
+# So: comments, then links reduced to their text, then inline HTML tags, then
+# every Cf character (U+200B/200C/200D/2060/FEFF/00AD at once), then NFKC so
+# full-width digits are the digits they render as.
+INVISIBLE = re.compile(u"<!--[\\s\\S]*?-->|[`*_]")
+# The same reduction `slug()` performs on headings, reused rather than
+# reinvented: a link is its text to a reader.
+LINK_TEXT = re.compile(r"\[([^\]]*)\]\([^)]*\)")
+# `<b>66</b>` renders bold. The leading character class keeps this off the
+# repository's own prose about filenames (`<编号×10>-<英文 slug>.md`).
+HTML_TAG = re.compile(r"</?[A-Za-z][^>]*>")
 
 
 def visible(text):
     """The text as a reader sees it, with invisible markup removed."""
-    return INVISIBLE.sub("", text)
+    t = INVISIBLE.sub("", text)
+    t = LINK_TEXT.sub(r"\1", t)
+    t = HTML_TAG.sub("", t)
+    t = "".join(c for c in t if unicodedata.category(c) != "Cf")
+    return unicodedata.normalize("NFKC", t)
 
 
 def parse_count(lang, token):
@@ -1438,6 +1462,52 @@ def _break_citation_to_a_file_that_is_no_chain(root):
     return u"README.md: C1 cited as docs/zh/30-far.md, which is no chain"
 
 
+def _break_count_hidden_by_link(root):
+    """The evasion a review found the day the character list was written.
+
+    A README whose counts already sit beside links (`打开[判断台账](…)。65 张
+    判断卡片`) makes wrapping the number itself in a link the most natural
+    edit of all — and it hid the count from both languages at once.
+    """
+    said = [_hide_count("zh", u"66", u"[%s](docs/zh/90-ledger.md)")(root),
+            _hide_count("en", u"Sixty-six",
+                        u"[%s](docs/en/90-ledger.md)")(root)]
+    return u"the count wrapped in a link in both READMEs: %s" % "; ".join(said)
+
+
+def _break_count_hidden_by_html(root):
+    """Inline HTML renders exactly like the markup it replaces."""
+    said = [_hide_count("zh", u"66", u"<b>%s</b>")(root),
+            _hide_count("en", u"Sixty-six", u"<b>%s</b>")(root)]
+    return u"the count wrapped in <b> in both READMEs: %s" % "; ".join(said)
+
+
+def _break_count_in_fullwidth_digits(root):
+    """Full-width digits read as digits and match no ASCII character class."""
+    said = [_hide_count("zh", u"\uff16\uff16", u"%s")(root),
+            _hide_count("en", u"\uff16\uff16", u"%s")(root)]
+    return u"the count written in full-width digits: %s" % "; ".join(said)
+
+
+def _break_duplicate_card(root):
+    """The same judgment card pasted twice in one ledger.
+
+    `len(cards)` counts identifiers, so the ledger renders 66 cards while the
+    README's 65 stays "true" to the checker. The registry already refused the
+    same shape for chain rows; the ledger is the sibling path.
+    """
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    ms = list(re.finditer(r"^### (J-\d{3})", text, re.M))
+    if len(ms) < 3:
+        raise AssertionError("fixture ledger carries too few cards")
+    a, b = ms[1].start(), ms[2].start()
+    if "\n## " in text[a:b]:
+        raise AssertionError("the chosen card spans a section break")
+    _write_file(path, text[:b] + text[a:b] + text[b:])
+    return u"zh ledger: %s pasted a second time" % ms[1].group(1)
+
+
 def _embolden_correct_count(root):
     """Not a breakage: the right number, written in bold."""
     for lang, in (("zh",), ("en",)):
@@ -1529,6 +1599,14 @@ NEGATIVE_CASES = [
      _break_count_hidden_by_bold),
     (u"a wrong count hidden by a zero-width space", "readme-counts",
      _break_count_hidden_by_zero_width),
+    (u"a wrong count wrapped in a link", "readme-counts",
+     _break_count_hidden_by_link),
+    (u"a wrong count wrapped in inline HTML", "readme-counts",
+     _break_count_hidden_by_html),
+    (u"a wrong count in full-width digits", "readme-counts",
+     _break_count_in_fullwidth_digits),
+    (u"the same judgment card pasted twice", "ledger",
+     _break_duplicate_card),
 ]
 
 # Edits that must NOT be reported: the checker has to stay usable.
