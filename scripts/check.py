@@ -8,16 +8,23 @@ judgment calls a script cannot make (whether a falsifier is sharp enough,
 whether an "Against consensus" paragraph really carries its three elements)
 and stay manual.
 
-Usage:  python3 scripts/check.py
+Usage:  python3 scripts/check.py              check this repository
+        python3 scripts/check.py --repo DIR   check another copy of the tree
+        python3 scripts/check.py --self-test  run the negative cases (see below)
 Exit:   0 = all checks pass, 1 = at least one failure (details on stdout)
 
-No dependencies beyond the standard library, and it reads the tree only.
+No dependencies beyond the standard library. The checks read the tree only;
+`--self-test` writes solely into a temporary directory it then deletes.
 """
 
 import io
+import itertools
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ("zh", "en")
@@ -27,6 +34,11 @@ CONFIDENCE = {
     "zh": {u"\u9ad8", u"\u4e2d", u"\u4f4e"},
     "en": {"high", "medium", "low"},
 }
+CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
+# The value stops at the first sentence end or opening parenthesis, so
+# `Low (landscape only).` and `低（仅图景）。` both reduce to a bare grade.
+CONFIDENCE_VALUE = (r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*[:\uff1a]"
+                    r"\s*([^\n\u3002.(\uff08]*)")
 CARD_FIELDS = {
     "zh": [u"\u63d0\u51fa\u65e5\u671f", u"\u4e00\u53e5\u8bdd\u5224\u65ad", u"\u900f\u955c",
            u"\u63a8\u7406\u94fe", u"\u65f6\u95f4\u7a97", u"\u8bc1\u4f2a\u6761\u4ef6",
@@ -191,12 +203,23 @@ def check_ledger(lang):
                    if ("**%s**" % f) not in body]
         if missing:
             fail("card-fields", "%s %s missing %s" % (lang, jid, ", ".join(missing)))
-        m = re.search(r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*[:\uff1a]\s*([^\n\u3002.(\uff08]*)",
-                      body)
-        if m:
+        # Exact membership, never substring. `极高` contains `高` and
+        # `very high` contains `high`, so a substring test passes every
+        # positive case while letting through exactly the invented grades this
+        # check exists to catch — which is what it did until 2026-09-19. Every
+        # occurrence in the card is tested, not only the first, and a field
+        # whose value cannot be read is a failure rather than a silent skip.
+        found = list(re.finditer(CONFIDENCE_VALUE, body))
+        if not found and any(("**%s**" % CONFIDENCE_FIELD[l]) in body
+                             for l in LANGS):
+            fail("confidence",
+                 "%s %s: confidence field present but no value could be read"
+                 % (lang, jid))
+        for m in found:
             value = m.group(1).strip().lower()
-            if not any(v in value for v in CONFIDENCE[lang]):
-                fail("confidence", "%s %s: %r outside the whitelist" % (lang, jid, value))
+            if value not in CONFIDENCE[lang]:
+                fail("confidence", "%s %s: %r is not one of %s"
+                     % (lang, jid, value, sorted(CONFIDENCE[lang])))
         declared = set(re.findall(r"J-\d{3}",
                        (re.search(r"\*\*depends-on\*\*[:\uff1a]\s*([^\n]*)", body)
                         or re.match("", "")).group(1) if re.search(
@@ -244,7 +267,7 @@ def check_parity(per_lang_cards):
                  % (name, h["zh"], h["en"]))
 
 
-def main():
+def run_checks():
     files = markdown_files()
     links = check_links(files)
     cards = {lang: check_ledger(lang) for lang in LANGS}
@@ -262,5 +285,258 @@ def main():
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Self-test: the negative cases, as something that can be re-run.
+#
+# A checker earns its exit code only if a deliberate breakage makes it fail.
+# `--self-test` copies the checkable surface into a temporary directory, breaks
+# that copy one way at a time, and asserts the checker exits non-zero *for the
+# expected reason* (the check tag must appear in the output, so a breakage that
+# happens to trip some other check does not count as caught).
+#
+# This exists because a claim of "verified against four deliberate breakages"
+# left nothing re-runnable behind, and one of the four silently did not work:
+# the confidence whitelist compared by substring, so `极高` — which contains
+# `高` — passed. Positive cases stayed green throughout.
+#
+# The repository itself is never modified; every write lands in the temporary
+# copy, which is deleted afterwards.
+# ---------------------------------------------------------------------------
+
+def _copy_checkable_tree(dst):
+    """Copy exactly what the checks read: docs/ plus the top-level READMEs."""
+    shutil.copytree(os.path.join(REPO, "docs"), os.path.join(dst, "docs"))
+    for name in ("README.md", "README.en.md"):
+        src = os.path.join(REPO, name)
+        if os.path.exists(src):
+            shutil.copy2(src, os.path.join(dst, name))
+    return dst
+
+
+def _run_checker(root):
+    proc = subprocess.Popen(
+        [sys.executable, os.path.abspath(__file__), "--repo", root],
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out, _ = proc.communicate()
+    return proc.returncode, out.decode("utf-8", "replace")
+
+
+def _ledger(root, lang):
+    return os.path.join(root, "docs", lang, "90-ledger.md")
+
+
+def _read_file(path):
+    return io.open(path, encoding="utf-8").read()
+
+
+def _write_file(path, text):
+    with io.open(path, "w", encoding="utf-8") as fh:
+        fh.write(text)
+
+
+def _first_card(text):
+    m = re.search(r"^### J-\d{3}", text, re.M)
+    if not m:
+        raise AssertionError("fixture carries no judgment card")
+    return m.start()
+
+
+def _last_card(text):
+    """(start, end, id) of the last card; end is the next `## ` or EOF."""
+    ms = list(re.finditer(r"^### (J-\d{3})", text, re.M))
+    if not ms:
+        raise AssertionError("fixture carries no judgment card")
+    m = ms[-1]
+    nxt = text.find("\n## ", m.end())
+    return m.start(), (len(text) if nxt == -1 else nxt + 1), m.group(1)
+
+
+def _break_dangling_anchor(root):
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    m = re.search(r"\]\(#([^)\s]+)\)", text)
+    if not m:
+        raise AssertionError("fixture carries no in-file anchor link")
+    _write_file(path, text[:m.start(1)] + "no-such-heading-" + m.group(1)
+                + text[m.end(1):])
+    return u"zh ledger: first anchor link now points at #no-such-heading-…"
+
+
+def _break_dep_edge(root):
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    start, _end, jid = _last_card(text)
+    m = re.search(r"\*\*depends-on\*\*[:\uff1a]\s*([^\n]*)", text[start:])
+    if not m or not re.search(r"J-\d{3}", m.group(1)):
+        raise AssertionError("the last zh card declares no dependency to drop")
+    _write_file(path, text[:start + m.start(1)] + u"\u2014\u3002"
+                + text[start + m.end(1):])
+    return (u"zh %s: card declares no depends-on while the graph and the "
+            u"overview still carry the edge" % jid)
+
+
+def _break_single_language_card(root):
+    path = _ledger(root, "en")
+    text = _read_file(path)
+    start, end, jid = _last_card(text)
+    _write_file(path, text[:start] + text[end:])
+    return u"en ledger: card %s removed, zh still carries it" % jid
+
+
+def _break_missing_field(root):
+    path = _ledger(root, "zh")
+    text = _read_file(path)
+    head = _first_card(text)
+    field = u"\u8bc1\u4f2a\u6761\u4ef6"  # 证伪条件
+    m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*\n" % re.escape(field),
+                  text[head:], re.M)
+    if not m:
+        raise AssertionError("first zh card carries no %s line" % field)
+    _write_file(path, text[:head + m.start()] + text[head + m.end():])
+    return u"zh first card: the %s line is gone" % field
+
+
+def _set_confidence(lang, value):
+    """Rewrite the first card's confidence value in `lang` to `value`."""
+    field = CONFIDENCE_FIELD[lang]
+    sep = u"\uff1a" if lang == "zh" else ": "
+
+    def mutate(root):
+        path = _ledger(root, lang)
+        text = _read_file(path)
+        head = _first_card(text)
+        m = re.search(r"^- \*\*%s\*\*[:\uff1a][^\n]*$" % re.escape(field),
+                      text[head:], re.M)
+        if not m:
+            raise AssertionError("first %s card carries no %s line"
+                                 % (lang, field))
+        line = u"- **%s**%s%s" % (field, sep, value)
+        _write_file(path, text[:head + m.start()] + line
+                    + text[head + m.end():])
+        if line not in _read_file(path):
+            raise AssertionError("confidence fixture was not applied")
+        return u"%s first card: confidence = %s" % (lang, value)
+
+    return mutate
+
+
+# Five breakages, each with the check tag that must report it.
+NEGATIVE_CASES = [
+    (u"dangling anchor", "links", _break_dangling_anchor),
+    (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
+    (u"card exists in one language only", "bilingual-cards",
+     _break_single_language_card),
+    (u"confidence outside the whitelist", "confidence",
+     _set_confidence("zh", u"\u6781\u9ad8")),  # 极高
+    (u"required card field missing", "card-fields", _break_missing_field),
+]
+
+# The whitelist is per language, so a value must be an exact member of ITS
+# language's set: `high` in a Chinese card is rejected on purpose.
+CONFIDENCE_REJECTED = [
+    ("zh", u"\u6781\u9ad8"),        # 极高  — contains 高
+    ("zh", u"\u5f88\u4f4e"),        # 很低  — contains 低
+    ("zh", u"\u4e2d\u9ad8"),        # 中高  — the grade that actually shipped once
+    ("zh", u"\u672a\u77e5"),        # 未知
+    ("zh", "0.8"),
+    ("en", "very high"),
+    ("en", "high-ish"),
+    ("en", "0.8"),
+    ("zh", "high"),                 # right grade, wrong language
+]
+CONFIDENCE_ACCEPTED = [
+    ("zh", u"\u9ad8"), ("zh", u"\u4e2d"), ("zh", u"\u4f4e"),
+    ("en", "high"), ("en", "medium"), ("en", "low"),
+]
+
+
+def self_test():
+    base = tempfile.mkdtemp(prefix="ledger-check-self-test-")
+    counter = itertools.count()
+    passed, failed = 0, 0
+
+    def report(ok, title, detail):
+        print("  %-4s %-44s %s" % ("PASS" if ok else "FAIL", title, detail))
+
+    try:
+        pristine = _copy_checkable_tree(os.path.join(base, "pristine"))
+        code, out = _run_checker(pristine)
+        if code != 0:
+            print("baseline: the unbroken copy already fails (exit %d), so the "
+                  "negative cases below would prove nothing. Fix the tree "
+                  "first.\n" % code)
+            print(out)
+            return 1
+        print("baseline: unbroken copy exits 0\n")
+
+        def fresh():
+            work = os.path.join(base, "case-%d" % next(counter))
+            shutil.copytree(pristine, work)
+            return work
+
+        print("negative cases (the checker must exit non-zero, "
+              "and name the right check):")
+        for title, tag, mutate in NEGATIVE_CASES:
+            work = fresh()
+            detail = mutate(work)
+            code, out = _run_checker(work)
+            ok = code != 0 and ("[%s]" % tag) in out
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
+
+        print("\nconfidence values that must be rejected:")
+        for lang, value in CONFIDENCE_REJECTED:
+            work = fresh()
+            _set_confidence(lang, value)(work)
+            code, out = _run_checker(work)
+            ok = code != 0 and "[confidence]" in out
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
+
+        print("\nconfidence values that must be accepted:")
+        for lang, value in CONFIDENCE_ACCEPTED:
+            work = fresh()
+            _set_confidence(lang, value)(work)
+            code, out = _run_checker(work)
+            ok = code == 0
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
+
+        print("\nself-test: %d passed, %d failed" % (passed, failed))
+        return 1 if failed else 0
+    finally:
+        shutil.rmtree(base, ignore_errors=True)
+
+
+USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test]
+
+  (no argument)  check this repository
+  --repo DIR     check the tree rooted at DIR instead
+  --self-test    break a temporary copy of the tree five ways and assert the
+                 checker catches each one (the repository is not touched)"""
+
+
+def main(argv):
+    global REPO
+    args = list(argv)
+    wants_self_test = False
+    while args:
+        arg = args.pop(0)
+        if arg == "--self-test":
+            wants_self_test = True
+        elif arg == "--repo":
+            if not args:
+                print("--repo needs a directory\n%s" % USAGE)
+                return 2
+            REPO = os.path.abspath(args.pop(0))
+        elif arg in ("-h", "--help"):
+            print(USAGE)
+            return 0
+        else:
+            print("unknown argument: %s\n%s" % (arg, USAGE))
+            return 2
+    return self_test() if wants_self_test else run_checks()
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

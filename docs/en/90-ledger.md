@@ -1542,6 +1542,22 @@ GitHub does **not** collapse runs of hyphens in heading anchors, so
 `J-001 · Title` is `#j-001--title`; a short `#j-001` fragment silently fails
 to jump (43 of them were repaired in one pass on 2026-09-19).
 
+The script's own credibility is carried by negative cases:
+
+```
+python3 scripts/check.py --self-test
+```
+
+It copies the tree into a temporary directory and breaks that copy one way at a
+time — dangling anchor, a dependency edge disagreeing with its card, a card in
+one language only, an out-of-whitelist confidence value, a missing required
+field, plus an accept/reject matrix over confidence values — and asserts every
+breakage is caught **by the right check**; the repository itself is not
+modified. Run it whenever the script changes: on 2026-09-19 the confidence
+whitelist was compared by substring, so `极高` ("extremely high", which
+contains `高`) passed while every positive case stayed green — only a negative
+case exposes a criterion written too wide.
+
 The remaining items are judgment calls a script cannot make. Walk them by
 hand before publishing:
 
