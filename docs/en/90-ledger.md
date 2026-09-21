@@ -136,6 +136,14 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-076](#j-076--manufacturings-one-real-scaling-passed-through-gate-4s-local-closed-loop-flexible-assembly-and-high-mix-low-volume-are-still-outside-the-gate) | 2026-09-20 | Manufacturing's scaling passed through Gate 4's local closed loop; flexible assembly at 2028–2034, high-mix low-volume holds only locally inside this window | 2026–2034 | Medium | J-073, J-066 | [C4: Embodied Intelligence](chains/40-embodied-intelligence.md) | Agreement: IFR proves embodied capability can genuinely diffuse; the divergence is that a total does not imply a composition, and no public series exists for installation composition, changeover time or residual values. | ACTIVE | 2027-06-30 |
 | [J-077](#j-077--in-agriculture-what-crossed-is-milking-not-harvesting-seasonality-and-fragmentation-hold-cost-per-task-above-labour) | 2026-09-20 | In agriculture what crossed is milking, not harvesting; selective harvesting is not a mainstream practice before 2030 | 2026–2030 | Medium | J-073, J-066 | [C4: Embodied Intelligence](chains/40-embodied-intelligence.md) | Agreement: Abundant Robotics proves technical feasibility is not commercial feasibility and FAO supports where the denominator sits; the boundary is a single case on the failure side and FAO used for magnitude only. | ACTIVE | 2027-06-30 |
 | [J-078](#j-078--construction-and-domestic-work-are-blocked-by-the-one-off-site-and-somebody-elses-home-inside-this-window-they-arrive-only-as-single-operation-equipment-and-single-task-slices) | 2026-09-20 | On-site construction robots remain single-operation equipment through 2040, and open-ended household tasks reach no society-level diffusion inside this window | 2026–2040 | Medium | J-073, J-066 | [C4: Embodied Intelligence](chains/40-embodied-intelligence.md) | Agreement: Hadrian is still at single-operation scale after a decade, and ILO proves domestic demand is already paid for; the boundary is that both are single-case or single-group definitions and this is a negative long-window judgment. | ACTIVE | 2027-12-31 |
+| [J-079](#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge) | 2026-09-21 | Biomedical candidate generation and ranking get cheaper, while clinical-grade causal proof does not accelerate proportionally | 2026–2034 | Medium | J-005, J-034, J-066 | [C5: Biology and Medicine](chains/50-biology-medicine.md) | FDA's risk and context-of-use framework supports “generation is not proof,” not this card's window or acceleration ceiling. | ACTIVE | 2027-06-30 |
+| [J-080](#j-080--low-liability-medical-workflows-diffuse-before-autonomous-care-without-professional-review) | 2026-09-21 | Summarization, coding, scheduling, and review-based decision support become routine before autonomous diagnosis and treatment without professional review | 2026–2031 | Medium | J-079, J-066, J-068, J-069 | [C5: Biology and Medicine](chains/50-biology-medicine.md) | FDA's list proves authorized products exist, not deployment scale or autonomy level. | ACTIVE | 2027-06-30 |
+| [J-081](#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time) | 2026-09-21 | AI increases drug candidates reaching laboratories, but candidate growth does not translate proportionally into approvals | 2026–2034 | Medium | J-079, J-066 | [C5: Biology and Medicine](chains/50-biology-medicine.md) | FDA supports risk-linked credibility requirements, not a forecast of development time or success rate. | ACTIVE | 2027-06-30 |
+| [J-082](#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only) | 2026-09-21 | In chronic disease, ageing, and primary care, the bottleneck moves from standard explanation to authorized intervention, continuous observation, and exception escalation | 2027–2034 | Low (landscape only) | J-079, J-080, J-032, J-066 | [C5: Biology and Medicine](chains/50-biology-medicine.md) | WHO supports workforce, accountability, and safety boundaries, not that AI worsens care queues. | ACTIVE | 2027-12-31 |
+| [J-083](#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery) | 2026-09-21 | Personalized explanations, examples, and immediate feedback become routine, but verifiable mastery does not grow proportionally | 2026–2030 | Medium | J-001, J-066 | [C6: Education and Skill Formation](chains/60-education-skill-formation.md) | UNESCO supports human-centred and pedagogical boundaries, not that outcomes fail to rise proportionally. | ACTIVE | 2027-06-30 |
+| [J-084](#j-084--ai-tutoring-enters-teacher-and-institutional-workflows-before-replacing-schools) | 2026-09-21 | AI tutoring diffuses first through teacher assignment, curriculum alignment, and institutional supervision rather than large-scale school replacement | 2026–2031 | Medium | J-083, J-066, J-068, J-069, J-070, J-071 | [C6: Education and Skill Formation](chains/60-education-skill-formation.md) | OECD supports institutions as carriers, not that schools retain their current boundaries. | ACTIVE | 2027-06-30 |
+| [J-085](#j-085--take-home-artifact-signals-weaken-while-controlled-performance-and-process-evidence-gain-weight) | 2026-09-21 | High-stakes admissions and hiring reduce the weight of take-home artifacts without process verification and increase controlled performance and process evidence | 2027–2034 | Medium | J-022, J-083, J-084, J-066 | [C6: Education and Skill Formation](chains/60-education-skill-formation.md) | UNESCO supports assessment redesign, not which assessment forms gain weight. | ACTIVE | 2027-06-30 |
+| [J-086](#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only) | 2026-09-21 | AI narrows access gaps in explanation, but without carrier institutions skill and opportunity gaps may fail to fall or may widen | 2027–2034 | Low (landscape only) | J-083, J-084, J-066, J-069, J-070 | [C6: Education and Skill Formation](chains/60-education-skill-formation.md) | The World Bank supports the scale of foundational learning deficits, not AI's direction of effect on inequality. | ACTIVE | 2027-12-31 |
 
 
 
@@ -150,7 +158,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-078; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-086; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -231,6 +239,14 @@ J-075 <- J-073, J-066
 J-076 <- J-073, J-066
 J-077 <- J-073, J-066
 J-078 <- J-073, J-066
+J-079 <- J-005, J-034, J-066
+J-080 <- J-079, J-066, J-068, J-069
+J-081 <- J-079, J-066
+J-082 <- J-079, J-080, J-032, J-066
+J-083 <- J-001, J-066
+J-084 <- J-083, J-066, J-068, J-069, J-070, J-071
+J-085 <- J-022, J-083, J-084, J-066
+J-086 <- J-083, J-084, J-066, J-069, J-070
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -308,8 +324,8 @@ The full-landscape promise remains open. The first chain is not full coverage. E
 | Embodied intelligence and physical-world labour | How does AI extend beyond screens into care, logistics, manufacturing, agriculture, construction, and domestic work that moves mass or touches bodies? | High | Covered (C4: arrival order, cost per task, priced liability, and scene fragmentation; care deployment scale and cross-scene cost series remain explicit gaps) |
 | Social consequences of the technology capability sequence | As technical capabilities arrive in sequence, how are division of labour, institutions, employment, and human–AI relationships rewritten step by step? | High | Not covered (the technology capability sequence answers arrival order and feasibility only; its social consequences have no independent reasoning chain yet) |
 | Energy and physical infrastructure | How do hard constraints in compute, data centers, grids, chips, and materials migrate? | High | Covered (C3: J-056–J-064; material and equipment constraints inside chip manufacturing remain open) |
-| Biology and medicine | After generation enters experiments, diagnosis, and care, which steps remain constrained by bodies and trials? | High | Not covered |
-| Education and skill formation | When “knowing how” becomes cheap, where do learning, screening, and qualification become scarce? | High | Not covered |
+| Biology and medicine | After generation enters experiments, diagnosis, and care, which steps remain constrained by bodies and trials? | High | Covered (C5: candidate generation, clinical proof, drug trials, and continuity of care; cross-national deployment scale and long-term outcome series remain open) |
+| Education and skill formation | When “knowing how” becomes cheap, where do learning, screening, and qualification become scarce? | High | Covered (C6: explanation, mastery, institutional carriers, assessment, and qualification; long-term cross-national randomized trials and credential-recognition series remain open) |
 | Geopolitics and institutions | How do compute, data, and critical infrastructure change bargaining power among states and organizations? | Medium | Partially covered (J-059–J-060 cover the migration of the control handle and host-state bargaining; inter-state competition and security questions remain open) |
 | Law and property | How do liability, data ownership, model output, and licensing rewrite transaction boundaries? | High | Partially covered (C2 and J-055 cover high-liability real-world signals; C3's J-061–J-062 cover local externalities and the tax-base mismatch; data ownership and model-output licensing remain open) |
 | Organizations and employment | How do coordination costs, employment relationships, and firm boundaries change? | High | Covered (J-037–J-038; expansion remains) |
@@ -357,6 +373,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-20 | Embodied-intelligence and physical-world labour dimension delivered (C4, both languages) | Added the C4 chain across care, logistics, manufacturing, agriculture, construction, and domestic work; recorded that embodied capability is necessary but not sufficient for diffusion, and corrected the coverage status of collaboration and human–AI relationships. | — |
 | 2026-09-20 | Diffusion gate (Gate 1 · scale) reviewed across the whole ledger: all 72 cards given an audience-scale magnitude and a pass/fail verdict, with the conclusions fed back into the prose (both languages) | **Counting method**: each card's “Diffusion-gate review” field records exactly one audience-scale magnitude, so the 72 cards map one-to-one onto magnitudes with no double counting and no omission; the buckets sum to 72. **Distribution**: hundred-thousand-scale 6 (J-066–J-071) / million-scale 17 (J-001–J-016, J-072) / ten-million-scale 26 / hundred-million-scale 18 / billion-scale 5. **The two figures this round was asked for**: (1) **occupational “million-scale”** — strictly the million-scale bucket, **17 cards, 23.6%**; widened to “occupational/method judgments at million-scale or below” (adding the 6 hundred-thousand-scale cards), **23 cards, 31.9%**. (2) **“billion-scale, society-wide”** — **5 cards, 6.9%**, of which **4 pass Gate 1** (J-029, J-042, J-053, J-054; 5.6%); J-051 has a billion-scale audience but what it judges is an institutional and resource-allocation arrangement rather than a repeatable individual consumption activity, so it fails. **Disposition**: the **60 cards** that fail Gate 1 and were `ACTIVE` are now `REVISED`, with the original card text kept word for word and identifiers not reused; the overview table's status column is synchronised. J-004 was already `REVISED` on 2026-09-19 for a different reason, so this round only adds its gate field and leaves the status alone. J-066–J-072 are the test itself rather than predicted society-wide consumption activities: their gate verdicts are recorded but their status is not downgraded. **Fed back into the prose**: the C1 opening now reads as an occupational scenario instead of an “inevitable result” and links to J-072; 39 sections across 10-near / 20-mid / 30-far / chains carry a visible downgrade marker (39 per language, section-for-section symmetric); O-001–O-004 and the window list in 40-opportunities each carry an upstream-downgrade note; both READMEs correct the false claim that the chains and time layers cover the same judgments (measured overlap is only 9; 14 chain-only, 39 time-layer-only, 10 in neither) and state that all 12 far-term cards (J-043–J-054) carry confidence “Low (landscape only).” **Cost recorded honestly**: every audience-scale magnitude is a constructed estimate, not citable occupational statistics, and can be attacked; this is the only weak-evidence source added this round, as weak and from the same source as the section-7 estimate for the C1 opening. **Three clarifications added after the 2026-09-20 review**: (1) **why hundred-million-scale plus weekly frequency still fails the gate** — the figures on all 18 hundred-million-scale cards (J-017, J-018, J-020, J-022, J-023, J-025, J-026, J-030, J-036, J-037, J-038, J-041, J-045, J-047, J-048, J-049, J-050, J-061) are constructed upper bounds on the audience (estimated from occupational roles, organizational nodes, or a population in need), not citable statistics, and not one of them establishes the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 fails on every one of them. The 10 whose audience is written as possible users, platform participants, or an affected population (J-017, J-020, J-022, J-023, J-030, J-036, J-041, J-047, J-048, J-061) additionally record that **an estimate of reach is not a count of people repeating the action**. None of these 18 verdicts is upgraded merely because the number itself is larger. (2) **Self-attack on this test** — the threshold line itself (“a hundred million distinct individuals performing the same action every week”) has been calibrated against no external literature at all (see section 8 of the historical retrospective: Gate 1 is a genuine gap in the literature); and “pick one out of a large pile of candidates” is something e-commerce recommendation has done for a billion people daily for years, which shows the scale test can both mistake an activity that was automated long ago for new scarcity and, by counting only “the same action,” miss one force spread across several actions. The way to overturn this test is citable occupational or behavioural statistics, not a larger adjective. (3) **61 and 60 are not the same number** — 60 cards were newly set to `REVISED` this round; adding J-004, which was already `REVISED` on 2026-09-19 for a different reason and received only a diffusion-gate narrowing note this round, **61 cards currently carry a diffusion-gate narrowing note**. The two numbers must not be swapped where the READMEs or the prose cite them | — |
 | 2026-09-20 | The C4 chain's six judgments formally registered as J-073–J-078 (both languages) | The six judgments in the prose of the [C4 chain](chains/40-embodied-intelligence.md) are now registered as cards: **J-073, the core judgment** — embodied intelligence is the **necessary complement** for AI to reach the physical-labour population, not a **sufficient condition** for diffusion (changing the denominator only opens Gate 1; Gates 2 through 5 do not open automatically as model capability improves); **J-074–J-078** are the five squares — care, warehousing and logistics, manufacturing and assembly, agriculture, and construction / domestic work. The six cards entered **section 2's overview, section 3's complete graph, and the C4 card area** in step, with the dependency edges identical in all three places (J-073 ← J-006, J-066–J-071; J-074–J-078 ← J-073, J-066), and the complete graph's coverage statement changed from J-001–J-072 to **J-001–J-078**. **Every card is registered against Gate 1's two questions**: an audience-scale magnitude (J-073 billion-scale, J-074–J-078 hundred-million-scale, all judged **FAIL on Gate 1** under the 2026-09-20 review's definitions, and all written as occupational/organizational judgments from the start, so no downgrade is at issue), and the "raises the ceiling of existing professionals / lets people who previously could not do it do it" verdict — all six fall in the former, and the only two that could have fallen in the latter (home contact transfer, open-ended household tasks) are both judged not to hold inside this window. Each card's reasoning chain states **when cost per task crosses labour** and its **hard constraints** (inside the five-category whitelist). Seven sources were added as EXT-41–EXT-47 (FAO employment indicators, ILO domestic workers, O\*NET 53-7062 / 31-1121, Riken ROBEAR, IFR, The Robot Report [⚠ a single company case], FBR Hadrian [⚠ vendor self-description]), and all six cards completed the three-element comparison. **Costs recorded honestly**: (1) all six audience-scale magnitudes are constructed estimates rather than citable statistics; (2) the four data series that matter most to this chain had no publicly checkable definition this round (cost-per-task time series by scene, insurance rates and liability rulings for embodied work, the learning curve of deployment hours per unit, and deployment scale and retention in care worldwide), so confidence stays at Medium across the board; (3) **this round changed both bilingual READMEs and both bilingual ledgers**: the README card count now agrees with J-073–J-078 at 78, and the README coverage wording for collaboration between people and relationships between people and AI now agrees with the ledger; the ledger restores and explicitly retains the uncovered gap for the social consequences of the technology capability sequence. The chain prose and other sections were left untouched by this round | — |
+| 2026-09-21 | C5 biology/medicine and C6 education/skill formation delivered bilingually (J-079–J-086) | Added two chains and eight cards; registered EXT-48–EXT-54; changed both gaps to “covered with evidence gaps retained.” All eight cards entered the overview, dependency graph, and card section; both Gate 1 questions are recorded per card; J-082 and J-086 are explicitly low-confidence landscape only. **Cost recorded honestly**: all eight audience magnitudes are constructed reach/occupational estimates rather than citable statistics for the same repeated action, so all fail Gate 1; education lacks cross-national long-term randomized trials and credential-recognition series, while medicine lacks cross-national deployment and long-term outcome series. | — |
 | 2026-09-21 | `REVISED` due-calibration semantics repaired (both languages) | Due sets now come from preregistered time windows, falsifiers, and review dates rather than status labels; the 60 scope-downgraded `REVISED` cards remain independently due and in the denominator, while J-004 is explicitly reviewed together with successor J-065; uncomputable preregistered checks are recorded as `INDETERMINATE` and remain in the denominator. The methodology and contribution guide now use the same two-case definition. | 4a111a0 / follow-up revision |
 
 ---
@@ -415,6 +432,13 @@ This comparison followed the independent reasoning. External material marks agre
 - **EXT-45**: International Federation of Robotics (IFR), *Global robot demand in factories doubles over 10 years*, **content: a ten-year view of factory robot demand**; supports that embodied capability **can** genuinely diffuse, and draws the boundary conditions under which that diffusion happened (repetitive motion, rigid workpieces, calibratable positions, fixed takt); **does not support** any breakdown of new installations by application type (a total cannot separate palletizing growth from an assembly breakthrough), nor extrapolating the factory's diffusion rate to care, agriculture, construction and homes. <https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years>
 - **EXT-46**: The Robot Report, *Abundant Robotics shuts down fruit harvesting business*, **content: an apple-harvesting robot company shutting the business down after the technology worked in orchards**; supports "technical feasibility is not commercial feasibility" and serves as the concrete specimen on the failure side of selective harvesting; **⚠ a single company case**, not a statistic over the class, and the shutdown may be jointly driven by funding and management reasons, so it must not be read as proof that harvesting is technically infeasible. <https://www.therobotreport.com/abundant-robotics-shuts-down-fruit-harvesting-business/>
 - **EXT-47**: FBR, Hadrian bricklaying machine product page, **content: a decade-scale push in this direction and the stage it currently sits at (single operation and demonstration projects)**; supports "what blocks on-site construction is not laying speed but trade sequencing, inspection, permits and weather"; **⚠ vendor self-description**, not an independent assessment, and supports no conclusion about cost, schedule or deployment scale. <https://www.fbr.com.au/view/hadrian>
+- **EXT-48**: U.S. FDA, *AI-enabled Medical Devices*, **topic: FDA-authorized AI medical-device list, market pathways, and decision dates (accessed 2026-09-21)**; supports that AI medical devices have received market authorization through multiple pathways and that intended use and decision dates are traceable; **does not support** exhaustive coverage, clinical adoption scale, complete identification of foundation models, or widespread autonomous care. <https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices>
+- **EXT-49**: U.S. FDA, *Considerations for the Use of Artificial Intelligence To Support Regulatory Decision-Making for Drug and Biological Products*, **topic: Context of Use, risk, and the model-credibility framework**; supports establishing credibility according to Context of Use and risk; **does not support** a particular acceleration magnitude, success rate, or this chain's windows. <https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and-biological>
+- **EXT-50**: WHO, *Ethics and governance of artificial intelligence for health* (the same source as EXT-9), **topic: six ethical principles and autonomy, transparency, accountability, equity, and safety in governance**; supports these boundaries not being automatically erased by model capability; **does not support** a particular regulatory endpoint or adoption order. <https://www.who.int/publications/i/item/9789240029200>
+- **EXT-51**: WHO, *Health workforce*, **topic: health-worker supply, occupational categories, and geographic-distribution constraints**; supports health-worker supply and geographic distribution as real capacity constraints; **does not support** converting workforce shortages into an AI market or automation share. <https://www.who.int/news-room/fact-sheets/detail/health-workforce>
+- **EXT-52**: UNESCO, *Guidance for generative AI in education and research*, **topic: human-centred design, age appropriateness, privacy, teacher involvement, and pedagogy**; supports these boundaries for educational use; **does not support** a specific learning effect, teacher replacement, or assessment endpoint. <https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research>
+- **EXT-53**: OECD, *Digital Education Outlook 2023*, **topic: digital-education governance, interoperable ecosystems, and teacher capacity**; supports digital education depending on these institutional capabilities rather than one tool; **does not support** a generative-AI adoption order or permanent school boundaries. <https://www.oecd.org/en/publications/oecd-digital-education-outlook-2023_c74f03de-en.html>
+- **EXT-54**: World Bank, *What is Learning Poverty?*, **topic: definition and global scale of foundational learning deficits**; supports foundational learning deficits as a billion-scale education-system problem; **does not support** attributing the deficit to scarcity of explanation or predicting AI's direction of effect on inequality. <https://www.worldbank.org/en/topic/education/brief/what-is-learning-poverty>
 
 > **C3 comparison round closed (19 September 2026)**: EXT-21 through EXT-32 were added here. All nine cards J-056–J-064 have now completed their first external comparison, and no ACTIVE judgment in this ledger is still marked "unknown / comparison not completed" (**this clause went void the same day**: the later O-002 gate re-review added J-065, which is a product of that re-review, has not been compared yet, and is marked "unknown" per the methodology until the next round). The added comparison surfaced three cases where the **falsifier is currently not computable**, each written into the card itself rather than hidden: J-057 (large-load contract terms are commercially confidential and no public statistics on terms exist), J-058 (no statistics on contracted data-centre demand-response capacity broken out by industry), and J-063 (no public data comparing the explanatory power of electricity price versus interconnection wait time for siting). One **frequently misused source is also corrected**: EXT-19 (LBNL *Queued Up*) covers generation and storage interconnection queues only and **does not cover the load side**, so it must not be used as evidence about data-centre siting or large-load queues.
 
@@ -1708,27 +1732,31 @@ python3 scripts/check.py
 
 It covers the machine-checkable half of the list below. Exit code 0 means
 pass; otherwise it prints each failure. On the ledger side: internal links and
-heading anchors, required card fields, the confidence whitelist, dependency
-edges agreeing in all three places, and bilingual parity — where "parity"
-means exactly three things, that the two trees hold the **same filenames**,
-the **same judgment-card identifiers**, and the **same number of `##`
-sections per same-named file**. It does **not** compare prose, so two files
-with the same name saying different things pass. On the README side: the
-chain registry and the chain files on disk cover each other (every chain file
-is linked by both registries; every row's files exist, are linked on both
-sides, and are named by the `<ID x 10>-` rule; the two registries allocate the
-same identifiers), every `C<n>` cited anywhere is an identifier the registry
+heading anchors, required card fields, the standalone Audience scale field on
+new cards (J-001–J-086 warn during migration; a later identifier fails if the
+field is missing), duplicate J identifiers inside either ledger, the confidence
+whitelist, dependency edges agreeing in all three places, and bilingual parity
+— where "parity" means exactly three things, that the two trees hold the **same
+filenames**, the **same judgment-card identifiers**, and the **same number of
+`##` sections per same-named file**. It does **not** compare prose, so two files
+with the same name saying different things pass. On the README side: the chain
+registry and the chain files on disk cover each other in both directions (every
+chain file is linked by both registries; every row's files exist, are linked on
+both sides, and are named by the `<ID x 10>-` rule; the two registries allocate
+the same identifiers), the registry Topic is contained in the corresponding
+chain file's H1, every `C<n>` cited anywhere is an identifier the registry
 allocated, a chain cited by title carries a title taken verbatim from that
-file's own H1 (an abbreviation is allowed, a rename is not), and the two
-counts the READMEs state — "N judgment cards" and "N independent reasoning
-chains" — equal what the repository holds. State the count check's boundary
-plainly: it reads only those two fixed phrasings, and its reach is held by the
-rule that both languages must state each count the same number of times and
-may never both fall to zero. A rewrite on one side is caught; **dropping the
-same count from both languages in one commit is not**. One recurring trap:
-GitHub does **not** collapse runs of hyphens in heading anchors, so
-`J-001 · Title` is `#j-001--title`; a short `#j-001` fragment silently fails
-to jump (43 of them were repaired in one pass on 2026-09-19).
+file's own H1 (an abbreviation is allowed, a rename is not), the two languages
+state each count the same number of times, and the two counts the READMEs state
+— "N judgment cards" and "N independent reasoning chains" — equal what the
+repository holds. State the count check's boundary plainly: it reads only those
+two fixed phrasings, and its reach is held by the rule that both languages must
+state each count the same number of times and may never both fall to zero. A
+rewrite on one side is caught; **dropping the same count from both languages in
+one commit is not**. One recurring trap: GitHub does **not** collapse runs of
+hyphens in heading anchors, so `J-001 · Title` is `#j-001--title`; a short
+`#j-001` fragment silently fails to jump (43 of them were repaired in one pass
+on 2026-09-19).
 
 The script's own credibility is carried by negative cases:
 
@@ -1739,31 +1767,33 @@ python3 scripts/check.py --self-test
 It copies the tree into a temporary directory and breaks that copy one way at a
 time — dangling anchor, a dependency edge disagreeing with its card, a card in
 one language only, an out-of-whitelist confidence value, a missing required
-field; a chain file landing on disk with no registry row, a registry row
-deleted while its file stays, a row registering one language only, an
-identifier registered in one README only, a row linking a file that is not
-there, the announced-direction row claiming an identifier, a row id written as
-`C3 (draft)`, prose citing an unallocated identifier, a chain cited under a
-title its file does not carry; a card count off by one, a count spelled so it
-cannot be read, a stale chain count, a count dropped from one language — plus
-an accept/reject matrix over confidence values and the edits that must **not**
-be reported (an abbreviated title citation, a second announced row holding no
-number, prose naming cards without counting them). It asserts every breakage
-is caught **by the right check**; the repository itself is not modified. Run
-it whenever the script changes: on 2026-09-19 the confidence whitelist was
-compared by substring, so `极高` ("extremely high", which contains `高`)
-passed while every positive case stayed green — only a negative case exposes a
-criterion written too wide. The second lesson of that same day is the other
-half: `ee3a5eb` claimed "verified against four deliberate breakages" but left
-nothing re-runnable behind, and one of the four turned out not to work at all.
-**A claim does not count; only a negative case sitting in `NEGATIVE_CASES`,
-which the next person can re-run unchanged, counts.**
+field, a **new card missing Audience scale**; a chain file landing on disk with
+no registry row, a registry row deleted while its file stays, a row registering
+one language only, an identifier registered in one README only, a row linking
+a file that is not there, a registry Topic absent from its chain file's H1, the
+announced-direction row claiming an identifier, a row id written as `C3
+(draft)`, prose citing an unallocated identifier, a chain cited under a title
+its file does not carry; a card count off by one, a count spelled so it cannot
+be read, a stale chain count, a count dropped from one language, and the **same
+J identifier registered twice** — plus an accept/reject matrix over confidence
+values and the edits that must **not** be reported (an abbreviated title
+citation, a second announced row holding no number, prose naming cards without
+counting them). It asserts every breakage is caught **by the right check**; the
+repository itself is not modified. Run it whenever the script changes: on
+2026-09-19 the confidence whitelist was compared by substring, so `极高`
+("extremely high", which contains `高`) passed while every positive case stayed
+green — only a negative case exposes a criterion written too wide. The second
+lesson of that same day is the other half: `ee3a5eb` claimed "verified against
+four deliberate breakages" but left nothing re-runnable behind, and one of the
+four turned out not to work at all. **A claim does not count; only a negative
+case sitting in `NEGATIVE_CASES`, which the next person can re-run unchanged,
+counts.**
 
 The remaining items are judgment calls a script cannot make. Walk them by
 hand before publishing:
 
 - [ ] Year boundaries match the single authority in `00-method.md`.
-- [ ] Every judgment card has ID, proposed date, one-sentence judgment, diffusion-gate review, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, strongest opposing mechanism, consensus comparison, external comparison source, source, next review, and status.
+- [ ] Every judgment card has ID, proposed date, one-sentence judgment, diffusion-gate review, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, strongest opposing mechanism, consensus comparison, external comparison source, source, next review, and status; **J-087 and later must also carry a standalone Audience scale field**, not bury scale only inside the diffusion-gate review.
 - [ ] Every internal link resolves and returns to the source argument.
 - [ ] Chinese and English files are updated as equivalent projections in the same commit.
 - [ ] Dependency edges agree in all three places: each card's `depends-on`, the section-3 graph, and the depends-on column of the section-2 overview; the graph covers every registered ID, has no duplicate lines, and has no edge pointing at a non-existent ID.
@@ -2027,5 +2057,173 @@ hand before publishing:
 - **Against consensus**: **Agreement**: FBR's Hadrian, pushed for something on the order of a decade, is still at single-operation and demonstration scale (EXT-47), supporting "what blocks on-site construction is not laying speed"; ILO counts domestic workers as a separate group in the tens of millions with a large informal share (EXT-42), supporting that the demand is real and already paid for. **Divergence and evidence boundary**: both are **a single case or a single group definition** and cover no arrival order; ILO's statistical boundaries and years are as given in the source and this card takes orders of magnitude only; this round obtained no checkable series for prefabrication share, insurance rates for robotic work, or the recurring per-task cost of home robots. **Why the judgment is retained**: the card depends on two constraints that do not open as model capability improves — permitting and liability must land on a party that can be sued, and entering private space requires authorization and long-run trust. But as a negative judgment running to 2040 it is less checkable than this chain's mid-segment judgments, so confidence stays at Medium and is not raised.
 - **External comparison source**: EXT-42, EXT-47 (see the source index above).
 - **Source**: [C4: Embodied Intelligence](chains/40-embodied-intelligence.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+## 15. Judgment cards for the C5 biology-and-medicine chain
+
+> These four cards come from [C5: Biology and Medicine](chains/50-biology-medicine.md). They judge professional and institutional processes; patient reach does not substitute for the audience performing the repeated action.
+
+### J-079 · Biomedical candidate generation and clinical-grade causal proof diverge
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2034, biomedical candidate generation and ranking get much cheaper, while clinical-grade causal proof does not accelerate proportionally.
+- **Audience scale**: constructed billion-scale patient reach and million-scale direct action population; mainly **raises existing professionals' ceiling** (neither is a citable behavioural statistic).
+- **Diffusion-gate review**: Patient reach is a constructed billion-scale estimate, while the direct action is performed by a constructed millions-scale population of R&D, regulatory, and clinical professionals; neither is a citable behavioural statistic. Gate 1 **FAIL**, an occupational/organizational judgment. **Gate 1 second question**: it mainly raises the candidate-generation and validation ceiling of existing professionals; it does not let people without R&D or clinical-validation capability complete the action independently.
+- **Lens**: L2 constraint migration + L6 irreversibility + diffusion gates.
+- **Reasoning chain**: Candidates are copyable and ranking costs fall → trustworthy causality still needs real samples, time, and subject protection → the bottleneck moves to prospective validation.
+- **Time window**: 2026–2034.
+- **Falsifier**: Before 2030, at least three high-liability categories halve median candidate-to-approved-intervention time without increasing real samples or follow-up intensity, while safety withdrawals do not rise.
+- **Leading indicator**: candidates per approval, share entering human trials, phase duration, post-market safety supplements, and withdrawals; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-005, J-034, J-066.
+- **Strongest opposing mechanism**: biological models, surrogate endpoints, and synthetic controls may compress experimental and clinical stages together; if the falsifier triggers, withdraw the asynchronous claim.
+- **Against consensus**: **Agreement**: FDA evaluates AI credibility by Context of Use and risk, supporting “generation is not proof.” **Boundary**: it does not establish the window or acceleration ceiling. **Why retained**: real outcomes and subject protection do not copy with candidates.
+- **External comparison source**: EXT-49, EXT-50.
+- **Source**: [C5: Biology and Medicine](chains/50-biology-medicine.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-080 · Low-liability medical workflows diffuse before autonomous care without professional review
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2031, summarization, coding, scheduling, and review-based decision support become routine before autonomous diagnosis and treatment without professional review.
+- **Audience scale**: constructed tens-of-millions-scale clinical and administrative users; mainly **raises existing professionals' ceiling** (not a citable behavioural statistic).
+- **Diffusion-gate review**: Direct users are a constructed tens-of-millions-scale population across clinical and administrative staff, not a citable behavioural statistic; this is a professional workflow and Gate 1 **FAIL**. **Gate 1 second question**: it raises the workflow ceiling of existing clinical and administrative staff; it does not let unlicensed people diagnose or treat independently.
+- **Lens**: L4 diffusion lag + diffusion Gates 2–5.
+- **Reasoning chain**: Low-liability tools replace existing work, fit current carriers, and remain reviewable → autonomous care crosses licensing, liability, and irreversible treatment → the former diffuses first.
+- **Time window**: 2026–2031.
+- **Falsifier**: By 2031, in at least two large jurisdictions, encounters covered by care without human review persistently exceed AI-assisted documentation and review-based support without one-off mandated procurement.
+- **Leading indicator**: FDA intended-use distribution, hospital recommend-review versus autonomous-action shares, insurance/liability terms, and clinical retention; twice yearly.
+- **Confidence**: Medium.
+- **depends-on**: J-079, J-066, J-068, J-069.
+- **Strongest opposing mechanism**: underserved regions may accept “worse but immediately available” autonomous systems and reverse the order.
+- **Against consensus**: **Agreement**: FDA's list proves authorized regulated products exist. **Boundary**: it is not exhaustive and proves neither deployment scale nor autonomy. **Why retained**: review-based tools use an institutional loop; autonomous care needs additional action rights.
+- **External comparison source**: EXT-48, EXT-50.
+- **Source**: [C5: Biology and Medicine](chains/50-biology-medicine.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-081 · More drug candidates do not proportionally shorten human trial time
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: By 2034, AI increases drug candidates reaching laboratories, but candidate growth does not translate proportionally into approvals.
+- **Audience scale**: constructed million-scale R&D, trial, and regulatory action population; mainly **raises existing professionals' ceiling** (not a citable behavioural statistic).
+- **Diffusion-gate review**: The direct action is performed by a constructed millions-scale population of R&D, trial, and regulatory participants, not a citable behavioural statistic; Gate 1 **FAIL**. **Gate 1 second question**: it raises the search ceiling of existing drug developers; it does not let people without wet-lab or human-trial capability complete the development loop independently.
+- **Lens**: L2 constraint migration + cost structure.
+- **Reasoning chain**: Search expands → more candidates compete for wet-lab, participant, site, and regulatory capacity that has not expanded proportionally → attrition or queues rise.
+- **Time window**: 2026–2034.
+- **Falsifier**: Between 2028 and 2034, AI-origin candidates cut both median first-in-human-to-approval time and failure rates by more than 50%, replicated in at least three therapeutic areas.
+- **Leading indicator**: Phase I AI-origin candidates, phase conversion, site start and recruitment completion time, and clinical candidates per approval; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-079, J-066.
+- **Strongest opposing mechanism**: predictive biomarkers, adaptive trials, and digital endpoints may reduce samples and follow-up together.
+- **Against consensus**: **Agreement**: FDA requires risk-linked AI credibility. **Boundary**: it supports no timeline or success-rate forecast. **Why retained**: candidate computation and human time follow different production functions.
+- **External comparison source**: EXT-49.
+- **Source**: [C5: Biology and Medicine](chains/50-biology-medicine.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-082 · Once explanation is abundant, medical scarcity moves to authorized intervention and continuity of care (landscape only)
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2034, the bottleneck in chronic disease, ageing, and primary care moves from standard explanation to authorized intervention, continuous observation, and exception escalation.
+- **Audience scale**: constructed billion-scale patient reach and hundred-millions-scale direct carers/workers; mainly **raises existing professionals' ceiling** (neither is a citable behavioural statistic).
+- **Diffusion-gate review**: Patient reach is a constructed billion-scale estimate, while direct carers and workers are a constructed tens-to-hundreds-of-millions-scale population; neither is a citable behavioural statistic. This is an institutional/occupational arrangement and Gate 1 **FAIL**. **Gate 1 second question**: it raises the explanation and monitoring ceiling of existing carers and professionals; it does not let people without authorization independently deliver continuity of care.
+- **Lens**: L2 constraint migration + embodied-presence hard constraint.
+- **Reasoning chain**: Q&A is copyable → explanation and reminder costs fall → sampling, medication, transfer, follow-up, and exception judgment still need local resources and liability chains → advice becomes unmet demand without a carrier.
+- **Time window**: 2027–2034.
+- **Falsifier**: Across several countries, within five years of widespread AI Q&A, intervention hours, follow-up completion, and exception response speed rise together while staff and institutional capacity cease to be principal queue causes.
+- **Leading indicator**: post-advice follow-up, escalation latency, load per caregiver, primary-care vacancies, and twelve-month remote-program retention; annually.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-079, J-080, J-032, J-066.
+- **Strongest opposing mechanism**: remote monitoring, home robotics, and task redesign may make continuity of care scalable.
+- **Against consensus**: **Agreement**: WHO supports workforce, accountability, and safety as real constraints. **Boundary**: it does not prove AI worsens care queues. **Why retained**: local intervention and liability chains do not emerge automatically from more explanation.
+- **External comparison source**: EXT-50, EXT-51.
+- **Source**: [C5: Biology and Medicine](chains/50-biology-medicine.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+## 16. Judgment cards for the C6 education-and-skill-formation chain
+
+> These four cards come from [C6: Education and Skill Formation](chains/60-education-skill-formation.md). The scale gate screens the people and frequency of the action; “affects billions” does not itself create a society-level forecast.
+
+### J-083 · Personalized explanation becomes abundant before verifiable mastery
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2030, personalized explanations, examples, and immediate feedback become routine, but verifiable mastery does not grow proportionally.
+- **Audience scale**: constructed billion-scale learner reach and potentially daily learning; it both **raises existing professionals' ceiling** and gives some previously excluded learners access, but no billion-scale same-action statistic exists.
+- **Diffusion-gate review**: Learners' reach is a constructed billion-scale estimate and learning can be daily, but no citable statistic establishes a billion distinct people performing the same AI-tutoring action daily; Gate 1 **FAIL**, so this remains a learning-context judgment. **Gate 1 second question**: it both raises existing learners' feedback ceiling and gives personalized explanation to people who previously lacked it; whether that becomes mastery remains governed by this card's falsifier.
+- **Lens**: L2 constraint migration + diffusion gates.
+- **Reasoning chain**: Explanations are copyable → generation and translation costs fall → practice still requires attention, time, and behavioural change → understanding and independent performance diverge.
+- **Time window**: 2026–2030.
+- **Falsifier**: Across countries, ages, and subjects, after two years of widespread generative tutoring, controlled transfer and long-term retention rise proportionally with use without curriculum redesign.
+- **Leading indicator**: weekly AI-tutoring use, independent transfer scores, three- to six-month retention, completion, and dependence on assistance; each term.
+- **Confidence**: Medium.
+- **depends-on**: J-001, J-066.
+- **Strongest opposing mechanism**: adaptive tutoring may improve feedback, pacing, and motivation together, converting explanation directly into mastery.
+- **Against consensus**: **Agreement**: UNESCO requires human-centred, age-appropriate, private, pedagogically designed use. **Boundary**: it does not prove outcomes fail to rise proportionally. **Why retained**: explanation cannot bear practice time for the learner.
+- **External comparison source**: EXT-52.
+- **Source**: [C6: Education and Skill Formation](chains/60-education-skill-formation.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-084 · AI tutoring enters teacher and institutional workflows before replacing schools
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2031, AI tutoring diffuses first through teacher assignment, curriculum alignment, and institutional supervision rather than large-scale school replacement.
+- **Audience scale**: constructed billion-scale student and working-learner reach with potentially weekly learning; it mainly **raises existing professionals' ceiling**, while the action subject remains the school/employer carrier.
+- **Diffusion-gate review**: Students and working learners have constructed billion-scale reach and learning can be weekly, but no citable behavioural statistic exists and the object is whether schools/employers become the carrier rather than one repeated student action; Gate 1 **FAIL**, an institutional judgment. **Gate 1 second question**: it mainly raises the tutoring ceiling of existing teachers and institutions; it does not give people without authority the power to run schools, assess, or grant credentials.
+- **Lens**: L4 diffusion lag + diffusion Gates 3–5.
+- **Reasoning chain**: Stand-alone chat adds a new action → embedded tutoring replaces Q&A, practice, and feedback → schools carry identity, curriculum, peers, assessment, and credentials → local loops diffuse first.
+- **Time window**: 2026–2031.
+- **Falsifier**: By 2031, in at least three large education systems, broadly recognized qualifications from AI pathways outside schools/employers persistently outnumber those from institution-embedded pathways.
+- **Leading indicator**: teacher-assigned versus direct purchase use, learning-system integration, twelve-month retention, teacher workload, and recognition breadth of independent AI credentials; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-083, J-066, J-068, J-069, J-070, J-071.
+- **Strongest opposing mechanism**: school cost, geography, and adult demand may let direct systems bypass institutions.
+- **Against consensus**: **Agreement**: OECD emphasizes governance, ecosystems, and teacher capacity. **Boundary**: it does not prove schools retain current boundaries. **Why retained**: schools bind learning to identity, assessment, and credential exits.
+- **External comparison source**: EXT-53.
+- **Source**: [C6: Education and Skill Formation](chains/60-education-skill-formation.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-085 · Take-home artifact signals weaken while controlled performance and process evidence gain weight
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2034, high-stakes admissions and hiring reduce the weight of take-home artifacts without process verification and increase controlled performance and process evidence.
+- **Audience scale**: constructed hundred-millions-scale reach across applicants, workers, and learners; it mainly **raises existing professionals' ceiling**, while assessment is low-frequency and performed by schools/employers.
+- **Diffusion-gate review**: Direct reach across applicants, workers, and learners is a constructed hundreds-of-millions-scale estimate, not a citable behavioural statistic, and the action is low-frequency; Gate 1 **FAIL**, an institutional judgment. **Gate 1 second question**: it changes the screening ceiling and evidence structure of existing schools and employers; it does not give people without admissions or hiring authority the power to grant qualifications.
+- **Lens**: L5 signalling game + L1 gate.
+- **Reasoning chain**: Artifact-generation costs fall → artifacts correlate less with personal capability → selectors move toward costlier but harder-to-outsource identity, live performance, and longitudinal records.
+- **Time window**: 2027–2034.
+- **Falsifier**: By 2032, leading universities and large employers keep increasing the independent weight of take-home artifacts without process verification while their predictive validity does not decline.
+- **Leading indicator**: oral and live-task share, identity-verification spending, portfolio version-history requirements, and internship/apprenticeship weight; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-022, J-083, J-084, J-066.
+- **Strongest opposing mechanism**: process records can be forged and controlled assessment is costly; institutions may use open collaboration assessment rather than return to exams.
+- **Against consensus**: **Agreement**: UNESCO supports assessment redesign. **Boundary**: it does not establish which assessment gains weight. **Why retained**: selection systems cannot indefinitely rely on a proxy that has lost correlation with capability.
+- **External comparison source**: EXT-52.
+- **Source**: [C6: Education and Skill Formation](chains/60-education-skill-formation.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+
+### J-086 · The explanation gap narrows while practice and verification gaps may widen (landscape only)
+
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2034, AI narrows access gaps in explanation, but without carrier institutions skill and opportunity gaps may fail to fall or may widen.
+- **Audience scale**: constructed billion-scale learner reach; the tool **lets people who could not do it do it now** for some learning actions, while skill, credentials, and opportunity still depend on public, school, or employer carriers.
+- **Diffusion-gate review**: Learner reach is a constructed billion-scale estimate and learning is frequent, but it is not a citable behavioural statistic and the object is the distributional result when public, school, or employer carriers are absent; Gate 1 **FAIL**, an institutional landscape. **Gate 1 second question**: explanation tools can help people who previously lacked access, but the skill, credential, and opportunity judged here remain governed by institutions and resource conditions.
+- **Lens**: L2 constraint migration + distribution and power.
+- **Reasoning chain**: Marginal explanation becomes cheap → people with devices and self-direction benefit first → mastery still needs time, feedback, and practice environments → credentials need institutional recognition → new supply is absorbed through existing resource differences.
+- **Time window**: 2027–2034.
+- **Falsifier**: Where low-cost AI tutoring is widespread without added teachers, devices, assessment, or social support, low- versus high-income gaps in independent mastery and qualifications shrink significantly for five consecutive years.
+- **Leading indicator**: device/connectivity access, use by income, independent assessment gaps, teacher contact, completion, qualifications, and employment conversion; annually.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-083, J-084, J-066, J-069, J-070.
+- **Strongest opposing mechanism**: low-cost, offline, high-quality tutoring may deliver the largest marginal gains to learners with the fewest resources.
+- **Against consensus**: **Agreement**: the World Bank establishes the enormous scale of foundational learning deficits. **Boundary**: it does not support AI's direction of effect on inequality. **Why retained**: explanation is only one input to learning and is not the authority granting qualifications.
+- **External comparison source**: EXT-54.
+- **Source**: [C6: Education and Skill Formation](chains/60-education-skill-formation.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
