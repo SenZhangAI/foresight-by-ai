@@ -78,7 +78,7 @@
 | 结局判定者 | outcome adjudicator | 判闸和基线提交后，依据预登记来源独立编码历史结局的角色 |
 | 分歧／解锁裁决者 | disagreement / unlocking arbiter | 在结局编码冻结后裁定定义争议或预写解锁条件是否出现的独立角色 |
 | 基线臂 | baseline arm | 与判闸臂使用同一模型和输入、但使用不同规则的比较条件 |
-| 判别力 | discrimination | `P(S | PASS) − P(S | VETO)`，比较放行组与否决组实际社会级普及率的差 |
+| 判别力 | discrimination | `P(S \| PASS) − P(S \| VETO)`，比较放行组与否决组实际社会级普及率的差 |
 | 致命漏判 | fatal false veto | 五道闸给出 `VETO`、但历史结局为 S 的高代价错误；是否进一步触发判断卡自身证伪条件由台账另行裁定 |
 | 弃权 | abstention | 材料不足时拒绝判定；必须计入覆盖率，不能靠多弃权提高分数 |
 | 中间态 | intermediate outcome | 持续采用但既未成为定义人群多数、也未退出的历史结局 |
