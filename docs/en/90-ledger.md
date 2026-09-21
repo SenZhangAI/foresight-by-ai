@@ -507,7 +507,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: Selecting objectively high quality from abundant output is not a durable scarcity; it is merely a 2–4 year window.
 - **Diffusion-gate review**: audience scale = million-scale (knowledge workers and organizational buyers), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L1 (opportunity-durability gate)
+- **Lens**: L1 (abundance → scarcity; third question: opportunity-durability gate)
 - **Reasoning chain**: Objective quality is formalizable in most domains → anything formalizable can be checked automatically → generative models can sample and self-evaluate → selection is internalized as part of generation and is no longer an independent need
 - **Time window**: The window will be basically closed by the end of 2029
 - **Falsifier**: In 2030, a sizable independent market still exists whose core value is “picking the better one from AI output for the user,” and that market has not been internalized by model vendors
@@ -527,7 +527,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: The genuinely durable scarcity is ownership of private context about you and its usable form.
 - **Diffusion-gate review**: audience scale = million-scale (professional individuals and organizations), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L2 (the bottleneck jumps from production capacity to choice) + L1 (opportunity-durability gate)
+- **Lens**: L2 (the bottleneck jumps from production capacity to choice) + L1 (abundance → scarcity; third question: opportunity-durability gate)
 - **Reasoning chain**: Objective quality can be automated, subjective fit cannot → the key input to subjective fit is an individual’s/organization’s history of choices → that input is private, unstructured, and impossible for the person to articulate → hard constraints (ownership + privacy) prevent the same force from acquiring it automatically
 - **Time window**: Demand becomes visible from 2027 and will not disappear before 2033
 - **Falsifier**: A method appears that can stably reproduce an individual’s/organization’s choice preferences using only a small amount of publicly available interaction (reaching over 80% approval by the person), making private history unnecessary
@@ -547,7 +547,7 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Proposed date**: 2026-09-18
 - **One-sentence judgment**: As AI shifts from generating content to executing actions, the scarce item is infrastructure that makes actions reversible.
 - **Diffusion-gate review**: audience scale = million-scale (organizations deploying AI and high-liability professionals), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L6 (irreversibility) + L1 (opportunity-durability gate).
+- **Lens**: L6 (irreversibility) + L1 (abundance → scarcity; third question: opportunity-durability gate).
 - **Reasoning chain**: Generation becomes cheap → trial-and-error strategies spread → but trial and error presupposes reversible outcomes → AI begins touching irreversible actions (payments, deployment, sending, signing) → irreversibility exposes physical and legal/liability constraints that will not disappear as models improve → “reversibilization” becomes a prerequisite for using AI rather than an option
 - **Time window**: Demand becomes explicit from 2027 and becomes standard before 2032
 - **Falsifier**: By 2031, mainstream practice still lets AI directly execute irreversible actions in production environments/real accounts, and the incident rate is low enough that no one demands an isolation layer
