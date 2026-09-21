@@ -27,7 +27,7 @@ A testable judgment must contain every field below. If any field is missing, lab
 - **External comparison source**: the `EXT-NN` source identifiers supporting the comparison; state that comparison is incomplete when applicable.
 - **Source**: the narrative document or chain where the judgment appears.
 - **Next review**: the next date to review the falsifier, leading indicators, and external evidence.
-- **Status**: **ACTIVE** (awaiting evidence), **HIT** (supported), **FALSIFIED** (falsifier triggered), or **REVISED** (revised; old card retained). If rewritten, preserve the old card and assign the new version a new ID.
+- **Status**: **ACTIVE** (awaiting evidence), **HIT** (supported), **FALSIFIED** (falsifier triggered), or **REVISED** (the old card is retained, but the status note must distinguish two cases): (1) **scope downgrade** — only the audience, applicability, or narrative strength was narrowed, while the original proposition still has a time window, falsifier, and review date; the card remains independently due for review and stays in the calibration denominator. (2) **superseded by a new card** — the status note must name the successor `J-NNN` and state that the old card is no longer reviewed separately; review it with the successor when due, but do not use it as a current judgment or opportunity premise. Never infer calibration exclusion from the `REVISED` label alone.
 
 ### 1.2 Completed example card (example only)
 
@@ -278,21 +278,24 @@ Change-history table:
 
 ## 5. Expiry-review procedure
 
-The end of a time window is not an automatic HIT; it is a mandatory review event. Handle each expired card in this order:
+The end of a time window or arrival of a **Next review** date is not an automatic HIT; it is a mandatory review event. **Build the due set from preregistered fields, never from status or the observed result**: every card with an original time window, falsifier, and due review date enters the review and calibration denominator whether its status is `ACTIVE` or scope-downgraded `REVISED`. The current scope-downgraded `REVISED` set is **J-001–J-003, J-005–J-028, J-030–J-041, J-043–J-052, and J-055–J-065: 60 cards**. Their audience, applicability, or narrative strength was narrowed, but the original propositions still face reality. The only card currently superseded by a named successor is **J-004 → J-065**: do not count J-004 as a separate outcome; review it with J-065 to avoid counting the same proposition twice. Any future supersession must likewise name the successor in the old card's status note; a bare `REVISED` label is never an exclusion rule.
 
-1. Filter the overview for ACTIVE judgments whose window has ended. Read the full card and every upstream `depends-on` judgment first.
-2. Check the card's **falsifier** literally: did the specified observable trigger occur? If so, record **FALSIFIED**, with date, evidence, and observation scope.
-3. If the falsifier did not trigger, check the **leading indicator**: did it move in the expected direction, at the stated frequency, and without missing or substituted data? Supporting indicators without the full outcome remain ACTIVE; do not pre-label HIT.
-4. Record **HIT** only when evidence within the window clearly supports the judgment and no falsifier triggered. State the supporting evidence and uncovered counterexamples.
-5. If evidence is insufficient, leave the card ACTIVE, record `ACTIVE / insufficient evidence`, set the next review date, and name the missing indicator.
-6. Check all downstream dependencies: an upstream HIT, FALSIFIED, or revision can require downstream review. Follow the propagation steps in Section 3.
-7. Update both ledgers in one commit. Add the date, per-card result, evidence anchors, and next action to the review log. The commit message must name the judgment ID and new evidence, never a generic “update docs.”
+Handle each due card in this order:
+
+1. Filter the overview for every preregistered judgment whose **Next review** date has arrived or whose time window has ended, including both `ACTIVE` cards and the scope-downgraded `REVISED` set above. Read the full card and every upstream `depends-on` judgment first. Only an old card that names a successor and explicitly says it is no longer reviewed separately may be merged with its successor.
+2. Check the card's **falsifier** literally: did the specified observable trigger occur? If so, record `FALSIFIED`, with date, evidence, and observation scope.
+3. If the falsifier did not trigger, check the **leading indicator**: did it move in the expected direction, at the stated frequency, and without missing or substituted data? Supporting indicators without the full outcome must not be pre-labelled `HIT`.
+4. Record `HIT` only when evidence within the window clearly supports the judgment and no falsifier triggered. State the supporting evidence and uncovered counterexamples.
+5. If the preregistered condition cannot be computed because data are private, definitions changed, a source ended, or for another reason, record **`INDETERMINATE`**, naming the missing quantity, why it is not computable, and the next review date. Do not rewrite the original condition to manufacture a result, and do not remove the card from the due set or calibration denominator. `INDETERMINATE` is the result of this review; it does not automatically change the card's `ACTIVE` / `REVISED` status.
+6. Use **all independent preregistered judgments due in this round** as the calibration denominator. Report counts and shares for `HIT`, `FALSIFIED`, and `INDETERMINATE`. Never exclude a card after the fact because of its status label, missing evidence, an unfavorable result, a scope downgrade, or a miss. A named predecessor–successor pair counts once, with the mapping recorded in the log.
+7. Check all downstream dependencies: an upstream HIT, FALSIFIED, INDETERMINATE, or revision can require downstream review. Follow the propagation steps in Section 3.
+8. Update both ledgers in one commit. Add the date, per-card result, evidence anchors, and next action to the review log. The commit message must name the judgment ID and new evidence, never a generic “update docs.”
 
 Review-log format:
 
-| Date | Judgment ID | Falsifier check | Leading-indicator check | Result (HIT / FALSIFIED / ACTIVE) | Evidence | Next action |
-|---|---|---|---|---|---|---|
-| 2026-09-18 | J-001 and other initial judgments | Not due | Registered; no review point yet | ACTIVE | Initial registration | Review at each card's window/checkpoint |
+| Date | Judgment ID | Status at review | Falsifier check | Leading-indicator check | Result (HIT / FALSIFIED / INDETERMINATE) | In denominator? | Evidence / reason indeterminate | Next action |
+|---|---|---|---|---|---|---|---|---|
+| 2026-09-18 | J-001 and other initial judgments | ACTIVE | Not due | Registered; no review point yet | — | Not yet | Initial registration | Review at each card's window or checkpoint |
 
 ---
 
