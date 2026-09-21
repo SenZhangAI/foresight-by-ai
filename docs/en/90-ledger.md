@@ -2,7 +2,6 @@
 
 > The single register for all project judgments. Narrative documents cite `J-NNN`; the complete judgment card lives only here.
 > This ledger records how judgments are proposed, linked, revised, and reviewed. A falsified judgment is never deleted.
-> Last updated: 2026-09-20
 
 ---
 
@@ -21,6 +20,11 @@ A testable judgment must contain every field below. If any field is missing, lab
 - **Leading indicator**: an observable signal expected to move before the outcome, with its observation frequency or source.
 - **Confidence**: high / medium / low. Low-confidence items remain landscape only and do not enter the opportunity list.
 - **depends-on**: the prerequisite `J-NNN` judgments. Write `—` when there is no dependency; never use a vague “see above.”
+- **Strongest opposing mechanism**: the alternative mechanism or counterexample most capable of invalidating the judgment.
+- **Against consensus**: the three comparison elements — where it agrees, where it diverges or what the evidence boundary is, and why the judgment is retained or confidence lowered; write “unknown” explicitly when the round is incomplete.
+- **External comparison source**: the `EXT-NN` source identifiers supporting the comparison; state that comparison is incomplete when applicable.
+- **Source**: the narrative document or chain where the judgment appears.
+- **Next review**: the next date to review the falsifier, leading indicators, and external evidence.
 - **Status**: **ACTIVE** (awaiting evidence), **HIT** (supported), **FALSIFIED** (falsifier triggered), or **REVISED** (revised; old card retained). If rewritten, preserve the old card and assign the new version a new ID.
 
 ### 1.2 Completed example card (example only)
@@ -279,7 +283,7 @@ Review-log format:
 
 | Date | Judgment ID | Falsifier check | Leading-indicator check | Result (HIT / FALSIFIED / ACTIVE) | Evidence | Next action |
 |---|---|---|---|---|---|---|
-| 2026-09-18 | J-001 and other initial judgments | Not due | Registered; no review point yet | ACTIVE | Initial registration | Review at each card's window/checkpoint |
+| 2026-09-18 | J-031 and other initial judgments | Not due; registered with no review point yet. The extra fields belong to the old historical log format. | — |
 
 ---
 
@@ -326,14 +330,14 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 
 | Date | Action | Result | Commit |
 |---|---|---|---|
-| 2026-09-18 | J-031–J-042 metadata repair review | Restored source, next-review, and status fields in both bilingual cards; e25f0fd passed fresh-context acceptance | e25f0fd |
+| 2026-09-18 | J-031 and other initial judgments | Not due; registered with no review point yet. The extra fields belong to the old historical log format. | — |
 | 2026-09-18 | Mid-term expansion: added J-031–J-042, completed six-dimension narrative, dependency graph, and review log | Bilingual card fields are equivalent; low-confidence cards remain landscape only; window opportunities are marked in the narrative | — |
 | 2026-09-18 | Narrow correction: restored J-006–J-016 to the overview, aligned the technology-chain gap status, and clarified containers versus card windows | Both ledgers cover J-001–J-030; technology-chain status is equivalent; card-specific windows remain authoritative | — |
 | 2026-09-18 | C2 successor chain and J-055 bilingual delivery | Added the real-signal contract-asset chain; connected bilingual C1 links; synchronized J-055 in the overview, dependency graph, and full card; kept the law-and-property gap partially covered | c4e4adcc |
 | 2026-09-19 | Dependency-graph completeness and duplicate review (J-001–J-055, both languages) | Edge-by-edge check: 55 graph entries, 55 cards, and 55 overview rows agree exactly; no duplicate edges, no edge pointing at a non-existent ID, no cycles, every node traces back to J-001; the Chinese and English graphs match edge for edge. Also recorded the three-place synchronization rule in section 3 and in the pre-publication checklist | — |
-| 2026-09-19 | First external-comparison round closed (J-001–J-055, both languages) | All 55 cards carry "Against consensus" and "External comparison source"; the EXT-1–EXT-18 index now names the chapter or topic anchor actually used and what each source does and does not support. The 40 cards that previously stated only agreement/divergence received the third §1.2 element — why the judgment is retained or confidence lowered; J-043 was re-marked as "may / landscape only"; the stale "external comparison is not complete" sentence in `20-mid.md` was replaced with the actual comparison verdict. Independent reasoning text and reasoning chains were left unchanged, and both languages landed in one commit |
+|  2026-09-19  |  First external-comparison round closed (J-001–J-055, both languages)  |  All 55 cards carry "Against consensus" and "External comparison source"; the EXT-1–EXT-18 index now names the chapter or topic anchor actually used and what each source does and does not support. The 40 cards that previously stated only agreement/divergence received the third §1.2 element — why the judgment is retained or confidence lowered; J-043 was re-marked as "may / landscape only"; the stale "external comparison is not complete" sentence in `20-mid.md` was replaced with the actual comparison verdict. Independent reasoning text and reasoning chains were left unchanged, and both languages landed in one commit  | — |
 | 2026-09-19 | C3 energy–geopolitics–law chain delivered: added J-056–J-064 and the bilingual chain document | The nine new cards are synchronized across the overview, the dependency graph, and the card section; in the gap list "energy and physical infrastructure" becomes covered, "geopolitics and institutions" and "law and property" become partially covered, and a new gap for upstream materials and climate coupling was added; EXT-19 and EXT-20 were registered; J-057, J-058, J-061, J-062, J-063, and J-064 completed no external comparison this round and are explicitly marked unknown per the methodology | — |
-| 2026-09-19 | First external comparison closed for the nine C3 cards (J-056–J-064, both languages) | Twelve sources added as EXT-21–EXT-32 (FERC's PJM co-located load order, PUCO's AEP Ohio data-centre tariff, Georgia PSC large-load billing rules, Duke Nicholas Institute flexible-load modelling, EPRI DCFlex field measurement, PJM cleared demand response, the LBNL data-centre energy report, Masanet et al. 2020, Virginia JLARC Report 598, DOE's recommendations on powering AI, ERCOT large-load queue data, and Good Jobs First [⚠ advocacy]). J-057, J-058, J-061, J-062, J-063 and J-064 — previously marked "unknown / comparison not completed" — now carry all three elements, and J-056 and J-060 received the third; no ACTIVE judgment in the ledger still lacks a comparison. Three falsifiers were found to be **not computable today** and this was written into the cards (J-057 confidential contract terms, J-058 no industry breakdown of demand response, J-063 no price-versus-wait-time comparison), with one leading indicator added to J-058 and J-063 to make each falsifiable again. One source misuse is corrected: EXT-19 (LBNL *Queued Up*) covers generation and storage interconnection only, not the load side. Independent reasoning text, reasoning chains and falsifiers were left unchanged, and both languages landed in one commit |
+|  2026-09-19  |  First external comparison closed for the nine C3 cards (J-056–J-064, both languages)  |  Twelve sources added as EXT-21–EXT-32 (FERC's PJM co-located load order, PUCO's AEP Ohio data-centre tariff, Georgia PSC large-load billing rules, Duke Nicholas Institute flexible-load modelling, EPRI DCFlex field measurement, PJM cleared demand response, the LBNL data-centre energy report, Masanet et al. 2020, Virginia JLARC Report 598, DOE's recommendations on powering AI, ERCOT large-load queue data, and Good Jobs First [⚠ advocacy]). J-057, J-058, J-061, J-062, J-063 and J-064 — previously marked "unknown / comparison not completed" — now carry all three elements, and J-056 and J-060 received the third; no ACTIVE judgment in the ledger still lacks a comparison. Three falsifiers were found to be **not computable today** and this was written into the cards (J-057 confidential contract terms, J-058 no industry breakdown of demand response, J-063 no price-versus-wait-time comparison), with one leading indicator added to J-058 and J-063 to make each falsifiable again. One source misuse is corrected: EXT-19 (LBNL *Queued Up*) covers generation and storage interconnection only, not the load side. Independent reasoning text, reasoning chains and falsifiers were left unchanged, and both languages landed in one commit  | — |
 | 2026-09-19 | Reader reachability and bilingual parity closed (whole repository, both languages) | The README document map became a bilingual table of real links and gained entries for the three time-layer files; every J-NNN and O-NNN in prose now points at a full heading-slug anchor (GitHub does not match short anchors); English `10-near.md` and `30-far.md` had 39 malformed nested links removed; the glossary gained the five hard-constraint categories, the three exits, and the card-field vocabulary, and three terms were corrected to match actual usage in the prose. **One failed self-check is corrected here**: the commit message of d28d747 claims "596 internal links resolve with zero failures", but that figure came from an intermediate tree without the C3 references; its own tree had 602 links and 6 dangling ones, because the README referenced a C3 chain not yet committed. 6c47aee closed the gap at 842 links with zero failures. Lesson: run the checklist on the tree you are about to commit, never on an intermediate one | d28d747 / 6c47aee |
 | 2026-09-19 | O-002 re-reviewed against the gate's second question: disposition decided and the candidate narrowed (both languages) | The former O-002, "Reversible Infrastructure for AI Action," contained **not one sentence** answering the gate's second question, and the subject of its "physical" argument was the protected object rather than the scarce item. Taken apart layer by layer, it splits in two: when an action does **not** cross an ownership boundary (your own database, your own cloud resources, a test sandbox), rollback is pure software and the system being operated on is held by the platform itself, which has every incentive to bundle it as a default and give it away — that half has payers but fails the gate, and is downgraded to the Window List; when an action **does** cross an ownership boundary, the state lands in the counterparty's ledger, reversal must be consented to and executed by that party, whose default interest is finality, and compute cannot copy that obligation — that half is retained as candidate O-002, "The Access Layer for Cross-Party Reversal Rights," with the hard constraint changed from "physical + law/liability" to **ownership/privacy + trust/relationship**. Per the section-1 rule, J-004 is marked `REVISED` and kept verbatim, and the new card J-065 carries the narrowed judgment, synchronized into the overview, the dependency graph, and the opportunity index. Three related contradictions were fixed alongside: `00-method.md`'s example for exit A was precisely the item being downgraded (the methodology was citing itself into a contradiction); `20-mid.md` had long described "pausable, replayable, rollback-capable action environments" as a window opportunity without ever registering it (now registered, source J-031); and the section-7 index was missing the J-019 window row (added). **The cost is recorded honestly**: J-065 completed no external comparison this round and is marked "unknown" per the methodology, so the property "no ACTIVE judgment in this ledger still lacks a comparison" is temporarily void until the next comparison round | — |
 | 2026-09-19 | Historical retrospective repaired after independent review | After `2f8f54f`, fresh-context review rejected the fifth row in section 5: by Gate 5's own test Dvorak was a one-time amortizable cost, and "on everybody else's machine too" was Gate 4's mechanism. Gate 5 was rebuilt rather than merged because Google Glass's social cost and 3D television's per-use burden contain no multi-party coordination. J-071's "hobbyists" wording was narrowed to the measurable "far below the headcount of the activity," with the falsifier changed to majority adoption (>50%); verdict dates were added. The MOOC attack and answer are in the narrative; EXT-39 (CDC) and EXT-40 (WHO) were added. The unresolved weak point is contact lenses' "replacement": most wearers use them alongside frame glasses. | 2f8f54f |
@@ -402,235 +406,7 @@ This comparison followed the independent reasoning. External material marks agre
 
 > **C4 comparison round closed (20 September 2026)**: EXT-41 through EXT-47 were added here, and all six cards J-073–J-078 completed their first external comparison with the three elements present, so this registration adds no judgment marked "unknown / comparison not completed." **The evidential strength of this batch must be read honestly**: only EXT-45 (IFR) is an industry-level statistic; EXT-41, EXT-42 and EXT-43 are **order-of-magnitude** and existence evidence (O\*NET covers the United States only); EXT-44, EXT-46 and EXT-47 are **a single prototype or a single company case**, with EXT-46's shutdown possibly driven jointly by funding and management reasons and EXT-47 being vendor self-description. The four data series that matter most to this chain were **all unavailable this round**, and each is written into the cards rather than hidden: (1) cost-per-task time series by scene; (2) insurance rates and liability rulings for embodied work; (3) the learning curve of deployment hours per unit; (4) deployment scale and retention in care worldwide. Confidence for J-073–J-078 therefore stays at Medium across the board, and none of these cards may be cited as grounds for "embodied intelligence is about to diffuse."
 
-### J-043 · High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only).
-- **Diffusion-gate review**: audience scale = ten-million-scale (organizational buyers and operators of high-value agents), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L2 constraint migration, L6 irreversibility.
-- **Reasoning chain**: Rollback-capable environments lower supervision cost → agents take more steps → supervision shifts to boundaries and escalation → high-value deployment uses boundary grants.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, high-value agents still require step approval and rollback has not lowered supervision cost.
-- **Leading indicator**: Boundary-grant share, step approvals, rehearsal procurement; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-031, J-032, J-014.
-- **Strongest opposing mechanism**: Liability or regulation requires step approvals.
-- **Against consensus**: Evidence-limited landscape: current governance supports permission boundaries, but cannot establish a long-term shift from stepwise operation to boundary grants. Retained as landscape only, with confidence not raised; upgrading requires adoption evidence such as the share of boundary-grant contracts, not the existence of current permission design.
-- **External comparison source**: EXT-4, EXT-10 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-044 · Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only).
-- **Diffusion-gate review**: audience scale = ten-million-scale (organizations deploying agents, insurers, and liable parties), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L2 constraint migration, L7 institutional lag.
-- **Reasoning chain**: Execution scales → tail losses exceed one user’s capacity → collateral and balance sheets become admission conditions → solvent entities support infrastructure.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, solvency does not affect deployment, pricing, or financing.
-- **Leading indicator**: Liability premiums, reserves, solvency clauses; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-032, J-040.
-- **Strongest opposing mechanism**: Liability is outsourced and losses are too low for a separate asset.
-- **Against consensus**: Evidence-limited landscape: liability and insurance are institutional topics, but solvency as an agent-infrastructure bottleneck is unestablished. Retained as landscape only, with confidence not raised; upgrading requires direct evidence that solvency affects deployment, pricing, or financing.
-- **External comparison source**: EXT-14, EXT-15 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-045 · As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only).
-- **Diffusion-gate review**: audience scale = hundred-million-scale (people and organizations needing unarranged observation of reality), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
-- **Lens**: L1 abundance-to-scarcity, L5 signals and forgery.
-- **Reasoning chain**: Replayable supply grows → narrative loses distinctiveness → unarranged field observation becomes scarce → preserving conditions and causality gains value.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, high-liability decision-makers do not distinguish field from synthetic evidence.
-- **Leading indicator**: Field-evidence premium, raw-record requirements, synthetic substitution; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-033, J-034.
-- **Strongest opposing mechanism**: High-fidelity simulation becomes equivalent to field observation.
-- **Against consensus**: Retain but with insufficient evidence: provenance standards support the relative importance of original records, not inevitable scarcity of unarranged observation.
-- **External comparison source**: EXT-11 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-046 · High-liability settings retain a premium for field causal records (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: High-liability settings retain a premium for field causal records (landscape only).
-- **Diffusion-gate review**: audience scale = ten-million-scale (professionals and organizations in high-liability industries), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L5 signals and forgery, L6 irreversibility.
-- **Reasoning chain**: Cheap explanations → liable parties distinguish advice from intervention → field records connect action, outcome and compensation → high-liability transactions pay.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, replacing field records with synthetic evidence changes neither accidents nor prices.
-- **Leading indicator**: Record licensing, insurance discounts, trial requirements; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-033, J-034.
-- **Strongest opposing mechanism**: World models and regulators establish synthetic trials as equivalent.
-- **Against consensus**: Evidence-limited landscape: high-liability settings require provenance and validation, but a price premium for field causal records is unproven. Retained as landscape only, with confidence not raised; upgrading requires evidence of price or insurance-rate differences attributable to field causal records.
-- **External comparison source**: EXT-7, EXT-11 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-047 · Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only).
-- **Diffusion-gate review**: audience scale = hundred-million-scale (people who may use AI companionship), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails. This card's audience is written as possible users, platform participants, or an affected population: **an estimate of reach is not a count of people repeating the action**, and it is no ground for upgrading the Gate 1 verdict.
-- **Lens**: L1 abundance-to-scarcity, L9 relational asymmetry.
-- **Reasoning chain**: Copyable memory, patience and style → companionship scales → copyability reduces exclusivity and shared risk → non-copyable reciprocity is scarce.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, copyable companionship replaces human reciprocity with no behavioral difference.
-- **Leading indicator**: Copy rate, exit rate, retention and repair outcomes; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-041, J-042.
-- **Strongest opposing mechanism**: Institutions accept copyability and preferences change.
-- **Against consensus**: Evidence-limited landscape: copyable AI companionship may expand supply, but reciprocity scarcity and long-term substitution lack evidence. Retained as landscape only, with confidence not raised; upgrading requires long-term behavioral comparisons between copyable companionship and human reciprocity.
-- **External comparison source**: EXT-9, EXT-17 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-048 · Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only).
-- **Diffusion-gate review**: audience scale = hundred-million-scale (individuals, families, and organizations using AI), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails. This card's audience is written as possible users, platform participants, or an affected population: **an estimate of reach is not a count of people repeating the action**, and it is no ground for upgrading the Gate 1 verdict.
-- **Lens**: L7 institutional lag, L9 relational asymmetry.
-- **Reasoning chain**: Copyable, pausable relationships → memory and commitment boundaries diverge → data, exit and liability conflicts grow → institutions define subjects.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, relationship-data and exit disputes do not persist and ordinary contracts suffice.
-- **Leading indicator**: Data disputes, exit clauses, dedicated rules or cases; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-041, J-042.
-- **Strongest opposing mechanism**: AI remains an ordinary tool covered by existing contracts.
-- **Against consensus**: Consistent with the consensus that the normative issue exists, but predictive evidence is insufficient; authorization, exit, and subject boundaries lack a stable endpoint. Retained as landscape only, with confidence not raised; upgrading requires institutional evidence that disputes persist and ordinary contracts are insufficient.
-- **External comparison source**: EXT-9, EXT-15 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-049 · As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only).
-- **Diffusion-gate review**: audience scale = hundred-million-scale (groups and organizations needing joint commitments), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
-- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
-- **Reasoning chain**: Coordination costs fall → candidates multiply → choosing is not commitment; commitment bears failure → willing groups are scarce.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, more coordination also raises joint bearing of long-term failure and repair is no bottleneck.
-- **Leading indicator**: Commitment retention, exit rate, repair time; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-041, J-038.
-- **Strongest opposing mechanism**: Agent reputation and arbitration bear risk without human commitment.
-- **Against consensus**: Evidence-limited landscape: advice supply may grow, but comparable data on jointly bearing irreversible commitments is absent. Retained as landscape only, with confidence not raised; upgrading requires comparable data linking increased coordination to the share of jointly borne commitments.
-- **External comparison source**: EXT-10 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-050 · The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only).
-- **Diffusion-gate review**: audience scale = hundred-million-scale (workers, organization members, and collaborators), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
-- **Lens**: L3 cost structure, L8 human nature and demand.
-- **Reasoning chain**: Agents absorb coordination → human intervention shrinks → it concentrates on irreversible choices and joint liability → commitment quality measures collaboration.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, collaboration value remains step execution rather than commitment choice.
-- **Leading indicator**: Human-confirmed commitments, irreversible decisions, fulfillment; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-041, J-038.
-- **Strongest opposing mechanism**: Agents replace responsibility roles, leaving execution speed decisive.
-- **Against consensus**: Retain but with insufficient evidence: governance preserves human confirmation at key points, but does not prove a wholesale shift in collaboration value.
-- **External comparison source**: EXT-4, EXT-10 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-051 · Abundant advice does not automatically disperse real action rights (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Abundant advice does not automatically disperse real action rights (landscape only).
-- **Diffusion-gate review**: audience scale = billion-scale (ordinary people affected by institutions and resource allocation), weekly; Gate 1 **FAIL** — the billion-scale figure is a constructed upper bound for people affected, not proof that a billion distinct people repeat the same action weekly; this card concerns institutional/resource-allocation arrangements rather than a repeatable personal consumption action, so it cannot pass the “hundred-million weekly” threshold and remains a landscape/institutional judgment, not a society-wide claim.
-- **Lens**: L2 constraint migration, L7 institutional lag.
-- **Reasoning chain**: Advice is cheap → information grows → permissions, resources and compensation remain concentrated → advice does not disperse action rights.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, advice growth coincides with broad dispersion of energy, data, licensing, and compensation access.
-- **Leading indicator**: Resource concentration, authorization holders, advice-to-action distribution; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-039, J-040, J-035.
-- **Strongest opposing mechanism**: Open protocols and competition policy disperse access points.
-- **Against consensus**: Evidence-limited landscape: infrastructure, liability, and resource control may concentrate, but the relationship between advice abundance and action rights is unproven. Retained as landscape only, with confidence not raised; upgrading requires evidence on how dispersed the key gates of licensing, resource access, and compensation actually are.
-- **External comparison source**: EXT-12, EXT-15 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: Gate 1 fails; the billion-scale figure is an upper bound for affected people, not a count of distinct weekly actors; this card remains a low-confidence landscape/institutional judgment and is no longer a society-wide trend claim; original card text retained, identifier not reused, basis: [Retrospect · Gate 1](01-retrospect.md)).
-
-### J-052 · Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only).
-- **Diffusion-gate review**: audience scale = ten-million-scale (organizational participants in energy, real-world data, authorization, and compensation regimes), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
-- **Lens**: L1 abundance-to-scarcity, L7 institutional lag.
-- **Reasoning chain**: Model supply expands → control migrates to real inputs, permissions and losses → institutions price four access points → control creates bargaining power.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, four access points create no persistent price, licensing, or financing advantage.
-- **Leading indicator**: Energy spreads, data fees, review fees, insurance reserves; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-039, J-040, J-035.
-- **Strongest opposing mechanism**: All four inputs commoditize and control creates no rent.
-- **Against consensus**: Retain but with insufficient evidence: energy, real-world data, authorization, and compensation have present-day entry points; the long-term combination remains an inference.
-- **External comparison source**: EXT-12, EXT-14, EXT-15 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
-
-### J-053 · As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only).
-- **Diffusion-gate review**: audience scale = billion-scale (everyone seeking meaning, identity, and commitment), weekly; Gate 1 **PASS** — may be written as a society-level judgment.
-- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
-- **Reasoning chain**: Generatable output loses distinction → real time, bodily risk and responsibility leave cost signals → personal burden becomes meaning/status signal.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, real responsibility no longer affects trust, status, or long-term choices.
-- **Leading indicator**: Trust premium for commitments, experience verification, narrative/outcome coupling; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-042, J-029.
-- **Strongest opposing mechanism**: Society stops valuing real responsibility.
-- **Against consensus**: Evidence-limited landscape: human agency and responsibility have current support, but personally borne experience as a meaning signal lacks generational evidence. Retained as landscape only, with confidence not raised; upgrading requires generational data on trust, status, or long-term choices.
-- **External comparison source**: EXT-9, EXT-17 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: ACTIVE.
-
-### J-054 · Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)
-
-- **Proposed date**: 2026-09-18
-- **One-sentence judgment**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only).
-- **Diffusion-gate review**: audience scale = billion-scale (everyone’s time, bodily risk, and long commitments), daily/weekly; Gate 1 **PASS** — may be written as a society-level judgment.
-- **Lens**: L6 irreversibility, L8 human nature and demand.
-- **Reasoning chain**: Choice grows but lifetime does not → bodily risk and long commitments remain personal → scarcity moves to non-delegable experience.
-- **Time window**: 2033–2040.
-- **Falsifier**: By 2040, agent substitution leaves no observable difference in preferences or outcomes around time and risk.
-- **Leading indicator**: Non-delegable time, long-commitment completion, embodied premium; annual.
-- **Confidence**: Low (landscape only).
-- **depends-on**: J-042, J-029.
-- **Strongest opposing mechanism**: Immersive agent experience becomes equivalent.
-- **Against consensus**: Evidence-limited landscape: bodies, care, and real-world risk remain governance objects, but demand-side scarcity through 2033–2040 is unproven. Retained as landscape only, with confidence not raised; upgrading requires studies on differences in preferences and outcomes after delegated experience substitutes for direct experience.
-- **External comparison source**: EXT-9, EXT-10 (see the source index above).
-- **Source**: [Far-term landscape](30-far.md).
-- **Next review**: 2027-12-31.
-- **Status**: ACTIVE.
-
-## 9. Judgment cards for the technology capability sequence
+## 9. Judgment cards for technology and cross-domain chains
 
 These judgments support the capability order in `05-tech-sequence.md`. Each preserves the five-part test and strongest opposing mechanism; the arrival of a capability is not the same as universal adoption.
 
@@ -1663,7 +1439,252 @@ These judgments support the capability order in `05-tech-sequence.md`. Each pres
 - **Next review**: 2027-12-31.
 - **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
 
-## 10. Pre-publication checklist
+
+## 10. Judgment cards for the far-term social landscape
+
+> This section collects the far-term social-landscape cards (J-043–J-054). They cover cross-domain consequences for agents, real-world signals, human and human–AI relationships, institutions, and meaning; they are not judgments about the order in which technical capabilities appear. Low-confidence cards are explicitly marked landscape only.
+
+### J-043 · High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only).
+- **Diffusion-gate review**: audience scale = ten-million-scale (organizational buyers and operators of high-value agents), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+- **Lens**: L2 constraint migration, L6 irreversibility.
+- **Reasoning chain**: Rollback-capable environments lower supervision cost → agents take more steps → supervision shifts to boundaries and escalation → high-value deployment uses boundary grants.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, high-value agents still require step approval and rollback has not lowered supervision cost.
+- **Leading indicator**: Boundary-grant share, step approvals, rehearsal procurement; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-031, J-032, J-014.
+- **Strongest opposing mechanism**: Liability or regulation requires step approvals.
+- **Against consensus**: Evidence-limited landscape: current governance supports permission boundaries, but cannot establish a long-term shift from stepwise operation to boundary grants. Retained as landscape only, with confidence not raised; upgrading requires adoption evidence such as the share of boundary-grant contracts, not the existence of current permission design.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-044 · Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only).
+- **Diffusion-gate review**: audience scale = ten-million-scale (organizations deploying agents, insurers, and liable parties), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+- **Lens**: L2 constraint migration, L7 institutional lag.
+- **Reasoning chain**: Execution scales → tail losses exceed one user’s capacity → collateral and balance sheets become admission conditions → solvent entities support infrastructure.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, solvency does not affect deployment, pricing, or financing.
+- **Leading indicator**: Liability premiums, reserves, solvency clauses; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-032, J-040.
+- **Strongest opposing mechanism**: Liability is outsourced and losses are too low for a separate asset.
+- **Against consensus**: Evidence-limited landscape: liability and insurance are institutional topics, but solvency as an agent-infrastructure bottleneck is unestablished. Retained as landscape only, with confidence not raised; upgrading requires direct evidence that solvency affects deployment, pricing, or financing.
+- **External comparison source**: EXT-14, EXT-15 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-045 · As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only).
+- **Diffusion-gate review**: audience scale = hundred-million-scale (people and organizations needing unarranged observation of reality), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
+- **Lens**: L1 abundance-to-scarcity, L5 signals and forgery.
+- **Reasoning chain**: Replayable supply grows → narrative loses distinctiveness → unarranged field observation becomes scarce → preserving conditions and causality gains value.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, high-liability decision-makers do not distinguish field from synthetic evidence.
+- **Leading indicator**: Field-evidence premium, raw-record requirements, synthetic substitution; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-033, J-034.
+- **Strongest opposing mechanism**: High-fidelity simulation becomes equivalent to field observation.
+- **Against consensus**: Retain but with insufficient evidence: provenance standards support the relative importance of original records, not inevitable scarcity of unarranged observation.
+- **External comparison source**: EXT-11 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-046 · High-liability settings retain a premium for field causal records (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: High-liability settings retain a premium for field causal records (landscape only).
+- **Diffusion-gate review**: audience scale = ten-million-scale (professionals and organizations in high-liability industries), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+- **Lens**: L5 signals and forgery, L6 irreversibility.
+- **Reasoning chain**: Cheap explanations → liable parties distinguish advice from intervention → field records connect action, outcome and compensation → high-liability transactions pay.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, replacing field records with synthetic evidence changes neither accidents nor prices.
+- **Leading indicator**: Record licensing, insurance discounts, trial requirements; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-033, J-034.
+- **Strongest opposing mechanism**: World models and regulators establish synthetic trials as equivalent.
+- **Against consensus**: Evidence-limited landscape: high-liability settings require provenance and validation, but a price premium for field causal records is unproven. Retained as landscape only, with confidence not raised; upgrading requires evidence of price or insurance-rate differences attributable to field causal records.
+- **External comparison source**: EXT-7, EXT-11 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-047 · Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only).
+- **Diffusion-gate review**: audience scale = hundred-million-scale (people who may use AI companionship), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails. This card's audience is written as possible users, platform participants, or an affected population: **an estimate of reach is not a count of people repeating the action**, and it is no ground for upgrading the Gate 1 verdict.
+- **Lens**: L1 abundance-to-scarcity, L9 relational asymmetry.
+- **Reasoning chain**: Copyable memory, patience and style → companionship scales → copyability reduces exclusivity and shared risk → non-copyable reciprocity is scarce.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, copyable companionship replaces human reciprocity with no behavioral difference.
+- **Leading indicator**: Copy rate, exit rate, retention and repair outcomes; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-042.
+- **Strongest opposing mechanism**: Institutions accept copyability and preferences change.
+- **Against consensus**: Evidence-limited landscape: copyable AI companionship may expand supply, but reciprocity scarcity and long-term substitution lack evidence. Retained as landscape only, with confidence not raised; upgrading requires long-term behavioral comparisons between copyable companionship and human reciprocity.
+- **External comparison source**: EXT-9, EXT-17 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-048 · Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only).
+- **Diffusion-gate review**: audience scale = hundred-million-scale (individuals, families, and organizations using AI), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails. This card's audience is written as possible users, platform participants, or an affected population: **an estimate of reach is not a count of people repeating the action**, and it is no ground for upgrading the Gate 1 verdict.
+- **Lens**: L7 institutional lag, L9 relational asymmetry.
+- **Reasoning chain**: Copyable, pausable relationships → memory and commitment boundaries diverge → data, exit and liability conflicts grow → institutions define subjects.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, relationship-data and exit disputes do not persist and ordinary contracts suffice.
+- **Leading indicator**: Data disputes, exit clauses, dedicated rules or cases; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-042.
+- **Strongest opposing mechanism**: AI remains an ordinary tool covered by existing contracts.
+- **Against consensus**: Consistent with the consensus that the normative issue exists, but predictive evidence is insufficient; authorization, exit, and subject boundaries lack a stable endpoint. Retained as landscape only, with confidence not raised; upgrading requires institutional evidence that disputes persist and ordinary contracts are insufficient.
+- **External comparison source**: EXT-9, EXT-15 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-049 · As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only).
+- **Diffusion-gate review**: audience scale = hundred-million-scale (groups and organizations needing joint commitments), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
+- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
+- **Reasoning chain**: Coordination costs fall → candidates multiply → choosing is not commitment; commitment bears failure → willing groups are scarce.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, more coordination also raises joint bearing of long-term failure and repair is no bottleneck.
+- **Leading indicator**: Commitment retention, exit rate, repair time; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-038.
+- **Strongest opposing mechanism**: Agent reputation and arbitration bear risk without human commitment.
+- **Against consensus**: Evidence-limited landscape: advice supply may grow, but comparable data on jointly bearing irreversible commitments is absent. Retained as landscape only, with confidence not raised; upgrading requires comparable data linking increased coordination to the share of jointly borne commitments.
+- **External comparison source**: EXT-10 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-050 · The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only).
+- **Diffusion-gate review**: audience scale = hundred-million-scale (workers, organization members, and collaborators), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.” **Scale rationale**: the hundred-million figure here is only a constructed upper bound on the audience (estimated from occupational roles, organizational nodes, or a population in need), not a citable statistic, and it does not establish the society-level threshold of a hundred million distinct individuals performing the same action every week, so Gate 1 still fails.
+- **Lens**: L3 cost structure, L8 human nature and demand.
+- **Reasoning chain**: Agents absorb coordination → human intervention shrinks → it concentrates on irreversible choices and joint liability → commitment quality measures collaboration.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, collaboration value remains step execution rather than commitment choice.
+- **Leading indicator**: Human-confirmed commitments, irreversible decisions, fulfillment; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-041, J-038.
+- **Strongest opposing mechanism**: Agents replace responsibility roles, leaving execution speed decisive.
+- **Against consensus**: Retain but with insufficient evidence: governance preserves human confirmation at key points, but does not prove a wholesale shift in collaboration value.
+- **External comparison source**: EXT-4, EXT-10 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-051 · Abundant advice does not automatically disperse real action rights (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Abundant advice does not automatically disperse real action rights (landscape only).
+- **Diffusion-gate review**: audience scale = billion-scale (ordinary people affected by institutions and resource allocation), weekly; Gate 1 **FAIL** — the billion-scale figure is a constructed upper bound for people affected, not proof that a billion distinct people repeat the same action weekly; this card concerns institutional/resource-allocation arrangements rather than a repeatable personal consumption action, so it cannot pass the “hundred-million weekly” threshold and remains a landscape/institutional judgment, not a society-wide claim.
+- **Lens**: L2 constraint migration, L7 institutional lag.
+- **Reasoning chain**: Advice is cheap → information grows → permissions, resources and compensation remain concentrated → advice does not disperse action rights.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, advice growth coincides with broad dispersion of energy, data, licensing, and compensation access.
+- **Leading indicator**: Resource concentration, authorization holders, advice-to-action distribution; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-039, J-040, J-035.
+- **Strongest opposing mechanism**: Open protocols and competition policy disperse access points.
+- **Against consensus**: Evidence-limited landscape: infrastructure, liability, and resource control may concentrate, but the relationship between advice abundance and action rights is unproven. Retained as landscape only, with confidence not raised; upgrading requires evidence on how dispersed the key gates of licensing, resource access, and compensation actually are.
+- **External comparison source**: EXT-12, EXT-15 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: Gate 1 fails; the billion-scale figure is an upper bound for affected people, not a count of distinct weekly actors; this card remains a low-confidence landscape/institutional judgment and is no longer a society-wide trend claim; original card text retained, identifier not reused, basis: [Retrospect · Gate 1](01-retrospect.md)).
+
+
+### J-052 · Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only).
+- **Diffusion-gate review**: audience scale = ten-million-scale (organizational participants in energy, real-world data, authorization, and compensation regimes), weekly; Gate 1 **FAIL** — downgraded by the diffusion gate to an occupational/organizational judgment; not to be cited in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+- **Lens**: L1 abundance-to-scarcity, L7 institutional lag.
+- **Reasoning chain**: Model supply expands → control migrates to real inputs, permissions and losses → institutions price four access points → control creates bargaining power.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, four access points create no persistent price, licensing, or financing advantage.
+- **Leading indicator**: Energy spreads, data fees, review fees, insurance reserves; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-039, J-040, J-035.
+- **Strongest opposing mechanism**: All four inputs commoditize and control creates no rent.
+- **Against consensus**: Retain but with insufficient evidence: energy, real-world data, authorization, and compensation have present-day entry points; the long-term combination remains an inference.
+- **External comparison source**: EXT-12, EXT-14, EXT-15 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: `REVISED` (2026-09-20 diffusion-gate review: fails Gate 1; the audience ceiling is the occupational/organizational scale stated above, so this card is downgraded to an occupational/organizational judgment and no longer reads as a society-level trend. The original card text is kept word for word and the identifier is not reused; for the test see [Historical retrospective · Gate 1](01-retrospect.md).)
+
+
+### J-053 · As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only).
+- **Diffusion-gate review**: audience scale = billion-scale (everyone seeking meaning, identity, and commitment), weekly; Gate 1 **PASS** — may be written as a society-level judgment.
+- **Lens**: L1 abundance-to-scarcity, L8 human nature and demand.
+- **Reasoning chain**: Generatable output loses distinction → real time, bodily risk and responsibility leave cost signals → personal burden becomes meaning/status signal.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, real responsibility no longer affects trust, status, or long-term choices.
+- **Leading indicator**: Trust premium for commitments, experience verification, narrative/outcome coupling; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-042, J-029.
+- **Strongest opposing mechanism**: Society stops valuing real responsibility.
+- **Against consensus**: Evidence-limited landscape: human agency and responsibility have current support, but personally borne experience as a meaning signal lacks generational evidence. Retained as landscape only, with confidence not raised; upgrading requires generational data on trust, status, or long-term choices.
+- **External comparison source**: EXT-9, EXT-17 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+
+### J-054 · Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)
+
+- **Proposed date**: 2026-09-18
+- **One-sentence judgment**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only).
+- **Diffusion-gate review**: audience scale = billion-scale (everyone’s time, bodily risk, and long commitments), daily/weekly; Gate 1 **PASS** — may be written as a society-level judgment.
+- **Lens**: L6 irreversibility, L8 human nature and demand.
+- **Reasoning chain**: Choice grows but lifetime does not → bodily risk and long commitments remain personal → scarcity moves to non-delegable experience.
+- **Time window**: 2033–2040.
+- **Falsifier**: By 2040, agent substitution leaves no observable difference in preferences or outcomes around time and risk.
+- **Leading indicator**: Non-delegable time, long-commitment completion, embodied premium; annual.
+- **Confidence**: Low (landscape only).
+- **depends-on**: J-042, J-029.
+- **Strongest opposing mechanism**: Immersive agent experience becomes equivalent.
+- **Against consensus**: Evidence-limited landscape: bodies, care, and real-world risk remain governance objects, but demand-side scarcity through 2033–2040 is unproven. Retained as landscape only, with confidence not raised; upgrading requires studies on differences in preferences and outcomes after delegated experience substitutes for direct experience.
+- **External comparison source**: EXT-9, EXT-10 (see the source index above).
+- **Source**: [Far-term landscape](30-far.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+
+## 11. Pre-publication checklist
 
 Run the script first, then walk the items it cannot judge:
 
@@ -1728,7 +1749,7 @@ The remaining items are judgment calls a script cannot make. Walk them by
 hand before publishing:
 
 - [ ] Year boundaries match the single authority in `00-method.md`.
-- [ ] Every judgment card has ID, proposed date, one-sentence judgment, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, consensus comparison, source, status, and next review.
+- [ ] Every judgment card has ID, proposed date, one-sentence judgment, diffusion-gate review, lens, reasoning chain, time window, falsifier, leading indicator, confidence, depends-on, strongest opposing mechanism, consensus comparison, external comparison source, source, next review, and status.
 - [ ] Every internal link resolves and returns to the source argument.
 - [ ] Chinese and English files are updated as equivalent projections in the same commit.
 - [ ] Dependency edges agree in all three places: each card's `depends-on`, the section-3 graph, and the depends-on column of the section-2 overview; the graph covers every registered ID, has no duplicate lines, and has no edge pointing at a non-existent ID.
@@ -1738,7 +1759,7 @@ hand before publishing:
 
 ---
 
-## 11. Judgment cards distilled from the historical retrospective
+## 12. Judgment cards distilled from the historical retrospective
 
 > The seven cards in this section come from [Retrospect: What It Takes to Become a Society-Wide Habit](01-retrospect.md), and are this project's first batch of judgments that **depend on no premise about AI at all**: they are induced from cases in technology, politics and business between 1956 and 2020, and would still hold if AI stopped improving tomorrow. J-067 through J-071 are the only roots in the whole ledger that do not depend on J-001.
 
@@ -1877,7 +1898,7 @@ hand before publishing:
 
 ---
 
-## 12. Judgment cards for the C4 embodied-intelligence chain
+## 13. Judgment cards for the C4 embodied-intelligence chain
 
 > The six cards in this section come from [C4: Embodied Intelligence](chains/40-embodied-intelligence.md) and were registered on 2026-09-20. By convention the chain's prose allocates no judgment identifiers; the complete card fields are registered here. J-073 is the chain's core judgment; J-074 through J-078 are the per-square judgments for care, warehousing and logistics, manufacturing and assembly, agriculture, and construction and domestic work, and all of them stand on J-073 and J-066. **All six cards are written as occupational/organizational judgments**: what they judge is the order in which embodied capability arrives in which scenes, not a daily activity of "the whole society," and each card carries its own Gate 1 verdict.
 
