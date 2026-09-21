@@ -90,6 +90,17 @@ Use this to reason about relationships between people and AI, and about **relati
 
 Most outputs of L9 have **no payer**, but they are equally falsifiable and equally worth betting on—the bet is not money, but life choices, organizational design, and institutional caution. They use **Exit B** below and do not enter “landscape only.”
 
+### The diffusion gates are not a tenth optional lens
+
+L1–L9 explain the mechanism of a change; the five diffusion gates induced in the [Retrospect](01-retrospect.md) rule on whether that change can spread, to whom, and at what speed. They are not peer tools. A chain may select one to three lenses to fit its question, but every judgment written in the voice of “general,” “society-wide,” or “becomes the norm” must undergo the diffusion review afterwards; an author cannot skip it merely by not selecting it.
+
+The review has two layers:
+
+- **Ceiling layer:** Gate 1 first counts the headcount and frequency of the activity served and states whether the capability “raises the ceiling for existing professionals” or “lets people who could not do it do it now”; Gate 5 then checks the recurring cost paid on every use under voluntary adoption. A judgment below society scale may still hold, but must be written as local or occupational.
+- **Speed layer:** Gates 2–4 ask what it replaces, who builds the carrier, and which parties must change together, then use those answers to set the time window and unlocking condition. If no unlocking condition can be stated, merely pushing the year later is not allowed.
+
+The five gates are a **veto-style filter, not a sufficient-condition predictor**: clearly failing one requires narrowing the audience or waiting for an already stated unlock; passing all five merely qualifies the candidate to compete and does not imply diffusion. Every gate remains subject to historical calibration: at least two successes, two failures, and one exclusive case that only that gate stops; the set must also retain at least one sufficiency counterexample that passes all five and still fails. If an exclusive case is overturned, merge or remove the gate rather than adding narrative to preserve the number five.
+
 ## 3. The gate and three exits: not every scarcity is a business opportunity, and business opportunities are not the only things that count
 
 Every time we discover that “X becomes abundant,” complete a full inversion chain in this order:
@@ -125,7 +136,9 @@ Irreversibility is a supporting lens for testing the consequences of the constra
 
 ## 4. Judgment cards: the five-part requirement and IDs
 
-All project judgments use globally unique three-digit `J-NNN` IDs. Chinese and English share the same ID; once assigned, an ID is never reused. Every judgment must have the following five parts in the ledger:
+All project judgments use globally unique three-digit `J-NNN` IDs. Chinese and English share the same ID; once assigned, an ID is never reused. Every new judgment must first record **Audience scale**: who is affected; whether the order of magnitude is hundred-thousands, millions, tens of millions, hundreds of millions, or billions; and whether it “raises the ceiling for existing professionals” or “lets people who could not do it do it now.” If the scale evidence is only a constructed estimate, say so. A smaller-scale judgment may still hold, but it must be labelled local or occupational and may not use language such as “the whole of society,” “generally,” or “becomes the norm.”
+
+On that basis, every judgment must also have the following five parts in the ledger:
 
 1. **Reasoning chain:** which regularities it starts from, which intermediate steps it passes through, and how it reaches the conclusion;
 2. **Time window:** the time interval in which it should occur; if it still has not occurred after the interval, that constitutes evidence;
@@ -133,7 +146,7 @@ All project judgments use globally unique three-digit `J-NNN` IDs. Chinese and E
 4. **Leading indicator:** an observable signal that changes before the outcome, and the number or event to watch;
 5. **Confidence:** high / medium / low, specifying how much is being bet, not the strength of tone.
 
-Also record `depends-on` (the dependent judgment IDs), the lenses used, consensus comparison, status, the strongest opposing case, and “what can be done now.” An entry missing any one of the five parts may only be marked **landscape only**; it may not serve as a judgment, opportunity basis, or summary claim.
+Also record Audience scale, `depends-on` (the dependent judgment IDs), the lenses used, consensus comparison, status, the strongest opposing case, “what can be done now,” and the diffusion-gate review. An entry missing any one of the five parts may only be marked **landscape only**; it may not serve as a judgment, opportunity basis, or summary claim. A **new card** missing Audience scale may not be registered; existing cards raise warnings rather than blocking publication during the migration period.
 
 Recommended card fields:
 
@@ -141,12 +154,14 @@ Recommended card fields:
 J-NNN · One-line title
 Layer: near / mid / far (container only)
 Lenses: L1–L9, and why they were chosen
+Audience scale: who is affected; hundred-thousands / millions / tens of millions / hundreds of millions / billions; raises existing professionals’ ceiling / lets non-practitioners do it; evidence or estimation note
 depends-on: prerequisite J-NNN
 Reasoning chain: …
 Time window: …
 Falsifier: …
 Leading indicator: …
 Confidence: high / medium / low (reason)
+Diffusion-gate review: Gate 1–5 rulings; local / occupational / society-scale; unlocking condition where unmet
 Strongest opposing case: …; what observation would make us withdraw
 External comparison: agreement / disagreement / why I still hold it
 What can be done now: …; if no action is possible, mark “landscape only”

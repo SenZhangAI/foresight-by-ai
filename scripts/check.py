@@ -36,6 +36,12 @@ CONFIDENCE = {
     "en": {"high", "medium", "low"},
 }
 CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
+AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
+# J-001..J-086 predate the audience-scale requirement. They stay readable
+# during migration, but every later card must carry the field. Freezing the
+# boundary by identifier rather than by today's file contents means deleting a
+# legacy card cannot silently redefine what counts as "new".
+LEGACY_AUDIENCE_SCALE_MAX = 86
 # The WHOLE field value is read, up to end of line. Truncating it at the first
 # `。` / `.` / `(` / `（` — which is what this used to do — meant only a prefix
 # was ever compared, so `中（偏高）` and `Medium (leaning high).` passed while
@@ -60,10 +66,15 @@ CARD_FIELDS = {
 }
 
 failures = []
+warnings = []
 
 
 def fail(check, detail):
     failures.append((check, detail))
+
+
+def warn(check, detail):
+    warnings.append((check, detail))
 
 
 def read(path):
@@ -262,17 +273,63 @@ def confidence_is_whitelisted(lang, raw):
     return value.lower() in CONFIDENCE[lang]
 
 
+def audience_scale_value(body, lang):
+    """Return a standalone Audience scale field value, or None.
+
+    Anchoring the bullet at line start is intentional: bolding the words inside
+    Diffusion-gate review must not satisfy the separate-field contract.
+    """
+    field = re.escape(AUDIENCE_FIELD[lang])
+    m = re.search(r"^- \*\*%s\*\*[:\uff1a]\s*([^\n]+)$" % field, body, re.M)
+    return m.group(1).strip() if m else None
+
+
+def audience_scale_is_structured(value, lang):
+    """Mechanical floor: magnitude plus ceiling/enablement classification."""
+    if not value:
+        return False
+    if lang == "zh":
+        magnitude = re.search(u"(?:\u5341\u4e07|\u767e\u4e07|\u5343\u4e07|\u5341\u4ebf|\u4ebf)\u91cf\u7ea7", value)
+        mode = (u"\u63d0\u9ad8\u65e2\u6709\u4e13\u4e1a\u8005\u4e0a\u9650" in value or
+                u"\u8ba9\u539f\u672c\u4e0d\u4f1a\u7684\u4eba\u4e5f\u80fd\u505a" in value)
+    else:
+        magnitude = re.search(r"(?:hundred-thousand|million|tens-of-millions|"
+                              r"hundred-millions|billion)-scale", value, re.I)
+        lowered = value.lower().replace("’", "'")
+        mode = ("raises existing professionals' ceiling" in lowered or
+                "lets people who could not do it do it now" in lowered)
+    # A magnitude at offset zero means no affected group precedes it. Requiring
+    # some non-punctuation text before the bucket gives the checker a modest,
+    # language-neutral identity floor without pretending to judge the group.
+    identity = bool(magnitude and re.search(r"[\w\u4e00-\u9fff]", value[:magnitude.start()]))
+    return bool(magnitude and identity and mode)
+
+
 def check_ledger(lang):
     cards, graph, overview, overview_consensus = parse_ledger(lang)
     if not cards:
         fail("ledger", "%s: no judgment cards found" % lang)
         return cards
+    legacy_audience_missing = []
     for jid in sorted(cards):
         body = cards[jid]
         missing = [f for f in CARD_FIELDS[lang]
                    if ("**%s**" % f) not in body]
         if missing:
             fail("card-fields", "%s %s missing %s" % (lang, jid, ", ".join(missing)))
+        audience = AUDIENCE_FIELD[lang]
+        audience_value = audience_scale_value(body, lang)
+        if audience_value is None:
+            number = int(jid.split("-")[1])
+            detail = "%s %s missing standalone %s field" % (lang, jid, audience)
+            if number <= LEGACY_AUDIENCE_SCALE_MAX:
+                legacy_audience_missing.append(jid)
+            else:
+                fail("audience-scale", detail)
+        elif not audience_scale_is_structured(audience_value, lang):
+            fail("audience-scale", "%s %s: %s must state an allowed magnitude "
+                 "and ceiling-versus-enablement classification" %
+                 (lang, jid, audience))
         # Exact membership over the WHOLE value, never substring over a prefix.
         # `极高` contains `高` and `very high` contains `high`, so a substring
         # test passes every positive case while letting through exactly the
@@ -312,6 +369,11 @@ def check_ledger(lang):
         if declared != overview.get(jid, set()):
             fail("dep-overview", "%s %s: card %s vs overview %s"
                  % (lang, jid, sorted(declared), sorted(overview.get(jid, set()))))
+    if legacy_audience_missing:
+        warn("audience-scale", "%s: %d legacy card(s) through J-%03d still "
+             "lack %s; new cards fail hard" %
+             (lang, len(legacy_audience_missing), LEGACY_AUDIENCE_SCALE_MAX,
+              AUDIENCE_FIELD[lang]))
     check_comparison(lang, cards, overview_consensus)
     return cards
 
@@ -774,6 +836,10 @@ def run_checks():
     print("internal links     : %d" % links)
     print("judgment cards     : zh %d / en %d" % (len(cards["zh"]), len(cards["en"])))
     print("chains registered  : %d (%s)" % (len(chains), ", ".join(sorted(chains))))
+    if warnings:
+        print("\nWARNINGS (%d):" % len(warnings))
+        for check, detail in warnings:
+            print("  [%s] %s" % (check, detail))
     if failures:
         print("\nFAILED (%d):" % len(failures))
         for check, detail in failures:
@@ -941,6 +1007,138 @@ def _break_single_language_card(lang):
             lang, jid, other)
 
     return mutate
+
+
+def _break_equal_count_bilingual_card_set(root):
+    """Rename one English card everywhere while preserving the card count.
+
+    This attacks identifier-set equality rather than the weaker count-equality
+    shape covered by deleting a card. All English references and anchors move
+    with the card, so [bilingual-cards] is the only intended failure class.
+    """
+    ledger = _ledger(root, "en")
+    text = _read_file(ledger)
+    ids = set(re.findall(r"^### (J-\d{3})", text, re.M))
+    old_id = max(ids)
+    new_id = "J-%03d" % (max(int(j.split("-")[1]) for j in ids) + 1)
+    for base, _dirs, files in os.walk(root):
+        for name in files:
+            path = os.path.join(base, name)
+            rel = os.path.relpath(path, root).replace(os.sep, "/")
+            if not (rel.startswith("docs/en/") or name.endswith(".en.md")):
+                continue
+            content = _read_file(path)
+            changed = content.replace(old_id, new_id)
+            changed = changed.replace(old_id.lower(), new_id.lower())
+            if changed != content:
+                _write_file(path, changed)
+    text = _read_file(ledger)
+    heading = re.search(r"^(### %s[^\n]*)$" % new_id, text, re.M)
+    if not heading:
+        raise AssertionError("renamed fixture card not found")
+    field = ("\n\n- **Audience scale**: affected group = professional buyers; "
+             "million-scale; raises existing professionals' ceiling")
+    text = text[:heading.end()] + field + text[heading.end():]
+    _write_file(ledger, text)
+    return u"English %s renamed to %s everywhere; count unchanged" % (old_id, new_id)
+
+
+def _break_new_card_without_audience_scale(root):
+    """Append one bilingual new card whose only defect is missing audience scale.
+
+    The fixture clones the last real card, changes only its identifier, and adds
+    the same dependency/overview/graph entries as its source. This keeps every
+    older invariant green, so [audience-scale] alone must make the run fail.
+    """
+    ledgers = {lang: _ledger(root, lang) for lang in LANGS}
+    texts = {lang: _read_file(path) for lang, path in ledgers.items()}
+    ids = set(re.findall(r"^### (J-\d{3})", texts["zh"], re.M))
+    if ids != set(re.findall(r"^### (J-\d{3})", texts["en"], re.M)):
+        raise AssertionError("fixture ledgers do not start with equal id sets")
+    number = max(max(int(j.split("-")[1]) for j in ids),
+                 LEGACY_AUDIENCE_SCALE_MAX) + 1
+    new_id = "J-%03d" % number
+    source_candidates = []
+    for jid in ids:
+        present = []
+        for lang in LANGS:
+            text = texts[lang]
+            matches = list(re.finditer(r"^### (J-\d{3})", text, re.M))
+            source = next(m for m in matches if m.group(1) == jid)
+            later = [m.start() for m in matches if m.start() > source.start()]
+            next_h2 = text.find("\n## ", source.end())
+            boundaries = later + ([next_h2 + 1] if next_h2 != -1 else [])
+            end = min(boundaries) if boundaries else len(text)
+            present.append(audience_scale_value(text[source.start():end], lang)
+                           is not None)
+        if not any(present):
+            source_candidates.append(jid)
+    if not source_candidates:
+        raise AssertionError("fixture has no bilingual legacy card without audience scale")
+    source_id = max(source_candidates)
+    for lang in LANGS:
+        text = texts[lang]
+        matches = list(re.finditer(r"^### (J-\d{3})", text, re.M))
+        source = next(m for m in matches if m.group(1) == source_id)
+        later = [m.start() for m in matches if m.start() > source.start()]
+        next_h2 = text.find("\n## ", source.end())
+        boundaries = later + ([next_h2 + 1] if next_h2 != -1 else [])
+        end = min(boundaries) if boundaries else len(text)
+        section = text[source.start():end].replace(source_id, new_id)
+        # The source is a legacy card and therefore carries no audience field.
+        if "**%s**" % AUDIENCE_FIELD[lang] in section:
+            raise AssertionError("source card unexpectedly carries audience scale")
+        # Clone its overview row and graph edge when present. Both use the same
+        # identifier replacement, preserving the source card's dependency set.
+        row = re.search(r"^\|\s*\[%s\]\([^\n]*$" % source_id, text, re.M)
+        edge = re.search(r"^%s\s*%s\s*[^\n]*$" %
+                         (source_id, re.escape(GRAPH_ARROW[lang])), text, re.M)
+        additions = ["\n", section]
+        if row:
+            additions.append("\n" + row.group(0).replace(source_id, new_id))
+        if edge:
+            additions.append("\n" + edge.group(0).replace(source_id, new_id))
+        _write_file(ledgers[lang], text + "".join(additions) + "\n")
+        _bump_readme_count(root, lang, "cards")
+    return u"bilingual %s cloned from %s without Audience scale" % (new_id, source_id)
+
+
+def _break_embedded_audience_scale(root):
+    """Put a complete-looking audience token inside another field, not its own."""
+    _break_new_card_without_audience_scale(root)
+    for lang in LANGS:
+        path = _ledger(root, lang)
+        text = _read_file(path)
+        ids = re.findall(r"^### (J-\d{3})", text, re.M)
+        jid = max(ids)
+        start = text.index("### %s" % jid)
+        marker = (u"- **\u666e\u53ca\u95f8\u590d\u6838**\uff1a" if lang == "zh"
+                  else "- **Diffusion-gate review**:")
+        embedded = (u"**\u53d7\u4f17\u89c4\u6a21**\uff1d\u767e\u4e07\u91cf\u7ea7\u7684\u804c\u4e1a\u4e70\u65b9\uff1b\u63d0\u9ad8\u65e2\u6709\u4e13\u4e1a\u8005\u4e0a\u9650\uff1b" if lang == "zh"
+                    else "**Audience scale** = professional buyers; million-scale; "
+                         "raises existing professionals' ceiling; ")
+        pos = text.find(marker, start)
+        if pos == -1:
+            raise AssertionError("fixture card has no diffusion-gate review")
+        pos += len(marker)
+        _write_file(path, text[:pos] + " " + embedded + text[pos:])
+    return u"new bilingual card embeds a bold Audience scale token inside diffusion review"
+
+
+def _break_malformed_audience_scale(root):
+    """Add a standalone field whose value omits required audience structure."""
+    _break_new_card_without_audience_scale(root)
+    for lang in LANGS:
+        path = _ledger(root, lang)
+        text = _read_file(path)
+        ids = re.findall(r"^### (J-\d{3})", text, re.M)
+        jid = max(ids)
+        heading = re.search(r"^(### %s[^\n]*)$" % jid, text, re.M)
+        value = (u"\n\n- **\u53d7\u4f17\u89c4\u6a21**\uff1a\u2014"
+                 if lang == "zh" else "\n\n- **Audience scale**: —")
+        text = text[:heading.end()] + value + text[heading.end():]
+        _write_file(path, text)
+    return u"new bilingual card carries a standalone but unstructured Audience scale field"
 
 
 def _break_missing_field(root):
@@ -1284,8 +1482,8 @@ def _count_pattern(lang, kind):
     return r"([A-Za-z0-9-]+)(\s+%s)" % re.escape(anchor)
 
 
-def _bump_chain_count(root, lang, delta=1):
-    """Keep the stated chain count true after a fixture chain is registered."""
+def _bump_readme_count(root, lang, kind, delta=1):
+    """Keep a stated README count true after a fixture changes the corpus."""
     path = _readme(root, lang)
     text = _read_file(path)
 
@@ -1293,10 +1491,15 @@ def _bump_chain_count(root, lang, delta=1):
         n = parse_count(lang, m.group(1))
         return m.group(0) if n is None else "%d%s" % (n + delta, m.group(2))
 
-    new = re.sub(_count_pattern(lang, "chains"), repl, text)
+    new = re.sub(_count_pattern(lang, kind), repl, text)
     if new == text:
-        raise AssertionError("%s README states no readable chain count" % lang)
+        raise AssertionError("%s README states no readable %s count" % (lang, kind))
     _write_file(path, new)
+
+
+def _bump_chain_count(root, lang, delta=1):
+    """Keep the stated chain count true after a fixture chain is registered."""
+    _bump_readme_count(root, lang, "chains", delta)
 
 
 def _register_fixture_chain(root, n, stem, body=None, topic=u"fixture"):
@@ -1584,6 +1787,8 @@ NEGATIVE_CASES = [
      _break_single_language_card("en")),
     (u"card exists in en only", "bilingual-cards",
      _break_single_language_card("zh")),
+    (u"card ids differ while counts stay equal", "bilingual-cards",
+     _break_equal_count_bilingual_card_set),
     (u"confidence outside the whitelist", "confidence",
      _set_confidence("zh", u"\u6781\u9ad8")),  # 极高
     (u"second confidence value in the same card", "confidence",
@@ -1593,6 +1798,12 @@ NEGATIVE_CASES = [
     (u"one value readable, one field unreadable", "confidence",
      _break_partial_readable_confidence),
     (u"required card field missing", "card-fields", _break_missing_field),
+    (u"new card missing audience scale", "audience-scale",
+     _break_new_card_without_audience_scale),
+    (u"audience scale embedded inside diffusion review", "audience-scale",
+     _break_embedded_audience_scale),
+    (u"standalone audience scale lacks required structure", "audience-scale",
+     _break_malformed_audience_scale),
     (u"chain file on disk, registered nowhere", "chain-registry",
      _break_unregistered_chain_file),
     (u"registry row deleted, chain file still there", "chain-registry",

@@ -9,11 +9,12 @@
 
 ### 1.1 Judgment-card fields
 
-A testable judgment must contain every field below. If any field is missing, label the statement **landscape only**; it cannot serve as a business-opportunity judgment or summary conclusion.
+A testable judgment must contain every field below. J-001–J-086 are pre-migration cards and may temporarily carry scale only inside Diffusion-gate review while the checker warns; **J-087 and later fail validation without a standalone Audience scale field**. If any other field is missing, label the statement **landscape only**; it cannot serve as a business-opportunity judgment or summary conclusion.
 
 - **ID**: `J-NNN`, three digits, globally unique; shared by Chinese and English; never reuse an old or revised ID.
 - **Proposed date**: the date the judgment was first proposed, `YYYY-MM-DD`.
 - **One-sentence judgment**: a proposition that can be supported or refuted by facts.
+- **Audience scale** (standalone and required from J-087): affected group; hundred-thousand / million / tens-of-millions / hundred-millions / billion-scale; whether it raises existing professionals' ceiling or lets people who could not do it do it now; label a constructed estimate explicitly.
 - **Diffusion-gate review**: state the audience magnitude, audience identity, Gate 1 verdict, and whether the judgment raises the ceiling of existing professionals or lets people who previously could not do the activity do it.
 - **Lens**: name the supply–demand, human-nature, historical, technological, social, or other calibrated lenses actually used; do not force unused lenses merely for symmetry.
 - **Reasoning chain**: each step from first principles and selected lenses; do not replace reasoning with another institution's prediction.
@@ -35,6 +36,7 @@ A testable judgment must contain every field below. If any field is missing, lab
 > - **ID**: EXAMPLE-J-000
 > - **Proposed date**: 2026-09-18
 > - **One-sentence judgment**: In a hypothetical market, if the unit cost of repeatedly generating proposals falls by an order of magnitude, the value of a service that merely supplies more proposals will decline within three years.
+> - **Audience scale**: affected group = professional buyers; million-scale; raises existing professionals' ceiling; constructed example estimate.
 > - **Diffusion-gate review**: The example audience is millions of professional buyers; it raises the ceiling of existing professionals rather than enabling a new activity; Gate 1 fails.
 > - **Lens**: Supply–demand and technological regularities.
 > - **Reasoning chain**: Supply increases → proposal marginal cost falls → buyers no longer lack proposal quantity → value moves to selection and validation. This demonstrates dependency notation and is not adopted as a project judgment.
@@ -1766,28 +1768,29 @@ python3 scripts/check.py --self-test
 
 It copies the tree into a temporary directory and breaks that copy one way at a
 time — dangling anchor, a dependency edge disagreeing with its card, a card in
-one language only, an out-of-whitelist confidence value, a missing required
-field, a **new card missing Audience scale**; a chain file landing on disk with
-no registry row, a registry row deleted while its file stays, a row registering
-one language only, an identifier registered in one README only, a row linking
-a file that is not there, a registry Topic absent from its chain file's H1, the
-announced-direction row claiming an identifier, a row id written as `C3
-(draft)`, prose citing an unallocated identifier, a chain cited under a title
-its file does not carry; a card count off by one, a count spelled so it cannot
-be read, a stale chain count, a count dropped from one language, and the **same
-J identifier registered twice** — plus an accept/reject matrix over confidence
-values and the edits that must **not** be reported (an abbreviated title
-citation, a second announced row holding no number, prose naming cards without
-counting them). It asserts every breakage is caught **by the right check**; the
-repository itself is not modified. Run it whenever the script changes: on
-2026-09-19 the confidence whitelist was compared by substring, so `极高`
-("extremely high", which contains `高`) passed while every positive case stayed
-green — only a negative case exposes a criterion written too wide. The second
-lesson of that same day is the other half: `ee3a5eb` claimed "verified against
-four deliberate breakages" but left nothing re-runnable behind, and one of the
-four turned out not to work at all. **A claim does not count; only a negative
-case sitting in `NEGATIVE_CASES`, which the next person can re-run unchanged,
-counts.**
+one language only, **equal bilingual card counts with different identifier
+members**, an out-of-whitelist confidence value, a missing required field, a
+**new card with Audience scale missing, embedded inside another field, or
+structurally incomplete**; a chain file landing on disk with no registry row, a
+registry row deleted while its file stays, a row registering one language only,
+an identifier registered in one README only, a row linking a file that is not
+there, a registry Topic absent from its chain file's H1, the announced-direction
+row claiming an identifier, a row id written as `C3 (draft)`, prose citing an
+unallocated identifier, a chain cited under a title its file does not carry; a
+card count off by one, a count spelled so it cannot be read, a stale chain
+count, a count dropped from one language, and the **same J identifier registered
+twice** — plus an accept/reject matrix over confidence values and the edits that
+must **not** be reported (an abbreviated title citation, a second announced row
+holding no number, prose naming cards without counting them). It asserts every
+breakage is caught **by the right check**; the repository itself is not modified.
+Run it whenever the script changes: on 2026-09-19 the confidence whitelist was
+compared by substring, so `极高` ("extremely high", which contains `高`) passed
+while every positive case stayed green — only a negative case exposes a
+criterion written too wide. The second lesson of that same day is the other
+half: `ee3a5eb` claimed "verified against four deliberate breakages" but left
+nothing re-runnable behind, and one of the four turned out not to work at all.
+**A claim does not count; only a negative case sitting in `NEGATIVE_CASES`,
+which the next person can re-run unchanged, counts.**
 
 The remaining items are judgment calls a script cannot make. Walk them by
 hand before publishing:
