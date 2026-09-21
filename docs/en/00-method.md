@@ -196,7 +196,7 @@ The narrative layer serves human reading; the card layer serves reasoning, due-d
 
 Record the hit rate of each level in the ledger over the long term. If the hit rate of high-confidence judgments remains below that of medium-confidence judgments, first correct the scoring habit rather than changing the definition after the fact.
 
-Status meanings: `ACTIVE` awaits testing; `HIT` receives support within the time window; `FALSIFIED` has triggered its falsifier; `REVISED` has been rewritten by new evidence, while the old version remains in git history. Never delete a falsified judgment, or hit rates cannot be calculated and the sources of errors cannot be learned.
+Status meanings: `ACTIVE` awaits testing; `HIT` receives support within the time window; `FALSIFIED` has triggered its falsifier; `REVISED` retains the old card but must distinguish two cases. A **scope downgrade** only narrows audience, applicability, or narrative strength, so the original proposition is still reviewed under its original window and falsifier and remains in the calibration denominator. A card **superseded by a new card** must name the successor `J-NNN`; the old card is no longer reviewed separately and is no longer a current premise. An uncomputable due review is recorded as `INDETERMINATE`, remains in the denominator, and does not automatically change card status. Never delete a falsified judgment, or hit rates cannot be calculated and the sources of errors cannot be learned.
 
 ## 9. Bilingual and git discipline
 

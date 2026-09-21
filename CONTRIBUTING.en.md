@@ -21,7 +21,7 @@ Every judgment holds one card in the [judgment ledger](docs/en/90-ledger.md), un
 | **Falsifier** | the concrete event that would make the author admit this judgment is wrong | [Methodology §4](docs/en/00-method.md#4-judgment-cards-the-five-part-requirement-and-ids) |
 | **Leading indicator** | an observable signal expected to move before the outcome does | [Methodology §4](docs/en/00-method.md#4-judgment-cards-the-five-part-requirement-and-ids) |
 | **Confidence** | `high` / `medium` / `low` — how much is being bet, not how strong the tone is | [Methodology §8](docs/en/00-method.md#8-confidence-and-status) |
-| **Status** | `ACTIVE` awaiting testing · `HIT` supported within the window · `FALSIFIED` falsifier triggered · `REVISED` rewritten by new evidence | [Methodology §8](docs/en/00-method.md#8-confidence-and-status), [Ledger §1.1](docs/en/90-ledger.md#11-judgment-card-fields) |
+| **Status** | `ACTIVE` awaiting testing · `HIT` supported within the window · `FALSIFIED` falsifier triggered · `REVISED` old card retained (the note must say whether this is a scope downgrade or a named successor supersedes it) | [Methodology §8](docs/en/00-method.md#8-confidence-and-status), [Ledger §1.1](docs/en/90-ledger.md#11-judgment-card-fields) |
 
 Those four words are the entire vocabulary; there is no second set. You submit in them, and the maintainers answer in them. The Chinese–English correspondence is in the [glossary](docs/glossary.zh-en.md); judgment identifiers are never translated or renumbered.
 
@@ -45,11 +45,13 @@ If you think the **falsifier itself is written too loosely** — so loose that n
 
 ### What the maintainers will do with it
 
-The [expiry-review procedure](docs/en/90-ledger.md#5-expiry-review-procedure) is followed step by step. There are exactly three outcomes, and all three get written down:
+Follow the [expiry-review procedure](docs/en/90-ledger.md#5-expiry-review-procedure) step by step. A due review has exactly three recorded results; card status and a single review result are recorded separately:
 
+- `HIT` — evidence within the window clearly supports the judgment and the falsifier did not trigger.
 - `FALSIFIED` — the falsifier did trigger. The card **stays where it is**, marked falsified, and every downstream dependency is reviewed along the graph.
-- `REVISED` — the judgment needs rewriting rather than overturning. The old card is kept, the new version takes a new identifier, and the old one remains in git history.
-- Still `ACTIVE` — the evidence does not settle it. In that case what is **still missing** must be stated, together with the next review date. Vagueness is not an option here.
+- `INDETERMINATE` — the preregistered condition cannot be computed because data are private, definitions changed, a source ended, or for another stated reason. It remains in the calibration denominator and must not be silently excluded; the card keeps its existing `ACTIVE` / `REVISED` status while recording what is missing and the next review date.
+
+`REVISED` is not a single-review result. A scope-downgraded card remains independently due under its original window. If a new judgment supersedes an old one, the old card must name the successor `J-NNN` and is not counted as a separate outcome.
 
 Either way it is recorded in the [review log](docs/en/90-ledger.md#8-review-log); if the confidence level moved, it also enters the [confidence-change history](docs/en/90-ledger.md#4-confidence-change-history). Chinese and English are updated in the same commit.
 
