@@ -66,7 +66,26 @@
 | 显式缺口 | explicit gap | 已知未覆盖的维度，以条目形式保留在台账，不因首轮有产出而删除 |
 | 发布前自检清单 | pre-publication checklist | 台账末节的跨文件不变量清单，每次发布前逐项过一遍 |
 
-## 五、能源与许可 · Energy and permitting
+## 五、历史验证协议 · Historical validation protocol
+
+| 中文 | English | 用法 |
+|---|---|---|
+| 校准集 | calibration set | 可以看结局并用于改规则的历史案例；不得再作为验证样本 |
+| 历史伪样本外留存集 | historical pseudo-out-of-sample holdout | 规则与材料先冻结、判闸后一次性揭晓的历史子集；只能支持共同泄漏下的相对比较 |
+| 截点资料包 | as-of packet | 只含判定时点 T 及更早信息的标准化案例材料 |
+| 识别探针 | identification probe | 判闸前提交的案例身份猜测、结局猜测与置信度，用于测量记忆泄漏 |
+| 判闸者 | gate judge | 不接入仓库与揭晓来源、只依据截点资料包逐闸判定的独立角色 |
+| 结局判定者 | outcome adjudicator | 判闸和基线提交后，依据预登记来源独立编码历史结局的角色 |
+| 分歧／解锁裁决者 | disagreement / unlocking arbiter | 在结局编码冻结后裁定定义争议或预写解锁条件是否出现的独立角色 |
+| 基线臂 | baseline arm | 与判闸臂使用同一模型和输入、但使用不同规则的比较条件 |
+| 判别力 | discrimination | `P(S | PASS) − P(S | VETO)`，比较放行组与否决组实际社会级普及率的差 |
+| 致命漏判 | fatal false veto | 五道闸给出 `VETO`、但历史结局为 S 的高代价错误；是否进一步触发判断卡自身证伪条件由台账另行裁定 |
+| 弃权 | abstention | 材料不足时拒绝判定；必须计入覆盖率，不能靠多弃权提高分数 |
+| 中间态 | intermediate outcome | 持续采用但既未成为定义人群多数、也未退出的历史结局 |
+| 解锁条件 | unlocking condition | 速度层否决时预先写下的、可观察且有主体与时点的翻案条件 |
+| 相对判别增量 | relative incremental discrimination | 五道闸判别力减去最强同输入基线判别力；不是绝对准确率 |
+
+## 六、能源与许可 · Energy and permitting
 
 C3 推演链引入的术语，中英文档须照此一一对应。
 
