@@ -108,20 +108,19 @@ Formal judgment: [J-091 · Demand expansion and task savings occur together; net
 ## 8. Stack the five cards: one social transmission chain
 
 ```text
-Technical feasibility              Organizational/institutional carriers       Demand, behaviour, and assets
-Generation/tool-use costs fall ─┐   Existing workflows and principals ────┐    Elasticity and saturation ────┐
-                               ├─→ Tasks are split, authorized, and tested ├─→ Direction and distribution
-Long-task/open-world ability ───┘   Permission, logs, appeal, diffusion ───┘    Licences, channels, capital,
-                                     gates                                      and bodies ────────────────┘
-                                             │
-                                             ├─ Supervisory human–machine units (J-087)
-                                             ├─ Occupational entry and apprenticeship carriers (J-088)
-                                             ├─ Permission, logging, and appeal controls (J-089)
-                                             ├─ Complementary-asset shares of gains (J-090)
-                                             └─ New demand and net employment direction (J-091)
+Technical feasibility ──────────────┐
+                                    ├─[institutions can block/redirect]─[demand, behaviour, and assets can block/redirect]─→ social outcome
+Organizational/institutional carriers┤                         ↑                                         │
+                                    │                         └──── adoption and accident feedback ───────┘
+Demand, behaviour, and asset structure┘
+                                                               ├─ Supervisory human–machine units (J-087)
+                                                               ├─ Occupational entry and apprenticeship carriers (J-088)
+                                                               ├─ Permission, logging, and appeal controls (J-089)
+                                                               ├─ Complementary-asset shares of gains (J-090)
+                                                               └─ New demand and net employment direction (J-091)
 ```
 
-Each column can block or redirect the outcome. Technology opens feasibility; organizational and institutional carriers decide who may authorize and bear responsibility; demand, human behaviour, and asset structure decide new volume and where gains land.
+The three force classes enter from the same starting line, and any one can block or redirect the outcome. Adoption results and accidents feed back into permission, diffusion gates, and demand. Technology opens feasibility; it does not sit upstream of organizations, institutions, supply and demand, or human behaviour.
 
 These are not independent headlines. Together they form a reversible test. If organizations can capture durable autonomous value without redesigning workflows, J-087 fails. If junior entry does not contract relatively, J-088 fails. If autonomous authority expands without audit and appeal entering production, J-089 fails. If returns do not tilt toward complementary assets, J-090 fails. If unit costs fall but variety and frequency do not expand, the demand side of J-091 fails.
 

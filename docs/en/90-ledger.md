@@ -2264,7 +2264,7 @@ hand before publishing:
 - **Lens**: technology sequence + organizational carrier + diffusion Gates 2–4.
 - **Reasoning chain**: Generation and tool use mature first → bounded reviewable tasks enter workflows first → exceptions and liability still need a principal → the minimum production unit becomes one accountable person supervising multiple machine executions.
 - **Time window**: 2026–2031.
-- **Falsifier**: By 2031, in at least three large knowledge-work industries, more than half of production AI deployments that persist for twelve months operate stably without workflow redesign, explicit exception escalation, or an accountable owner.
+- **Falsifier**: By 2031, across at least three large knowledge-work industries, fewer than half of production AI deployments that persist for twelve months use a work unit combining machine-default execution, human exception handling, and accountable boundary setting. The card fails whether the remainder is end-to-end staffless execution or deployment broadly stalls in demonstrations and failures.
 - **Leading indicator**: machine-default share, human takeover rate, executions per accountable owner, pre-deployment workflow-redesign hours, and twelve-month retention; semi-annually.
 - **Confidence**: Medium.
 - **depends-on**: J-006, J-007, J-009, J-066, J-068.
@@ -2284,7 +2284,7 @@ hand before publishing:
 - **Lens**: task bundles + skill formation + signalling game.
 - **Reasoning chain**: Junior production is easiest to verify and automate → seniors sustain output with fewer junior hours → entrants lose the carrier for real-task practice → apprenticeship, simulation, and supervised fieldwork become scarcer.
 - **Time window**: 2027–2034.
-- **Falsifier**: By 2032, across at least five generation-intensive occupations, junior-seat share has not declined relative to pre-adoption levels; or it has declined but verifiable apprenticeship, simulation, rotation, or supervised-fieldwork capacity expands enough to preserve the pre-adoption replenishment rate of professionals.
+- **Falsifier**: By 2032, across at least five generation-intensive occupations, junior-seat share does not decline before total occupational headcount; or it declines first but verifiable apprenticeship, simulation, rotation, or supervised-fieldwork capacity expands enough to preserve the pre-adoption replenishment rate of professionals. Junior seats falling at the same time as or after total occupational contraction also falsifies the card.
 - **Leading indicator**: junior-to-senior hiring ratio, entry-task mix, apprenticeship places, supervised hours, time to promotion, and controlled performance of external candidates; annually.
 - **Confidence**: Medium.
 - **depends-on**: J-087, J-083, J-066.
@@ -2304,7 +2304,7 @@ hand before publishing:
 - **Lens**: action rights + legal liability + diffusion Gate 4.
 - **Reasoning chain**: Tool use enlarges possible consequences → asset owners require least privilege and interruptibility → disputes require logs, accountable signatures, and appeal → the control plane moves from compliance attachment to production dependency.
 - **Time window**: 2026–2032.
-- **Falsifier**: By 2030, in at least three high-liability industries, most production autonomous systems have expanded authority for two years while still lacking principal-level authorization, tamper-evident action records, human pause, or a dispute-appeal route, without regulatory or buyer retrenchment.
+- **Falsifier**: By 2030, across at least three high-liability industries, most production autonomous systems receive broad high-liability authority without principal-level authorization, tamper-evident action records, human pause, and dispute appeal as prior production dependencies. If systems receive broad authority first and regulators or buyers tighten only after accidents, the reversed order still falsifies the card.
 - **Leading indicator**: fine-grained permission coverage, log retention, human pause rate, external-audit clauses, appeal latency, and procurements rejected for missing controls; semi-annually.
 - **Confidence**: Medium.
 - **depends-on**: J-007, J-009, J-031, J-055, J-070.
@@ -2344,7 +2344,7 @@ hand before publishing:
 - **Lens**: supply-and-demand elasticity + task bundles + physical and institutional hard constraints.
 - **Reasoning chain**: Labour hours per task fall → price, waiting, or customization costs fall → previously uneconomic demand enters → non-automated steps absorb part of the new volume → the relative size of expansion and savings determines net employment.
 - **Time window**: 2027–2035.
-- **Falsifier**: By 2032, across at least five adoption-intensive industries, significant labour-hour reductions per service are followed for three years by no expansion in variety, frequency, customer segments, or total output, and employment change is stably explained by automated-task share alone.
+- **Falsifier**: By 2032, across at least five adoption-intensive industries, significant labour-hour reductions per service are followed for three years by no expansion in variety, frequency, customer segments, or total output. Whether employment can also be explained by macroeconomic cycles, regulation, or other factors does not prevent falsification of the card's claim that demand expansion and task savings occur together.
 - **Leading indicator**: labour hours per unit, price, wait time, SKU or service variety, frequency per customer, new-customer share, total output, and jobs in non-automated steps; annually.
 - **Confidence**: Medium.
 - **depends-on**: J-001, J-037, J-073, J-087.
