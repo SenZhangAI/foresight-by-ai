@@ -59,7 +59,7 @@ This extends [J-033](../90-ledger.md#j-033--verifiable-records-of-real-intervent
 
 > **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-033, J-034, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
-## V. Third step: pass the “same force can automate it” gate
+## V. Third step: pass the opportunity-durability gate
 
 Can the same force that makes the new scarcity abundant eliminate it? **Partly, but not completely.**
 

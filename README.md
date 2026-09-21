@@ -17,8 +17,8 @@
 - **想先确认基础打得牢不牢** → 读[历史回顾：什么才能成为整个社会的风气](docs/zh/01-retrospect.md)。它不预测任何事，只回看 1956–2020 年已经发生的成功与失败，从中提炼五道「普及闸」，并当场用它们判自己：可视电话 1964 年为什么不行、2020 年为什么三个月就普及；New Coke 五道闸全过却在 79 天后撤回；以及本仓库自己的 C1 开篇场景，被这套闸判为不过。若要继续追问「这些规则真的比模型直觉或既有扩散理论多筛掉了什么」，读[历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：它先冻结候选池、留存集、角色隔离、基线与计分，再允许扩展案例。
 - **想被一个故事击中** → 读推演链。[C1 · 生成变得免费之后，什么反而买不到了](docs/zh/chains/10-generation-becomes-free.md) 从一个下午讲起：六十套方案摆在面前，市场负责人却什么也决定不了。[C2 · 当数据不再免费：现实信号如何变成合同资产](docs/zh/chains/20-real-signals-become-contracts.md) 接着回答，一次真实观测凭什么值钱、又凭什么能写进合同。[C3 · 电子落地：算力的瓶颈从芯片移到电网、土地与许可](docs/zh/chains/30-power-land-and-permits.md) 把链条推到地面：当模型可以租、芯片可以买，真正排不到的是一台尚未制造的变压器和一场必须召开的听证会。[C4 · 具身智能：AI 要过普及闸，缺的是一具能承担后果的身体](docs/zh/chains/40-embodied-intelligence.md) 再把问题带回物理世界：模型会推理，不等于它能在别人的家、田地和病房里承担一次失败。[C5 · 生物与医疗：答案会先变便宜，证明与照护不会](docs/zh/chains/50-biology-medicine.md) 区分无限候选与必须对身体负责的证据链。[C6 · 教育与技能形成：讲解会泛滥，掌握仍要留下痕迹](docs/zh/chains/60-education-skill-formation.md) 追问当漂亮成品可外包之后，谁还能证明一个人真的会。[C7 · 技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果](docs/zh/chains/70-capability-to-social-consequences.md) 再把能力曲线接回组织、劳动、制度、资本与需求，拒绝从 benchmark 直接跳到失业率。
 - **想要全景** → 按时间层读三篇正文：[近期 2026–2028](docs/zh/10-near.md) → [中期 2029–2032](docs/zh/20-mid.md) → [远期 2033–2040](docs/zh/30-far.md)。每篇横向覆盖六个维度，从技术、内容、信任一路走到权力与意义。**远期一篇请按图景读**：它背后的 12 张卡片（J-043–J-054）**置信度全部为「低（仅图景）」**，没有一张够格进商机候选，也不应被当作预测引用。
-- **想找可下注的方向** → 直接读[商机候选](docs/zh/40-opportunities.md)：四条通过硬约束闸门的候选（谁付钱、付多少、为什么是现在、最强反方），外加一份「现在能吃、但会被同一股力量吃掉」的窗口清单。
-- **想检验我有没有胡说** → 打开[判断台账](docs/zh/90-ledger.md)。91 张判断卡片，每张写明推理链、时间窗、证伪条件、领先指标、置信度，以及它踩在哪几条上游判断之上。规则本身写在[推演方法论](docs/zh/00-method.md)，先看第 3 节的硬约束闸门。
+- **想找可下注的方向** → 直接读[商机候选](docs/zh/40-opportunities.md)：四条通过**机会耐久闸**的候选（谁付钱、付多少、为什么是现在、最强反方），外加一份「现在能吃、但会被同一股力量吃掉」的窗口清单。机会耐久闸回答「同一股力量能否把新稀缺再次自动化」；它不同于判断社会扩散的五道普及闸。
+- **想检验我有没有胡说** → 打开[判断台账](docs/zh/90-ledger.md)。91 张判断卡片，每张写明推理链、时间窗、证伪条件、领先指标、置信度，以及它踩在哪几条上游判断之上。规则本身写在[推演方法论](docs/zh/00-method.md)：先看第 3 节的机会耐久闸，再看历史回顾中的五道普及闸。
 - **想告诉我哪一条错了** → 读[如何反驳这里的判断](CONTRIBUTING.md)。它写明三件事：怎么用一条判断自己的证伪条件把它推翻、怎么补一个缺口维度、以及什么样的反对不会被采纳。
 
 推演链和时间层正文**不是**同一批判断的两种切法，这一点过去写错了，现按实际覆盖更正：全部 91 张卡里，时间层正文引用 48 张，推演链引用 36 张，两者**重叠只有 9 张**；**仅链覆盖 27 张**，**仅时间层覆盖 39 张**，还有 **16 张两者都不覆盖**（J-008、J-012、J-015、J-016 只落在[技术能力演进链](docs/zh/05-tech-sequence.md)，J-066–J-071 只落在[历史回顾](docs/zh/01-retrospect.md)）。切法的差别仍然成立：**链**沿一条因果线纵向讲到底，适合第一次阅读；**时间层正文**横向铺开同一时间窗里的多个维度，适合查全——但**两者都不是全集，要查全必须回[判断台账](docs/zh/90-ledger.md)**。两者都只在行文中内联 `J-NNN`，元数据一律退到台账。
@@ -43,14 +43,14 @@
 
 | 中文 | English | 读到什么 |
 |---|---|---|
-| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断怎么才算数：五件套字段、九种透镜、硬约束闸门与三个出口 |
+| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断怎么才算数：五件套字段、九种透镜、机会耐久闸与三个出口 |
 | [历史回顾](docs/zh/01-retrospect.md) | [Retrospect](docs/en/01-retrospect.md) | 从科技／政治／商业史提炼的五道普及闸：什么能成为整个社会的风气，什么不能，以及对这套闸自身的三道攻击 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 用预先冻结的候选池、留存集、角色隔离、同输入基线与非对称计分，检验五道闸是否有相对判别增量；不把历史记忆伪装成真实样本外准确率 |
 | [技术能力演进链](docs/zh/05-tech-sequence.md) | [Technology Capability Sequence](docs/en/05-tech-sequence.md) | 技术能力的到达次序：从单位推理成本到开放世界评估的十二道门 |
 | [近期图景 2026–2028](docs/zh/10-near.md) | [Near-term landscape](docs/en/10-near.md) | 六个维度上什么正在变丰富、因此什么变稀缺 |
 | [中期图景 2029–2032](docs/zh/20-mid.md) | [Mid-term landscape](docs/en/20-mid.md) | 近期判断成立之后，组织、内容、信任与协作被迫重排成什么样 |
 | [远期图景 2033–2040](docs/zh/30-far.md) | [Far-term landscape](docs/en/30-far.md) | 承重墙检查：若中期成立，人与制度必须重新安排什么。**背后 12 张卡（J-043–J-054）置信度全部为「低（仅图景）」** |
-| [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 通过硬约束闸门、有明确付费者的方向，以及被判定为窗口的清单 |
+| [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 通过机会耐久闸、有明确付费者的方向，以及被判定为窗口的清单 |
 | [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | 全部纵向长论证链的编号、主题、状态与文件路径；正文其他位置只引用编号，不分配 |
 | [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 91 张判断卡片、依赖图、置信度变更史、检查日志与显式缺口 |
 | [术语对照](docs/glossary.zh-en.md) | 同一文件 | 中英术语一一对应；判断编号不翻译、不重新编号 |

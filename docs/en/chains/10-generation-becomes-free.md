@@ -29,11 +29,11 @@ The cost of reasoning keeps falling
       ▼
 Generation (code/images/video/copy/proposals) becomes extremely abundant
       │
-      ├──▶ “Selecting high quality from abundance” becomes scarce ──▶ 【Gate】Can it be automated?
+      ├──▶ “Selecting high quality from abundance” becomes scarce ──▶ 【Opportunity-durability gate】Can it be automated?
       │                                          Yes (mostly) → Merely a window, not an opportunity
       │                                          Residual that cannot → “Private context about you”
       │
-      ├──▶ “Producing fewer duds” becomes scarce ──▶ 【Gate】Can it be automated?
+      ├──▶ “Producing fewer duds” becomes scarce ──▶ 【Opportunity-durability gate】Can it be automated?
       │                                Yes (mostly) → A window
       │                                Residual that cannot → Situations where outcomes are irreversible
       │
@@ -77,9 +77,9 @@ The independence of the three means **none of them has to work miracles**. As lo
 
 The most intuitive answer (and the initial assumption when this project began) is: **selecting the genuinely high-quality one from an enormous volume of output becomes scarce.**
 
-That answer is **half right and half a trap**. It must pass through the gate.
+That answer is **half right and half a trap**. It must pass the opportunity-durability gate.
 
-### Gate: Can “selecting high quality” be automated by the same force that makes generation abundant?
+### Opportunity-durability gate: Can “selecting high quality” be automated by the same force that makes generation abundant?
 
 **Mostly, yes.** The reason is that in a substantial number of domains, “quality” is **formalizable**:
 
@@ -105,7 +105,7 @@ Because “what you want” is:
 - Something you cannot clearly explain yourself—you can recognize it, but cannot describe it;
 - **Private**, legally yours, with no coercive mechanism that can force you to hand it over.
 
-This hits two of the hard constraints exactly: **ownership / privacy** + **the inability of human preferences to be self-expressed**. No matter how cheap generation becomes, it cannot generate your history.
+The only hard constraint here is **ownership / private property**: the critical historical context is lawfully held by a particular person or organization and cannot be copied by compute alone or seized by force. The difficulty of self-expressing human preferences deepens the demand-side information gap, but it is not a sixth hard constraint. No matter how cheap generation becomes, it cannot generate your history.
 
 So what is scarce is not “the ability to select,” but **the input selection requires**: structured, machine-usable preferences and context about you (as an individual or organization).
 
@@ -120,7 +120,7 @@ So what is scarce is not “the ability to select,” but **the input selection 
 
 Another initial assumption is: **using tokens efficiently, rather than wasting compute on one dud after another, becomes scarce.**
 
-This too must pass through the gate.
+This too must pass the opportunity-durability gate.
 
 **Most of it will be automated.** Dud rates are a function of model capability: the stronger the model, the more likely it is to get it right the first time; meanwhile costs are falling, so the cost of duds is shrinking at the same time. Squeezed from both sides, the room for “saving tokens” as a business is contracting rather than expanding.
 
@@ -131,13 +131,13 @@ This too must pass through the gate.
 
 In writing, drawing, and coding drafts, “try a few more times” is free; in actions such as ordering, paying, sending, deploying, signing, and administering medication, **the trial itself is damage**. This exposes the **physical and legal/liability constraints** underneath: irreversibility is a supporting lens for judging risk, not a separate category of hard constraint.
 
-So what is scarce is not “making fewer mistakes”—and it is **not** the software that “turns irreversible things into reversible things” either. I got that step wrong in the first pass, and the gate re-review of 2026-09-19 took it apart. Shadow environments, action sandboxes, and one-click rollback are pure software as long as the action does **not** cross your own ownership boundary (your own database, your own cloud resources, a test sandbox): precisely what the same force that makes generation abundant is best at producing—and the system being operated on is held by the platform itself, which has every incentive to bundle rollback as a default and give it away. That half has payers, but it fails the gate.
+So what is scarce is not “making fewer mistakes”—and it is **not** the software that “turns irreversible things into reversible things” either. I got that step wrong in the first pass, and the opportunity-durability review of 2026-09-19 took it apart. Shadow environments, action sandboxes, and one-click rollback are pure software as long as the action does **not** cross your own ownership boundary (your own database, your own cloud resources, a test sandbox): precisely what the same force that makes generation abundant is best at producing—and the system being operated on is held by the platform itself, which has every incentive to bundle rollback as a default and give it away. That half has payers, but it fails the opportunity-durability gate.
 
 What genuinely cannot be copied is the other half: the **right to reverse across ownership boundaries**. Once an action writes state into **someone else’s** ledger—funds captured, goods released, a right transferred, a contract in force—reversal must be consented to and executed by that party, whose default interest is **finality**, not reversibility; finality is exactly what it sells, and reversal capacity is rationed and separately priced (dispute fees, escrow fees, issuance fees). Compute can copy sandbox code without limit; it cannot copy the counterparty’s obligation to unwind. Historically this kind of cross-party unwind has been built for real only inside a handful of closed networks—card-scheme chargebacks, securities settlement reversal, escrow and letters of credit—and every one of them was ground out of membership rules, collateral, and long-running repeated games, not out of a software schedule. So the hard constraint is not “physical”; it is **ownership / private property** and **trust / relationship**.
 
 (And for actions that are **physically irreversible**—goods consumed, a person harmed, a dose injected—no reversibility product exists at all; the residue is only “who compensates,” which is the territory of the second kind of input in the next section.)
 
-> See [judgment ledger J-065](../90-ledger.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse). The original judgment, [J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), is kept in the ledger rather than deleted, with status now `REVISED`—keeping it is what makes it visible how this step was turned back by the project’s own gate.
+> See [judgment ledger J-065](../90-ledger.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse). The original judgment, [J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), is kept in the ledger rather than deleted, with status now `REVISED`—keeping it is what makes it visible how this step was turned back by the project’s own opportunity-durability gate.
 
 > **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
 
