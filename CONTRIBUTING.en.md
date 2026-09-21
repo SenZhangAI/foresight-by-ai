@@ -38,7 +38,7 @@ If you think the **falsifier itself is written too loosely** — so loose that n
 **3. The evidence anchor.** Give something a third party can open and check independently:
 
 - **A link**: primary sources first (the original announcement, the original dataset, the statute, the audit report). Chase a second-hand account back to its source; if you cannot, say that you could not.
-- **Data**: state the measurement basis. Two numbers measured differently cannot be subtracted, or divided — the ledger’s [external-comparison sources](docs/en/90-ledger.md#external-comparison-sources-for-this-round) already carry entries that spell out “this source does **not** support the stronger claim,” and that is the precision expected here.
+- **Data**: state the measurement basis. Two numbers measured differently cannot be subtracted, or divided — the ledger’s [external-comparison sources](docs/en/90-ledger.md#9-external-comparison-sources-for-this-round) already carry entries that spell out “this source does **not** support the stronger claim,” and that is the precision expected here.
 - **A date**: the date the event happened, not the date you saw it. Time-window judgments are often decided by a few months.
 
 **4. Optional, but useful: what it drags down with it.** The `depends-on` field forms a graph ([Ledger §3](docs/en/90-ledger.md#3-the-depends-on-graph)). When an upstream judgment falls, everything standing on it must be reviewed. If you list those, the blast radius of your falsification is settled in one pass.
