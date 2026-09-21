@@ -156,7 +156,7 @@ This rule is recorded as [J-070](90-ledger.md#j-070--when-many-parties-must-chan
 
 **One boundary on this gate must be stated plainly: a recurring cost can be absorbed by compulsion.** Seat belts, helmets, and airport security screening are all bodily costs paid on every single use, and all of them diffused—because they took Gate 4's compulsion route. So Gate 5 stated precisely reads: **under voluntary adoption, recurring cost sets the ceiling**; once a party that can compel and observe enforcement exists, this gate can be bypassed. That is a real narrowing of Gate 5, not a patch.
 
-This rule is recorded as [J-071](90-ledger.md#j-071--one-time-costs-can-be-subsidized-recurring-costs-cannot).
+This rule is recorded as [J-071](90-ledger.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling).
 
 ---
 
