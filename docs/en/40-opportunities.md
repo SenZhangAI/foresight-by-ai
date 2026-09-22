@@ -135,6 +135,8 @@ Standard recipes, open tool interfaces, trusted simulation, and faster customer 
 
 **Indicator to watch**: share of dual-qualified materials, alternate-source qualification duration, cross-site failover exercises, dedicated-utility contracts, separately priced validation, and failure-liability clauses.
 
+---
+
 ## Window List (can be harvested, but do not treat as structural opportunities)
 
 | Window | Source | Why it is only a window | Expected to close |
