@@ -90,7 +90,7 @@ This formulation deliberately refuses three shortcuts:
 - counting nominal second suppliers without tracing shared refining, tool, port, power, or water nodes;
 - treating a company’s sustainability investment as proof that the forecast has already occurred.
 
-If interruptions remain local, brief, and absorbed by inventory or qualified alternate paths, J-094's trigger has not occurred and the result is **indeterminate**, not a hit or falsification. The judgment fails only after the trigger occurs and insurance, contracts, inventory, and siting still do not respond.
+If interruptions remain local, brief, and absorbed by inventory or qualified alternate paths, J-094's loss trigger has not occurred and the result is **indeterminate**, not a hit or falsification. But if the loss trigger never occurs by the end of the 2034 window while insurance, finance, or siting has systematically changed based only on hazard maps or disclosure regulation, J-094's symmetric falsifier applies. If the trigger occurs and insurance, contracts, inventory, and siting still do not respond, it also fails.
 
 ## 7. Redundancy is a process state, not a site count
 
@@ -138,7 +138,7 @@ The durable layer is therefore not a generic “supply-chain dashboard.” It is
 
 **Counter two: fabs decouple from local utilities.** Very high water recovery, closed-loop cooling, on-site treatment, dedicated generation, and robust storage could turn climate exposure into a manageable cost rather than a binding constraint. J-093 and J-095 weaken.
 
-**Counter three: geographic concentration produces loss without a pricing response.** If multiple manufacturing regions repeatedly suffer output loss that inventory and qualified alternate paths cannot absorb, yet insurance, contracts, inventory, and siting still do not change, J-094 fails. If hazard maps never translate into losses of that class, the trigger did not occur and the result remains indeterminate.
+**Counter three: geographic concentration produces loss without a pricing response.** If multiple manufacturing regions repeatedly suffer output loss that inventory and qualified alternate paths cannot absorb, yet insurance, contracts, inventory, and siting still do not change, J-094 fails. If hazard maps never translate into losses of that class but prior insurance, finance, or siting pricing has already changed, J-094 also fails; if neither occurs, the result is indeterminate.
 
 **Counter four: demand or process mix changes.** A compute investment slowdown, longer-lived nodes, architectural efficiency, or substitution toward less demanding processes could reduce expansion pressure. This chain must then be re-read with J-056 rather than preserved by rhetoric.
 
