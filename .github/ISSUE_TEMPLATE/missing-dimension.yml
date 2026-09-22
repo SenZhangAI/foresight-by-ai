@@ -51,6 +51,7 @@ body:
         - "十万 / a hundred thousand"
         - "百万 / a million"
         - "千万 / ten million"
+        - "亿 / a hundred million"
         - "十亿 / a billion"
     validations:
       required: true

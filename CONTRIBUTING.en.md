@@ -76,7 +76,7 @@ A gap that can be processed answers two questions.
 
 **2. Whether it carries scale.** A niche phenomenon may not be written here in the voice of a society-wide trend. Using the yardstick of [Gate 1, “count the people before you look at the technology”](docs/en/01-retrospect.md#gate-1--count-the-people-before-you-look-at-the-technology), give four things:
 
-- **Order of magnitude**: is the affected population a hundred thousand / a million / ten million / a billion;
+- **Order of magnitude**: is the affected population a hundred thousand / a million / ten million / a hundred million / a billion;
 - **Who they are**: occupation, role, region — “users” is not a population;
 - **Frequency**: is the activity daily / weekly / monthly / yearly;
 - **Which kind**: does it **raise the ceiling for people who already do this professionally** (the ceiling is then the headcount of that occupation), or does it **let people who could not do it do it at all** (which can enlarge the activity itself)? The second kind must name a mechanism, not merely claim one.
