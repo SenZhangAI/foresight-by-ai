@@ -17,6 +17,7 @@
 | 过程证据 | process evidence | 能把成品与本人真实练习、版本演进或现场表现连接起来的可复核记录 |
 | 透镜 | lens | 用于观察未来的推理角度；本项目使用 L1–L9 |
 | 约束迁移 | constraint migration | 一个瓶颈解除后，系统瓶颈跳到另一个环节 |
+| 已验证转化路径 | qualified conversion path | 从原料、精炼、电子级材料、配方、设备、厂务到客户批准，能够实际承接同一规格产出的完整替代路径 |
 | 关系不对称 | relational asymmetry | 互动双方在记忆、耐心、可复制性或专属性等方面存在结构性差异 |
 
 ## 二、机会耐久闸与硬约束 · Opportunity-durability gate and hard constraints

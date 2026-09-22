@@ -113,6 +113,27 @@ One sharp pullback in compute demand, or energy per unit of service falling fast
 
 ---
 
+## O-005 · Qualification and Failover Layer for Semiconductor Conversion Paths
+
+**Source judgments**: [J-092](90-ledger.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths), [J-093](90-ledger.md#j-093--advanced-fab-siting-is-priced-as-a-bundle-of-firm-power-water-quality-and-discharge-capacity) ｜ **Hard constraints**: physical + ownership / private property + law / liability
+
+> **Candidate status**: This is a direction proposed by C8 for screening, not an opportunity that automatically passes the durability gate. It must still show who pays for qualification evidence, alternate recipes, cross-site failover exercises, and dedicated utilities; a risk dashboard or supplier-counting service is not enough.
+
+**What exactly is scarce**
+Not another supply-chain dashboard, but the **qualification evidence, failover rehearsal, and liability wrapper** that lets alternate materials, recipes, tool service, and site utilities carry the same specified output. Compute can copy maps and reports; it cannot manufacture electronic-grade material, secure customer approval, install a tool, obtain a water right, or bear the yield and delivery liability of a failed transfer.
+
+**Who pays, and how much**
+Advanced fabs, materials and equipment firms, chip buyers, and public sponsors may jointly pay for process qualification, audits, rehearsals, and dedicated utilities; no amount is estimated until independently priced qualification/failover services and contractual liability terms appear.
+
+**Strongest counterargument**
+Standard recipes, open tool interfaces, trusted simulation, and faster customer approval may compress qualification enough that ordinary inventory and nominal multi-sourcing suffice; firms may also internalize the evidence work rather than create an independent supplier.
+
+**Signal that would make me withdraw it**: by 2030, major materials, equipment, and fab firms broadly use interchangeable recipes and rapid customer approval, while qualification evidence, failover rehearsal, and liability wrappers have no separate budgets or contract terms.
+
+**Indicator to watch**: share of dual-qualified materials, alternate-source qualification duration, cross-site failover exercises, dedicated-utility contracts, separately priced validation, and failure-liability clauses.
+
+---
+
 ## Window List (can be harvested, but do not treat as structural opportunities)
 
 | Window | Source | Why it is only a window | Expected to close |

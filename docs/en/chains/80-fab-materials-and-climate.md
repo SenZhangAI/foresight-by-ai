@@ -90,7 +90,7 @@ This formulation deliberately refuses three shortcuts:
 - counting nominal second suppliers without tracing shared refining, tool, port, power, or water nodes;
 - treating a company’s sustainability investment as proof that the forecast has already occurred.
 
-If interruptions remain local, brief, and absorbed by inventory or qualified alternate paths, J-094's loss trigger has not occurred and the result is **indeterminate**, not a hit or falsification. But if the loss trigger never occurs by the end of the 2034 window while insurance, finance, or siting has systematically changed based only on hazard maps or disclosure regulation, J-094's symmetric falsifier applies. If the trigger occurs and insurance, contracts, inventory, and siting still do not respond, it also fails.
+If interruptions remain local, brief, and absorbed by inventory or qualified alternate paths, J-094's loss trigger has not occurred: while the window remains open it stays `ACTIVE`, and the absence of a trigger is not recorded as a HIT or falsification; at expiry, only an uncomputable preregistered quantity is `INDETERMINATE`. But if the loss trigger never occurs by the end of the 2034 window while insurance, finance, or siting has systematically changed based only on hazard maps or disclosure regulation, J-094's symmetric falsifier applies. If the trigger occurs and insurance, contracts, inventory, and siting still do not respond, it also fails.
 
 ## 7. Redundancy is a process state, not a site count
 
@@ -130,7 +130,7 @@ The durable layer is therefore not a generic “supply-chain dashboard.” It is
 - **Materials and equipment suppliers**: sell qualification evidence, portability, recovery, and service continuity—not merely units or tonnes.
 - **Governments**: attach public support to measurable additionality: qualified alternate capacity, water recovery, dedicated utility funding, transparent curtailment rules, and removal of common nodes. A second building with the same dependency is not resilience.
 - **Utilities and host communities**: negotiate service priority, cost allocation, discharge, drought restrictions, and emergency restoration before approval, not during shortage.
-- **Founders**: the durable opportunity is not another risk dashboard. It lies in qualification tooling plus physical execution: electronic-grade recovery, alternate-recipe qualification, process-transfer evidence, common-node audits, and tested failover.
+- **Founders**: a durable opportunity may be explored in “qualification tooling plus physical execution”: electronic-grade recovery, alternate-recipe qualification, process-transfer evidence, common-node audits, and tested failover. This is **not an automatically registered opportunity candidate**; it still needs a separate opportunity-durability and payer review.
 
 ## 11. Where I could be wrong
 
