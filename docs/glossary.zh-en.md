@@ -36,7 +36,8 @@
 | 不可逆性 | irreversibility | **辅助透镜，不是第六类硬约束**：用于检验上述约束的后果代价，须在推理链与反方中单独说明，不得据此单独过闸 |
 | 出口 A | Exit A | 通过机会耐久闸且能指出付费者的商机候选 |
 | 出口 B | Exit B | 通过机会耐久闸但没有付费者的结构性后果 |
-| 出口 C | Exit C | 缺少完整判断字段或置信度过低的仅图景内容 |
+| 待筛选方向 | screening direction | 已有来源判断支持、但尚未通过机会耐久闸与付费者审查的方向；必须登记下次筛选日，不能计入正式候选数；到期只能晋升为候选、降入窗口／结构性后果，或保留并写明新的筛选依据 |
+| Screening direction | screening direction | a direction supported by source judgments but not yet through the opportunity-durability and payer review; it must carry a next-screen date, cannot count as a formal candidate, and at review must be promoted, downgraded to a window/structural consequence, or retained with new screening evidence |
 
 ## 三、判断卡片字段 · Judgment-card fields
 

@@ -2,7 +2,8 @@
 
 > This is an **execution protocol**, not a round of backtesting, and it produces no new judgments about the future. It freezes how historical cases enter the pool, how they are split, who may see what, how scoring works, and what the results can support. The five diffusion gates are in [Retrospect](01-retrospect.md); the general rules of reasoning are in [Foresight Methodology](00-method.md); the genuine out-of-sample record for judgments about the future is still carried by the due-date checks in the [judgment ledger](90-ledger.md).
 
-## 0. First, separate the three kinds of evidence
+> **Version anchor**: v1 was frozen at commit `f5f0833`; the 2026-09-21 calibration narrowed Gate 5's input from “per-use cost” to “recurring net burden relative to the incumbent.” The v1 holdout therefore cannot validate v2; section 10 requires an isolated re-review.
+
 
 | Ledger | What it can do | What it can support | What it cannot support |
 |---|---|---|---|
@@ -86,7 +87,7 @@ The gate judge fills this in case by case, and may not hand in a single overall 
 | Gate 2 · Replacement | The specific old activity being replaced; if there is none, write `NONE` | pass / fail / abstain |
 | Gate 3 · Carrier | Dedicated infrastructure, who pays for it, whether there is a second use or independent revenue | pass / fail / abstain |
 | Gate 4 · Decision | The parties that must change together, and whether unilateral compulsion or a local closed loop exists | pass / fail / abstain |
-| Gate 5 · Cost | The bodily / social / learning / monetary cost paid on every use, and whether an enforceable compelling party exists | pass / fail / abstain |
+| Gate 5 · Recurring net burden | Per-use net burden relative to the real incumbent at T: added bodily / social / learning / monetary burden minus saved waiting / price / time / process cost; plus whether an enforceable compelling party exists | pass / fail / abstain |
 
 Every piece of evidence must be no later than T. Insufficient material permits only abstention, with "what is missing" written out; information from after T may not be used to patch the question. When a speed-layer gate (Gates 2 through 4) is failed, an unlocking condition must additionally be written that is **observable, has an agent, and has a time point**; if none can be written, the claim is handled as "will not reach society-scale diffusion within the observation window".
 

@@ -125,14 +125,15 @@ Not another supply-chain dashboard, but the **qualification evidence, failover r
 **Who pays, and how much**
 Advanced fabs, materials and equipment firms, chip buyers, and public sponsors may jointly pay for process qualification, audits, rehearsals, and dedicated utilities; no amount is estimated until independently priced qualification/failover services and contractual liability terms appear.
 
+**Why now**
+Advanced-semiconductor expansion, water/power investment, and climate adaptation are arriving together, while material by-products, tool service, customer approval, and utility common nodes are not yet covered by one qualified-path map. That leaves a window for qualification, failover, and liability packaging, but whether it becomes a chargeable business remains to be screened.
+
 **Strongest counterargument**
 Standard recipes, open tool interfaces, trusted simulation, and faster customer approval may compress qualification enough that ordinary inventory and nominal multi-sourcing suffice; firms may also internalize the evidence work rather than create an independent supplier.
 
 **Signal that would make me withdraw it**: by 2030, major materials, equipment, and fab firms broadly use interchangeable recipes and rapid customer approval, while qualification evidence, failover rehearsal, and liability wrappers have no separate budgets or contract terms.
 
 **Indicator to watch**: share of dual-qualified materials, alternate-source qualification duration, cross-site failover exercises, dedicated-utility contracts, separately priced validation, and failure-liability clauses.
-
----
 
 ## Window List (can be harvested, but do not treat as structural opportunities)
 
