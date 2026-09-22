@@ -101,7 +101,7 @@ The following are closed with a one-line explanation. This section exists so you
 - **Somebody else’s forecast used as an argument.** “Institution X projects that by 2030…” is not an argument — [Methodology §1](docs/en/00-method.md#1-legitimate-starting-points-for-reasoning) explicitly refuses anyone’s prediction as a starting point. It may, however, be submitted as **external-comparison material**, which is a different thing: it is processed in the “agreement / disagreement / why I still hold it” format and registered as an `EXT-NN` source.
 - **Claims that do not carry scale but are written in a society-wide voice** (see the four-part yardstick above).
 - **Requests to delete a falsified judgment.** Falsified cards are never deleted: without them the hit rate per confidence level cannot be computed and nothing can be learned from the error. Such a card stays in place, marked `FALSIFIED`.
-- **Proposals to add an automated delivery gate** (CI / workflows / “green means good”). Judgment quality here is not adjudicated by a machine. `scripts/check.py` checks mechanical invariants, such as whether links resolve, whether required fields are present, whether a confidence value is on the whitelist, and whether the two languages carry the same set of identifiers. It reports facts; it does not rule on whether a judgment is right, nor on whether this repository is fit to publish.
+- **Proposals to add an automated delivery gate** (CI / workflows / “green means good”). Judgment quality here is not adjudicated by a machine. `scripts/check.py` checks mechanical invariants, such as whether repository-relative links land on real headings, whether required fields are present, whether a confidence value is on the whitelist, and whether the two languages carry the same set of identifiers. It reports facts; it does not rule on whether a judgment is right, nor on whether this repository is fit to publish.
 - **Pure style preferences.** “This section is too long” is not an issue. A specific expression problem is an issue, and a welcome one: which sentence does not parse, which term is used inconsistently, which link does not land where you expected.
 
 ## When to open a pull request instead
@@ -121,7 +121,7 @@ Before opening a PR you can run the mechanical self-check locally:
 python3 scripts/check.py
 ```
 
-It checks links, required card fields, confidence whitelist values, matching judgment-identifier sets, and other mechanical consistency of the same kind. Exit code 0 means those mechanical invariants hold — it does not mean your judgment is right. That is not something a machine rules on.
+It checks whether repository-relative links land on real headings, required card fields, confidence whitelist values, matching judgment-identifier sets, and other mechanical consistency of the same kind. Exit code 0 means those mechanical invariants hold — it does not mean your judgment is right. That is not something a machine rules on.
 
 ---
 
