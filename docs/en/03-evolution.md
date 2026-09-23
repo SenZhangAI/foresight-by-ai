@@ -40,7 +40,7 @@ J-043’s history can be checked directly against the committed trees:
 | Date / commit | Confidence | What changed | Was this a confidence change? |
 |---|---|---|---|
 | 2026-09-18, `4be031e` | Low (landscape only) | First proposed that high-value agent execution might shift from stepwise approval to boundary authorization; time window 2033–2040 | No; this was the initial value |
-| 2026-09-18, `846ea78` | Low (landscape only) | External comparison added “might,” an evidence boundary, and a reason to retain the landscape; no evidence justified raising or lowering confidence | No; wording and comparison-state change |
+| 2026-09-18, `846ea78` | Low (landscape only) | In the first external-comparison snapshot, J-043 gained “may,” the evidence boundary, and the reason to retain the landscape; the ledger review log records the round rather than attributing these changes to the earlier first registration | No; wording and comparison-state change. The anchor identifies the `846ea78` tree containing J-043’s first comparison snapshot; the commit message covers the J-001–J-054 comparison round |
 | 2026-09-20, `a0789ea` | Low (landscape only) | Gate 1 narrowed the audience from language that could be read as society-wide to tens-of-millions of organizational buyers and operators, and marked the card `REVISED` | No; scope/status change, with no confidence-field change |
 | Current ledger: J-043 in `docs/en/90-ledger.md` | Low (landscape only) | The card still retains its time window, falsifier, leading indicators, and evidence-insufficient landscape note; its status is `REVISED` | **No**. `REVISED` is not another confidence downgrade |
 
