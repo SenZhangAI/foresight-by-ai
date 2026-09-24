@@ -372,3 +372,127 @@
 - 2019 年中国移动支付消费额超 6.5 万亿美元：行业媒体口径，不同统计差异大；本文正文已改写为「以万亿美元计」，并显式声明该条结论不依赖这个数字
 - 零售氢价每公斤 30 美元以上（加州口径）：行业与媒体报道，本文未取得一手价格序列。它只用来说明氢车的成本方向，而这个方向正是第五节写明的、可以用来推翻闸三独占性的攻击点
 - 「二维码商户成本远低于 NFC 终端」：目前只有行业媒体的定性共识，未找到强量化文献；[BIS Working Paper 1011](https://www.bis.org/publications/working-paper-1011-big-techs-qr-code-payments-and-financial-inclusion.pdf) 支持「二维码让没有 POS 终端的商户得以接入」这一机制，但不提供成本对比数字
+
+## 十二、历史候选名录可行性审计与冻结决策（2026-09-25）
+
+### 12.1 这次审计到底审了什么
+
+本节是一次**冻结前审计**，不是历史回测，也不是 holdout 结果。审计对象是协议允许的、在 `T` 时已经存在、能够枚举总体、且收录不依赖后来成败的名录。审计期间只登记 `reveal_source` 的位置，没有打开结局内容；因此不得把下表写成成功、失败、普及或撤回样本。
+
+本轮采用的执行日为 2026-09-25，因而技术的统一观察窗 `T+15` 要求 `T ≤ 2011-09-25`，政治／公共政策和商业的 `T+10` 要求 `T ≤ 2016-09-25`（正式 manifest 仍须按精确日期计算）。这些是协议门槛，不因候选看起来有名或容易核验而降低。
+
+### 12.2 名录级审计
+
+| 领域 | 可枚举名录及版本锚 | 覆盖与纳入规则 | 预登记揭晓位置 | 当前判定 |
+|---|---|---|---|---|
+| 技术 | USPTO Patent Public Search／Official Gazette；WIPO PATENTSCOPE；arXiv 分类与首次 `v1`；ClinicalTrials.gov 历史注册（重点 2007 年后） | 分别以公开申请日、WO 国际公开日、论文 `v1` 首次公开日、首次注册公开日作 `T`；保留未授权、撤回、低关注或状态不明条目，不按后来成败抽样 | 对应 Patent Center／PATENTSCOPE dossier／后续论文与产品化记录／ClinicalTrials.gov archive | **名录可行，当前不可冻结**；2012 年后条目不能进入本轮技术池 |
+| 政治／公共政策 | Congress.gov／GovTrack／GovInfo 法案全集；Federal Register Proposed Rules；World Bank Projects & Operations | 以正式编号、刊登日或项目批准日作 `T`；不把成功法案、最终规则或完成项目榜单作为总体 | bill history；Federal Register 后续规则档案；World Bank project documents | **名录可行，当前不可冻结**；Congress.gov 与 GovTrack 主要是同一法案总体的双数据库镜像，不能单独算两个异质制度来源 |
+| 商业 | SEC EDGAR S-1/F-1 filing index；Kickstarter 上线时 Wayback 快照；YC 批次完整 roster 的历史快照 | 以初始申报、首次上线或批次公布日作 `T`；必须保留撤回、沉寂、低关注条目，不能用今日幸存者页面重建总体 | EDGAR 后续 filing；众筹历史快照与交付档案；批次档案与公司状态资料 | **名录可行，当前不可冻结**；当前示例过度集中在知名案例，普通案例比例未知 |
+
+本轮实际读取的入口证据也暴露了可执行性边界：arXiv archive 能显示当前与历史分类，但不提供候选逐条的 `v1` 日期；SEC full-index 入口返回 403；Federal Register 入口重定向到阻断页；World Bank 项目入口为动态页面且未返回可复核内容。它们证明“名录入口存在”不等于“已经获得可哈希的 T 前字节”。这些失败不是结局证据，也不许可用当前网页内容代替历史快照。
+
+### 12.3 逐案候选清单（只登记位置，不读结局）
+
+下表把三条独立审计腿提交的 48 个初步位置全部登记。`NOT_GENERATED` 是诚实状态：没有冻结的规范化 `as_of_packet`，就没有协议意义上的哈希。`待核验` 不是合格案例，不能进入 manifest、随机分配或判闸。
+
+#### 技术（16 个初步位置）
+
+| 候选／名录条目 | T | 截止日 | T 前 `as_of_packet` 锚点 | `packet_hash` | `reveal_source`（仅位置） | `candidate_activity` | `target_population` | `split_stratum` | 审计结论 |
+|---|---|---|---|---|---|---|---|---|---|
+| T-01 USPTO US20100137140A1 | 2010-06-03，待书目复核 | 2025-06-03 | USPTO 公开文本／bibliographic record | NOT_GENERATED：未冻结文件集 | Patent Center 对应申请档案 | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-02 USPTO US20070282930A1 | 2007-11-29，待复核 | 2022-11-29 | USPTO Gazette／公开申请文本 | NOT_GENERATED：未冻结文件集 | Patent Center 对应申请档案 | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-03 USPTO 2009 公开申请（检索槽位） | 未定 | 未定 | 预冻结关键词检索结果 | NOT_GENERATED：无最终 entry | Patent Center 对应档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-04 USPTO 2010 公开申请（检索槽位） | 未定 | 未定 | 预冻结关键词检索结果 | NOT_GENERATED：无最终 entry | Patent Center 对应档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-05 WIPO WO 2008–2010（检索槽位） | 未定 | 未定 | PATENTSCOPE 书目／公开 PDF | NOT_GENERATED：无公开号 | PATENTSCOPE dossier | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-06 WIPO WO 2009–2011（检索槽位） | 未定 | 未定 | PATENTSCOPE 书目／公开文本 | NOT_GENERATED：无公开号 | PATENTSCOPE dossier | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-07 arXiv:1001.4538 v1 | 2010，待页面复核 | 2025 内相应日期 | arXiv abs v1／v1 PDF | NOT_GENERATED：未保存字节 | 后续版本／引用／采用资料位置 | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-08 arXiv:1003.0145（候选） | 2010，待 ID 与题名复核 | 2025 内相应日期 | arXiv abs v1／v1 PDF | NOT_GENERATED：候选身份未定 | 后续版本与采用资料位置 | 不是冻结案例 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-09 arXiv cs.RO/eess.SY 日期槽位 | 未定 | 未定 | 分类日期列表与 v1 PDF | NOT_GENERATED：无 ID | 后续版本与部署记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-10 arXiv cs.CL 2011 日期槽位 | 未定 | 未定 | 分类归档与 v1 PDF | NOT_GENERATED：无 ID | 后续论文／软件采用记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-11 arXiv cs.DC/cs.OS 2011 日期槽位 | 未定 | 未定 | 分类归档与 v1 PDF | NOT_GENERATED：无 ID | 后续部署／软件记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-12 ClinicalTrials.gov NCT00433511 | 2007-03-07，待历史档案复核 | 2022-03-07 | 最早 archived registration | NOT_GENERATED：历史版本未保存 | ClinicalTrials.gov archive | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-13 ClinicalTrials.gov NCT005xxxxx 槽位 | 未定 | 未定 | 初始 archived record | NOT_GENERATED：无 NCT ID | archive 历史记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-14 ClinicalTrials.gov NCT006xxxxx 槽位 | 未定 | 未定 | 初始 archived record | NOT_GENERATED：无 NCT ID | archive 历史记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-15 ClinicalTrials.gov NCT008xxxxx 槽位 | 未定 | 未定 | 初始 archived record | NOT_GENERATED：无 NCT ID | archive 历史记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-16 ClinicalTrials.gov NCT010xxxxx 槽位 | 未定 | 未定 | 初始 archived record | NOT_GENERATED：无 NCT ID | archive 历史记录 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+技术表的关键事实是：只有 T-01、T-02、T-07、T-12 具有可继续核验的具体标识；其余是“从冻结总体抽取候选”的槽位，不能伪装成 16 个有效案例。即使补齐，技术池仍须重新检查 2000s／2010–2011 层是否各至少 4 例且为偶数、普通案例是否至少三分之一，以及每域等量储备池。
+
+#### 政治／公共政策（16 个初步位置）
+
+| 候选／名录条目 | T | 截止日 | T 前 `as_of_packet` 锚点 | `packet_hash` | `reveal_source`（仅位置） | `candidate_activity` | `target_population` | `split_stratum` | 审计结论 |
+|---|---|---|---|---|---|---|---|---|---|
+| P-01 H.R.2454, 111th | 2009-05-15，待复核 | 2019-05-15 | GovInfo 初始 BILLS 包 | NOT_GENERATED | Congress.gov history | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-02 H.R.1, 111th | 2009-01-26，待复核 | 2019-01-26 | Congress.gov 初始文本 | NOT_GENERATED | bill history | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-03 H.R.4173, 111th | 2009-12-02，待复核 | 2019-12-02 | Congress.gov 初始文本 | NOT_GENERATED | bill history | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-04 H.R.4872, 111th | 2010-03-17，待复核 | 2020-03-17 | Congress.gov 初始文本 | NOT_GENERATED | bill history | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-05 S.744, 113th | 2013-06-27，待复核 | 2023-06-27 | Congress.gov 初始记录 | NOT_GENERATED | bill history | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-06 H.R.2, 114th | 2015-01-06，待复核 | 2025-01-06 | Congress.gov 初始文本 | NOT_GENERATED | bill history | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-07 FR 2010-32061 | 2010-12-28，待档案复核 | 2020-12-28 | 75 FR 81722 原始 PDF | NOT_GENERATED | Federal Register 后续档案 | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-08 EPA 拟议规则检索槽位 | 2011-07-07 方向，文号未定 | 未定 | Federal Register 原始刊登版 | NOT_GENERATED：无文号 | Federal Register 档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-09 USDA 拟议规则检索槽位 | 2012-01-26 方向，文号未定 | 未定 | Federal Register 原始刊登版 | NOT_GENERATED：无文号 | Federal Register 档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-10 CMS 拟议规则检索槽位 | 2013-07-19 方向，文号未定 | 未定 | Federal Register 原始刊登版 | NOT_GENERATED：无文号 | Federal Register 档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-11 FCC 拟议规则检索槽位 | 2014-05-15 方向，文号未定 | 未定 | Federal Register 原始刊登版 | NOT_GENERATED：无文号 | Federal Register 档案 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-12 World Bank P113771 | 2010-06-30，批准日待复核 | 2020-06-30 | 项目详情／T 前项目文件 | NOT_GENERATED：未保存版本 | project documents | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-13 World Bank P121821 | 2010-09-30，批准日待复核 | 2020-09-30 | 项目详情／T 前项目文件 | NOT_GENERATED：未保存版本 | project documents | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-14 World Bank P123322 | 2011-06-21，批准日待复核 | 2021-06-21 | 项目详情／T 前项目文件 | NOT_GENERATED：未保存版本 | project documents | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-15 World Bank P133438 | 2012-11-01，批准日待复核 | 2022-11-01 | 项目详情／T 前项目文件 | NOT_GENERATED：未保存版本 | project documents | 待核验 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-16 World Bank 项目列表槽位 | 2013 方向，项目 ID 未定 | 未定 | Projects & Operations 列表 | NOT_GENERATED：无项目 ID | 具体项目 documents URL 待登记 | 不是候选，需重抽 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+政治表显示两个结构问题：2000s 只有三个明确方向性位置，未达到至少 4 且为偶数；P-08–P-11 和 P-16 没有最终条目身份。Congress.gov 与 GovTrack 不能因为页面不同就被算作两个独立制度名录；需要 Federal Register 和 World Bank 的冻结字节才能支撑异质性。
+
+#### 商业（16 个初步位置）
+
+| 候选／名录条目 | T | 截止日 | T 前 `as_of_packet` 锚点 | `packet_hash` | `reveal_source`（仅位置） | `candidate_activity` | `target_population` | `split_stratum` | 审计结论 |
+|---|---|---|---|---|---|---|---|---|---|
+| B-01 SEC Tesla S-1 | 2010-01-29，待 filing index 复核 | 2020-01-29 | EDGAR 初始 S-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-02 SEC LinkedIn S-1 | 2011-04-29，待复核 | 2021-04-29 | EDGAR 初始 S-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-03 SEC Groupon S-1 | 2011-06-02，待复核 | 2021-06-02 | EDGAR 初始 S-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-04 SEC Zynga S-1 | 2011-07-01，待复核 | 2021-07-01 | EDGAR 初始 S-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-05 SEC Facebook S-1 | 2012-05-03，待复核 | 2022-05-03 | EDGAR 原始 S-1 目录 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-06 SEC Twitter S-1 | 2013-10-03，待复核 | 2023-10-03 | EDGAR 初始 S-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-07 SEC Alibaba F-1 | 2014-05-01，待复核 | 2024-05-01 | EDGAR 初始 F-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-08 SEC Shopify F-1 | 2015-02-12，待复核 | 2025-02-12 | EDGAR 初始 F-1 | NOT_GENERATED | EDGAR 后续 filing | 待核验，知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-09 Kickstarter Pebble 快照 | 月份方向（精确日未定） | 不可计算：须先取得精确 T | Wayback 首次上线快照 | NOT_GENERATED | 历史页面／交付档案 | 仅方向性位置，不是合格候选；知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-10 Kickstarter Oculus Rift 快照 | 月份方向（精确日未定） | 不可计算：须先取得精确 T | Wayback 首次上线快照 | NOT_GENERATED | 历史页面／交付档案 | 仅方向性位置，不是合格候选；知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-11 Kickstarter Coolest Cooler 快照 | 月份方向（精确日未定） | 不可计算：须先取得精确 T | Wayback 首次上线快照 | NOT_GENERATED | 历史页面／交付档案 | 仅方向性位置，不是合格候选；知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-12 Kickstarter Exploding Kittens 快照 | 月份方向（精确日未定） | 不可计算：须先取得精确 T | Wayback 首次上线快照 | NOT_GENERATED | 历史页面／交付档案 | 仅方向性位置，不是合格候选；知名度偏高 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-13 YC Winter 2011 roster | 年份方向（精确日未定） | 不可计算：须先取得精确 T | 批次完整名单快照 | NOT_GENERATED | YC 批次／公司档案 | 仅方向性位置，不是合格候选；完整性未证 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-14 YC Winter 2012 roster | 年份方向（精确日未定） | 不可计算：须先取得精确 T | 批次完整名单快照 | NOT_GENERATED | YC 批次／公司档案 | 仅方向性位置，不是合格候选；完整性未证 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-15 YC Winter 2013 roster | 年份方向（精确日未定） | 不可计算：须先取得精确 T | 批次完整名单快照 | NOT_GENERATED | YC 批次／公司档案 | 仅方向性位置，不是合格候选；完整性未证 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-16 YC Winter 2014 roster | 年份方向（精确日未定） | 不可计算：须先取得精确 T | 批次完整名单快照 | NOT_GENERATED | YC 批次／公司档案 | 仅方向性位置，不是合格候选；完整性未证 | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+商业表不是 16 个有效案例：它是 8 个高知名度 S-1/F-1 示例、4 个高知名度众筹示例和 4 个尚未证明“完整名单”的批次槽位。它没有证明普通案例达到三分之一，也没有证明 2000s 层满足最小偶数配额。
+
+### 12.4 配额、缺口与分类
+
+| 检查项 | 当前审计结果 | 分类 | 能否靠扩展名录修复 |
+|---|---|---|---|
+| 每域至少两种异质名录 | 三域都有方向性来源；政治的 Congress/GovTrack 只是同一法案总体的镜像 | 当前证据不足 | 可以：冻结 Federal Register／World Bank，商业冻结 EDGAR／Wayback，技术冻结专利／论文或注册总体 |
+| 每域至少 12 例 | 三张表各有 16 个“位置”，但大量是槽位或未核验条目 | 当前证据不足 | 可以：从已冻结总体机械抽取，不得手工补名人 |
+| 全池至少 48 例 | 尚无 48 个合格案例 | 当前证据不足 | 原则上可以，但须各域先过单域门槛 |
+| 每个领域×十年至少 4 例且为偶数 | 技术 2012 后受 T+15 排除；政治 2000s 初步只有 3；商业 2000s 不足 | 可扩展修复，但本轮不满足 | 可以：扩展相同规则下的总体；不能把另一十年挪来凑数 |
+| 普通案例至少三分之一 | 当前示例明显偏名人／明星案例，普通比例 UNKNOWN | 当前证据不足 | 可以：预先定义 T 时关注度规则，从完整总体抽样 |
+| 每域等量储备池 | 没有未读、未准备的 reserve manifest | 当前证据不足 | 可以：先冻结并隔离储备；不得把已读候选当储备 |
+| 每案 T 前包与哈希 | 没有任何本轮最终 packet 可生成协议哈希 | 当前证据不足 | 可以：保存历史字节、规范排序并在揭晓前哈希 |
+| 当前网页能否替代历史档案 | 不能；动态页、403、重定向或当前状态都不证明 T 时可见内容 | **声明范围内不可执行** | 只能通过官方归档／保存字节改变；不能靠改写协议修复 |
+| 直接提交 holdout manifest | 不满足身份、分层、普通案例、包哈希与储备条件 | **本批停止** | 先完成新池；不得修补或重分配旧失败批次 |
+
+“声明范围内结构性不可执行”只用于最后一行的当前做法：在没有冻结的历史字节、精确条目身份和独立角色隔离时，无法诚实声称 T 前证据成立。它不等于这些官方名录永远不可用，也不许可降低协议门槛。
+
+### 12.5 冻结决策与下一步
+
+**冻结决策：本轮不提交新 manifest，不生成 split salt，不做随机分配，不运行五道闸、基线或结局揭晓。** 原因是 48 个位置中没有一批已证明同时满足精确条目身份、统一观察窗、T 前包、可复算哈希、十年层偶数、普通案例比例和等量储备。提交一个“看起来有 48 行”的文件会把候选库存伪装成 holdout，是协议所禁止的。
+
+这不是“历史方法失败”的结论，而是“候选池证据尚未达到冻结条件”。可扩展的修复路径是：
+
+1. 每域先冻结至少两种真实异质 registry 的版本、覆盖区间、查询式、归档位置和排除规则；
+2. 从完整总体机械抽样，逐案补齐 `case_id`、registry entry、精确 `T`、`candidate_activity`、`target_population`、`outcome_window`、`split_stratum`；
+3. 保存只含 `T` 前材料的规范化包，记录每个文件的日期／存档锚点、固定顺序和 SHA-256；
+4. 逐案登记只可在最后打开的 `reveal_source`，不读取其内容；
+5. 先检查三域配额、普通案例和未读储备，再由独立分配者生成一次性 salt；
+6. 在此之前，继续积累既有未来到期判断卡；只有未来卡到期后的真实样本外检查，才提供不依赖历史名录冻结的样本外记录。
+
+本审计不能证明五道闸的相对判别增量。只有完成冻结、角色隔离、同输入基线、结局揭晓和 `ΔD` 计算后，才可以报告该指标；本节没有任何 `PASS`、`VETO`、`S`、`D` 或 `ΔD` 结果。
+
+**[自我约束——可删除]** 本节沿用现行协议的 12/48、分层偶数、普通案例三分之一、等量储备、T+15/T+10、packet_hash 和独立角色要求。这些精确门槛不是用户 founding ask 的原话，而是本项目为避免幸存者偏差、后见之明和伪留存集而写下的自我约束；若未来删除其中任一项，必须在演化记录说明理由，并重新判断既有审计是否仍可比。

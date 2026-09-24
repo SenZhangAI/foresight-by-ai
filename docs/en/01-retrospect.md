@@ -372,3 +372,127 @@ Historical fact is the foundation of every argument here, so each item is tagged
 - China's 2019 mobile-payment consumption exceeding US$6.5 trillion: an industry-media figure whose different statistical definitions diverge widely; the body has been rewritten to "runs into the trillions of dollars" and states explicitly that the conclusion there does not rest on the number
 - Retail hydrogen above $30 per kilogram (California): industry and media reporting; no first-hand price series was obtained here. It is used only to indicate the direction of the hydrogen car's cost, and that direction is precisely the attack point section 5 names as able to overturn Gate 3's exclusivity
 - "QR-code merchant costs are far below NFC terminal costs": at present only a qualitative consensus in industry media, with no strong quantitative literature found; [BIS Working Paper 1011](https://www.bis.org/publications/working-paper-1011-big-techs-qr-code-payments-and-financial-inclusion.pdf) supports the mechanism that "QR codes let merchants without POS terminals get connected," but provides no cost-comparison figures
+
+## 12. Feasibility audit and freeze decision for historical candidate registries (2026-09-25)
+
+### 12.1 What this audit examined
+
+This is a **pre-freeze audit**, not a historical backtest and not a holdout result. The object of review is the set of registries permitted by the protocol: registries that existed at `T`, permit enumeration of a population, and do not select entries by later success or failure. During the audit, only the locations of `reveal_source` were registered; outcome contents were not opened. Nothing below may therefore be described as a success, failure, diffusion, or withdrawal sample.
+
+The execution date for this round is 2026-09-25. The protocol's uniform technology window `T+15` therefore requires `T ≤ 2011-09-25`; politics/public policy and business use `T+10`, requiring `T ≤ 2016-09-25` (the final manifest must calculate this from exact dates). These are protocol constraints and are not relaxed because a candidate is famous or easy to verify.
+
+### 12.2 Registry-level audit
+
+| Domain | Enumerable registry and version anchor | Coverage and inclusion rule | Pre-registered reveal location | Current verdict |
+|---|---|---|---|---|
+| Technology | USPTO Patent Public Search / Official Gazette; WIPO PATENTSCOPE; arXiv categories and first `v1`; ClinicalTrials.gov historical registrations (mainly post-2007) | Use application-publication date, WO international-publication date, first public `v1` date, or first public registration date as `T`; retain ungranted, withdrawn, low-attention, and unknown-status entries | Patent Center / PATENTSCOPE dossier / later paper and productization records / ClinicalTrials.gov archive | **Registry feasible, not currently freezable**; post-2012 entries cannot enter this technology batch |
+| Politics / public policy | Congress.gov / GovTrack / GovInfo bill sets; Federal Register Proposed Rules; World Bank Projects & Operations | Use formal bill number, publication date, or project approval date as `T`; do not use successful bills, final rules, or completed-project lists as the population | Bill history; later Federal Register records; World Bank project documents | **Registry feasible, not currently freezable**; Congress.gov and GovTrack are mainly two database views of the same bill population, not two independent institutional sources |
+| Business | SEC EDGAR S-1/F-1 filing index; Kickstarter launch-time Wayback snapshots; historical complete YC batch rosters | Use initial filing, first launch, or batch-publication date as `T`; retain withdrawn, dormant, and low-attention entries; do not reconstruct the population from today's survivors | Later EDGAR filings; crowdfunding snapshots and delivery archives; batch archives and company-status records | **Registry feasible, not currently freezable**; current examples are too concentrated in famous cases and the ordinary-case fraction is unknown |
+
+The live checks also exposed the execution boundary: the arXiv archive showed current and historical categories but not per-entry `v1` dates; the SEC full-index entry returned 403; the Federal Register entry redirected to a blocked page; and the World Bank project entry was dynamic and did not return reproducible content. These facts show that a registry entrance exists, not that T-before bytes have been obtained for hashing. They are not outcome evidence, and current web pages may not substitute for historical snapshots.
+
+### 12.3 Case-level inventory (locations registered; outcomes unread)
+
+The three independent audit legs supplied the 48 preliminary positions below. `NOT_GENERATED` is the honest state: without a frozen, canonical `as_of_packet`, there is no protocol-level hash. `Pending verification` is not a valid case and may not enter the manifest, random assignment, or gate judging.
+
+#### Technology (16 preliminary positions)
+
+| Candidate / registry entry | T | Window deadline | T-before `as_of_packet` anchor | `packet_hash` | `reveal_source` (location only) | `candidate_activity` | `target_population` | `split_stratum` | Audit verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| T-01 USPTO US20100137140A1 | 2010-06-03, bibliography pending | 2025-06-03 | USPTO publication / bibliographic record | NOT_GENERATED: file set not frozen | Corresponding Patent Center file | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-02 USPTO US20070282930A1 | 2007-11-29, pending | 2022-11-29 | USPTO Gazette / application text | NOT_GENERATED: file set not frozen | Corresponding Patent Center file | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-03 USPTO 2009 publication search slot | Undetermined | Undetermined | Pre-frozen keyword search result | NOT_GENERATED: no final entry | Patent Center file | Not a case; redraw from registry | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-04 USPTO 2010 publication search slot | Undetermined | Undetermined | Pre-frozen keyword search result | NOT_GENERATED: no final entry | Patent Center file | Not a case; redraw from registry | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-05 WIPO WO 2008–2010 search slot | Undetermined | Undetermined | PATENTSCOPE bibliography / publication PDF | NOT_GENERATED: no publication number | PATENTSCOPE dossier | Not a case; redraw from registry | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-06 WIPO WO 2009–2011 search slot | Undetermined | Undetermined | PATENTSCOPE bibliography / publication text | NOT_GENERATED: no publication number | PATENTSCOPE dossier | Not a case; redraw from registry | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-07 arXiv:1001.4538 v1 | 2010, page check pending | Corresponding date in 2025 | arXiv abs v1 / v1 PDF | NOT_GENERATED: bytes not saved | Later versions / citation / adoption locations | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-08 arXiv:1003.0145 candidate | 2010, ID/title pending | Corresponding date in 2025 | arXiv abs v1 / v1 PDF | NOT_GENERATED: identity pending | Later versions and adoption locations | Not frozen | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-09 arXiv cs.RO/eess.SY date slot | Undetermined | Undetermined | Category date list and v1 PDF | NOT_GENERATED: no ID | Later versions / deployment record | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-10 arXiv cs.CL 2011 date slot | Undetermined | Undetermined | Category archive and v1 PDF | NOT_GENERATED: no ID | Later papers / software adoption | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-11 arXiv cs.DC/cs.OS 2011 date slot | Undetermined | Undetermined | Category archive and v1 PDF | NOT_GENERATED: no ID | Later deployment / software record | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-12 ClinicalTrials.gov NCT00433511 | 2007-03-07, archive check pending | 2022-03-07 | Earliest archived registration | NOT_GENERATED: historical version not saved | ClinicalTrials.gov archive | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-13 ClinicalTrials.gov NCT005xxxxx slot | Undetermined | Undetermined | Initial archived record | NOT_GENERATED: no NCT ID | Archive history | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-14 ClinicalTrials.gov NCT006xxxxx slot | Undetermined | Undetermined | Initial archived record | NOT_GENERATED: no NCT ID | Archive history | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-15 ClinicalTrials.gov NCT008xxxxx slot | Undetermined | Undetermined | Initial archived record | NOT_GENERATED: no NCT ID | Archive history | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| T-16 ClinicalTrials.gov NCT010xxxxx slot | Undetermined | Undetermined | Initial archived record | NOT_GENERATED: no NCT ID | Archive history | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+Only T-01, T-02, T-07, and T-12 have concrete identifiers that can be checked further; the rest are slots for mechanical extraction from a frozen population, not 12 additional valid cases. Even after completion, technology must be rechecked for 2000s / 2010–2011 even strata, at least one-third ordinary cases, and an equal unread reserve.
+
+#### Politics / public policy (16 preliminary positions)
+
+| Candidate / registry entry | T | Window deadline | T-before `as_of_packet` anchor | `packet_hash` | `reveal_source` (location only) | `candidate_activity` | `target_population` | `split_stratum` | Audit verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| P-01 H.R.2454, 111th | 2009-05-15, pending | 2019-05-15 | GovInfo initial BILLS package | NOT_GENERATED | Congress.gov history | Pending; likely high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-02 H.R.1, 111th | 2009-01-26, pending | 2019-01-26 | Congress.gov initial text | NOT_GENERATED | Bill history | Pending; likely high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-03 H.R.4173, 111th | 2009-12-02, pending | 2019-12-02 | Congress.gov initial text | NOT_GENERATED | Bill history | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-04 H.R.4872, 111th | 2010-03-17, pending | 2020-03-17 | Congress.gov initial text | NOT_GENERATED | Bill history | Pending; likely high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-05 S.744, 113th | 2013-06-27, pending | 2023-06-27 | Congress.gov initial record | NOT_GENERATED | Bill history | Pending; likely high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-06 H.R.2, 114th | 2015-01-06, pending | 2025-01-06 | Congress.gov initial text | NOT_GENERATED | Bill history | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-07 FR 2010-32061 | 2010-12-28, archive pending | 2020-12-28 | 75 FR 81722 original PDF | NOT_GENERATED | Later Federal Register archive | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-08 EPA proposed-rule search slot | 2011-07-07 direction, number pending | Undetermined | Original Federal Register publication | NOT_GENERATED: no document number | Federal Register archive | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-09 USDA proposed-rule search slot | 2012-01-26 direction, number pending | Undetermined | Original Federal Register publication | NOT_GENERATED: no document number | Federal Register archive | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-10 CMS proposed-rule search slot | 2013-07-19 direction, number pending | Undetermined | Original Federal Register publication | NOT_GENERATED: no document number | Federal Register archive | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-11 FCC proposed-rule search slot | 2014-05-15 direction, number pending | Undetermined | Original Federal Register publication | NOT_GENERATED: no document number | Federal Register archive | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-12 World Bank P113771 | 2010-06-30, approval pending | 2020-06-30 | Project detail / T-before project files | NOT_GENERATED: version not saved | Project documents | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-13 World Bank P121821 | 2010-09-30, approval pending | 2020-09-30 | Project detail / T-before project files | NOT_GENERATED: version not saved | Project documents | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-14 World Bank P123322 | 2011-06-21, approval pending | 2021-06-21 | Project detail / T-before project files | NOT_GENERATED: version not saved | Project documents | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-15 World Bank P133438 | 2012-11-01, approval pending | 2022-11-01 | Project detail / T-before project files | NOT_GENERATED: version not saved | Project documents | Pending | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| P-16 World Bank project-list slot | 2013 direction, project ID pending | Undetermined | Projects & Operations list | NOT_GENERATED: no project ID | Specific documents URL pending | Not a case; redraw | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+The politics table has two structural problems: the 2000s currently has only three directional positions, not at least four and even; and P-08–P-11 and P-16 have no final identities. Congress.gov and GovTrack cannot be counted as two independent institutional registries merely because their pages differ; frozen Federal Register and World Bank bytes are needed for heterogeneity.
+
+#### Business (16 preliminary positions)
+
+| Candidate / registry entry | T | Window deadline | T-before `as_of_packet` anchor | `packet_hash` | `reveal_source` (location only) | `candidate_activity` | `target_population` | `split_stratum` | Audit verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| B-01 SEC Tesla S-1 | 2010-01-29, filing check pending | 2020-01-29 | Initial EDGAR S-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-02 SEC LinkedIn S-1 | 2011-04-29, pending | 2021-04-29 | Initial EDGAR S-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-03 SEC Groupon S-1 | 2011-06-02, pending | 2021-06-02 | Initial EDGAR S-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-04 SEC Zynga S-1 | 2011-07-01, pending | 2021-07-01 | Initial EDGAR S-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-05 SEC Facebook S-1 | 2012-05-03, pending | 2022-05-03 | Initial EDGAR S-1 directory | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-06 SEC Twitter S-1 | 2013-10-03, pending | 2023-10-03 | Initial EDGAR S-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-07 SEC Alibaba F-1 | 2014-05-01, pending | 2024-05-01 | Initial EDGAR F-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-08 SEC Shopify F-1 | 2015-02-12, pending | 2025-02-12 | Initial EDGAR F-1 | NOT_GENERATED | Later EDGAR filing | Pending; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-09 Kickstarter Pebble snapshot | Month-level direction (exact day missing) | Not computable: exact T required | First-launch Wayback snapshot | NOT_GENERATED | Historical page / delivery archive | Directional position only, not a qualified case; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-10 Kickstarter Oculus Rift snapshot | Month-level direction (exact day missing) | Not computable: exact T required | First-launch Wayback snapshot | NOT_GENERATED | Historical page / delivery archive | Directional position only, not a qualified case; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-11 Kickstarter Coolest Cooler snapshot | Month-level direction (exact day missing) | Not computable: exact T required | First-launch Wayback snapshot | NOT_GENERATED | Historical page / delivery archive | Directional position only, not a qualified case; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-12 Kickstarter Exploding Kittens snapshot | Month-level direction (exact day missing) | Not computable: exact T required | First-launch Wayback snapshot | NOT_GENERATED | Historical page / delivery archive | Directional position only, not a qualified case; high attention | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-13 YC Winter 2011 roster | Year-level direction (exact day missing) | Not computable: exact T required | Complete batch-list snapshot | NOT_GENERATED | YC batch / company archive | Directional position only, not a qualified case; completeness unproven | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-14 YC Winter 2012 roster | Year-level direction (exact day missing) | Not computable: exact T required | Complete batch-list snapshot | NOT_GENERATED | YC batch / company archive | Directional position only, not a qualified case; completeness unproven | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-15 YC Winter 2013 roster | Year-level direction (exact day missing) | Not computable: exact T required | Complete batch-list snapshot | NOT_GENERATED | YC batch / company archive | Directional position only, not a qualified case; completeness unproven | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+| B-16 YC Winter 2014 roster | Year-level direction (exact day missing) | Not computable: exact T required | Complete batch-list snapshot | NOT_GENERATED | YC batch / company archive | Directional position only, not a qualified case; completeness unproven | NOT_RECORDED | NOT_RECORDED | NOT_ASSIGNED |
+
+This is not 16 valid business cases: it is eight famous S-1/F-1 examples, four famous crowdfunding examples, and four batch slots whose completeness has not been proved. It does not establish one-third ordinary cases or a 2000s stratum.
+
+### 12.4 Quotas, gaps, and classification
+
+| Check | Current audit result | Classification | Fixable by expanding registries? |
+|---|---|---|---|
+| At least two heterogeneous registries per domain | Directional sources exist in all three domains; Congress/GovTrack are mirrors of one bill population | Evidence currently insufficient | Yes: freeze Federal Register / World Bank, EDGAR / Wayback, and technology patent / paper or registration populations |
+| At least 12 cases per domain | Each table has 16 “positions”, but many are slots or unverified entries | Evidence currently insufficient | In principle yes: mechanically sample from frozen populations; do not fill with famous cases |
+| At least 48 cases overall | No 48 qualified cases exist yet | Evidence currently insufficient | In principle yes, after each domain passes its own floor |
+| At least 4 and even in each domain × decade stratum | Technology excludes post-2012 entries under T+15; politics has only 3 initial 2000s positions; business lacks a 2000s stratum | Fixable by expansion, not met here | Yes, under the same registry rules; moving cases across decades is not a fix |
+| At least one-third ordinary cases | Current examples are strongly famous; ordinary fraction is UNKNOWN | Evidence currently insufficient | Yes: define a T-time attention rule in advance and sample from complete populations |
+| Equal unread reserve per domain | No unread, unprepared reserve manifest exists | Evidence currently insufficient | Yes: freeze and isolate a reserve; read candidates may not become reserve |
+| T-before packet and hash for every case | No protocol-level packet hash can be generated in this audit | Evidence currently insufficient | Yes: save historical bytes, canonicalize ordering, and hash before reveal |
+| Can current pages substitute for historical archives? | No; dynamic pages, 403, redirects, and current status do not prove T-time visibility | **Structurally unexecutable within the stated scope** | Only official archives / saved bytes can change this; changing the protocol cannot |
+| Submit a holdout manifest now | Identity, strata, ordinary fraction, packet hashes, and reserve conditions are unmet | **Stop this batch** | Build a new pool first; do not patch or re-split a failed batch |
+
+“Structurally unexecutable within the stated scope” applies only to the current approach without frozen historical bytes, exact entry identities, and role isolation. It does not mean the official registries can never be used, and it does not permit lowering the protocol floor.
+
+### 12.5 Freeze decision and next step
+
+**Freeze decision: do not submit a new manifest, generate a split salt, run random assignment, run the five gates or baselines, or reveal outcomes in this round.** The reason is that none of the 48 positions has been shown to satisfy exact identity, uniform observation window, T-before packet, reproducible hash, even decade strata, ordinary-case proportion, and an equal unread reserve simultaneously. Submitting a file that merely appears to have 48 rows would disguise candidate inventory as a holdout, which the protocol forbids.
+
+This is not a finding that the historical method failed; it is a finding that candidate-pool evidence has not reached the freeze bar. The expandable repair path is:
+
+1. Freeze at least two genuinely heterogeneous registries per domain, including version, coverage, query, archive location, and exclusion rules;
+2. Mechanically sample from each complete population and fill `case_id`, registry entry, exact `T`, `candidate_activity`, `target_population`, `outcome_window`, and `split_stratum`;
+3. Save canonical packets containing only T-before materials, with each file's date / archive anchor, fixed order, and SHA-256;
+4. Register each `reveal_source` for opening only at the end, without reading it;
+5. Check domain quotas, ordinary cases, and unread reserve before an independent allocator generates the one-shot salt;
+6. Continue accumulating the existing future due-date cards; only due future cards provide genuine out-of-sample records independent of a frozen historical registry.
+
+This audit cannot prove a relative discrimination increment for the five gates. That metric may be reported only after freeze, role isolation, same-input baselines, outcome reveal, and `ΔD` computation. This section contains no `PASS`, `VETO`, `S`, `D`, or `ΔD` result.
+
+**[Self-imposed constraints — removable]** This section carries forward the protocol's 12/48 floors, even strata, one-third ordinary cases, equal reserve, T+15/T+10 windows, `packet_hash`, and independent-role requirements. These exact thresholds are not verbatim in the user's founding ask; they are constraints this project imposed to prevent survivorship bias, hindsight, and pseudo-holdout claims. If any is removed later, the evolution log must state why and whether this audit remains comparable.
