@@ -17,7 +17,7 @@ As unit reasoning cost falls, systems will generate, compare, and revise in para
 
 [J-019](90-ledger.md#j-019--token-saving-is-a-window) adds that saving tokens itself is only a window, not durable scarcity. I stake more on [J-018](90-ledger.md#j-018--parallel-reasoning-before-long-horizon-autonomy) and less on [J-019](90-ledger.md#j-019--token-saving-is-a-window). The strongest opposing mechanism is energy, chip supply, or service queues locking cost reductions inside single calls; if parallelism does not rise, this section must be revisited.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-018, J-019, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-018, J-019 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 2. Finding things becomes more expensive than making them
 
@@ -30,7 +30,7 @@ Code, images, video, and copy will become easier to synthesize. [J-020](90-ledge
 
 [J-021](90-ledger.md#j-021--first-hand-field-signals-earn-a-premium-first) judges that first-hand signals will earn a premium earlier than second-hand expression. This is consistent with the common direction that content will become abundant, but the project makes the more specific bet on unrecorded field reality rather than abstract “quality.” The strongest opposing mechanism is high-fidelity simulation becoming widely accepted as a substitute for observation; if buyers stop distinguishing field reality from recombination, downgrade [J-021](90-ledger.md#j-021--first-hand-field-signals-earn-a-premium-first).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-020, J-021, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-020, J-021 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 3. Being seen is not being believed
 
@@ -43,7 +43,7 @@ When everyone can receive personalized content, attention is no longer only abou
 
 [J-023](90-ledger.md#j-023--attention-shifts-toward-fulfilled-commitments) says attention will move from expression toward relationships and commitments. [J-024](90-ledger.md#j-024--credentials-re-layer-landscape-only) remains a weaker landscape only: credentials may be re-layered, but the institutional destination is unclear. The strongest opposing mechanism is a platform internalizing reliable identity and liability so completely that users need no new credential layer; if screening costs keep falling after that internalization, [J-023](90-ledger.md#j-023--attention-shifts-toward-fulfilled-commitments) must be rewritten.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-022, J-023, J-024, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-022, J-023, J-024 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 4. Fewer people do the steps; more coordination is required
 
@@ -56,7 +56,7 @@ AI first lowers the cost of documents, scheduling, translation, and plans, then 
 
 [J-026](90-ledger.md#j-026--responsibility-boundaries-remain) judges that responsibility boundaries will not disappear along with production capacity. It is a structural consequence, not a forecast of headcount. The strongest opposing mechanism is regulation assigning all responsibility to platforms, leaving organizations without a need to redesign boundaries; if high-value use cases routinely transfer all liability to platforms, reduce confidence in [J-026](90-ledger.md#j-026--responsibility-boundaries-remain).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-025, J-026, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-025, J-026 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 5. Compute gets cheap; access points remain expensive
 
@@ -69,7 +69,7 @@ Falling reasoning cost will not distribute gains evenly. [J-027](90-ledger.md#j-
 
 [J-028](90-ledger.md#j-028--access-becomes-a-bargaining-node-landscape-only) says data, distribution, and liability access may become new bargaining nodes, but it remains a weak landscape and should not directly become an opportunity. The strongest opposing mechanism is complete commoditization of models, energy, and distribution, eliminating access rents; if access prices lose their structural premium, [J-028](90-ledger.md#j-028--access-becomes-a-bargaining-node-landscape-only) fails.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-027, J-028, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-027, J-028 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 6. More choices do not automatically create new desires
 
@@ -82,7 +82,7 @@ Falling reasoning cost will not distribute gains evenly. [J-027](90-ledger.md#j-
 
 [J-030](90-ledger.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only) extends the picture: AI can mediate coordination but cannot mediate shared experience. This is a weaker but useful structural landscape. The strongest opposing mechanism is a generational shift that treats persistent AI interaction as sufficiently real reciprocal relationship; if longitudinal behavior shows agent-mediated relationships reliably replacing shared experience, rewrite [J-030](90-ledger.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-030, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-030 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## Boundary of this layer
 

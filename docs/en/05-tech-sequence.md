@@ -16,7 +16,7 @@ As throughput rises and latency falls, workflows no longer need to be built arou
 
 But it only opens a possibility. It does not solve “what did I do last time?” or “why did I choose this route?” The next capability therefore is not more candidates, but context that survives.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-001 and J-006, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20. Their audience ceiling is million-scale model developers, cloud providers, and infrastructure operators — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-001, J-006 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 2. Next comes traceable context and memory
 
@@ -26,7 +26,7 @@ The first layer is retrievable short-term context: separate tasks, evidence, dec
 
 Once memory has sources, the system can revise one part when new evidence arrives instead of rewriting everything. Reliable autonomous execution now has a necessary internal state, but it still has no right to touch the outside world.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-007 and J-008, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20. Their audience ceiling is million-scale professionals using knowledge tools, and organizations needing auditable collaboration — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-007, J-008 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 3. Then comes autonomous execution bounded by permissions
 
@@ -36,7 +36,7 @@ A system without reliable memory can only repeat suggestions; a system with memo
 
 This does not remove safety from the capability chain. It recognizes two different gates: completing an action sequence in a closed environment, and knowing when not to continue in a changing world. The former arrives first; the latter must wait for better state observation and evaluation.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-009 and J-010, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20. Their audience ceiling is million-scale organizations and professionals adopting constrained workflows, high-liability organizations, and agent-system operators — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-009, J-010 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 4. Multimodal generation gains consistency before long-range coherence
 
@@ -46,7 +46,7 @@ Only later comes long-duration coherence: a story preserves causality, space, an
 
 The sequence claim is narrower: cross-modal resemblance arrives before cross-time validity.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-011 and J-012, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20. Their audience ceiling is million-scale content and product teams and long-horizon content, R&D, and operations organizations — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-011, J-012 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 5. Tools and environment interfaces let capability leave the window
 
@@ -56,7 +56,7 @@ An interface is a handle, not a room. High-value work also needs an observable, 
 
 Only then does the system have an “acting body.” But acting is not knowing that an action was correct. As interfaces multiply, so do error paths; evaluation has to catch up.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-013 and J-014, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20. Their audience ceiling is million-scale organizations and developers using tool calls, agent-system operators, and high-liability organizations — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-013, J-014 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 6. Evaluation first covers formal properties, then the open world
 
@@ -83,7 +83,7 @@ Lower unit reasoning cost (J-001)
 
 The claim is not that a later capability must wait for an earlier one to become perfect. It is that reliable use of the later capability treats the earlier one as a substrate. If an upstream judgment is falsified, follow the judgment dependency chain downstream and review the chain instead of editing only the last paragraph.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-015 and J-016, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20 (the 12 cards listed in the ladder above — J-001 and J-006–J-016 — all fail it too). Their audience ceiling is million-scale model developers, enterprise evaluators, auditors, and regulatory or evaluation bodies — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-015, J-016, J-001, J-006 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 7. Boundary of the chain
 
@@ -91,4 +91,4 @@ The strongest opposing mechanism is not simply “technology may slow down.” S
 
 To observe this chain, do not begin by asking which company wins. Ask whether three visible changes occur in sequence: unit reasoning cost continues to fall; systems begin saving sourced state rather than only chat transcripts; and high-value tools offer simulation, permissions, and result checks before expanding autonomous authority. Observable order is a better object for a bet than an attractive end state.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](01-retrospect.md)**: J-001 and J-006, cited in this section, were ruled **FAIL** on Gate 1 (audience scale) in the review of 2026-09-20 (this section discusses the boundary of the chain and cites the same two already-downgraded cards). Their audience ceiling is million-scale model developers, cloud providers, and infrastructure operators — a technical precondition, not a daily society-wide activity. This section asserts an arrival order for technical capability only; it makes no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.” The cards and the verdicts are in the [judgment ledger · review log](90-ledger.md#8-review-log).
+> **Scope tag · Gate 1**: The cited J-001, J-006 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.

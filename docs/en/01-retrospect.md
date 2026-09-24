@@ -294,6 +294,12 @@ Per §1.2 of this project's methodology, once independent reasoning is complete 
 
 ## 9. How these rules enter the reasoning that follows
 
+### Scope tags in downstream pages
+
+A downstream paragraph may carry a compact **scope tag** instead of repeating the full downgrade explanation. The tag is not a new verdict: it means that the cited judgment(s) failed Gate 1 (audience scale) in the 2026-09-20 ledger review, so their ceiling is the named occupational, organizational, or institutional audience. The paragraph must not be read as a society-wide trend claim. The cited `J-NNN` links remain the traceable card-level record; the Gate 1 test is above in this document, and the complete per-card record is in the [ledger review log](90-ledger.md#8-review-log).
+
+This shorthand preserves two things locally: **which judgments are being scoped** and **what readers must not infer**. It deliberately does not repeat the full historical evidence or the audience estimate in every section; those belong here and in the ledger, where a rule change can update them once rather than leave bilingual copies to drift.
+
 The seven judgments distilled here are already recorded in the ledger, numbered [J-066](90-ledger.md#j-066--the-five-gates-are-necessary-not-sufficient) through [J-072](90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend). They hold a peculiar position in this project's dependency graph: **These seven are the only judgments in the whole ledger that do not depend on J-001**, of which J-067 through J-071 are roots (no upstream at all) while J-066 and J-072 stand only on those five. Every other judgment stands on the technical judgment that "unit reasoning cost keeps falling," whereas these seven come out of historical retrospect and need no premise about AI at all—if AI stopped improving tomorrow, they would still hold.
 
 So who should change what behavior:

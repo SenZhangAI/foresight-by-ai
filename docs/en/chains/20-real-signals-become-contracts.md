@@ -43,7 +43,7 @@ C1’s [J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-co
 
 Only when the latter three layers matter to the task can data earn structural premium. Provenance for ordinary marketing copy does not automatically become a valuable asset; an observation that determines a shutdown or treatment path can push error cost into the contract.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-005 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ## IV. Second step: why high-liability settings contract first
 
@@ -57,7 +57,7 @@ The buyer therefore purchases not “more data,” but a bounded commitment pack
 
 This extends [J-033](../90-ledger.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself) and [J-034](../90-ledger.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials): verifiable records of real interventions may be worth more than explanations, while synthetic evidence may be accepted first in low-liability settings and real trials retained in high-liability settings.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-033, J-034, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-033, J-034 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ## V. Third step: pass the opportunity-durability gate
 
@@ -93,4 +93,4 @@ This is not automatically a durable business. An independent value layer exists 
 
 > **Current status**: This is a testable mid-term reasoning chain, not a conclusion about all data markets. The full judgment card is [J-055](../90-ledger.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks). Every written chain, and every direction announced but not yet written, is listed in the [chain registry](../../../README.en.md#chain-registry).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, J-039, J-055, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-005, J-039, J-055 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.

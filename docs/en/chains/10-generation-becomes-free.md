@@ -68,7 +68,7 @@ The independence of the three means **none of them has to work miracles**. As lo
 
 > See [judgment ledger J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-001, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-001 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 
 ---
@@ -92,7 +92,7 @@ Anything formalizable can be automatically checked by the same force; and genera
 
 > See [judgment ledger J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-002 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 
 ### But one residue cannot be absorbed
@@ -111,7 +111,7 @@ So what is scarce is not “the ability to select,” but **the input selection 
 
 > See [judgment ledger J-003](../90-ledger.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-003, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-003 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 
 ---
@@ -139,7 +139,7 @@ What genuinely cannot be copied is the other half: the **right to reverse across
 
 > See [judgment ledger J-065](../90-ledger.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse). The original judgment, [J-004](../90-ledger.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), is kept in the ledger rather than deleted, with status now `REVISED`—keeping it is what makes it visible how this step was turned back by the project’s own opportunity-durability gate.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 
 ---
@@ -156,7 +156,7 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 
 > See [judgment ledger J-005](../90-ledger.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-005, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-005 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 
 ---
@@ -173,7 +173,7 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 - ❌ **Generic “AI output quality assurance / selection” tools**—[J-002](../90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, J-003, J-005, J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-002, J-003, J-005, J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ### Structural consequence (Exit B): connection will multiply faster than strong relationships
 
@@ -183,7 +183,7 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-017, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-017 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ---
 
@@ -201,7 +201,7 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) fails, the premise of “extremely abundant generation” itself does not hold, and everything afterward is void. I judge this probability to be low (because the three decline channels are mutually independent), but it is the only mechanism capable of overturning the entire chain in one stroke.
 **Signal that would make me withdraw it**: The falsification condition for [J-001](../90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) is triggered.
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-001, J-003, J-065, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-001, J-003, J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ---
 
@@ -212,4 +212,4 @@ If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001
 
 > C2 and C3 are both written as testable successor chains: [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md) continues along the raw-signal line, while [C3 · Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits](30-power-land-and-permits.md) takes apart the premise this chain has quietly assumed throughout—that compute can be had as long as you are willing to pay for it. Every chain's identifier, topic, and status is listed in the [chain registry](../../../README.en.md#chain-registry).
 
-> **Downgraded by the diffusion gate to an occupational/organizational judgment; see [01-retrospect](../01-retrospect.md)**: J-002, J-005, J-035, cited in this section, were downgraded by Gate 1 (audience scale). Their audience ceiling is the corresponding occupational/organizational scale; they make no society-level trend claim and may not be restated in the voice of “the whole of society,” “generally,” or “becomes the norm.”
+> **Scope tag · Gate 1**: The cited J-002, J-005, J-035 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
