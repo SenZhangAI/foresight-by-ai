@@ -18,6 +18,15 @@
 - [7. Formal judgment and opportunity index](#7-formal-judgment-and-opportunity-index)
 - [8. Review log](#8-review-log)
 - [9. External-comparison sources for this round](#9-external-comparison-sources-for-this-round)
+- [10. Judgment cards for technology and cross-domain chains](#10-judgment-cards-for-technology-and-cross-domain-chains)
+- [11. Judgment cards for the far-term social landscape](#11-judgment-cards-for-the-far-term-social-landscape)
+- [12. Pre-publication checklist](#12-pre-publication-checklist)
+- [13. Judgment cards distilled from the historical retrospective](#13-judgment-cards-distilled-from-the-historical-retrospective)
+- [14. Judgment cards for the C4 embodied-intelligence chain](#14-judgment-cards-for-the-c4-embodied-intelligence-chain)
+- [15. Judgment cards for the C5 biology-and-medicine chain](#15-judgment-cards-for-the-c5-biology-and-medicine-chain)
+- [16. Judgment cards for the C6 education-and-skill-formation chain](#16-judgment-cards-for-the-c6-education-and-skill-formation-chain)
+- [17. Judgment cards for the C7 social-consequence chain](#17-judgment-cards-for-the-c7-social-consequence-chain)
+- [18. Judgment cards for the C8 upstream-materials-and-climate-coupling chain](#18-judgment-cards-for-the-c8-upstream-materials-and-climate-coupling-chain)
 - [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md)
 
 ## 1. How to use this ledger
