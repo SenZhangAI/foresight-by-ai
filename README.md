@@ -23,7 +23,7 @@
 | 读社会传导 | [技术先到，权力后到](docs/zh/chains/70-capability-to-social-consequences.md) · [J-087–J-091](docs/zh/90-ledger.md) | 能力先改变组织中的任务与监督，再通过劳动、制度、资本和需求传导；不能从 benchmark 直接跳到就业结论。 | 中等；跨国长期组织数据不足，技术不是唯一发动机。 |
 | 读上游风险 | [芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](docs/zh/chains/80-fab-materials-and-climate.md) · [J-092–J-095](docs/zh/90-ledger.md) | 真正的韧性约束可能在已验证的材料、设备、工艺转换和公用工程，而不只是名义上的第二供应商。 | 中等；跨企业资格周期、多场址损失、保险与成本分摊序列仍缺。 |
 
-想先看一个故事，读 C1；想看身体、照护和物理劳动，读 C4；想检验方法，读[历史回顾](docs/zh/01-retrospect.md)；想找可下注方向，读[商机候选](docs/zh/40-opportunities.md)。
+想先看一个故事，读 [C1](docs/zh/chains/10-generation-becomes-free.md)；想看身体、照护和物理劳动，读 [C4](docs/zh/chains/40-embodied-intelligence.md)；想检验方法，读[历史回顾](docs/zh/01-retrospect.md)；想找可下注方向，读[商机候选](docs/zh/40-opportunities.md)。
 
 要质疑这里的判断，请从[如何反驳这里的判断](CONTRIBUTING.md)进入，用卡片自己的证伪条件提出反例，而不是只说结论“不像”。
 
