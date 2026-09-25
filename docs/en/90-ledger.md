@@ -34,7 +34,7 @@ A testable judgment must contain every field below. J-001–J-086 are pre-migrat
 - **Time window**: the interval in which the judgment is expected to occur or remain valid.
 - **Falsifier**: one concrete, observable event or data result that would make the author admit the judgment is wrong.
 - **Leading indicator**: an observable signal expected to move before the outcome, with its observation frequency or source.
-- **Confidence**: high / medium / low. Low-confidence items remain landscape only and do not enter the opportunity list.
+- **Confidence**: canonical values are `High` / `Medium` / `Low` / `Low (landscape only)`; formal field values have no sentence-final punctuation. Low-confidence items remain landscape only and do not enter the opportunity list.
 - **depends-on**: the prerequisite `J-NNN` judgments. Write `—` when there is no dependency; never use a vague “see above.”
 - **Strongest opposing mechanism**: the alternative mechanism or counterexample most capable of invalidating the judgment.
 - **Against consensus**: the three comparison elements — where it agrees, where it diverges or what the evidence boundary is, and why the judgment is retained or confidence lowered; write “unknown” explicitly when the round is incomplete.
@@ -56,7 +56,7 @@ A testable judgment must contain every field below. J-001–J-086 are pre-migrat
 > - **Time window**: 2026-09-18 to 2029-09-18.
 > - **Falsifier**: By 2029-09-18, buyers still broadly pay a premium for proposal quantity rather than verifiable outcomes, without supply or regulatory constraints explaining it.
 > - **Leading indicator**: Unit generation cost and the median amount buyers pay for human selection, recorded every six months.
-> - **Confidence**: Medium (example value).
+> - **Confidence**: Medium (example value)
 > - **depends-on**: —
 > - **Strongest opposing mechanism**: Regulation, liability, or scarce inputs may prevent proposal supply from expanding, preserving a quantity premium.
 > - **Against consensus**: Unknown; this example does not perform an external comparison.

@@ -32,8 +32,8 @@ LANGS = ("zh", "en")
 # The dependency graph uses a full-width arrow in Chinese and ASCII in English.
 GRAPH_ARROW = {"zh": u"\u2190", "en": "<-"}
 CONFIDENCE = {
-    "zh": {u"\u9ad8", u"\u4e2d", u"\u4f4e"},
-    "en": {"high", "medium", "low"},
+    "zh": {u"\u9ad8", u"\u4e2d", u"\u4f4e", u"\u4f4e\uff08\u4ec5\u56fe\u666f\uff09"},
+    "en": {"High", "Medium", "Low", "Low (landscape only)"},
 }
 CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
 AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
@@ -49,10 +49,9 @@ LEGACY_AUDIENCE_SCALE_MAX = 86
 # it in brackets.
 CONFIDENCE_VALUE = (r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*[:\uff1a]"
                     r"\s*([^\n]*)")
-# A value may carry exactly one qualifier, and only the standing one: the
-# ledger marks low-confidence judgments as landscape-only. Anything else in the
-# brackets is a grade the whitelist does not define.
-CONFIDENCE_QUALIFIER = {"zh": {u"\u4ec5\u56fe\u666f"}, "en": {"landscape only"}}
+# The canonical values include the only allowed landscape qualifier. Punctuation
+# is not optional: sentence-final periods are rejected to keep one spelling per
+# field across both ledgers.
 CARD_FIELDS = {
     "zh": [u"\u63d0\u51fa\u65e5\u671f", u"\u4e00\u53e5\u8bdd\u5224\u65ad", u"\u900f\u955c",
            u"\u63a8\u7406\u94fe", u"\u65f6\u95f4\u7a97", u"\u8bc1\u4f2a\u6761\u4ef6",
@@ -355,29 +354,18 @@ def check_comparison(lang, cards, overview_consensus):
 
 
 def allowed_confidence(lang):
-    """Human-readable description of the values this check accepts."""
-    grades = " / ".join(sorted(CONFIDENCE[lang]))
-    quals = " / ".join(sorted(CONFIDENCE_QUALIFIER[lang]))
-    return "%s, optionally followed by (%s)" % (grades, quals)
+    """Human-readable description of the canonical field values."""
+    return " / ".join(sorted(CONFIDENCE[lang]))
 
 
 def confidence_is_whitelisted(lang, raw):
-    """True when the whole field value states a whitelisted grade.
+    """True only when the complete field value is a canonical value.
 
-    Accepts `低`, `Low.`, `低（仅图景）。`, `Low (landscape only).` — a grade,
-    an optional trailing sentence period, and at most the one standing
-    qualifier. It rejects `中高`, `极高`, `very high` and, since the value is
-    read whole rather than up to the first bracket, `中（偏高）` as well: a
-    bracket is not a place to smuggle a grade the whitelist does not define.
+    Field punctuation is deliberately part of the schema: card values use no
+    sentence-final period. This prevents `中。`, `High.`, and equivalent
+    formatting drift from silently creating a second spelling of the field.
     """
-    value = raw.strip().rstrip(u"\u3002.").strip()
-    m = re.match(u"^([^(\uff08]*)[(\uff08]([^)\uff09]*)[)\uff09]$", value)
-    if m:
-        if m.group(2).strip().lower() not in CONFIDENCE_QUALIFIER[lang]:
-            return False
-        value = m.group(1).strip()
-    return value.lower() in CONFIDENCE[lang]
-
+    return raw.strip() in CONFIDENCE[lang]
 
 def audience_scale_value(body, lang):
     """Return a standalone Audience scale field value, or None.
@@ -2037,6 +2025,11 @@ POSITIVE_CASES = [
 # The whitelist is per language, so a value must be an exact member of ITS
 # language's set: `high` in a Chinese card is rejected on purpose.
 CONFIDENCE_REJECTED = [
+    ("zh", u"中。"),                 # sentence punctuation is not canonical
+    ("zh", u"低（仅图景）。"),         # qualifier punctuation is not canonical
+    ("en", "High."),                 # sentence punctuation is not canonical
+    ("en", "Low (landscape only)."),  # qualifier punctuation is not canonical
+    ("en", "high"),                  # canonical values are case-sensitive
     ("zh", u"\u6781\u9ad8"),        # 极高  — contains 高
     ("zh", u"\u5f88\u4f4e"),        # 很低  — contains 低
     ("zh", u"\u4e2d\u9ad8"),        # 中高  — the grade that actually shipped once
@@ -2051,10 +2044,11 @@ CONFIDENCE_REJECTED = [
 ]
 CONFIDENCE_ACCEPTED = [
     ("zh", u"\u9ad8"), ("zh", u"\u4e2d"), ("zh", u"\u4f4e"),
-    ("en", "high"), ("en", "medium"), ("en", "low"),
-    # The form the ledger actually uses for landscape-only judgments.
-    ("zh", u"\u4f4e\uff08\u4ec5\u56fe\u666f\uff09\u3002"),
-    ("en", "Low (landscape only)."),
+    ("en", "High"), ("en", "Medium"), ("en", "Low"),
+    # The canonical form is deliberately punctuation-free, including the
+    # landscape-only qualifier. Sentence-final punctuation is a rejected drift.
+    ("zh", u"\u4f4e\uff08\u4ec5\u56fe\u666f\uff09"),
+    ("en", "Low (landscape only)"),
 ]
 
 

@@ -160,7 +160,7 @@ On that basis, every judgment must also have the following five parts in the led
 2. **Time window:** the time interval in which it should occur; if it still has not occurred after the interval, that constitutes evidence;
 3. **Falsifier:** what specific event we would observe that would make us admit the judgment is wrong;
 4. **Leading indicator:** an observable signal that changes before the outcome, and the number or event to watch;
-5. **Confidence:** high / medium / low, specifying how much is being bet, not the strength of tone.
+5. **Confidence:** High / Medium / Low, specifying how much is being bet, not the strength of tone; card fields use the canonical value without a sentence-final period.
 
 Also record Audience scale, `depends-on` (the dependent judgment IDs), the lenses used, consensus comparison, status, the strongest opposing case, “what can be done now,” and the diffusion-gate review. An entry missing any one of the five parts may only be marked **landscape only**; it may not serve as a judgment, opportunity basis, or summary claim. A **new card** missing Audience scale may not be registered; existing cards raise warnings rather than blocking publication during the migration period.
 
@@ -176,7 +176,7 @@ Reasoning chain: …
 Time window: …
 Falsifier: …
 Leading indicator: …
-Confidence: high / medium / low (reason)
+Confidence: High / Medium / Low (reason; low-confidence judgments uniformly use “Low (landscape only)”)
 Diffusion-gate review: Gate 1–5 rulings; local / occupational / society-scale; unlocking condition where unmet
 Strongest opposing case: …; what observation would make us withdraw
 External comparison: agreement / disagreement / why I still hold it
