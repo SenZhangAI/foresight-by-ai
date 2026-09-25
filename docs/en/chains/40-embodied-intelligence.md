@@ -1,5 +1,7 @@
 # C4 · Embodied Intelligence: For AI to Pass the Diffusion Gates, What Is Missing Is a Body That Can Bear Consequences
 
+[中文版](../../zh/chains/40-embodied-intelligence.md)
+
 > **This chain extends [C1](10-generation-becomes-free.md) and the five gates in the [retrospect](../01-retrospect.md).** C1 argues that once generation becomes cheap, value concentrates in inputs that cannot be recombined; the retrospect argues that a capability's audience ceiling is set by the headcount and frequency of the activity it serves, not by the ceiling of the technology. Put the two sentences together and an uncomfortable question follows: **if AI can only move information, how many people perform the activity it serves?**
 > **In one sentence**: embodied intelligence is the **necessary complement** for AI to pass the diffusion gates, not a **sufficient condition** — without a body the population base is too small; with a body, three separate gates remain (cost per task, priced liability, and scene fragmentation), and none of them opens automatically as model capability improves.
 

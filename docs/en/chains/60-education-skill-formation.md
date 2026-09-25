@@ -1,5 +1,7 @@
 # C6 · Education and Skill Formation: Explanation Overflows; Mastery Must Still Leave a Trace
 
+[中文版](../../zh/chains/60-education-skill-formation.md)
+
 > **In one sentence**: AI will first give everyone an infinitely patient explainer. The scarce things become sustained practice, observed real performance, and credible proof on which someone else is willing to grant an opportunity.
 
 ## 1. A student submits a perfect essay, then cannot answer the next question

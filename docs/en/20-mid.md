@@ -1,5 +1,7 @@
 # Mid-term landscape: 2029–2032
 
+[中文版](../zh/20-mid.md)
+
 [Back to README / document map](../../README.en.md)
 
 > In July 2031, a company that handles cross-border returns and claims replaced the dashboard on its wall. The old one showed how many steps had been completed automatically that month; the number kept climbing and stopped meaning anything. The new one keeps a single column, headed “Waiting for a person.” That afternoon the column holds six items, and the one at the top has been waiting nine hours.

@@ -1,5 +1,7 @@
 # Technology Capability Sequence
 
+[中文版](../zh/05-tech-sequence.md)
+
 [Back to README / document map](../../README.en.md)
 
 At four o'clock on Wednesday, Lin gives a workbench one sentence: “Turn last quarter’s customer feedback into three actionable redesigns; do not send anything yet.”

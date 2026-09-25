@@ -1,5 +1,7 @@
 # C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets
 
+[中文版](../../zh/chains/20-real-signals-become-contracts.md)
+
 > **How this follows [C1](10-generation-becomes-free.md)**: C1 argues that generation becomes abundant while irreproducible raw signals, accountable commitments, and validated causality do not become copyable in parallel. This chain follows only the first branch: when explanation becomes cheap, ownership of real-world signals, permission to use them, and responsibility for their accuracy become part of the transaction.
 > **In one sentence**: Data will not become expensive as a whole; but in high-liability settings, unarranged real-world observations will move from casually collected feedstock to contract assets carrying provenance, permitted use, responsibility, and update duties.
 

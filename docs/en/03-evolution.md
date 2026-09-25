@@ -1,5 +1,7 @@
 # How Judgments Change: Rules, Scope, and the Re-review Promise
 
+[中文版](../zh/03-evolution.md)
+
 [Back to README / document map](../../README.en.md)
 
 > This page records the **evolution of the judgment system**, not a new round of forecasting. It separates committed rule changes, card-status changes, and re-reviews that have not yet happened. `REVISED` does not mean confidence fell; `CALIBRATION` does not mean a forecast hit. A real `HIT` or `FALSIFIED` result can be recorded only after a card’s own review window has arrived.

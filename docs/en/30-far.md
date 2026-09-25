@@ -1,5 +1,7 @@
 # Far-term landscape: 2033–2040
 
+[中文版](../zh/30-far.md)
+
 [Back to README / document map](../../README.en.md)
 
 > Start with an inference—not a forecast, but what the mid-term judgments look like pushed one notch further. In March 2037, a seaside town has to decide whether three hundred households move or stay, and whether that decision was right will not be visible until around 2040. Plans are not what is missing: the system offers more combinations of relocation and reinforcement than anyone bothers to count, each with thirty years of counterfactual modeling, a phased implementation plan, and a compensation model, and any one of them can be understood in ten minutes. The town’s routine engineering work has run on granted boundaries for years; nobody approves anything step by step anymore. The four hours the seven people in that room spend are barely used for comparing plans—that part was finished long ago. What they are settling is something else: which options to give up, and, if this turns out wrong, who will still be here by then to clean up.

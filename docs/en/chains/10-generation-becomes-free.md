@@ -1,5 +1,7 @@
 # C1 · What Becomes Unbuyable After Generation Becomes Free
 
+[中文版](../../zh/chains/10-generation-becomes-free.md)
+
 > **Where this chain sits**: This is the starting point for the entire analysis. Every more distant judgment has to step forward from here.
 > **In one sentence**: When the cost of “making something” approaches zero, value migrates wholesale to “before it is made” and “after it is made”—to **who you are, what you want, and whether you dare to take responsibility for the result**.
 

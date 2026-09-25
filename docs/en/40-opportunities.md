@@ -1,5 +1,7 @@
 # Opportunity Candidates
 
+[中文版](../zh/40-opportunities.md)
+
 [Back to README / document map](../../README.en.md)
 
 > **Opportunity-durability gate for entry to this file**: the scarcity must pass the [methodology’s opportunity-durability gate](00-method.md#3-the-opportunity-durability-gate-and-three-exits-not-every-scarcity-is-a-business-opportunity-and-business-opportunities-are-not-the-only-things-that-count)—the same force that created the original abundance cannot automate, copy, or scale it away, and the applicable hard constraint must be named. This is not the five diffusion gates that evaluate society-wide spread.

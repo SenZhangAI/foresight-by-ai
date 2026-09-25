@@ -1,5 +1,7 @@
 # C5 · Biology and Medicine: Answers Get Cheap Before Proof and Care Do
 
+[中文版](../../zh/chains/50-biology-medicine.md)
+
 > **In one sentence**: AI will first make “what might this be, and what could we try?” nearly limitless; medicine will still be short of evidence, authorization, and care capacity that can responsibly turn a candidate into an intervention on a particular body.
 
 ## 1. At 3 a.m., the screen offers twenty explanations

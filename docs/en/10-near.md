@@ -1,5 +1,7 @@
 # Near-term landscape: 2026–2028
 
+[中文版](../zh/10-near.md)
+
 [Back to README / document map](../../README.en.md)
 
 > On a Monday morning in March 2027, a cold-chain inspection company has eleven people and serves more than two hundred stores. Over the weekend the system ran four hundred–odd comparisons by itself and narrowed the procedure for issuing an inspection verdict down to seven candidate versions—nobody worked late for it, and nobody thinks it worth mentioning. What takes the whole morning is three other things: the largest client renews next week and this time wants to see, not the accuracy claims in the brochure, but how long each “verdict within three hours” actually took over the past two years; the supermarket downstream has a new head of procurement whose first question is “who signs this report”; and the batch of samples the system flags as “someone has to go look at this in person” stays there no matter how the thresholds are tuned. Not one of the eleven still writes reports by hand, yet each of them makes the same decision every day: what may be released automatically, and what someone has to answer for personally.

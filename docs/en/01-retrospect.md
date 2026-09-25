@@ -1,5 +1,7 @@
 # Retrospect: What It Takes to Become a Society-Wide Habit
 
+[中文版](../zh/01-retrospect.md)
+
 [Back to README / document map](../../README.en.md)
 
 > **Where this document sits**: after the methodology, before every chain of reasoning. It predicts nothing. It looks back at successes and failures that have already happened and extracts a set of gates from them—a way to judge whether a capability can become **the way a whole society does things**.

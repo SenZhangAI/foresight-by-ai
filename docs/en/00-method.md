@@ -1,5 +1,7 @@
 # Foresight Methodology
 
+[中文版](../zh/00-method.md)
+
 [Back to README / document map](../../README.en.md)
 
 > This is a rule file, not a set of conclusions about the future. It specifies how we propose, write, compare, and withdraw judgments; specific judgments are written in the narrative text and `90-ledger.md`.

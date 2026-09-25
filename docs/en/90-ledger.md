@@ -1,5 +1,7 @@
 # Judgment Ledger
 
+[中文版](../zh/90-ledger.md)
+
 > The single register and governance entry point for all project judgments. Narrative documents cite `J-NNN`; complete judgment cards live in stable-numbered `ledger/` shards, while this file keeps the overview, dependency graph, review views, sources, and compatibility anchors.
 > This ledger records how judgments are proposed, linked, revised, and reviewed. A falsified judgment is never deleted.
 

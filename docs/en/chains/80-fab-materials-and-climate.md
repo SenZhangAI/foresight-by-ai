@@ -1,5 +1,7 @@
 # C8 · The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks
 
+[中文版](../../zh/chains/80-fab-materials-and-climate.md)
+
 > **This chain extends [C3](30-power-land-and-permits.md).** C3 follows computation downstream to grids, land, and permits. This chain walks one step upstream: before a chip can be shipped, a specific process must receive qualified materials, ultrapure water, stable power, gases, chemicals, tools, spare parts, and logistics at the same place and time.
 >
 > **In one sentence**: the durable scarcity is not “minerals” in the abstract but **qualified conversion paths that can keep running through local water, power, and climate shocks**. A mine, warehouse, or second building is not redundancy if the replacement material, process, or site has not already passed qualification.

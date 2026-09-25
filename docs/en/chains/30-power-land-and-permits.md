@@ -1,5 +1,7 @@
 # C3 · Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits
 
+[中文版](../../zh/chains/30-power-land-and-permits.md)
+
 > **This chain extends [C1](10-generation-becomes-free.md) and the [technology sequence](../05-tech-sequence.md).** C1 argues that generation becomes cheap; the technology chain argues that capabilities arrive in a specific order. Both quietly assume one thing: that compute can be bought if you are willing to pay. This chain takes that assumption apart. Turning model capability into a real service requires turning electrons into computation, and that step happens in land, transformers, and permitting windows.
 > **In one sentence**: the scarce thing is not electricity but **the kilowatt-hour that is already permitted and can be delivered on the promised date**; and once the constraint moves from portable chips to immovable grids and sites, control regimes, taxation, and local politics move with it.
 

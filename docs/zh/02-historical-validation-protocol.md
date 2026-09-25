@@ -1,5 +1,7 @@
 # 历史伪样本外验证协议
 
+[English version](../en/02-historical-validation-protocol.md)
+
 [返回 README／文档地图](../../README.md)
 
 > 这是一份**执行协议**，不是一轮回测，也不产生新的未来判断。它冻结历史案例如何入池、如何分组、谁能看见什么、如何计分，以及结果能支持什么。五道普及闸见[历史回顾](01-retrospect.md)，一般推演规则见[推演方法论](00-method.md)，未来判断的真实样本外记录仍由[判断台账](90-ledger.md)的到期检查承担。
