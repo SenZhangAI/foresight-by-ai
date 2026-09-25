@@ -57,7 +57,7 @@ The 2026-09-21 narrowing of J-071 changed the Gate 5 rule. Under [Historical Pse
 3. Use the frozen commit SHA for a deterministic shuffle into `R-NN`, so the reviewer cannot see the mapping;
 4. Submit the isolated review before unsealing the mapping, then flow every inconsistency back into the card and prose in place.
 
-Execution is owned by **`wu-c97b8976-7eb7-4f53-b2af-6af99dcac803` (full isolated re-review of existing predictions after methodology stabilization)**. As of this page’s record, it has not delivered completion. The 2026-09-20 v1 review therefore remains a historical record of v1 semantics only; it cannot be cited as a result under the current v2 rule.
+Execution is owned by the pending isolated re-review described in [§11.B of the Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change). As of this page’s record, it has not delivered completion. The 2026-09-20 v1 review therefore remains a historical record of v1 semantics only; it cannot be cited as a result under the current v2 rule.
 
 ## Do not conflate these terms
 

@@ -129,6 +129,25 @@ def markdown_files():
     return out
 
 
+def check_public_internal_ids(files):
+    """Public Markdown must not expose internal work-unit identifiers.
+
+    `wu-*` values are production-line handles, not public anchors: GitHub
+    readers cannot resolve them and their lifecycle is not part of the
+    repository's public contract. Keep the scan on the same Markdown surface
+    used by the link checks so a newly added public page cannot bypass it.
+    """
+    pattern = re.compile(r"\bwu-[0-9a-fA-F-]{8,}\b")
+    for path in files:
+        text = read(path)
+        match = pattern.search(text)
+        if match:
+            fail("public-internal-ids",
+                 "%s:%d exposes %s" %
+                 (path, text.count("\n", 0, match.start()) + 1,
+                  match.group(0)))
+
+
 def check_links(files):
     """Every relative link resolves, and every anchor matches a real heading."""
     anchors = {}
@@ -919,6 +938,7 @@ def check_readme_counts(per_lang_cards, chains):
 
 def run_checks():
     files = markdown_files()
+    check_public_internal_ids(files)
     links = check_links(files)
     cards = {lang: check_ledger(lang) for lang in LANGS}
     check_parity(cards)
@@ -1910,8 +1930,17 @@ def _embolden_correct_count(root):
     return u"the first card count wrapped in `**` in both READMEs"
 
 
-# Breakages that must be caught, each with the check tag that must report it.
+def _break_public_internal_id(root):
+    """A production-line work-unit handle must never reach public Markdown."""
+    path = _readme(root, "en")
+    _write_file(path, _read_file(path)
+                + "\nTracking note: wu-01234567-89ab-cdef-0123-456789abcdef.\n")
+    return u"README.en.md: appended an internal wu-* handle"
+
+
 NEGATIVE_CASES = [
+    (u"public prose exposes an internal work-unit id", "public-internal-ids",
+     _break_public_internal_id),
     (u"dangling anchor", "links", _break_dangling_anchor),
     (u"CONTRIBUTING link into the ledger goes dead", "links",
      _break_contributing_anchor),
