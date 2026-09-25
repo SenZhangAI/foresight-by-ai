@@ -14,6 +14,26 @@
 >
 > This layer spreads one time window out horizontally. To follow a single causal line vertically instead, read [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](chains/20-real-signals-become-contracts.md)—its argument sits in exactly these years.
 
+## Reading navigation map (relationship projection)
+
+This map provides reading entrances among the near/mid/far pages and the reasoning chains. It adds no judgment and does not replace the `J-NNN` ledger. Time layers are coarse reading containers; causal dependencies live in the ledger’s `depends-on` fields.
+
+```mermaid
+flowchart LR
+  N[Near 2026–2028] --> M[Mid 2029–2032]
+  M --> F[Far 2033–2040]
+  N -.vertical chain.-> C1[C1 Generation]
+  M -.vertical chain.-> C2[C2 Real-world signals]
+  M -.vertical chain.-> C3[C3 Compute infrastructure]
+  N -.physical-world entry.-> C4[C4 Embodied intelligence]
+  M -.social structure.-> C5[C5 Biomedicine]
+  M -.social structure.-> C6[C6 Education and skills]
+  M -.social transmission.-> C7[C7 Technology and power]
+  M -.upstream constraint.-> C8[C8 Materials and climate]
+```
+
+> This is a reading aid, not a new source of facts. Arrows indicate recommended entrances, not necessary causality.
+
 ## 1. Compute and tokens: generation stops being the bottleneck; execution boundaries become the bottleneck
 
 If [J-001](90-ledger.md#j-001--unit-reasoning-cost-keeps-falling) and [J-006](90-ledger.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy) hold, by around 2029 the same budget can search many candidate plans. The mid-term question is no longer whether a system can generate, but whether it can act continuously without transferring trial-and-error costs to the real world.

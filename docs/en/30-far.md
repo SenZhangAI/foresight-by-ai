@@ -12,6 +12,26 @@
 >
 > The far horizon has no chain of its own yet. Every section in this layer stands on a mid-term judgment; to see where those dependencies come from, go back to the [mid-term landscape, 2029–2032](20-mid.md).
 
+## Reading navigation map (relationship projection)
+
+This map provides reading entrances among the near/mid/far pages and the reasoning chains. It adds no judgment and does not replace the `J-NNN` ledger. Time layers are coarse reading containers; causal dependencies live in the ledger’s `depends-on` fields.
+
+```mermaid
+flowchart LR
+  N[Near 2026–2028] --> M[Mid 2029–2032]
+  M --> F[Far 2033–2040]
+  N -.vertical chain.-> C1[C1 Generation]
+  M -.vertical chain.-> C2[C2 Real-world signals]
+  M -.vertical chain.-> C3[C3 Compute infrastructure]
+  N -.physical-world entry.-> C4[C4 Embodied intelligence]
+  M -.social structure.-> C5[C5 Biomedicine]
+  M -.social structure.-> C6[C6 Education and skills]
+  M -.social transmission.-> C7[C7 Technology and power]
+  M -.upstream constraint.-> C8[C8 Materials and climate]
+```
+
+> This is a reading aid, not a new source of facts. Arrows indicate recommended entrances, not necessary causality.
+
 ## 1. Execution and infrastructure: people grant boundaries instead of operating every step
 
 If [J-031](90-ledger.md#j-031--pausable-replayable-rollback-capable-action-environments-become-admission-conditions-for-long-horizon-ai-execution)’s rollback-capable environments, [J-032](90-ledger.md#j-032--authorization-review-and-exception-escalation-become-scarcer-than-execution-steps)’s authorization review, and [J-014](90-ledger.md#j-014--rehearsable-environments-follow-single-tool-integration)’s rehearsal environments take shape in the mid term, the high-value AI interface in 2033–2040 may no longer be “perform this step,” but “act within these boundaries; who owns the result?”

@@ -10,6 +10,26 @@ This chain discusses only how capabilities arrive. It does not pre-write their s
 
 > **All 12 cards cited in this file were downgraded by the diffusion gate (2026-09-20)**: the 12 judgments cited here — J-001 and J-006–J-016 — were every one of them ruled **FAIL** on Gate 1 (audience scale) in the ledger-wide review of 2026-09-20. Their audience scale reaches only million-scale (model developers, cloud providers, professionals using knowledge tools, and organizational buyers); each is a technical precondition rather than a daily society-wide activity, two to three orders of magnitude short of the society-level threshold of a hundred million distinct individuals performing the same action every week. All 12 are therefore downgraded to **occupational/organizational judgments** and set to `REVISED`, with the original card text kept word for word and identifiers not reused. Of them, [J-008](90-ledger.md#j-008--sourced-long-term-memory-becomes-a-prerequisite-for-reliable-collaboration), [J-012](90-ledger.md#j-012--cross-time-coherence-depends-on-state-and-evaluation), [J-015](90-ledger.md#j-015--formal-verification-precedes-open-world-evaluation), and [J-016](90-ledger.md#j-016--open-world-evaluation-is-the-final-gate-for-expanding-autonomy) **land only in this file** and have no second prose location, so this is the only place their downgrade can be stated. For the test see [Historical retrospective · Gate 1](01-retrospect.md); for the per-card verdicts and this round's counting method see the [judgment ledger · review log](90-ledger.md#8-review-log).
 
+> **Capability-arrival diagram (reading projection):** The diagram below only projects the order already argued in this chapter; it adds no new capability judgment. Full fields remain authoritative in the linked `J-NNN` ledger cards. An arrow means that reliable use treats the earlier capability as a substrate, not that it must become perfect before the later one can appear.
+>
+> ```mermaid
+> flowchart LR
+>   A[J-001 lower unit reasoning cost] --> B[J-006 higher throughput and parallel attempts]
+>   B --> C[J-007 resumable context]
+>   C --> D[J-008 sourced long-term memory]
+>   D --> E[J-009 constrained workflow execution]
+>   E --> F[J-010 longer bounded execution]
+>   B --> G[J-011 cross-media consistency]
+>   G --> H[J-012 cross-time coherence]
+>   E --> I[J-013 checkable tool calls]
+>   I --> J[J-014 rehearsable isolated environments]
+>   B --> K[J-015 formal-property evaluation]
+>   F --> L[J-016 open-world independent evaluation]
+>   H --> L
+>   J --> L
+>   K --> L
+> ```
+
 ## 1. First comes cheaper, denser reasoning
 
 The first change is not whether a model can “think,” but whether equal capability can be called many times. Once one answer becomes cheap, a system can explore several routes, retry, route simple steps to smaller models, and reserve stronger models for hard steps. “Generate an answer” becomes “generate, compare, and revise a batch of answers.” This is the cost foundation described by [J-001](90-ledger.md#j-001--unit-reasoning-cost-keeps-falling).

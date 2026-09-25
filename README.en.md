@@ -46,6 +46,26 @@ The point is not to prove an ageing forecast. It is to put a testable principle 
 - **Find opportunities**: read [Opportunity Candidates](docs/en/40-opportunities.md). An opportunity must answer who pays, what hard constraint protects it, and whether the same force that creates the scarcity can automate it away. Without a hard constraint, it remains a window.
 - **Challenge a judgment**: read [How to Refute a Judgment Here](CONTRIBUTING.en.md) and use the card’s own falsifier rather than only saying that the conclusion feels wrong.
 
+### Reading relationship map (navigation projection)
+
+The diagram below shows recommended reading relationships only: near, mid, and far are reading containers, not strict calendars or a new source of judgments. Full facts remain authoritative in each page and its `J-NNN` ledger cards.
+
+```mermaid
+flowchart LR
+  N[Near landscape\n2026–2028] --> M[Mid landscape\n2029–2032]
+  M --> F[Far landscape\n2033–2040]
+  N -.narrative chain.-> C1[C1 Generation]
+  M -.narrative chain.-> C2[C2 Real-world signals]
+  M -.narrative chain.-> C3[C3 Compute infrastructure]
+  N -.physical-world entry.-> C4[C4 Embodied intelligence]
+  M -.structural extension.-> C5[C5 Biomedicine]
+  M -.structural extension.-> C6[C6 Education and skills]
+  M -.social transmission.-> C7[C7 Technology and power]
+  M -.upstream constraint.-> C8[C8 Materials and climate]
+```
+
+The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
+
 Full cards, status, dependency graph, external sources, history, and uncovered dimensions live in the [Judgment Ledger](docs/en/90-ledger.md). It is the maintenance area; this README does not duplicate its statistics or facts. Terms are in the [bilingual glossary](docs/glossary.zh-en.md).
 
 ## Document map
