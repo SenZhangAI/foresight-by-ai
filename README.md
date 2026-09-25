@@ -25,6 +25,8 @@
 
 想先看一个故事，读 C1；想看身体、照护和物理劳动，读 C4；想检验方法，读[历史回顾](docs/zh/01-retrospect.md)；想找可下注方向，读[商机候选](docs/zh/40-opportunities.md)。
 
+要质疑这里的判断，请从[如何反驳这里的判断](CONTRIBUTING.md)进入，用卡片自己的证伪条件提出反例，而不是只说结论“不像”。
+
 ## 先问：方法是否经过历史校准
 
 [历史回顾](docs/zh/01-retrospect.md)从科技、政治和商业史中抽取五道普及闸，并用成功、失败和本项目自身的例子攻击它们。[历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)规定如何冻结案例、角色和基线。
