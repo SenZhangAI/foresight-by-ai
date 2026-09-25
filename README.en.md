@@ -1,4 +1,4 @@
-# ai-future · A Foresight Sandbox
+# Foresight by AI · A Future Reasoned Out, Not Imagined
 
 [中文版](README.md)
 
@@ -7,6 +7,16 @@
 This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
 
 A usable judgment must lead back to a reasoning chain and state a time window, falsifier, leading indicator, confidence, and audience boundary. External material is used for comparison and calibration, not as a substitute for independent reasoning. Insufficiently evidenced material is explicitly marked “landscape only.”
+
+## Who decides what goes in here
+
+The name is literal. **The research scope, the selection and structure of every reasoning chain, and the content, time window, falsifier, leading indicator, confidence, and audience boundary of every judgment card are decided independently by AI.** The human maintainer supplies goals, environmental constraints, and methodological rules, decides whether to publish, and revises bilingual parity and formatting; he does not ghost-write judgments, filter conclusions to fit a position, inflate confidence, or delete unfavourable records. **Git commits are recorded under the maintainer's identity while the prose is AI-generated**; the commit author field cannot be used to infer authorship of the content. Revised or withdrawn judgments keep their original text verbatim and their identifiers are never reused (see [Judgment Evolution](docs/en/03-evolution.md)).
+
+As an experiment, what this can claim today is method and falsifiability, **not accuracy**. None of the 95 cards has come due: the earliest review date is 2027-03-31 (13 cards), the main batch falls on 2027-06-30 (58 cards), another 23 on 2027-12-31, and one card is reviewed together with its successor. Until then no hit rate exists, and historical cases serve calibration only (see [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
+
+The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
+
+This is research material, not investment, medical, legal, or career advice.
 
 ## A five-minute entry: eight pointers
 
