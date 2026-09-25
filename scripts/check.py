@@ -159,41 +159,146 @@ def check_links(files):
     return total
 
 
+LEDGER_ROOT = "docs/%s/90-ledger.md"
+LEDGER_SHARD_DIR = "docs/%s/ledger"
+
+
+def ledger_paths(lang):
+    """The governance root followed by stable-numbered card shards."""
+    root = LEDGER_ROOT % lang
+    shard_dir = LEDGER_SHARD_DIR % lang
+    shards = []
+    if os.path.isdir(os.path.join(REPO, shard_dir)):
+        for name in sorted(os.listdir(os.path.join(REPO, shard_dir))):
+            if is_markdown(name):
+                shards.append(os.path.join(shard_dir, name).replace(os.sep, "/"))
+    return [root] + shards
+
+
+def check_mermaid_projection(lang, root, cards):
+    """Mermaid edges may only project authoritative card dependencies.
+
+    The diagram is intentionally a partial, reader-friendly projection, so it
+    need not enumerate every edge. It must never invent one: in `source -->
+    target`, the target card must declare source in its `depends-on` field.
+    """
+    edges = re.findall(r"^\s*(J-?\d{3})\s*-->\s*(J-?\d{3})\s*$", root, re.M)
+    for source, target in edges:
+        source = source.replace("J", "J-") if "J-" not in source else source
+        target = target.replace("J", "J-") if "J-" not in target else target
+        if source not in cards or target not in cards:
+            fail("mermaid-graph", "%s: %s --> %s names a card absent from shards"
+                 % (lang, source, target))
+            continue
+        body = cards[target]
+        m = re.search(r"\*\*depends-on\*\*[:：]\s*([^\n]*)", body)
+        declared = set(re.findall(r"J-\d{3}", m.group(1) if m else ""))
+        if source not in declared:
+            fail("mermaid-graph", "%s: %s --> %s is not an authoritative depends-on edge"
+                 % (lang, source, target))
+
+
 def parse_ledger(lang):
-    text = read("docs/%s/90-ledger.md" % lang)
+    root = read(LEDGER_ROOT % lang)
     cards = {}
-    parts = re.split(r"^### (J-\d{3})", text, flags=re.M)
-    for i in range(1, len(parts), 2):
-        body = parts[i + 1]
-        # A card ends at the next top-level section. Without this the LAST
-        # card's body runs to end of file and swallows whatever follows it
-        # (section 10 today), so that text would be checked — and reported —
-        # as if it belonged to the card.
-        end = re.search(r"^## ", body, re.M)
-        if parts[i] in cards:
-            # The same defect the registry already refuses one row above the
-            # chain table (`%s has more than one registry row`), on the sibling
-            # path nobody had walked: a card pasted twice renders as two cards
-            # to a reader while `len(cards)` still counts identifiers, so the
-            # ledger shows 66 and the README's 65 stays "correct".
-            fail("ledger", "docs/%s/90-ledger.md: %s has more than one card"
-                 % (lang, parts[i]))
-        cards[parts[i]] = body[:end.start()] if end else body
+    card_files = {}
+    for path in ledger_paths(lang)[1:]:
+        text = read(path)
+        parts = list(re.finditer(r"^### (J-\d{3})([^\n]*)$", text, re.M))
+        for i, match in enumerate(parts):
+            end = parts[i + 1].start() if i + 1 < len(parts) else len(text)
+            section = re.search(r"^## ", text[match.end():end], re.M)
+            if section:
+                end = match.end() + section.start()
+            jid = match.group(1)
+            if jid in cards:
+                fail("ledger", "docs/%s: %s has more than one card (including %s)"
+                     % (lang, jid, path))
+            cards[jid] = text[match.start():end]
+            card_files[jid] = path
+    if re.search(r"^### J-\d{3}", root, re.M):
+        fail("ledger", "%s contains a level-3 card; complete cards belong in ledger/"
+             % (LEDGER_ROOT % lang))
+    stubs = {}
+    for match in re.finditer(r"^#### (J-\d{3})([^\n]*)$", root, re.M):
+        jid = match.group(1)
+        end = re.search(r"^####? ", root[match.end():], re.M)
+        body = root[match.end(): match.end() + end.start() if end else len(root)]
+        if jid in stubs:
+            fail("ledger", "%s: %s has more than one compatibility stub"
+                 % (LEDGER_ROOT % lang, jid))
+        stubs[jid] = (match.group(2), body)
+    expected = set(cards)
+    if set(stubs) != expected:
+        fail("ledger-stubs", "%s stubs %d do not match shard cards %d (difference: %s)"
+             % (lang, len(stubs), len(cards), sorted(set(stubs) ^ expected)))
+    for jid, (title, body) in stubs.items():
+        path = card_files.get(jid)
+        if not path:
+            continue
+        link = re.search(r"\]\(([^)#]+)#([^\s)]+)\)", body)
+        if not link:
+            fail("ledger-stubs", "%s %s has no link to its complete shard card"
+                 % (lang, jid))
+            continue
+        target, anchor = link.group(1), link.group(2)
+        expected_target = os.path.basename(path)
+        if target != "ledger/" + expected_target:
+            fail("ledger-stubs", "%s %s links %s, expected ledger/%s"
+                 % (lang, jid, target, expected_target))
+        heading = re.search(r"^### %s([^\n]*)$" % jid, cards[jid], re.M)
+        if not heading or anchor != slug(jid + heading.group(1)):
+            fail("ledger-stubs", "%s %s link anchor does not match its shard heading"
+                 % (lang, jid))
+        if not title.strip() or not heading or title.strip() != heading.group(1).strip():
+            fail("ledger-stubs", "%s %s stub title does not match its shard heading"
+                 % (lang, jid))
+        objective = re.search(r"^- \*\*(?:一句话判断|One-sentence judgment)\*\*[:：]\s*([^\n]*)$",
+                              cards[jid], re.M)
+        if not objective or objective.group(1).strip() not in body:
+            fail("ledger-stubs", "%s %s stub has no matching one-sentence judgment"
+                 % (lang, jid))
     graph = {}
+    graph_rows = []
     pattern = r"^(J-\d{3})\s*%s\s*([^\n]*)$" % re.escape(GRAPH_ARROW[lang])
-    for m in re.finditer(pattern, text, re.M):
+    for m in re.finditer(pattern, root, re.M):
+        graph_rows.append(m.group(1))
         graph[m.group(1)] = set(re.findall(r"J-\d{3}", m.group(2)))
+    for m in re.finditer(r"^(J-\d{3})\s+\(root\)$", root, re.M):
+        graph_rows.append(m.group(1))
+        graph.setdefault(m.group(1), set())
     overview = {}
-    for line in text.split("\n"):
+    overview_rows = []
+    overview_section = (re.search(r"^## (?:2\.|二、).*?(?=^## (?:3\.|三、))",
+                                  root, re.M | re.S))
+    overview_text = overview_section.group(0) if overview_section else ""
+    for line in overview_text.split("\n"):
         m = re.match(r"^\|\s*\[(J-\d{3})\]\([^)]*\)\s*\|", line)
         if not m:
             continue
+        overview_rows.append(m.group(1))
         cols = [c.strip() for c in line.split("|")]
         if len(cols) < 8:
             continue
         overview.setdefault(m.group(1), set(re.findall(r"J-\d{3}", cols[6])))
+    expected = set(cards)
+    for name, present in (("graph", set(graph_rows)), ("overview", set(overview_rows))):
+        missing = sorted(expected - present)
+        extra = sorted(present - expected)
+        if missing or extra:
+            fail("%s-rows" % name, "%s %s rows differ from shards (missing %s; extra %s)"
+                 % (lang, name, missing, extra))
+    graph_duplicates = sorted(jid for jid in set(graph_rows)
+                             if graph_rows.count(jid) > 1)
+    if graph_duplicates:
+        fail("graph-rows", "%s duplicate dependency-graph rows: %s"
+             % (lang, graph_duplicates))
+    overview_duplicates = sorted(jid for jid in set(overview_rows)
+                                 if overview_rows.count(jid) > 1)
+    if overview_duplicates:
+        fail("overview-rows", "%s duplicate overview rows: %s" % (lang, overview_duplicates))
     overview_consensus = {}
-    for line in text.split("\n"):
+    for line in overview_text.split("\n"):
         m = re.match(r"^\|\s*\[(J-\d{3})\]\([^)]*\)\s*\|", line)
         if not m:
             continue
@@ -201,6 +306,7 @@ def parse_ledger(lang):
         if len(cols) < 10:
             continue
         overview_consensus.setdefault(m.group(1), cols[8])
+    check_mermaid_projection(lang, root, cards)
     return cards, graph, overview, overview_consensus
 
 
@@ -874,6 +980,10 @@ def _copy_checkable_tree(dst):
         src = os.path.join(REPO, name)
         if os.path.exists(src):
             shutil.copy2(src, os.path.join(dst, name))
+    # README links to the repository licence as a non-Markdown root asset; the
+    # self-test copy must carry that asset or its pristine baseline is false.
+    if os.path.exists(os.path.join(REPO, "LICENSE")):
+        shutil.copy2(os.path.join(REPO, "LICENSE"), os.path.join(dst, "LICENSE"))
     return dst
 
 
@@ -886,7 +996,49 @@ def _run_checker(root):
 
 
 def _ledger(root, lang):
-    return os.path.join(root, "docs", lang, "90-ledger.md")
+    """Return the last shard, the fixture's card mutation surface."""
+    shards = _card_shards(root, lang)
+    return shards[-1] if shards else os.path.join(root, "docs", lang, "90-ledger.md")
+
+
+def _card_shards(root, lang):
+    directory = os.path.join(root, "docs", lang, "ledger")
+    return [os.path.join(directory, name) for name in sorted(os.listdir(directory))
+            if is_markdown(name)] if os.path.isdir(directory) else []
+
+
+def _card_ids(root, lang):
+    ids = []
+    for path in _card_shards(root, lang):
+        ids.extend(re.findall(r"^### (J-\d{3})", _read_file(path), re.M))
+    return ids
+
+
+def _card_path(root, lang, jid):
+    for path in _card_shards(root, lang):
+        if re.search(r"^### %s\b" % re.escape(jid), _read_file(path), re.M):
+            return path
+    raise AssertionError("fixture carries no card %s" % jid)
+
+
+def _last_card_file(root, lang):
+    paths = _card_shards(root, lang)
+    if not paths:
+        raise AssertionError("fixture carries no card shards")
+    path = paths[-1]
+    text = _read_file(path)
+    start, end, jid = _last_card(text)
+    return path, text, start, end, jid
+
+
+def _first_card_file(root, lang):
+    paths = _card_shards(root, lang)
+    if not paths:
+        raise AssertionError("fixture carries no card shards")
+    path = paths[0]
+    text = _read_file(path)
+    start, jid = _first_card(text)
+    return path, text, start, jid
 
 
 def _read_file(path):
@@ -922,7 +1074,7 @@ def _last_card(text):
 
 
 def _break_dangling_anchor(root):
-    path = _ledger(root, "zh")
+    path = os.path.join(root, "docs", "zh", "90-ledger.md")
     text = _read_file(path)
     m = re.search(r"\]\(#([^)\s]+)\)", text)
     if not m:
@@ -955,9 +1107,7 @@ def _break_contributing_anchor(root):
 
 
 def _break_dep_edge(root):
-    path = _ledger(root, "zh")
-    text = _read_file(path)
-    start, _end, jid = _last_card(text)
+    path, text, start, _end, jid = _last_card_file(root, "zh")
     m = re.search(r"\*\*depends-on\*\*[:\uff1a]\s*([^\n]*)", text[start:])
     if not m or not re.search(r"J-\d{3}", m.group(1)):
         raise AssertionError("the last zh card declares no dependency to drop")
@@ -967,31 +1117,57 @@ def _break_dep_edge(root):
             u"overview still carry the edge" % jid)
 
 
-def _break_root_dep_edge(root):
-    """The root card — `min(ids)` — used to be exempt from both comparisons.
+def _break_mermaid_edge(root):
+    """Invent an edge in both diagrams; the projection check must reject it."""
+    for lang in LANGS:
+        path = os.path.join(root, "docs", lang, "90-ledger.md")
+        text = _read_file(path)
+        needle = "  J001 --> J006"
+        if needle not in text:
+            raise AssertionError("%s diagram has no stable edge" % lang)
+        _write_file(path, text.replace(needle, needle + "\n  J079 --> J090", 1))
+    return u"both Mermaid diagrams add non-authoritative J-079 --> J-090"
 
-    It must be located by id, not by position: the ledger opens with J-043,
-    and mutating that card would exercise the ordinary path and pass whether
-    or not the exemption is still there.
-    """
-    path = _ledger(root, "zh")
+
+def _break_missing_overview_row(root):
+    """Remove one overview row while leaving the card and graph present."""
+    path = os.path.join(root, "docs", "zh", "90-ledger.md")
     text = _read_file(path)
-    ids = re.findall(r"^### (J-\d{3})", text, re.M)
-    if len(ids) < 2:
-        raise AssertionError("fixture needs at least two cards")
-    root_id = min(ids)
-    borrowed = min(i for i in ids if i != root_id)
+    m = re.search(r"^\| \[J-095\].*\n", text, re.M)
+    if not m:
+        raise AssertionError("fixture has no J-095 overview row")
+    _write_file(path, text[:m.start()] + text[m.end():])
+    return u"zh J-095 overview row removed"
+
+
+def _break_duplicate_graph_row(root):
+    """Duplicate a text dependency row; the graph must reject it."""
+    for lang in LANGS:
+        path = os.path.join(root, "docs", lang, "90-ledger.md")
+        text = _read_file(path)
+        m = re.search(r"^J-095\s+%s[^\n]*\n" % re.escape(GRAPH_ARROW[lang]), text, re.M)
+        if not m:
+            raise AssertionError("%s graph has no J-095 row" % lang)
+        _write_file(path, text[:m.end()] + m.group(0) + text[m.end():])
+    return u"both dependency graphs duplicate J-095"
+
+
+def _break_root_dep_edge(root):
+    """The lowest-id card must remain dependency-rooted in the graph."""
+    path = _card_path(root, "zh", "J-001")
+    text = _read_file(path)
+    root_id = "J-001"
+    borrowed = "J-002"
     head = re.search(r"^### %s\b" % root_id, text, re.M).start()
     m = re.search(r"^- \*\*depends-on\*\*[:\uff1a][^\n]*$", text[head:], re.M)
     if not m:
         raise AssertionError("root card %s carries no depends-on line" % root_id)
     if re.search(r"J-\d{3}", m.group(0)):
-        raise AssertionError("root card %s already declares an upstream, so "
-                             "this fixture proves nothing" % root_id)
+        raise AssertionError("root card %s already declares an upstream" % root_id)
     line = u"- **depends-on**\uff1a%s\u3002" % borrowed
     _write_file(path, text[:head + m.start()] + line + text[head + m.end():])
-    return (u"zh %s (lowest id, the exempted card): declares %s while the "
-            u"graph and the overview give it no upstream" % (root_id, borrowed))
+    return (u"zh %s (lowest id): declares %s while the graph and overview "
+            u"give it no upstream" % (root_id, borrowed))
 
 
 def _break_single_language_card(lang):
@@ -999,7 +1175,7 @@ def _break_single_language_card(lang):
     other = "en" if lang == "zh" else "zh"
 
     def mutate(root):
-        path = _ledger(root, lang)
+        path = _card_shards(root, lang)[-1]
         text = _read_file(path)
         start, end, jid = _last_card(text)
         _write_file(path, text[:start] + text[end:])
@@ -1016,11 +1192,12 @@ def _break_equal_count_bilingual_card_set(root):
     shape covered by deleting a card. All English references and anchors move
     with the card, so [bilingual-cards] is the only intended failure class.
     """
-    ledger = _ledger(root, "en")
-    text = _read_file(ledger)
-    ids = set(re.findall(r"^### (J-\d{3})", text, re.M))
+    ids = set(_card_ids(root, "en"))
     old_id = max(ids)
     new_id = "J-%03d" % (max(int(j.split("-")[1]) for j in ids) + 1)
+    ledger = _card_path(root, "en", old_id)
+    text = _read_file(ledger)
+    path = _card_path(root, "en", old_id)
     for base, _dirs, files in os.walk(root):
         for name in files:
             path = os.path.join(base, name)
@@ -1032,73 +1209,54 @@ def _break_equal_count_bilingual_card_set(root):
             changed = changed.replace(old_id.lower(), new_id.lower())
             if changed != content:
                 _write_file(path, changed)
-    text = _read_file(ledger)
+    path = ledger
+    text = _read_file(path)
     heading = re.search(r"^(### %s[^\n]*)$" % new_id, text, re.M)
     if not heading:
         raise AssertionError("renamed fixture card not found")
     field = ("\n\n- **Audience scale**: affected group = professional buyers; "
              "million-scale; raises existing professionals' ceiling")
     text = text[:heading.end()] + field + text[heading.end():]
-    _write_file(ledger, text)
+    _write_file(path, text)
     return u"English %s renamed to %s everywhere; count unchanged" % (old_id, new_id)
 
 
 def _break_new_card_without_audience_scale(root):
-    """Append one bilingual new card whose only defect is missing audience scale.
-
-    The fixture clones the last real card, changes only its identifier, and adds
-    the same dependency/overview/graph entries as its source. This keeps every
-    older invariant green, so [audience-scale] alone must make the run fail.
-    """
-    ledgers = {lang: _ledger(root, lang) for lang in LANGS}
-    texts = {lang: _read_file(path) for lang, path in ledgers.items()}
-    ids = set(re.findall(r"^### (J-\d{3})", texts["zh"], re.M))
-    if ids != set(re.findall(r"^### (J-\d{3})", texts["en"], re.M)):
+    """Add one bilingual shard card whose only defect is missing audience scale."""
+    ids = set(_card_ids(root, "zh"))
+    if ids != set(_card_ids(root, "en")):
         raise AssertionError("fixture ledgers do not start with equal id sets")
-    number = max(max(int(j.split("-")[1]) for j in ids),
-                 LEGACY_AUDIENCE_SCALE_MAX) + 1
-    new_id = "J-%03d" % number
-    source_candidates = []
-    for jid in ids:
-        present = []
-        for lang in LANGS:
-            text = texts[lang]
-            matches = list(re.finditer(r"^### (J-\d{3})", text, re.M))
-            source = next(m for m in matches if m.group(1) == jid)
-            later = [m.start() for m in matches if m.start() > source.start()]
-            next_h2 = text.find("\n## ", source.end())
-            boundaries = later + ([next_h2 + 1] if next_h2 != -1 else [])
-            end = min(boundaries) if boundaries else len(text)
-            present.append(audience_scale_value(text[source.start():end], lang)
-                           is not None)
-        if not any(present):
-            source_candidates.append(jid)
-    if not source_candidates:
-        raise AssertionError("fixture has no bilingual legacy card without audience scale")
-    source_id = max(source_candidates)
+    new_id = "J-%03d" % (max(int(j.split("-")[1]) for j in ids) + 1)
+    source_id = "J-055"
     for lang in LANGS:
-        text = texts[lang]
-        matches = list(re.finditer(r"^### (J-\d{3})", text, re.M))
-        source = next(m for m in matches if m.group(1) == source_id)
-        later = [m.start() for m in matches if m.start() > source.start()]
-        next_h2 = text.find("\n## ", source.end())
-        boundaries = later + ([next_h2 + 1] if next_h2 != -1 else [])
-        end = min(boundaries) if boundaries else len(text)
-        section = text[source.start():end].replace(source_id, new_id)
-        # The source is a legacy card and therefore carries no audience field.
-        if "**%s**" % AUDIENCE_FIELD[lang] in section:
+        source_path = _card_path(root, lang, source_id)
+        source_text = _read_file(source_path)
+        source = re.search(r"^### %s[^\n]*" % source_id, source_text, re.M)
+        next_card = re.search(r"^### J-\d{3}", source_text[source.end():], re.M)
+        end = source.end() + next_card.start() if next_card else len(source_text)
+        section = source_text[source.start():end].replace(source_id, new_id)
+        if audience_scale_value(section, lang) is not None:
             raise AssertionError("source card unexpectedly carries audience scale")
-        # Clone its overview row and graph edge when present. Both use the same
-        # identifier replacement, preserving the source card's dependency set.
-        row = re.search(r"^\|\s*\[%s\]\([^\n]*$" % source_id, text, re.M)
-        edge = re.search(r"^%s\s*%s\s*[^\n]*$" %
-                         (source_id, re.escape(GRAPH_ARROW[lang])), text, re.M)
-        additions = ["\n", section]
+        shard = os.path.join(root, "docs", lang, "ledger", "96-105.md")
+        _write_file(shard, ("# 判断卡片 J-096–J-105\n\n" if lang == "zh"
+                            else "# Judgment cards J-096–J-105\n\n") + section.strip() + "\n")
+        root_path = os.path.join(root, "docs", lang, "90-ledger.md")
+        root_text = _read_file(root_path)
+        heading = re.search(r"^#### %s([^\n]*)$" % source_id, root_text, re.M)
+        if not heading:
+            raise AssertionError("source compatibility stub missing")
+        stub = root_text[heading.start():]
+        stub_end = re.search(r"^####? ", stub[heading.end() - heading.start():], re.M)
+        # Use the source stub's title and objective, then point at the new shard.
+        source_stub = stub[:stub_end.start() if stub_end else len(stub)]
+        new_stub = source_stub.replace(source_id, new_id)
+        new_stub = re.sub(r"ledger/\d{2}-\d{2}\.md", "ledger/96-105.md", new_stub)
+        _write_file(root_path, root_text.rstrip() + "\n\n" + new_stub.strip() + "\n")
+        # Clone the source overview row and dependency projection where present.
+        root_text = _read_file(root_path)
+        row = re.search(r"^\|\s*\[%s\]\([^\n]*$" % source_id, root_text, re.M)
         if row:
-            additions.append("\n" + row.group(0).replace(source_id, new_id))
-        if edge:
-            additions.append("\n" + edge.group(0).replace(source_id, new_id))
-        _write_file(ledgers[lang], text + "".join(additions) + "\n")
+            _write_file(root_path, root_text.rstrip() + "\n" + row.group(0).replace(source_id, new_id) + "\n")
         _bump_readme_count(root, lang, "cards")
     return u"bilingual %s cloned from %s without Audience scale" % (new_id, source_id)
 
@@ -1231,37 +1389,21 @@ def _break_partial_readable_confidence(root):
 
 
 def _text_after_last_card(root):
-    """Not a breakage: prose BELOW the last card belongs to no card.
-
-    The card body used to run to end of file, so a confidence example in the
-    checklist section was read as if J-064 had written it.
-
-    The fixture no longer depends on the ledger happening to carry a section
-    after its last card. It did until 2026-09-19, when a round of cards was
-    appended at the end of the file — and this case then raised, which aborts
-    the whole self-test run rather than reporting one failure. The section is
-    now created when it is missing, so what is asserted is the rule itself and
-    not the current layout of the ledger.
-    """
+    """Prose below the last card belongs to no card."""
     path = _ledger(root, "zh")
     text = _read_file(path)
     _start, end, _jid = _last_card(text)
     if end >= len(text):
-        # The section has to be added to BOTH ledgers: the two are compared
-        # section for section, so a fixture that appends one only to zh would
-        # be reported for that instead, and the case would then "pass" for a
-        # reason that has nothing to do with what it asserts.
-        for lang, title in (("zh", u"\u9644\u5f55\uff08fixture\uff09"),
-                            ("en", u"Appendix (fixture)")):
+        for lang in LANGS:
             p = _ledger(root, lang)
-            _write_file(p, _read_file(p).rstrip("\n")
-                        + u"\n\n## %s\n\n" % title)
+            title = u"附录（fixture）" if lang == "zh" else u"Appendix (fixture)"
+            _write_file(p, _read_file(p).rstrip("\n") + u"\n\n## %s\n\n" % title)
         text = _read_file(path)
         _start, end, _jid = _last_card(text)
     nl = text.find("\n", end)
     if nl == -1:
         raise AssertionError("section after the last card has no body")
-    extra = u"\n- **%s**\uff1a\u6781\u9ad8\n" % CONFIDENCE_FIELD["zh"]
+    extra = u"\n- **%s**：极高\n" % CONFIDENCE_FIELD["zh"]
     _write_file(path, text[:nl + 1] + extra + text[nl + 1:])
     return u"zh: `- **置信度**：极高` added to the section after the last card"
 
@@ -1383,17 +1525,26 @@ def _break_forecast_row_numbered(root):
     raise AssertionError("fixture has no row after the last registry row")
 
 
+def _chain_citation_fixture(root):
+    for path in [os.path.join(root, "README.md")] + [
+            os.path.join(root, "docs", "zh", "ledger", name)
+            for name in sorted(os.listdir(os.path.join(root, "docs", "zh", "ledger")))]:
+        if not os.path.isfile(path):
+            continue
+        text = _read_file(path)
+        match = CHAIN_CITE.search(text)
+        if match:
+            return path, text, match
+    raise AssertionError("fixture carries no chain citation with a title")
+
+
 def _break_chain_title(root):
     """The prose calls a chain something its own H1 does not.
 
     The replacement is not a truncation but a different name: a shortened
     title is legitimate and must stay green.
     """
-    path = _readme(root, "zh")
-    text = _read_file(path)
-    m = CHAIN_CITE.search(text)
-    if not m:
-        raise AssertionError("fixture README cites no chain by title")
+    path, text, m = _chain_citation_fixture(root)
     renamed = u"\u53e6\u4e00\u4e2a\u540d\u5b57"  # 另一个名字
     _write_file(path, text[:m.start(2)] + renamed + text[m.end(2):])
     return u"README.md: %s is cited under a title its file does not carry" % m.group(1)
@@ -1406,11 +1557,7 @@ def _shorten_chain_title(root):
     rule accepts an abbreviation taken from the MIDDLE of the title — the form
     the ledger actually uses when it cites C2 by its subtitle.
     """
-    path = _readme(root, "zh")
-    text = _read_file(path)
-    m = CHAIN_CITE.search(text)
-    if not m:
-        raise AssertionError("fixture README cites no chain by title")
+    path, text, m = _chain_citation_fixture(root)
     title = m.group(2).strip()
     if len(title) < 5:
         raise AssertionError("fixture title is too short to abbreviate")
@@ -1645,8 +1792,8 @@ def _break_citation_without_space(root):
     """
     path = _readme(root, "zh")
     _write_file(path, _read_file(path)
-                + u"\n\u9884\u544a\u6210C7\u3002\n")  # 预告成C7。
-    return u"README.md: prose cites C7 with no space before it"
+                + u"\n\u9884\u544a\u6210C99\u3002\n")  # 预告成 C99。
+    return u"README.md: prose cites C99 with no space before it"
 
 
 def _hide_count(lang, wrong, filler):
@@ -1781,6 +1928,9 @@ NEGATIVE_CASES = [
     (u"CONTRIBUTING link into the ledger goes dead", "links",
      _break_contributing_anchor),
     (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
+    (u"invented Mermaid dependency edge", "mermaid-graph", _break_mermaid_edge),
+    (u"overview row missing while card remains", "overview-rows", _break_missing_overview_row),
+    (u"dependency graph row duplicated", "graph-rows", _break_duplicate_graph_row),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
     (u"card exists in zh only", "bilingual-cards",
@@ -1829,8 +1979,8 @@ NEGATIVE_CASES = [
     (u"prose cites an unallocated identifier", "chain-id",
      lambda root: (_write_file(
          _readme(root, "zh"),
-         _read_file(_readme(root, "zh")) + u"\n\u53c2\u89c1 C7\u3002\n"),
-         u"README.md: prose cites C7")[1]),
+         _read_file(_readme(root, "zh")) + u"\n\u53c2\u89c1 C99\u3002\n"),
+         u"README.md: prose cites C99")[1]),
     (u"an unallocated identifier cited with no space", "chain-id",
      _break_citation_without_space),
     (u"chain linked under a title its file lacks", "chain-title",
