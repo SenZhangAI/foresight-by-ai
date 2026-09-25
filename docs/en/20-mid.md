@@ -1,5 +1,7 @@
 # Mid-term landscape: 2029–2032
 
+[Back to README / document map](../../README.en.md)
+
 > In July 2031, a company that handles cross-border returns and claims replaced the dashboard on its wall. The old one showed how many steps had been completed automatically that month; the number kept climbing and stopped meaning anything. The new one keeps a single column, headed “Waiting for a person.” That afternoon the column holds six items, and the one at the top has been waiting nine hours.
 >
 > Two people in the company can clear that column, and one of them is on parental leave. The other is not short of information: every item arrives with three pages of reasoning the system has written, well organized, better phrased than she would put it herself. What she wants is a different field—what actually happened in the world the last time this procedure ran to the end, rather than what the system expected at the time. That field is often empty. For the empty ones the system can reconstruct a perfectly plausible account, which is good enough for ordering the queue; the moment it goes into a compensation claim, the other side does not accept it.

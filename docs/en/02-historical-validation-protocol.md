@@ -1,5 +1,7 @@
 # Historical Pseudo-Out-of-Sample Validation Protocol
 
+[Back to README / document map](../../README.en.md)
+
 > This is an **execution protocol**, not a round of backtesting, and it produces no new judgments about the future. It freezes how historical cases enter the pool, how they are split, who may see what, how scoring works, and what the results can support. The five diffusion gates are in [Retrospect](01-retrospect.md); the general rules of reasoning are in [Foresight Methodology](00-method.md); the genuine out-of-sample record for judgments about the future is still carried by the due-date checks in the [judgment ledger](90-ledger.md).
 
 > **Version anchor**: v1 was frozen at commit `f5f0833`; the 2026-09-21 calibration narrowed Gate 5's input from “per-use cost” to “recurring net burden relative to the incumbent.” The v1 holdout therefore cannot validate v2; section 10 requires an isolated re-review.

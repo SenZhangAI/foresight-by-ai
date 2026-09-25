@@ -1,5 +1,7 @@
 # Technology Capability Sequence
 
+[Back to README / document map](../../README.en.md)
+
 At four o'clock on Wednesday, Lin gives a workbench one sentence: “Turn last quarter’s customer feedback into three actionable redesigns; do not send anything yet.”
 
 Ten minutes later, the system returns three plans, prototypes, risk lists, and contradictory evidence. It has not failed because it cannot generate. It has failed because it cannot decide what to trust next. Lin asks it to check the sources, open a test environment, and rerun the validation; the system proposes new hypotheses. The decisive change is not one model suddenly learning one task. Capabilities have to arrive in an order: cheap reasoning makes attempts routine, memory connects attempts, interfaces let attempts touch an environment, and evaluation determines which actions deserve to remain.
