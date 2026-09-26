@@ -154,7 +154,7 @@ Irreversibility is a supporting lens for testing the consequences of the constra
 
 ## 4. Judgment cards: the five-part requirement and IDs
 
-All project judgments use globally unique three-digit `J-NNN` IDs. Chinese and English share the same ID; once assigned, an ID is never reused. Every new judgment must first record **Audience scale**: who is affected; whether the order of magnitude is hundred-thousands, millions, tens of millions, hundreds of millions, or billions; and whether it “raises the ceiling for existing professionals” or “lets people who could not do it do it now.” If the scale evidence is only a constructed estimate, say so. A smaller-scale judgment may still hold, but it must be labelled local or occupational and may not use language such as “the whole of society,” “generally,” or “becomes the norm.”
+All project judgments use globally unique three-digit `J-NNN` IDs. Chinese and English share the same ID; once assigned, an ID is never reused. Every new judgment must record **Audience scale** while separating three different objects: **affected population** (people who bear costs, receive service, or are reached by an institution, not necessarily actors), **actual repeated actors / behaviour denominator** (the deduplicated people performing one defined action at time T with a stated frequency), and whether that action raises existing professionals’ ceiling or lets people who could not do it do it now. The scale field must state the action, time point or interval, frequency, and evidence source; if only reach can be estimated, label it **impact reach** rather than prevalence. A claim of hundred-million- or billion-scale diffusion without a verifiable action, deduplicated denominator, and frequency at T must be downgraded to impact reach, an institutional/occupational judgment, or **landscape only**, and may not use language such as “the whole of society,” “generally,” or “becomes the norm.” A smaller-scale judgment may still hold, but it must be labelled local or occupational.
 
 On that basis, every judgment must also have the following five parts in the ledger:
 
@@ -172,7 +172,7 @@ Recommended card fields:
 J-NNN · One-line title
 Layer: near / mid / far (container only)
 Lenses: L1–L9, and why they were chosen
-Audience scale: who is affected; hundred-thousands / millions / tens of millions / hundreds of millions / billions; raises existing professionals’ ceiling / lets non-practitioners do it; evidence or estimation note
+Audience scale: affected population, magnitude, and mode of impact; actual repeated actors / behaviour denominator; the defined action at T, deduplication rule, and frequency; raises existing professionals’ ceiling / lets non-practitioners do it; evidence or estimation note. If only affected population is known, write **impact reach** and do not present it as diffusion prevalence.
 depends-on: prerequisite J-NNN
 Reasoning chain: …
 Time window: …
