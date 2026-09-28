@@ -27,7 +27,8 @@
 - [16. Judgment cards for the C6 education-and-skill-formation chain](#16-judgment-cards-for-the-c6-education-and-skill-formation-chain)
 - [17. Judgment cards for the C7 social-consequence chain](#17-judgment-cards-for-the-c7-social-consequence-chain)
 - [18. Judgment cards for the C8 upstream-materials-and-climate-coupling chain](#18-judgment-cards-for-the-c8-upstream-materials-and-climate-coupling-chain)
-- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md)
+- [19. Judgment cards for the C9 ageing-and-institutional-care chain](#19-judgment-cards-for-the-c9-ageing-and-institutional-care-chain)
+- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-097](ledger/96-100.md)
 
 ## 1. How to use this ledger
 
@@ -179,6 +180,8 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-093](#j-093--advanced-fab-siting-is-priced-as-a-bundle-of-firm-power-water-quality-and-discharge-capacity) | 2026-09-22 | Advanced-fab siting is priced as a bundle of firm power, water quality, and discharge capacity | 2026–2033 | Medium | J-061, J-069 | [C8: The Fab Before the Chip](chains/80-fab-materials-and-climate.md) | DOE and TSMC support utilities and water risk as operating constraints, not bundle pricing or siting weights. | ACTIVE | 2027-06-30 |
 | [J-094](#j-094--semiconductor-climate-risk-is-priced-through-qualified-output-loss-not-hazard-maps-alone) | 2026-09-22 | Semiconductor climate risk is priced through qualified-output loss, not hazard maps alone | 2027–2034 | Medium | J-092, J-093 | [C8: The Fab Before the Chip](chains/80-fab-materials-and-climate.md) | External material supports exposure and adaptation spending, not multi-site output loss or insurance and contract pricing. | ACTIVE | 2027-12-31 |
 | [J-095](#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first) | 2026-09-22 | Fab-resilience costs become explicit bargaining over who pays and who is curtailed first | 2027–2034 | Medium | J-061, J-070, J-093 | [C8: The Fab Before the Chip](chains/80-fab-materials-and-climate.md) | Current material supports the existence of infrastructure cost, not that allocation and curtailment clauses become standard. | ACTIVE | 2027-12-31 |
+| [J-096](#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) | 2026-09-28 | Ageing and smaller households move part of care toward formal and coordination layers | 2027–2035 | Medium | J-066, J-073 | [C9: Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md) | Japan, Sweden, and OECD material support institutional carriers and informal-care mechanisms, not a global caregiver denominator or expansion in every system. | ACTIVE | 2027-06-30 |
+| [J-097](#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | 2026-09-28 | Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag | 2027–2038 | Medium | J-073, J-074, J-066, J-069 | [C9: Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md) | The institutional-first mechanism has adjacent embodied-intelligence evidence; household deployment, retention, and incident data are missing, so institutional priority is not an observed fact. | ACTIVE | 2027-12-31 |
 
 
 
@@ -193,7 +196,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-095; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-097; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -291,6 +294,8 @@ J-092 <- J-056, J-069, J-070
 J-093 <- J-061, J-069
 J-094 <- J-092, J-093
 J-095 <- J-061, J-070, J-093
+J-096 <- J-066, J-073
+J-097 <- J-073, J-074, J-066, J-069
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -436,7 +441,7 @@ The full-landscape promise remains open. The first chain is not full coverage. E
 | Capital and power | What new bottlenecks form around compute ownership, financing, and distribution of returns? | Medium | Covered (J-039–J-040; expansion remains) |
 | Human needs, meaning, and embodied presence | Which needs remain stable under supply change, and which preferences actually drift? | Medium | Covered (J-041–J-042; expansion remains) |
 | Upstream materials and climate coupling of compute | How do chip-manufacturing materials, equipment, water, and climate conditions couple, and through which nodes do they reach output and local resource allocation? | Medium | Covered (C8: J-092–J-095; comparable cross-firm qualification cycles, multi-site climate-related output loss, insurance terms, and utility-cost allocation remain open; current climate material supports only event/exposure and one point transmission, not a repeated trend) |
-| Population ageing and family care | Starting without AI, how do ageing, smaller families, and care institutions change who repeatedly cares for older people; does this actually become a hundred-million-person weekly action? | High | Gap record (below; first probe, not a judgment card) |
+| Population ageing and family care | Starting without AI, how do ageing, smaller families, and care institutions change who repeatedly cares for older people; does this actually become a hundred-million-person weekly action? | High | Partially covered (C9: J-096–J-097); deduplicated caregiver denominator, institutional deployment and retention, household incidents and maintenance cost remain open |
 
 ### 6.1 First non-AI social-force diffusion-gate gap record: population ageing × smaller families
 
@@ -497,7 +502,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-22 | C8 bilingual delivery: upstream materials and climate coupling in chip manufacturing (J-092–J-095) | Added four cards on qualified conversion paths, site-utility bundles, climate event–exposure–transmission, and allocation of resilience cost; each registers the five-part test, audience scale, depends-on links, external comparison, and falsifier. One incident, a hazard map, or a nominal second supplier is explicitly insufficient for a society-level trend. The gap is marked covered while qualification-cycle, multi-site loss, insurance, and cost-allocation data remain explicit. | — |
 | 2026-09-22 | C8 opportunity outlet entered screening (O-005) | C8 identifies a qualification-and-failover layer for qualified conversion paths as a direction to screen; it keeps the same opportunity-durability discipline as O-001–O-004 and is not declared a formal candidate yet. | — |
 | 2026-09-21 | `REVISED` due-calibration semantics repaired (both languages) | Due sets now come from preregistered time windows, falsifiers, and review dates rather than status labels; the 60 scope-downgraded `REVISED` cards remain independently due and in the denominator, while J-004 is explicitly reviewed together with successor J-065; uncomputable preregistered checks are recorded as `INDETERMINATE` and remain in the denominator. The methodology and contribution guide now use the same two-case definition. | 4a111a0 / follow-up revision |
-| 2026-09-21 | First non-AI social-force diffusion-gate gap record (population ageing × smaller families, both languages) | Defined “an adult provides hands-on or coordination elder care weekly” as the candidate repeat action. EXT-62 supplies daily/weekly informal-care evidence for people aged 50+ in 25 countries but not a worldwide distinct-person denominator; Japan's long-term-care insurance is the mechanism-present `CALIBRATION` case. Municipal responsibility in Sweden establishes a public alternative carrier only; without a family-carer share, its counterexample verdict on “mass weekly hands-on family care” is `INDETERMINATE`. The demographic and institutional mechanism survives deletion of J-001; AI changes some sub-action costs only. Because the performing-population denominator remains insufficient, this round records a gap and creates no judgment card. | — |
+| 2026-09-28 | C9 ageing and institutional care delivered bilingually (J-096–J-097) | Added a C9 chain from demography, household time, and formal care institutions to embodied-device diffusion; J-096 judges that part of care moves toward formal services and coordination, while J-097 judges that institutions and controlled services precede general-purpose robots in open homes. Both cards register audience scale, diffusion-gate review, depends-on, external comparison, falsifier, and leading indicators, and the former population-ageing/family-care gap is now partially covered. Caregiver denominators, deployment retention, household incidents, and maintenance costs remain explicit gaps. The README, bilingual ledger overview/graph/C9 card section, and 96-100 shard are synchronized; no billion-scale household-robot diffusion claim is made. | — |
 
 ---
 
@@ -1182,3 +1187,17 @@ hand before publishing:
 
 - **Full card**: [Open the complete J-095 card](ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first)
 - **One-sentence judgment**: From 2027 to 2034, major fab projects increasingly specify in approvals, subsidies, and utility contracts who funds dedicated water, power, and adaptation assets and whether fabs, residents, or other industry are curtailed first during scarcity.
+
+## 19. Judgment cards for the C9 ageing-and-institutional-care chain
+
+> These two cards come from [C9: Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md). They start with demography, household time, and institutional carriers, then put embodied devices back inside procurement, liability, and open-home diffusion gates; AI is not treated as the sole root cause.
+
+#### J-096 · Ageing and smaller households move part of care toward formal and coordination layers
+
+- **Full card**: [Open the complete J-096 card](ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)
+- **One-sentence judgment**: From 2027–2035, ageing and smaller households will move part of care from invisible family obligations toward formal services, insurance/public payment, and cross-institution coordination; this will not mean that hands-on family care exits.
+
+#### J-097 · Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag
+
+- **Full card**: [Open the complete J-097 card](ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
+- **One-sentence judgment**: From 2027–2038, contact transfer, exception observation, and standardised care assistance are more likely to form stable routines first in institutions and controlled home-care services; general-purpose robots in open-ended homes will not constitute social-scale diffusion in this window.

@@ -32,6 +32,7 @@ This table is an entrance, not a second ledger. Each row only says where to ente
 | Education | [Education and Skill Formation: Explanation Overflows; Mastery Must Still Leave a Trace](docs/en/chains/60-education-skill-formation.md) · [J-083](docs/en/ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery)–[J-086](docs/en/ledger/81-90.md#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only) | Explanation may become cheap, while mastery, assessment, qualification, and institutional carriers do not automatically become abundant. | Medium to low; any broad social claim must return to the card’s scale test; long-term cross-country evidence remains open. |
 | Social transmission | [Technology Arrives First, Power Later](docs/en/chains/70-capability-to-social-consequences.md) · [J-087](docs/en/ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations)–[J-091](docs/en/ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone) | Capability changes tasks and supervision inside organizations first, then transmits through labour, institutions, capital, and demand; benchmarks do not directly imply employment outcomes. | Medium; cross-country longitudinal organizational data are missing, and technology is not the only driver. |
 | Upstream risk | [The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](docs/en/chains/80-fab-materials-and-climate.md) · [J-092](docs/en/ledger/91-95.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths)–[J-095](docs/en/ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first) | Resilience constraints may sit in qualified materials, equipment, process conversion, and utilities—not merely in a nominal second supplier. | Medium; cross-firm qualification cycles, multi-site losses, insurance, and cost-allocation series remain open. |
+| Population and care | [Ageing and Institutional Care: Who Carries the Daily Physical and Coordination Work](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) / [J-097](docs/en/ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | Starting from demography, household time, and institutional carriers, this chain tests the sequence of formal care, coordination, and embodied devices without treating AI as the sole root cause. | Medium; caregiver denominators, institutional deployment retention, and household incident data remain open. |
 
 For a story, read [C1](docs/en/chains/10-generation-becomes-free.md). For bodies, care, and physical labour, read [C4](docs/en/chains/40-embodied-intelligence.md). To test the method, read the [Retrospect](docs/en/01-retrospect.md). To find directions worth betting on, read [Opportunity Candidates](docs/en/40-opportunities.md).
 
@@ -45,7 +46,7 @@ The evidence boundary comes first: historical cases can provide **calibration**�
 
 ## A non-AI starting point: where the current probe stands
 
-The archive also retains a **non-AI, non-L1 starting point—population ageing × smaller households**—as a social-force probe in the [ledger gap record](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI. Japan and Sweden are currently `CALIBRATION` material only; Sweden’s counterexample on the scale of family care is `INDETERMINATE`. This is not a J-NNN card and has not been promoted to a society-wide conclusion; the performing-population denominator remains open, with the next preregistered review date and cutoff recorded in the ledger.
+The archive does not derive every social change from AI. The **non-AI, non-L1 starting point—population ageing × smaller households** is now expanded into [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md), with testable judgments carried by [J-096–J-097](docs/en/ledger/96-100.md). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI; Japan and Sweden remain calibration and comparison material, not evidence of a global caregiver denominator or household-robot penetration rate.
 
 The point is not to prove an ageing forecast. It is to put a testable principle in view: if the population, household, and institutional mechanisms survive deletion of AI, AI cannot be written as the sole root cause. The probe connects to C7’s transmission chain without being swallowed by C1’s cost curve.
 
@@ -72,6 +73,7 @@ flowchart LR
   M -.structural extension.-> C6[C6 Education and skills]
   M -.social transmission.-> C7[C7 Technology and power]
   M -.upstream constraint.-> C8[C8 Materials and climate]
+  M -.population and care.-> C9[C9 Ageing and institutional care]
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
@@ -106,6 +108,7 @@ Identifiers are allocated here; this table is navigation only. Chain prose and t
 | C6 | Education and skill formation: explanation overflows; mastery must still leave a trace | Written | [English](docs/en/chains/60-education-skill-formation.md) · [中文](docs/zh/chains/60-education-skill-formation.md) |
 | C7 | Technology arrives first, power later: how capability sequence passes through organizations before becoming social consequence | Written | [English](docs/en/chains/70-capability-to-social-consequences.md) · [中文](docs/zh/chains/70-capability-to-social-consequences.md) |
 | C8 | The fab before the chip: why climate risk bites at qualified bottlenecks | Written | [English](docs/en/chains/80-fab-materials-and-climate.md) · [中文](docs/zh/chains/80-fab-materials-and-climate.md) |
+| C9 | Ageing and institutional care: who carries the daily physical and coordination work | Written | [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) |
 | — (no number) | Collateralization of trust | Announced, not yet written as a chain | See the [far-term landscape](docs/en/30-far.md) and J-035 |
 
 ## License
@@ -114,7 +117,7 @@ Original text, diagrams, and foresight material in this repository are released 
 
 ## Git and maintenance discipline
 
-Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 95 judgment cards and 8 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
+Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 9 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
 
 ## Coverage matrix (current boundary)
 
@@ -135,7 +138,7 @@ This matrix is a reader entry point, not a second ledger: it separates an access
 | Collaboration between people | Partially covered | [Far-term landscape, section 4](docs/en/30-far.md#4-collaboration-between-people-from-doing-steps-together-to-choosing-commitments-together); J-049–J-050 (both explicitly “landscape only”) | Concrete institutions, organizational cases, and observable repeated action |
 | Relationships between people and AI | Partially covered | [Far-term landscape, section 3](docs/en/30-far.md#3-people-and-ai-the-most-intimate-object-may-be-the-most-asymmetric); J-047–J-048 (both explicitly “landscape only”) | Institutional and product boundaries for authorization, exit, and agency |
 | Upstream materials, climate, and supply-chain resilience | Partially covered | [C8 Materials and Climate](docs/en/chains/80-fab-materials-and-climate.md); J-092–J-095 | Cross-firm qualification cycles, multi-site climate losses, insurance, and cost allocation |
-| Population ageing and family care | Not covered | [Ledger gap record](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered); currently no J-NNN judgment card | A weekly care-actor denominator must be obtained before deciding whether to build an independent chain |
+| Population ageing and family care | Partially covered | [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md); [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)–J-097 | Deduplicated caregiver denominator, institutional deployment and retention, household incidents and maintenance cost; no society-scale household-robot diffusion claim |
 
 The matrix deliberately keeps “partially covered” and “not covered” visible: an existing entry is not full landscape closure, and missing national-security, institutional-boundary, long-term-outcome, credential-recognition, insurance, cost-allocation, and family-care-denominator evidence is not filled by adjacent cards.
 
