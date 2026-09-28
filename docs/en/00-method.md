@@ -57,11 +57,15 @@ Therefore, formulations such as “historical backtesting proves an accuracy of 
 
 ## 2. Toolbox of lenses
 
-“Abundance → scarcity” is a useful starting point, but not a conclusion that every chain must obey. Each foresight chain states which lenses it uses and why; usually one to three lenses are enough.
+“Abundance → scarcity” is an **optional lens** in the toolbox, not the default starting point, mandatory step, or master explanation for every chain. Each reasoning chain must state which lenses it actually uses and why; usually one to three are enough. If the supply–demand inversion adds no explanatory power, discard L1 and start from another calibrated regularity—constraint, cost, diffusion, institutions, human behaviour, or otherwise.
 
 ### L1 · Abundance → scarcity
 
 After something becomes cheaper and more plentiful, something complementary that did not become abundant at the same rate may rise in value. This lens is good at locating value migration; its boundary is that demand structure may also be rewritten, so it must be checked with L8.
+
+### 2.1 Example without L1: population, households, and care
+
+Not every social change should begin by asking what becomes abundant and what becomes scarce. For example, **population ageing × smaller households** can begin with demographic structure, family relations, and institutional carrying capacity: first define the repeated action “an adult provides hands-on or coordinated elder care each week,” then examine whether responsibility is carried by families, markets, or public institutions, and only then ask whether AI changes the arrangement. The population and institutional mechanisms can survive deletion of AI, so this question does not need an L1 abundance–scarcity inversion; it is better treated as a structural consequence under Exit B, or retained as an open gap until the denominator is available. If evidence later shows that a supply change really alters another constraint, L1 can be invoked locally.
 
 ### L2 · Constraint migration
 
@@ -119,9 +123,9 @@ The five gates are a **veto-style filter, not a sufficient-condition predictor**
 
 ## 3. The opportunity-durability gate and three exits: not every scarcity is a business opportunity, and business opportunities are not the only things that count
 
-This section formally names the test—“can the same force automate, copy, or scale the new scarcity away?”—the **opportunity-durability gate**. It tests whether a scarcity can support a durable opportunity or structural consequence; the [five diffusion gates](01-retrospect.md) test whether a capability or practice can spread, to whom, and at what speed. A complete analysis first uses the opportunity-durability gate to classify the result, then applies all five diffusion gates to any judgment written in the voice of “general,” “society-wide,” or “becomes the norm.” Passing the former does not imply diffusion, and passing the latter does not imply a durable business opportunity.
+This section names the test—“can the new scarcity be automated, copied, or scaled away?”—the **opportunity-durability gate**. It applies only after a chain has identified a scarcity and is considering whether to write it as a durable opportunity or structural consequence; it is not the project-wide filter for every forecast. The [five diffusion gates](01-retrospect.md) test whether a capability or practice can spread, to whom, and at what speed. When a chain uses L1 and produces a scarcity, classify it with the opportunity-durability gate, then apply all five diffusion gates to any judgment written in the voice of “general,” “society-wide,” or “becomes the norm.” A chain that does not use L1 may reach Exit B or Exit C directly from other regularities. Passing the former does not imply diffusion, and passing the latter does not imply a durable business opportunity.
 
-Every time we discover that “X becomes abundant,” complete a full inversion chain in this order:
+When a chain chooses L1, proposes that “X becomes abundant,” and identifies a resulting scarcity, complete the inversion chain in this order:
 
 1. **What becomes abundant:** state specifically how supply, cost, or speed changes;
 2. **What becomes scarce:** identify the direct complement, bottleneck, or risk that someone is forced to bear;
@@ -130,13 +134,13 @@ Every time we discover that “X becomes abundant,” complete a full inversion 
 
 | Exit | Condition | Destination | Example |
 |---|---|---|---|
-| **A · Business opportunity candidate** | Passes the opportunity-durability gate (has a hard constraint) **and** someone who will pay can be named | `40-opportunities.md` | An accountable promise layer that bears compensation for AI answers and actions |
-| **B · Structural consequence** | Passes the opportunity-durability gate (has a hard constraint) **but** has no payer | The chain’s narrative section “So who should change what behavior?” | Strong-relationship counts stay fixed while weak relationships explode: how will friendship’s screening mechanism be rearranged? |
+| **A · Business opportunity candidate** | Identifies a scarcity, passes the opportunity-durability gate (has a hard constraint), **and** names someone who will pay | `40-opportunities.md` | An accountable promise layer that bears compensation for AI answers and actions |
+| **B · Structural consequence** | Has the complete five-part requirement and says who should change what behaviour; it need not begin from a scarcity or identify a payer | The chain’s narrative section “So who should change what behavior?” | How population ageing and smaller households redistribute care responsibility among families, markets, and public institutions |
 | **C · Landscape only** | Missing any of the five-part fields, or confidence is low | Keep it in place and label it explicitly | A directional intuition about preference drift in the distant future |
 
-**Exit B is equal in standing to Exit A; it is not a downgraded product.** This is written deliberately: modes of collaboration, social relationships, relationships between people and AI, the distribution of power, and the sources of meaning—these lines of reasoning often pass the opportunity-durability gate but will never find a payer. If only A and C existed, they would all be swept into the “landscape only” pile at the bottom of the page, even though this is exactly where the project is most likely to produce distinctive value.
+**Exit B is equal in standing to Exit A; it is not a downgraded product.** This is written deliberately: modes of collaboration, social relationships, relationships between people and AI, the distribution of power, and the sources of meaning often have no payer, and some do not begin from a scarcity proposition at all. If only A and C existed, they would all be swept into the “landscape only” pile at the bottom of the page, even though this is exactly where the project is most likely to produce distinctive value.
 
-To decide whether a piece belongs in B or C, look only at **whether it has the five-part requirement and a hard constraint**, not at **whether it can make money**.
+To decide whether a piece belongs in B or C, first ask **whether it has the complete five-part requirement and can say who should change what behaviour**, not **whether it can make money**. A chain that does not use L1 need not invent a scarcity or hard constraint merely to enter Exit B. If it goes on to claim that a scarcity is durable, however, that scarcity must pass the opportunity-durability gate. Exit A always requires the gate.
 
 **If it has a payer but does not pass the opportunity-durability gate, list it separately as a “window opportunity”** (usually a two-to-four-year arbitrage window), record it in the window list at the end of `40-opportunities.md`, and state its estimated closing time—it can be taken, but it must not be treated as a structural moat to bet on.
 

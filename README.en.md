@@ -4,7 +4,7 @@
 
 ## What this is
 
-This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
+This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It does not preselect a single explanatory framework: “abundance → scarcity” is an optional lens, used only when it adds explanatory power. The archive follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
 
 A usable judgment must lead back to a reasoning chain and state a time window, falsifier, leading indicator, confidence, and audience boundary. External material is used for comparison and calibration, not as a substitute for independent reasoning. Insufficiently evidenced material is explicitly marked “landscape only.”
 
@@ -45,7 +45,7 @@ The evidence boundary comes first: historical cases can provide **calibration**�
 
 ## A non-AI starting point: where the current probe stands
 
-The project does not derive every social change from AI. The archive retains a **population ageing × smaller families** non-AI social-force probe in the [ledger gap record](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI. Japan and Sweden are currently `CALIBRATION` material only; Sweden’s counterexample on the scale of family care is `INDETERMINATE`. This is not a J-NNN card and has not been promoted to a society-wide conclusion; the performing-population denominator remains open, with the next preregistered review date and cutoff recorded in the ledger.
+The archive also retains a **non-AI, non-L1 starting point—population ageing × smaller households**—as a social-force probe in the [ledger gap record](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI. Japan and Sweden are currently `CALIBRATION` material only; Sweden’s counterexample on the scale of family care is `INDETERMINATE`. This is not a J-NNN card and has not been promoted to a society-wide conclusion; the performing-population denominator remains open, with the next preregistered review date and cutoff recorded in the ledger.
 
 The point is not to prove an ageing forecast. It is to put a testable principle in view: if the population, household, and institutional mechanisms survive deletion of AI, AI cannot be written as the sole root cause. The probe connects to C7’s transmission chain without being swallowed by C1’s cost curve.
 
