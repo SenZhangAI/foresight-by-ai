@@ -332,12 +332,12 @@
 
 ### 10.1 商业预测的独立校准：收入、亏损与采用门槛必须分开
 
-本轮另加入两个**此前未计入本节矩阵的独立商业预测失准案例**：Webvan 与 Iridium。它们不用于证明五道普及闸的准确率，而是攻击「商业预测」这类证据的记录方式。两案的预测与结果原件、逐字摘录、SEC 页码／行号、稳定 URL 与 SHA-256 已随仓库交付在[商业预测失准校准证据包](../evidence/business-forecast-calibration-2026-09.md)；英文版见[English evidence packet](../evidence/business-forecast-calibration-2026-09.en.md)。
+本轮另加入两个**此前未计入本节矩阵的独立商业预测失准案例**：Webvan 与 eToys。它们不用于证明五道普及闸的准确率，而是攻击「商业预测」这类证据的记录方式。两案的预测与结果原件、逐字摘录、SEC 页码／行号、稳定 URL 与 SHA-256 已随仓库交付在[商业预测失准校准证据包](../evidence/business-forecast-calibration-2026-09.md)；英文版见[English evidence packet](../evidence/business-forecast-calibration-2026-09.en.md)。附录保留 Iridium 的融资契约门槛案例，但明确不把它计入两例 forecast miss。
 
 | 案例 | T 前原件与同口径结果 | 失准分类 | 对现有规则的结论 |
 |---|---|---|---|
 | **Webvan（商业／电商）** | S-1 披露 Goldman Sachs 对 2000 年收入 `$120.0m`、净亏损 `$154.3m` 的 projection；2000 10-K 报告实际收入 `$178.456m`、净亏损 `$453.289m` | 收入规模 +48.7%；亏损实际约为预测 2.94 倍；部署与成本假设失准 | 不推翻五闸；新增边界：收入方向正确不等于利润／成本结构命中 |
-| **Iridium（商业／卫星通信）** | T 前文件要求截至 1999-03-31 累计现金收入 `$4m`、应计收入 `$30m`、总订户 `52,000`；10-Q 报告实际 `$0.195m`、`$1.637m`、`10,294` | 收入与订户目标相对实际严重高估；首个约束日期即未达标；采用机制未按资本计划兑现 | 不推翻五闸；新增边界：融资契约门槛与概率性预测必须分开编码 |
+| **eToys（商业／电商）** | 2000-12-15 公司 8-K Exhibit 99.1 将截至 12-31 季度收入从原估计 `$210m–$240m` 下修为 `$120m–$130m`；同一季度 10-Q 报告实际 `$131.166m` | 预测版本修订 + 时点；实际仅为原估计约 54.7%–62.5%，且略高于下修区间上沿 | 不推翻五闸；新增边界：预测修订必须按版本冻结，不能混算误差 |
 
 这两案**不能被偷换成五闸反例**：它们没有隔离出某一道闸的独占失败机制，Webvan 更不能证明「收入方向」和「社会普及」是同一指标。它们真正迫使我们修正的是证据纪律：今后商业判断必须分别记录指标、单位、目标日期、预测主体与来源性质（公司／承销商／融资契约）、部署节奏、结果窗口和结果原件；不能用“收入增长了”掩盖“亏损规模错了”，也不能把“系统可用”当作“采用曲线会按计划到达”。这是一条记录边界，不是新的普及定律。
 
@@ -365,7 +365,7 @@
 - **EXT-57**：Google, [*A message on Stadia and our long term streaming strategy*](https://blog.google/products-and-platforms/products/stadia/message-on-stadia-streaming-strategy/)，2022-09-29；官方称技术底座已 proven at scale、strong，但 user traction 未达预期，并宣布 2023-01-18 关闭。它支持「技术可用不保证采用」，不支持本文猜测具体失败原因。
 - **EXT-58**：Congressional Research Service, [*Daylight Saving Time: Background and Legislation*](https://www.congress.gov/crs-product/R45208)；1974-01-06 紧急全年夏令时生效，后提前回滚并于 1974-10-27 恢复标准时制。它支持政策撤回时间线，不单独证明公众为何反对。
 - **EXT-59**：Reserve Bank of India, [Annual Report 2017–18, Chapter V](https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1232)；确认 2016 年撤销 specified banknotes 造成银行体系过剩流动性。该页不含精确返还比例，因此本轮不以此编码废钞政策成败。
-- **EXT-67**：[商业预测失准校准证据包](../evidence/business-forecast-calibration-2026-09.md)；Webvan 的 SEC S-1／2000 10-K 与 Iridium 的 T 前 prospectus／1999 Q1 10-Q，逐字摘录及 SHA-256 见包内；支持收入、亏损、订户门槛的数值校准，不支持五道普及闸的准确率或单一机制因果
+- **EXT-67**：[商业预测失准校准证据包](../evidence/business-forecast-calibration-2026-09.md)；Webvan 与 eToys 的 SEC 预测／结果原件，以及附录 Iridium 的融资契约门槛材料，逐字摘录及 SHA-256 见包内；支持收入、亏损、订户门槛的数值校准，不支持五道普及闸的准确率或单一机制因果
 
 **中（百科／权威媒体／多源一致）**
 

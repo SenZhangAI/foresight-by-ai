@@ -48,9 +48,58 @@ The table states `(In thousands, except share and per share data)`, so 2000 actu
 
 This case **does not overturn any of the five diffusion gates**: it tests numerical calibration of a corporate financial projection, not whether a capability becomes a society-wide habit. It adds a boundary to the method instead: commercial forecasts must separately log revenue scale, loss scale, deployment pace, and mechanism assumptions; a correct revenue direction does not make the cost structure or profit forecast a hit.
 
-## Case B · Iridium: pre-T subscriber and revenue thresholds were missed by the first quarter
+## Case B · eToys: same-quarter sales forecast was cut sharply within two weeks, and actual sales still missed the revised upper bound
 
 ### Pre-T forecast source
+
+- **Forecast owner / source**: eToys disclosed a concrete forward estimate in Exhibit 99.1 to its Form 8-K; this is the company's own forecast, not a financing covenant or a secondary retelling.
+- **Disclosure date**: 2000-12-15; the target was the fiscal third quarter ending 2000-12-31. The release also records the earlier October 30 range of `$210m–$240m` and the revised range of `$120m–$130m`.
+- **Stable source**: [SEC full submission 0000912057-00-053869](https://www.sec.gov/Archives/edgar/data/1052245/000091205700053869/a2033537zex-99_1.txt)
+- **Location**: Printed page 1 of Exhibit 99.1, under the title `ETOYS EXPECTS LOWER THAN ESTIMATED FISCAL THIRD QUARTER OPERATING RESULTS`, in the paragraph beginning `Specifically, the company's new estimates...`, source lines 14–47; SHA-256 `71d6a22b0921fb49b23496abe3ece877c6a443aeaa5efc8bed7030f808ba8a87`.
+
+**Verbatim excerpts**:
+
+> “LOS ANGELES, December 15, 2000 -- As a result of weaker-than-expected holiday sales, eToys Inc. (NASDAQ: ETYS) today announced that it expects to report operating results for its fiscal third quarter ending December 31 that are lower than the estimates the company provided on October 30 of this year.”
+>
+> “Net sales are expected to be between $120 million and $130 million, rather than the $210 million to $240 million previously estimated.”
+>
+> “Operating losses are expected to be between 55 percent and 65 percent of revenue, rather than the 22 percent to 28 percent of revenue previously estimated...”
+
+**Frozen pre-T metrics**: Q3 2000 (quarter ending December 31) sales after revision `$120m–$130m`; before revision `$210m–$240m`; revised operating-loss range `55%–65%`, previous range `22%–28%`. The primary observation window is 16 days from December 15 to December 31.
+
+### Outcome source
+
+- **Outcome source**: eToys Inc., Q3 2000 Form 10-Q, filed 2001-02-14, covering the same quarter ending 2000-12-31.
+- **Stable source**: [SEC full submission 0000912057-01-005726](https://www.sec.gov/Archives/edgar/data/1052245/000091205701005726/a2034712z10-q.txt)
+- **Location**: Printed page 3, the `CONSOLIDATED STATEMENTS OF OPERATIONS` table under `ITEM 1. CONSOLIDATED FINANCIAL STATEMENTS`, source lines 130–180; the `NET SALES` subsection also states the original estimate and actual result at source lines 973–1006; SHA-256 `17e484b5e00d06ebeaee13f5303e5a21c58173a000973fd9dc6e0a832cab06f3`.
+
+**Verbatim excerpts**:
+
+> “Net sales.......................................    $131,166     $ 106,751     $ 182,004     $ 128,032”
+>
+> “(IN THOUSANDS, EXCEPT PER SHARE AMOUNTS)”
+>
+> “It should be noted that net sales for the quarter ended December 31, 2000 were substantially below our original estimate of $210 million to $240 million, due to a harsh retail climate and dampened enthusiasm for Internet retailing.”
+>
+> “...in fact net sales for the quarter were only $131.2 million due to a harsh retail climate and dampened enthusiasm for Internet retailing.”
+
+The table columns are quarter ended December 31, 2000 / 1999 and nine months ended; the same-metric actual quarterly net sales were therefore `$131.166m`.
+
+### Classification
+
+- **Revenue scale**: against the December 15 revised range of `$120m–$130m`, actual `$131.166m` exceeded the upper bound by `$1.166m` (about +0.9%), while against the earlier `$210m–$240m` company estimate actual sales reached only about 54.7%–62.5%. The revised short-horizon range and the earlier estimate must be logged separately; one cannot select whichever produces the larger miss.
+- **Direction / timing**: the company acknowledged before the result that its earlier estimate had failed; this is a `timing + scale` forecast-revision case, and actual results still landed just outside the revised upper bound.
+- **Mechanism**: the source attributes the shortfall to a harsh retail climate, reduced enthusiasm for Internet retailing, and attention diverted by the presidential election; the evidence supports these as the company's disclosed explanations, not as a uniquely proven cause.
+- **Independence**: eToys is an online toy retailer's own quarterly financial forecast, with a different company, forecaster, and disclosure from Webvan's Goldman Sachs projection; neither is the Forrester US online-retail-total series.
+
+### Rule impact
+
+This case does not overturn the five diffusion gates, but it strengthens one recording rule: **when a forecast is revised before the outcome, freeze the date and range of every version and calculate error by version**. Otherwise mixing the revised `$120m–$130m` range with the original `$210m–$240m` estimate will misread timely corporate correction as the error of one undifferentiated forecast.
+
+
+## Appendix · Iridium: commercial financing-covenant threshold miss (not counted among the two forecast misses)
+
+### Pre-T source (commercial target, not an ordinary probabilistic forecast)
 
 - **Source**: Iridium World Communications Ltd.; the sole pre-T original used for this case is its `424B4` prospectus filed 1999-01-25. This source is not part of the Forrester series. It discloses the minimum revenue and subscriber levels required by its secured bank facility at future dates. These are dated, testable financing-covenant targets available before the outcomes; this case treats them as commercial target thresholds and does not mislabel them as an ordinary probabilistic forecast.
 - **Stable source**: [SEC full submission 000095013399000162](https://www.sec.gov/Archives/edgar/data/948421/000095013399000162/0000950133-99-000162.txt)
@@ -96,7 +145,8 @@ This case likewise **does not overturn any of the five diffusion gates**. It can
 
 ## Cross-case conclusion: what changes and what does not
 
-1. **Change the evidence requirement, not the five-gate conclusion**: a commercial forecast record must include metric, unit, target date, source identity (company / underwriter / financing covenant), the pre-T location, and an outcome source; correct revenue direction does not erase loss-scale error.
-2. **Do not treat these as holdout cases**: both were selected after their historical outcomes were visible, so they are `CALIBRATION` and cannot support a claim that method accuracy improved.
-3. **Do not smuggle “commercial forecast miss” into “diffusion rule falsified”**: Webvan and Iridium are useful counterevidence, but neither isolates an exclusive failure mechanism for one of the five gates. The honest update is a stronger boundary and recording discipline, not a revision to Gates 1–5.
-4. **Next testable direction**: pre-freeze ordinary cases from the initial SEC S-1/F-1 population, encode revenue, loss, subscriber/customer, and deployment milestones separately, and set error thresholds before opening results. Only then can cases enter the historical pseudo-out-of-sample protocol instead of continuing to select famous failures.
+1. **Change the evidence requirement, not the five-gate conclusion**: a commercial forecast must record metric, unit, target date, forecast owner, forecast version, the pre-T location, and the outcome original; correct revenue direction does not erase loss-scale error, and a revision cannot erase the prior version.
+2. **Do not treat Webvan and eToys as holdout cases**: both were selected after their historical outcomes were visible, so they are `CALIBRATION` and cannot support a claim that method accuracy improved.
+3. **Do not smuggle “commercial forecast miss” into “diffusion rule falsified”**: Webvan and eToys do not isolate an exclusive failure mechanism for one of the five gates; the honest update is a stronger boundary and recording discipline, not a revision to Gates 1–5.
+4. **Do not count Iridium among the two forecast misses**: it is a financing-covenant minimum threshold, retained as an appendix and an `unverified-as-forecast` boundary for “commercial target threshold miss,” not used to meet the forecast-case count.
+5. **Next testable direction**: pre-freeze ordinary cases from the initial SEC S-1/F-1/8-K population, encode revenue, loss, subscriber/customer, deployment milestones, and forecast revisions separately, and set error thresholds before outcomes are opened. Only then can cases enter the historical pseudo-out-of-sample protocol instead of continuing to select famous failures.

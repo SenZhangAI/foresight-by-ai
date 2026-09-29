@@ -48,9 +48,58 @@
 
 本案**不推翻五道普及闸中的任何一道**：它检验的是一家公司财务 projection 的数值校准，而不是某项能力能否成为社会风气。它反而给方法增加一个边界：商业预测必须把“收入规模”“损失规模”“部署节奏”和“机制假设”分开记账；不能因为收入方向正确，就把成本结构和利润结果一并写成命中。
 
-## 案例 B · Iridium：在 T 前写下的订户／收入门槛，首个季度即远未达到
+## 案例 B · eToys：同一季度的销售预测在两个月内大幅下修，实际仍低于下修后的上沿
 
 ### T 前预测原件
+
+- **预测主体／来源**：eToys 公司在 Form 8-K 的 Exhibit 99.1 新闻稿中披露其对当季经营结果的明确 forward estimate；这是公司自己的预测，不是融资契约或二手转述。
+- **预测／披露日期**：2000-12-15；观察目标为截至 2000-12-31 的 fiscal third quarter。文件还明确指出此前 10 月 30 日给出的 `$210m–$240m` 区间，本次下修为 `$120m–$130m`。
+- **稳定来源**：[SEC full submission 0000912057-00-053869](https://www.sec.gov/Archives/edgar/data/1052245/000091205700053869/a2033537zex-99_1.txt)
+- **原件定位**：Exhibit 99.1 印刷页 1，标题 `ETOYS EXPECTS LOWER THAN ESTIMATED FISCAL THIRD QUARTER OPERATING RESULTS` 下的 `Specifically, the company's new estimates...` 段落，原文件行 14–47；SHA-256 `71d6a22b0921fb49b23496abe3ece877c6a443aeaa5efc8bed7030f808ba8a87`。
+
+**逐字摘录**：
+
+> “LOS ANGELES, December 15, 2000 -- As a result of weaker-than-expected holiday sales, eToys Inc. (NASDAQ: ETYS) today announced that it expects to report operating results for its fiscal third quarter ending December 31 that are lower than the estimates the company provided on October 30 of this year.”
+>
+> “Net sales are expected to be between $120 million and $130 million, rather than the $210 million to $240 million previously estimated.”
+>
+> “Operating losses are expected to be between 55 percent and 65 percent of revenue, rather than the 22 percent to 28 percent of revenue previously estimated...”
+
+**冻结的 T 前指标**：2000 Q3（季度截至 12 月 31 日）收入下修后 `$120m–$130m`，下修前 `$210m–$240m`；经营亏损率下修后 `55%–65%`、下修前 `22%–28%`。本案以 12 月 15 日到 12 月 31 日的 16 天作为主要观察窗。
+
+### 结果原件
+
+- **结果来源**：eToys Inc.，2000 Q3 Form 10-Q，filed 2001-02-14，结果为截至 2000-12-31 的同一季度。
+- **稳定来源**：[SEC full submission 0000912057-01-005726](https://www.sec.gov/Archives/edgar/data/1052245/000091205701005726/a2034712z10-q.txt)
+- **原件定位**：印刷页 3，`ITEM 1. CONSOLIDATED FINANCIAL STATEMENTS` 下的 `CONSOLIDATED STATEMENTS OF OPERATIONS` 表，原文件行 130–180；另有 `NET SALES` 小节对原始估计与实际结果的明确说明，原文件行 973–1006；SHA-256 `17e484b5e00d06ebeaee13f5303e5a21c58173a000973fd9dc6e0a832cab06f3`。
+
+**逐字摘录**：
+
+> “Net sales.......................................    $131,166     $ 106,751     $ 182,004     $ 128,032”
+>
+> “(IN THOUSANDS, EXCEPT PER SHARE AMOUNTS)”
+>
+> “It should be noted that net sales for the quarter ended December 31, 2000 were substantially below our original estimate of $210 million to $240 million, due to a harsh retail climate and dampened enthusiasm for Internet retailing.”
+>
+> “...in fact net sales for the quarter were only $131.2 million due to a harsh retail climate and dampened enthusiasm for Internet retailing.”
+
+表格列为 quarter ended December 31, 2000 / 1999 与 nine months ended；因此同口径实际季度净销售额为 `$131.166m`。
+
+### 判定与分类
+
+- **收入规模**：相对于 12 月 15 日已下修的 `$120m–$130m`，实际 `$131.166m` 高出上沿 `$1.166m`（约 +0.9%），但相对于此前 `$210m–$240m` 的公司估计，实际只达到约 54.7%–62.5%。因此应把“下修后的短期区间”与“此前估计”分开记录，不能挑一个口径制造更大的 miss。
+- **方向／时点**：同一季度内公司在结果揭晓前承认原估计失效；这是 `timing + scale` 的 forecast revision 案例，且实际结果仍落在下修区间上沿之外。
+- **机制**：原件把短缺归因于 harsh retail climate、对 Internet retailing 的兴趣下降和总统选举后的注意力分散；证据支持这些是公司披露的解释，不足以证明唯一因果。
+- **独立性**：eToys 是在线玩具零售商自己的季度财务预测，与 Webvan 的 Goldman Sachs 预测不同主体、不同业务公司、不同披露文件；两者也都不是 Forrester 美国线上零售总额系列。
+
+### 规则影响
+
+本案不推翻五道普及闸，但明确补强一条记录规则：**同一指标若在结果前发生预测修订，必须冻结每一版的日期与区间，并按版本分别计算误差**。否则把下修后的 `$120m–$130m` 和最初的 `$210m–$240m` 混在一起，会把“公司及时纠偏”误读成单一预测的失败程度。
+
+
+## 附录 · Iridium：商业融资契约门槛失准（不计入两例 forecast miss）
+
+### T 前原件（商业目标，不是普通概率性预测）
 
 - **来源**：Iridium World Communications Ltd.，本案唯一采用的 T 前原件是其 `424B4` prospectus，filed 1999-01-25；该来源不是 Forrester 系列，披露其 secured bank facility 在未来日期要求达到的最低收入和订户水平。这是可在结果发生前读取的、带具体日期和数值的融资契约目标；本案将其作为可检验的商业目标门槛，不把它冒充成普通概率性预测。
 - **稳定来源**：[SEC full submission 000095013399000162](https://www.sec.gov/Archives/edgar/data/948421/000095013399000162/0000950133-99-000162.txt)
@@ -96,7 +145,8 @@
 
 ## 交叉结论：本轮改什么、不改什么
 
-1. **改写证据要求，不改五闸结论**：商业预测必须同时记录指标、单位、目标日期、来源身份（公司／承销商／融资契约）、T 前披露位置和结果原件；收入方向正确不覆盖亏损规模错误。
-2. **不把这两案当 holdout**：二者都是看到历史结局后选入本轮的 `CALIBRATION`，不能声称方法准确率提高。
-3. **不把“商业预测失准”偷换成“社会扩散规则被证伪”**：Webvan 与 Iridium 是重要反例材料，但没有隔离出五闸中某一闸的独占失败机制；诚实结论是增加边界与记录纪律，暂不修改闸一至闸五。
-4. **后续可检验方向**：从 SEC 初始 S-1／F-1 总体中预先冻结普通案例，分别编码 revenue、loss、subscriber／customer、deployment milestone；在看结果前固定误差阈值，才能进入历史伪样本外协议，而不是继续挑选名人失败故事。
+1. **改写证据要求，不改五闸结论**：商业预测必须同时记录指标、单位、目标日期、预测主体、预测版本、T 前披露位置和结果原件；收入方向正确不覆盖亏损规模错误，预测下修也不能抹掉上一版。
+2. **不把 Webvan 与 eToys 当 holdout**：两案都是看到历史结局后选入本轮的 `CALIBRATION`，不能声称方法准确率提高。
+3. **不把“商业预测失准”偷换成“社会扩散规则被证伪”**：Webvan 与 eToys 没有隔离出五闸中某一闸的独占失败机制；诚实结论是增加边界与记录纪律，暂不修改闸一至闸五。
+4. **Iridium 不计入两例 forecast miss**：它是融资契约最低门槛，保留为“商业目标门槛未达”的附录与 `unverified-as-forecast` 边界，不用来凑足预测案例数量。
+5. **后续可检验方向**：从 SEC 初始 S-1／F-1／8-K 总体中预先冻结普通案例，分别编码 revenue、loss、subscriber／customer、deployment milestone 与 forecast revision；在看结果前固定误差阈值，才能进入历史伪样本外协议，而不是继续挑选名人失败故事。
