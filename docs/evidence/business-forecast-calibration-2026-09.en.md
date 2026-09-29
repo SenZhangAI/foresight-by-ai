@@ -39,6 +39,7 @@ The table states `(In thousands, except share and per share data)`, so 2000 actu
 
 ### Classification
 
+- **Primary same-metric measure**: this case uses `net loss` as the primary metric (the forecast and outcome both use that name verbatim); `revenue` / `Net Sales` is secondary because the terminology differs and does not carry the core miss determination.
 - **Revenue scale**: forecast `$120.0m`, actual `$178.456m`; actual was about 1.49 times forecast, a +48.7% deviation. This is a measurable scale error, but not a reversal of demand direction.
 - **Loss scale**: forecast net loss `$154.3m`, actual `$453.289m`; actual loss was about 2.94 times forecast, an absolute difference of about `$298.989m`. This is a `scale` miss, with losses underestimated.
 - **Mechanism / timing**: the forecast source itself lists rollout timing, order volume, market penetration, and competition as assumptions that must be separated in future records. The outcome does not establish that any one variable alone caused the miss.
@@ -53,7 +54,7 @@ This case **does not overturn any of the five diffusion gates**: it tests numeri
 ### Pre-T forecast source
 
 - **Forecast owner / source**: eToys disclosed a concrete forward estimate in Exhibit 99.1 to its Form 8-K; this is the company's own forecast, not a financing covenant or a secondary retelling.
-- **Disclosure date**: 2000-12-15; the target was the fiscal third quarter ending 2000-12-31. The release also records the earlier October 30 range of `$210m–$240m` and the revised range of `$120m–$130m`.
+- **Disclosure date**: 2000-12-15; the target was the fiscal third quarter ending 2000-12-31. This filing is the actual frozen pre-T forecast source for the case; it mentions the October 30 range, but the undelivered October 30 document and that old range are not used in the error calculation.
 - **Stable source**: [SEC full submission 0000912057-00-053869](https://www.sec.gov/Archives/edgar/data/1052245/000091205700053869/a2033537zex-99_1.txt)
 - **Location**: Printed page 1 of Exhibit 99.1, under the title `ETOYS EXPECTS LOWER THAN ESTIMATED FISCAL THIRD QUARTER OPERATING RESULTS`, in the paragraph beginning `Specifically, the company's new estimates...`, source lines 14–47; SHA-256 `71d6a22b0921fb49b23496abe3ece877c6a443aeaa5efc8bed7030f808ba8a87`.
 
@@ -65,7 +66,7 @@ This case **does not overturn any of the five diffusion gates**: it tests numeri
 >
 > “Operating losses are expected to be between 55 percent and 65 percent of revenue, rather than the 22 percent to 28 percent of revenue previously estimated...”
 
-**Frozen pre-T metrics**: Q3 2000 (quarter ending December 31) sales after revision `$120m–$130m`; before revision `$210m–$240m`; revised operating-loss range `55%–65%`, previous range `22%–28%`. The primary observation window is 16 days from December 15 to December 31.
+**Frozen pre-T metrics**: Q3 2000 (quarter ending December 31) sales interval `$120m–$130m`; operating-loss interval `55%–65%`. The `$210m–$240m` and `22%–28%` figures are only historical references inside the December 15 filing, not the measurable forecast original for this case. The interval-miss rule is fixed as: an actual value outside the pre-T published interval is a `scale` miss, with the deviation magnitude recorded separately. The primary observation window is 16 days from December 15 to December 31.
 
 ### Outcome source
 
@@ -87,14 +88,16 @@ The table columns are quarter ended December 31, 2000 / 1999 and nine months end
 
 ### Classification
 
-- **Revenue scale**: against the December 15 revised range of `$120m–$130m`, actual `$131.166m` exceeded the upper bound by `$1.166m` (about +0.9%), while against the earlier `$210m–$240m` company estimate actual sales reached only about 54.7%–62.5%. The revised short-horizon range and the earlier estimate must be logged separately; one cannot select whichever produces the larger miss.
-- **Direction / timing**: the company acknowledged before the result that its earlier estimate had failed; this is a `timing + scale` forecast-revision case, and actual results still landed just outside the revised upper bound.
+- **Revenue scale**: against the December 15 frozen interval of `$120m–$130m`, actual `$131.166m` exceeded the upper bound by `$1.166m` (about +0.9%), so it is recorded as a boundary `scale` miss under the stated interval-miss rule. The October 30 range is only undelivered background and cannot be used to enlarge this case's error.
+- **Direction / timing**: the company acknowledged before the result that its earlier estimate had failed; for the December 15 version frozen in this case, actual results crossed the upper bound 16 days later. This is a `timing + scale` forecast-revision case.
 - **Mechanism**: the source attributes the shortfall to a harsh retail climate, reduced enthusiasm for Internet retailing, and attention diverted by the presidential election; the evidence supports these as the company's disclosed explanations, not as a uniquely proven cause.
-- **Independence**: eToys is an online toy retailer's own quarterly financial forecast, with a different company, forecaster, and disclosure from Webvan's Goldman Sachs projection; neither is the Forrester US online-retail-total series.
+- **Independence**: eToys is an online toy retailer's own quarterly financial forecast, with a different company, forecaster, and disclosure from Webvan's Goldman Sachs projection; the miss mechanisms also differ: Webvan's boundary is distribution-center rollout and fixed-cost / loss scale, while eToys' boundary is holiday-demand shortfall and forecast-interval revision. Neither is the Forrester US online-retail-total series.
 
 ### Rule impact
 
-This case does not overturn the five diffusion gates, but it strengthens one recording rule: **when a forecast is revised before the outcome, freeze the date and range of every version and calculate error by version**. Otherwise mixing the revised `$120m–$130m` range with the original `$210m–$240m` estimate will misread timely corporate correction as the error of one undifferentiated forecast.
+This case does not overturn the five diffusion gates, but strengthens one recording rule: **when a forecast is revised before the outcome, freeze the date and range of every version and calculate error by version; when a forecast is an interval, record interval coverage separately from deviation magnitude**.
+
+The `unverified` item for this case is the original October 30 `$210m–$240m` announcement: the December 15 filing only cites it, so this packet does not count it in the case metrics and does not claim its exact error. It tests only the delivered December 15 interval.
 
 
 ## Appendix · Iridium: commercial financing-covenant threshold miss (not counted among the two forecast misses)
