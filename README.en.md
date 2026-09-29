@@ -134,7 +134,7 @@ These boundaries are deliberate: `ship:` can affect an external project-level me
 
 ## Git and maintenance discipline
 
-Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 10 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
+Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 10 independent reasoning chains. The reproducible card-count basis is the `### J-NNN` full-card headings in the `docs/zh/ledger/` and `docs/en/ledger/` shards (each identifier exactly once per language); `python3 scripts/check.py` counts them and checks the bilingual identifier sets and README counts. The full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
 
 ## Coverage matrix (current boundary)
 
