@@ -4251,10 +4251,6 @@
 - **Source**: [C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md).
 - **Next review**: 2027-12-31.
 - **Status**: ACTIVE.
-
-## 18. Judgment cards for the C8 upstream-materials and climate-coupling chain
-
-> These four cards come from [C8：芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](../zh/chains/80-fab-materials-and-climate.md). They separate mineral stock and nominal supplier count from a qualified conversion path that can actually switch, and judge climate coupling through event–exposure–transmission rather than a single incident.
 - **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
 
 ### Pairing and lineage / 双语配对与谱系
@@ -4262,6 +4258,10 @@
 - **双语配对 / Bilingual pairing**：`J-091` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
 - **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
 - **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## 18. Judgment cards for the C8 upstream-materials and climate-coupling chain
+
+> These four cards come from [C8：芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](../zh/chains/80-fab-materials-and-climate.md) and [C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md). They separate mineral stock and nominal supplier count from a qualified conversion path that can actually switch, and judge climate coupling through event–exposure–transmission rather than a single incident.
 
 ## J-092
 
@@ -4486,6 +4486,7 @@
 - **双语配对 / Bilingual pairing**：`J-095` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
 - **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
 - **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+- **J-095/J-096 closed-set end-boundary attack**：J-095 is the final card in the mechanically extracted historical set J-001–J-095. J-096 and later current cards are outside this historical set; adding them here or omitting J-095 from either language would fail the boundary. The current Chinese and English J-095 entries both cover the complete card (`docs/{zh,en}/ledger/91-95.md:L93–L113`), while J-096 starts at `docs/{zh,en}/ledger/96-100.md:L5`.
 
 ## Verification checklist / 复核清单
 
