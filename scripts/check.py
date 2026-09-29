@@ -992,6 +992,11 @@ def _copy_checkable_tree(dst):
     # self-test copy must carry that asset or its pristine baseline is false.
     if os.path.exists(os.path.join(REPO, "LICENSE")):
         shutil.copy2(os.path.join(REPO, "LICENSE"), os.path.join(dst, "LICENSE"))
+    # The public README also links to package.json as the capability manifest.
+    # Omitting it makes the pristine fixture fail before any negative mutation
+    # runs, so the self-test would no longer prove the checker catches defects.
+    if os.path.exists(os.path.join(REPO, "package.json")):
+        shutil.copy2(os.path.join(REPO, "package.json"), os.path.join(dst, "package.json"))
     return dst
 
 
@@ -1700,9 +1705,9 @@ def _break_registered_chain_without_h1(root):
     Nothing read this before: registry rows link with plain link text
     (`[中文](path)`), so the citation check never opened these files at all.
     """
-    _register_fixture_chain(root, 9, "90-no-h1-fixture",
+    _register_fixture_chain(root, 10, "100-no-h1-fixture",
                             body=u"No heading at all.\n\nBody.\n")
-    return u"C9 registered, its files carry no H1"
+    return u"C10 registered, its files carry no H1"
 
 
 def _break_registry_topic_renamed(root):
@@ -1899,22 +1904,22 @@ def _break_count_in_fullwidth_digits(root):
 
 
 def _break_duplicate_card(root):
-    """The same judgment card pasted twice in one ledger.
+    """The same judgment card pasted twice in one ledger shard.
 
-    `len(cards)` counts identifiers, so the ledger renders 66 cards while the
-    README's 65 stays "true" to the checker. The registry already refused the
-    same shape for chain rows; the ledger is the sibling path.
+    The fixture uses the final shard, which currently carries two cards. A
+    duplicate identifier must be rejected even when the shard has no third
+    card to use as an insertion boundary.
     """
     path = _ledger(root, "zh")
     text = _read_file(path)
     ms = list(re.finditer(r"^### (J-\d{3})", text, re.M))
-    if len(ms) < 3:
+    if len(ms) < 2:
         raise AssertionError("fixture ledger carries too few cards")
-    a, b = ms[1].start(), ms[2].start()
+    a, b = ms[0].start(), ms[1].start()
     if "\n## " in text[a:b]:
         raise AssertionError("the chosen card spans a section break")
     _write_file(path, text[:b] + text[a:b] + text[b:])
-    return u"zh ledger: %s pasted a second time" % ms[1].group(1)
+    return u"zh ledger: %s pasted a second time" % ms[0].group(1)
 
 
 def _embolden_correct_count(root):
