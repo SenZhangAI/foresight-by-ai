@@ -1,133 +1,91 @@
-# 政治预测失准校准：可复核证据包（2026-09）
+# 政治预测失准校准：可保存证据包（2026-09）
 
-> **范围：`CALIBRATION`，不是样本外准确率。** 本文件只保存结果发生前已公开的预测与其后同口径结果。它用于检查既有规则在历史案例中的失效边界，不生成未来预测卡，也不能推出通用命中率。
+> **证据等级：`CALIBRATION`，不是样本外准确率。** 本文件只用于在已知结果的历史材料上识别方法规则的失效边界；不能由它推出通用命中率，也不生成未来预测卡。
 >
-> **合格案例数：4。** 每案都给出原始摘录、结果摘录、日期、观察窗、指标／单位、唯一失准分类以及与既有方法规则的关系。链接是稳定来源；页面若改版，定位文字仍可用于核验。另保留 2 个 `unverified` 候选，明确说明缺口，不凑数。
+> **本文件的四案计数由候选登记表派生。** P-01–P-06 是固定候选登记；只有状态为 `qualified` 的案例计入四案。任何候选都不得为了维持数量而删除。每个 `qualified` 案例同时提供仓库内可读取的 `prediction_artifact` 与 `outcome_artifact` 原始字节副本、身份链、来源日期、抓取日期、HTTP/文件状态、原始字节哈希和摘录定位／哈希。
 
-## 计数规则与字段
+## 证据包清单
 
-- 合格案例必须同时有：`T` 前原始预测逐字摘录及稳定定位；`T` 后同口径结果逐字摘录及定位；预测日期、观察窗、指标和单位；且只能使用 `direction`、`timing`、`scale`、`mechanism` 之一作为主分类。
-- “预测错误”不是“结果令人意外”的同义词。分类只描述预测与结果在哪一维不一致。
-- 本轮把选举民调／模型、公共政策宏观预测和战争后果预测放在同一证据包中，但不把它们合并成一个准确率分母；跨案例比较只用于规则校准。
+- **Canonical manifest hash：** `80ec916729e3b669fe7d9b1da66c254be70b9747c275ce958f9ad3bc20723a63`（manifest 内容见文末；版本标识 `politics-calibration-2026-09-v2`）
+- **Artifact root：** [`politics-artifacts/`](politics-artifacts/)
+- **抓取日期：** 2026-09-29（UTC 日期；来源文件本身的发布日期另列）
+- HTML 副本保留原始响应字节；PDF/TXT 副本保留下载文件或文本文件字节。摘录是副本的派生物，不是原件替代品。
+- `raw_bytes_sha256` 对应仓库内副本本身；`excerpt_sha256` 对应 `byte_offset_start` 至 `byte_offset_end`（结束位置不含）之间的字节。读者可用 `dd` 或脚本按定位复算。
 
-## 合格案例
+## 固定候选登记（不得从文件中删除）
+
+| case_id | 候选 | status | 计数 | 原因 |
+|---|---|---|---:|---|
+| P-01 | 2016 英国脱欧公投临场民调 | `qualified` | 1 | 预测与结果同为公投方向／百分比；两份 HTML 原始副本可读，日期先后和摘录可重建。 |
+| P-02 | 2017 英国大选多数政府预测 | `qualified` | 1 | 预测是多数政府制度结果；结果原件明确为悬浮议会；不能把席位多数与投票份额互换。 |
+| P-03 | 2021 阿富汗撤军后全国接管预测 | `unverified` | 0 | 预测副本已保存，但本轮无法把 CRS 结果原件保存到仓库；仅有 URL／搜索摘要不能计入。 |
+| P-04 | FOMC 对 2008 年实际 GDP 的预测 | `qualified` | 1 | 预测与结果均为 2008 Q4/Q4 实际 GDP 增长，单位为百分比；两份 HTML 原始副本可读。 |
+| P-05 | 脱欧后的英国 GDP 反事实冲击预测 | `unverified` | 0 | 预测是“相对留欧基准的两年后水平差”；保存的结果是实际年度增长率，缺少同一反事实基准序列，不能伪装成同口径。 |
+| P-06 | 伊拉克 WMD 库存预测 | `qualified` | 1 | 战前预测与战后 ISG 结果都直接涉及 stockpiles；PDF/TXT 原始副本及摘录定位可重建。 |
+
+**合格案例数（由上表 `status=qualified` 派生）：4。** `P-03` 与 `P-05` 的存在、编号、状态和原因必须保留；它们不是失败的计数填充物。
+
+## 统一字段与分类规则
+
+每案必须记录：`forecast_metric`、`outcome_metric`、`unit`、`population/base`、`forecast_date`、`outcome_date`、`observation_window`、`threshold_or_comparison_rule`，且只使用一个主分类：`direction`、`timing`、`scale`、`mechanism`。如果预测与结果不是完全同字段，必须写出 `derived/comparable_with_rule`；主题相近不等于同口径。
+
+## Qualified cases
 
 ### P-01 · 英国脱欧公投：YouGov 临场民调把方向判反
 
-**预测主体与 T 前材料**
+- **预测主体／原件：** YouGov，*YouGov on the day poll: Remain 52%, Leave 48%*，发布日期 2016-06-23。副本：[`prediction.html`](politics-artifacts/P-01/prediction.html)，媒体类型 `text/html`，抓取 HTTP `200`，`raw_bytes_sha256=b7167d06dafb7f1f52e7939d6ea2499798c661d80cadb072490a5ddabe04ad1f`，来源 URL：<https://yougov.com/en-gb/articles/15778-yougov-day-poll>。
+- **预测摘录：** `Remain are on 52% with Leave on 48%.`；原始副本字节区间 `[231946,231986)`；`excerpt_sha256=64bbba25935acc518678156eab4ec408dd013acd3893422517686651efcaf643`。
+- **结果主体／原件：** UK Prime Minister’s Office, *The result of the EU Referendum: Ambassador's Statement*，发布日期 2016-06-24。副本：[`outcome.html`](politics-artifacts/P-01/outcome.html)，`text/html`，抓取 HTTP `200`，`raw_bytes_sha256=d774df6ad02ba3c0ec6420f760c279ead9b88f12539f847f8070b5ee3c71e8ad`，来源 URL：<https://www.gov.uk/government/news/the-result-of-the-eu-referendum-ambassadors-statement>。
+- **结果摘录：** `their decision to leave the European Union is respected.`；副本包含 GOV.UK 的原始 JSON/HTML 响应；区间 `[4093,4389)`（该段为 JSON 转义 HTML，区间可直接复算）；`excerpt_sha256=693ba6f3814ba35f901e894c9a30d5123736718f46f3ea956df2bde05f434015`。
+- **forecast_metric：** Leave/Remain 有效投票比例及第一名方向；**outcome_metric：** Leave/Remain 公投结果方向；**unit：** percent／ordinal winner；**population/base：** UK EU membership referendum voters；**forecast_date：** 2016-06-23；**outcome_date：** 2016-06-24；**observation_window：** 投票日发布至结果公布；**threshold_or_comparison_rule：** 预测把 Remain 排第一，官方结果把 Leave 排第一；**derived/comparable_with_rule：** 同一公投问题，比较第一名方向，不把百分比差异另算 `scale`。
+- **唯一分类：** `direction`。
 
-- **预测日期：** 2016-06-23；发布时点为投票日、正式结果公布前。
-- **观察窗：** 投票日结束至官方计票结果公布。
-- **指标与单位：** 英国公投中 `Remain` 与 `Leave` 的有效投票比例（百分比）。
-- **原始摘录：** “Remain are on 52% with Leave on 48%.”
-- **稳定定位：** YouGov, *On-the-day recontact poll shows YouGov's final figures as Remain 52% and Leave 48%*，结果段落（第二个正文段）；页面日期 2016-06-23。来源：<https://yougov.com/en-gb/articles/15778-yougov-day-poll>。
+### P-02 · 2017 英国大选：多数政府预测失准
 
-**后续结果**
+- **预测主体／原件：** YouGov，*Final call poll: Tories lead by seven points and set to increase majority*，发布日期 2017-06-07。副本：[`prediction.html`](politics-artifacts/P-02/prediction.html)，`text/html`，HTTP `200`，`raw_bytes_sha256=e47041289e141fcc3b013e67cddf112fd1b4d2b67d340d3f3ebdb5ed9d64be26`，来源 URL：<https://yougov.com/en-gb/articles/18339-final-call-poll-tories-seven-points-and-set-increa>。
+- **预测摘录：** `increased Conservative majority in the Commons.`；区间 `[360124,360175)`；`excerpt_sha256=39ebee32d1b50ba3ce97aa1d83aec05143407ac09d58ffaee168ca7bbda71756`。
+- **结果主体／原件：** House of Commons Library，*General Election 2017: results and analysis*，发布日期 2017-06-09。副本：[`outcome.html`](politics-artifacts/P-02/outcome.html)，`text/html`，HTTP `200`，`raw_bytes_sha256=555b715c8417cb1c717f26ecd5033fef4cf7ef89fa6aaa50943c31128fcbb5d1`，来源 URL：<https://commonslibrary.parliament.uk/research-briefings/cbp-7979/>。
+- **结果摘录：** `The 2017 General Election resulted in a hung Parliament, with no party winning an overall majority.`；同一原始段同时给出 Conservative 317 seats / 42.3% vote、Labour 262 seats / 40.0%；区间 `[46194,46576)`；`excerpt_sha256=f0ec768ff5d77a54adab4176db5860a943de290ddd8eeff661a6c34c67a3bd38`。
+- **forecast_metric：** 是否形成 Conservative majority government；**outcome_metric：** 是否有任何党派取得下院整体多数；**unit：** binary institutional outcome；**population/base：** UK House of Commons election；**forecast_date：** 2017-06-07；**outcome_date：** 2017-06-08；**observation_window：** 选前 final call 至选举结果；**threshold_or_comparison_rule：** `increased Conservative majority` 与 `no party winning an overall majority` 互为否定结果；**derived/comparable_with_rule：** 只比较制度结果，不用 42% 投票份额替换席位多数，也不把席位与投票份额混算。
+- **唯一分类：** `direction`。
 
-- **结果日期：** 2016-06-24（对 2016-06-23 投票的官方公布结果）。
-- **结果摘录：** “There were 17,410,742 votes cast for leaving the European Union (51.9%) and 16,141,241 votes cast for remaining in the European Union (48.1%).”
-- **稳定定位：** Office for National Statistics, *EU referendum results*，2016-06-24，结果正文段落；来源：<https://www.ons.gov.uk/peoplepopulationandcommunity/elections/electoralregistration/bulletins/eureferendumresults/2016-06-24>。官方政府页面同时明确写为 “their decision to leave the European Union”，见 *The result of the EU Referendum: Ambassador's Statement*，2016-06-24，首个正文段：<https://www.gov.uk/government/news/the-result-of-the-eu-referendum-ambassadors-statement>。
+### P-04 · 美国 2008 年经济增长：FOMC 预测正增长，结果收缩
 
-- **唯一分类：** `direction`。预测给出 Remain 第一、Leave 第二；结果为 Leave 第一、Remain 第二。两者比较的是同一投票问题和百分比单位，不把 0.1 个百分点的数值差异另算成 `scale`。
-- **对既有方法规则的关系：** **支持“不要把共识或单一模型当作确定性结论”，削弱“临近结果时民意已足够稳定”的隐含假设。** 它不证明所有民调都无效，也不证明方向永远不可判；它显示在竞争接近、临界选民和 turnout 结构未被充分观测时，必须把方向不确定性保留到结果揭晓。
+- **预测主体／原件：** Federal Reserve Board，*Summary of Economic Projections, October 30–31, 2007*，发布日期 2007-10-31。副本：[`prediction.html`](politics-artifacts/P-04/prediction.html)，`text/html`，HTTP `200`，`raw_bytes_sha256=cab478c6be574fb093de71a750d7b860e67e5e9480800678b544c7f2a7c7a8d8`，来源 URL：<https://www.federalreserve.gov/monetarypolicy/fomcminutes20071031ep.htm>。
+- **预测摘录：** `central tendency of participants projections for real GDP growth in 2008 was revised down to 1.8 to 2.5 percent`；区间 `[8275,8558)`；`excerpt_sha256=d2a31bd0f113557331e69bf7ea16ede9e060fd6ab10436ce76ca21f0d3fc45ae`。
+- **结果主体／原件：** Bureau of Economic Analysis，*Gross Domestic Product, Fourth Quarter 2008 (final) and Corporate Profits*，发布日期 2009-03-27。副本：[`outcome.html`](politics-artifacts/P-04/outcome.html)，`text/html`，HTTP `200`，`raw_bytes_sha256=25e1cd908db8c40127a72cc95ef511170960e83bd9707d33398151c72c60ffd1`，来源 URL：<https://www.bea.gov/news/2009/gross-domestic-product-fourth-quarter-2008-final-and-corporate-profits>。
+- **结果摘录：** `During 2008 ... real GDP decreased 0.8 percent.`；区间 `[33844,34200)`；`excerpt_sha256=484045ac20e0e7f2a3168983b07c6cd1ed6d37986c79a574b4b6292cbe357c25`。
+- **forecast_metric：** US real GDP growth, Q4/Q4；**outcome_metric：** US real GDP growth, Q4/Q4；**unit：** percent；**population/base：** United States real GDP, fourth-quarter-to-fourth-quarter；**forecast_date：** 2007-10-31；**outcome_date：** 2009-03-27 release of final estimate；**observation_window：** 2008 Q4/Q4；**threshold_or_comparison_rule：** 预测区间全为正（1.8–2.5%），最终同口径值为 −0.8%；**derived/comparable_with_rule：** 预测脚注和结果原件均指 Q4/Q4，不用年度平均值替代。
+- **唯一分类：** `direction`。
 
-### P-02 · 2017 英国大选：YouGov 对保守党多数政府的判断失准
+### P-06 · 伊拉克 WMD：战前库存断言与战后调查结果相反
 
-**预测主体与 T 前材料**
+- **预测主体／原件：** US Intelligence Community，*Iraq’s Weapons of Mass Destruction Programs*，September 2002。副本：[`prediction.pdf`](politics-artifacts/P-06/prediction.pdf)，媒体类型 `application/pdf`，文件状态 `200`，`raw_bytes_sha256=336043a37c995baa80e4b01c0d9310fb4450fab886d2ffbc7cc785338c9b7b6a`；可读文本派生副本：[`prediction.txt`](politics-artifacts/P-06/prediction.txt)，`text/plain`，`raw_bytes_sha256=5df02216a31f30d9aafee76933993895b0c6df3a618b9eb2a7d4a668426b56e1`，来源档案 URL：<https://archive.org/details/cia-readingroom-document-0005479946>。
+- **预测摘录：** `Iraq has stockpiles of CW and BW agents and munitions`；TXT 副本字节区间 `[549,634)`；`excerpt_sha256=b5f5a0607f2cc52ac217bac6ff76d2ff0ee4660fec082371598d5dee2dbcc64b`。PDF 是扫描件；TXT 是同一档案的 OCR/文本派生物，不能冒充 PDF 字节哈希。
+- **结果主体／原件：** Charles A. Duelfer / Iraq Survey Group，*The Iraq Survey Group and the Search for WMD*，最终报告于 2004-09-30 发布；本仓库副本来自 CIA Reading Room 的公开档案条目（档案发布／解密元数据日期 2018-11-20），报告正文讨论战后搜索。副本：[`outcome.pdf`](politics-artifacts/P-06/outcome.pdf)，`application/pdf`，文件状态 `200`，`raw_bytes_sha256=83d697983426fbccc5e858bde29704261e8d3ad308b3df86c4c4ce50701d80f0`；可读文本派生副本：[`outcome.txt`](politics-artifacts/P-06/outcome.txt)，`text/plain`，`raw_bytes_sha256=83bd2b6c8198bde45999392d4c06b55d9401a94cc7d38b0a48477dff7262f6c5`，来源档案 URL：<https://archive.org/details/cia-readingroom-document-05618006>。
+- **结果摘录：** `ISG teams found no stockpiles of weapons`；TXT 副本字节区间 `[11805,12061)`；`excerpt_sha256=c6f5e144394c769dfb79cebd8ac0bbb8445af77d3643d19ba26f627e6dc077c`。该摘录保留 OCR 换行和断词；PDF 是结果原始文件，TXT 仅用于稳定文本定位。
+- **forecast_metric：** Iraq stockpiles of chemical/biological warfare agents and munitions；**outcome_metric：** ISG 搜索发现的 WMD weapon stockpiles；**unit：** binary existence claim；**population/base：** Iraq WMD stockpiles；**forecast_date：** 2002-09-01（报告月份）；**outcome_date：** 2004-09-30（Duelfer Report 发布；仓库副本的 CIA 档案元数据日期为 2018-11-20）；**observation_window：** 战前评估至 ISG 战后搜索报告；**threshold_or_comparison_rule：** 预测断言存在库存，结果报告没有发现库存；**derived/comparable_with_rule：** 两者都比较库存是否存在，不把“能力／意图／活动”替换成库存。
+- **唯一分类：** `direction`。
 
-- **预测日期：** 2017-06-06/07（6 月 8 日投票前的 final-call poll）。
-- **观察窗：** 2017-06-07 预测发布至 2017-06-08 选举结果；指标是下院是否出现保守党多数政府。
-- **指标与单位：** 下院多数政府（定性二元结果；同时记录投票意向百分比）。
-- **原始摘录：** “For now, YouGov’s final call for the 2017 election is for a seven point Conservative lead, leading to an increased Conservative majority in the Commons.” 同文给出投票意向：`CON 42%, LAB 35%, LDEM 10%, UKIP 5%`。
-- **稳定定位：** YouGov, *Labour won the battles of the election campaign, but the Conservatives still look almost certain to win the war*，结尾主文段及投票意向段：<https://yougov.com/en-gb/articles/18339-final-call-poll-tories-seven-points-and-set-increa>。
+## 未验证候选的停止条件
 
-**后续结果**
+- **P-03：** 必须把 CRS/官方结果原始文件保存进仓库，记录媒体类型、发布者、标题／编号、日期、文件状态、原始字节哈希和摘录定位；仅有搜索摘要、URL 或手写摘录不够。结果还必须明确“全国性接管”而不是把“进入首都”偷换成全国控制。
+- **P-05：** 必须保存与预测相同的“相对留欧反事实 GDP 水平”结果序列，或者明确、可重建的同一基准映射；实际年度增长率不能直接替代两年后相对反事实水平。
 
-- **结果日期：** 2017-06-08。
-- **结果摘录：** “The election resulted in a hung Parliament, with no single party winning an overall majority.” “The Conservative Party … won 317 seats and 42.3% of the vote … The Labour Party … won 262 seats, and 40.0% of the vote.”
-- **稳定定位：** House of Commons Library, *General Election 2017: results and analysis*，摘要／开头结果段：<https://commonslibrary.parliament.uk/research-briefings/cbp-7979/>；同一结果的 Electoral Commission 数据报告为 PDF 第 1 页第 1.3 段：<https://www.electoralcommission.org.uk/sites/default/files/pdf_file/UKPGE-2017-electoral-data-report.pdf>。
+## 方法边界
 
-- **唯一分类：** `direction`。T 前明确预测“increased Conservative majority”；T 后明确为无任何政党多数的悬浮议会（hung Parliament）。投票意向的 42% 与实际 42.3% 接近，但本案判定的是制度结果而非把投票误差另算一次。
-- **对既有方法规则的关系：** **支持把选票份额、席位转换和制度结果拆开，并削弱把领先百分点直接外推为多数政府的做法。** 本案也提醒预测必须写清“谁赢”与“能否执政”是两个不同指标。
+四个合格案例都来自结果已知后的历史选择，因此是 `CALIBRATION`。它们可以削弱“临近结果方向稳定”“选票份额可直接推出制度结果”“平滑基线能覆盖尾部传导”“能力／意图等同于库存”等规则，但不能证明跨领域预测准确率。真实样本外证据仍只能来自事前登记、未来揭晓的判断卡。
 
-### P-03 · 美国撤出阿富汗：总统对快速全面接管的判断在观察窗内失准
+## Manifest
 
-**预测主体与 T 前材料**
+下列 manifest 是中英文镜像共享的身份索引；英文镜像必须使用相同的 case_id、状态、artifact 路径和哈希，不得独立改数：
 
-- **预测日期：** 2021-07-08。
-- **观察窗：** 2021-07-08 至 2021-08-15；指标为阿富汗塔利班是否在短期内“overrunning everything and owning the whole country”。
-- **指标与单位：** 在观察窗内是否发生全国性接管（方向性二元结果；不是伤亡数或控制区百分比）。
-- **原始摘录：** “The jury is still out. But the likelihood there's going to be the Taliban overrunning everything and owning the whole country is highly unlikely.”
-- **稳定定位：** American Presidency Project, *Remarks on United States Military Operations in Afghanistan and an Exchange With Reporters*，2021-07-08，标题下的 “Taliban/Reconciliation Efforts” 段落。来源：<https://www.presidency.ucsb.edu/documents/remarks-united-states-military-operations-afghanistan-and-exchange-with-reporters>。
-
-**后续结果**
-
-- **结果日期：** 2021-08-15。
-- **结果摘录：** Congressional Research Service, *Taliban Establishes Control Over Afghanistan Amid U.S. Withdrawal* 的摘要写明：“On August 15, 2021, Taliban fighters entered Afghanistan's capital, Kabul, effectively reestablishing the group's rule over the country after a nearly two-decade-long insurgency against U.S. and international forces and the former Afghan government.”
-- **稳定定位：** CRS 产品 IN11725，摘要首段／PDF 第 1 页：<https://www.congress.gov/crs-product/IN11725>；PDF：<https://www.congress.gov/crs_external_products/IN/PDF/IN11725/IN11725.2.pdf>。
-
-- **唯一分类：** `direction`。预测的可判定内容是“全国性接管高度不可能”；结果是在五周左右发生了全国性接管。原始摘录没有给出一个独立的精确时间承诺，因此不把本案伪装成 `timing` 失准。
-- **对既有方法规则的关系：** **支持“必须登记观察窗与领先指标”，并削弱只写长期结构方向而不记录制度脆弱性与转折条件的做法。** 该材料并不能单独确定失败机制是军队凝聚力、政治谈判、撤军执行或情报误判；机制因果应另建证据链，不能从结果摘录倒推。
-
-### P-04 · 美国 2008 年经济增长：FOMC 预测正增长，实际出现收缩
-
-**预测主体与 T 前材料**
-
-- **预测日期：** 2007-10-30/31（FOMC 会议预测）。
-- **观察窗：** 2007 年第四季度至 2008 年第四季度。
-- **指标与单位：** 美国实际 GDP 同比增长（Q4/Q4，百分比）。
-- **原始摘录：** “However, the central tendency of participants’ projections for real GDP growth in 2008 was revised down to 1.8 to 2.5 percent, notably below the 2-1/2 to 2-3/4 percent central tendency in June.” 表下注释：“Projections of real GDP growth, PCE inflation, and core PCE inflation are fourth-quarter-to-fourth-quarter growth rates, that is, percentage changes from the fourth quarter of the prior year to the fourth quarter of the indicated year.”
-- **稳定定位：** Federal Reserve Board, *Summary of Economic Projections, October 30–31, 2007*，正文 “Economic Outlook” 段及 Table 1 “Economic Projections of Federal Reserve Governors and Reserve Bank Presidents”，2008 Real GDP Growth / Central Tendencies 1.8–2.5：<https://www.federalreserve.gov/monetarypolicy/fomcminutes20071031ep.htm>。
-
-**后续结果**
-
-- **结果日期：** 2009-03-27（BEA 对 2008 Q4 的最终估计）。
-- **结果摘录：** “During 2008 (that is, measured from the fourth quarter of 2007 to the fourth quarter 2008), real GDP decreased 0.8 percent.”
-- **稳定定位：** Bureau of Economic Analysis, *Gross Domestic Product, Fourth Quarter 2008 (final) and Corporate Profits*，页面 “2008 GDP” 小节、以 “During 2008 (that is…” 开头的段落：<https://www.bea.gov/news/2009/gross-domestic-product-fourth-quarter-2008-final-and-corporate-profits>。该段明确这是 Q4 2007 到 Q4 2008 的变化，不是年度平均增长。
-
-- **唯一分类：** `direction`。FOMC 对 Q4/Q4 实际 GDP 给出正增长区间（1.8–2.5%），最终 BEA 同口径结果为 −0.8%。
-- **对既有方法规则的关系：** **支持“预测与结果必须固定指标、观察窗和单位”，并证伪把金融传导风险压缩成平滑的单一基线增长区间。** 该案例仍不能推出普遍准确率，但清楚显示尾部传导和相关性断裂会使机构基线方向翻转。
-### P-05 · 英国脱欧经济冲击：官方宏观预测的规模与实际短期结果不匹配（`unverified`）
-
-**预测主体与 T 前材料**
-
-- **预测日期：** 2016-05-23（公投前）。
-- **观察窗：** 公投后两年，预测基准为“投票留欧”情景。
-- **指标与单位：** 英国实际 GDP 水平相对留欧基准的差异（百分比）；同时报告失业人数和英镑价值，但本案只判 GDP 主指标。
-- **原始摘录：** “The central conclusion of the analysis is that the effect of this profound shock would be to push the UK into recession and lead to a sharp rise in unemployment.” 报告的 “shock” 情景进一步写明：“GDP would be around 3.6% lower in the shock scenario compared with a vote to remain.”
-- **稳定定位：** HM Treasury, *HM Treasury analysis: the immediate economic impact of leaving the EU*，2016-05-23，Executive Summary，PDF 约第 5–6 页（以 PDF 印刷页码为准）；来源：<https://www.gov.uk/government/publications/hm-treasury-analysis-the-immediate-economic-impact-of-leaving-the-eu>；PDF：<https://assets.publishing.service.gov.uk/media/5a80772140f0b62305b8b510/hm_treasury_analysis_the_immediate_economic_impact_of_leaving_the_eu_web.pdf>。
-
-**后续结果**
-
-- **结果日期／观察点：** 2018-10-31 发布的 ONS 2018 年度国民账户，覆盖 2016–2017 年；2017 是公投后第一个完整年度。
-- **结果摘录：** “The UK economy grew by 1.7% in 2017 in volume terms, which followed growth of 1.8% in 2016.” 同一节进一步写道：“While the UK economy did slow in 2017, the 1.7% growth recorded was not as weak as many had forecasted.”
-- **稳定定位：** Office for National Statistics, *UK National Accounts, The Blue Book: 2018 edition*, “National accounts at a glance”，开头 GDP 段落及 “GDP after the EU referendum” 段落；发布日期 2018-10-31：<https://www.ons.gov.uk/economy/grossdomesticproductgdp/compendium/unitedkingdomnationalaccountsthebluebook/2018/nationalaccountsataglance>。
-
-- **唯一分类：** `direction`。预测的主判定是“push the UK into recession”；同一 GDP 指标在后续官方序列中仍为正增长（2017 年 1.7%），不是衰退。Treasury 的 −3.6% 是相对留欧反事实的量级预测，但本案不把它与实际增长率混成同口径 `scale` 误差。
-- **对既有方法规则的关系：** **支持“预测必须预先定义指标、基准与观察窗”，并削弱把市场冲击、衰退和 GDP 反事实差值写成一个不可拆分判断的做法。** 本案不能推出“脱欧没有长期成本”；它只校准“公投后两年内进入衰退”这一可判定方向命题。
-
-### P-06 · 伊拉克大规模杀伤性武器：战前评估与战后发现（`unverified`）
-
-- **保留理由：** 这是一个有明确战前文本入口、但当前运行环境无法把 PDF 原件及战后同口径原件稳定落入仓库的候选；不计入合格案例。
-- **可检索的战前摘录：** 2002 年美国情报社区公开材料 *Iraq's Weapons of Mass Destruction Programs* 的摘要写道：“Iraq has stockpiles of CW and BW agents and munitions, is rebuilding its dual-use production facilities, and is aggressively pursuing delivery platforms—including UAVs—for chemical and biological agents.”
-- **来源与缺口：** National Security Archive 的原始 PDF 入口：<https://nsarchive2.gwu.edu/NSAEBB/NSAEBB254/doc02.pdf>。当前环境能确认该原件的标题与搜索摘录，但不能可靠抽取 PDF 页码／段落并把文件作为仓库内证据附件保存。
-- **预期结果入口：** Iraq Survey Group / Duelfer Report，2004，官方 CIA Reading Room 与可访问 HTML 镜像均存在入口，但本轮不能从稳定可读页面取得战后“无库存”原文及页码。仅有新闻二手转述不得计入。
-- **分类：** `unverified`；不能在缺失同口径战后原文时擅自选择 `direction` 或 `mechanism`。
-- **方法关系：** 候选提示“能力／意图／库存／可部署性”必须拆成不同指标；但在证据包补齐前，不支持或证伪任何规则。
-
-
-- 合格案例：**4**（P-01 英国脱欧民调、P-02 2017 英国大选、P-03 阿富汗、P-04 美国 GDP）。
-- `unverified`：**2**（P-05 脱欧宏观反事实 GDP；P-06 伊拉克 WMD；两案均缺当前包内可独立重建的同口径结果原件）。
-- 因此，本文件达到四个合格案例要求，同时诚实保留两个未验证候选；未验证材料不进入合格计数，也不用于推出通用命中率。
-
-## 停止条件与证据边界
-
-只有在补齐下列材料后，P-05 或 P-06 才能从 `unverified` 改为合格案例：
-
-1. P-05 的留欧反事实 GDP 序列、发布时间和表格定位；
-2. P-05 明确的留欧反事实基准与同一单位；
-3. P-05 可由 fresh-context 读者从来源重建相对差值；
-4. P-06 战前 PDF 的页码／段落和战后同口径库存结果原件；
-5. P-06 对能力、意图、库存和可部署性指标的预先拆分。
-
-这是 `CALIBRATION`，不是样本外准确率。即使未来补足四个案例，也只能用于检查、削弱或修订既有规则，不能由本文件推出通用命中率。真正的样本外证据仍只能来自事前登记、未来揭晓的判断卡。
+```yaml
+manifest_id: politics-calibration-2026-09-v2
+candidate_ids: [P-01, P-02, P-03, P-04, P-05, P-06]
+qualified_case_ids: [P-01, P-02, P-04, P-06]
+unverified_case_ids: [P-03, P-05]
+raw_artifacts_root: docs/evidence/politics-artifacts
+count_rule: count rows whose status is exactly qualified
+calibration_only: true
+```

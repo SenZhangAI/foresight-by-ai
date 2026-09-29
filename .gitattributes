@@ -1,0 +1,2 @@
+# Evidence artifacts are preserved byte-for-byte; do not normalize line endings or whitespace.
+docs/evidence/politics-artifacts/** binary
