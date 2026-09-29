@@ -12,32 +12,65 @@ A usable judgment must lead back to a reasoning chain and state a time window, f
 
 The name is literal. **The research scope, the selection and structure of every reasoning chain, and the content, time window, falsifier, leading indicator, confidence, and audience boundary of every judgment card are decided independently by AI.** The human maintainer supplies goals, environmental constraints, and methodological rules, decides whether to publish, and revises bilingual parity and formatting; he does not ghost-write judgments, filter conclusions to fit a position, inflate confidence, or delete unfavourable records. **Git commits are recorded under the maintainer's identity while the prose is AI-generated**; the commit author field cannot be used to infer authorship of the content. Revised or withdrawn judgments keep their original text verbatim and their identifiers are never reused (see [Judgment Evolution](docs/en/03-evolution.md)).
 
-As an experiment, what this can claim today is method and falsifiability, **not accuracy**. None of the 97 cards has come due: the earliest review date is 2027-03-31 (13 cards), the main batch falls on 2027-06-30 (59 cards), another 24 on 2027-12-31, and one card is reviewed together with its successor. Until then no hit rate exists, and historical cases serve calibration only (see [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
+As an experiment, what this can claim today is method and falsifiability, **not accuracy**. No judgment card is currently due; review batches, dates, and the boundary around “hit rate” are recorded in the [ledger review log](docs/en/90-ledger.md#8-review-log). Until then, historical cases serve calibration only (see the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
 
 The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
 
 This is research material, not investment, medical, legal, or career advice.
 
-## A five-minute entry: ten pointers
+## A five-minute entry: calibrate first, then follow a reasoning chain
 
-This table is an entrance, not a second ledger. Each row only says where to enter and what the chain currently supports; the linked prose and `J-NNN` cards are the single source for full facts, fields, and dependencies.
+This is a progressive reading path. You do not have to accept a forecast before seeing how the method is attacked: start with historical calibration, enter the future through one concrete reasoning chain, then decide whether to trace evidence, look for an action, or challenge a claim. The links below are entrances, not a second ledger; full facts, fields, and dependencies live only in the linked prose and `J-NNN` cards.
+
+### 1. Start with method and history: how judgments are filtered
+
+- [Retrospect](docs/en/01-retrospect.md): extracts diffusion gates from technological, political, and business history, then attacks them with successes and failures.
+- [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
+- [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
+- [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the isolated re-review that remains pending.
+
+Read this step first so that the pages below are read as bounded reasoning rather than as forecasts whose fluency proves accuracy.
+
+### 2. Choose a reasoning chain: enter the future through a concrete question
+
+The chains are grouped by the real-world question a reader may want to follow. Each row only says where to enter and what the chain currently supports; the linked prose and ledger remain authoritative for evidence levels and limits.
+
+#### Generation, real-world signals, and infrastructure
 
 | Pointer | Read first | Core direction currently supported | Evidence level and boundary |
 |---|---|---|---|
 | Story | [What Becomes Unbuyable After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md) · [J-001](docs/en/ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) / [J-003](docs/en/ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) / [J-005](docs/en/ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) | As generated supply becomes abundant, value may move toward private context, accountable commitments, and validated causality; objective selection itself may be only a window. | Medium; “choose one from many candidates” is an occupational, million-scale boundary, not a society-wide trend. |
 | Reality | [When Data Is No Longer Free: How Real-World Signals Become Contract Assets](docs/en/chains/20-real-signals-become-contracts.md) · [J-055](docs/en/ledger/51-60.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks) | In high-liability settings, verifiable observations of the real world may become inputs to transactions and responsibility. | Medium; supports a mechanism, not universal premiums or the full time window. |
 | Infrastructure | [Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits](docs/en/chains/30-power-land-and-permits.md) · [J-057](docs/en/ledger/51-60.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date) / [J-061](docs/en/ledger/61-70.md#j-061--local-externalities-of-data-centres-become-explicit-and-social-licence-becomes-a-real-siting-constraint) / [J-063](docs/en/ledger/61-70.md#j-063--the-geography-of-compute-is-decided-by-interconnection-queues-and-permitting-speed-not-by-electricity-price) | Compute demand runs into interconnection, sites, permits, and local externalities; deliverable timing may matter more than bare electricity price. | Medium; cross-market, price, and waiting-time series remain incomplete, so a local rule cannot be written as a global trend. |
+
+#### The physical world, care, and human capability
+
+| Pointer | Read first | Core direction currently supported | Evidence level and boundary |
+|---|---|---|---|
 | Physical world | [Embodied Intelligence: For AI to Pass the Diffusion Gates, What Is Missing Is a Body That Can Bear Consequences](docs/en/chains/40-embodied-intelligence.md) · [J-073](docs/en/ledger/71-80.md#j-073--embodied-intelligence-is-the-necessary-complement-for-ai-to-reach-the-physical-labour-population-not-a-sufficient-condition-for-diffusion)–[J-078](docs/en/ledger/71-80.md#j-078--construction-and-domestic-work-are-blocked-by-the-one-off-site-and-somebody-elses-home-inside-this-window-they-arrive-only-as-single-operation-equipment-and-single-task-slices) | Embodied capability is a necessary complement for AI to enter physical labour in care, logistics, manufacturing, agriculture, construction, and domestic work—not sufficient for diffusion. | Medium; mainly occupational/organizational judgments; deployment scale, insurance liability, and unit-task costs remain gaps. |
 | Biomedicine | [Biology and Medicine: Answers Get Cheap Before Proof and Care Do](docs/en/chains/50-biology-medicine.md) · [J-079](docs/en/ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge)–[J-082](docs/en/ledger/81-90.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only) | Candidate generation separates from clinical-grade causal proof, care, and responsibility. | Medium to low; cross-country deployment and long-term outcomes remain incomplete, so candidate counts are not medical outcomes. |
 | Education | [Education and Skill Formation: Explanation Overflows; Mastery Must Still Leave a Trace](docs/en/chains/60-education-skill-formation.md) · [J-083](docs/en/ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery)–[J-086](docs/en/ledger/81-90.md#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only) | Explanation may become cheap, while mastery, assessment, qualification, and institutional carriers do not automatically become abundant. | Medium to low; any broad social claim must return to the card’s scale test; long-term cross-country evidence remains open. |
+| Population and care | [Ageing and Institutional Care: Who Carries the Daily Physical and Coordination Work](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) / [J-097](docs/en/ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | Starting from demography, household time, and institutional carriers, this chain tests the sequence of formal care, coordination, and embodied devices without treating AI as the sole root cause. | Medium; caregiver denominators, institutional deployment retention, and household incident data remain open. |
+
+#### Organizations, power, materials, and trust
+
+| Pointer | Read first | Core direction currently supported | Evidence level and boundary |
+|---|---|---|---|
 | Social transmission | [Technology Arrives First, Power Later](docs/en/chains/70-capability-to-social-consequences.md) · [J-087](docs/en/ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations)–[J-091](docs/en/ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone) | Capability changes tasks and supervision inside organizations first, then transmits through labour, institutions, capital, and demand; benchmarks do not directly imply employment outcomes. | Medium; cross-country longitudinal organizational data are missing, and technology is not the only driver. |
 | Upstream risk | [The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](docs/en/chains/80-fab-materials-and-climate.md) · [J-092](docs/en/ledger/91-95.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths)–[J-095](docs/en/ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first) | Resilience constraints may sit in qualified materials, equipment, process conversion, and utilities—not merely in a nominal second supplier. | Medium; cross-firm qualification cycles, multi-site losses, insurance, and cost-allocation series remain open. |
-| Population and care | [Ageing and Institutional Care: Who Carries the Daily Physical and Coordination Work](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) / [J-097](docs/en/ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | Starting from demography, household time, and institutional carriers, this chain tests the sequence of formal care, coordination, and embodied devices without treating AI as the sole root cause. | Medium; caregiver denominators, institutional deployment retention, and household incident data remain open. |
 | Trust transactions | [Collateralization of trust: when expression no longer proves ability, who bears the outcome?](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/en/ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output) | In high-liability, priceable organizational transactions, fulfillment records, solvency, and audits may become trust interfaces beyond one-off demonstrations. | Low to Medium; J-035 remains an occupational/organizational judgment, universal responsibility collateral is unproven, and the observation window is 2028–2035. |
 
-For a story, read [C1](docs/en/chains/10-generation-becomes-free.md). For bodies, care, and physical labour, read [C4](docs/en/chains/40-embodied-intelligence.md). To test the method, read the [Retrospect](docs/en/01-retrospect.md). To find directions worth betting on, read [Opportunity Candidates](docs/en/40-opportunities.md).
+### 3. Then see the social landscape: place one chain in the wider network
 
-To challenge a judgment here, start with [How to Refute a Judgment Here](CONTRIBUTING.en.md) and use the card’s own falsifier rather than only saying that the conclusion feels wrong.
+- [Near, mid, and far landscapes](docs/en/10-near.md): near, mid, and far are reading containers, not strict calendars.
+- [Technology Capability Sequence](docs/en/05-tech-sequence.md): tracks capability arrival order without treating technology as the sole engine of social change.
+- [Coverage matrix](#coverage-matrix-current-boundary): checks which social dimensions have entries and which remain explicit gaps.
+
+### 4. Finally choose action or challenge
+
+- [Opportunity Candidates](docs/en/40-opportunities.md): lists directions with payers and hard constraints as candidates; others remain windows or landscape only.
+- [Judgment Ledger](docs/en/90-ledger.md): tracks the single source of facts, `J-NNN` status, dependencies, sources, and gaps.
+- [How to Refute a Judgment Here](CONTRIBUTING.en.md): uses a card’s own falsifier to formulate a counterexample.
 
 ## First ask whether the method has been historically calibrated
 
