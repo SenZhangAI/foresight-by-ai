@@ -30,6 +30,8 @@ flowchart LR
   M -.social structure.-> C6[C6 Education and skills]
   M -.social transmission.-> C7[C7 Technology and power]
   M -.upstream constraint.-> C8[C8 Materials and climate]
+  M -.population and care.-> C9[C9 Aging and institutional care]
+  M -.responsibility and trust.-> C10[C10 Trust collateralization]
 ```
 
 > This is a reading aid, not a new source of facts. Arrows indicate recommended entrances, not necessary causality.
