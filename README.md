@@ -20,7 +20,7 @@
 
 本档案是研究材料，不构成投资、医疗、法律或职业建议。
 
-## 五分钟入口：先看这九个指针
+## 五分钟入口：先看这十个指针
 
 下表是入口，不是第二份台账。每行只告诉你从哪里进入、这条链目前能支持到什么边界；完整事实、字段和依赖关系只在链接的正文与 `J-NNN` 卡片中维护。
 
@@ -35,6 +35,7 @@
 | 读社会传导 | [技术先到，权力后到](docs/zh/chains/70-capability-to-social-consequences.md) · [J-087](docs/zh/ledger/81-90.md#j-087--人机监督单元先于无人组织成为主流部署单位)–[J-091](docs/zh/ledger/91-95.md#j-091--需求扩张与任务节省同时发生净就业方向不能由能力曲线单独推出) | 能力先改变组织中的任务与监督，再通过劳动、制度、资本和需求传导；不能从 benchmark 直接跳到就业结论。 | 中等；跨国长期组织数据不足，技术不是唯一发动机。 |
 | 读上游风险 | [芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](docs/zh/chains/80-fab-materials-and-climate.md) · [J-092](docs/zh/ledger/91-95.md#j-092--半导体韧性投入从原料库存转向已验证转化路径)–[J-095](docs/zh/ledger/91-95.md#j-095--晶圆厂韧性成本变成谁付钱与谁先被限供的显式谈判) | 真正的韧性约束可能在已验证的材料、设备、工艺转换和公用工程，而不只是名义上的第二供应商。 | 中等；跨企业资格周期、多场址损失、保险与成本分摊序列仍缺。 |
 | 读人口与照护 | [人口老龄化与制度化照护：谁承担每天的身体与协调工作](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/zh/ledger/96-100.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层) / [J-097](docs/zh/ledger/96-100.md#j-097--照护辅助先在机构与受控服务中稳定开放家庭通用机器人滞后) | 从人口、家庭时间与制度载体出发，推演正式照护、协调层与具身设备的先后；不把 AI 当作唯一根因。 | 中等；照护者分母、机构部署留存与家庭设备事故数据仍缺。 |
+| 读信任交易 | [信任抵押化：当表达不再证明能力，谁为结果承担后果](docs/zh/chains/100-trust-collateralization.md) · [J-035](docs/zh/ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) | 在高责任、可定价的组织交易中，履约记录、赔付能力与审计可能成为一次性演示之外的信任接口。 | 中等偏低；J-035 仍是职业／组织性判断，尚未证明责任抵押普遍化；观察窗为 2028–2035。 |
 
 想先看一个故事，读 [C1](docs/zh/chains/10-generation-becomes-free.md)；想看身体、照护和物理劳动，读 [C4](docs/zh/chains/40-embodied-intelligence.md)；想检验方法，读[历史回顾](docs/zh/01-retrospect.md)；想找可下注方向，读[商机候选](docs/zh/40-opportunities.md)。
 
@@ -76,6 +77,7 @@ flowchart LR
   M -.社会传导.-> C7[C7 技术与权力]
   M -.上游约束.-> C8[C8 材料与气候]
   M -.人口与照护.-> C9[C9 老龄化与制度化照护]
+  M -.责任与信任.-> C10[C10 信任抵押化]
 ```
 
 图中的箭头是阅读入口，不表示对应判断必然成立；要追溯因果依赖，请从链正文进入 `J-NNN`，再沿台账的 `depends-on` 回到上游。
@@ -112,7 +114,7 @@ flowchart LR
 | C7 | 技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果 | 已写成 | [中文](docs/zh/chains/70-capability-to-social-consequences.md) · [English](docs/en/chains/70-capability-to-social-consequences.md) |
 | C8 | 芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」 | 已写成 | [中文](docs/zh/chains/80-fab-materials-and-climate.md) · [English](docs/en/chains/80-fab-materials-and-climate.md) |
 | C9 | 人口老龄化与制度化照护：谁承担每天的身体与协调工作 | 已写成 | [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) |
-| —（不占编号） | 信任抵押化 | 已预告，尚未写成独立链 | 见[远期图景](docs/zh/30-far.md)与 J-035 |
+| C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | 已写成 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md)；锚点为 J-035，链文不升级其证据等级 |
 
 ## 许可证
 
@@ -131,7 +133,7 @@ flowchart LR
 这组边界是有意分开的：`ship:` 能影响外部项目级机械状态，但不是本仓库内容质量的证明；本仓库当前没有活跃发布流程把该状态升级为发布事实。
 ## Git 与维护纪律
 
-提交前运行 `python3 scripts/check.py`；它只检查机械不变量，不裁定判断质量，也不是发布闸。中英版本应在同一次 commit 同步更新；判断状态变化和证据变化应在提交信息与台账维护日志中留下可追踪记录。当前仓库有 97 张判断卡片和 9 条独立推演链；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议维护，不在 README 复制。
+提交前运行 `python3 scripts/check.py`；它只检查机械不变量，不裁定判断质量，也不是发布闸。中英版本应在同一次 commit 同步更新；判断状态变化和证据变化应在提交信息与台账维护日志中留下可追踪记录。当前仓库有 97 张判断卡片和 10 条独立推演链；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议维护，不在 README 复制。
 
 ## 全景覆盖矩阵（当前边界）
 

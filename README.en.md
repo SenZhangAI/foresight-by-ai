@@ -18,7 +18,7 @@ The experiment carries its own falsifier: **if, at review, most cards' falsifica
 
 This is research material, not investment, medical, legal, or career advice.
 
-## A five-minute entry: nine pointers
+## A five-minute entry: ten pointers
 
 This table is an entrance, not a second ledger. Each row only says where to enter and what the chain currently supports; the linked prose and `J-NNN` cards are the single source for full facts, fields, and dependencies.
 
@@ -33,6 +33,7 @@ This table is an entrance, not a second ledger. Each row only says where to ente
 | Social transmission | [Technology Arrives First, Power Later](docs/en/chains/70-capability-to-social-consequences.md) · [J-087](docs/en/ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations)–[J-091](docs/en/ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone) | Capability changes tasks and supervision inside organizations first, then transmits through labour, institutions, capital, and demand; benchmarks do not directly imply employment outcomes. | Medium; cross-country longitudinal organizational data are missing, and technology is not the only driver. |
 | Upstream risk | [The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](docs/en/chains/80-fab-materials-and-climate.md) · [J-092](docs/en/ledger/91-95.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths)–[J-095](docs/en/ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first) | Resilience constraints may sit in qualified materials, equipment, process conversion, and utilities—not merely in a nominal second supplier. | Medium; cross-firm qualification cycles, multi-site losses, insurance, and cost-allocation series remain open. |
 | Population and care | [Ageing and Institutional Care: Who Carries the Daily Physical and Coordination Work](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) / [J-097](docs/en/ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | Starting from demography, household time, and institutional carriers, this chain tests the sequence of formal care, coordination, and embodied devices without treating AI as the sole root cause. | Medium; caregiver denominators, institutional deployment retention, and household incident data remain open. |
+| Trust transactions | [Collateralization of trust: when expression no longer proves ability, who bears the outcome?](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/en/ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output) | In high-liability, priceable organizational transactions, fulfillment records, solvency, and audits may become trust interfaces beyond one-off demonstrations. | Low to Medium; J-035 remains an occupational/organizational judgment, universal responsibility collateral is unproven, and the observation window is 2028–2035. |
 
 For a story, read [C1](docs/en/chains/10-generation-becomes-free.md). For bodies, care, and physical labour, read [C4](docs/en/chains/40-embodied-intelligence.md). To test the method, read the [Retrospect](docs/en/01-retrospect.md). To find directions worth betting on, read [Opportunity Candidates](docs/en/40-opportunities.md).
 
@@ -74,6 +75,7 @@ flowchart LR
   M -.social transmission.-> C7[C7 Technology and power]
   M -.upstream constraint.-> C8[C8 Materials and climate]
   M -.population and care.-> C9[C9 Ageing and institutional care]
+  M -.liability and trust.-> C10[C10 Collateralization of trust]
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
@@ -110,7 +112,7 @@ Identifiers are allocated here; this table is navigation only. Chain prose and t
 | C7 | Technology arrives first, power later: how capability sequence passes through organizations before becoming social consequence | Written | [English](docs/en/chains/70-capability-to-social-consequences.md) · [中文](docs/zh/chains/70-capability-to-social-consequences.md) |
 | C8 | The fab before the chip: why climate risk bites at qualified bottlenecks | Written | [English](docs/en/chains/80-fab-materials-and-climate.md) · [中文](docs/zh/chains/80-fab-materials-and-climate.md) |
 | C9 | Ageing and institutional care: who carries the daily physical and coordination work | Written | [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) |
-| — (no number) | Collateralization of trust | Announced, not yet written as a chain | See the [far-term landscape](docs/en/30-far.md) and J-035 |
+| C10 | Collateralization of trust: when expression no longer proves ability, who bears the outcome? | Written | [English](docs/en/chains/100-trust-collateralization.md) · [中文](docs/zh/chains/100-trust-collateralization.md); anchored in J-035 without upgrading its evidence level |
 
 ## License
 
@@ -132,7 +134,7 @@ These boundaries are deliberate: `ship:` can affect an external project-level me
 
 ## Git and maintenance discipline
 
-Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 9 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
+Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 10 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
 
 ## Coverage matrix (current boundary)
 
