@@ -1,0 +1,7 @@
+{
+  "name": "foresight-by-ai",
+  "private": true,
+  "scripts": {
+    "ship:structure-placeholder": "true"
+  }
+}

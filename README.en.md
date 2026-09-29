@@ -115,6 +115,20 @@ Identifiers are allocated here; this table is navigation only. Chain prose and t
 
 Original text, diagrams, and foresight material in this repository are released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). You may copy, translate, adapt, and use them commercially, provided that you retain attribution, link to the license, and indicate changes. Third-party quotations, external sources, and their original materials are not automatically covered by this license; follow their respective license or source requirements.
 
+## Capability registration and the `ship:` placeholder
+
+The repository's source of truth for declared capabilities is the root [`package.json`](package.json) `scripts` object—not this README, `.knowledge/`, or a fornix-private configuration. The only registered entry is currently `ship:structure-placeholder`, whose command is `true`. It is a **structural placeholder** that keeps the public repository's capability shape complete; it does not mean that the content meets a quality standard, that the evidence is complete, or that the project is finished or releasable.
+
+The consumer boundary is explicit:
+
+- **Actual consumer**: the project capability derivation layer discovers `scripts.ship:*` in `package.json` and records each as an `npm_ship` capability. Fornix's `QualityGateStatus` then reads those records, and the `ship_ready` acceptance atom can expose the project state as “declared but not yet judged,” “all enrolled keys are green,” or “at least one enrolled key is not green.” This describes the project's mechanical declaration state; it does not judge the quality of the prose.
+- **No consumer**: within this repository there is no release entry point, GitHub Actions/CI release flow, or `scripts/check.py` reader for `ship:`; no README/coverage-map projection turns it into a content-quality result. Fornix's external capability derivation, `QualityGateStatus`, and `ship_ready` are actual consumers and must not be described as absent.
+- Therefore, missing keys, `null`, `false`, `true`, and other values cannot honestly be grouped as having “no downstream effect”: a missing key is “undeclared/undecidable” to `ship_ready`, an executable `true` may produce a green `npm_ship`, and a failing command produces a non-green state; whether `null`, `false`, or a non-string value enters derivation depends on that consumer's manifest parsing rules, which this repository cannot promise beyond the evidence available. Whatever the external mechanical state, `ship:` does not aggregate `scripts/check.py`'s exit code, evidence completeness, forecast accuracy, or content quality; the coverage matrix, ledger, and evidence gaps remain visible.
+
+These boundaries are deliberate: `ship:` can affect an external project-level mechanical state, but it is not proof of this repository's content quality. This repository currently has no active release flow that upgrades that state into a release fact.
+
+`ship:` is therefore a structural signal, not a quality gate. Content judgment remains with public readers and the maintenance process.
+
 ## Git and maintenance discipline
 
 Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 9 independent reasoning chains; the full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
