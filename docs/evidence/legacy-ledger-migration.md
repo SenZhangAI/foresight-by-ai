@@ -1,20 +1,20 @@
-# Legacy ledger migration: J-001–J-086 / 旧判断卡完整迁移清单
+# Legacy ledger migration: J-001–J-095 / 旧判断卡完整迁移清单
 
-> **Closed set / 闭集**：J-001–J-086。历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`；当前卡位于 `docs/{zh,en}/ledger/`。本文件是逐卡双语审计清单，不替代台账。
+> **Closed set / 闭集**：J-001–J-095。历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`；当前卡位于 `docs/{zh,en}/ledger/`。本文件是逐卡双语审计清单，不替代台账。
 
 ## Scope and reading rules / 范围与阅读规则
 
-- 历史快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^` 的中英文总台账各含目标 86 张卡；每张卡在下方有文件/行锚点。
-- 当前分片每张 J-001–J-086 卡均链接回本清单；当前卡中的新证据、收窄或状态变化不倒填进历史值。
+- 历史快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^` 的中英文总台账各含目标 95 张卡；每张卡在下方有文件/行锚点。
+- 当前分片每张 J-001–J-095 卡均链接回本清单；当前卡中的新证据、收窄或状态变化不倒填进历史值。
 - **Unknown / unverified**：历史正文没有的字段明确写未知/未验证，不从当前继任卡推回。
 - 历史独立受众规模字段为 0/86；历史 schema 把规模放在普及闸复核内，因此单独字段记为未知而不臆造。
 - **[self-imposed] 可删除约束**：逐字快照字段和锚点不等于语义等价；语义等价须 fresh-context reviewer 复核。
 
 ## Coverage summary / 覆盖摘要
 
-- 历史卡：中文 86 + 英文 86；当前配对卡：中文 86 + 英文 86。
-- 历史字段（提出日期、一句话命题、普及闸复核、透镜、推理链、时间窗、证伪条件、领先指标、置信度、depends-on、最强反方、与共识、外部对照来源、出处、下次检查日、状态）：两种语言均 86/86。
-- 独立 Audience scale / 受众规模：两种语言均 0/86；规模信息仍存在于普及闸复核中。
+- 历史卡：中文 95 + 英文 95；当前配对卡：中文 95 + 英文 95。
+- 历史字段（提出日期、一句话命题、普及闸复核、透镜、推理链、时间窗、证伪条件、领先指标、置信度、depends-on、最强反方、与共识、外部对照来源、出处、下次检查日、状态）：两种语言均 95/95。
+- 独立 Audience scale / 受众规模：J-001–J-086 两种语言均 0/86（历史 schema 将规模放在普及闸复核内）；J-087–J-095 两种语言均 9/9；当前 J-001–J-095 配对卡均 95/95。
 
 ## Per-card inventory / 逐卡清单
 
@@ -3932,12 +3932,12 @@
 
 ## J-086
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L110–L130`；`docs/en/ledger/81-90.md:L110–L130`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L115–L135`；`docs/en/ledger/81-90.md:L115–L135`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2235–L2258`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L110–L130`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L115–L135`
 - **原始标题**：解释鸿沟缩小，但练习与验证鸿沟可能扩大（仅图景）
 - **原始一句话命题**：2027–2034 年，AI 缩小优质解释获取差距，但无承载机构时技能与机会差距可能不降反升。
 - **原始推理链**：边际解释变便宜 → 有设备与自律者先获益 → 掌握仍依赖时间、反馈与实践环境 → 资格依赖机构承认 → 新供给按既有资源差异被吸收。
@@ -3955,7 +3955,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2285–L2308`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L110–L130`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L115–L135`
 - **Original title**: The explanation gap narrows while practice and verification gaps may widen (landscape only)
 - **Original one-sentence judgment**: From 2027 to 2034, AI narrows access gaps in explanation, but without carrier institutions skill and opportunity gaps may fail to fall or may widen.
 - **Original reasoning chain**: Marginal explanation becomes cheap → people with devices and self-direction benefit first → mastery still needs time, feedback, and practice environments → credentials need institutional recognition → new supply is absorbed through existing resource differences.
@@ -3976,10 +3976,521 @@
 - **修订谱系 / Revision lineage**：historical status is reproduced above when it states REVISED/FALSIFIED/supersession; otherwise lineage is unknown/unverified rather than inferred from a later card.
 - **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; this section is the historical boundary.
 
+
+
+## J-087
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L137–L158`；`docs/en/ledger/81-90.md:L137–L158`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2259–L2278`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L137–L158`
+- **提出日期**：2026-09-21
+- **一句话判断**：2026–2031 年，采用生成与工具调用的组织先把工作拆成机器默认执行、人类处理例外、责任人设定边界，而不是普遍形成无人组织。
+- **受众规模**：知识工作者、运营人员与管理者为构造式亿量级影响面；主要**提高既有专业者上限**，工作单元改造的主体是组织。
+- **普及闸复核**：影响面不是同一动作的可引用行为统计，且组织必须完成工作流替换与局部闭环；闸一不过，按组织性判断书写。
+- **透镜**：技术次序 + 组织载体 + 普及闸二至闸四。
+- **推理链**：生成和工具调用先成熟 → 边界清楚、可复核任务先被嵌入 → 例外与责任仍需主体 → 最小生产单元先变成人类责任人监督多次机器执行。
+- **时间窗**：2026–2031。
+- **证伪条件**：到 2031 年，在至少三个大型知识工作行业，持续十二个月的生产级 AI 部署中，采用“机器默认执行／人类处理例外／责任人设定边界”工作单元的比例仍不足一半；无论另一半由端到端无人执行占据，还是部署普遍停在演示与失败阶段，均触发本卡证伪。
+- **领先指标**：默认执行占比、人工接管率、每名责任人监督的执行数、部署前流程重构时数、十二个月留存；每半年。
+- **置信度**：中。
+- **depends-on**：J-006, J-007, J-009, J-066, J-068。
+- **最强反方**：端到端可靠性可能跃升，使组织跳过监督单元而直接委托完整结果。
+- **与共识**：**一致**：NIST 要求治理、测量、监测与人类监督。**边界**：不证明监督单元是主流组织形态或本卡时间窗。**我为何仍坚持**：既有责任主体和工作流是已存在的载体，逐任务替换比一次性重建企业边界更容易过普及闸。
+- **外部对照来源**：EXT-4。
+- **出处**：[C7：技术先到，权力后到](../zh/chains/70-capability-to-social-consequences.md)。
+- **下次检查日**：2027-06-30。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2309–L2328`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L137–L158`
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2031, organizations adopting generation and tool use first split work into machine-default execution, human exception handling, and accountable boundary setting rather than broadly becoming staffless.
+- **Audience scale**: constructed hundred-millions-scale reach across knowledge workers, operations staff, and managers; mainly **raises existing professionals' ceiling**, while organizations perform the work-unit redesign.
+- **Diffusion-gate review**: The reach is not a citable same-action behaviour statistic, and organizations must complete workflow substitution and a local closed loop; Gate 1 **FAIL**, an organizational judgment.
+- **Lens**: technology sequence + organizational carrier + diffusion Gates 2–4.
+- **Reasoning chain**: Generation and tool use mature first → bounded reviewable tasks enter workflows first → exceptions and liability still need a principal → the minimum production unit becomes one accountable person supervising multiple machine executions.
+- **Time window**: 2026–2031.
+- **Falsifier**: By 2031, across at least three large knowledge-work industries, fewer than half of production AI deployments that persist for twelve months use a work unit combining machine-default execution, human exception handling, and accountable boundary setting. The card fails whether the remainder is end-to-end staffless execution or deployment broadly stalls in demonstrations and failures.
+- **Leading indicator**: machine-default share, human takeover rate, executions per accountable owner, pre-deployment workflow-redesign hours, and twelve-month retention; semi-annually.
+- **Confidence**: Medium.
+- **depends-on**: J-006, J-007, J-009, J-066, J-068.
+- **Strongest opposing mechanism**: End-to-end reliability may jump enough for organizations to delegate complete outcomes without passing through supervisory units.
+- **Against consensus**: **Agreement**: NIST calls for governance, measurement, monitoring, and human oversight. **Boundary**: it does not establish this organizational form or time window. **Why retained**: existing accountable principals and workflows are already-built carriers, so task-by-task substitution clears the diffusion gates more easily than rebuilding firm boundaries at once.
+- **External comparison source**: EXT-4.
+- **Source**: [C7：技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果](../zh/chains/70-capability-to-social-consequences.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-087` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+- **J-086/J-087 boundary attack**：J-086 remains a separate historical card and J-087 begins the next source section; replacing either historical proposition with the other’s current wording would fail this migration boundary.
+
+## J-088
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L159–L180`；`docs/en/ledger/81-90.md:L159–L180`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2279–L2298`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L159–L180`
+- **提出日期**：2026-09-21
+- **一句话判断**：2027–2034 年，在生成密集职业中，初级产出席位和例行工时的相对收缩先于职业总人数下降，受监督实战成为技能形成瓶颈。
+- **受众规模**：初级知识工作者、求职者与专业训练者为构造式千万量级；主要**提高既有专业者上限**，但收窄新人的职业入口。
+- **普及闸复核**：职业入口是低频制度安排，不是社会成员反复执行的同一动作；闸一不过，按劳动市场与技能形成判断书写。
+- **透镜**：任务束 + 技能形成 + 信号博弈。
+- **推理链**：初级产出最易验证并自动化 → 资深者用更少初级工时维持产量 → 新人失去以真实任务练习的载体 → 学徒、模拟与受监督实战的稀缺上升。
+- **时间窗**：2027–2034。
+- **证伪条件**：到 2032 年，在至少五个生成密集职业中，初级席位占比没有先于职业总人数下降；或虽先下降，但可验证的学徒、模拟、轮岗或受监督实战容量同步扩张到足以维持采用前的专业者补充率。初级席位与职业总人数同步下降或晚于整体收缩，也触发本卡证伪。
+- **领先指标**：初级／资深招聘比、入职任务结构、学徒席位、监督时数、晋升周期、外部候选人的受控表现；每年。
+- **置信度**：中。
+- **depends-on**：J-087, J-083, J-066。
+- **最强反方**：AI 辅导与高保真模拟可能同时降低训练成本，使更多新人获得比旧工作更密集的反馈。
+- **与共识**：**部分一致**：ILO 2025 的全球职业暴露指数发现全球约四分之一劳动者处于某种 GenAI 暴露中，并判断多数职业更可能被转化而非整岗替代。**边界**：该指数不提供初级招聘、学徒载体、净就业或本卡时间窗。**我为何仍坚持**：被替掉的例行产出同时是旧职业的练习载体，而新载体不会由生成能力自动建立。
+- **外部对照来源**：EXT-60。
+- **出处**：[C7：技术先到，权力后到](../zh/chains/70-capability-to-social-consequences.md)。
+- **下次检查日**：2027-06-30。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2329–L2348`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L159–L180`
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2034, in generation-intensive occupations junior production seats and routine hours shrink relatively before total occupational headcount, making supervised practice a skill-formation bottleneck.
+- **Audience scale**: constructed tens-of-millions-scale reach across junior knowledge workers, applicants, and professional trainees; mainly **raises existing professionals' ceiling** while narrowing entry routes.
+- **Diffusion-gate review**: Occupational entry is a low-frequency institutional arrangement, not one repeated action performed across society; Gate 1 **FAIL**, a labour-market and skill-formation judgment.
+- **Lens**: task bundles + skill formation + signalling game.
+- **Reasoning chain**: Junior production is easiest to verify and automate → seniors sustain output with fewer junior hours → entrants lose the carrier for real-task practice → apprenticeship, simulation, and supervised fieldwork become scarcer.
+- **Time window**: 2027–2034.
+- **Falsifier**: By 2032, across at least five generation-intensive occupations, junior-seat share does not decline before total occupational headcount; or it declines first but verifiable apprenticeship, simulation, rotation, or supervised-fieldwork capacity expands enough to preserve the pre-adoption replenishment rate of professionals. Junior seats falling at the same time as or after total occupational contraction also falsifies the card.
+- **Leading indicator**: junior-to-senior hiring ratio, entry-task mix, apprenticeship places, supervised hours, time to promotion, and controlled performance of external candidates; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-087, J-083, J-066.
+- **Strongest opposing mechanism**: AI tutoring and high-fidelity simulation may lower training cost simultaneously, giving more entrants denser feedback than old jobs did.
+- **Against consensus**: **Partial agreement**: the ILO's 2025 global occupational-exposure index finds about one in four workers in occupations with some GenAI exposure and judges transformation more likely than whole-job replacement for most occupations. **Boundary**: the index provides no evidence about junior hiring, apprenticeship carriers, net employment, or this card's time window. **Why retained**: the routine production being removed was also the old occupation's practice carrier, and generation does not automatically build a replacement carrier.
+- **External comparison source**: EXT-60.
+- **Source**: [C7：技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果](../zh/chains/70-capability-to-social-consequences.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-088` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-089
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L181–L202`；`docs/en/ledger/81-90.md:L181–L202`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2299–L2318`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L181–L202`
+- **提出日期**：2026-09-21
+- **一句话判断**：2026–2032 年，能持续调用工具的 AI 广泛获得高责任自主权之前，身份、权限、日志、暂停、审计与申诉进入核心生产系统。
+- **受众规模**：受高责任自动化影响的员工、客户与公民为构造式亿量级；主要**提高既有专业者上限**，控制动作由组织与公共机构执行。
+- **普及闸复核**：影响面不是控制动作的执行人数，且多方授权依赖可强制、可观测的制度协调；闸一不过，按制度性判断书写。
+- **透镜**：行动权 + 法律责任 + 普及闸四。
+- **推理链**：工具调用扩大可造成的后果 → 资产所有者要求最小权限与可暂停性 → 争议要求日志、责任签名与申诉 → 控制面从合规附件变成生产依赖。
+- **时间窗**：2026–2032。
+- **证伪条件**：到 2030 年，在至少三个高责任行业，大多数生产级自主系统在取得广泛高责任权限时仍未把主体级授权、不可篡改操作记录、人工暂停和争议申诉入口作为前置生产依赖。若系统先广泛取得权限、事故后才被监管或买方收紧，仍因次序相反触发本卡证伪。
+- **领先指标**：细粒度权限覆盖率、日志留存、人工暂停率、外部审计条款、申诉时延、因缺控制面被拒的采购；每半年。
+- **置信度**：中。
+- **depends-on**：J-007, J-009, J-031, J-055, J-070。
+- **最强反方**：低事故率和平台级保险可能让组织接受黑箱自治，以事后赔偿替代逐项控制。
+- **与共识**：**一致**：NIST 与 EU AI Act 支持治理、日志、人类监督和风险管理。**边界**：不证明申诉控制面的普及次序或跨行业一致性。**我为何仍坚持**：可执行系统会触碰他人资产与权利，现有责任主体需要可观测的授权与中止路径才能委托。
+- **外部对照来源**：EXT-4, EXT-10。
+- **出处**：[C7：技术先到，权力后到](../zh/chains/70-capability-to-social-consequences.md)。
+- **下次检查日**：2027-06-30。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2349–L2368`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L181–L202`
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2026 to 2032, identity, permission, logging, pause, audit, and appeal enter core production systems before tool-using AI broadly receives high-liability autonomous authority.
+- **Audience scale**: constructed hundred-millions-scale reach across employees, customers, and citizens affected by high-liability automation; mainly **raises existing professionals' ceiling**, while organizations and public institutions operate the controls.
+- **Diffusion-gate review**: Affected reach is not the headcount executing the control action, and multi-party authorization depends on enforceable and observable coordination; Gate 1 **FAIL**, an institutional judgment.
+- **Lens**: action rights + legal liability + diffusion Gate 4.
+- **Reasoning chain**: Tool use enlarges possible consequences → asset owners require least privilege and interruptibility → disputes require logs, accountable signatures, and appeal → the control plane moves from compliance attachment to production dependency.
+- **Time window**: 2026–2032.
+- **Falsifier**: By 2030, across at least three high-liability industries, most production autonomous systems receive broad high-liability authority without principal-level authorization, tamper-evident action records, human pause, and dispute appeal as prior production dependencies. If systems receive broad authority first and regulators or buyers tighten only after accidents, the reversed order still falsifies the card.
+- **Leading indicator**: fine-grained permission coverage, log retention, human pause rate, external-audit clauses, appeal latency, and procurements rejected for missing controls; semi-annually.
+- **Confidence**: Medium.
+- **depends-on**: J-007, J-009, J-031, J-055, J-070.
+- **Strongest opposing mechanism**: Low accident rates and platform-level insurance may make black-box autonomy acceptable, replacing per-action control with ex-post compensation.
+- **Against consensus**: **Agreement**: NIST and the EU AI Act support governance, logging, human oversight, and risk management. **Boundary**: they do not establish the diffusion order of appeal controls or consistency across industries. **Why retained**: execution touches other parties' assets and rights, so existing accountable principals need observable authorization and interruption paths before delegating.
+- **External comparison source**: EXT-4, EXT-10.
+- **Source**: [C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-089` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-090
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L203–L223`；`docs/en/ledger/81-90.md:L203–L223`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2319–L2338`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L203–L223`
+- **提出日期**：2026-09-21
+- **一句话判断**：2027–2035 年，通用模型价格下降后的早期生产率收益优先流向拥有客户、专有工作流数据、牌照、渠道、责任资本、算力或电力的主体，而非按技术可得性自动均分。
+- **受众规模**：企业、劳动者与消费者为构造式十亿量级影响面；主要**提高既有专业者上限**，收益分配由资产所有者与制度决定。
+- **普及闸复核**：十亿量级是分配影响面而非同一动作行为统计，判断对象是资产与制度安排；闸一不过，按资本与权力判断书写。
+- **透镜**：互补资产 + 资本收益 + 竞争制度。
+- **推理链**：模型和调用价格下降 → 核心能力租金受压 → 商业化仍需稀缺互补资产与固定改造成本 → 既有资产拥有者先吸收收益 → 开放标准、竞争与再分配决定后续扩散。
+- **时间窗**：2027–2035。
+- **证伪条件**：到 2032 年，在至少五个高采用行业中，控制客户、专有数据、牌照、渠道或基础设施的既有企业并未获得相对利润率、市场份额或议价权改善；无论收益转向新进入者、模型供应商、劳动者还是消费者，均触发本卡证伪。
+- **领先指标**：行业利润率、并购与集中度、AI 供应链各层收益、工资份额、价格下降、数据可携带性与渠道迁移率；每年。
+- **置信度**：中。
+- **depends-on**：J-001, J-039, J-056, J-087。
+- **最强反方**：模型商品化、开放权重与低代码分发可能使互补资产快速可复制，小团队直接夺走既有渠道和利润。
+- **与共识**：**一致于机制、未知于结果**：Teece 的互补资产理论支持创新收益取决于稀缺互补资产；Brynjolfsson、Rock 与 Syverson 的生产率 J 曲线支持通用技术需要业务流程、人力资本与组织共发明等互补无形投资。**边界**：两者都不支持 AI 收益分配、集中期长度或本卡具体时间窗。**我为何仍坚持**：模型可得不等于客户、牌照、电力、责任资本和工作流改造能力同时可得。
+- **外部对照来源**：EXT-37, EXT-61。
+- **出处**：[C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md)。
+- **下次检查日**：2027-12-31。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2369–L2388`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L203–L223`
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2035, early productivity gains after general-model prices fall flow first to parties owning customers, proprietary workflow data, licences, channels, liability-bearing capital, compute, or power rather than spreading automatically with technical access.
+- **Audience scale**: constructed billion-scale reach across firms, workers, and consumers; mainly **raises existing professionals' ceiling**, while asset owners and institutions determine distribution.
+- **Diffusion-gate review**: Billion-scale is distributional reach, not a same-action behaviour statistic, and the subject is an asset and institutional arrangement; Gate 1 **FAIL**, a capital-and-power judgment.
+- **Lens**: complementary assets + capital returns + competition institutions.
+- **Reasoning chain**: Model and call prices fall → scarcity rents on core capability compress → commercialization still needs scarce complementary assets and fixed redesign cost → incumbent asset owners absorb gains first → open standards, competition, and redistribution determine later spread.
+- **Time window**: 2027–2035.
+- **Falsifier**: By 2032, across at least five high-adoption industries, incumbent firms controlling customers, proprietary data, licences, channels, or infrastructure gain no relative margin, market share, or bargaining power. The card fails whether gains move to entrants, model suppliers, labour, or consumers.
+- **Leading indicator**: industry margins, merger activity and concentration, returns by AI supply-chain layer, labour share, price decline, data portability, and channel switching; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-001, J-039, J-056, J-087.
+- **Strongest opposing mechanism**: Model commoditization, open weights, and low-code distribution may make complementary assets rapidly replicable, letting small teams take incumbent channels and profits directly.
+- **Against consensus**: **Agreement on mechanism, unknown on outcome**: Teece's complementary-assets theory supports value capture depending on scarce complements; Brynjolfsson, Rock, and Syverson's Productivity J-Curve supports general-purpose technologies requiring complementary intangible investment in business processes, human capital, and organizational co-invention. **Boundary**: neither establishes AI's distribution, the duration of concentration, or this card's time window. **Why retained**: model access does not simultaneously supply customers, licences, power, liability capital, and workflow-redesign capacity.
+- **External comparison source**: EXT-37, EXT-61.
+- **Source**: [C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-090` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-091
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/91-95.md:L5–L26`；`docs/en/ledger/91-95.md:L5–L26`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2339–L2358`
+- **当前卡锚点**：`docs/zh/ledger/91-95.md:L5–L26`
+- **提出日期**：2026-09-21
+- **一句话判断**：2027–2035 年，AI 密集行业同时出现单位产出工时下降与品类、频次或客群扩张；净就业方向由需求弹性和未自动化硬约束共同决定。
+- **受众规模**：劳动者与消费者为构造式十亿量级影响面；能力既**提高既有专业者上限**，也可能在低价服务中让原本不会的人也能做部分消费或生产动作。
+- **普及闸复核**：影响面不是单一重复动作，且就业是行业层净结果；闸一不过，按需求与劳动结构判断书写。
+- **透镜**：供需弹性 + 任务束 + 物理／制度硬约束。
+- **推理链**：单位任务工时下降 → 价格、等待或定制成本下降 → 原本不经济的需求进入市场 → 未自动化环节吸收部分新增量 → 需求扩张与任务节省的相对幅度决定净就业。
+- **时间窗**：2027–2035。
+- **证伪条件**：到 2032 年，在至少五个采用密集行业中，单位服务工时显著下降后三年内，品类、频次、客群和总产出均无扩张。就业是否还能被宏观周期、监管或其他因素解释，不影响“需求扩张与任务节省同时发生”这一主张被证伪。
+- **领先指标**：单位产出工时、价格、等待时间、SKU／服务品类、每客频次、新客占比、总产出、未自动化环节岗位；每年。
+- **置信度**：中。
+- **depends-on**：J-001, J-037, J-073, J-087。
+- **最强反方**：需求已饱和或收入约束不变时，成本下降可能只转化为利润和岗位减少，不产生足够新增量。
+- **与共识**：**部分一致**：ILO 2025 认为多数职业更可能发生任务转化而非整岗替代，并明确暴露指数本身不能给出净就业结果。**边界**：不提供需求弹性、产量扩张或净就业方向。**我为何仍坚持**：供需关系决定成本下降后数量是否扩张，身体、牌照和场址决定新增量落在哪个环节，单凭能力曲线无法推出净值。
+- **外部对照来源**：EXT-60。
+- **出处**：[C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md)。
+- **下次检查日**：2027-12-31。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2389–L2412`
+- **Current card anchor**: `docs/en/ledger/91-95.md:L5–L26`
+- **Proposed date**: 2026-09-21.
+- **One-sentence judgment**: From 2027 to 2035, AI-intensive industries see both lower labour hours per unit and expansion in variety, frequency, or customer segments; demand elasticity and non-automated hard constraints jointly determine net employment.
+- **Audience scale**: constructed billion-scale reach across workers and consumers; the capability both **raises existing professionals' ceiling** and, in low-cost services, may let people who could not do it do it now for some consumption or production actions.
+- **Diffusion-gate review**: The reach is not one repeated action and employment is an industry-level net result; Gate 1 **FAIL**, a demand-and-labour-structure judgment.
+- **Lens**: supply-and-demand elasticity + task bundles + physical and institutional hard constraints.
+- **Reasoning chain**: Labour hours per task fall → price, waiting, or customization costs fall → previously uneconomic demand enters → non-automated steps absorb part of the new volume → the relative size of expansion and savings determines net employment.
+- **Time window**: 2027–2035.
+- **Falsifier**: By 2032, across at least five adoption-intensive industries, significant labour-hour reductions per service are followed for three years by no expansion in variety, frequency, customer segments, or total output. Whether employment can also be explained by macroeconomic cycles, regulation, or other factors does not prevent falsification of the card's claim that demand expansion and task savings occur together.
+- **Leading indicator**: labour hours per unit, price, wait time, SKU or service variety, frequency per customer, new-customer share, total output, and jobs in non-automated steps; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-001, J-037, J-073, J-087.
+- **Strongest opposing mechanism**: Where demand is saturated or income constraints do not move, cost reduction may become profit and job reduction without enough new volume.
+- **Against consensus**: **Partial agreement**: the ILO's 2025 index judges task transformation more likely than whole-job replacement for most occupations and makes clear that exposure alone does not yield a net-employment outcome. **Boundary**: it provides no demand elasticity, output expansion, or net employment direction. **Why retained**: supply and demand determine whether lower cost expands quantity, while bodies, licences, and sites determine where that quantity lands; capability curves alone cannot yield the net result.
+- **External comparison source**: EXT-60.
+- **Source**: [C7: Technology Arrives First, Power Later: How Capability Sequence Passes Through Organizations Before Becoming Social Consequence](../en/chains/70-capability-to-social-consequences.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+
+## 18. Judgment cards for the C8 upstream-materials and climate-coupling chain
+
+> These four cards come from [C8：芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](../zh/chains/80-fab-materials-and-climate.md). They separate mineral stock and nominal supplier count from a qualified conversion path that can actually switch, and judge climate coupling through event–exposure–transmission rather than a single incident.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-091` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-092
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/91-95.md:L27–L48`；`docs/en/ledger/91-95.md:L27–L48`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2363–L2382`
+- **当前卡锚点**：`docs/zh/ledger/91-95.md:L27–L48`
+- **提出日期**：2026-09-22
+- **一句话判断**：2026–2032 年，先进半导体的韧性投入从增加原料和成品库存，转向提前验证替代精炼、电子级转化、设备服务、配方与工艺转移路径。
+- **受众规模**：实际执行者为构造式百万量级的半导体采购、工艺、设备、供应链、政策与基础设施专业者，主要**提高既有专业者上限**；消费者只间接受价格和供给影响。
+- **普及闸复核**：这是低频产业配置而非同一动作在社会中扩散；闸一不过，按职业／组织性判断书写。
+- **透镜**：供给弹性 + L2 约束迁移 + L4 扩散滞后 + 地理硬约束。
+- **推理链**：算力扩张推动先进半导体产能与韧性需求 → 部分关键材料是其他矿业加工的副产品，增量供给不只响应本品价格 → 电子级纯度、配方、设备与客户批准把同名材料变成工艺专用品 → 库存只能缓冲中断，不能替代未验证转化节点 → 单一企业难为闲置备用链独自买单，需由大买方、公共支持或集群闭环协调 → 企业把边际韧性预算移向替代路径的提前验证与实际切换。
+- **时间窗**：2026–2032。
+- **证伪条件**：到 2030 年，在至少三个先进半导体制造集群或十家主要制造／材料／设备企业中，韧性投入仍主要增加原料或成品库存；替代来源的预验证、双重工艺资格、可转移配方、备件／服务冗余与跨场址切换时间均无可观察增长。只增加名义供应商数量而没有验证，不算命中。
+- **领先指标**：双重验证材料占比、替代来源验证周期、可移植配方／掩模覆盖、设备备件与服务冗余、跨场址切换演练、库存预算与验证预算之比；每年。
+- **置信度**：中。
+- **depends-on**：J-056, J-069, J-070。
+- **最强反方**：材料标准化、开放设备接口、可信仿真与更快客户批准可能把验证周期压到足以让库存和名义多来源重新成为主要工具。
+- **与共识**：**一致于暴露，未知于响应**：OECD、USGS 与 DOE 支持关键投入的区域集中、副产品耦合和环节脆弱性。**边界**：这些来源不证明企业韧性预算的迁移方向或验证周期。**我为何仍坚持**：未通过验证的物料和场址无法在中断时承接同一规格产出，名义供给不等于可切换供给。
+- **外部对照来源**：EXT-67, EXT-68, EXT-69, EXT-70, EXT-72, EXT-73。
+- **出处**：[C8：芯片之前的晶圆厂](../zh/chains/80-fab-materials-and-climate.md)。
+- **下次检查日**：2027-06-30。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2413–L2432`
+- **Current card anchor**: `docs/en/ledger/91-95.md:L27–L48`
+- **Proposed date**: 2026-09-22.
+- **One-sentence judgment**: From 2026 to 2032, resilience investment for advanced semiconductors shifts from larger raw-material and finished-goods inventories toward pre-qualified alternate refining, electronic-grade conversion, tool service, recipes, and process-transfer paths.
+- **Audience scale**: a constructed million-scale set of semiconductor procurement, process, equipment, supply-chain, policy, and infrastructure professionals performs the work; this mainly **raises existing professionals' ceiling**, while consumers encounter indirect price and availability effects.
+- **Diffusion-gate review**: This is low-frequency industrial configuration, not one activity diffusing across society; Gate 1 **FAIL**, so it remains an occupational/organizational judgment.
+- **Lens**: supply elasticity + L2 constraint migration + L4 diffusion lag + geographic hard constraints.
+- **Reasoning chain**: compute expansion raises demand for advanced-semiconductor capacity and resilience → some critical materials are by-products of other ore-processing systems, so incremental supply does not respond only to their own price → electronic-grade purity, recipes, tools, and customer approval turn chemically identical material into a process-specific input → inventory buffers disruption but cannot replace an unqualified conversion node → one firm rarely funds idle backup paths alone, so large buyers, public support, or cluster-level closed loops must coordinate them → firms move marginal resilience spending toward advance qualification and exercised switching.
+- **Time window**: 2026–2032.
+- **Falsifier**: By 2030, across at least three advanced-semiconductor clusters or ten major manufacturing, materials, or equipment firms, resilience spending still mainly increases raw or finished inventory, while pre-qualification of alternatives, dual process qualification, portable recipes, parts/service redundancy, and cross-site transfer time show no observable growth. Merely increasing nominal supplier count without qualification does not count as a hit.
+- **Leading indicator**: share of dual-qualified materials, alternate-source qualification duration, portable recipe/mask coverage, parts and service redundancy, cross-site failover exercises, and inventory-to-qualification budget ratio; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-056, J-069, J-070.
+- **Strongest opposing mechanism**: material standardization, open tool interfaces, trusted simulation, and faster customer approval may compress qualification enough that inventory and nominal multi-sourcing regain primacy.
+- **Against consensus**: **Agreement on exposure, unknown on response**: OECD, USGS, and DOE support regional concentration, by-product coupling, and segment vulnerability. **Boundary**: they do not establish the direction of resilience budgets or qualification duration. **Why retained**: unqualified materials and sites cannot carry the same specified output during disruption, so nominal supply is not switchable supply.
+- **External comparison source**: EXT-67, EXT-68, EXT-69, EXT-70, EXT-72, EXT-73.
+- **Source**: [C8：芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」](../zh/chains/80-fab-materials-and-climate.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-092` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-093
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/91-95.md:L49–L70`；`docs/en/ledger/91-95.md:L49–L70`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2383–L2402`
+- **当前卡锚点**：`docs/zh/ledger/91-95.md:L49–L70`
+- **提出日期**：2026-09-22
+- **一句话判断**：2026–2033 年，先进晶圆厂选址与公共支持越来越按稳定电力、电能质量、进水水质、水回用、排放与气候适应的组合能力定价，而不是分别比较土地、税率和平均公用事业价格。
+- **受众规模**：直接决策者为十万至百万量级的晶圆厂、材料、公用事业、政府与社区专业者；集群周边百万量级居民可能受资源分配影响，能力主要**提高既有专业者上限**。
+- **普及闸复核**：受影响人口不是同一周频动作的执行者，选址是低频组织决策；闸一不过，按产业／制度判断书写。
+- **透镜**：互补资产 + 场址不可移动性 + L7 制度滞后。
+- **推理链**：先进工艺同时需要稳定电力、超纯水、气体化学品与排放能力 → 任一公用工程不合格都会把廉价土地变成不可用场址 → 气候风险提高公共系统供给方差 → 专用处理、回用、储备与电力质量进入选址总成本和补贴条件。
+- **时间窗**：2026–2033。
+- **证伪条件**：到 2031 年，在至少十个新建或大扩建先进晶圆厂项目中，选址、补贴和公用事业合同仍主要由土地、税率与平均电／水价格解释；电能质量、取排水权、回用率、干旱／洪水适应和专用设施既不改变排名，也不形成实质合同或资本开支。
+- **领先指标**：项目水电专用设施资本开支、单位晶圆取水与回收率、电能质量条款、取排水许可周期、气候适应附带条件、场址因公用工程退出或延期次数；每半年。
+- **置信度**：中。
+- **depends-on**：J-061, J-069。
+- **最强反方**：高回收率、闭式冷却、场内处理、自备电力与灵活工艺可能把晶圆厂从公共系统解耦，使组合约束退化为普通资本成本。
+- **与共识**：**一致于运营约束，未知于定价权重**：IEA、LBNL、DOE 与 ERCOT 支持大型负荷的电力交付和接入约束，DOE 与 TSMC 支持水、能源和韧性是半导体运营问题。**边界**：它们不证明一束公用工程会超过税率与土地成为晶圆厂选址决定项。**我为何仍坚持**：这些投入互为补充品，缺一项就无法把其他低价投入转成已验证产出。
+- **外部对照来源**：EXT-12, EXT-26, EXT-29, EXT-30, EXT-69, EXT-71。
+- **出处**：[C8：芯片之前的晶圆厂](../zh/chains/80-fab-materials-and-climate.md)。
+- **下次检查日**：2027-06-30。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2433–L2452`
+- **Current card anchor**: `docs/en/ledger/91-95.md:L49–L70`
+- **Proposed date**: 2026-09-22.
+- **One-sentence judgment**: From 2026 to 2033, advanced-fab siting and public support increasingly price firm power, power quality, inlet-water quality, reuse, discharge, and climate adaptation as a bundle rather than comparing land, tax, and average utility prices separately.
+- **Audience scale**: direct decision makers are a million-scale-or-smaller set of fab, materials, utility, government, and community professionals; millions around major clusters may be affected by allocation, while the capability mainly **raises existing professionals' ceiling**.
+- **Diffusion-gate review**: affected residents are not performers of one weekly action, and siting is a low-frequency organizational choice; Gate 1 **FAIL**, an industrial/institutional judgment.
+- **Lens**: complementary assets + site immobility + L7 institutional lag.
+- **Reasoning chain**: advanced processes jointly require firm power, ultrapure water, gases and chemicals, and discharge capacity → failure of one utility makes cheap land unusable → climate risk increases variance in public systems → dedicated treatment, reuse, reserves, and power quality enter total siting cost and subsidy conditions.
+- **Time window**: 2026–2033.
+- **Falsifier**: By 2031, across at least ten new or substantially expanded advanced fabs, siting, subsidies, and utility contracts remain explained mainly by land, tax, and average water/power prices; power quality, withdrawal/discharge rights, reuse, drought/flood adaptation, and dedicated facilities neither change rankings nor create material contracts or capital spending.
+- **Leading indicator**: project capital spending on dedicated water/power systems, withdrawal per wafer and recovery rate, power-quality clauses, withdrawal/discharge permitting time, climate-adaptation conditions, and projects exited or delayed for utility reasons; semi-annually.
+- **Confidence**: Medium.
+- **depends-on**: J-061, J-069.
+- **Strongest opposing mechanism**: high recovery, closed-loop cooling, on-site treatment, dedicated generation, and flexible processes may decouple fabs from public systems and reduce the bundle to ordinary capital cost.
+- **Against consensus**: **Agreement on operating constraints, unknown on pricing weight**: IEA, LBNL, DOE, and ERCOT support power-delivery and interconnection constraints for large loads, while DOE and TSMC support water, energy, and resilience as semiconductor operating issues. **Boundary**: they do not show a utility bundle outranking tax and land in fab siting. **Why retained**: these inputs are complements; a missing one prevents the others from becoming qualified output.
+- **External comparison source**: EXT-12, EXT-26, EXT-29, EXT-30, EXT-69, EXT-71.
+- **Source**: [C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md).
+- **Next review**: 2027-06-30.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-093` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-094
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/91-95.md:L71–L92`；`docs/en/ledger/91-95.md:L71–L92`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2403–L2422`
+- **当前卡锚点**：`docs/zh/ledger/91-95.md:L71–L92`
+- **提出日期**：2026-09-22
+- **一句话判断**：2027–2034 年，半导体采购、保险、融资与选址会把气候风险系统性纳入定价，但可被检验的传导单位不是风险区厂房数量，而是至少一种无法由库存或已验证替代路径吸收的多场址已验证产出损失、替代路径验证周期延长或相关供应商中断；若窗口结束前没有这类传导却已仅按风险地图或披露监管定价，本判断证伪。
+- **受众规模**：直接执行者为百万量级的制造、采购、保险、融资、设备与公共基础设施专业者，主要**提高既有专业者上限**；下游消费者为更大的间接受影响面。
+- **普及闸复核**：这是机构定价与风险配置，不是亿级不同个人每周执行同一动作；闸一不过。
+- **透镜**：事件—暴露—传导 + 保险定价 + 资格验证。
+- **推理链**：气候事件不等于停产 → 暴露只有穿过水、电、物流、设备服务或供应商节点才损伤产出 → 库存与已验证替代路径可吸收部分冲击 → 只有重复且不可吸收的已验证传导才可能改变保费、合同、库存和选址；**当前没有来源证明这类传导会在窗口内出现，窗口尚未结束时不构成命中或证伪并保持 `ACTIVE`；到期复核时只有预登记量无法计算才记 `INDETERMINATE`；若损失触发器未出现却已有风险地图／披露监管先行定价，则按对称证伪条件判错**。
+- **时间窗**：2027–2034。
+- **证伪条件**：在 2032 年前，至少三个制造区域都出现了重复、气候相关、且无法由库存或已验证替代路径吸收的已验证产出损失；若在此前提下半导体保险条款、供应合同、资格验证、库存结构、融资成本和选址标准仍无系统变化，或变化只跟风险地图走、与实际产出损失和替代路径无关，则本卡证伪。**若到 2034 年窗口结束前，上述损失从未出现，却已有保险条款、融资成本或选址标准仅按风险地图或披露监管系统性变化，本卡同样证伪。**反复发生但被完全吸收的水、电、物流或场址中断，以及触发器从未出现且没有这类先行定价，均不触发证伪。
+- **领先指标**：气候相关停机小时与损失晶圆、保险免赔额与除外条款、气候附加审计、替代来源验证周期、相关节点共同暴露、事件后选址或合同变化；每年。
+- **置信度**：中。
+- **depends-on**：J-092, J-093。
+- **最强反方**：长期合同、库存、快速修复和需求替代可能持续吸收气候冲击，使暴露升高但产出与金融条款不变。
+- **与共识**：**一致于暴露，分歧于证据单位**：UNU-EHS 支持台湾干旱与用水限制的暴露层，FERC/NERC 支持寒潮电力系统中断，NXP 只支持一家公司的一次停产传导。**边界**：这些材料不证明多场址重复减产或保险、融资如何响应。**我为何仍坚持**：只有事件穿过共同节点形成不可吸收损失，才会改变经济行为；这也使一次事故不足以支撑趋势。
+- **外部对照来源**：EXT-69, EXT-71, EXT-74, EXT-75, EXT-76。
+- **出处**：[C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md)。
+- **下次检查日**：2027-12-31。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2453–L2472`
+- **Current card anchor**: `docs/en/ledger/91-95.md:L71–L92`
+- **Proposed date**: 2026-09-22.
+- **One-sentence judgment**: From 2027 to 2034, semiconductor procurement, insurance, finance, and siting will systematically price climate risk, but the testable transmission unit is not the number of facilities in hazard zones: it is at least one multi-site qualified-output loss, longer alternate-path qualification, or related supplier interruption that inventory or qualified alternate paths cannot absorb; if the window ends without that transmission but pricing has changed based only on hazard maps or disclosure regulation, the judgment is falsified.
+- **Audience scale**: a million-scale set of manufacturing, procurement, insurance, finance, equipment, and infrastructure professionals performs the work; this mainly **raises existing professionals' ceiling**; downstream consumers are a larger indirect reach.
+- **Diffusion-gate review**: This is institutional risk pricing, not a weekly action by hundreds of millions of distinct people; Gate 1 **FAIL**.
+- **Lens**: event–exposure–transmission + insurance pricing + qualification.
+- **Reasoning chain**: a climate event is not a production loss → exposure damages output only through water, power, logistics, equipment service, or supplier nodes → inventory and qualified alternatives absorb part of the shock → only repeated, unabsorbed qualified transmission can change premiums, contracts, inventory, and siting; **no current source establishes that this transmission will occur inside the window, so its absence before expiry is neither a HIT nor automatically a falsification and must be reviewed against the preregistered conditions; if the loss trigger is absent but hazard-map or disclosure-regulation prior pricing appears, the symmetric falsifier applies**.
+- **Time window**: 2027–2034.
+- **Falsifier**: Before 2032, at least three manufacturing regions have each experienced repeated climate-related qualified-output loss that inventory or qualified alternate paths could not absorb; if, under that condition, semiconductor insurance terms, supplier contracts, qualification, inventory structure, financing cost, and siting standards show no systematic change, or changes follow hazard maps alone and remain unrelated to output loss and alternate-path qualification, the card fails. **If the loss trigger never occurs by the end of the 2034 window, but insurance terms, financing cost, or siting standards have systematically changed based only on hazard maps or disclosure regulation, the card also fails.** Repeated water, power, logistics, or site interruptions that are fully absorbed, and a trigger that never occurs without this kind of prior pricing, do not trigger falsification.
+- **Leading indicator**: climate-related downtime and lost wafers, insurance deductibles and exclusions, climate audit clauses, alternate-source qualification time, common-node exposure, and post-event contract or siting changes; annually.
+- **Confidence**: Medium.
+- **depends-on**: J-092, J-093.
+- **Strongest opposing mechanism**: long-term contracts, inventory, rapid repair, and demand substitution may keep absorbing climate shocks, allowing exposure to rise while output and financial terms remain unchanged.
+- **Against consensus**: **Agreement on exposure, divergence on evidence unit**: UNU-EHS supports the exposure layer of Taiwan drought and water restrictions, FERC/NERC supports freeze-driven power-system interruption, and NXP supports only one firm's single shutdown transmission. **Boundary**: these materials do not establish repeated multi-site output loss or insurance and financing response. **Why retained**: only an event transmitted through a common node into unabsorbed loss changes economic behaviour; one incident is therefore insufficient evidence of a trend.
+- **External comparison source**: EXT-69, EXT-71, EXT-74, EXT-75, EXT-76.
+- **Source**: [C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-094` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
+## J-095
+
+**Current pair / 当前双语卡片**：`docs/zh/ledger/91-95.md:L93–L113`；`docs/en/ledger/91-95.md:L93–L113`
+
+### 中文历史快照
+
+- **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2423–L2441`
+- **当前卡锚点**：`docs/zh/ledger/91-95.md:L93–L113`
+- **提出日期**：2026-09-22
+- **一句话判断**：2027–2034 年，大型晶圆厂项目越来越会在批准、补贴与公用事业合同中显式约定专用水电与适应设施由谁付费，以及资源紧缺时晶圆厂、居民和其他产业谁先被限供。
+- **受众规模**：主要半导体集群周边为构造式千万量级受影响人口，直接执行者为百万量级以内的政府、公用事业、企业与社区代表；这是分配影响面，主要**提高既有专业者上限**，**不是**社会级重复动作。
+- **普及闸复核**：合同与审批是低频制度动作，受影响人口不能冒充行动者；闸一不过，按制度／分配判断书写。
+- **透镜**：本地外部性 + 集体行动 + 不可移动基础设施。
+- **推理链**：晶圆厂韧性需要专用电力、水处理、回用、储备与应急恢复 → 资本与国家收益可跨区分配，而基础设施成本和短缺风险留在本地 → 资源稀缺时，模糊优先级变成政治与财务风险 → 出资、限供与恢复次序被写入批准和合同。
+- **时间窗**：2027–2034。
+- **证伪条件**：到 2032 年，在至少十个大型新建或扩建项目中，项目继续使用普通无差别公用事业服务；专用设施出资、短缺限供、应急恢复和社区补偿既未成为审批争议，也未进入公开决定或合同条款。
+- **领先指标**：专用公用工程出资比例、工业与居民限供规则、优先恢复条款、社区收益协议、取水争议、费率交叉补贴、地方暂停或附条件批准；每半年。
+- **置信度**：中。
+- **depends-on**：J-061, J-070, J-093。
+- **最强反方**：闭环水系统、专用发电与全额企业出资可能让项目与公共资源分配解耦，从而避免持续政治谈判。
+- **与共识**：**机制相邻、结果未知**：J-061 及公共基础设施材料支持大型负荷会显化本地成本。**边界**：当前来源不证明晶圆厂项目的分摊与限供条款会成为常态。**我为何仍坚持**：不可移动公用工程把全国性收益与本地成本放在不同主体账本上，短缺时必须有人决定次序。
+- **外部对照来源**：EXT-69, EXT-71。
+- **出处**：[C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md)。
+- **下次检查日**：2027-12-31。
+- **状态**：ACTIVE
+- **历史源未单独记录的迁移字段**：未知/未验证：冻结源卡片未记录当前分片入口、本清单的迁移审计状态或后续继任关系；这些字段仅由本清单登记，不从当前卡倒填为历史判断。
+
+### English historical snapshot
+
+- **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2473–L2491`
+- **Current card anchor**: `docs/en/ledger/91-95.md:L93–L113`
+- **Proposed date**: 2026-09-22.
+- **One-sentence judgment**: From 2027 to 2034, major fab projects increasingly specify in approvals, subsidies, and utility contracts who funds dedicated water, power, and adaptation assets and whether fabs, residents, or other industry are curtailed first during scarcity.
+- **Audience scale**: major clusters create a constructed ten-million-scale affected population, while a million-scale-or-smaller set of governments, utilities, firms, and community representatives performs the decisions; this mainly **raises existing professionals' ceiling** and is distributional reach, **not** society-wide repeated action.
+- **Diffusion-gate review**: contracting and approval are low-frequency institutional actions, and affected population cannot substitute for actor count; Gate 1 **FAIL**.
+- **Lens**: local externalities + collective action + immovable infrastructure.
+- **Reasoning chain**: fab resilience requires dedicated power, treatment, reuse, reserves, and emergency restoration → capital and national benefits travel while infrastructure cost and shortage risk stay local → under scarcity, ambiguous priority becomes political and financial risk → funding, curtailment, and restoration order enter approvals and contracts.
+- **Time window**: 2027–2034.
+- **Falsifier**: By 2032, across at least ten major new or expanded projects, fabs continue to take ordinary undifferentiated utility service, while dedicated-facility funding, scarcity curtailment, emergency restoration, and community compensation create neither approval disputes nor public decisions or contract terms.
+- **Leading indicator**: sponsor share of dedicated-utility cost, industrial-versus-residential curtailment rules, priority-restoration clauses, community-benefit agreements, withdrawal disputes, rate cross-subsidy, and local moratoria or conditional approvals; semi-annually.
+- **Confidence**: Medium.
+- **depends-on**: J-061, J-070, J-093.
+- **Strongest opposing mechanism**: closed-loop water, dedicated generation, and full sponsor funding may decouple projects from public resource allocation and avoid persistent bargaining.
+- **Against consensus**: **Adjacent mechanism, unknown outcome**: J-061 and infrastructure material support large loads making local costs visible. **Boundary**: current sources do not establish fab allocation and curtailment clauses becoming standard. **Why retained**: immovable utilities place national benefits and local costs on different ledgers, forcing someone to choose an order under scarcity.
+- **External comparison source**: EXT-69, EXT-71.
+- **Source**: [C8: The Fab Before the Chip: Why Climate Risk Bites at Qualified Bottlenecks](../en/chains/80-fab-materials-and-climate.md).
+- **Next review**: 2027-12-31.
+- **Status**: ACTIVE.
+- **Migration fields not separately recorded by the historical source**: Unknown/unverified: the frozen card does not record the current shard entry point, this inventory's audit status, or any later successor relation; this inventory records those fields without back-projecting them into the historical judgment.
+
+### Pairing and lineage / 双语配对与谱系
+
+- **双语配对 / Bilingual pairing**：`J-095` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
+- **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
+- **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
+
 ## Verification checklist / 复核清单
 
-- **Closed-set**：exactly J-001 through J-086, once each.
-- **Historical preservation**：each card has a Git anchor and original fields in both languages.
+- **Closed-set**：exactly J-001 through J-095, once each; J-096 and later current cards are outside this historical closed set.
+- **Historical preservation**：each of the 95 cards has a frozen-source Git anchor, original fields in both languages, and a current Chinese/English shard entry.
 - **Unknown semantics**：unknown/unverified is used only for absent standalone fields or unstated lineage; it does not erase information inside a broader field.
-- **Bilingual anchors**：each card has paired current-shard and historical-snapshot anchors.
+- **Bilingual anchors**：each of the 95 cards has paired Chinese/English current-shard and historical-snapshot anchors; J-086/J-087 and J-095 are explicit boundary checks.
 - **Mechanical checks are structural evidence only**：the repository checker cannot prove semantic equivalence or detect a birth-time semantic replacement; fresh-context review must attack those boundaries.
