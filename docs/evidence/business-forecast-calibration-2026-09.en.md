@@ -49,7 +49,7 @@ The table states `(In thousands, except share and per share data)`, so 2000 actu
 
 This case **does not overturn any of the five diffusion gates**: it tests numerical calibration of a corporate financial projection, not whether a capability becomes a society-wide habit. It adds a boundary to the method instead: commercial forecasts must separately log revenue scale, loss scale, deployment pace, and mechanism assumptions; a correct revenue direction does not make the cost structure or profit forecast a hit.
 
-## Case B · eToys: same-quarter sales forecast was cut sharply within two weeks, and actual sales still missed the revised upper bound
+## Case B · eToys: an October 30 sales forecast was revised on December 15, and actual sales still missed the revised upper bound
 
 ### Pre-T forecast source
 
