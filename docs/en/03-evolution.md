@@ -37,6 +37,12 @@ The second round was not “a historical accuracy percentage.” It calibrated t
 
 The honest current claim is therefore narrower: the second round made Gate 5 **more specific and more attackable**; it did not prove Gate 5’s ability to forecast future adoption. Piggly Wiggly is calibration. The future holdout must still run under the frozen protocol; historical material has not produced a genuine future hit rate.
 
+## Conclusion of this round's three-domain synthesis
+
+This synthesis consumes only evidence actually delivered by the three investigations. The politics packet delivered four cases, P-01–P-04; the business packet delivered Webvan and eToys; together they provide **6 cases**. The technology investigation's nuclear-power, Carter-era solar, fifth-generation-computing, and VR candidates could not simultaneously reconstruct a pre-T original and a same-metric outcome, so the qualifying technology count is **0**. The three-domain total is therefore **6/12**, below the bar of at least four cases in each of technology, politics, and business and at least twelve overall.
+
+All six cases were selected after outcomes were known and are `CALIBRATION`, not out-of-sample accuracy evidence; they may expose recording boundaries but cannot yield a method hit rate. The technology candidates remain explicit evidence gaps: only after their originals, metric, unit, observation window, and stable locations are supplied may they re-enter calibration. Retrospective narrative or a URL list cannot fill that gap.
+
 ## J-043: status changed, confidence did not
 
 J-043’s history can be checked directly against the committed trees:

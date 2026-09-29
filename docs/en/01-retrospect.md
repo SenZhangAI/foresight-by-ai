@@ -343,6 +343,16 @@ These two cases **must not be smuggled in as five-gate counterexamples**: neithe
 
 Both cases were selected after their outcomes were visible, so they are `CALIBRATION`, not holdout cases, and cannot support a claim that method accuracy improved. To enter a historical pseudo-out-of-sample holdout, commercial cases must first be drawn from a frozen SEC S-1/F-1 population, with error thresholds for revenue, loss, subscriber/customer, and deployment milestones separated before outcomes are opened.
 
+### 10.2 Three-domain total: the current evidence does not meet the 12-case threshold
+
+This synthesis counts only cases actually delivered by the three investigations and reconstructable by a fresh-context reader from the evidence packets: **4 cases** (P-01–P-04) in the politics packet and **2 cases** (Webvan and eToys) in the business packet, for **6 cases total**. All six were selected after outcomes were known and are therefore `CALIBRATION`, not out-of-sample accuracy evidence. All six record a miss under the current classifications (P-01, P-02, P-03, and P-04 are direction misses; Webvan is a scale miss; eToys is a boundary scale miss), so the project may record “at least six historical miss calibrations,” but may not turn that count into a method hit rate.
+
+The technology investigation submitted candidates involving nuclear power, Carter-era solar, fifth-generation computing, and VR. Fresh-context review found that the nuclear case mixed different price metrics, the solar case lacked an actual share on the same definition as the target, the fifth-generation-computing case substituted project goals / prototypes for commercial adoption, and the VR case mixed revenue forecasts with device-unit forecasts and outcomes. They therefore **do not count**, and cannot be used to reach four technology cases. The current technology-domain count is **0**, and the three-domain total is **6/12**; the round therefore does not meet the delivery bar of at least four cases in each of technology, politics, and business and at least twelve cases overall.
+
+This is not a new forecast, and it does not change any of the five gates. It preserves the evidence gap explicitly: a technology candidate may enter `CALIBRATION` only after its pre-T original, same-metric outcome, observation window, unit, and stable location are supplied. Until then, a retrospective trend narrative must not be promoted into a forecast-miss case. See the [politics calibration packet](../evidence/politics-calibration.md) and [commercial forecast calibration packet](../evidence/business-forecast-calibration-2026-09.md).
+
+---
+
 ## 11. Sources for the history cited here, and how strong each one is
 
 Historical fact is the foundation of every argument here, so each item is tagged with its strength. **Nothing in the weak tier carries argumentative weight**: every conclusion in this document still holds once all weak-tier evidence is removed.
