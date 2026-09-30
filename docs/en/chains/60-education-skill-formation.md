@@ -41,7 +41,7 @@ As artifact-generation costs fall, finished work correlates less with personal c
 
 Cheap explanation first benefits people with devices and self-direction, while mastery still depends on time, feedback, and practice environments, and qualifications still depend on institutional recognition. Without schools, employers, or public institutions as carriers, skill and opportunity gaps may fail to fall or may widen. Low-cost, offline, high-quality tutoring may instead deliver the largest marginal gains to learners with the fewest resources. Long-term evidence remains inadequate, so this is retained only as a low-confidence landscape. If regions adding no teachers, devices, assessment, or social support nevertheless shrink income-group gaps in independent mastery and qualifications for five consecutive years, withdraw this landscape.
 
-The complete audience scale, time window, falsifier, leading indicators, dependencies, confidence, and external comparison for all four judgments are recorded centrally in [ledger cards J-083–J-086](../90-ledger.md#16-judgment-cards-for-the-c6-education-and-skill-formation-chain).
+The complete audience scale, time window, falsifier, leading indicators, dependencies, confidence, and external comparison for all four judgments are recorded in [ledger cards J-083–J-086](../ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery).
 
 ## 4. Applying the five diffusion gates
 

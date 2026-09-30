@@ -41,7 +41,7 @@ As search expands, more candidates compete for wet-lab, participant, site, and r
 
 In chronic disease, ageing, and primary care, standard explanation and reminders are likely to grow faster than authorized intervention, continuous observation, and exception escalation. Without local resources and liability chains, more advice merely creates unmet demand. Remote monitoring, home robotics, and task redesign may make continuity of care scalable; cross-national longitudinal evidence is still inadequate, so this remains a low-confidence landscape only. If several countries raise intervention hours, follow-up completion, and exception-response speed within five years of widespread AI Q&A while staff and institutional capacity cease to cause queues, withdraw this landscape.
 
-The complete audience scale, time window, falsifier, leading indicators, dependencies, confidence, and external comparison for all four judgments are recorded centrally in [ledger cards J-079–J-082](../90-ledger.md#15-judgment-cards-for-the-c5-biology-and-medicine-chain).
+The complete audience scale, time window, falsifier, leading indicators, dependencies, confidence, and external comparison for all four judgments are recorded in [ledger cards J-079–J-080](../ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge) and [ledger cards J-081–J-082](../ledger/81-90.md#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time).
 
 ## 4. Applying the five diffusion gates
 
