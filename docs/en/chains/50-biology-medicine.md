@@ -25,19 +25,19 @@ The durable scarcity here is therefore not “medical answers,” but **a loop a
 
 ## 3. Four judgments and four ways reality could overturn them
 
-### [J-079](../90-ledger.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge) · Candidate generation and clinical proof diverge
+### [J-079](../ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge) · Candidate generation and clinical proof diverge
 
 From 2026 to 2034, biomedical candidate generation and ranking are likely to get much cheaper without clinical-grade causal proof accelerating in the same proportion. The reason is not that models “cannot reason,” but that trustworthy causality must still pass through real samples, time, and subject protection. Better biological models, surrogate endpoints, and synthetic controls may compress experimental and clinical stages together. If at least three high-liability categories halve candidate-to-approved-intervention time without more real samples or follow-up, while safety withdrawals do not rise, this judgment should be withdrawn.
 
-### [J-080](../90-ledger.md#j-080--low-liability-medical-workflows-diffuse-before-autonomous-care-without-professional-review) · Low-liability workflows diffuse before autonomous care
+### [J-080](../ledger/71-80.md#j-080--low-liability-medical-workflows-diffuse-before-autonomous-care-without-professional-review) · Low-liability workflows diffuse before autonomous care
 
 Summarization, coding, scheduling, and clinician-reviewed decision support are more likely than care without professional review to become routine from 2026 to 2031. The former replaces existing work, fits hospital carriers, and allows local rollback; the latter must additionally cross licensing, liability, and irreversible-treatment boundaries. Underserved regions may nevertheless accept “worse but immediately available” autonomous systems first. If at least two large jurisdictions sustain more encounters without human review than review-based support, without one-off mandated procurement, this judgment fails.
 
-### [J-081](../90-ledger.md#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time) · More drug candidates do not proportionally shorten human time
+### [J-081](../ledger/81-90.md#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time) · More drug candidates do not proportionally shorten human time
 
 As search expands, more candidates compete for wet-lab, participant, site, and regulatory capacity that has not expanded proportionally. Candidate growth therefore need not translate proportionally into approvals by 2034. Predictive biomarkers, adaptive trials, and digital endpoints are the strongest counter-mechanism: if AI-origin candidates cut both median first-in-human-to-approval time and failure rates by half across three therapeutic areas, the same force will have changed human time too.
 
-### [J-082](../90-ledger.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only) · Once explanation is abundant, scarcity moves to authorized intervention and continuity of care (landscape only)
+### [J-082](../ledger/81-90.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only) · Once explanation is abundant, scarcity moves to authorized intervention and continuity of care (landscape only)
 
 In chronic disease, ageing, and primary care, standard explanation and reminders are likely to grow faster than authorized intervention, continuous observation, and exception escalation. Without local resources and liability chains, more advice merely creates unmet demand. Remote monitoring, home robotics, and task redesign may make continuity of care scalable; cross-national longitudinal evidence is still inadequate, so this remains a low-confidence landscape only. If several countries raise intervention hours, follow-up completion, and exception-response speed within five years of widespread AI Q&A while staff and institutional capacity cease to cause queues, withdraw this landscape.
 

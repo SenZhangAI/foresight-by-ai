@@ -51,7 +51,7 @@ As generation and tool use mature first, the easiest pieces to automate are boun
 
 The minimum production unit changes from “one person operating one application” to “one accountable person supervising a set of machine executions.” That does not make the one-person company inevitable: customer acquisition, capital, licences, distribution, negotiation, and physical fulfilment do not vanish with the same capability.
 
-Formal judgment: [J-087 · Human–machine supervisory units become mainstream before staffless organizations](../90-ledger.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations).
+Formal judgment: [J-087 · Human–machine supervisory units become mainstream before staffless organizations](../ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations).
 
 ---
 
@@ -63,7 +63,7 @@ The first labour-market change may therefore be not total occupational headcount
 
 This is a labour consequence and a power consequence: whoever owns a verifiable practice environment gains control over entry into high-liability work.
 
-Formal judgment: [J-088 · Junior production seats shrink before occupations as a whole; apprenticeship carriers become the new bottleneck](../90-ledger.md#j-088--junior-production-seats-shrink-before-occupations-as-a-whole-apprenticeship-carriers-become-the-new-bottleneck).
+Formal judgment: [J-088 · Junior production seats shrink before occupations as a whole; apprenticeship carriers become the new bottleneck](../ledger/81-90.md#j-088--junior-production-seats-shrink-before-occupations-as-a-whole-apprenticeship-carriers-become-the-new-bottleneck).
 
 ---
 
@@ -81,7 +81,7 @@ Institutional change therefore does not wait for full autonomy. It first appears
 
 This also shows why technology sequence is not the sole engine. If law imposes no traceable responsibility, buyers bear no cost from accidents, or internal asset ownership is unclear, the same execution capability may remain a demonstration—or diffuse with high losses and then be restricted.
 
-Formal judgment: [J-089 · Permission, audit, and appeal control planes become production infrastructure before broad autonomous authority](../90-ledger.md#j-089--permission-audit-and-appeal-control-planes-become-production-infrastructure-before-broad-autonomous-authority).
+Formal judgment: [J-089 · Permission, audit, and appeal control planes become production infrastructure before broad autonomous authority](../ledger/81-90.md#j-089--permission-audit-and-appeal-control-planes-become-production-infrastructure-before-broad-autonomous-authority).
 
 ---
 
@@ -91,7 +91,7 @@ As models and calls get cheaper, scarcity rents on the model itself come under p
 
 During the first adjustment, incumbent asset owners can absorb more of the gain. They already own data, customers, regulatory standing, and channels, and can fund the fixed cost of workflow redesign. Small teams gain a higher technical ceiling, but not automatic bargaining power. Returns may spread only when open standards, portable data, public infrastructure, competition policy, or new channels reduce the complementary-asset barrier.
 
-Formal judgment: [J-090 · Productivity gains first concentrate with scarce complementary-asset owners; competition and institutions decide whether they spread](../90-ledger.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread).
+Formal judgment: [J-090 · Productivity gains first concentrate with scarce complementary-asset owners; competition and institutions decide whether they spread](../ledger/81-90.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread).
 
 ---
 
@@ -101,7 +101,7 @@ Translating “fewer people per task” directly into “proportional employment
 
 The more testable near- and mid-term proposition is therefore not how many net jobs AI creates or destroys. It is: **in adoption-intensive industries, labour hours per unit fall while variety and service frequency rise; net employment depends on whether demand expansion exceeds unit labour savings.** In health, care, and construction, where bodies, licences, and sites bind, expansion lands more heavily in non-automated steps. In purely digital and demand-saturated fields, headcount contraction is more likely to arrive first.
 
-Formal judgment: [J-091 · Demand expansion and task savings occur together; net employment cannot be inferred from the capability curve alone](../90-ledger.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone).
+Formal judgment: [J-091 · Demand expansion and task savings occur together; net employment cannot be inferred from the capability curve alone](../ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone).
 
 ---
 

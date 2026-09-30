@@ -68,7 +68,7 @@ Ask one layer deeper: does it **raise the ceiling for people who already do this
 
 **An important property of this gate: failing it is not the same as failing.** Professional video-editing software does not pass Gate 1—its ceiling is the number of editors there are—yet its adoption among editors approaches 100% and it is a good business. The correct reading of a Gate 1 failure is: **the ceiling equals the size of that group, and it will never become a society-wide habit.** That distinction is the most important correction this document makes to the project, and section 7 uses it on our own writing.
 
-This rule is recorded as [J-067](90-ledger.md#j-067--the-audience-ceiling-of-a-capability-is-the-headcount-and-frequency-of-the-activity-it-serves).
+This rule is recorded as [J-067](ledger/61-70.md#j-067--the-audience-ceiling-of-a-capability-is-the-headcount-and-frequency-of-the-activity-it-serves).
 
 ### Gate 2 · Whatever diffuses was substituted in, never added on
 
@@ -90,7 +90,7 @@ The logic lies in what the cost is measured against. Adopting a new capability m
 - *Business*—3D television. It does not replace "watching television"; it adds an attribute to watching television, and that attribute costs extra. ESPN 3D launched on 11 June 2010 alongside the World Cup and closed on 30 September 2013, the official reason being "limited viewer adoption" ([Wikipedia](https://en.wikipedia.org/wiki/ESPN_3D)).
 - *Politics / education*—MOOCs. This is the case most worth studying, because it **replaced the wrong thing**. A MOOC replaces "attending the lecture," but what students are actually buying is the credential—and the credential was not replaced at all. A peer-reviewed study published in *IRRODL* in 2015 gives a median completion rate of 12.6% (range 0.7%–52.1%, [Jordan 2015](https://www.irrodl.org/index.php/irrodl/article/view/2112)). The San Jose State University / Udacity pilot of spring 2013 had pass rates of only 20%–44% and was suspended that July ([LA Times](https://www.latimes.com/local/lanow/la-me-ln-san-jose-online-20130718-story.html)). Udacity founder Sebastian Thrun's own words at the time were "We have a lousy product" (*Fast Company*, November 2013).
 
-This rule is recorded as [J-068](90-ledger.md#j-068--what-diffuses-replaces-an-activity-already-happening-not-something-added-on-top).
+This rule is recorded as [J-068](ledger/61-70.md#j-068--what-diffuses-replaces-an-activity-already-happening-not-something-added-on-top).
 
 ### Gate 3 · Nobody builds a road for one thing
 
@@ -110,7 +110,7 @@ This is the thing that changed between 1964 and 2020. The Picturephone needed de
 - *Business*—Iridium. 66 satellites plus dedicated handsets, roughly $5 billion, existing for this one thing only.
 - *Business*—Better Place battery swapping. It needed a network of swap stations, and it needed carmakers to change their designs. It raised about $850 million and went bankrupt in May 2013; Israel sold 518 cars in all of 2012, against the founder's earlier promise of a hundred thousand by 2010 ([Wikipedia](https://en.wikipedia.org/wiki/Better_Place_(company))).
 
-This rule is recorded as [J-069](90-ledger.md#j-069--infrastructure-that-serves-only-one-capability-does-not-get-built).
+This rule is recorded as [J-069](ledger/61-70.md#j-069--infrastructure-that-serves-only-one-capability-does-not-get-built).
 
 ### Gate 4 · Who holds the decision settles the outcome earlier than how good the technology is
 
@@ -137,7 +137,7 @@ The "can be seen" half of clause (a) is the half history most often forgets.
 
 **One correction about the container**: from 1956 to the publication of the ISO standards (1968–1970) took more than a decade, and becoming the mainstream way general cargo moved took another ten years or so—the resistance being exactly the multi-party coordination Gate 4 describes (ports, railroads, trucking, unions, insurers, box standards). The popular economic-history account says that "Vietnam War military shipping supplied a buyer who could give orders unilaterally, and that forced standardization." This document **does not adopt** that account: the primary material points the other way. The US Department of Defense was adapting to a civilian container system that had already been commercialized, and the military's own CONEX boxes (introduced in 1952, more than 200,000 of them by 1967) were a separate system. Between 1967 and 1973 Sea-Land did ship roughly 1,200 containers a month to Indochina and did take about $450 million in revenue from the Department of Defense—**that one large buyer held up the economics of the route is a fact; that it forced standardization is an unproven narrative.**
 
-This rule is recorded as [J-070](90-ledger.md#j-070--when-many-parties-must-change-together-change-needs-enforceable-and-observable-authority-a-single-subsidizing-party-or-a-local-closed-loop).
+This rule is recorded as [J-070](ledger/61-70.md#j-070--when-many-parties-must-change-together-change-needs-enforceable-and-observable-authority-a-single-subsidizing-party-or-a-local-closed-loop).
 
 ### Gate 5 (narrowed on 2026-09-21) · Recurring net burden relative to the incumbent
 
@@ -164,7 +164,7 @@ This rule is recorded as [J-070](90-ledger.md#j-070--when-many-parties-must-chan
 
 **The v1 compulsion boundary still holds, but no longer describes the current rule by itself.** Version 1 narrowed the claim to “under voluntary adoption, recurring cost sets the ceiling”: seat belts, helmets, and airport screening all charge a bodily cost on every use yet can diffuse through Gate 4's compulsion route. The second calibration round adds the opposite direction: even under fully voluntary adoption, recurring labor can be offset by larger relative gains. The current rule therefore keeps both points—compulsion is an institutional bypass; voluntary adoption compares **recurring net burden** with the incumbent rather than merely asking whether friction exists.
 
-This rule is recorded as [J-071](90-ledger.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling).
+This rule is recorded as [J-071](ledger/71-80.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling).
 
 ---
 
@@ -235,7 +235,7 @@ All five gates passed. On 11 July 1985, that is **79 days later**, Coca-Cola ann
 
 What was missed? L8 in this project's methodology: **a change in supply does not guarantee that demand stays unchanged—but demand is not only function, either.** What people buy is not always the thing itself. Coca-Cola was never selling a flavor; it was selling a token of identity, and the value of a token comes precisely from its not changing.
 
-The conclusion has to be written hard: **these five gates are a veto-style filter, not a predictor.** Fail a gate and it will essentially not become a society-wide habit; pass all five and you have merely qualified to compete. This is recorded as [J-066](90-ledger.md#j-066--the-five-gates-are-necessary-not-sufficient).
+The conclusion has to be written hard: **these five gates are a veto-style filter, not a predictor.** Fail a gate and it will essentially not become a society-wide habit; pass all five and you have merely qualified to compete. This is recorded as [J-066](ledger/61-70.md#j-066--the-five-gates-are-necessary-not-sufficient).
 
 ---
 
@@ -267,11 +267,11 @@ The people who satisfy all three are concentrated in the **decision-making tier*
 | 4 · Decision | Passes | One person can decide unilaterally whether to use it |
 | 5 · Cost | Borderline | The attention cost **rises**: candidates to look through go from 3 to 60 |
 
-**Conclusion: this is an occupational judgment, not a society-level trend.** It may hold perfectly well within its own audience, but by this project's rules it may not be written in the voice of "the whole of society," "generally," or "becomes the norm," and no society-level consequence may be derived from it. This is recorded as [J-072](90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend).
+**Conclusion: this is an occupational judgment, not a society-level trend.** It may hold perfectly well within its own audience, but by this project's rules it may not be written in the voice of "the whole of society," "generally," or "becomes the norm," and no society-level consequence may be derived from it. This is recorded as [J-072](ledger/71-80.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend).
 
 **So what *is* society-level?** On the same chain, the thing that passes Gate 1 is not "choosing" but "making." "Needing a usable document, diagram, piece of copy, or program"—a billion people need that occasionally, and until now most of them **could not do it**. That belongs to the "lets people who could not do it do it now" category, and only there is the ceiling society-level. So this project's genuinely society-level judgments ought to grow on the "making" side, not on the "choosing" side.
 
-There is a sharper attack on ourselves, and writing it down beats hiding it: **"pick one out of a large pile of candidates" is something e-commerce recommendation has already done for a billion people every day, for years.** There, "generating candidates" was never the bottleneck, and "ranking" was automated away long ago. That lines up exactly with this project's existing [J-002](90-ledger.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window): selection gets eaten by the same force that produced the abundance.
+There is a sharper attack on ourselves, and writing it down beats hiding it: **"pick one out of a large pile of candidates" is something e-commerce recommendation has already done for a billion people every day, for years.** There, "generating candidates" was never the bottleneck, and "ranking" was automated away long ago. That lines up exactly with this project's existing [J-002](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window): selection gets eaten by the same force that produced the abundance.
 
 **When this section was written (2026-09-19) it deleted nothing and downgraded nothing.** It only attached an audience-size qualifier to the existing judgments, and explicitly left “re-reviewing every card in the ledger against the new gates” to a separate job. **The 2026-09-20 v1 review is now invalid because J-071 was narrowed**: it represents v1 diffusion-gate semantics only, not the current rule. The full affected-card set, de-labelling, deterministic shuffling, and isolated re-review under the narrowed rule are owned by the pending isolated re-review described in [§11.B of the Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change); until that goal closes, the v1 review must not be treated as a current-rule result.
 
@@ -304,7 +304,7 @@ A downstream paragraph may carry a compact **scope tag** instead of repeating th
 
 This shorthand preserves two things locally: **which judgments are being scoped** and **what readers must not infer**. It deliberately does not repeat the full historical evidence or the audience estimate in every section; those belong here and in the ledger, where a rule change can update them once rather than leave bilingual copies to drift.
 
-The seven judgments distilled here are already recorded in the ledger, numbered [J-066](90-ledger.md#j-066--the-five-gates-are-necessary-not-sufficient) through [J-072](90-ledger.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend). They hold a peculiar position in this project's dependency graph: **These seven are the only judgments in the whole ledger that do not depend on J-001**, of which J-067 through J-071 are roots (no upstream at all) while J-066 and J-072 stand only on those five. Every other judgment stands on the technical judgment that "unit reasoning cost keeps falling," whereas these seven come out of historical retrospect and need no premise about AI at all—if AI stopped improving tomorrow, they would still hold.
+The seven judgments distilled here are already recorded in the ledger, numbered [J-066](ledger/61-70.md#j-066--the-five-gates-are-necessary-not-sufficient) through [J-072](ledger/71-80.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend). They hold a peculiar position in this project's dependency graph: **These seven are the only judgments in the whole ledger that do not depend on J-001**, of which J-067 through J-071 are roots (no upstream at all) while J-066 and J-072 stand only on those five. Every other judgment stands on the technical judgment that "unit reasoning cost keeps falling," whereas these seven come out of historical retrospect and need no premise about AI at all—if AI stopped improving tomorrow, they would still hold.
 
 So who should change what behavior:
 
