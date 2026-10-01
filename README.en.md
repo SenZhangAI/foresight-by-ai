@@ -14,6 +14,16 @@ The name is literal. **The research scope, the selection and structure of every 
 
 As an experiment, what this can claim today is method and falsifiability, **not accuracy**. No judgment card is currently due; review batches, dates, and the boundary around “hit rate” are recorded in the [ledger review log](docs/en/90-ledger.md#8-review-log). Until then, historical cases serve calibration only (see the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
 
+## Current validation status: keep protocol, results, and gaps separate
+
+Readers should keep three things distinct:
+
+- **Results actually run**: historical calibration has **6 qualifying cases actually delivered**—4 political, 2 business, and 0 technology. All six were selected after their outcomes were known and are `CALIBRATION`; they expose rule boundaries but are **not** pseudo-out-of-sample hit-rate evidence or future accuracy. The protocol’s minimum total is 12 cases (with at least four in each of technology, politics, and business), and that threshold has not been met.
+- **Conditions not yet met**: the protocol requires at least four cases in each of technology, politics, and business, and at least twelve overall. The technology candidates remain an evidence gap because their pre-T original, same-metric outcome, and observation window could not be reconstructed together. Retrospective narrative or a URL list cannot fill that gap.
+- **Re-review not yet run**: after Gate 5 was narrowed, the v1 review cannot substitute for v2. The de-labelled, deterministically shuffled, isolated full re-review has been triggered but has not been delivered; the existence of a protocol is not evidence that the method has passed validation.
+
+What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
+
 The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
 
 This is research material, not investment, medical, legal, or career advice.
