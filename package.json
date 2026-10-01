@@ -2,6 +2,7 @@
   "name": "foresight-by-ai",
   "private": true,
   "scripts": {
+    "check": "python3 scripts/check.py",
     "ship:structure-placeholder": "true"
   }
 }
