@@ -4486,7 +4486,7 @@
 - **双语配对 / Bilingual pairing**：`J-095` appears once in each frozen historical ledger and once in each current shard; the two language entries above are paired anchors.
 - **修订谱系 / Revision lineage**：the historical status and any stated lineage are reproduced above; if the frozen source does not state a relation, it remains unknown/unverified rather than inferred from a current successor.
 - **当前卡与历史关系 / Current-to-history rule**：current text is a later projection; it does not replace, rewrite, or silently cover the historical card above.
-- **J-095/J-096 closed-set end-boundary attack**：J-095 is the final card in the mechanically extracted historical set J-001–J-095. J-096 and later current cards are outside this historical set; adding them here or omitting J-095 from either language would fail the boundary. The current Chinese and English J-095 entries both cover the complete card (`docs/{zh,en}/ledger/91-95.md:L93–L113`), while J-096 starts at `docs/{zh,en}/ledger/96-100.md:L5`.
+- **J-095/J-096 closed-set end-boundary attack**：J-095 is the final card in the mechanically extracted historical set J-001–J-095. J-096 and later current cards are outside this historical set; adding them here or omitting J-095 from either language would fail the boundary. The current Chinese and English J-095 entries both cover the complete card (`docs/{zh,en}/ledger/91-95.md:L93–L113`), while J-096 starts at `docs/{zh,en}/ledger/96-102.md:L5`.
 
 ## Verification checklist / 复核清单
 
