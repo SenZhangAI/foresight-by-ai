@@ -20,12 +20,12 @@
 
 ## J-001
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L5–L24`；`docs/en/ledger/01-10.md:L5–L24`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L5–L26`；`docs/en/ledger/01-10.md:L5–L26`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L520–L538`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L5–L24`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L5–L26`
 - **原始标题**：同等能力的单位推理成本继续下降
 - **原始一句话命题**：同等能力的单位推理成本到 2029 年底再降一个数量级。
 - **原始推理链**：推理是可并行的确定性计算 → 累计产量与工程优化带来学习曲线 → 硬件能效、模型效率、调度复用三条相对独立的下降通道共同降低单位成本 → 同等能力可以被更频繁地调用。
@@ -43,7 +43,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L520–L538`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L5–L24`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L5–L26`
 - **Original title**: Unit reasoning cost keeps falling
 - **Original one-sentence judgment**: The unit cost of reasoning at equal capability falls another order of magnitude by the end of 2029.
 - **Original reasoning chain**: Reasoning is parallelizable deterministic computation → cumulative production and engineering optimization create a learning curve → hardware efficiency, model efficiency, and scheduling/reuse provide relatively independent cost-decline paths → equal capability can be called more frequently.
@@ -66,12 +66,12 @@
 
 ## J-002
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L25–L45`；`docs/en/ledger/01-10.md:L25–L45`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L27–L49`；`docs/en/ledger/01-10.md:L27–L49`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L539–L558`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L25–L45`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L27–L49`
 - **原始标题**：「从海量产出中筛出客观高质量」不是持久稀缺，只是 2~4 年的窗口
 - **原始一句话命题**：「从海量产出中筛出客观高质量」不是持久稀缺，只是 2~4 年的窗口。
 - **原始推理链**：客观质量在多数领域可形式化 → 可形式化即可被自动检验 → 生成模型可自我采样并自评 → 筛选内化为生成过程的一部分，不再是独立需求
@@ -89,7 +89,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L539–L558`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L25–L45`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L27–L49`
 - **Original title**: “Selecting objectively high quality from abundant output” is not a durable scarcity, but merely a 2–4 year window
 - **Original one-sentence judgment**: Selecting objectively high quality from abundant output is not a durable scarcity; it is merely a 2–4 year window.
 - **Original reasoning chain**: Objective quality is formalizable in most domains → anything formalizable can be checked automatically → generative models can sample and self-evaluate → selection is internalized as part of generation and is no longer an independent need
@@ -112,12 +112,12 @@
 
 ## J-003
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L46–L66`；`docs/en/ledger/01-10.md:L46–L66`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L50–L72`；`docs/en/ledger/01-10.md:L50–L72`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L559–L578`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L46–L66`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L50–L72`
 - **原始标题**：真正持久的稀缺是「关于你的私有上下文」的所有权与可用形态
 - **原始一句话命题**：真正持久的稀缺是「关于你的私有上下文」的所有权与可用形态。
 - **原始推理链**：客观质量可自动化，主观适配不可 → 主观适配的关键输入是个人/组织的历史取舍 → 该输入私有、未被结构化、且本人无法自述 → 硬约束（产权 + 私有性）阻止同一股力量自动获取
@@ -135,7 +135,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L559–L578`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L46–L66`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L50–L72`
 - **Original title**: The genuinely durable scarcity is ownership of “private context about you” and its usable form
 - **Original one-sentence judgment**: The genuinely durable scarcity is ownership of private context about you and its usable form.
 - **Original reasoning chain**: Objective quality can be automated, subjective fit cannot → the key input to subjective fit is an individual’s/organization’s history of choices → that input is private, unstructured, and impossible for the person to articulate → hard constraints (ownership + privacy) prevent the same force from acquiring it automatically
@@ -158,12 +158,12 @@
 
 ## J-004
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L67–L87`；`docs/en/ledger/01-10.md:L67–L87`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L73–L95`；`docs/en/ledger/01-10.md:L73–L95`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L579–L598`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L67–L87`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L73–L95`
 - **原始标题**：随着 AI 从「生成内容」转向「执行动作」，稀缺项是「让行动可撤销」的基础设施
 - **原始一句话命题**：随着 AI 从「生成内容」转向「执行动作」，稀缺项是「让行动可撤销」的基础设施。
 - **原始推理链**：生成便宜 → 试错策略普及 → 但试错的前提是结果可撤销 → AI 开始触碰不可逆动作（支付、部署、发送、签约）→ 不可逆性让物理与法律／责任约束显现，不会因模型变强而消失 → 「可撤销化」成为使用 AI 的前置条件而非可选项
@@ -181,7 +181,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L579–L598`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L67–L87`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L73–L95`
 - **Original title**: As AI shifts from “generating content” to “executing actions,” the scarce item is infrastructure that “makes actions reversible”
 - **Original one-sentence judgment**: As AI shifts from generating content to executing actions, the scarce item is infrastructure that makes actions reversible.
 - **Original reasoning chain**: Generation becomes cheap → trial-and-error strategies spread → but trial and error presupposes reversible outcomes → AI begins touching irreversible actions (payments, deployment, sending, signing) → irreversibility exposes physical and legal/liability constraints that will not disappear as models improve → “reversibilization” becomes a prerequisite for using AI rather than an option
@@ -206,12 +206,12 @@
 
 ## J-005
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L88–L108`；`docs/en/ledger/01-10.md:L88–L108`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L96–L118`；`docs/en/ledger/01-10.md:L96–L118`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L618–L637`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L88–L108`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L96–L118`
 - **原始标题**：生成丰富之后，价值向三类不可重组的输入集中：原始信号、可追责承诺、被验证因果
 - **原始一句话命题**：生成丰富之后，价值向三类不可重组的输入集中：原始信号、可追责承诺、被验证因果。
 - **原始推理链**：生成 = 对已有模式的重组 → 不能由重组得到的东西不会变丰富 → 供需铁律：与丰富品互补而未同步变丰富者升值 → 三类输入分别由物理在场、法律责任、干预实验三种硬约束保护
@@ -229,7 +229,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L618–L637`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L88–L108`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L96–L118`
 - **Original title**: After generation becomes abundant, value concentrates in three kinds of non-recombinable input: raw signals, accountable commitments, and validated causality
 - **Original one-sentence judgment**: After generation becomes abundant, value concentrates in three kinds of non-recombinable input: raw signals, accountable commitments, and validated causality.
 - **Original reasoning chain**: Generation = recombination of existing patterns → what cannot be obtained through recombination will not become abundant → supply-and-demand law: what complements abundant goods without becoming abundant in parallel appreciates → the three kinds of input are respectively protected by the hard constraints of physical presence, legal liability, and experimental intervention
@@ -252,12 +252,12 @@
 
 ## J-006
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L109–L128`；`docs/en/ledger/01-10.md:L109–L128`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L119–L140`；`docs/en/ledger/01-10.md:L119–L140`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L658–L676`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L109–L128`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L119–L140`
 - **原始标题**：推理吞吐先于长程自主性
 - **原始一句话命题**：到 2028 年，单位任务可承受的并行推理次数将显著增加，生成—比较—修正会先于长程自主执行成为默认工作流。
 - **原始推理链**：J-001 的单位成本下降 → 同一预算可运行更多候选路径 → 调度器可把简单步骤并行化并把困难步骤升级 → 工作流从单次回答变成候选搜索。
@@ -275,7 +275,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L658–L676`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L109–L128`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L119–L140`
 - **Original title**: Reasoning throughput precedes long-horizon autonomy
 - **Original one-sentence judgment**: By 2028, the number of parallel reasoning paths affordable per task will rise substantially, making generate–compare–revise workflows common before long-horizon autonomous execution.
 - **Original reasoning chain**: J-001 lowers unit cost → the same budget runs more candidate paths → a scheduler parallelizes simple steps and upgrades difficult ones → workflows shift from one answer to candidate search.
@@ -298,12 +298,12 @@
 
 ## J-007
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L129–L148`；`docs/en/ledger/01-10.md:L129–L148`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L141–L162`；`docs/en/ledger/01-10.md:L141–L162`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L677–L695`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L129–L148`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L141–L162`
 - **原始标题**：可接续上下文先于可靠长期记忆
 - **原始一句话命题**：2026–2029 年，任务级检索上下文会先成为跨轮次协作的普遍底座，而带来源、可修正的长期记忆随后才成熟。
 - **原始推理链**：并行尝试增加状态量 → 单一上下文窗口无法容纳全部历史 → 任务、证据和未决问题必须被检索 → 可检索上下文先解决“找回来”，来源与版本再解决“是否可信”。
@@ -321,7 +321,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L677–L695`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L129–L148`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L141–L162`
 - **Original title**: Resumable context precedes reliable long-term memory
 - **Original one-sentence judgment**: From 2026 to 2029, task-level retrieval context will become a common base for multi-session collaboration before sourced, revisable long-term memory matures.
 - **Original reasoning chain**: More parallel attempts create more state → one context window cannot hold the full history → tasks, evidence, and open questions must be retrieved → retrieval first solves “bring it back,” while provenance and versions solve “can it be trusted.”
@@ -344,12 +344,12 @@
 
 ## J-008
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L149–L168`；`docs/en/ledger/01-10.md:L149–L168`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L163–L184`；`docs/en/ledger/01-10.md:L163–L184`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L696–L714`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L149–L168`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L163–L184`
 - **原始标题**：有来源的长期记忆成为可靠协作前提
 - **原始一句话命题**：2028–2031 年，要求来源、时间和置信边界的长期记忆会成为高价值连续协作的必要能力，而非聊天产品的附加功能。
 - **原始推理链**：可接续上下文让历史可取回 → 历史中包含过时和互相矛盾的事实 → 需要事件来源、更新时间和撤回关系 → 只有可修正记忆才能支撑较长自主任务。
@@ -367,7 +367,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L696–L714`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L149–L168`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L163–L184`
 - **Original title**: Sourced long-term memory becomes a prerequisite for reliable collaboration
 - **Original one-sentence judgment**: From 2028 to 2031, long-term memory with sources, dates, and confidence boundaries will become necessary for high-value continuous collaboration rather than a chat-product extra.
 - **Original reasoning chain**: Resumable context makes history retrievable → history contains stale and conflicting facts → events need sources, update times, and retraction relations → only revisable memory can support longer autonomous tasks.
@@ -390,12 +390,12 @@
 
 ## J-009
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L169–L188`；`docs/en/ledger/01-10.md:L169–L188`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L185–L206`；`docs/en/ledger/01-10.md:L185–L206`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L715–L733`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L169–L188`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L185–L206`
 - **原始标题**：受限工作流中的连续执行先成熟
 - **原始一句话命题**：2027–2030 年，权限有限、输入输出可检查的受限工作流会先实现稳定连续执行，开放世界自主性不会同步成熟。
 - **原始推理链**：有来源记忆减少重复错误 → 封闭环境提供有限状态空间 → 权限与退出条件可预先写明 → 系统可连续完成多步动作并在失败处停止。
@@ -413,7 +413,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L715–L733`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L169–L188`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L185–L206`
 - **Original title**: Continuous execution in constrained workflows matures first
 - **Original one-sentence judgment**: From 2027 to 2030, constrained workflows with checkable inputs and outputs and limited permissions will achieve stable continuous execution before open-world autonomy matures.
 - **Original reasoning chain**: Sourced memory reduces repeated errors → closed environments provide a limited state space → permissions and exits can be specified in advance → systems can complete multiple actions and stop at a known failure.
@@ -436,12 +436,12 @@
 
 ## J-010
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L189–L207`；`docs/en/ledger/01-10.md:L189–L207`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/01-10.md:L207–L227`；`docs/en/ledger/01-10.md:L207–L227`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L734–L752`
-- **当前卡锚点**：`docs/zh/ledger/01-10.md:L189–L207`
+- **当前卡锚点**：`docs/zh/ledger/01-10.md:L207–L227`
 - **原始标题**：长程自主执行晚于受限连续执行
 - **原始一句话命题**：2029–2033 年，跨较长时间、较少人工确认的自主执行才会在部分高价值场景达到可接受可靠性。
 - **原始推理链**：受限工作流先积累状态和失败样本 → 长任务暴露更多未预见状态 → 系统需要在不确定时暂停并请求证据 → 可靠的长程执行依赖环境观测和评估回路，而非只依赖更长计划。
@@ -459,7 +459,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L734–L752`
-- **Current card anchor**: `docs/en/ledger/01-10.md:L189–L207`
+- **Current card anchor**: `docs/en/ledger/01-10.md:L207–L227`
 - **Original title**: Long-horizon autonomy follows constrained continuous execution
 - **Original one-sentence judgment**: From 2029 to 2033, autonomous execution across longer horizons with fewer human confirmations will reach acceptable reliability in some high-value settings.
 - **Original reasoning chain**: Constrained workflows accumulate state and failure data → long tasks expose more unanticipated states → the system must pause and request evidence under uncertainty → reliable long-horizon execution depends on environment observation and evaluation loops, not simply longer plans.
@@ -482,12 +482,12 @@
 
 ## J-011
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L26–L45`；`docs/en/ledger/11-20.md:L26–L45`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L28–L49`；`docs/en/ledger/11-20.md:L28–L49`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L753–L771`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L26–L45`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L28–L49`
 - **原始标题**：跨媒介一致性先于长时连贯性
 - **原始一句话命题**：2027–2030 年，跨文字、图像、音频的局部角色与格式一致性会先成为可复用能力，跨长时段的因果连贯性随后出现。
 - **原始推理链**：推理吞吐增加 → 可以对同一任务采样多个媒介版本 → 共享表示和约束检查先解决局部一致 → 长时连贯还需要持续状态与反复验证。
@@ -505,7 +505,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L753–L771`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L26–L45`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L28–L49`
 - **Original title**: Cross-media consistency precedes long-range coherence
 - **Original one-sentence judgment**: From 2027 to 2030, local consistency of entities and formats across text, images, and audio will become reusable before causal coherence across long time spans.
 - **Original reasoning chain**: More reasoning throughput → multiple media versions can be sampled for one task → shared representations and constraint checks solve local consistency first → long-range coherence still needs persistent state and repeated evaluation.
@@ -528,12 +528,12 @@
 
 ## J-012
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L46–L65`；`docs/en/ledger/11-20.md:L46–L65`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L50–L71`；`docs/en/ledger/11-20.md:L50–L71`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L772–L790`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L46–L65`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L50–L71`
 - **原始标题**：跨时间连贯生成依赖状态与验证
 - **原始一句话命题**：2029–2034 年，长故事、持续交互环境和多轮设计中的跨时间连贯性，会在状态记忆和反复验证成熟后才达到生产级。
 - **原始推理链**：局部跨媒介一致减少单帧错误 → 长任务仍会积累角色、空间和因果漂移 → 有来源记忆保存状态 → 自动反例与回放验证才允许持续修正。
@@ -551,7 +551,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L772–L790`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L46–L65`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L50–L71`
 - **Original title**: Cross-time coherence depends on state and evaluation
 - **Original one-sentence judgment**: From 2029 to 2034, cross-time coherence in long stories, persistent interactive environments, and multi-round design will reach production quality only after state memory and repeated evaluation mature.
 - **Original reasoning chain**: Local cross-media consistency reduces frame-level errors → long tasks still accumulate drift in entities, space, and causality → sourced memory preserves state → automatic counterexamples and replay evaluation permit ongoing correction.
@@ -574,12 +574,12 @@
 
 ## J-013
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L66–L85`；`docs/en/ledger/11-20.md:L66–L85`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L72–L93`；`docs/en/ledger/11-20.md:L72–L93`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L791–L809`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L66–L85`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L72–L93`
 - **原始标题**：可检查的工具调用先于开放环境行动
 - **原始一句话命题**：2027–2030 年，带参数、前置条件、权限和结果结构的工具调用会先普及，系统才会扩大到复杂环境中的连续行动。
 - **原始推理链**：受限连续执行需要明确边界 → 自然语言工具调用难以检查 → typed 接口把动作和结果结构化 → 结构化调用先在少数工具上积累可靠性，再扩展工具面。
@@ -597,7 +597,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L791–L809`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L66–L85`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L72–L93`
 - **Original title**: Checkable tool calls precede open-environment action
 - **Original one-sentence judgment**: From 2027 to 2030, tool calls with parameters, preconditions, permissions, and structured results will spread before systems expand into continuous action in complex environments.
 - **Original reasoning chain**: Constrained continuous execution needs explicit boundaries → natural-language tool calls are hard to check → typed interfaces structure actions and results → structured calls first accumulate reliability on a few tools and then expand the tool surface.
@@ -620,12 +620,12 @@
 
 ## J-014
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L86–L105`；`docs/en/ledger/11-20.md:L86–L105`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L94–L115`；`docs/en/ledger/11-20.md:L94–L115`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L810–L828`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L86–L105`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L94–L115`
 - **原始标题**：可演练环境晚于单工具接入
 - **原始一句话命题**：2028–2032 年，快照、影子运行、权限边界和回滚点组合成的可演练环境，会晚于单个工具接入但先于高价值自主行动普及。
 - **原始推理链**：typed 工具能表达单个动作 → 多个动作会共享外部状态 → 真实状态不可随意试错 → 需要隔离、快照、影子运行和回滚来扩大尝试空间。
@@ -643,7 +643,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L810–L828`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L86–L105`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L94–L115`
 - **Original title**: Rehearsable environments follow single-tool integration
 - **Original one-sentence judgment**: From 2028 to 2032, environments combining snapshots, shadow execution, permission boundaries, and rollback points will arrive after single-tool integration but before high-value autonomous action becomes common.
 - **Original reasoning chain**: Typed tools express one action → multiple actions share external state → real state cannot be freely trialed → isolation, snapshots, shadow execution, and rollback expand the safe attempt space.
@@ -666,12 +666,12 @@
 
 ## J-015
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L106–L125`；`docs/en/ledger/11-20.md:L106–L125`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L116–L137`；`docs/en/ledger/11-20.md:L116–L137`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L829–L847`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L106–L125`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L116–L137`
 - **原始标题**：形式化验证先于开放世界评估
 - **原始一句话命题**：2026–2029 年，测试、schema、静态检查和反例搜索等形式化验证会先被生成系统内化，独立的现实结果评估随后成熟。
 - **原始推理链**：并行生成增加候选数 → 可形式化性质能被程序快速判定 → 生成—测试—淘汰闭环降低错误输出 → 开放世界结果仍需等待观测与干预，不能由自评即时替代。
@@ -689,7 +689,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L829–L847`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L106–L125`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L116–L137`
 - **Original title**: Formal verification precedes open-world evaluation
 - **Original one-sentence judgment**: From 2026 to 2029, tests, schemas, static checks, and counterexample search will be absorbed by generation systems before independent evaluation of real-world outcomes matures.
 - **Original reasoning chain**: Parallel generation increases candidate count → formal properties can be judged quickly by programs → generate–test–discard loops lower output error → open-world outcomes still require waiting for observation and intervention and cannot be replaced immediately by self-evaluation.
@@ -712,12 +712,12 @@
 
 ## J-016
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L126–L147`；`docs/en/ledger/11-20.md:L126–L147`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L138–L161`；`docs/en/ledger/11-20.md:L138–L161`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L848–L869`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L126–L147`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L138–L161`
 - **原始标题**：开放世界评估是自主边界扩张的最后门槛
 - **原始一句话命题**：2029–2035 年，独立观测、因果干预和持续监控组成的开放世界评估，会成为长程自主行动扩大授权范围的最后技术门槛。
 - **原始推理链**：形式化验证只能覆盖可预先写明的性质 → 长任务会遇到未建模状态和延迟副作用 → 外部观测与干预产生独立证据 → 持续监控把一次性测试变成运行时反馈 → 授权边界才可逐步扩大。
@@ -735,7 +735,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L848–L869`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L126–L147`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L138–L161`
 - **Original title**: Open-world evaluation is the final gate for expanding autonomy
 - **Original one-sentence judgment**: From 2029 to 2035, independent observation, causal intervention, and continuous monitoring will become the final technical gate for widening the authorization of long-horizon autonomous action.
 - **Original reasoning chain**: Formal verification covers only pre-specified properties → long tasks encounter unmodeled states and delayed side effects → external observation and intervention create independent evidence → continuous monitoring turns one-off tests into runtime feedback → authorization boundaries can expand incrementally.
@@ -758,12 +758,12 @@
 
 ## J-017
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L5–L25`；`docs/en/ledger/11-20.md:L5–L25`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L5–L27`；`docs/en/ledger/11-20.md:L5–L27`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L638–L657`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L5–L25`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L5–L27`
 - **原始标题**：AI 中介会比强关系更快扩大弱关系协调
 - **原始一句话命题**：2027–2033 年，AI 中介会比强关系更快扩大弱关系协调，但不会同步扩大人能长期在场的强关系数量。
 - **原始推理链**：J-006 降低多方协调与信息压缩成本 → J-007 让共同背景和历史更容易被接续 → 弱关系的联系、翻译、介绍与约时间可以规模化 → 强关系仍受共同经历、互相承担、冲突修复和有限注意力约束 → 连接数量增长不会自动变成可依赖的承诺数量。
@@ -781,7 +781,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L638–L657`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L5–L25`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L5–L27`
 - **Original title**: AI mediation expands weak-tie coordination faster than strong relationships
 - **Original one-sentence judgment**: From 2027 to 2033, AI mediation will expand weak-tie coordination faster than strong relationships, without expanding the number of relationships in which a person can remain present over time.
 - **Original reasoning chain**: J-006 lowers the cost of multi-party coordination and information compression → J-007 makes shared context and history easier to resume → contact, translation, introductions, and scheduling for weak ties can scale → strong ties remain constrained by shared experience, mutual responsibility, conflict repair, and finite attention → more connections do not automatically become more commitments that people can rely on.
@@ -804,12 +804,12 @@
 
 ## J-018
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L148–L167`；`docs/en/ledger/11-20.md:L148–L167`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L162–L183`；`docs/en/ledger/11-20.md:L162–L183`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L870–L888`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L148–L167`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L162–L183`
 - **原始标题**：并行推理先于长程自主执行
 - **原始一句话命题**：到 2028 年，生成—比较—修正会先于长程自主执行成为默认工作流。
 - **原始推理链**：J-006 的并行吞吐增加 → 候选搜索先变便宜 → 可靠的长程环境控制仍需 J-009 的边界与验证 → 并行推理先普及。
@@ -827,7 +827,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L870–L888`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L148–L167`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L162–L183`
 - **Original title**: Parallel reasoning before long-horizon autonomy
 - **Original one-sentence judgment**: By 2028, generate–compare–revise becomes the default workflow before long-horizon autonomy.
 - **Original reasoning chain**: J-006 raises parallel throughput → candidate search becomes cheap first → reliable long-horizon environmental control still requires J-009 boundaries and evaluation → parallel reasoning spreads first.
@@ -850,12 +850,12 @@
 
 ## J-019
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L168–L187`；`docs/en/ledger/11-20.md:L168–L187`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L184–L205`；`docs/en/ledger/11-20.md:L184–L205`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L889–L907`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L168–L187`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L184–L205`
 - **原始标题**：节省 token 只是窗口
 - **原始一句话命题**：2026–2028 年，节省 token 的价值会被更强模型和更低成本的多次尝试压缩，主要是窗口而非持久稀缺。
 - **原始推理链**：J-001 降低单位成本 → J-006 允许多采样 → 废案的 token 代价下降 → 省 token 的独立溢价缩小。
@@ -873,7 +873,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L889–L907`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L168–L187`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L184–L205`
 - **Original title**: Token saving is a window
 - **Original one-sentence judgment**: From 2026–2028, stronger models and cheaper repeated attempts compress the value of saving tokens; it is a window, not durable scarcity.
 - **Original reasoning chain**: J-001 lowers unit cost → J-006 enables sampling → dud token cost falls → the independent premium for token saving shrinks.
@@ -896,12 +896,12 @@
 
 ## J-020
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L188–L206`；`docs/en/ledger/11-20.md:L188–L206`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/11-20.md:L206–L226`；`docs/en/ledger/11-20.md:L206–L226`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L908–L926`
-- **当前卡锚点**：`docs/zh/ledger/11-20.md:L188–L206`
+- **当前卡锚点**：`docs/zh/ledger/11-20.md:L206–L226`
 - **原始标题**：可复制内容的价格继续下降
 - **原始一句话命题**：到 2028 年，可复制内容的边际价格继续下降，客观择优逐步成为生成流程内置能力。
 - **原始推理链**：J-002 的可形式化质量被自动测试 → J-015 的生成—验证闭环扩大 → 同质内容供给增加 → 单纯交付内容的价格下降。
@@ -919,7 +919,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L908–L926`
-- **Current card anchor**: `docs/en/ledger/11-20.md:L188–L206`
+- **Current card anchor**: `docs/en/ledger/11-20.md:L206–L226`
 - **Original title**: Reproducible content keeps falling in price
 - **Original one-sentence judgment**: By 2028, reproducible content keeps falling in marginal price as objective selection becomes part of generation.
 - **Original reasoning chain**: J-002 formalizable quality is tested automatically → J-015 expands the generate–verify loop → homogeneous supply increases → mere content delivery loses price.
@@ -942,12 +942,12 @@
 
 ## J-021
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L5–L24`；`docs/en/ledger/21-30.md:L5–L24`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L5–L26`；`docs/en/ledger/21-30.md:L5–L26`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L927–L945`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L5–L24`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L5–L26`
 - **原始标题**：一手现场信号先获得溢价
 - **原始一句话命题**：2026–2029 年，未经记录的现场观测和可追溯来源会比二手表达更早获得溢价。
 - **原始推理链**：J-005 的原始信号不可由重组生成 → J-015 让二手表达更易自动筛选 → 买方把溢价转向现场、来源与责任。
@@ -965,7 +965,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L927–L945`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L5–L24`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L5–L26`
 - **Original title**: First-hand field signals earn a premium first
 - **Original one-sentence judgment**: From 2026–2029, unrecorded field observations and traceable sources earn a premium earlier than second-hand expression.
 - **Original reasoning chain**: J-005’s raw signals cannot be recombined → J-015 makes second-hand expression easier to screen → buyers shift premiums to field reality, sources, and accountability.
@@ -988,12 +988,12 @@
 
 ## J-022
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L25–L44`；`docs/en/ledger/21-30.md:L25–L44`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L27–L48`；`docs/en/ledger/21-30.md:L27–L48`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L946–L964`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L25–L44`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L27–L48`
 - **原始标题**：可伪造信号推动凭据升级
 - **原始一句话命题**：2026–2029 年，可伪造的个性化信号增加后，重要判断会转向更昂贵的身份、履约和责任凭据。
 - **原始推理链**：J-005 使可追责主体升值 → J-017 使弱关系协调变便宜 → 表面互动更难区分 → 高价值决策提高凭据门槛。
@@ -1011,7 +1011,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L946–L964`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L25–L44`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L27–L48`
 - **Original title**: Forgable signals drive credential upgrades
 - **Original one-sentence judgment**: From 2026–2029, more forgable personalized signals push important decisions toward costlier identity, fulfillment, and liability credentials.
 - **Original reasoning chain**: J-005 raises accountable entities → J-017 cheapens weak-tie coordination → surface interaction is harder to distinguish → high-value decisions raise credential thresholds.
@@ -1034,12 +1034,12 @@
 
 ## J-023
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L45–L64`；`docs/en/ledger/21-30.md:L45–L64`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L49–L70`；`docs/en/ledger/21-30.md:L49–L70`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L965–L983`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L45–L64`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L49–L70`
 - **原始标题**：注意力转向兑现承诺
 - **原始一句话命题**：2027–2030 年，重要注意力分配会从表达质量转向关系持续性与承诺兑现率。
 - **原始推理链**：J-017 的协调供给增加 → J-022 的表面信号更易伪造 → 单次表达区分度下降 → 重复关系中的兑现记录获得更大权重。
@@ -1057,7 +1057,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L965–L983`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L45–L64`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L49–L70`
 - **Original title**: Attention shifts toward fulfilled commitments
 - **Original one-sentence judgment**: From 2027–2030, important attention allocation shifts from expression quality toward relationship continuity and fulfilled commitments.
 - **Original reasoning chain**: J-017 expands coordination supply → J-022 makes surface signals easier to forge → one-off expression loses distinction → repeated fulfillment records gain weight.
@@ -1080,12 +1080,12 @@
 
 ## J-024
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L65–L84`；`docs/en/ledger/21-30.md:L65–L84`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L71–L92`；`docs/en/ledger/21-30.md:L71–L92`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L984–L1002`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L65–L84`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L71–L92`
 - **原始标题**：身份凭据重新分层（仅图景）
 - **原始一句话命题**：2027–2032 年，身份凭据可能围绕持续履约、责任和在场重新分层，但制度形式尚不确定。
 - **原始推理链**：J-022 提高验证成本 → J-023 提高长期记录价值 → 不同风险场景采用不同凭据层级，但制度结果受平台与法律选择影响。
@@ -1103,7 +1103,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L984–L1002`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L65–L84`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L71–L92`
 - **Original title**: Credentials re-layer (landscape only)
 - **Original one-sentence judgment**: From 2027–2032, credentials may re-layer around fulfillment, liability, and presence, but the institutional form is uncertain.
 - **Original reasoning chain**: J-022 raises verification cost → J-023 raises the value of long records → risk contexts adopt different credential layers, subject to platform and legal choices.
@@ -1126,12 +1126,12 @@
 
 ## J-025
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L85–L104`；`docs/en/ledger/21-30.md:L85–L104`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L93–L114`；`docs/en/ledger/21-30.md:L93–L114`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1003–L1021`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L85–L104`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L93–L114`
 - **原始标题**：小团队产出能力上升
 - **原始一句话命题**：2027–2030 年，小团队能以更少步骤完成更多可验证产出。
 - **原始推理链**：J-009 的受限连续执行 → J-013 的可检查工具调用 → 重复知识步骤被代理化 → 人数不变时可验证产出增加。
@@ -1149,7 +1149,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1003–L1021`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L85–L104`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L93–L114`
 - **Original title**: Small-team output rises
 - **Original one-sentence judgment**: From 2027–2030, small teams complete more verifiable output with fewer steps.
 - **Original reasoning chain**: J-009 constrained continuity → J-013 inspectable tools → repeated knowledge steps become agent-mediated → verifiable output rises at constant headcount.
@@ -1172,12 +1172,12 @@
 
 ## J-026
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L105–L124`；`docs/en/ledger/21-30.md:L105–L124`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L115–L136`；`docs/en/ledger/21-30.md:L115–L136`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1022–L1040`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L105–L124`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L115–L136`
 - **原始标题**：责任边界不会同步消失
 - **原始一句话命题**：2027–2032 年，责任边界不会与知识工作步骤的自动化同步消失。
 - **原始推理链**：J-009 扩大可执行步骤 → J-013 使权限更可编程 → 事故仍需法律主体承担 → 授权、审查和异常升级位置保持稀缺。
@@ -1195,7 +1195,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1022–L1040`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L105–L124`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L115–L136`
 - **Original title**: Responsibility boundaries remain
 - **Original one-sentence judgment**: From 2027–2032, responsibility boundaries do not disappear at the same rate as knowledge-work steps.
 - **Original reasoning chain**: J-009 expands executable steps → J-013 makes permissions programmable → accidents still need a legal entity → authorization, review, and escalation remain scarce.
@@ -1218,12 +1218,12 @@
 
 ## J-027
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L125–L144`；`docs/en/ledger/21-30.md:L125–L144`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L137–L158`；`docs/en/ledger/21-30.md:L137–L158`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1041–L1059`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L125–L144`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L137–L158`
 - **原始标题**：租用算力扩大能力扩散
 - **原始一句话命题**：2026–2029 年，租用算力会扩大小组织获得 AI 能力的范围，但不会平均分配收益。
 - **原始推理链**：J-001 降低调用成本 → J-006 提高可承受尝试数 → 按需租用降低固定资本门槛 → 数据、入口和责任能力仍造成收益差异。
@@ -1241,7 +1241,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1041–L1059`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L125–L144`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L137–L158`
 - **Original title**: Rented compute spreads capability
 - **Original one-sentence judgment**: From 2026–2029, rented compute spreads access to AI capability for small organizations without distributing gains evenly.
 - **Original reasoning chain**: J-001 lowers call cost → J-006 raises affordable attempts → renting lowers fixed-capital barriers → data, access, and liability capacity still differentiate gains.
@@ -1264,12 +1264,12 @@
 
 ## J-028
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L145–L164`；`docs/en/ledger/21-30.md:L145–L164`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L159–L180`；`docs/en/ledger/21-30.md:L159–L180`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1060–L1078`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L145–L164`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L159–L180`
 - **原始标题**：入口成为议价节点（仅图景）
 - **原始一句话命题**：2027–2032 年，专有数据、用户分发和责任承接可能成为比模型本身更重要的议价节点。
 - **原始推理链**：J-027 扩大模型可得性 → J-005 使真实输入与责任升值 → 可复制模型的差异下降 → 控制输入、出口和损失吸收能力可能获得租金。
@@ -1287,7 +1287,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1060–L1078`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L145–L164`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L159–L180`
 - **Original title**: Access becomes a bargaining node (landscape only)
 - **Original one-sentence judgment**: From 2027–2032, proprietary data, distribution, and liability capacity may become more important bargaining nodes than models.
 - **Original reasoning chain**: J-027 expands model access → J-005 raises the value of real inputs and responsibility → models become more reproducible → control of inputs, exits, and losses may earn rent.
@@ -1310,12 +1310,12 @@
 
 ## J-029
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L165–L184`；`docs/en/ledger/21-30.md:L165–L184`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L181–L202`；`docs/en/ledger/21-30.md:L181–L202`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1079–L1097`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L165–L184`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L181–L202`
 - **原始标题**：需求侧锚点保持
 - **原始一句话命题**：2026–2030 年，地位、确定性、真实在场和责任归属仍是需求侧锚点，尽管表达与选择变丰富。
 - **原始推理链**：J-017 扩大协调接触 → J-011 扩大可试身份与表达 → 选择数量增加不等于共同后果增加 → 需求仍围绕地位、确定性、在场和责任组织。
@@ -1333,7 +1333,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1079–L1097`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L165–L184`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L181–L202`
 - **Original title**: Demand-side anchors persist
 - **Original one-sentence judgment**: From 2026–2030, status, certainty, embodied presence, and responsibility remain demand-side anchors despite richer expression and choice.
 - **Original reasoning chain**: J-017 expands coordination → J-011 expands trial identities and expression → more options do not create shared consequences → demand remains organized around status, certainty, presence, and responsibility.
@@ -1356,12 +1356,12 @@
 
 ## J-030
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L185–L203`；`docs/en/ledger/21-30.md:L185–L203`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/21-30.md:L203–L223`；`docs/en/ledger/21-30.md:L203–L223`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1098–L1118`
-- **当前卡锚点**：`docs/zh/ledger/21-30.md:L185–L203`
+- **当前卡锚点**：`docs/zh/ledger/21-30.md:L203–L223`
 - **原始标题**：AI 代理协调而非共同经历（仅图景）
 - **原始一句话命题**：2027–2032 年，AI 能代理背景同步与关系协调，但不能代理需要身体在场和共同承担的经历。
 - **原始推理链**：J-017 使弱关系协调变便宜 → J-011 使多模态表达更丰富 → 共同经历仍要求身体、时间和互惠后果 → 协调代理不会自动增加强关系容量。
@@ -1379,7 +1379,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1098–L1118`
-- **Current card anchor**: `docs/en/ledger/21-30.md:L185–L203`
+- **Current card anchor**: `docs/en/ledger/21-30.md:L203–L223`
 - **Original title**: AI mediates coordination, not shared experience (landscape only)
 - **Original one-sentence judgment**: From 2027–2032, AI mediates context synchronization and relationship coordination but not experiences requiring embodied presence and shared consequences.
 - **Original reasoning chain**: J-017 cheapens weak-tie coordination → J-011 enriches multimodal expression → shared experience still requires bodies, time, and reciprocal consequences → coordination agents do not expand strong-relationship capacity automatically.
@@ -1402,12 +1402,12 @@
 
 ## J-031
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L5–L25`；`docs/en/ledger/31-40.md:L5–L25`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L5–L27`；`docs/en/ledger/31-40.md:L5–L27`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1119–L1138`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L5–L25`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L5–L27`
 - **原始标题**：可暂停、可回放、可回滚的行动环境成为长程 AI 执行的准入条件
 - **原始一句话命题**：可暂停、可回放、可回滚的行动环境成为长程 AI 执行的准入条件
 - **原始推理链**：组织把长程任务交给代理 → 失败状态与责任成本累积 → 可观察、可暂停、可回滚降低不可逆损失 → 高价值部署把行动环境列为准入条件
@@ -1425,7 +1425,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1119–L1138`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L5–L25`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L5–L27`
 - **Original title**: Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
 - **Original one-sentence judgment**: Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
 - **Original reasoning chain**: Organizations delegate long-horizon tasks → failure states and liability accumulate → observable, pausable, rollback-capable environments reduce irreversible loss → high-value deployments make the environment an admission condition
@@ -1448,12 +1448,12 @@
 
 ## J-032
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L26–L46`；`docs/en/ledger/31-40.md:L26–L46`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L28–L50`；`docs/en/ledger/31-40.md:L28–L50`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1139–L1158`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L26–L46`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L28–L50`
 - **原始标题**：授权审查与异常升级比执行步骤更稀缺
 - **原始一句话命题**：授权审查与异常升级比执行步骤更稀缺
 - **原始推理链**：可检查工具调用扩散 → 执行步骤被模板化 → 跨边界授权、异常升级和最终责任仍需判断 → 审查岗位相对执行步骤升值
@@ -1471,7 +1471,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1139–L1158`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L26–L46`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L28–L50`
 - **Original title**: Authorization review and exception escalation become scarcer than execution steps
 - **Original one-sentence judgment**: Authorization review and exception escalation become scarcer than execution steps
 - **Original reasoning chain**: Inspectable tool calls spread → execution steps become templated → cross-boundary authorization, exception escalation, and final responsibility still require judgment → review roles appreciate relative to execution steps
@@ -1494,12 +1494,12 @@
 
 ## J-033
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L47–L67`；`docs/en/ledger/31-40.md:L47–L67`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L51–L73`；`docs/en/ledger/31-40.md:L51–L73`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1159–L1178`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L47–L67`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L51–L73`
 - **原始标题**：真实干预的可验证记录比解释本身更有价值
 - **原始一句话命题**：真实干预的可验证记录比解释本身更有价值
 - **原始推理链**：生成解释变便宜 → 解释供给过剩 → 真实干预产生不可复制结果 → 可验证记录连接因果与责任 → 记录获得溢价
@@ -1517,7 +1517,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1159–L1178`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L47–L67`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L51–L73`
 - **Original title**: Verifiable records of real interventions become more valuable than explanation itself
 - **Original one-sentence judgment**: Verifiable records of real interventions become more valuable than explanation itself
 - **Original reasoning chain**: Generated explanations become cheap → explanation supply becomes abundant → real interventions produce non-recombinable outcomes → verifiable records connect causality and responsibility → records earn a premium
@@ -1540,12 +1540,12 @@
 
 ## J-034
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L68–L88`；`docs/en/ledger/31-40.md:L68–L88`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L74–L96`；`docs/en/ledger/31-40.md:L74–L96`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1179–L1198`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L68–L88`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L74–L96`
 - **原始标题**：合成证据先在低责任场景获准，高责任场景仍要求现实试验
 - **原始一句话命题**：合成证据先在低责任场景获准，高责任场景仍要求现实试验
 - **原始推理链**：合成资料降低探索成本 → 低责任场景可容忍模型误差 → 高责任场景承担身体、法律和赔偿后果 → 监管保留现实试验
@@ -1563,7 +1563,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1179–L1198`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L68–L88`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L74–L96`
 - **Original title**: Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
 - **Original one-sentence judgment**: Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
 - **Original reasoning chain**: Synthetic material lowers exploration cost → low-liability contexts tolerate model error → high-liability contexts bear bodily, legal, and compensation consequences → regulators retain real trials
@@ -1586,12 +1586,12 @@
 
 ## J-035
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L89–L109`；`docs/en/ledger/31-40.md:L89–L109`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L97–L119`；`docs/en/ledger/31-40.md:L97–L119`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1199–L1218`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L89–L109`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L97–L119`
 - **原始标题**：责任抵押进入重要 AI 输出的交易结构
 - **原始一句话命题**：责任抵押进入重要 AI 输出的交易结构
 - **原始推理链**：复制表达增加 → 错误损失更难归因 → 买方要求谁承担后果 → 保险、赔付准备金和审计进入合同 → 责任抵押成为交易条件
@@ -1609,7 +1609,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1199–L1218`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L89–L109`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L97–L119`
 - **Original title**: Responsibility collateral enters the transaction structure for consequential AI output
 - **Original one-sentence judgment**: Responsibility collateral enters the transaction structure for consequential AI output
 - **Original reasoning chain**: Reproducible expression increases → error losses become harder to attribute → buyers ask who bears consequences → insurance, reserves, and audits enter contracts → responsibility collateral becomes a transaction condition
@@ -1632,12 +1632,12 @@
 
 ## J-036
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L110–L130`；`docs/en/ledger/31-40.md:L110–L130`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L120–L142`；`docs/en/ledger/31-40.md:L120–L142`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1219–L1238`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L110–L130`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L120–L142`
 - **原始标题**：长期履约记录比一次自然表达更能分配注意力
 - **原始一句话命题**：长期履约记录比一次自然表达更能分配注意力
 - **原始推理链**：表达生成变便宜 → 表面可信度难区分 → 重复履约留下可核验记录 → 注意力转向长期一致性与兑现率
@@ -1655,7 +1655,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1219–L1238`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L110–L130`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L120–L142`
 - **Original title**: Long-term fulfillment records allocate attention better than one-off natural expression
 - **Original one-sentence judgment**: Long-term fulfillment records allocate attention better than one-off natural expression
 - **Original reasoning chain**: Expression generation becomes cheap → surface credibility becomes hard to distinguish → repeated fulfillment leaves verifiable records → attention shifts to longitudinal consistency and delivery rate
@@ -1678,12 +1678,12 @@
 
 ## J-037
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L131–L151`；`docs/en/ledger/31-40.md:L131–L151`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L143–L165`；`docs/en/ledger/31-40.md:L143–L165`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1239–L1258`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L131–L151`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L143–L165`
 - **原始标题**：同规模小团队的可验证产出提高
 - **原始一句话命题**：同规模小团队的可验证产出提高
 - **原始推理链**：受限工作流稳定 → 工具调用可检查 → 少数人编排更多代理步骤 → 单位团队产出与可验证记录增加
@@ -1701,7 +1701,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1239–L1258`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L131–L151`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L143–L165`
 - **Original title**: Comparable small teams produce more verifiable output
 - **Original one-sentence judgment**: Comparable small teams produce more verifiable output
 - **Original reasoning chain**: Constrained workflows stabilize → tool calls become inspectable → a few people orchestrate more agent steps → per-team output and audit records increase
@@ -1724,12 +1724,12 @@
 
 ## J-038
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L152–L172`；`docs/en/ledger/31-40.md:L152–L172`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L166–L188`；`docs/en/ledger/31-40.md:L166–L188`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1259–L1278`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L152–L172`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L166–L188`
 - **原始标题**：授权、异常升级和责任岗位不会与执行步骤同速减少
 - **原始一句话命题**：授权、异常升级和责任岗位不会与执行步骤同速减少
 - **原始推理链**：工具调用可检查 → 权限边界更清晰 → 正常步骤自动化 → 异常与跨界后果不可预先穷尽 → 责任岗位保留
@@ -1747,7 +1747,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1259–L1278`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L152–L172`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L166–L188`
 - **Original title**: Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
 - **Original one-sentence judgment**: Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
 - **Original reasoning chain**: Inspectable tool calls spread → permission boundaries clarify → normal steps automate → exceptions and cross-boundary consequences cannot be fully precomputed → responsibility roles remain
@@ -1770,12 +1770,12 @@
 
 ## J-039
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L173–L193`；`docs/en/ledger/31-40.md:L173–L193`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L189–L211`；`docs/en/ledger/31-40.md:L189–L211`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1279–L1298`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L173–L193`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L189–L211`
 - **原始标题**：模型租用更丰富，但能源、数据和渠道控制形成准入租金
 - **原始一句话命题**：模型租用更丰富，但能源、数据和渠道控制形成准入租金
 - **原始推理链**：单位推理成本下降 → 模型能力可租用 → 模型差异收窄 → 能源接入、独家数据和渠道仍受物理与产权约束 → 控制者获得准入租金
@@ -1793,7 +1793,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1279–L1298`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L173–L193`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L189–L211`
 - **Original title**: Rented models become abundant, while energy, data, and channel control create access rents
 - **Original one-sentence judgment**: Rented models become abundant, while energy, data, and channel control create access rents
 - **Original reasoning chain**: Unit reasoning cost falls → model capability becomes rentable → model differences narrow → energy access, exclusive data, and channels remain constrained by physics and ownership → controllers earn access rents
@@ -1816,12 +1816,12 @@
 
 ## J-040
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L194–L213`；`docs/en/ledger/31-40.md:L194–L213`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/31-40.md:L212–L233`；`docs/en/ledger/31-40.md:L212–L233`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1299–L1318`
-- **当前卡锚点**：`docs/zh/ledger/31-40.md:L194–L213`
+- **当前卡锚点**：`docs/zh/ledger/31-40.md:L212–L233`
 - **原始标题**：能吸收 AI 事故的资产负债表成为独立稀缺
 - **原始一句话命题**：能吸收 AI 事故的资产负债表成为独立稀缺
 - **原始推理链**：真实干预和承诺升值 → AI 事故损失可量化 → 合同要求赔付能力 → 资本与保险把偿付能力定价 → 大资产负债表获得准入优势
@@ -1839,7 +1839,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1299–L1318`
-- **Current card anchor**: `docs/en/ledger/31-40.md:L194–L213`
+- **Current card anchor**: `docs/en/ledger/31-40.md:L212–L233`
 - **Original title**: Balance sheets able to absorb AI accidents become a separate scarcity
 - **Original one-sentence judgment**: Balance sheets able to absorb AI accidents become a separate scarcity
 - **Original reasoning chain**: Real interventions and commitments appreciate → AI accident losses become measurable → contracts require compensation capacity → capital and insurance price solvency → large balance sheets gain admission advantage
@@ -1862,12 +1862,12 @@
 
 ## J-041
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L5–L25`；`docs/en/ledger/41-50.md:L5–L25`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L5–L27`；`docs/en/ledger/41-50.md:L5–L27`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1319–L1338`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L5–L25`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L5–L27`
 - **原始标题**：AI 先扩大弱关系的协调半径
 - **原始一句话命题**：AI 先扩大弱关系的协调半径
 - **原始推理链**：沟通与背景同步成本下降 → 翻译、介绍、约时可规模化 → 弱关系连接半径扩大 → 强关系仍受共同承担约束
@@ -1885,7 +1885,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1319–L1338`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L5–L25`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L5–L27`
 - **Original title**: AI first expands the coordination radius of weak ties
 - **Original one-sentence judgment**: AI first expands the coordination radius of weak ties
 - **Original reasoning chain**: Communication and context-sync costs fall → translation, introductions, and scheduling scale → weak-tie connection radius expands → strong ties remain constrained by shared consequences
@@ -1908,12 +1908,12 @@
 
 ## J-042
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L26–L46`；`docs/en/ledger/41-50.md:L26–L46`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L28–L50`；`docs/en/ledger/41-50.md:L28–L50`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1339–L1358`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L26–L46`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L28–L50`
 - **原始标题**：共同经历与身体在场仍是强关系容量上限（仅图景）
 - **原始一句话命题**：共同经历与身体在场仍是强关系容量上限（仅图景）
 - **原始推理链**：多模态表达变丰富 → 代理陪伴与提醒普及 → 共同经历仍要求身体、时间和互惠后果 → 强关系容量受在场约束
@@ -1931,7 +1931,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1339–L1358`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L26–L46`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L28–L50`
 - **Original title**: Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
 - **Original one-sentence judgment**: Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
 - **Original reasoning chain**: Multimodal expression becomes abundant → mediated companionship and reminders spread → shared experience still requires bodies, time, and reciprocal consequences → strong-tie capacity remains presence-constrained
@@ -1954,12 +1954,12 @@
 
 ## J-043
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L47–L66`；`docs/en/ledger/41-50.md:L47–L66`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L51–L72`；`docs/en/ledger/41-50.md:L51–L72`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1554–L1573`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L47–L66`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L51–L72`
 - **原始标题**：高价值代理执行可能转向边界授权，而非逐步操作（仅图景）
 - **原始一句话命题**：高价值代理执行可能转向边界授权，而非逐步操作（仅图景）。
 - **原始推理链**：可回滚环境降低监督成本 → 代理承担更多步骤 → 监督转向权限边界与异常升级 → 高价值部署采用边界授权。
@@ -1977,7 +1977,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1554–L1573`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L47–L66`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L51–L72`
 - **Original title**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)
 - **Original one-sentence judgment**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only).
 - **Original reasoning chain**: Rollback-capable environments lower supervision cost → agents take more steps → supervision shifts to boundaries and escalation → high-value deployment uses boundary grants.
@@ -2000,12 +2000,12 @@
 
 ## J-044
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L67–L86`；`docs/en/ledger/41-50.md:L67–L86`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L73–L94`；`docs/en/ledger/41-50.md:L73–L94`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1574–L1593`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L67–L86`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L73–L94`
 - **原始标题**：可吸收事故的责任位置成为代理基础设施的承重墙（仅图景）
 - **原始一句话命题**：可吸收事故的责任位置成为代理基础设施的承重墙（仅图景）。
 - **原始推理链**：执行扩大 → 尾部损失难由单一使用者承担 → 责任抵押成为准入 → 可赔付主体支撑基础设施。
@@ -2023,7 +2023,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1574–L1593`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L67–L86`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L73–L94`
 - **Original title**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)
 - **Original one-sentence judgment**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only).
 - **Original reasoning chain**: Execution scales → tail losses exceed one user’s capacity → collateral and balance sheets become admission conditions → solvent entities support infrastructure.
@@ -2046,12 +2046,12 @@
 
 ## J-045
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L87–L106`；`docs/en/ledger/41-50.md:L87–L106`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L95–L116`；`docs/en/ledger/41-50.md:L95–L116`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1594–L1613`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L87–L106`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L95–L116`
 - **原始标题**：合成表达越丰富，未经安排的现实观察越稀缺（仅图景）
 - **原始一句话命题**：合成表达越丰富，未经安排的现实观察越稀缺（仅图景）。
 - **原始推理链**：可回放内容增长 → 叙事失去区分度 → 未安排的现场观察成为稀缺信号 → 原始条件与因果责任升值。
@@ -2069,7 +2069,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1594–L1613`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L87–L106`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L95–L116`
 - **Original title**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)
 - **Original one-sentence judgment**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only).
 - **Original reasoning chain**: Replayable supply grows → narrative loses distinctiveness → unarranged field observation becomes scarce → preserving conditions and causality gains value.
@@ -2092,12 +2092,12 @@
 
 ## J-046
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L107–L126`；`docs/en/ledger/41-50.md:L107–L126`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L117–L138`；`docs/en/ledger/41-50.md:L117–L138`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1614–L1633`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L107–L126`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L117–L138`
 - **原始标题**：高责任场景仍为现场因果记录保留溢价（仅图景）
 - **原始一句话命题**：高责任场景仍为现场因果记录保留溢价（仅图景）。
 - **原始推理链**：解释变便宜 → 责任方区分建议与干预 → 现场记录连接行为、结果和赔付 → 高责任交易支付溢价。
@@ -2115,7 +2115,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1614–L1633`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L107–L126`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L117–L138`
 - **Original title**: High-liability settings retain a premium for field causal records (landscape only)
 - **Original one-sentence judgment**: High-liability settings retain a premium for field causal records (landscape only).
 - **Original reasoning chain**: Cheap explanations → liable parties distinguish advice from intervention → field records connect action, outcome and compensation → high-liability transactions pay.
@@ -2138,12 +2138,12 @@
 
 ## J-047
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L127–L146`；`docs/en/ledger/41-50.md:L127–L146`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L139–L160`；`docs/en/ledger/41-50.md:L139–L160`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1634–L1653`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L127–L146`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L139–L160`
 - **原始标题**：AI 关系的复制性扩大陪伴供给，但不可复制互惠成为稀缺（仅图景）
 - **原始一句话命题**：AI 关系的复制性扩大陪伴供给，但不可复制互惠成为稀缺（仅图景）。
 - **原始推理链**：记忆、耐心和人格可复制 → 陪伴随时可用 → 复制削弱专属感与共同风险 → 不可复制互惠稀缺。
@@ -2161,7 +2161,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1634–L1653`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L127–L146`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L139–L160`
 - **Original title**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)
 - **Original one-sentence judgment**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only).
 - **Original reasoning chain**: Copyable memory, patience and style → companionship scales → copyability reduces exclusivity and shared risk → non-copyable reciprocity is scarce.
@@ -2184,12 +2184,12 @@
 
 ## J-048
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L147–L166`；`docs/en/ledger/41-50.md:L147–L166`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L161–L182`；`docs/en/ledger/41-50.md:L161–L182`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1654–L1673`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L147–L166`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L161–L182`
 - **原始标题**：人与 AI 的授权、退出与主体边界成为关系规范议题（仅图景）
 - **原始一句话命题**：人与 AI 的授权、退出与主体边界成为关系规范议题（仅图景）。
 - **原始推理链**：关系可复制、暂停和迁移 → 记忆与承诺边界分离 → 数据、退出和责任冲突增加 → 制度定义主体边界。
@@ -2207,7 +2207,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1654–L1673`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L147–L166`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L161–L182`
 - **Original title**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)
 - **Original one-sentence judgment**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only).
 - **Original reasoning chain**: Copyable, pausable relationships → memory and commitment boundaries diverge → data, exit and liability conflicts grow → institutions define subjects.
@@ -2230,12 +2230,12 @@
 
 ## J-049
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L167–L186`；`docs/en/ledger/41-50.md:L167–L186`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L183–L204`；`docs/en/ledger/41-50.md:L183–L204`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1674–L1693`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L167–L186`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L183–L204`
 - **原始标题**：AI 协调越丰富，共同承担不可逆承诺越稀缺（仅图景）
 - **原始一句话命题**：AI 协调越丰富，共同承担不可逆承诺越稀缺（仅图景）。
 - **原始推理链**：协调成本下降 → 候选增加 → 选择不等于承诺，承诺要求承担失败 → 共同承担者稀缺。
@@ -2253,7 +2253,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1674–L1693`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L167–L186`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L183–L204`
 - **Original title**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)
 - **Original one-sentence judgment**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only).
 - **Original reasoning chain**: Coordination costs fall → candidates multiply → choosing is not commitment; commitment bears failure → willing groups are scarce.
@@ -2276,12 +2276,12 @@
 
 ## J-050
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L187–L205`；`docs/en/ledger/41-50.md:L187–L205`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/41-50.md:L205–L225`；`docs/en/ledger/41-50.md:L205–L225`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1694–L1713`
-- **当前卡锚点**：`docs/zh/ledger/41-50.md:L187–L205`
+- **当前卡锚点**：`docs/zh/ledger/41-50.md:L205–L225`
 - **原始标题**：人类协作的价值从共同做步骤转向共同选择承诺（仅图景）
 - **原始一句话命题**：人类协作的价值从共同做步骤转向共同选择承诺（仅图景）。
 - **原始推理链**：代理吸收协调 → 人类介入减少 → 介入集中于不可逆选择与共同担责 → 以承诺质量衡量协作。
@@ -2299,7 +2299,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1694–L1713`
-- **Current card anchor**: `docs/en/ledger/41-50.md:L187–L205`
+- **Current card anchor**: `docs/en/ledger/41-50.md:L205–L225`
 - **Original title**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)
 - **Original one-sentence judgment**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only).
 - **Original reasoning chain**: Agents absorb coordination → human intervention shrinks → it concentrates on irreversible choices and joint liability → commitment quality measures collaboration.
@@ -2322,12 +2322,12 @@
 
 ## J-051
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L125–L144`；`docs/en/ledger/51-60.md:L125–L144`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L137–L158`；`docs/en/ledger/51-60.md:L137–L158`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1714–L1733`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L125–L144`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L137–L158`
 - **原始标题**：建议供给丰富不会自动分散真实行动权（仅图景）
 - **原始一句话命题**：建议供给丰富不会自动分散真实行动权（仅图景）。
 - **原始推理链**：建议廉价生成 → 信息增加 → 许可、资源接入和赔付仍集中 → 建议不等于行动权。
@@ -2345,7 +2345,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1714–L1733`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L125–L144`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L137–L158`
 - **Original title**: Abundant advice does not automatically disperse real action rights (landscape only)
 - **Original one-sentence judgment**: Abundant advice does not automatically disperse real action rights (landscape only).
 - **Original reasoning chain**: Advice is cheap → information grows → permissions, resources and compensation remain concentrated → advice does not disperse action rights.
@@ -2368,12 +2368,12 @@
 
 ## J-052
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L145–L164`；`docs/en/ledger/51-60.md:L145–L164`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L159–L180`；`docs/en/ledger/51-60.md:L159–L180`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1734–L1753`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L145–L164`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L159–L180`
 - **原始标题**：能源、现实数据、授权与赔付形成远期制度入口（仅图景）
 - **原始一句话命题**：能源、现实数据、授权与赔付形成远期制度入口（仅图景）。
 - **原始推理链**：模型扩张 → 控制点迁移到现实输入、许可和损失 → 四类入口被定价 → 控制形成议价位置。
@@ -2391,7 +2391,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1734–L1753`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L145–L164`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L159–L180`
 - **Original title**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)
 - **Original one-sentence judgment**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only).
 - **Original reasoning chain**: Model supply expands → control migrates to real inputs, permissions and losses → institutions price four access points → control creates bargaining power.
@@ -2414,12 +2414,12 @@
 
 ## J-053
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L165–L184`；`docs/en/ledger/51-60.md:L165–L184`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L181–L202`；`docs/en/ledger/51-60.md:L181–L202`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1754–L1773`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L165–L184`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L181–L202`
 - **原始标题**：当可生成物普遍丰富，个人承担过什么可能成为意义信号（仅图景）
 - **原始一句话命题**：当可生成物普遍丰富，个人承担过什么可能成为意义信号（仅图景）。
 - **原始推理链**：作品、身份和成就可生成 → 输出区分度下降 → 真实时间、身体风险和责任留下成本信号 → 承担成为意义来源。
@@ -2437,7 +2437,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1754–L1773`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L165–L184`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L181–L202`
 - **Original title**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)
 - **Original one-sentence judgment**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only).
 - **Original reasoning chain**: Generatable output loses distinction → real time, bodily risk and responsibility leave cost signals → personal burden becomes meaning/status signal.
@@ -2460,12 +2460,12 @@
 
 ## J-054
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L185–L203`；`docs/en/ledger/51-60.md:L185–L203`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L203–L223`；`docs/en/ledger/51-60.md:L203–L223`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1774–L1829`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L185–L203`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L203–L223`
 - **原始标题**：不可委托的时间、身体风险与长期承诺保持需求侧稀缺（仅图景）
 - **原始一句话命题**：不可委托的时间、身体风险与长期承诺保持需求侧稀缺（仅图景）。
 - **原始推理链**：即时安慰增加 → 选择增加但生命时间不增加 → 身体风险与长期承诺仍需本人承担 → 稀缺转向不可委托经历。
@@ -2483,7 +2483,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1774–L1879`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L185–L203`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L203–L223`
 - **Original title**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)
 - **Original one-sentence judgment**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only).
 - **Original reasoning chain**: Choice grows but lifetime does not → bodily risk and long commitments remain personal → scarcity moves to non-delegable experience.
@@ -2506,12 +2506,12 @@
 
 ## J-055
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L5–L24`；`docs/en/ledger/51-60.md:L5–L24`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L5–L26`；`docs/en/ledger/51-60.md:L5–L26`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1359–L1377`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L5–L24`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L5–L26`
 - **原始标题**：高责任任务中的现实信号以合同资产形式获得溢价
 - **原始一句话命题**：在高责任任务中，带来源、许可、校准与责任链的现实信号比数据文件本身更可能获得结构性溢价。
 - **原始推理链**：C1 使二手表达和合成样本丰富 → 普通数据文件的边际价格下降 → 高责任任务仍需要现实观测、来源证明和可追索主体 → 采集许可、校准、使用边界与赔付义务被写入合同 → 数据从文件变成带责任链的合同资产。
@@ -2529,7 +2529,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1359–L1377`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L5–L24`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L5–L26`
 - **Original title**: Real-world signals earn a premium as contract assets in high-liability tasks
 - **Original one-sentence judgment**: In high-liability tasks, real-world signals with provenance, permission, calibration, and liability chains are more likely than data files alone to earn a structural premium.
 - **Original reasoning chain**: C1 makes second-hand expression and synthetic samples abundant → ordinary data files lose marginal price → high-liability tasks still require real observations, provenance, and an accountable party → collection permission, calibration, usage boundaries, and compensation duties enter contracts → data becomes a contract asset with a liability chain.
@@ -2552,12 +2552,12 @@
 
 ## J-056
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L25–L44`；`docs/en/ledger/51-60.md:L25–L44`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L27–L48`；`docs/en/ledger/51-60.md:L27–L48`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1378–L1396`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L25–L44`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L27–L48`
 - **原始标题**：算力扩张的绑定约束从芯片供给迁移到电力交付与并网许可
 - **原始一句话命题**：算力扩张的绑定约束在本窗口内从芯片供给迁移到电力交付与并网许可。
 - **原始推理链**：芯片是可量产、可运输、可全球再分配的工业品，扩产弹性随投资上升 → 变压器、高压设备与线路受重型制造与施工周期约束，几乎不能靠增加订单提速，且不可跨区域调剂 → 并网、环评与用地许可的周期由行政流程与地方政治决定，与技术进步解耦 → 三条供给曲线的斜率相差一个量级 → 资本集中涌入时，先耗尽的是许可与并网队列，而不是晶圆。
@@ -2575,7 +2575,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1378–L1396`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L25–L44`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L27–L48`
 - **Original title**: The binding constraint on compute expansion moves from chip supply to power delivery and interconnection permits
 - **Original one-sentence judgment**: Within this window the binding constraint on compute expansion moves from chip supply to power delivery and interconnection permitting.
 - **Original reasoning chain**: Chips are a mass-produced, shippable, globally reallocatable industrial good whose expansion elasticity rises with investment → transformers, high-voltage equipment, and lines are bound by heavy-manufacturing and construction cycles, can barely be accelerated by more orders, and cannot be reallocated across regions → interconnection, environmental, and land permits run on administrative and local-political cycles decoupled from technical progress → the three supply curves differ in slope by an order of magnitude → when capital concentrates, permits and interconnection queues are exhausted before wafers.
@@ -2598,12 +2598,12 @@
 
 ## J-057
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L45–L64`；`docs/en/ledger/51-60.md:L45–L64`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L49–L70`；`docs/en/ledger/51-60.md:L49–L70`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1397–L1415`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L45–L64`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L49–L70`
 - **原始标题**：被定价的不是电量而是可交付时间的确定性
 - **原始一句话命题**：在算力的电力交易中，被定价的主要不是电量，而是“在承诺日期一定通电”的确定性。
 - **原始推理链**：J-056 使队列成为绑定约束 → 模型代际窗口短，晚十八个月投产的容量在竞争上大幅贬值 → 买方对投产日期的支付意愿高于对平均电价的支付意愿 → 合同结构长出容量预留费、投产日期担保、延迟赔偿与自备发电、储能过桥条款 → 同一地区“带许可、带并网”的场址与裸地形成远超土建成本的价差。
@@ -2621,7 +2621,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1397–L1415`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L45–L64`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L49–L70`
 - **Original title**: What gets priced is not energy but certainty of delivery date
 - **Original one-sentence judgment**: In compute-related power transactions, what is mainly priced is not energy but the certainty of being live on the promised date.
 - **Original reasoning chain**: J-056 makes the queue the binding constraint → model generations turn over quickly, so capacity that arrives eighteen months late loses much of its competitive value → willingness to pay for an in-service date exceeds willingness to pay for a lower average tariff → contracts grow capacity reservation fees, in-service date guarantees, delay damages, and on-site generation or storage as a bridge → within one region, permitted and interconnected sites trade above bare land by far more than construction cost.
@@ -2644,12 +2644,12 @@
 
 ## J-058
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L65–L84`；`docs/en/ledger/51-60.md:L65–L84`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L71–L92`；`docs/en/ledger/51-60.md:L71–L92`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1416–L1434`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L65–L84`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L71–L92`
 - **原始标题**：AI 负荷分裂为延迟敏感与可调度两类，可调度部分成为电网的灵活性资源
 - **原始一句话命题**：AI 负荷分裂为延迟敏感与可调度两类，可调度的那部分成为电网可付费购买的灵活性资源，而不只是负担。
 - **原始推理链**：交互式推理延迟敏感、不可中断、不可迁移 → 训练、批量推理与评估可暂停、可延后、可跨时区迁移 → 后者的中断成本主要是时间而非报废，与电解铝等传统重工业负荷性质不同 → 电网最缺的是灵活性，且需求响应、可中断电价与容量市场是现成的付费通道 → 可调度算力同时是负荷与资源，其真实电力成本可低于名义电价。
@@ -2667,7 +2667,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1416–L1434`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L65–L84`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L71–L92`
 - **Original title**: AI load splits into latency-sensitive and schedulable halves, and the schedulable half becomes a grid flexibility resource
 - **Original one-sentence judgment**: AI load splits into latency-sensitive and schedulable halves, and the schedulable half becomes a flexibility resource the grid pays for rather than merely a burden.
 - **Original reasoning chain**: Interactive inference is latency-sensitive, non-interruptible, and immobile → training, batch inference, and evaluation can be paused, deferred, and moved across time zones → for the latter the cost of interruption is time rather than spoilage, unlike aluminium smelting and similar heavy industrial load → what grids are shortest of is flexibility, and demand response, interruptible tariffs, and capacity markets are existing payment channels → schedulable compute is load and resource at once, and its real power cost can sit below its nominal tariff.
@@ -2690,12 +2690,12 @@
 
 ## J-059
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L85–L104`；`docs/en/ledger/51-60.md:L85–L104`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L93–L114`；`docs/en/ledger/51-60.md:L93–L114`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1435–L1453`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L85–L104`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L93–L114`
 - **原始标题**：算力管制的抓手从硬件出口转向使用侧
 - **原始一句话命题**：当租用架构使能力越境而硬件不动，算力管制的抓手会从硬件出口转向使用侧的主体、用途与场址授权。
 - **原始推理链**：芯片离散、可点数、跨境须过关，因而是理想的管制对象 → 租用算力使能力扩散而硬件不移动（J-027）→ 只管“谁拥有”无法约束“谁在用” → 管制者要么接受管制失效，要么把义务移到使用侧：主体实名与用途申报、远程访问限制、模型权重转移规则、场址与运营方认证 → 管制对象从物转向主体与合同。
@@ -2713,7 +2713,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1435–L1453`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L85–L104`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L93–L114`
 - **Original title**: The handle of compute control moves from hardware export to the use side
 - **Original one-sentence judgment**: Once rental architectures let capability cross borders while hardware stays put, the handle of compute control moves from hardware export to use-side control of parties, purposes, and site authorization.
 - **Original reasoning chain**: Chips are discrete, countable, traceable, and must clear customs, making them an ideal control object → rented compute diffuses capability while hardware does not move (J-027) → governing "who owns" cannot constrain "who uses" → a regulator either accepts failed control or moves duties to the use side: identity and purpose declaration, remote-access restrictions, model-weight transfer rules, site and operator authorization → the object of control shifts from things to parties and contracts.
@@ -2736,12 +2736,12 @@
 
 ## J-060
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L105–L124`；`docs/en/ledger/51-60.md:L105–L124`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/51-60.md:L115–L136`；`docs/en/ledger/51-60.md:L115–L136`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1454–L1472`
-- **当前卡锚点**：`docs/zh/ledger/51-60.md:L105–L124`
+- **当前卡锚点**：`docs/zh/ledger/51-60.md:L115–L136`
 - **原始标题**：能源富余国以场址换算力，获得租金而非能力主权（仅图景）
 - **原始一句话命题**：能源富余、审批快的东道国以场址与电力换取算力投资，获得的是租金、就业与税收，而不是对能力本身的处置权（仅图景）。
 - **原始推理链**：电力与场址不可搬运，芯片可搬运但受出口管制，模型权重可瞬时迁移 → 三类要素的地理与管辖权分离 → 东道国能提供的恰是最不可移动的一项 → 其手中的筹码（断电、征用）是一次性且代价极高的手段 → 议价所得表现为租金与就业，而非能力主权。
@@ -2759,7 +2759,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1454–L1472`
-- **Current card anchor**: `docs/en/ledger/51-60.md:L105–L124`
+- **Current card anchor**: `docs/en/ledger/51-60.md:L115–L136`
 - **Original title**: Energy-rich hosts trade sites for compute and gain rent rather than capability sovereignty (landscape only)
 - **Original one-sentence judgment**: Host states with surplus energy and fast permitting trade sites and power for compute investment and obtain rent, employment, and tax revenue rather than any right of disposal over the capability itself (landscape only).
 - **Original reasoning chain**: Power and sites cannot be moved, chips can be moved but are export-controlled, and model weights move instantly → the three factors separate geographically and jurisdictionally → what a host state supplies is precisely the least movable factor → its leverage (cutting power, expropriation) is one-shot and extremely costly → what it gains shows up as rent and employment, not capability sovereignty.
@@ -2782,12 +2782,12 @@
 
 ## J-061
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L25–L44`；`docs/en/ledger/61-70.md:L25–L44`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L27–L48`；`docs/en/ledger/61-70.md:L27–L48`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1473–L1491`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L25–L44`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L27–L48`
 - **原始标题**：数据中心的本地外部性显性化，社会许可成为选址的真实约束
 - **原始一句话命题**：数据中心的本地外部性显性化，社会许可从隐性前提变成选址的真实成本项。
 - **原始推理链**：数据中心投资巨大但就业稀少，用电与用水显著 → 成本落在本地，收益集中在外部股东 → 可见性不对称：居民每月看到电费账单，看不到 AI 收益 → 按损失厌恶，本地政治会做出反应：暂停令、超大用户专用费率、用水限制、以税收与就业为条件的协议 → 选址成本中出现过去几乎不计价的社会许可项。
@@ -2805,7 +2805,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1473–L1491`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L25–L44`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L27–L48`
 - **Original title**: Local externalities of data centres become explicit and social licence becomes a real siting constraint
 - **Original one-sentence judgment**: The local externalities of data centres become explicit, turning social licence from an implicit premise into a real cost line in siting.
 - **Original reasoning chain**: Data centres are very large investments with few jobs and conspicuous power and water use → costs land locally while returns accrue to external shareholders → visibility is asymmetric: residents see a monthly electricity bill and never see the AI revenue → under loss aversion, local politics responds with moratoria, special tariff classes for very large customers, water restrictions, and agreements conditioned on tax and employment → siting costs acquire a line item that was previously priced at roughly zero.
@@ -2828,12 +2828,12 @@
 
 ## J-062
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L45–L64`；`docs/en/ledger/61-70.md:L45–L64`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L49–L70`；`docs/en/ledger/61-70.md:L49–L70`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1492–L1510`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L45–L64`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L49–L70`
 - **原始标题**：重资产可课税而价值层可迁移，地方获得的份额结构性偏低（仅图景）
 - **原始一句话命题**：能被课税的是不可移动的重资产，能创造利润的是可瞬时迁移的价值层，地方获得的份额因此结构性偏低（仅图景）。
 - **原始推理链**：课税需要管辖区内可见且不可移动的存在 → 数据中心不可移动，而利润与模型权重可移动 → 地方能抓住电价、地税与少量就业，抓不住利润 → 地方不断提高对重资产的要求，企业以选址竞争对冲 → 形成“重资产纳税、价值层避税”的结构性错配。
@@ -2851,7 +2851,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1492–L1510`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L45–L64`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L49–L70`
 - **Original title**: Heavy assets are taxable while the value layer is mobile, so local shares stay structurally low (landscape only)
 - **Original one-sentence judgment**: What can be taxed is the immovable heavy asset while what earns the profit is the instantly mobile value layer, so the share captured locally stays structurally low (landscape only).
 - **Original reasoning chain**: Taxation requires a visible, immovable presence inside the jurisdiction → data centres are immovable while profit and model weights are mobile → localities can reach power prices, property tax, and a little employment, but not profit → localities keep raising demands on the heavy asset while firms hedge through siting competition → a structural mismatch forms between the taxed asset and the untaxed value layer.
@@ -2874,12 +2874,12 @@
 
 ## J-063
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L65–L84`；`docs/en/ledger/61-70.md:L65–L84`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L71–L92`；`docs/en/ledger/61-70.md:L71–L92`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1511–L1529`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L65–L84`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L71–L92`
 - **原始标题**：算力的地理分布由并网排队与审批速度决定，而不是由电价决定
 - **原始一句话命题**：在电网扩容完成之前，算力的地理分布主要由接入排队与审批速度解释，而不是由电价解释。
 - **原始推理链**：新建发电与输电的周期以年计，短期内不可压缩 → 谁有现成的冗余变电容量与快审批，谁先拿到算力投资 → 队列位置的价值高于电价差（J-057）→ 电价高但排队短的地区可能胜过电价低但排队长的地区 → 新增容量的地理分布与“最便宜的电”不一致。
@@ -2897,7 +2897,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1511–L1529`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L65–L84`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L71–L92`
 - **Original title**: The geography of compute is decided by interconnection queues and permitting speed, not by electricity price
 - **Original one-sentence judgment**: Until grid expansion catches up, the geography of compute is explained mainly by interconnection queues and permitting speed rather than by electricity price.
 - **Original reasoning chain**: New generation and transmission run in years and cannot be compressed in the short term → whoever has existing spare substation capacity and fast approvals receives compute investment first → the value of queue position exceeds the tariff differential (J-057) → a region with higher power prices but a short queue can beat a region with cheap power and a long queue → the geographic distribution of new capacity diverges from the cheapest power.
@@ -2920,12 +2920,12 @@
 
 ## J-064
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L85–L104`；`docs/en/ledger/61-70.md:L85–L104`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L93–L114`；`docs/en/ledger/61-70.md:L93–L114`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1530–L1553`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L85–L104`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L93–L114`
 - **原始标题**：若能效增速持续高于负荷增速，这条链的约束将在远期解除（仅图景）
 - **原始一句话命题**：若单位服务能耗的下降速度持续高于负荷增长速度，且可调度负荷能大范围跨区迁移，本链的电力与许可约束会在远期自行解除（仅图景）。
 - **原始推理链**：本链的约束成立依赖“负荷增速高于电网可交付容量增速” → 若能效提升与跨区调度同时生效，峰值负荷增长被削平 → 队列不再是绑定约束 → 确定性溢价与场址租金随之消失。
@@ -2943,7 +2943,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1530–L1553`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L85–L104`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L93–L114`
 - **Original title**: If efficiency gains keep outpacing load growth, the constraint in this chain dissolves in the long run (landscape only)
 - **Original one-sentence judgment**: If energy per unit of service keeps falling faster than load grows, and schedulable load can migrate freely across regions, this chain's power and permitting constraint dissolves on its own in the long run (landscape only).
 - **Original reasoning chain**: The constraint holds only while load growth exceeds deliverable-capacity growth → if efficiency gains and cross-region scheduling both take effect, peak load growth flattens → the queue stops being the binding constraint → the certainty premium and site rents disappear with it.
@@ -2966,12 +2966,12 @@
 
 ## J-065
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L5–L24`；`docs/en/ledger/61-70.md:L5–L24`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L5–L26`；`docs/en/ledger/61-70.md:L5–L26`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L599–L617`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L5–L24`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L5–L26`
 - **原始标题**：AI 跨主体执行动作后，真正稀缺的不是回滚软件，而是跨主体撤销权
 - **原始一句话命题**：真正稀缺的不是沙盘与回滚软件，而是把状态从对方账本里收回来的跨主体撤销权。
 - **原始推理链**：`J-004` 把「可撤销基础设施」整体当作稀缺项 → 按机会耐久闸第三问逐层拆开 → 动作不跨所有权边界时（自有库、自有云资源、测试沙盘），回滚是纯软件，恰是制造丰富的同一股力量最擅长造的东西，且被操作的系统由平台自己持有、有动机内置并免费发放 → 这一半有付费者而过不了机会耐久闸，出口是窗口机会 → 动作跨所有权边界时（付款、发货、签约、权利转让），状态落在对方账本与对方取得的法律权利上，撤销必须由对方同意并执行 → 而对方的默认利益是终局：它出售的正是终局性，撤销额度被配额化并单独计价（争议手续费、托管费、开证费）→ 历史上跨主体回退只在少数封闭网络里被真正建起来（卡组织拒付、证券结算撤销、托管与信用证），每一个都是会员规则、保证金与长期重复博弈的产物 → 算力可以无限复制沙盘代码，复制不出对方同意回退的义务 → 硬约束落在产权／私有性与信任／关系，而不是不可逆性（后者只是辅助透镜）→ 物理上不可逆的动作（已消耗、已损害、已投药）根本没有可撤销产品，残余归赔付主体，见 `J-005`
@@ -2989,7 +2989,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L599–L617`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L5–L24`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L5–L26`
 - **Original title**: Once AI executes across ownership boundaries, the scarce item is not rollback software but the right to reverse
 - **Original one-sentence judgment**: What is scarce is not sandbox and rollback software but the right to pull state back out of the counterparty’s ledger.
 - **Original reasoning chain**: `J-004` treated “reversible infrastructure” as one scarce item → taken apart layer by layer under opportunity-durability gate’s third question → when the action does not cross an ownership boundary (your own database, your own cloud resources, a test sandbox), rollback is pure software, exactly what the force making generation abundant is best at producing, and the system being operated on is held by the platform itself, which has every incentive to bundle it and give it away → that half has payers but fails the opportunity-durability gate, so its exit is a window opportunity → when the action does cross an ownership boundary (payment, shipping, signing, transfer of rights), the state lands in the counterparty’s ledger and in legal rights the counterparty has acquired, so reversal must be consented to and executed by that party → whose default interest is finality: what it sells is finality, and reversal capacity is rationed and separately priced (dispute fees, escrow fees, issuance fees) → historically, cross-party unwind has actually been built only inside a handful of closed networks (card-scheme chargebacks, securities settlement reversal, escrow and letters of credit), each a product of membership rules, collateral, and long-running repeated games → compute can copy sandbox code without limit; it cannot copy the counterparty’s obligation to unwind → the hard constraint therefore lands on ownership/privacy and trust/relationship, not on irreversibility (which is only a supporting lens) → for physically irreversible actions (consumed, harmed, injected) no reversibility product exists at all and the residue belongs to the compensating party, see `J-005`
@@ -3012,12 +3012,12 @@
 
 ## J-066
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L105–L124`；`docs/en/ledger/61-70.md:L105–L124`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L115–L136`；`docs/en/ledger/61-70.md:L115–L136`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1830–L1848`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L105–L124`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L115–L136`
 - **原始标题**：五道普及闸是必要条件，不是充分条件
 - **原始一句话命题**：一项能力若有任一道普及闸不通过，它不会成为社会级风气；但五道全过只说明它有资格参赛，不保证它会发生。
 - **原始推理链**：先立三道自我攻击锁 → 第三把锁要求举出「五闸全过却仍失败」的案例 → 1985 年 New Coke 逐条过闸：规模（每天喝可乐的人以十亿计）、替代（替掉旧可乐，同一动作、同一价格、同一货架）、承载（同一条生产线与分销网络，边际部署成本为零）、决策（可口可乐单方生产，消费者单方购买）、代价（零学习、零身体、零社会代价，且盲测中更好喝）→ 1985-07-11，79 天后宣布旧配方回归 → 漏掉的是需求侧：人买的不总是那个东西本身，可乐卖的是身份符号，而符号的价值恰恰来自它不变 → 因此这套闸只能证否，不能证是 → 正确用法是「不过闸 ⇒ 基本不会成为社会风气」，而非「全过闸 ⇒ 会发生」
@@ -3035,7 +3035,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1880–L1898`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L105–L124`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L115–L136`
 - **Original title**: The five gates are necessary, not sufficient
 - **Original one-sentence judgment**: If a capability fails any one of the five diffusion gates it will not become the way a whole society does things; passing all five only means it qualifies to compete, and guarantees nothing.
 - **Original reasoning chain**: Three self-attack locks are set up first → the third lock demands a case that passes all five gates and still fails → New Coke, 1985, gate by gate: scale (people who drink cola daily number in the billions), substitution (replaces the old Coke — same act, same price, same shelf), carrier (same production line and distribution network, zero marginal deployment cost), decision rights (Coca-Cola decides to produce unilaterally, consumers buy unilaterally), cost (zero learning, zero bodily, zero social cost, and it won blind taste tests) → launched 1985-07-11, the old formula announced back 79 days later → what the gates missed is on the demand side: what people buy is not always the thing itself, Coke sells an identity symbol, and a symbol's value comes precisely from not changing → therefore this gate set can only disprove, never prove → the correct use is "fails a gate ⇒ will essentially not become society-wide," never "passes all gates ⇒ will happen."
@@ -3058,12 +3058,12 @@
 
 ## J-067
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L125–L144`；`docs/en/ledger/61-70.md:L125–L144`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L137–L158`；`docs/en/ledger/61-70.md:L137–L158`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1849–L1867`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L125–L144`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L137–L158`
 - **原始标题**：一项能力的受众天花板等于它所服务动作的人数与频次，不等于技术能力的上限
 - **原始一句话命题**：一项能力能影响的人数上限，由它所服务的那个动作有多少人做、多久做一次决定，而不由技术能力的上限决定。
 - **原始推理链**：清点达到社会级的能力，它们服务的动作在普及前已是十亿量级日频——智能手机（联系人、看东西、找路、付钱；2023 年 43 亿人持有，占世界人口 54%）、健康码（进入一个场所）、移动支付（付一笔钱）→ 再清点技术完全成功却停在小众的案例，其服务动作的人数在普及前就不够：协和式客机（愿为省三四小时付数倍票价的跨大西洋旅客，年以十万人次计，27 年只造 20 架、商用 14 架）、铱星（无蜂窝信号处打电话，破产时用户 5.5 万而保本需百万以上）、世界语（1887 年绝大多数人一生不会遇到跨母语日常交谈的场合）→ 三者的技术全部可用，差别只在动作的人数 → 因此必须在技术评估之前先数人 → 并追问一层：它是提高既有专业者的上限（天花板＝该职业人数），还是让原本不会的人也能做（可能把动作本身做大）
@@ -3081,7 +3081,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1899–L1917`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L125–L144`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L137–L158`
 - **Original title**: The audience ceiling of a capability is the headcount and frequency of the activity it serves
 - **Original one-sentence judgment**: The upper bound on how many people a capability can affect is set by how many people perform the activity it serves and how often they perform it, not by the ceiling of the technology.
 - **Original reasoning chain**: Enumerate the capabilities that reached society-wide scale, and the activities they serve were already billions-scale and daily before diffusion — smartphones (contacts, looking things up, finding the way, paying; 4.3 billion owners in 2023, 54% of world population), health codes (entering a venue), mobile payment (paying for something) → then enumerate the cases where the technology fully succeeded and still stalled at a niche, and the headcount of the activity served was already insufficient: Concorde (transatlantic passengers willing to pay several times the fare to save three or four hours, hundreds of thousands of trips a year; 20 aircraft built over 27 years, 14 in commercial service), Iridium (calling from places without cellular coverage; 55,000 subscribers at bankruptcy against a break-even in the millions), Esperanto (since 1887 the vast majority of people never once encounter a cross-native-language everyday conversation) → the technology worked in all three; the difference is only the headcount of the activity → therefore you must count people before assessing the technology → and ask one layer deeper: does it raise the ceiling of existing professionals (ceiling = the size of that occupation), or let people who previously could not do it do it (which may enlarge the activity itself).
@@ -3104,12 +3104,12 @@
 
 ## J-068
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L145–L164`；`docs/en/ledger/61-70.md:L145–L164`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L159–L180`；`docs/en/ledger/61-70.md:L159–L180`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1868–L1886`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L145–L164`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L159–L180`
 - **原始标题**：能普及的能力都替掉了一个已在发生的动作，而不是在它之上再加一件事
 - **原始一句话命题**：能普及的能力都替掉了用户今天已经在做的某一个具体动作；不替任何东西、只是多一件事的，天花板是爱好者。
 - **原始推理链**：采用一项新能力要付学习、购置、改流程的固定代价 → 这笔代价只有在有旧动作可抵扣时才划算 → 不替任何东西，收益就得自证，采用只能靠好奇心，而好奇心的存量就是爱好者的人数 → 通过侧：集装箱替掉散货装卸（1956 年每吨 5.83 美元 → 每吨 15.8 美分，降幅约 97%）、家庭联产承包替掉记工分（同一块地同一批人，变的只是监督成本的归属）、二维码支付替掉掏钱找零对账 → 被挡住侧：Google Glass 不替代任何动作而是在脸上加一件事（2013 年 1500 美元，2015 年 1 月停售）、3D 电视给「看电视」加一个要额外付代价的属性（ESPN 3D 2010-06-11 开播，2013-09-30 关闭）、MOOC **替错了对象**——它替掉「听课」，而学生买的是文凭，文凭一点没被替掉（同行评议完成率中位数 12.6%）→ 判否条件因此只有一条：不替任何东西；成本降幅不是及格线而是速度变量
@@ -3127,7 +3127,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1918–L1936`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L145–L164`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L159–L180`
 - **Original title**: What diffuses replaces an activity already happening, not something added on top
 - **Original one-sentence judgment**: Capabilities that diffuse all replace one concrete activity the user already performs today; anything that replaces nothing and merely adds one more thing is capped at hobbyists.
 - **Original reasoning chain**: Adopting a new capability costs a fixed price in learning, purchase and process change → that price only pays off when there is an old activity to offset it against → replace nothing and the benefit must justify itself from scratch, so adoption runs on curiosity alone, and the stock of curiosity is exactly the headcount of hobbyists → passing side: containerization replaced break-bulk loading ($5.83 per ton in 1956 → 15.8 cents per ton, roughly a 97% drop), China's household responsibility system replaced work-point accounting (same land, same people; what changed was who bore the monitoring cost), QR-code payment replaced pulling out cash, making change and reconciling → blocked side: Google Glass replaced no activity and instead added a thing on your face ($1,500 in 2013, withdrawn January 2015), 3D television added an extra-cost attribute to "watching television" (ESPN 3D launched 2010-06-11, closed 2013-09-30), MOOCs **replaced the wrong object** — they replaced attending lectures, while what students buy is the credential, and the credential was not replaced at all (median completion rate of 12.6% in peer-reviewed work) → the veto condition is therefore exactly one: replaces nothing; the size of the cost drop is not a pass mark but a speed variable.
@@ -3150,12 +3150,12 @@
 
 ## J-069
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L165–L184`；`docs/en/ledger/61-70.md:L165–L184`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L181–L202`；`docs/en/ledger/61-70.md:L181–L202`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1887–L1905`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L165–L184`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L181–L202`
 - **原始标题**：专用基础设施若只为这一件事存在，它不会被建起来；能力要等到承载物因别的理由已经存在
 - **原始一句话命题**：若一项能力所需的新基础设施除了它没有第二个用途、也没有独立收入来源，那么这套基础设施要么不会被建起来，要么必须等别人因为别的理由把它建好。
 - **原始推理链**：1964 年可视电话需要专用宽带环路与专用终端，这套东西除了可视电话没有第二用途 → AT&T 必须独家承担全部成本，再靠一个尚不存在的用户群回收 → 匹兹堡峰值 32 台、芝加哥峰值 453 台，合计不到 500 台 → 2020 年的视频通话什么专用基础设施都不需要：前置摄像头、宽带、屏幕全都因为**别的理由**早已在几十亿人口袋里，采用者的边际硬件成本为零 → Zoom 日均会议参与人数三个月内 1000 万 → 3 亿 → 需求没变、技术没变，变的是承载物的出资人 → 对照：美国电视的广播塔确实是新建专用基础设施，但它有独立收入来源（广告），于是被建起来（家庭拥有率 1948 年约 1% → 1955 年约 75%）；健康码跑在已装好的支付宝与微信里，没让任何人装新 App → 反例侧：铱星 66 颗卫星加专用话机约 50 亿美元只为一件事存在；Better Place 换电既要站网又要车厂改设计，融资约 8.5 亿美元后于 2013 年 5 月破产
@@ -3173,7 +3173,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1937–L1955`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L165–L184`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L181–L202`
 - **Original title**: Infrastructure that serves only one capability does not get built
 - **Original one-sentence judgment**: If the new infrastructure a capability requires has no second use and no independent revenue source, that infrastructure either does not get built, or the capability must wait until someone else builds it for other reasons.
 - **Original reasoning chain**: The 1964 Picturephone needed dedicated broadband loops and dedicated terminals, and that equipment had no second use beyond Picturephone → AT&T had to bear the entire cost alone and recover it from a user base that did not yet exist → Pittsburgh peaked at 32 sets and Chicago at 453, under 500 in total → video calling in 2020 required no dedicated infrastructure whatsoever: front cameras, broadband and screens were already in billions of pockets **for other reasons**, and the adopter's marginal hardware cost was zero → Zoom's daily meeting participants went from 10 million to 300 million in three months → the demand had not changed and the technology had not changed; what changed was who paid for the carrier → contrast: US television broadcast towers genuinely were newly built dedicated infrastructure, but they had an independent revenue source (advertising), so they got built (household ownership roughly 1% in 1948 → roughly 75% in 1955); health codes ran inside the already-installed Alipay and WeChat and made nobody install a new app → counter-example side: Iridium's 66 satellites plus dedicated handsets cost roughly $5 billion and existed for one thing only; Better Place's battery swapping needed both a station network and redesigned cars, and went bankrupt in May 2013 after raising about $850 million.
@@ -3196,12 +3196,12 @@
 
 ## J-070
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L185–L203`；`docs/en/ledger/61-70.md:L185–L203`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L203–L223`；`docs/en/ledger/61-70.md:L203–L223`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1906–L1924`
-- **当前卡锚点**：`docs/zh/ledger/61-70.md:L185–L203`
+- **当前卡锚点**：`docs/zh/ledger/61-70.md:L203–L223`
 - **原始标题**：多方必须同时改变时，只有存在既能强制又能观测执行的一方、或单一主体补贴、或局部闭环，改变才会发生
 - **原始一句话命题**：若采用必须多方同时改变，则只有在「能强制且执行可被观测的一方」「能一次性补贴各方启动成本的单一主体」「无须等全社会的局部闭环」三者之一成立时，改变才会越出试点。
 - **原始推理链**：单方即可决定的采用自动过闸（ATM：银行单方部署、储户单方使用，1967-06-27 巴克莱 Enfield 第一台）→ 需多方同时改变时，各方的最优策略是等待，于是停在试点 → 解锁路径 (a) 强制且可观测：健康码既能强制，执行又在每个场所入口被看见，数月全国铺开；家庭联产承包 1978 年小岗村 18 户 → 1979 年底安徽 51% 生产队 → 1982 年中央一号文件 → 1983 年全面推行 → 反证 (a) 的另一半：禁酒令能强制但**看不见**，约 1520 名联邦探员对应 1.06 亿人口（约每七万人一名），仅纽约就有三万到十万家地下酒吧，1933 年废除 → 解锁路径 (b) 单一主体补贴：1958 年 BankAmericard 弗雷斯诺空投，向居民无申请邮寄约 6 万张已激活卡，用自己的资产负债表一次性买单整座城市的启动成本 → 解锁路径 (c) 局部闭环：1975 年美国《米制转换法》明文「完全自愿」、无期限无处罚，1982 年米制委员会被撤销，日常生活没普及，**但科学界、医药界、军队完全使用公制**——同一案例里 (c) 的正反两面同时出现
@@ -3219,7 +3219,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1956–L1974`
-- **Current card anchor**: `docs/en/ledger/61-70.md:L185–L203`
+- **Current card anchor**: `docs/en/ledger/61-70.md:L203–L223`
 - **Original title**: When many parties must change together, change needs enforceable and observable authority, a single subsidizing party, or a local closed loop
 - **Original one-sentence judgment**: If adoption requires many parties to change at once, change moves beyond pilots only when one of three holds: a party that can both compel and observe compliance, a single party able to subsidize everyone's start-up cost at once, or a local closed loop that need not wait for the whole society.
 - **Original reasoning chain**: Adoption decidable by one party passes automatically (ATMs: the bank deploys unilaterally, the depositor uses unilaterally; Barclays Enfield, 1967-06-27) → when many parties must change at once, each party's optimal strategy is to wait, so it stalls at pilots → unlock path (a) enforceable and observable: health codes could both be compelled and be seen being enforced at every venue entrance, rolled out nationwide in months; the household responsibility system went from 18 households in Xiaogang in 1978 → 51% of production teams in Anhui by end-1979 → the 1982 Central Document No. 1 → full rollout in 1983 → the other half of (a), by contradiction: Prohibition could compel but could **not see** — roughly 1,520 federal agents for a population of 106 million (about one per 70,000), with 30,000 to 100,000 speakeasies in New York City alone; repealed in 1933 → unlock path (b) a single subsidizing party: the 1958 BankAmericard Fresno drop mailed roughly 60,000 pre-activated cards to residents who had not applied, buying an entire city's start-up cost outright off its own balance sheet → unlock path (c) a local closed loop: the 1975 US Metric Conversion Act said in so many words that conversion was "wholly voluntary," with no deadline and no penalty; the Metric Board was abolished in 1982 and everyday life never converted, **yet science, medicine and the military use metric completely** — both sides of (c) appear inside the same case.
@@ -3242,12 +3242,12 @@
 
 ## J-071
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L5–L28`；`docs/en/ledger/71-80.md:L5–L28`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L5–L30`；`docs/en/ledger/71-80.md:L5–L30`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1925–L1947`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L5–L28`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L5–L30`
 - **原始标题**：持续净负担而非毛摩擦决定自愿采用天花板
 - **原始一句话命题**：在自愿采用下，应比较相对真实 incumbent 的**持续净负担**：新增身体／社会／学习／金钱负担，减去节省的等待、价格、时间与流程成本；只有净负担为正、可观且随频次累积时，才会把天花板压到远低于动作人数。
 - **原始推理链**：原规则把每次使用摩擦直接当负担 → Piggly Wiggly 1916 年自助商店要求顾客每次自行走过货架、比较和取货，却很快扩张并使 self-service 成为超市基本形态（EXT-55）→ 所以「存在重复劳动」不能判否，必须减去旧流程的等待、价格、时间与选择成本 → 失败侧仍成立：隐形眼镜相对框架眼镜增加每次戴取与护理，3D 电视增加每次佩戴与视角约束，Google Glass 增加持续社会摩擦 → 安全带说明强制可绕过自愿采用的净负担 → 当前规则只在**自愿采用且持续净负担为正、可观**时判不过。
@@ -3265,7 +3265,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1975–L1997`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L5–L28`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L5–L30`
 - **Original title**: Recurring net burden, not gross friction, sets the voluntary-adoption ceiling
 - **Original one-sentence judgment**: Voluntary adoption must compare **recurring net burden relative to the real incumbent**: added bodily, social, learning, and monetary burden minus saved waiting, price, time, and process cost. Only a positive, material burden that accumulates with frequency pushes the ceiling far below the activity population.
 - **Original reasoning chain**: The old rule treated any per-use friction as burden → Piggly Wiggly's 1916 self-service store made shoppers repeatedly walk the aisles, compare, and pick goods, yet expanded rapidly and helped make self-service the supermarket's basic form (EXT-55) → therefore recurring labor alone cannot veto adoption; the ledger must subtract waiting, price, time, and process savings from it → the failure side remains: contact lenses add repeated insertion and care relative to frames, 3D television adds glasses and viewing-position constraints, and Google Glass adds recurring social friction → seat belts show that compulsion can bypass voluntary net burden → the current rule vetoes only when **voluntary adoption carries a positive, material recurring net burden**.
@@ -3288,12 +3288,12 @@
 
 ## J-072
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L29–L50`；`docs/en/ledger/71-80.md:L29–L50`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L31–L54`；`docs/en/ledger/71-80.md:L31–L54`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1948–L1972`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L29–L50`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L31–L54`
 - **原始标题**：「从几十套候选方案中择一」是一条职业性判断，其受众天花板在百万量级
 - **原始一句话命题**：「面对一批已生成好的候选方案，选定一个并为结果负责」这个动作的全球从业人数在百万量级、频次为周频，因此由它推出的稀缺性是职业性判断，不得以社会级口吻书写。
 - **原始推理链**：定义动作——面对一批已经生成好的候选方案，选定一个并为结果负责 → 谁在做这个动作须同时满足三条：职业上要求批量产出候选（广告与营销创意、设计与产品、建筑与工程方案、咨询方案）、本人有拍板权而非执行者、频次至少每周一次 → 三条同时满足的人集中在上述岗位的决策层，按岗位结构推算全球量级在 10⁶、周频 → 逐闸判定：闸二过（替掉「先做三版再从三版里选」）、闸三过（搭在已普及的生成工具上）、闸四过（一个人单方决定）、闸五边界（要看的候选从 3 个变成 60 个，注意力代价上升）、**闸一不过**（百万级周频，对照社会级门槛十亿人日频或亿级人周频差两到三个数量级）→ 同一条链上真正过闸一的不是「选」而是「做」：「需要一份能用的材料、图、文案或程序」十亿人偶尔要做，且此前大多数人做不了，属于「让原本不会的人也能做」那一类
@@ -3311,7 +3311,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1998–L2022`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L29–L50`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L31–L54`
 - **Original title**: Choosing one from dozens of generated candidates is an occupational judgment, not a society-level trend
 - **Original one-sentence judgment**: The activity "faced with a batch of already-generated candidates, pick one and own the outcome" is performed by a global population in the millions at weekly frequency, so any scarcity derived from it is an occupational judgment and must not be written in a society-level voice.
 - **Original reasoning chain**: Define the activity — faced with a batch of already-generated candidates, pick one and own the outcome → whoever performs it must satisfy three conditions at once: an occupation that requires producing candidates in batches (advertising and marketing creative, design and product, architectural and engineering schemes, consulting proposals), personal authority to decide rather than to execute, and a frequency of at least once a week → people satisfying all three concentrate in the decision layer of those roles, and by role structure the global order of magnitude is 10⁶ at weekly frequency → gate by gate: Gate 2 passes (replaces "make three versions first, then choose among the three"), Gate 3 passes (rides on already-diffused generation tools), Gate 4 passes (one person decides unilaterally), Gate 5 is borderline (candidates to review go from 3 to 60, so the attention cost rises), **Gate 1 fails** (millions at weekly frequency, two to three orders of magnitude below the society-wide threshold of billions daily or hundreds of millions weekly) → what actually passes Gate 1 on the same chain is not choosing but making: "needing a usable document, diagram, copy or program" is something billions of people occasionally need, and most of them previously could not do it, which belongs to the "lets people who previously could not do it do it" class.
@@ -3334,12 +3334,12 @@
 
 ## J-073
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L51–L70`；`docs/en/ledger/71-80.md:L51–L70`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L55–L76`；`docs/en/ledger/71-80.md:L55–L76`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1973–L1991`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L51–L70`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L55–L76`
 - **原始标题**：具身智能是 AI 触及物理劳动人口的必要补足，不是普及的充分条件
 - **原始一句话命题**：只要 AI 只能动信息，它的受众天花板就被闸一按在「以屏幕为工作面的那部分人」上；能在现实中移动质量、停留现场、触碰身体是换掉这个分母的**必要补足**，但换掉分母只解开闸一——闸二到闸五一道都不随模型能力自动打开，因此具身能力**不是**社会级普及的充分条件。
 - **原始推理链**：闸一的判据只有一句——这项能力服务的动作有多少人在做、多久做一次 → 以屏幕为工作面、以信息为产出物的人在全球就业里是少数（付费能力最强的一批岗位，但不是多数人口），真正的人口分布在必须移动质量、停留现场、触碰身体的地方：农业就业仍以数亿人计（EXT-41）、家政工人是一个以千万计的单列群体（EXT-42）、仅美国一国口径下手工搬运与居家健康助理各以百万计（EXT-43）→ 因此只能动信息的 AI，天花板被按在屏幕职业者上，在那以内可以是一门极好的生意，但按普及闸的读法永远不会成为整个社会的风气 → 换掉分母的唯一路径是让 AI 能动的东西从比特扩展到质量 → **但换掉分母只解开闸一**：闸二要替掉一个今天已经在做的动作（转移机器人替掉「搬动」，没有替掉「陪着」，而买方买的是后者），闸三的承载物是现实空间本身（通道宽度、地面平整度、插接标准、工位改造、田间行距，没有任何人因为别的理由替它建好），闸四要护士、家属、保险与监管同时点头，闸五的准备、监督、清洁、故障处理与社会性尴尬每次都付、不随次数摊薄 → 再看两条曲线：感知与策略沿软件曲线下降（快变量），执行器、减速器、力矩传感器、电池、部署工时与责任定价沿工业与制度曲线下降（慢变量，年降幅通常是个位数百分比）→ 绑定约束因此从「模型能力」迁移到「单位任务成本 + 责任定价 + 部署工时」 → **何时单位任务成本穿越人工**：只在结构化、高频、对象半配合或无生命的格子里先穿越（挤奶、托盘搬运、货到人、固定工位的焊接与喷涂，2026–2030）；非结构化但环境可被改造的格子在 2028–2034；触碰人体与一次性现场在 2032–2040，且先在机构与工地、不在家庭；开放的家庭柔性任务在本窗口内不穿越 → 而穿越只意味着采购部门开始算这笔账，不意味着普及：**局部算得过账 ≠ 社会级普及** → **硬约束**：**物理**（必须移动质量、消耗时间与能量）叠加**产权／私有性**（每个仓库、每块地、每户住宅都是私有且各不相同的现场输入，不能靠算力复制）；这两类都不可能被产生丰富的同一股力量复制掉。
@@ -3357,7 +3357,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2023–L2041`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L51–L70`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L55–L76`
 - **Original title**: Embodied intelligence is the necessary complement for AI to reach the physical-labour population, not a sufficient condition for diffusion
 - **Original one-sentence judgment**: As long as AI can only move information, Gate 1 holds its audience ceiling down to "the share of people whose work surface is a screen"; being able to move mass, be present on site, and touch a human body is the **necessary complement** that changes that denominator, but changing the denominator only opens Gate 1 — Gates 2 through 5 do not open automatically as model capability improves, so embodiment is **not** a sufficient condition for society-level diffusion.
 - **Original reasoning chain**: Gate 1's test is a single sentence — how many people perform the activity this capability serves, and how often → people whose work surface is a screen and whose output is information are a **minority** of global employment (the best-paying roles, but not most of the population); the population sits where someone must move mass, stay on site, or touch another person's body: agricultural employment is still **hundreds of millions** (EXT-41), domestic workers are a separately counted group in the **tens of millions** (EXT-42), and in the United States alone hand material movers and home health aides are each **millions**-scale occupations (EXT-43) → therefore an AI that can only move information has its ceiling pinned to screen professionals; inside that ceiling it can be an excellent business, but by the diffusion-gate reading it will never become the way a whole society does things → the only route to a different denominator is to extend what AI can move from bits to mass → **but changing the denominator only opens Gate 1**: Gate 2 demands replacing an activity already performed today (the transfer robot replaced "lifting," not "being there," and what the buyer buys is the latter); Gate 3's carrier is physical space itself (corridor widths, floor flatness, connector standards, workcell retrofits, row spacing — nobody has built any of it for other reasons); Gate 4 requires nurses, families, insurers and regulators to nod at once; Gate 5's preparation, supervision, cleaning, fault handling and social awkwardness are paid on every use and never amortize → then the two curves: perception and policy fall along the software curve (fast variable), while actuators, reducers, torque sensors, batteries, deployment hours and priced liability fall along industrial and institutional curves (slow variables, typically single-digit percent per year) → the binding constraint therefore migrates from "model capability" to **cost per task + priced liability + deployment hours** → **when cost per task crosses labour**: only in squares that are structured, high-frequency, and whose object is semi-cooperative or inanimate does it cross first (milking, pallet handling, goods-to-person, fixed-station welding and painting; 2026–2030); squares that are unstructured but whose environment can be rebuilt cross at 2028–2034; touching human bodies and one-off sites cross at 2032–2040, and first in institutions and on job sites rather than in homes; open-ended household tasks do not cross inside this window → and crossing only means procurement departments start doing the arithmetic, not that the practice diffuses: **beating labour cost locally ≠ society-level diffusion** → **Hard constraints**: **physical** (mass must move, time and energy must be spent) compounded by **ownership / privacy** (every warehouse, plot and dwelling is a private, non-identical on-site input that compute cannot copy); neither can be copied away by the same force that produced the abundance.
@@ -3380,12 +3380,12 @@
 
 ## J-074
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L71–L90`；`docs/en/ledger/71-80.md:L71–L90`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L77–L98`；`docs/en/ledger/71-80.md:L77–L98`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L1992–L2010`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L71–L90`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L77–L98`
 - **原始标题**：照护里的接触式转移先在机构穿越，居家在本窗口内不构成社会级普及
 - **原始一句话命题**：照护是需求最确定的一格，但挡住它的不是「能不能抱起来」，而是「抱起来的全过程里人是活的」与每一次使用都要重新付出的持续代价；接触式床椅转移成为机构常规配置不早于 2032–2038，且先出现在人力成本与护理工伤赔付压力最高的少数国家，居家场景在本窗口（到 2040）内不构成社会级普及。
 - **原始推理链**：人口结构把照护推成需求最确定的一格（需要被照护的人在增加，愿意做这份工作的人在减少），且这个缺口无法靠信息处理填补——没有人能在屏幕上把一位老人从床上抱到轮椅上 → 技术瓶颈不在负载而在「人是活的」：同一转移动作对不同体重、肌张力、疼痛耐受需要完全不同的力矩轨迹，被照护者会中途改变姿势、会抗拒、会突然放松，要求毫米级位置精度与牛顿级力控在同一回路里并以人体安全裕度为约束 → 理研 ROBEAR 在 2015 年已经把能力侧的可行性演示清楚（EXT-44），十年过去它仍不是病房里的常规设备，**十年的空白本身就是证据：挡住这一格的不是能力** → 挡住它的是闸五：准备、监督、清洁、解释、安抚每次都要付且不随次数摊薄（链文第一节那台被退回的机器，试用第一周十二次转移零夹伤，退回理由里一个字也没提价格）→ 叠加闸三：居家还需要门宽、地面与卫生间改造，没有人因为别的理由替它建好 → 叠加闸四：一台机器人进病房要护士、家属、保险公司与监管方同时点头 → **何时单位任务成本穿越人工**：完全可以想象某个高工资国家的大型机构把单次转移成本压到低于两名护工的工时成本，那一刻账算得过来，但闸五与闸三仍然横着——**穿越只意味着机构采购部门开始算这笔账，不意味着这件事普及到大多数被照护的人身上** → **硬约束**：**身体在场**（需求本身要求有人真实地到场与触碰）叠加**法律／责任**（一次转移事故的赔付主体必须存在且可被起诉）；把护理排班、用药核对、跌倒风险评分全部自动化，也不会减少一次必须发生的身体转移。
@@ -3403,7 +3403,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2042–L2060`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L71–L90`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L77–L98`
 - **Original title**: Contact transfer in care crosses inside institutions first, and homes reach no society-level diffusion inside this window
 - **Original one-sentence judgment**: Care is the square with the most certain demand, but what blocks it is not "can it lift" — it is "the person is alive throughout" plus the cost paid afresh on every single use; contact bed-to-chair transfer becomes standard institutional equipment no earlier than 2032–2038, and first in the handful of countries with the highest labour costs and heaviest nursing-injury compensation exposure, while home settings reach no society-level diffusion inside this window (to 2040).
 - **Original reasoning chain**: Demographics make care the most certain demand (the number of people needing care rises, the number willing to do the work falls), and the gap cannot be closed by processing information — nobody lifts an elderly person from a bed into a wheelchair through a screen → the technical bottleneck is not load but that the person is alive: the same transfer needs a completely different torque trajectory for different weights, muscle tone and pain tolerance, and the person shifts posture, resists, or suddenly goes slack, which demands millimetre-scale position accuracy and newton-scale force control in one loop bounded by a human safety margin → Riken's ROBEAR demonstrated the capability side clearly in 2015 (EXT-44), and a decade later it is still not standard ward equipment: **the decade of silence is itself the evidence that what blocks this square is not capability** → what blocks it is Gate 5: preparation, supervision, cleaning, explaining and reassuring are paid every time and never amortize (the machine sent back in the chain's opening section completed twelve transfers in its first week with no pinch injury, and price appears nowhere in the reason it was returned) → compounded by Gate 3: a home additionally needs door widths, floors and bathrooms rebuilt, and nobody has built them for other reasons → compounded by Gate 4: putting a robot in a ward needs nurses, families, insurers and regulators to nod at once → **when cost per task crosses labour**: it is entirely plausible that a large institution in a high-wage country pushes the per-transfer cost below the wage cost of two aides, and at that moment the numbers work — while Gates 5 and 3 still stand in the way, so **crossing only means the procurement department starts doing the arithmetic, not that the practice reaches most of the people receiving care** → **Hard constraints**: **embodied presence** (the need itself requires someone to be physically there and to touch) compounded by **law / liability** (a party capable of being sued must carry a transfer accident); automating rostering, medication checks and fall-risk scoring completely removes not one transfer that must physically happen.
@@ -3426,12 +3426,12 @@
 
 ## J-075
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L91–L110`；`docs/en/ledger/71-80.md:L91–L110`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L99–L120`；`docs/en/ledger/71-80.md:L99–L120`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2011–L2029`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L91–L110`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L99–L120`
 - **原始标题**：仓储的瓶颈已从移动移到抓取，非结构化拣选先到，门到门交付在本窗口内不成立
 - **原始一句话命题**：仓储是具身智能最先算得过账的地方（货物不会疼、仓库归一个法人所有、地面是平的），真正卡住的是非结构化拣选的长尾失败代价；受控大仓的规模化单件拣选保守放在 2028–2033，而门到门的最后一公里交付在本窗口内不成立，因为它同时踩中闸三与闸四。
 - **原始推理链**：结构化仓库里的自主移动基本是解决过的问题（地面平整、路径可标定、异常可停机）→ 真正卡住的是**非结构化拣选**：混杂 SKU、透明与反光包装、柔性袋装、堆叠遮挡、料箱底部的最后一件 → 难点不在平均成功率，而在**长尾失败的代价**：一次抓空只是慢几秒，一次抓漏导致错发，成本是整条履约链的返工与信誉 → 因此这一格的工程目标不是「能抓」，是每小时多少件、错误率多少、失败后谁来接手 → 结构化搬运、托盘作业与「货到人」已经在扩散（2026–2028 继续），非结构化单件拣选在受控大仓的规模化保守放在 2028–2033 → 门到门交付要面对楼梯、门禁、雨天、狗与无人看管的包裹：承载物是别人的楼道（闸三），且要物业、住户、平台同时改变（闸四），在本窗口内不成立 → **何时单位任务成本穿越人工**：单个高吞吐、单班次稳定、SKU 规整的大仓，ROI 现在就能算过来；判据是**按件计费**合同（元／拣选件，含错误率赔付）是否出现——厂商自己愿意为长尾失败定价，是成熟最诚实的信号 → 但全球仓储的长尾是中小仓库：低吞吐、货品混杂、季节性波动大、停机一天就影响全部订单，**资本开支摊不薄、停机风险摊不掉，而这恰恰是绝大多数搬运岗位所在的地方**；把大仓的账当成行业的账，就是把闸一算反了——算的是设备能进多少个仓，不是能替掉多少人的动作 → **硬约束**：**物理**（必须移动质量、消耗时间与能量）叠加**产权／私有性**（仓库布局、SKU 主数据与订单流是私有资产，任何改造都要业主同意，而谈判成本不随模型能力下降）。
@@ -3449,7 +3449,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2061–L2079`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L91–L110`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L99–L120`
 - **Original title**: Warehousing's bottleneck has moved from moving to grasping: unstructured picking arrives first and door-to-door delivery does not hold inside this window
 - **Original one-sentence judgment**: Warehousing is where embodied intelligence pencils out first (goods feel no pain, the building belongs to one legal entity, the floor is flat), and what is actually stuck is the cost of the failure tail in unstructured picking; scaled single-item picking in controlled large warehouses sits conservatively at 2028–2033, while door-to-door last-mile delivery does not hold inside this window because it trips Gate 3 and Gate 4 at once.
 - **Original reasoning chain**: Autonomous mobility inside a structured warehouse is largely a solved problem (flat floors, mappable paths, stop-on-anomaly) → what is stuck is **unstructured picking**: mixed SKUs, transparent and reflective packaging, soft polybags, occluded stacks, the last item at the bottom of a tote → the difficulty is not average success rate but **the cost of the failure tail**: a missed grasp costs seconds, a mis-pick costs a rework of the whole fulfilment chain plus reputation → so the engineering target is not "can it pick" but picks per hour, error rate, and who takes over after a failure → structured movement, pallet handling and goods-to-person are already diffusing (continuing through 2026–2028), while scaled unstructured single-item picking in controlled large warehouses sits conservatively at 2028–2033 → door-to-door delivery faces stairs, entry systems, rain, dogs and unattended parcels: the carrier is someone else's stairwell (Gate 3) and building management, residents and platforms must all change (Gate 4), so it does not hold inside this window → **when cost per task crosses labour**: a single high-throughput, single-shift, tidy-SKU warehouse already pencils out, and the test is whether **per-pick pricing** appears (per picked item, with error-rate damages) — a vendor willing to price its own failure tail is the most honest signal of maturity → but the tail of global warehousing is small and mid-sized sites: low throughput, mixed goods, seasonal swings, a day of downtime hitting every order, so **capex does not amortize and downtime risk cannot be spread — and that is exactly where most material-handling jobs are**; treating the large-warehouse case as the sector's case inverts Gate 1, counting how many warehouses a machine can enter rather than how many people's activity it can replace → **Hard constraints**: **physical** (mass must move, time and energy must be spent) compounded by **ownership / privacy** (layout, SKU master data and order flow are private assets, any retrofit needs the owner's consent, and negotiation cost does not fall with model capability).
@@ -3472,12 +3472,12 @@
 
 ## J-076
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L111–L130`；`docs/en/ledger/71-80.md:L111–L130`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L121–L142`；`docs/en/ledger/71-80.md:L121–L142`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2030–L2048`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L111–L130`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L121–L142`
 - **原始标题**：制造业已经发生的规模化过的是闸四的局部闭环，柔性装配与小批量多品种仍在闸外
 - **原始一句话命题**：制造业是唯一能直接引用「机器人已经规模化」的场景，但那次规模化过的是闸四的第 (c) 条局部闭环，且只发生在重复动作、刚性工件、可标定位置、固定节拍这组边界条件之内；柔性装配在大批量产线的常规化保守放在 2028–2034，小批量多品种的中小制造企业在本窗口内只在集成商生态密集的少数产业带局部成立，不构成社会级普及。
 - **原始推理链**：IFR 口径显示工厂对机器人的需求在十年里翻了一倍（EXT-45）→ 这条事实必须被两面使用：它既证明具身能力可以真的扩散，也**画出了扩散发生的边界条件** → 扩散发生在焊接、喷涂、上下料、码垛（动作重复、工件刚性、位置可标定、节拍固定），没有发生在柔性装配（线束要顺着形变走、连接器插不进去时要知道回退多少再试、软胶件的公差每件不同；人靠手上的即时反馈，机器要靠力控加容差补偿，而这套东西目前的成本与调试工时都高得不成比例）→ 更隐蔽的瓶颈是**换线**：大批量单一产品的产线摊得起一次示教，小批量多品种摊不起——每次产品变更都要重新编程、重新标定、重新验证安全 → 这就是为什么机器人密度与**批量规模**的相关性远强于它与工资水平的相关性 → **何时单位任务成本穿越人工**：在批量足够大、节拍固定的产线上早已穿越（这正是 IFR 曲线的含义）；在小批量多品种处不穿越，因为同一次示教能被摊薄的件数太少 → 但要看清那次规模化过的是**闸四第 (c) 条局部闭环**：一个工厂内部就能先跑通，不必等全社会；**工厂之所以能局部闭环，是因为它是一个有围墙、有单一决策者、有统一标准的空间，而照护、农业、建筑、家庭都没有这堵墙** → 用工厂的扩散速度推断其他四格，等于假设那堵墙免费存在 → **硬约束**：**物理**叠加**产权／私有性**（产线是特定业主的私有资产，改造由业主决定，且改造期间的停产损失由业主独自承担）。
@@ -3495,7 +3495,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2080–L2098`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L111–L130`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L121–L142`
 - **Original title**: Manufacturing's one real scaling passed through Gate 4's local closed loop; flexible assembly and high-mix low-volume are still outside the gate
 - **Original one-sentence judgment**: Manufacturing is the only scene where "robots already scaled" can be cited directly, but that scaling passed through Gate 4's clause (c), the local closed loop, and happened only inside one set of boundary conditions — repetitive motions, rigid workpieces, calibratable positions, fixed takt; flexible assembly becoming routine on high-volume lines sits conservatively at 2028–2034, and high-mix low-volume small and mid-sized manufacturers hold inside this window only locally, in the few industrial clusters with dense integrator ecosystems, which is not society-level diffusion.
 - **Original reasoning chain**: IFR reports that factory demand for robots doubled over ten years (EXT-45) → that fact must be used in both directions: it proves embodied capability really can diffuse, and it **draws the boundary conditions under which the diffusion happened** → diffusion happened in welding, painting, machine tending and palletizing (repetitive motions, rigid workpieces, calibratable positions, fixed takt) and did not happen in flexible assembly (a wire harness must be routed as it deforms, a connector must know how far to back off and retry when it will not seat, every soft gasket has a different tolerance; humans work on immediate tactile feedback while machines need force control plus tolerance compensation, and today that stack costs disproportionately in both hardware and commissioning hours) → the subtler bottleneck is **changeover**: a high-volume single-product line amortizes one teaching pass, a high-mix low-volume shop does not, because every product change means reprogramming, recalibrating and re-validating safety → which is why robot density correlates far more strongly with **batch size** than with wage levels → **when cost per task crosses labour**: it crossed long ago on lines with large enough batches and fixed takt (that is what the IFR curve means), and it does not cross in high-mix low-volume work because too few pieces amortize one teaching pass → but look at which gate that scaling passed: **Gate 4's clause (c), the local closed loop** — a single factory can make it work internally without waiting for society; **a factory can close the loop because it is a walled space with one decision-maker and one standard, and care, agriculture, construction and homes have no such wall** → extrapolating the factory's diffusion rate to the other four squares assumes that wall is free → **Hard constraints**: **physical** compounded by **ownership / privacy** (a production line is a specific owner's private asset, the retrofit is theirs to authorize, and the lost output during the retrofit is theirs alone to absorb).
@@ -3518,12 +3518,12 @@
 
 ## J-077
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L131–L150`；`docs/en/ledger/71-80.md:L131–L150`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L143–L164`；`docs/en/ledger/71-80.md:L143–L164`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2049–L2067`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L131–L150`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L143–L164`
 - **原始标题**：农业里穿越的是挤奶不是采摘，季节性与碎片化把单位任务成本卡在人工之上
 - **原始一句话命题**：自动挤奶已在高工资国家的中大型牧场成为常规设备，因为动作每天重复、地点固定、对象会自己走进设备、产出可计量、失败可控；选择性采摘在本窗口内仍以局部试点与单一作物为主、2030 年前不构成主流作业方式，因为季节性把分母压到极小、碎片化又把适配成本抬高。
 - **原始推理链**：先看已经穿越的挤奶，把条件列出来才知道有多苛刻——动作每天重复两到三次、地点固定、**对象会自己走进设备**、产出物可计量可定价、失败后果可控（一次失败就是少挤一头）；**奶牛是半配合的对象，这一条几乎是免费的补贴** → 再看已经失败的选择性采摘：Abundant Robotics 把苹果采摘做到能下地作业的程度，公司仍然停掉了这块业务（EXT-46）→ 这不是能力故事，是**利用率**故事：一台采摘机一年只在几周的收获窗口里工作，资本开支要摊到那几周的作业小时上；而果园的行距、树形、品种各不相同，每换一个果园就要重新适配 → **季节性把分母压到极小，碎片化又把分子的适配成本抬高——两头夹击，单位任务成本降不下来** → 技术瓶颈另有三条：自然光照与遮挡下的感知鲁棒性、末端执行器对易损产物的处理（苹果碰伤就降级，草莓更甚）、生物变异（同一棵树上没有两个果实的位置与成熟度相同）→ **何时单位任务成本穿越人工**：只在高频、固定、对象半配合的结构化作业上穿越（挤奶、导航播种施肥、行内机械除草；2026–2030 是规模化窗口）；选择性采摘只有在年有效作业小时数显著上升（跨作物、跨季节复用）之后才可能穿越 → 全球尺度上，农业具身化的绝大部分潜在对象并不在高工资国家的资本密集农场里（EXT-41），这决定了社会级普及的时间窗要比设备可行性的时间窗晚一代人 → 因此「农业机器人已被证明可行」是一句危险的话：**被证明的是挤奶，不是采摘** → **硬约束**：**物理**（必须在田间移动、受天气与季节窗口约束，能量与时间不可压缩）叠加**产权／私有性**（每块地、每个果园的物理布局是私有且各不相同的输入，不能靠算力复制）。
@@ -3541,7 +3541,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2099–L2117`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L131–L150`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L143–L164`
 - **Original title**: In agriculture what crossed is milking, not harvesting: seasonality and fragmentation hold cost per task above labour
 - **Original one-sentence judgment**: Automatic milking is already standard equipment on mid-to-large dairy farms in high-wage countries because the action repeats daily, the location is fixed, the animal walks into the machine by itself, the output is measurable and failure is contained; selective harvesting stays at local pilots on single crops inside this window and does not become a mainstream practice before 2030, because seasonality crushes the denominator while fragmentation inflates the adaptation cost.
 - **Original reasoning chain**: Start with milking, which crossed, and list the conditions to see how strict they are — the action repeats two or three times a day, the location is fixed, **the animal walks into the machine by itself**, the output is measurable and priceable, and failure is contained (one missed cow); **a cow is a semi-cooperative object, and that condition is close to a free subsidy** → then selective harvesting, which failed: Abundant Robotics took apple harvesting to the point of working in orchards and still shut the business down (EXT-46) → this is not a capability story but a **utilization** story: a harvester works a few weeks a year and its capex must amortize over those weeks' operating hours, while row spacing, tree architecture and variety differ between orchards so every new customer means re-adaptation → **seasonality crushes the denominator, fragmentation inflates the adaptation cost in the numerator — squeezed from both ends, cost per task does not fall** → three further technical bottlenecks: perception robustness under natural light and occlusion, end effectors handling damageable produce (a bruised apple is downgraded, a strawberry more so), and biological variation (no two fruits on one tree share a position or a ripeness) → **when cost per task crosses labour**: only on structured operations that are high-frequency, fixed and semi-cooperative (milking, guided seeding and fertilizing, intra-row mechanical weeding; 2026–2030 is the scaling window); selective harvesting can cross only after annual effective operating hours rise markedly through cross-crop, cross-season reuse → globally, most of the potential object of agricultural embodiment is not on capital-intensive farms in high-wage countries at all (EXT-41), which puts society-level diffusion a generation behind equipment feasibility → so "agricultural robotics is proven" is a dangerous sentence: **what is proven is milking, not harvesting** → **Hard constraints**: **physical** (the machine must move through a field, bounded by weather and a seasonal window; energy and time are incompressible) compounded by **ownership / privacy** (each plot and orchard is a private, unique physical layout that compute cannot copy).
@@ -3564,12 +3564,12 @@
 
 ## J-078
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L151–L170`；`docs/en/ledger/71-80.md:L151–L170`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L165–L186`；`docs/en/ledger/71-80.md:L165–L186`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2068–L2090`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L151–L170`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L165–L186`
 - **原始标题**：建筑与家政被一次性现场与别人的家挡住，本窗口内只以单工序设备与单任务切片到达
 - **原始一句话命题**：建筑与家政共享同一个最难的性质——作业环境每一次都不同，而且不归执行者所有；到 2040 年，现场建筑机器人仍以单工序设备为主、不构成对工地整体流程的替代，家庭的开放柔性任务不构成社会级普及，家庭具身化会继续以单任务切片（扫地、洗碗、割草）的形式推进。
 - **原始推理链**：**建筑**——工地是一次性的：每个项目的几何、地质、工序交叉与天气都不重复，公差以厘米计而不是毫米计，且多工种在同一空间里互相等待 → FBR 的 Hadrian 砌砖机是这一格最诚实的标本（EXT-47）：这个方向已经推进了十年量级的时间，仍处在单点作业与示范项目阶段 → 挡住它的不只是砌砖速度：**一台机器砌得再快，也要等前道工序、等验收、等许可、等天气** → 建筑真正的结构性路径是绕过工地——把作业搬进工厂化预制车间，也就是把「一次性现场」改造成「结构化空间」，那样它就退化成 J-076 的制造问题 → **家政**——最难的一格，难点甚至不在执行，在**任务定义**：「收拾一下」包含物品归类、价值判断（哪件是垃圾、哪件是纪念品）、隐私边界与家庭内部的约定 → ILO 口径下家政工人是一个以千万计的群体（EXT-42），说明需求真实存在且已经在被付费购买——但被购买的从来不只是动作，还包括判断力、可信度和不需要交代细节的默契 → 失败还不可逆：打碎的不是杯子，是「这个杯子」（L6）→ **何时单位任务成本穿越人工**：即便 Hadrian 一类设备在某些标准化住宅上把砌筑的单位成本压到人工以下，社会级普及要求的是**整条工地流程、保险费率与验收制度同时改变**——那是闸四的多方协同，不是设备性能问题；家政同理，一台机器在演示视频里叠好衣服，与一亿个家庭愿意让它每天进卧室之间，隔着产权、信任与每一次使用的持续代价 → **硬约束**：建筑——**法律／许可**（施工许可、验收、工伤责任必须落在可被起诉的主体上）叠加**物理**；家政——**产权／私有性**（别人的家是私有空间，进入需要授权）叠加**信任／关系**（把钥匙交给谁，是长期重复博弈的结果，不能一次生成）。
@@ -3587,7 +3587,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2118–L2140`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L151–L170`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L165–L186`
 - **Original title**: Construction and domestic work are blocked by the one-off site and somebody else's home: inside this window they arrive only as single-operation equipment and single-task slices
 - **Original one-sentence judgment**: Construction and domestic work share the hardest property — the work environment is different every time and does not belong to whoever is working in it; through 2040 on-site construction robots remain single-operation equipment and do not substitute for the site process as a whole, open-ended household tasks reach no society-level diffusion, and home embodiment continues as single-task slices (vacuuming, dishwashing, mowing).
 - **Original reasoning chain**: **Construction** — a site is one-off: geometry, ground conditions, trade sequencing and weather never repeat, tolerances are in centimetres rather than millimetres, and multiple trades wait on each other in one space → FBR's Hadrian bricklaying machine is the most honest specimen here (EXT-47): a direction pushed for something on the order of a decade, still at single-operation and demonstration-project scale → what blocks it is not laying speed: **however fast a machine lays brick, it still waits on the preceding trade, on inspection, on permits and on weather** → construction's real structural path is to bypass the site — move the work into a prefabrication plant, converting the one-off site into structured space, at which point it degenerates into the manufacturing problem of J-076 → **Domestic work** — the hardest square, and the difficulty is not even execution but **task definition**: "tidy up" contains classification, value judgment (which object is rubbish and which is a keepsake), privacy boundaries and household-specific conventions → on ILO's count domestic workers are a group in the tens of millions (EXT-42), so the demand is real and already being paid for — but what is bought was never only the motions; it includes judgment, trustworthiness and the tacit understanding that saves the employer from specifying anything → and failure is irreversible: what breaks is not *a* cup, it is *that* cup (L6) → **when cost per task crosses labour**: even if a Hadrian-class machine pushes the unit cost of bricklaying below manual labour on some standardized houses, society-level diffusion requires **the site process, insurance rates and the inspection regime to change together** — Gate 4 multi-party coordination, not equipment performance; domestic work is the same, since between a machine folding laundry in a demo video and a hundred million households letting it into the bedroom daily sit ownership, trust and the cost paid on every use → **Hard constraints**: construction — **law / permitting** (building permits, inspection and injury liability must land on a party that can be sued) compounded by **physical**; domestic — **ownership / privacy** (someone's home is private space and entry requires authorization) compounded by **trust / relationship** (who gets a key is the product of repeated interaction over time and cannot be generated in one pass).
@@ -3610,12 +3610,12 @@
 
 ## J-079
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L171–L191`；`docs/en/ledger/71-80.md:L171–L191`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L187–L208`；`docs/en/ledger/71-80.md:L187–L208`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2091–L2110`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L171–L191`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L187–L208`
 - **原始标题**：生物医学候选生成与临床级因果证明会分叉
 - **原始一句话命题**：2026–2034 年，生物医学候选生成与排序成本显著下降，但临床级因果证明不会按同一比例提速。
 - **原始推理链**：候选可复制、搜索与排序成本下降 → 可信因果仍需真实样本、时间与受试者保护 → 瓶颈移到前瞻验证。
@@ -3633,7 +3633,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2141–L2160`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L171–L191`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L187–L208`
 - **Original title**: Biomedical candidate generation and clinical-grade causal proof diverge
 - **Original one-sentence judgment**: From 2026 to 2034, biomedical candidate generation and ranking get much cheaper, while clinical-grade causal proof does not accelerate proportionally.
 - **Original reasoning chain**: Candidates are copyable and ranking costs fall → trustworthy causality still needs real samples, time, and subject protection → the bottleneck moves to prospective validation.
@@ -3656,12 +3656,12 @@
 
 ## J-080
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L192–L211`；`docs/en/ledger/71-80.md:L192–L211`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/71-80.md:L209–L229`；`docs/en/ledger/71-80.md:L209–L229`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2111–L2130`
-- **当前卡锚点**：`docs/zh/ledger/71-80.md:L192–L211`
+- **当前卡锚点**：`docs/zh/ledger/71-80.md:L209–L229`
 - **原始标题**：低责任医疗工作流先于无专业复核的自主诊疗扩散
 - **原始一句话命题**：2026–2031 年，摘要、编码、排程和复核型决策支持先于无专业复核的自主诊疗成为常规配置。
 - **原始推理链**：低责任工具替换已有动作、嵌入现有载体且可复核 → 自主诊疗跨越执业权、责任和不可逆处置 → 前者先扩散。
@@ -3679,7 +3679,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2161–L2180`
-- **Current card anchor**: `docs/en/ledger/71-80.md:L192–L211`
+- **Current card anchor**: `docs/en/ledger/71-80.md:L209–L229`
 - **Original title**: Low-liability medical workflows diffuse before autonomous care without professional review
 - **Original one-sentence judgment**: From 2026 to 2031, summarization, coding, scheduling, and review-based decision support become routine before autonomous diagnosis and treatment without professional review.
 - **Original reasoning chain**: Low-liability tools replace existing work, fit current carriers, and remain reviewable → autonomous care crosses licensing, liability, and irreversible treatment → the former diffuses first.
@@ -3702,12 +3702,12 @@
 
 ## J-081
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L5–L25`；`docs/en/ledger/81-90.md:L5–L25`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L5–L26`；`docs/en/ledger/81-90.md:L5–L26`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2131–L2150`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L5–L25`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L5–L26`
 - **原始标题**：药物候选更丰富，不等于人体试验时间同步缩短
 - **原始一句话命题**：到 2034 年，AI 增加进入实验室的药物候选，但候选增长不会等比例转化为获批药物。
 - **原始推理链**：搜索空间扩大 → 更多候选争夺没有同比扩张的湿实验、受试者、站点与监管容量 → 淘汰率或排队上升。
@@ -3725,7 +3725,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2181–L2200`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L5–L25`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L5–L26`
 - **Original title**: More drug candidates do not proportionally shorten human trial time
 - **Original one-sentence judgment**: By 2034, AI increases drug candidates reaching laboratories, but candidate growth does not translate proportionally into approvals.
 - **Original reasoning chain**: Search expands → more candidates compete for wet-lab, participant, site, and regulatory capacity that has not expanded proportionally → attrition or queues rise.
@@ -3748,12 +3748,12 @@
 
 ## J-082
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L26–L46`；`docs/en/ledger/81-90.md:L26–L46`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L27–L48`；`docs/en/ledger/81-90.md:L27–L48`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2151–L2174`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L26–L46`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L27–L48`
 - **原始标题**：解释变多后，医疗稀缺移向获授权的干预与连续照护（仅图景）
 - **原始一句话命题**：2027–2034 年，慢病、老龄和基层医疗的瓶颈从标准解释移向获授权干预、连续观察和异常升级。
 - **原始推理链**：问答可复制 → 解释与提醒边际成本下降 → 采样、给药、转移、复诊与异常判断仍需本地资源和责任链 → 无载体时建议变成未兑现需求。
@@ -3771,7 +3771,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2201–L2224`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L26–L46`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L27–L48`
 - **Original title**: Once explanation is abundant, medical scarcity moves to authorized intervention and continuity of care (landscape only)
 - **Original one-sentence judgment**: From 2027 to 2034, the bottleneck in chronic disease, ageing, and primary care moves from standard explanation to authorized intervention, continuous observation, and exception escalation.
 - **Original reasoning chain**: Q&A is copyable → explanation and reminder costs fall → sampling, medication, transfer, follow-up, and exception judgment still need local resources and liability chains → advice becomes unmet demand without a carrier.
@@ -3794,12 +3794,12 @@
 
 ## J-083
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L47–L67`；`docs/en/ledger/81-90.md:L47–L67`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L49–L70`；`docs/en/ledger/81-90.md:L49–L70`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2175–L2194`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L47–L67`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L49–L70`
 - **原始标题**：个性化讲解先于可验证掌握变丰富
 - **原始一句话命题**：2026–2030 年，个性化解释、例题和即时反馈成为常规能力，但可验证掌握不同比增长。
 - **原始推理链**：讲解可复制 → 生成与翻译成本下降 → 练习仍要求注意、时间与行为改变 → “看懂”与“独立完成”分叉。
@@ -3817,7 +3817,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2225–L2244`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L47–L67`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L49–L70`
 - **Original title**: Personalized explanation becomes abundant before verifiable mastery
 - **Original one-sentence judgment**: From 2026 to 2030, personalized explanations, examples, and immediate feedback become routine, but verifiable mastery does not grow proportionally.
 - **Original reasoning chain**: Explanations are copyable → generation and translation costs fall → practice still requires attention, time, and behavioural change → understanding and independent performance diverge.
@@ -3840,12 +3840,12 @@
 
 ## J-084
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L68–L88`；`docs/en/ledger/81-90.md:L68–L88`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L71–L92`；`docs/en/ledger/81-90.md:L71–L92`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2195–L2214`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L68–L88`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L71–L92`
 - **原始标题**：AI 辅导先嵌入教师与机构，而不是替代学校
 - **原始一句话命题**：2026–2031 年，AI 辅导先在教师布置、课程对齐和机构监督中稳定扩散，而非大规模替代学校。
 - **原始推理链**：独立聊天增加新动作 → 机构内辅导替换答疑、练习与反馈 → 学校提供身份、课程、同伴、评价和资格载体 → 局部闭环先扩散。
@@ -3863,7 +3863,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2245–L2264`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L68–L88`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L71–L92`
 - **Original title**: AI tutoring enters teacher and institutional workflows before replacing schools
 - **Original one-sentence judgment**: From 2026 to 2031, AI tutoring diffuses first through teacher assignment, curriculum alignment, and institutional supervision rather than large-scale school replacement.
 - **Original reasoning chain**: Stand-alone chat adds a new action → embedded tutoring replaces Q&A, practice, and feedback → schools carry identity, curriculum, peers, assessment, and credentials → local loops diffuse first.
@@ -3886,12 +3886,12 @@
 
 ## J-085
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L89–L109`；`docs/en/ledger/81-90.md:L89–L109`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L93–L114`；`docs/en/ledger/81-90.md:L93–L114`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2215–L2234`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L89–L109`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L93–L114`
 - **原始标题**：居家成品信号变弱，受控表现与过程证据增值
 - **原始一句话命题**：2027–2034 年，高风险升学和招聘降低无过程验证居家成品的权重，增加受控表现与过程证据。
 - **原始推理链**：成品生成成本下降 → 成品与本人能力相关性变弱 → 选择者转向更贵但更难转包的身份、现场和长期记录。
@@ -3909,7 +3909,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2265–L2284`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L89–L109`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L93–L114`
 - **Original title**: Take-home artifact signals weaken while controlled performance and process evidence gain weight
 - **Original one-sentence judgment**: From 2027 to 2034, high-stakes admissions and hiring reduce the weight of take-home artifacts without process verification and increase controlled performance and process evidence.
 - **Original reasoning chain**: Artifact-generation costs fall → artifacts correlate less with personal capability → selectors move toward costlier but harder-to-outsource identity, live performance, and longitudinal records.
@@ -3932,12 +3932,12 @@
 
 ## J-086
 
-**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L115–L135`；`docs/en/ledger/81-90.md:L115–L135`
+**Current pair / 当前双语卡片**：`docs/zh/ledger/81-90.md:L115–L136`；`docs/en/ledger/81-90.md:L115–L136`
 
 ### 中文历史快照
 
 - **历史锚点**：`1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/zh/90-ledger.md:L2235–L2258`
-- **当前卡锚点**：`docs/zh/ledger/81-90.md:L115–L135`
+- **当前卡锚点**：`docs/zh/ledger/81-90.md:L115–L136`
 - **原始标题**：解释鸿沟缩小，但练习与验证鸿沟可能扩大（仅图景）
 - **原始一句话命题**：2027–2034 年，AI 缩小优质解释获取差距，但无承载机构时技能与机会差距可能不降反升。
 - **原始推理链**：边际解释变便宜 → 有设备与自律者先获益 → 掌握仍依赖时间、反馈与实践环境 → 资格依赖机构承认 → 新供给按既有资源差异被吸收。
@@ -3955,7 +3955,7 @@
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L2285–L2308`
-- **Current card anchor**: `docs/en/ledger/81-90.md:L115–L135`
+- **Current card anchor**: `docs/en/ledger/81-90.md:L115–L136`
 - **Original title**: The explanation gap narrows while practice and verification gaps may widen (landscape only)
 - **Original one-sentence judgment**: From 2027 to 2034, AI narrows access gaps in explanation, but without carrier institutions skill and opportunity gaps may fail to fall or may widen.
 - **Original reasoning chain**: Marginal explanation becomes cheap → people with devices and self-direction benefit first → mastery still needs time, feedback, and practice environments → credentials need institutional recognition → new supply is absorbed through existing resource differences.
