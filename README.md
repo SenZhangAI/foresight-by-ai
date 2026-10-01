@@ -40,6 +40,7 @@
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
 - [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订与仍待执行的隔离重审。
+- [下一研究缺口优先级](docs/zh/04-research-gaps.md)：查看部分覆盖维度的公开排序、下一研究动作与证据边界。
 
 先读这一步，是为了把下面的内容当作带证据边界的推演，而不是把叙事流畅误读成预测准确。
 
@@ -63,6 +64,7 @@
 | 读生物医学 | [生物与医疗：答案会先变便宜，证明与照护不会](docs/zh/chains/50-biology-medicine.md) · [J-079](docs/zh/ledger/71-80.md#j-079--生物医学候选生成与临床级因果证明会分叉)–[J-082](docs/zh/ledger/81-90.md#j-082--解释变多后医疗稀缺移向获授权的干预与连续照护仅图景) | 候选生成与临床级因果证明、照护和责任承担会分叉。 | 中等至低；跨国部署与长期结局证据不足，不能把候选数量当成医疗结果。 |
 | 读教育 | [教育与技能形成：讲解会泛滥，掌握仍要留下痕迹](docs/zh/chains/60-education-skill-formation.md) · [J-083](docs/zh/ledger/81-90.md#j-083--个性化讲解先于可验证掌握变丰富)–[J-086](docs/zh/ledger/81-90.md#j-086--解释鸿沟缩小但练习与验证鸿沟可能扩大仅图景) | 解释可能变便宜，但掌握、评估、资格与制度承载不会自动同步丰富。 | 中等至低；若涉及大范围社会结论，须回到卡片的规模判定；长期跨国证据仍缺。 |
 | 读人口与照护 | [人口老龄化与制度化照护：谁承担每天的身体与协调工作](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/zh/ledger/96-100.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层) / [J-097](docs/zh/ledger/96-100.md#j-097--照护辅助先在机构与受控服务中稳定开放家庭通用机器人滞后) | 从人口、家庭时间与制度载体出发，推演正式照护、协调层与具身设备的先后；不把 AI 当作唯一根因。 | 中等；照护者分母、机构部署留存与家庭设备事故数据仍缺。 |
+| 读授权与责任 | [授权先于智能：代理、责任与人与 AI 的关系](docs/zh/chains/110-authority-before-intelligence.md) · [J-098](docs/zh/ledger/96-100.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) | 从代理制度、授权、撤回和责任承接出发，推演 AI 先作为受控分级代理进入人与人的既有关系。 | 中等；跨法律制度的代理事故、撤回成功率、保险定价和长期使用数据仍缺；不把 AI 主体性写成结论。 |
 
 #### 组织、权力、材料与信任
 
@@ -77,6 +79,7 @@
 - [近期／中期／远期图景](docs/zh/10-near.md)：近／中／远只是阅读容器，不是严格日历。
 - [技术能力演进链](docs/zh/05-tech-sequence.md)：查看能力出现次序，但不要把技术当作社会变化的唯一发动机。
 - [全景覆盖矩阵](#全景覆盖矩阵当前边界)：检查哪些社会维度已有入口，哪些仍是明确缺口。
+- **C11 授权先于智能**：从代理制度、授权与责任开始，查看人与 AI 关系的制度入口。
 
 ### 4. 最后决定行动或质疑
 
@@ -121,6 +124,7 @@ flowchart LR
   M -.上游约束.-> C8[C8 材料与气候]
   M -.人口与照护.-> C9[C9 老龄化与制度化照护]
   M -.责任与信任.-> C10[C10 信任抵押化]
+  M -.授权与制度.-> C11[C11 授权先于智能]
 ```
 
 图中的箭头是阅读入口，不表示对应判断必然成立；要追溯因果依赖，请从链正文进入 `J-NNN`，再沿台账的 `depends-on` 回到上游。
@@ -136,6 +140,7 @@ flowchart LR
 | [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查与待执行的隔离重审 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
+| [下一研究缺口优先级](docs/zh/04-research-gaps.md) | [Next Research-Gap Priorities](docs/en/04-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
 | [技术能力演进链](docs/zh/05-tech-sequence.md) | [Technology Capability Sequence](docs/en/05-tech-sequence.md) | 技术能力到达次序，不提前替社会下结论 |
 | [近期／中期／远期图景](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | [近期](docs/en/10-near.md) · [中期](docs/en/20-mid.md) · [远期](docs/en/30-far.md) | 横向全景故事与各自的判断链接 |
 | [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 候选与窗口清单 |
@@ -158,6 +163,7 @@ flowchart LR
 | C8 | 芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」 | 已写成 | [中文](docs/zh/chains/80-fab-materials-and-climate.md) · [English](docs/en/chains/80-fab-materials-and-climate.md) |
 | C9 | 人口老龄化与制度化照护：谁承担每天的身体与协调工作 | 已写成 | [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) |
 | C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | 已写成 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md)；锚点为 J-035，链文不升级其证据等级 |
+| C11 | 授权先于智能：代理、责任与人与 AI 的关系 | 已写成 | [中文](docs/zh/chains/110-authority-before-intelligence.md) · [English](docs/en/chains/110-authority-before-intelligence.md) |
 
 ## 许可证
 
@@ -179,7 +185,7 @@ flowchart LR
 
 ## Git 与维护纪律
 
-提交前运行 `python3 scripts/check.py`；它只检查机械不变量，不裁定判断质量，也不是发布闸。中英版本应在同一次 commit 同步更新；判断状态变化和证据变化应在提交信息与台账维护日志中留下可追踪记录。当前仓库有 97 张判断卡片和 10 条独立推演链；卡片数量的可复核口径是 `docs/zh/ledger/` 与 `docs/en/ledger/` 各分片的 `### J-NNN` 完整卡片标题（每个编号每种语言恰好一次）；`python3 scripts/check.py` 统计并核对双语编号集合及 README 数量。完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议维护，不在 README 复制。
+提交前运行 `python3 scripts/check.py`；它只检查机械不变量，不裁定判断质量，也不是发布闸。中英版本应在同一次 commit 同步更新；判断状态变化和证据变化应在提交信息与台账维护日志中留下可追踪记录。当前仓库有 98 张判断卡片和 11 条独立推演链；卡片数量的可复核口径是 `docs/zh/ledger/` 与 `docs/en/ledger/` 各分片的 `### J-NNN` 完整卡片标题（每个编号每种语言恰好一次）；`python3 scripts/check.py` 统计并核对双语编号集合及 README 数量。完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议维护，不在 README 复制。
 
 ## 全景覆盖矩阵（当前边界）
 
@@ -196,9 +202,9 @@ flowchart LR
 | 资本与权力 | 已覆盖 | [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md)；J-039–J-040 | 融资、收益分配与权力集中／扩散的长期数据 |
 | 人性、意义与身体在场 | 已覆盖 | [远期图景第 6 节](docs/zh/30-far.md#6-人性意义与身体在场稀缺可能从物品转向承担)；J-041–J-042（J-042 明确标为「仅图景」） | 需求变化、意义结构与共同经历的社会级证据 |
 | 地缘政治与制度 | 部分覆盖 | [C3 算力基础设施](docs/zh/chains/30-power-land-and-permits.md)；J-059–J-060（J-060 明确标为「仅图景」） | 国家间竞争、安全议题与制度演化 |
-| 法律、产权与责任 | 部分覆盖 | [C2 现实信号](docs/zh/chains/20-real-signals-become-contracts.md)；J-055、J-061–J-062（J-062 明确标为「仅图景」） | 数据所有权、模型产出许可与责任制度的完整边界 |
+| 法律、产权与责任 | 部分覆盖 | [C2 现实信号](docs/zh/chains/20-real-signals-become-contracts.md)；[C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[J-098](docs/zh/ledger/96-100.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) | 数据所有权、模型产出许可、跨制度代理事故与责任制度的完整边界 |
 | 人与人协作 | 部分覆盖 | [远期图景第 4 节](docs/zh/30-far.md#4-人与人协作从共同做步骤转向共同选择承诺)；J-049–J-050（均明确标为「仅图景」） | 具体制度、组织案例与可观测重复行动 |
-| 人与 AI 关系 | 部分覆盖 | [远期图景第 3 节](docs/zh/30-far.md#3-人与-ai最亲密的对象可能最不对称)；J-047–J-048（均明确标为「仅图景」） | 授权、退出、主体边界的制度与产品案例 |
+| 人与 AI 关系 | 部分覆盖 | [C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[J-098](docs/zh/ledger/96-100.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理)；远期 J-047–J-048 仍为「仅图景」 | 授权、退出、有限主体地位的跨制度案例与长期产品数据 |
 | 上游材料、气候与供应链韧性 | 部分覆盖 | [C8 材料与气候](docs/zh/chains/80-fab-materials-and-climate.md)；J-092–J-095 | 跨企业验证周期、多场址气候减产、保险与成本分摊序列 |
 | 人口老龄化与家庭照护 | 部分覆盖 | [C9 人口老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)；[J-096](docs/zh/ledger/96-100.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)–J-097 | 照护者去重分母、机构部署与留存、家庭设备事故与维护成本；当前不推出社会级家庭机器人普及 |
 
@@ -206,4 +212,4 @@ flowchart LR
 
 ## 当前边界
 
-这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；地缘制度、法律产权、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作、人与 AI 关系已有入口，但具体制度、组织和产品边界还需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
+这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点，但地缘制度、数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。

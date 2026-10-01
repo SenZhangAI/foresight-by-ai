@@ -28,6 +28,7 @@
 - [17. Judgment cards for the C7 social-consequence chain](#17-judgment-cards-for-the-c7-social-consequence-chain)
 - [18. Judgment cards for the C8 upstream-materials-and-climate-coupling chain](#18-judgment-cards-for-the-c8-upstream-materials-and-climate-coupling-chain)
 - [19. Judgment cards for the C9 ageing-and-institutional-care chain](#19-judgment-cards-for-the-c9-ageing-and-institutional-care-chain)
+- [20. Judgment card for C11: Authority before intelligence](#20-judgment-card-for-c11-authority-before-intelligence)
 - [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-097](ledger/96-100.md)
 
 ## 1. How to use this ledger
@@ -182,6 +183,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-095](#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first) | 2026-09-22 | Fab-resilience costs become explicit bargaining over who pays and who is curtailed first | 2027–2034 | Medium | J-061, J-070, J-093 | [C8: The Fab Before the Chip](chains/80-fab-materials-and-climate.md) | Current material supports the existence of infrastructure cost, not that allocation and curtailment clauses become standard. | ACTIVE | 2027-12-31 |
 | [J-096](#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) | 2026-09-28 | Ageing and smaller households move part of care toward formal and coordination layers | 2027–2035 | Medium | J-066, J-073 | [C9: Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md) | Japan, Sweden, and OECD material support institutional carriers and informal-care mechanisms, not a global caregiver denominator or expansion in every system. | ACTIVE | 2027-06-30 |
 | [J-097](#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | 2026-09-28 | Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag | 2027–2038 | Medium | J-073, J-074, J-066, J-069 | [C9: Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md) | The institutional-first mechanism has adjacent embodied-intelligence evidence; household deployment, retention, and incident data are missing, so institutional priority is not an observed fact. | ACTIVE | 2027-12-31 |
+| [J-098](#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first) | 2026-10-01 | Consequential settings form revocable tiered agency attached to existing liable parties before independent AI liability | 2027–2035 | Medium | J-009, J-031, J-055, J-065, J-070 | [C11: Authority before intelligence](chains/110-authority-before-intelligence.md) | Existing governance material supports oversight, logs, and accountability boundaries; it does not support a cross-industry diffusion order or timetable for AI personhood. | ACTIVE | 2027-06-30 |
 
 
 
@@ -196,7 +198,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-097; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-098; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -296,6 +298,7 @@ J-094 <- J-092, J-093
 J-095 <- J-061, J-070, J-093
 J-096 <- J-066, J-073
 J-097 <- J-073, J-074, J-066, J-069
+J-098 <- J-009, J-031, J-055, J-065, J-070
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -1201,3 +1204,12 @@ hand before publishing:
 
 - **Full card**: [Open the complete J-097 card](ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
 - **One-sentence judgment**: From 2027–2038, contact transfer, exception observation, and standardised care assistance are more likely to form stable routines first in institutions and controlled home-care services; general-purpose robots in open-ended homes will not constitute social-scale diffusion in this window.
+
+## 20. Judgment card for C11: Authority before intelligence
+
+> This card starts from agency, authorisation, revocation, and liability institutions, then asks how AI enters existing carriers. It extends the partial coverage of law, property, and the human–AI relationship without treating the capability curve as the only social starting point.
+
+#### J-098 · Authority before intelligence: consequential settings form revocable tiered agency first
+
+- **Full card**: [Open the complete J-098 card](ledger/96-100.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first)
+- **One-sentence judgment**: From 2027–2035, human–AI relationships in consequential settings are more likely to stabilise first as tiered agency attached to the liability of a person, organisation, or public institution. Authorisation, revocation, logs, and appeals become visible interfaces before AI is broadly recognised as an independent liable subject.

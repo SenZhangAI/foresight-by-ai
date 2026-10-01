@@ -38,6 +38,7 @@ This is a progressive reading path. You do not have to accept a forecast before 
 - [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
 - [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
 - [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the isolated re-review that remains pending.
+- [Next Research-Gap Priorities](docs/en/04-research-gaps.md): ranks partially covered dimensions, next research actions, and evidence boundaries.
 
 Read this step first so that the pages below are read as bounded reasoning rather than as forecasts whose fluency proves accuracy.
 
@@ -61,6 +62,7 @@ The chains are grouped by the real-world question a reader may want to follow. E
 | Biomedicine | [Biology and Medicine: Answers Get Cheap Before Proof and Care Do](docs/en/chains/50-biology-medicine.md) · [J-079](docs/en/ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge)–[J-082](docs/en/ledger/81-90.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only) | Candidate generation separates from clinical-grade causal proof, care, and responsibility. | Medium to low; cross-country deployment and long-term outcomes remain incomplete, so candidate counts are not medical outcomes. |
 | Education | [Education and Skill Formation: Explanation Overflows; Mastery Must Still Leave a Trace](docs/en/chains/60-education-skill-formation.md) · [J-083](docs/en/ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery)–[J-086](docs/en/ledger/81-90.md#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only) | Explanation may become cheap, while mastery, assessment, qualification, and institutional carriers do not automatically become abundant. | Medium to low; any broad social claim must return to the card’s scale test; long-term cross-country evidence remains open. |
 | Population and care | [Ageing and Institutional Care: Who Carries the Daily Physical and Coordination Work](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) / [J-097](docs/en/ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) | Starting from demography, household time, and institutional carriers, this chain tests the sequence of formal care, coordination, and embodied devices without treating AI as the sole root cause. | Medium; caregiver denominators, institutional deployment retention, and household incident data remain open. |
+| Authority and liability | [Authority before intelligence: agency, liability, and the human–AI relationship](docs/en/chains/110-authority-before-intelligence.md) · [J-098](docs/en/ledger/96-100.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first) | Starting from agency institutions, authorisation, revocation, and liability, this chain forecasts AI entering existing human relationships as bounded tiered agency. | Medium; cross-system agency incidents, revocation success, insurance pricing, and sustained-use data remain open; it does not treat AI personhood as a conclusion. |
 
 #### Organizations, power, materials, and trust
 
@@ -75,6 +77,7 @@ The chains are grouped by the real-world question a reader may want to follow. E
 - [Near, mid, and far landscapes](docs/en/10-near.md): near, mid, and far are reading containers, not strict calendars.
 - [Technology Capability Sequence](docs/en/05-tech-sequence.md): tracks capability arrival order without treating technology as the sole engine of social change.
 - [Coverage matrix](#coverage-matrix-current-boundary): checks which social dimensions have entries and which remain explicit gaps.
+- **C11 Authority before intelligence**: start from agency institutions, authority, and liability to examine the institutional entry point for human–AI relationships.
 
 ### 4. Finally choose action or challenge
 
@@ -119,6 +122,7 @@ flowchart LR
   M -.upstream constraint.-> C8[C8 Materials and climate]
   M -.population and care.-> C9[C9 Ageing and institutional care]
   M -.liability and trust.-> C10[C10 Collateralization of trust]
+  M -.authority and institutions.-> C11[C11 Authority before intelligence]
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
@@ -134,6 +138,7 @@ Full cards, status, dependency graph, external sources, history, and uncovered d
 | [Judgment Evolution](docs/en/03-evolution.md) | [判断演化记录](docs/zh/03-evolution.md) | Rule narrowing, scope/status changes, the J-043 audit, and the pending isolated re-review |
 | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | Calibration, holdout, baselines, and leakage boundaries |
 | [Project Map and Capability Declaration](docs/en/04-project-map.md) | [项目地图与能力声明](docs/zh/04-project-map.md) | Public entry roles, current boundaries, and the real boundary of the `ship:` structural placeholder |
+| [Next Research-Gap Priorities](docs/en/04-research-gaps.md) | [下一研究缺口优先级](docs/zh/04-research-gaps.md) | Ranking of partially covered dimensions, next research actions, and evidence boundaries not to cross |
 | [Technology Capability Sequence](docs/en/05-tech-sequence.md) | [技术能力演进链](docs/zh/05-tech-sequence.md) | Capability arrival order without importing social conclusions early |
 | [Near / mid / far landscapes](docs/en/10-near.md) · [mid](docs/en/20-mid.md) · [far](docs/en/30-far.md) | [近期](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | Cross-cutting landscape narratives and linked judgments |
 | [Opportunity Candidates](docs/en/40-opportunities.md) | [商机候选](docs/zh/40-opportunities.md) | Candidates and windows |
@@ -156,6 +161,7 @@ Identifiers are allocated here; this table is navigation only. Chain prose and t
 | C8 | The fab before the chip: why climate risk bites at qualified bottlenecks | Written | [English](docs/en/chains/80-fab-materials-and-climate.md) · [中文](docs/zh/chains/80-fab-materials-and-climate.md) |
 | C9 | Ageing and institutional care: who carries the daily physical and coordination work | Written | [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) |
 | C10 | Collateralization of trust: when expression no longer proves ability, who bears the outcome? | Written | [English](docs/en/chains/100-trust-collateralization.md) · [中文](docs/zh/chains/100-trust-collateralization.md); anchored in J-035 without upgrading its evidence level |
+| C11 | Authority before intelligence: agency, liability, and the human–AI relationship | Written | [English](docs/en/chains/110-authority-before-intelligence.md) · [中文](docs/zh/chains/110-authority-before-intelligence.md) |
 
 ## License
 
@@ -177,7 +183,7 @@ These boundaries are deliberate: `ship:` can affect an external project-level me
 
 ## Git and maintenance discipline
 
-Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 97 judgment cards and 10 independent reasoning chains. The reproducible card-count basis is the `### J-NNN` full-card headings in the `docs/zh/ledger/` and `docs/en/ledger/` shards (each identifier exactly once per language); `python3 scripts/check.py` counts them and checks the bilingual identifier sets and README counts. The full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
+Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 98 judgment cards and 11 independent reasoning chains. The reproducible card-count basis is the `### J-NNN` full-card headings in the `docs/zh/ledger/` and `docs/en/ledger/` shards (each identifier exactly once per language); `python3 scripts/check.py` counts them and checks the bilingual identifier sets and README counts. The full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
 
 ## Coverage matrix (current boundary)
 
@@ -194,9 +200,9 @@ This matrix is a reader entry point, not a second ledger: it separates an access
 | Capital and power | Covered | [C7 Technology and Social Consequences](docs/en/chains/70-capability-to-social-consequences.md); J-039–J-040 | Long-run data on financing, distribution of returns, and concentration or diffusion of power |
 | Human needs, meaning, and embodied presence | Covered | [Far-term landscape, section 6](docs/en/30-far.md#6-human-needs-meaning-and-embodied-presence-scarcity-may-move-from-objects-to-responsibility); J-041–J-042 (J-042 is explicitly “landscape only”) | Social-scale evidence on changing needs, meaning structures, and shared experience |
 | Geopolitics and institutions | Partially covered | [C3 Compute Infrastructure](docs/en/chains/30-power-land-and-permits.md); J-059–J-060 (J-060 is explicitly “landscape only”) | Interstate competition, security questions, and institutional evolution |
-| Law, property, and liability | Partially covered | [C2 Real-World Signals](docs/en/chains/20-real-signals-become-contracts.md); J-055, J-061–J-062 (J-062 is explicitly “landscape only”) | Full boundaries of data ownership, model-output licensing, and liability regimes |
+| Law, property, and liability | Partially covered | [C2 Real-World Signals](docs/en/chains/20-real-signals-become-contracts.md); [C11 Authority before intelligence](docs/en/chains/110-authority-before-intelligence.md); [J-098](docs/en/ledger/96-100.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first) | Full boundaries of data ownership, model-output licensing, cross-system agency incidents, and liability regimes |
 | Collaboration between people | Partially covered | [Far-term landscape, section 4](docs/en/30-far.md#4-collaboration-between-people-from-doing-steps-together-to-choosing-commitments-together); J-049–J-050 (both explicitly “landscape only”) | Concrete institutions, organizational cases, and observable repeated action |
-| Relationships between people and AI | Partially covered | [Far-term landscape, section 3](docs/en/30-far.md#3-people-and-ai-the-most-intimate-object-may-be-the-most-asymmetric); J-047–J-048 (both explicitly “landscape only”) | Institutional and product boundaries for authorization, exit, and agency |
+| Relationships between people and AI | Partially covered | [C11 Authority before intelligence](docs/en/chains/110-authority-before-intelligence.md); [J-098](docs/en/ledger/96-100.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first); far-term J-047–J-048 remain “landscape only” | Cross-system cases and longitudinal product evidence for authorization, exit, and limited agency status |
 | Upstream materials, climate, and supply-chain resilience | Partially covered | [C8 Materials and Climate](docs/en/chains/80-fab-materials-and-climate.md); J-092–J-095 | Cross-firm qualification cycles, multi-site climate losses, insurance, and cost allocation |
 | Population ageing and family care | Partially covered | [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md); [J-096](docs/en/ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)–J-097 | Deduplicated caregiver denominator, institutional deployment and retention, household incidents and maintenance cost; no society-scale household-robot diffusion claim |
 
@@ -204,4 +210,4 @@ The matrix deliberately keeps “partially covered” and “not covered” visi
 
 ## Current boundary
 
-This is an expanding public archive, not a claim that the full landscape is complete. C3, C4, C5, C6, C7, and C8 provide first-round coverage; geopolitics, institutions, law, property, cross-country longitudinal organizational data, long-term medical outcomes, education credential recognition, and cross-firm qualification, climate-loss, insurance, and cost-allocation data in the chip upstream remain explicit gaps. Collaboration between people and relationships between people and AI have entry points, but their concrete institutional, organizational, and product boundaries still need work. Every gap remains in the ledger; a readable chain is not evidentiary closure.
+This is an expanding public archive, not a claim that the full landscape is complete. C3, C4, C5, C6, C7, and C8 provide first-round coverage; C11 adds a non-technical starting point from agency institutions, legal liability, and revocation rights, while geopolitics, institutions, data property, model-output licensing, cross-country longitudinal organizational data, long-term medical outcomes, education credential recognition, and cross-firm qualification, climate-loss, insurance, and cost-allocation data in the chip upstream remain explicit gaps. Collaboration between people still relies mainly on the far-term landscape; relationships between people and AI now have an institutional chain and J-098, but cross-system cases and long-run product boundaries still need work. Every gap remains in the ledger; a readable chain is not evidentiary closure.
