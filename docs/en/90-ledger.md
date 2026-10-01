@@ -29,7 +29,7 @@
 - [18. Judgment cards for the C8 upstream-materials-and-climate-coupling chain](#18-judgment-cards-for-the-c8-upstream-materials-and-climate-coupling-chain)
 - [19. Judgment cards for the C9 ageing-and-institutional-care chain](#19-judgment-cards-for-the-c9-ageing-and-institutional-care-chain)
 - [20. Judgment card for C11: Authority before intelligence](#20-judgment-card-for-c11-authority-before-intelligence)
-- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-097](ledger/96-100.md)
+- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-100.md)
 
 ## 1. How to use this ledger
 
@@ -186,6 +186,10 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-098](#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first) | 2026-10-01 | Consequential settings form revocable tiered agency attached to existing liable parties before independent AI liability | 2027–2035 | Medium | J-009, J-031, J-055, J-065, J-070 | [C11: Authority before intelligence](chains/110-authority-before-intelligence.md) | Existing governance material supports oversight, logs, and accountability boundaries; it does not support a cross-industry diffusion order or timetable for AI personhood. | ACTIVE | 2027-06-30 |
 
 
+| [J-099](#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations) | 2026-10-01 | Embodied systems re-bundle occupational tasks before they affect occupational structure, rather than eliminating whole occupations at once | 2027–2035 | Medium | J-073, J-075, J-076, J-077, J-078, J-091 | [C4: Embodied intelligence](chains/40-embodied-intelligence.md) | C4 cases and J-091 support a task-before-job mechanism, but cross-sector task-frequency and net-employment series are missing. | ACTIVE | 2027-12-31 |
+| [J-100](#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships) | 2026-10-01 | Embodied care shifts some hands-on work toward family authorisation, coordination, payment, and exception decisions before removing care relationships | 2027–2038 | Medium | J-073, J-074, J-096, J-097 | [C4: Embodied intelligence](chains/40-embodied-intelligence.md) | OECD and C9 support reorganisation of care carriers; cross-task retention, takeover, and incident data for home devices are missing. | ACTIVE | 2027-12-31 |
+| [J-101](#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences) | 2026-10-01 | Embodied systems form dense adoption first in regions with structured space, energy, maintenance, insurance, and liability institutions, potentially widening regional differences | 2028–2038 | Medium | J-073, J-075, J-076, J-077, J-078, J-090, J-093 | [C4: Embodied intelligence](chains/40-embodied-intelligence.md) | C4 and C3 support a carrying-bundle mechanism, but this round has no cross-region deployment, insurance, or maintenance series. | ACTIVE | 2028-06-30 |
+| [J-102](#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers) | 2026-10-01 | Embodied productivity gains flow first to complementary assets and liability carriers, then institutions decide whether they spread | 2028–2038 | Medium | J-039, J-040, J-090, J-101 | [C4: Embodied intelligence](chains/40-embodied-intelligence.md) | J-090’s complementary-asset mechanism aligns with C4, but embodied gains, wage, price, and public-spending series are missing. | ACTIVE | 2028-06-30 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 ---
@@ -198,7 +202,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-098; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-102; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -299,6 +303,10 @@ J-095 <- J-061, J-070, J-093
 J-096 <- J-066, J-073
 J-097 <- J-073, J-074, J-066, J-069
 J-098 <- J-009, J-031, J-055, J-065, J-070
+J-099 <- J-073, J-075, J-076, J-077, J-078, J-091
+J-100 <- J-073, J-074, J-096, J-097
+J-101 <- J-073, J-075, J-076, J-077, J-078, J-090, J-093
+J-102 <- J-039, J-040, J-090, J-101
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -1058,7 +1066,7 @@ hand before publishing:
 
 ## 14. Judgment cards for the C4 embodied-intelligence chain
 
-> The six cards in this section come from [C4: Embodied Intelligence](chains/40-embodied-intelligence.md) and were registered on 2026-09-20. By convention the chain's prose allocates no judgment identifiers; the complete card fields are registered here. J-073 is the chain's core judgment; J-074 through J-078 are the per-square judgments for care, warehousing and logistics, manufacturing and assembly, agriculture, and construction and domestic work, and all of them stand on J-073 and J-066. **All six cards are written as occupational/organizational judgments**: what they judge is the order in which embodied capability arrives in which scenes, not a daily activity of "the whole society," and each card carries its own Gate 1 verdict.
+> The ten cards in this section come from [C4: Embodied Intelligence](chains/40-embodied-intelligence.md), registered on 20 September and 1 October 2026. By convention the chain prose allocates no judgment identifiers; the complete card fields are registered here. J-073 is the chain’s core judgment, J-074–J-078 are the five scene judgments, and J-099–J-102 extend scene results into labour, family relationships, regional development, and political economy. The first six remain occupational/organisational judgments; the four additions record impact reach and actor denominators explicitly and do not upgrade local adoption into a society-scale claim.
 
 #### J-073 · Embodied intelligence is the necessary complement for AI to reach the physical-labour population, not a sufficient condition for diffusion
 
@@ -1089,6 +1097,26 @@ hand before publishing:
 
 - **Full card**: [Open the complete J-078 card](ledger/71-80.md#j-078--construction-and-domestic-work-are-blocked-by-the-one-off-site-and-somebody-elses-home-inside-this-window-they-arrive-only-as-single-operation-equipment-and-single-task-slices)
 - **One-sentence judgment**: Construction and domestic work share the hardest property — the work environment is different every time and does not belong to whoever is working in it; through 2040 on-site construction robots remain single-operation equipment and do not substitute for the site process as a whole, open-ended household tasks reach no society-level diffusion, and home embodiment continues as single-task slices (vacuuming, dishwashing, mowing).
+
+#### J-099 · Embodied automation re-bundles occupational tasks before it eliminates occupations
+
+- **Full card**: [Open the complete J-099 card](ledger/96-100.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations)
+- **One-sentence judgment**: From 2027–2035, embodied systems are more likely to remove repetitive, hand-off-able task segments in warehousing, manufacturing, agriculture, and care, then re-bundle exception handling, relationship work, and responsibility sign-off; capability curves alone will not eliminate whole occupations at the same time.
+
+#### J-100 · Embodied care reallocates family roles before it removes care relationships
+
+- **Full card**: [Open the complete J-100 card](ledger/96-100.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships)
+- **One-sentence judgment**: From 2027–2038, if embodied care assistance stabilises, it will first shift some family members’ hands-on work toward authorisation, coordination, payment, and exception decisions rather than removing family care relationships as a whole.
+
+#### J-101 · Embodied adoption clusters where a carrying bundle exists, widening regional differences
+
+- **Full card**: [Open the complete J-101 card](ledger/96-100.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences)
+- **One-sentence judgment**: From 2028–2038, embodied systems are more likely to form dense adoption first in regions with structured space, reliable energy, maintenance networks, insurance, and predictable liability institutions; this can create regional capability and income differences without proving global polarisation.
+
+#### J-102 · Embodied productivity gains concentrate first in complementary assets and liability carriers
+
+- **Full card**: [Open the complete J-102 card](ledger/96-100.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers)
+- **One-sentence judgment**: From 2028–2038, embodied productivity gains are more likely to flow first to complementary assets and liability carriers controlling worksites, order access, finance, insurance, and maintenance, with competition, wage bargaining, and public institutions deciding whether they spread.
 
 ## 15. Judgment cards for the C5 biology-and-medicine chain
 

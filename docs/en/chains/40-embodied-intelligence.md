@@ -42,7 +42,7 @@ The second sentence has to follow immediately, or this chain degrades into "the 
 - **Gate 4 (decision)**: a plant manager can decide alone to put a cobot on a line. Putting a robot in a ward or a home requires nurses, family, insurers, and regulators to agree at the same time.
 - **Gate 5 (recurring net burden)**: preparation, supervision, cleaning, fault handling, and social awkwardness on every use matter only when they remain positive and material relative to the incumbent human workflow.
 
-This chain therefore uses L2 (constraint migration), L4 (diffusion lag), L6 (irreversibility), and L8 (human needs), and treats the five gates as a sieve rather than as rhetoric. It does **not** forecast robot shipments, does **not** forecast changes in total employment, and gives **no** precise global installed-base figure — no checkable global series was obtained this round, and all of it is recorded as gaps in section 12. It reasons about one thing only: **in what order embodied capability reaches which scenes, what the bottleneck is in each, and where "the numbers work locally" gets misread as "this is about to diffuse."**
+This chain therefore uses L2 (constraint migration), L4 (diffusion lag), L6 (irreversibility), and L8 (human needs), and treats the five gates as a sieve rather than as rhetoric. It does **not** forecast robot shipments, does **not** forecast changes in total employment, and gives **no** precise global installed-base figure — no checkable global series was obtained this round, and all of it is recorded as gaps in section 13. It reasons about one thing only: **in what order embodied capability reaches which scenes, what the bottleneck is in each, and where "the numbers work locally" gets misread as "this is about to diffuse."**
 
 ## 3. Skeleton of the chain
 
@@ -183,7 +183,56 @@ Stack the constraints from the five sections and the arrival sequence is essenti
 - **Policy and training systems**: if this chain holds, the earliest exposure is in **structured material-handling occupations** and the latest is in work that requires touching a body and inferring intent. Directing training resources toward the latter is more defensible than directing them at "learning to work alongside robots."
 - **This project itself**: never write "the numbers work in this scene, in this place" as "this is about to diffuse." Every section above carries the same sentence, because it is the easiest error to make and the hardest to notice.
 
-## 12. Evidence boundary: what I know and what I do not
+## 12. From a scene that pays for itself to social consequences: bodies change tasks before they change relationships
+
+The first ten sections answer only “which scenes can adopt first.” That is not yet a social landscape. When a machine enters a warehouse, ward, or farm, it first changes **which tasks make up a job, who must be present, who bears failure, and who can pass costs to someone else**—not whether an entire occupation disappears. Social consequences must be derived through this middle layer; shipment counts cannot jump directly to “jobs are replaced” or “families are liberated.”
+
+```text
+A local scene clears unit-task economics
+        │
+        ▼
+Task bundles change inside occupations; occupations do not vanish at once (J-099)
+        │
+        ├──▶ Family care: part of hands-on care becomes purchased service and coordination; authorization and relationship remain with families (J-100)
+        ├──▶ Regional development: structured space, insurance, and maintenance networks cluster first in a few regions (J-101)
+        └──▶ Political economy: gains flow first to those with sites, liability capacity, and financing (J-102)
+```
+
+**Audit entry points (all four are inferences, not yet observed society-scale results)**:
+
+- [J-099: Embodied automation re-bundles occupational tasks](../ledger/96-100.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations) — labour task structure.
+- [J-100: Embodied care reallocates family roles](../ledger/96-100.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships) — family relationships and authority.
+- [J-101: Embodied adoption clusters where a carrying bundle exists](../ledger/96-100.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences) — regional development and carrier differences.
+- [J-102: Embodied productivity gains concentrate in complementary assets and liability carriers](../ledger/96-100.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers) — political economy and gain distribution.
+
+### 12.1 Labour: re-bundle tasks before erasing occupations
+
+Across warehousing, manufacturing, care, and agriculture, the common outcome is not “robots replace an occupation.” They first remove **repetitive, measurable, and hand-off-able** tasks; what remains concentrates in exception handling, relationship work, machine takeover, and responsibility sign-off. Labour bargaining therefore shifts from “do we want a robot?” to “which task segment moves, and how is the remainder priced?” This connects to J-091’s claim that net employment cannot be inferred from a capability curve, while adding an embodied-specific observation layer: after tasks are re-bundled, who owns the equipment, who pays standby time, and who absorbs downtime risk.
+
+**What can be done now**: employers, unions, and training systems should record changes by task bundle rather than occupation name; each year track automated-task frequency, human takeover time, exception-handling wages, and total employment separately. Only when task frequency, actor denominator, and net employment move are all observable should this be upgraded to a society-scale labour judgment.
+
+### 12.2 Family relationships: a device can replace one care task without replacing kin authorization and presence
+
+J-096 argues that ageing and smaller families move part of care toward formal services and coordination; J-097 puts institutional-first adoption and open-home delay on the embodied pathway. Together, the social consequence is not “family care disappears.” Family members partly shift from **hands-on operators** to authorizers, coordinators, payers, and exception decision-makers. If a device removes lifting but adds supervision, cleaning, and explanation, a family may gain a new management burden rather than free time.
+
+**What can be done now**: care policy and product evaluation should record hands-on care time, coordination time, family authorization/refusal events, human takeover, and post-incident consequences together. Reporting only completed device tasks cannot prove that family burden has fallen.
+
+### 12.3 Regional development: embodied intelligence clusters along the places that can carry it
+
+Software can be copied across regions; embodied systems must find local floor space, reliable power, repair workers, insurance, and institutions willing to carry liability. The resulting inference is not “robots diffuse evenly,” but that high-wage, structured-industrial, predictably regulated regions with maintenance networks will form dense adoption first. Low wages do not automatically mean earlier or later adoption: they reduce substitution gains while also limiting finance, insurance, and retrofit capacity. Regional divergence is a testable outcome, not something to infer from a vendor’s demonstration site.
+
+**What can be done now**: local governments and investors should put deployment hours, repair radius, insurance premiums, downtime losses, and worker transitions on one regional ledger. Without these denominators, write “local cluster,” not “global diffusion.”
+
+### 12.4 Political economy: the scarce thing is the carrying combination, not the robot itself
+
+As devices become increasingly rentable, the parties able to capture value may be those controlling sites, order flows, liability insurance, finance, and maintenance networks. This is not simply “capital owners”: hospital beds and payment eligibility, warehouse orders and layouts, farm land and seasonal windows, and local power and permits can all become bargaining nodes. If gains circulate only among complementary-asset owners, embodied capability can raise local productivity without automatically raising labour income broadly. If institutions convert gains into lower prices, shorter hours, or public care supply, diffusion can reach more people.
+
+**What can be done now**: observe who bears accident, downtime, and retrofit costs; who owns data and order access; and who can convert gains into wages, prices, or public services. Do not look only at robot prices or installed units.
+
+All four consequences retain the same downgrade rule: **scene-level adoption is one fact; society-scale consequences are another judgment.** Upgrade a local claim to a social claim only when actor denominator, repeated frequency, affected population, and cross-region comparison are all observable. Otherwise retain it as an occupational, institutional, regional, or landscape-only judgment.
+
+## 13. Evidence boundary: what I know and what I do not
+
 
 **External material used here** (for comparison and existence proof only; it does not write back into the reasoning): [FAO employment indicators 2000–2023](https://www.fao.org/statistics/highlights-archive/highlights-detail/employment-indicators-2000-2023-%28july-2025-update%29/en), [ILO domestic workers](https://www.ilo.org/topics-and-sectors/domestic-workers), [O\*NET 53-7062](https://www.onetonline.org/link/localtrends/53-7062.00), [O\*NET 31-1121](https://www.onetonline.org/link/localtrends/31-1121.00), [Riken ROBEAR](https://www.riken.jp/en/news_pubs/research_news/pr/2015/20150223_2/), [IFR](https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years), [Abundant Robotics shutdown](https://www.therobotreport.com/abundant-robotics-shuts-down-fruit-harvesting-business/), [FBR Hadrian](https://www.fbr.com.au/view/hadrian).
 
