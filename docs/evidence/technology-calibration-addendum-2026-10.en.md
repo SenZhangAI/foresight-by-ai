@@ -14,6 +14,8 @@
 
 **Qualified pairings this round: 0.**
 
+The addendum still preserves stably locatable candidate forecast–outcome pair records: Candidate A places the 1972 Space Shuttle flight-count planning scenario alongside NASA's historical outcome page, and Candidate B places the 1998 Iridium subscriber estimate alongside the 1999 10-Q outcome. These are forecast–outcome material pairs awaiting verification, not qualified pairings that passed this round's strict bar; the sections below record why they cannot be counted.
+
 This does not mean that no technology forecast failed. It means that the material searched here does not yet satisfy the strict combination of source reconstruction, same-metric outcome, and timing proof. The candidates below remain because their missing fields are reviewable—not because they are evidence.
 
 ## 3. Candidate A: Space Shuttle flight count — outcome subset not verified from the primary source (excluded)
