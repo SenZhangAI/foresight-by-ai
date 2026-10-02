@@ -159,7 +159,7 @@ Full cards, status, dependency graph, external sources, history, and uncovered d
 
 ## Chain registry
 
-Identifiers are allocated here; this table is navigation only, while chain prose and the ledger carry the facts. **Evidence maturity is not forecast accuracy and is not the result of a structural check**: `calibration support` means only that the mechanism has historical comparison material; it does not mean the future judgment has passed validation. `written but evidence remains open` means a readable chain and judgment entry exist, while evidence boundaries still need to be read card by card. `landscape only / evidence open` means the material remains a scenario or mechanism hypothesis. Each row links to the relevant evidence note or judgment cards; gaps are not hidden behind `written but evidence remains open`.
+Identifiers are allocated here; this table is navigation only, while chain prose and the ledger carry the facts. **Evidence maturity is not forecast accuracy and is not the result of a structural check**: `Calibration support` means only that the mechanism has historical comparison material; it does not mean the future judgment has passed validation. `Written but evidence remains open` means a readable chain and judgment entry exist, while evidence boundaries still need to be read card by card. `Landscape only / evidence open` means the material remains a scenario or mechanism hypothesis. Each row links to the relevant evidence note or judgment cards; gaps are not hidden behind `Written but evidence remains open`.
 
 | ID | Topic | Evidence maturity (current boundary) | Files and evidence notes |
 |---|---|---|---|
