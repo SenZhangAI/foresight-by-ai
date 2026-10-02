@@ -8,7 +8,8 @@
 - 当前分片每张 J-001–J-095 卡均链接回本清单；当前卡中的新证据、收窄或状态变化不倒填进历史值。
 - **Unknown / unverified**：历史正文没有的字段明确写未知/未验证，不从当前继任卡推回。当前卡新增的独立「受众规模」字段，仅从该卡已经存在的普及闸复核／Diffusion-gate review 中重建，并明确标注「重建」；这不把重建值伪装成历史原始字段或独立统计。
 - 历史独立受众规模字段为 0/86；历史 schema 把规模放在普及闸复核内，因此单独字段记为未知而不臆造。
-- **[self-imposed] 可删除约束**：逐字快照字段和锚点不等于语义等价；语义等价须 fresh-context reviewer 复核。
+- **[证据层级]**：本清单是历史卡迁移审计，不是 `CALIBRATION`、相对 `holdout` 或未来真实样本外结果。若读者要复核已交付的历史案例，政治案例见[政治校准证据包](politics-calibration.md)，商业案例见[商业预测校准证据包](business-forecast-calibration-2026-09.md)；两包都明确记录预测与结果的来源定位、观察窗口、指标口径和缺失项。已知结果后纳入的案例只能用于校准规则边界；没有先冻结总体、T 前材料、分配与同输入基线的一次揭晓，不得称为相对 holdout；未来真实样本外证据只在预登记判断卡到期后产生。本清单不把当前卡的结果倒填进历史快照。
+- **[Evidence level]**: this inventory is a historical-card migration audit, not `CALIBRATION`, relative `holdout`, or genuine future out-of-sample evidence. For delivered historical cases, see the [political calibration packet](politics-calibration.md) and the [commercial forecast calibration packet](business-forecast-calibration-2026-09.md); both record source locations, observation windows, metric definitions, and missing items. Cases added after outcomes were known can calibrate rule boundaries only. Without a frozen population, T-before materials, assignment, and one-shot same-input reveal, a result must not be called relative holdout; genuine future out-of-sample evidence arises only when preregistered judgment cards reach their due windows. This inventory does not back-project current-card outcomes into historical snapshots.
 
 ## Coverage summary / 覆盖摘要
 

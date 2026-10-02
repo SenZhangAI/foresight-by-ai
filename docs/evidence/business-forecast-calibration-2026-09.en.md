@@ -1,7 +1,6 @@
 # Commercial Forecast Misses: Reproducible Evidence Packet (2026-09)
 
-> **Purpose**: This file is the evidence packet for the second historical-calibration round in `docs/en/01-retrospect.md`. It uses only verbatim excerpts and stable source locations delivered with the repository. These are `CALIBRATION` cases, not out-of-sample accuracy results and not holdout cases.
->
+> **Status boundary (read first)**: Webvan and eToys were selected after their outcomes were known and are `CALIBRATION`; they are not holdout cases and do not support improved method accuracy. There is no qualified relative-holdout result here: that requires a frozen enumerable population, as-of materials, assignment, and same-input baselines followed by a one-shot reveal, none of which this packet executes. Genuine future out-of-sample evidence comes only from preregistered future judgment cards reviewed after their windows mature; this packet supplies none. Forecast dates, outcome windows, metric definitions, and source locations are case-specific below; undelivered prior versions, counterfactual series, and unreconstructable causal claims remain explicitly unknown/unverified rather than being replaced by nearby metrics.
 > **Evidence rule**: A forecast must precede the target outcome; the outcome must use the same metric or explicitly state why it is not comparable; a secondary retelling cannot replace an original filing. SHA-256 hashes of the downloaded SEC full submissions are recorded so readers can redownload and verify the excerpts.
 
 ## Case A · Webvan: revenue was directionally close, but loss scale was badly misestimated

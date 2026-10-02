@@ -1,7 +1,9 @@
 # 政治预测失准校准：可保存证据包（2026-09）
 
-> **证据等级：`CALIBRATION`，不是样本外准确率。** 本文件只用于在已知结果的历史材料上识别方法规则的失效边界；不能由它推出通用命中率，也不生成未来预测卡。
+> **状态边界（必须先读）**：本包的 P-01、P-02、P-04、P-06 是结果已知后纳入的 `CALIBRATION`；P-03、P-05 是保留在固定候选登记中的 `UNVERIFIED`，不是失败计数，也不是 holdout。当前没有合格的相对 holdout 结果：历史伪样本外协议要求先冻结总体、T 前材料、分配盐和同输入基线，再一次揭晓；本包没有执行这些步骤，因此不得写成“相对判别力提高”。未来真实样本外证据只来自未来判断卡在预登记时间窗到期后的复核，本包不提供这类证据。每个案例的预测／结果日期、观察窗口、指标口径和缺失项以逐案记录为准；无法重建的项明确保留为未知／未验证。
 >
+> **Status boundary (read first)**: P-01, P-02, P-04, and P-06 were added after their outcomes were known and are `CALIBRATION`; P-03 and P-05 remain `UNVERIFIED` rows in the fixed register, not misses and not holdout cases. This packet contains no qualified relative-holdout result: the historical pseudo-out-of-sample protocol requires a frozen population, as-of packets, assignment salt, and same-input baselines before a one-shot reveal. Those steps were not executed here, so no claim of improved relative discrimination is permitted. Genuine future out-of-sample evidence can only come from preregistered future judgment cards reviewed after their windows mature; this packet contains none. Dates, observation windows, metric definitions, and missing items remain case-specific below; unreconstructable fields stay unknown/unverified.
+
 > **本文件的四案计数由候选登记表派生。** P-01–P-06 是固定候选登记；只有状态为 `qualified` 的案例计入四案。任何候选都不得为了维持数量而删除。每个 `qualified` 案例同时提供仓库内可读取的 `prediction_artifact` 与 `outcome_artifact` 原始字节副本、身份链、来源日期、抓取日期、HTTP/文件状态、原始字节哈希和摘录定位／哈希。
 
 ## 证据包清单
