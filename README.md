@@ -161,18 +161,18 @@ flowchart LR
 
 ## 推演链登记
 
-编号只在这里分配；表格只做导航，链正文与台账承载具体事实。**“证据成熟度”不是预测准确率，也不是结构检查结果**：`已有 calibration 支持` 只表示链所依赖的机制有历史案例对照，不能当作未来判断已经通过验证；`已写成` 表示有可读正文和判断入口，但证据边界仍需逐卡检查；`仅图景／证据未闭合` 表示当前只能保留为场景或机制假设。每一行都链接到对应的证据说明或判断卡，缺口不以“已写成”掩盖。
+编号只在这里分配；表格只做导航，链正文与台账承载具体事实。**“证据成熟度”不是预测准确率，也不是结构检查结果**：`已有 calibration 支持` 只表示链所依赖的机制有历史案例对照，不能当作未来判断已经通过验证；`已写成但证据仍开放` 表示有可读正文和判断入口，但证据边界仍需逐卡检查；`仅图景／证据未闭合` 表示当前只能保留为场景或机制假设。每一行都链接到对应的证据说明或判断卡，缺口不以“已写成但证据仍开放”掩盖。
 
 | 编号 | 主题 | 证据成熟度（当前边界） | 文件与证据说明 |
 |---|---|---|---|
 | C1 | 生成变得免费之后，什么反而买不到了 | **已有 calibration 支持**：历史机制对照；未来判断未验证 | [中文](docs/zh/chains/10-generation-becomes-free.md) · [English](docs/en/chains/10-generation-becomes-free.md) · [历史校准边界](docs/zh/02-historical-validation-protocol.md) · [J-001–J-005](docs/zh/90-ledger.md) |
-| C2 | 当数据不再免费：现实信号如何变成合同资产 | **已写成**：机制与外部材料有入口，价格、跨市场和长期证据未闭合 | [中文](docs/zh/chains/20-real-signals-become-contracts.md) · [English](docs/en/chains/20-real-signals-become-contracts.md) · [J-055](docs/zh/ledger/51-60.md#j-055--高责任任务中的现实信号以合同资产形式获得溢价) |
-| C3 | 电子落地：算力的瓶颈从芯片移到电网、土地与许可 | **已写成**：有队列、许可和基础设施证据；跨市场价格与等待时间仍缺 | [中文](docs/zh/chains/30-power-land-and-permits.md) · [English](docs/en/chains/30-power-land-and-permits.md) · [J-056–J-064](docs/zh/90-ledger.md) |
+| C2 | 当数据不再免费：现实信号如何变成合同资产 | **已写成但证据仍开放**：机制与外部材料有入口，价格、跨市场和长期证据未闭合 | [中文](docs/zh/chains/20-real-signals-become-contracts.md) · [English](docs/en/chains/20-real-signals-become-contracts.md) · [J-055](docs/zh/ledger/51-60.md#j-055--高责任任务中的现实信号以合同资产形式获得溢价) |
+| C3 | 电子落地：算力的瓶颈从芯片移到电网、土地与许可 | **已写成但证据仍开放**：有队列、许可和基础设施证据；跨市场价格与等待时间仍缺 | [中文](docs/zh/chains/30-power-land-and-permits.md) · [English](docs/en/chains/30-power-land-and-permits.md) · [J-056–J-064](docs/zh/90-ledger.md) |
 | C4 | 具身智能：AI 要过普及闸，缺的是一具能承担后果的身体 | **已有 calibration 支持**：历史普及闸与案例对照；部署规模、责任和成本未验证 | [中文](docs/zh/chains/40-embodied-intelligence.md) · [English](docs/en/chains/40-embodied-intelligence.md) · [历史回顾 · 五道闸](docs/zh/01-retrospect.md) · [J-073–J-078、J-099–J-102](docs/zh/90-ledger.md) |
 | C5 | 生物与医疗：答案会先变便宜，证明与照护不会 | **已有 calibration 支持**：历史“信息扩张≠现实证明”对照；跨国部署与长期结局未闭合 | [中文](docs/zh/chains/50-biology-medicine.md) · [English](docs/en/chains/50-biology-medicine.md) · [J-079–J-082](docs/zh/90-ledger.md) |
 | C6 | 教育与技能形成：讲解会泛滥，掌握仍要留下痕迹 | **已有 calibration 支持**：印刷、函授与 MOOC 等历史对照；长期跨国证据未闭合 | [中文](docs/zh/chains/60-education-skill-formation.md) · [English](docs/en/chains/60-education-skill-formation.md) · [J-083–J-086](docs/zh/90-ledger.md) |
 | C7 | 技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果 | **已有 calibration 支持**：通用技术与组织传导的历史对照；就业与分配结果未验证 | [中文](docs/zh/chains/70-capability-to-social-consequences.md) · [English](docs/en/chains/70-capability-to-social-consequences.md) · [历史回顾](docs/zh/01-retrospect.md) · [J-087–J-091](docs/zh/90-ledger.md) |
-| C8 | 芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」 | **已写成**：上游材料、公用工程与风险机制有证据；跨企业序列与成本分摊未闭合 | [中文](docs/zh/chains/80-fab-materials-and-climate.md) · [English](docs/en/chains/80-fab-materials-and-climate.md) · [J-092–J-095](docs/zh/90-ledger.md) |
+| C8 | 芯片之前的晶圆厂：为什么气候风险咬住的是「已验证瓶颈」 | **已写成但证据仍开放**：上游材料、公用工程与风险机制有证据；跨企业序列与成本分摊未闭合 | [中文](docs/zh/chains/80-fab-materials-and-climate.md) · [English](docs/en/chains/80-fab-materials-and-climate.md) · [J-092–J-095](docs/zh/90-ledger.md) |
 | C9 | 人口老龄化与制度化照护：谁承担每天的身体与协调工作 | **已有 calibration 支持**：日本、瑞典等制度案例用于 calibration；全球分母与家庭设备证据未闭合 | [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [链文的历史先验](docs/zh/chains/90-aging-care-and-institutional-substitution.md#2-历史先验照护压力会改写载体不保证家庭动作消失) · [J-096–J-097](docs/zh/90-ledger.md) |
 | C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | **仅图景／证据未闭合**：锚定 J-035 的机制延伸，尚未证明责任抵押普遍化 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/zh/ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) · [链文证据边界](docs/zh/chains/100-trust-collateralization.md) |
 | C11 | 授权先于智能：代理、责任与人与 AI 的关系 | **已有 calibration 支持**：委托与责任制度有历史先验；跨制度事故、撤回和保险数据未闭合 | [中文](docs/zh/chains/110-authority-before-intelligence.md) · [English](docs/en/chains/110-authority-before-intelligence.md) · [链文证据边界](docs/zh/chains/110-authority-before-intelligence.md#6-证据边界与后续检查) · [J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) |
