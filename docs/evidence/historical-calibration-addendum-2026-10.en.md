@@ -65,3 +65,7 @@ The repository artifact contains this locatable excerpt:
 This record follows the boundary in the [historical pseudo-out-of-sample validation protocol](../en/02-historical-validation-protocol.md): a case selected after its outcome is known may be used for `CALIBRATION`, but may not be presented as a holdout. Upgrading evidence to a relative holdout would require a separate run that freezes an as-yet-unrevealed enumerable candidate population, T-before materials, strata and assignment, same-input baselines, scoring rules, and reveal order. This addendum does not run those steps.
 
 **Round conclusion:** the new deliverable is one reproducible calibration record and one method boundary, not an accuracy claim. Genuine future out-of-sample evidence still requires preregistered judgment cards to mature and be reviewed after their windows close.
+
+## 6. 2026-10-02 review record
+
+This narrow review recomputed the SHA-256 values for both P-04 repository artifacts and both excerpts, and confirmed that `npm run check` passes on the post-commit tree. The review confirms only that the files remain locatable and that the metric and evidence boundaries remain consistent; it does not upgrade a passing quality gate into method validation or accuracy evidence.
