@@ -351,6 +351,20 @@ The technology investigation submitted candidates involving nuclear power, Carte
 
 This is not a new forecast, and it does not change any of the five gates. It preserves the evidence gap explicitly: a technology candidate may enter `CALIBRATION` only after its pre-T original, same-metric outcome, observation window, unit, and stable location are supplied. Until then, a retrospective trend narrative must not be promoted into a forecast-miss case. See the [politics calibration packet](../evidence/politics-calibration.md) and [commercial forecast calibration packet](../evidence/business-forecast-calibration-2026-09.md).
 
+### 10.3 Evidence classes for the currently reconstructable material (2026-10)
+
+This subsection separates the latest cross-domain material from the earlier historical batch so that the older batch's counts or labels cannot silently overwrite the currently auditable boundary. Only two pairs can currently be reconstructed from the repository evidence packets: `P-04` (the FOMC forecast for 2008 real GDP) and `B-WEBVAN` (Webvan's 2000 revenue / net-loss projection). Both **must remain `CALIBRATION`**: the forecast originals and same-metric outcomes are locatable, which is enough for retrospective calibration, exposing recording gaps, and narrowing claims, but not for calculating method accuracy, a hit rate, or a Brier score.
+
+`T-SHUTTLE` remains `UNKNOWN/UNVERIFIED`. The 1972 Space Shuttle plan's target of 514 flights in 1979–1990 is a lead for further investigation, but the same-window official mission list and a pre-specified denominator rule are not closed. It must therefore not be written as a definite “514 versus 38” miss, and it must not enter the technology-pair count or any accuracy denominator.
+
+The upgrade boundaries between the three evidence classes are hard:
+
+- `CALIBRATION` may inspect known outcomes, seek counterexamples, revise rules, and narrow scope; it cannot be upgraded to `CONTAMINATED_RELATIVE_HOLDOUT` or `GENUINE_FUTURE_OOS`.
+- `CONTAMINATED_RELATIVE_HOLDOUT` requires advance freezing of an enumerable population, T-before material packets, strata and assignment, same-input baselines, scoring rules, and one-shot reveal; even when completed, it can show only relative discrimination under shared leakage, not absolute accuracy. The current material did not execute these steps.
+- `GENUINE_FUTURE_OOS` requires registering and freezing the judgment text, information cutoff, outcome definition, and observation window before the outcome is observed, then revealing and reviewing it after the future window closes. Reconstructing what would have been visible at the time cannot substitute for it; no current item belongs to this class.
+
+Accordingly, the only method boundaries supported by this material are: macro records must separate the central scenario, tail risks, and data vintage; commercial records must separate revenue, losses, deployment pace, and mechanism assumptions; technology records must separate capability, planning / mission scenarios, financing thresholds, market estimates, and probabilistic forecasts. The material supports no new future judgment, opportunity candidate, or society-wide prediction. It also supports none of the claims that “the method is validated,” “five-gate accuracy improved,” “a gate has been falsified,” or “future forecasting ability has been proved.” The current count is **two reconstructable `CALIBRATION` pairs, zero qualified technology pairs, with `T-SHUTTLE` excluded from the denominator**; this is a narrowing of evidence classification and method boundaries, not an accuracy conclusion.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is
