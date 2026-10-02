@@ -17,6 +17,23 @@
 
 Once a case has entered the calibration set, it may never enter the holdout set. Once a holdout set has been revealed, it too is permanently retired into calibration material.
 
+## 0. Evidence labels and the existing-judgment baseline
+
+This protocol uses four mutually exclusive evidence labels. A label describes the evidence's temporal order and traceability; it is not a medal for a conclusion:
+
+| Label | Determination | What it may support | What it must never be upgraded into |
+|---|---|---|---|
+| `CALIBRATION` | Historical material selected, assembled, or used to revise a rule after the outcome was known; it remains this class even when the as-of-T material can be reconstructed | Retrospective explanation, counterexamples, and recording boundaries | `CONTAMINATED_RELATIVE_HOLDOUT`, `GENUINE_FUTURE_OOS`, accuracy, or hit rate |
+| `CONTAMINATED_RELATIVE_HOLDOUT` | Rules, candidates, inputs, and scoring were frozen before reveal; gates were judged before a one-shot reveal and compared with a same-input baseline, but model memory or case fingerprints create shared leakage | Relative discrimination against the baseline under shared leakage | Uncontaminated absolute accuracy or future hit rate |
+| `GENUINE_FUTURE_OOS` | The judgment text, information cutoff, outcome definition, and observation window were frozen before the outcome was observed, and the outcome was revealed only after the window ended | A genuine out-of-sample record from a due future card | Any accuracy claim before maturity |
+| `UNKNOWN/UNVERIFIED` | At least one of the original artifact's identity or stable location, same-window outcome, metric / unit, denominator, or measurement definition cannot be closed | The gap itself and the next verification action | Any definite miss, any of the three labels above, or an accuracy denominator |
+
+A label may move upward only when its evidence conditions are met. It may not be upgraded because the narrative is fuller, the direction looks right, the file count increased, or a structure check passed. `UNKNOWN/UNVERIFIED` is not a failure finding; it must remain unknown until the gap is closed. A case assembled after its outcome was known can never become a holdout, and reconstructing what was visible at T after the fact can never become genuine future out-of-sample evidence.
+
+The public boundary established by the current round is narrow: FOMC `P-04` and Webvan `B-WEBVAN` are reconstructible `CALIBRATION` pairs in the October 2026 records; `T-SHUTTLE` remains `UNKNOWN/UNVERIFIED` because the same-window official mission list and a pre-specified denominator rule are not closed. See the [cross-domain historical calibration record](../evidence/historical-calibration-round-2026-10.en.md). These materials support tighter recording and classification discipline only; they do not support accuracy, a validated method, a falsified diffusion gate, or a new future judgment. If later evidence closes a gap, the label conditions in this section must be rechecked; the existence of a protocol or a passing structure check is not a substitute for evidence.
+
+Before a full re-review, the **existing-judgment baseline** must also be frozen so a reader can reproduce what was and was not reviewed: the complete card manifest, inclusion / exclusion rules and their generation time, the frozen commit SHA, Chinese and English paths with content hashes, card count, dependencies, and current statuses. Once frozen, cards may not be added or removed to fit the result. Any later change requires a new commit with its reason; it may not overwrite the original baseline.
+
 ## 1. Unit of analysis and the candidate pool
 
 The **unit of analysis** is `(candidate activity / institution / supply, judgment time T)`, not a famous brand or person. The same capability at a different T is a different case; all five gates must use the same T.
@@ -213,13 +230,16 @@ If a question is found to be defective midway, the whole case is void but still 
 
 ### B. Full re-review of predictions after a rule change
 
-- [ ] Freeze the **complete set** of cards to be reviewed; drawing only the cards that look suspicious is not allowed.
+**Precondition: an independent reviewer must be runnable and able to receive the de-labelled packet.** If the reviewer service is unavailable, its independent execution cannot be demonstrated, or its raw output and timestamp cannot be retained, record only “re-review not started” and the blocking reason. Do not treat the protocol text, a structure check, or local self-reading as a re-review result; do not add future judgment cards, opportunity candidates, or accuracy claims.
+
+- [ ] Freeze the **complete set** of cards to be reviewed and its bilingual baseline; drawing only suspicious-looking cards is forbidden. Record the manifest, inclusion / exclusion rules, generation time, commit SHA, hashes, and card count first.
 - [ ] Produce a de-labelled packet: delete `J-NNN`, status, confidence, the original diffusion-gate review, the `REVISED` reason, source back-references, and the dependency graph; keep the judgment itself, its necessary preconditions, the time window, and the audience definition.
 - [ ] Use the bundle's frozen commit SHA for a deterministic shuffle and renumber to `R-NN`; store the mapping separately and keep it from the re-reviewer.
-- [ ] The re-reviewer has no access to the repository; for each item, first write whether the original judgment was recognized, then judge the gates under the new rules.
+- [ ] Confirm that the independent reviewer is runnable; the re-reviewer has no repository access, judges item by item whether the original judgment was recognized first, then judges under the new rules, retaining the raw reviewer output, model / version, input hash, and run timestamp.
 - [ ] Submit the re-review results first, then unseal the `R-NN → J-NNN` mapping.
+- [ ] For each card, record one of **retain / revise / falsify / downgrade / archive**, with evidence anchors, the reason, the new status, confidence, and the corresponding Chinese and English files.
 - [ ] Register each item as consistent / inconsistent / cannot be determined; count the identification layers separately — a higher consistency rate among recognized items can only be read as leakage.
-- [ ] Every inconsistency must flow back in place: amend the card, amend the prose, downgrade, or record an explicit disagreement; writing only a side report is not allowed.
+- [ ] Every inconsistency must flow back in place: amend the card, amend the prose, downgrade, or record an explicit disagreement; writing only a side report is not allowed. If archived, preserve the original card, the archive reason, and links to the replacement card or prose.
 - [ ] If the re-review changes the rules again, return to section 10: old holdouts cannot validate the new version, and a new holdout must be drawn.
 
 ## 12. Mandatory statement about results
