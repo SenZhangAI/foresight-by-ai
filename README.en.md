@@ -35,6 +35,7 @@ This is a progressive reading path. You do not have to accept a forecast before 
 ### 1. Start with method and history: how judgments are filtered
 
 - [Retrospect](docs/en/01-retrospect.md): extracts diffusion gates from technological, political, and business history, then attacks them with successes and failures.
+- [Cross-domain historical calibration evidence slice](docs/evidence/historical-calibration-2026-10-02.en.md): inspect reconstructable forecast–outcome pairs, original locations, same-metric fields, and evidence-class boundaries case by case.
 - [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
 - [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
 - [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the isolated re-review that remains pending.
