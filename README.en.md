@@ -91,6 +91,18 @@ The [Retrospect](docs/en/01-retrospect.md) extracts five diffusion gates from te
 
 The evidence boundary comes first: historical cases can provide **calibration**—explain known outcomes, find counterexamples, and revise rules—but cannot be presented as future predictive power. The historical pseudo-out-of-sample holdout has **not yet been run**; genuine out-of-sample records can come only from future judgment cards reaching their review windows. We can currently report calibration, not pseudo-out-of-sample hit rates or future accuracy. The diffusion gate in protocol v1 was narrowed during calibration; the old v1 snapshot cannot substitute for an isolated review of v2, and that re-review remains pending. See the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) and the [ledger review log](docs/en/90-ledger.md#8-review-log).
 
+## Current field migration and evidence boundary
+
+The migration of legacy judgment-card fields into the current public ledger structure is now closed: current cards expose consistently locatable reasoning chains, time windows, falsifiers, leading indicators, confidence, audience boundaries, status, and dependencies. Original legacy wording, revision history, and migration notes remain available so readers can distinguish how a card was written from how it is presented now. A consistent field structure **does not mean that the historical method has been validated**.
+
+Three boundaries must remain separate:
+
+- **Fields migrated**: a card now has a locatable field and a bilingual entry; this only describes how information is presented.
+- **Evidence unknown or unverified**: some audience denominators, cross-system comparisons, long-run outcomes, deployment scales, and price series remain explicitly unknown, unverified, or open. Migration cannot turn an unknown into a fact.
+- **Method validation still open**: historical calibration, the retained re-review, and future due-date checks have separate conditions. Complete fields do not establish forecast accuracy or show that the method has passed validation.
+
+Read migration status, evidence boundaries, and validation status separately. For any card's actual claim, limitation, and current state, use the card text in the ledger as the authority.
+
 ## A non-AI starting point: where the current probe stands
 
 The archive does not derive every social change from AI. The **non-AI, non-L1 starting point—population ageing × smaller households** is now expanded into [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md), with testable judgments carried by [J-096–J-097](docs/en/ledger/96-102.md). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI; Japan and Sweden remain calibration and comparison material, not evidence of a global caregiver denominator or household-robot penetration rate.
@@ -167,23 +179,15 @@ Identifiers are allocated here; this table is navigation only. Chain prose and t
 
 Original text, diagrams, and foresight material in this repository are released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). You may copy, translate, adapt, and use them commercially, provided that you retain attribution, link to the license, and indicate changes. Third-party quotations, external sources, and their original materials are not automatically covered by this license; follow their respective license or source requirements.
 
-## Capability registration and the `ship:` placeholder
+## Structural checks and the public boundary
 
-The repository's source of truth for declared capabilities is the root [`package.json`](package.json) `scripts` object—not this README, `.knowledge/`, or a fornix-private configuration. The only registered entry is currently `ship:structure-placeholder`, whose command is `true`. It is a **structural placeholder** that keeps the public repository's capability shape complete; it does not mean that the content meets a quality standard, that the evidence is complete, or that the project is finished or releasable.
+The repository provides a structural check command, `python3 scripts/check.py`, to detect mechanical inconsistencies such as bilingual identifiers, internal links, and required fields. It does not judge the quality of the reasoning, the sufficiency of historical evidence, or forecast accuracy, and it does not mean that the project is complete or fit for release. Public readers should use the methodology, judgment cards, evidence boundaries, and research gaps—not a green structural check—as the basis for evaluating the archive.
 
-The consumer boundary is explicit:
-
-- **Actual consumer**: the project capability derivation layer discovers `scripts.ship:*` in `package.json` and records each as an `npm_ship` capability. Fornix's `QualityGateStatus` then reads those records, and the `ship_ready` acceptance atom can expose the project state as “declared but not yet judged,” “all enrolled keys are green,” or “at least one enrolled key is not green.” This describes the project's mechanical declaration state; it does not judge the quality of the prose.
-- **No consumer**: within this repository there is no release entry point, GitHub Actions/CI release flow, or `scripts/check.py` reader for `ship:`; no README/coverage-map projection turns it into a content-quality result. Fornix's external capability derivation, `QualityGateStatus`, and `ship_ready` are actual consumers and must not be described as absent.
-- Therefore, missing keys, `null`, `false`, `true`, and other values cannot honestly be grouped as having “no downstream effect”: a missing key is “undeclared/undecidable” to `ship_ready`, an executable `true` may produce a green `npm_ship`, and a failing command produces a non-green state; whether `null`, `false`, or a non-string value enters derivation depends on that consumer's manifest parsing rules, which this repository cannot promise beyond the evidence available. Whatever the external mechanical state, `ship:` does not aggregate `scripts/check.py`'s exit code, evidence completeness, forecast accuracy, or content quality; the coverage matrix, ledger, and evidence gaps remain visible.
-
-These boundaries are deliberate: `ship:` can affect an external project-level mechanical state, but it is not proof of this repository's content quality. This repository currently has no active release flow that upgrades that state into a release fact.
-
-`ship:` is therefore a structural signal, not a quality gate. Content judgment remains with public readers and the maintenance process.
+This entry does not promise a fixed judgment-card total: cards will grow, be revised, and sometimes be migrated as the research develops. **The current snapshot is 102 judgment cards and 11 independent reasoning chains**; this is not a permanent promise and may change with the next revision. For a current snapshot, use the [Judgment Ledger](docs/en/90-ledger.md) and its shard navigation. The full inventory, per-card status, historical calibration status, source boundaries, and gaps are maintained in the ledger and protocols rather than copied here.
 
 ## Git and maintenance discipline
 
-Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge the quality of a forecast and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log. The repository currently contains 102 judgment cards and 11 independent reasoning chains. The reproducible card-count basis is the `### J-NNN` full-card headings in the `docs/zh/ledger/` and `docs/en/ledger/` shards (each identifier exactly once per language); `python3 scripts/check.py` counts them and checks the bilingual identifier sets and README counts. The full inventory, per-card status, calibration status, source boundaries, and gaps belong in the ledger and protocol, not duplicated here.
+Run `python3 scripts/check.py` before committing. It checks mechanical invariants only; it does not judge forecast quality and is not a release gate. Keep Chinese and English synchronized in one commit, and leave evidence and status changes traceable in the commit message and ledger log.
 
 ## Coverage matrix (current boundary)
 
