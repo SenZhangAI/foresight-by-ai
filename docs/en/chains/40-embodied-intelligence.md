@@ -200,10 +200,10 @@ Task bundles change inside occupations; occupations do not vanish at once (J-099
 
 **Audit entry points (all four are inferences, not yet observed society-scale results)**:
 
-- [J-099: Embodied automation re-bundles occupational tasks](../ledger/96-100.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations) — labour task structure.
-- [J-100: Embodied care reallocates family roles](../ledger/96-100.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships) — family relationships and authority.
-- [J-101: Embodied adoption clusters where a carrying bundle exists](../ledger/96-100.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences) — regional development and carrier differences.
-- [J-102: Embodied productivity gains concentrate in complementary assets and liability carriers](../ledger/96-100.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers) — political economy and gain distribution.
+- [J-099: Embodied automation re-bundles occupational tasks](../ledger/96-102.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations) — labour task structure.
+- [J-100: Embodied care reallocates family roles](../ledger/96-102.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships) — family relationships and authority.
+- [J-101: Embodied adoption clusters where a carrying bundle exists](../ledger/96-102.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences) — regional development and carrier differences.
+- [J-102: Embodied productivity gains concentrate in complementary assets and liability carriers](../ledger/96-102.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers) — political economy and gain distribution.
 
 ### 12.1 Labour: re-bundle tasks before erasing occupations
 

@@ -29,7 +29,8 @@
 - [18. Judgment cards for the C8 upstream-materials-and-climate-coupling chain](#18-judgment-cards-for-the-c8-upstream-materials-and-climate-coupling-chain)
 - [19. Judgment cards for the C9 ageing-and-institutional-care chain](#19-judgment-cards-for-the-c9-ageing-and-institutional-care-chain)
 - [20. Judgment card for C11: Authority before intelligence](#20-judgment-card-for-c11-authority-before-intelligence)
-- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-100.md)
+- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md)
+- [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 
 ## 1. How to use this ledger
 
@@ -513,7 +514,7 @@ Gaps may be filled or explicitly downgraded later, but never silently removed.
 | 2026-09-22 | C8 bilingual delivery: upstream materials and climate coupling in chip manufacturing (J-092–J-095) | Added four cards on qualified conversion paths, site-utility bundles, climate event–exposure–transmission, and allocation of resilience cost; each registers the five-part test, audience scale, depends-on links, external comparison, and falsifier. One incident, a hazard map, or a nominal second supplier is explicitly insufficient for a society-level trend. The gap is marked covered while qualification-cycle, multi-site loss, insurance, and cost-allocation data remain explicit. | — |
 | 2026-09-22 | C8 opportunity outlet entered screening (O-005) | C8 identifies a qualification-and-failover layer for qualified conversion paths as a direction to screen; it keeps the same opportunity-durability discipline as O-001–O-004 and is not declared a formal candidate yet. | — |
 | 2026-09-21 | `REVISED` due-calibration semantics repaired (both languages) | Due sets now come from preregistered time windows, falsifiers, and review dates rather than status labels; the 60 scope-downgraded `REVISED` cards remain independently due and in the denominator, while J-004 is explicitly reviewed together with successor J-065; uncomputable preregistered checks are recorded as `INDETERMINATE` and remain in the denominator. The methodology and contribution guide now use the same two-case definition. | 4a111a0 / follow-up revision |
-| 2026-09-28 | C9 ageing and institutional care delivered bilingually (J-096–J-097) | Added a C9 chain from demography, household time, and formal care institutions to embodied-device diffusion; J-096 judges that part of care moves toward formal services and coordination, while J-097 judges that institutions and controlled services precede general-purpose robots in open homes. Both cards register audience scale, diffusion-gate review, depends-on, external comparison, falsifier, and leading indicators, and the former population-ageing/family-care gap is now partially covered. Caregiver denominators, deployment retention, household incidents, and maintenance costs remain explicit gaps. The README, bilingual ledger overview/graph/C9 card section, and 96-100 shard are synchronized; no billion-scale household-robot diffusion claim is made. | — |
+| 2026-09-28 | C9 ageing and institutional care delivered bilingually (J-096–J-097) | Added a C9 chain from demography, household time, and formal care institutions to embodied-device diffusion; J-096 judges that part of care moves toward formal services and coordination, while J-097 judges that institutions and controlled services precede general-purpose robots in open homes. Both cards register audience scale, diffusion-gate review, depends-on, external comparison, falsifier, and leading indicators, and the former population-ageing/family-care gap is now partially covered. Caregiver denominators, deployment retention, household incidents, and maintenance costs remain explicit gaps. The README, bilingual ledger overview/graph/C9 card section, and 96-102 shard are synchronized; no billion-scale household-robot diffusion claim is made. | — |
 
 ---
 
@@ -1100,22 +1101,22 @@ hand before publishing:
 
 #### J-099 · Embodied automation re-bundles occupational tasks before it eliminates occupations
 
-- **Full card**: [Open the complete J-099 card](ledger/96-100.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations)
+- **Full card**: [Open the complete J-099 card](ledger/96-102.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations)
 - **One-sentence judgment**: From 2027–2035, embodied systems are more likely to remove repetitive, hand-off-able task segments in warehousing, manufacturing, agriculture, and care, then re-bundle exception handling, relationship work, and responsibility sign-off; capability curves alone will not eliminate whole occupations at the same time.
 
 #### J-100 · Embodied care reallocates family roles before it removes care relationships
 
-- **Full card**: [Open the complete J-100 card](ledger/96-100.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships)
+- **Full card**: [Open the complete J-100 card](ledger/96-102.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships)
 - **One-sentence judgment**: From 2027–2038, if embodied care assistance stabilises, it will first shift some family members’ hands-on work toward authorisation, coordination, payment, and exception decisions rather than removing family care relationships as a whole.
 
 #### J-101 · Embodied adoption clusters where a carrying bundle exists, widening regional differences
 
-- **Full card**: [Open the complete J-101 card](ledger/96-100.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences)
+- **Full card**: [Open the complete J-101 card](ledger/96-102.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences)
 - **One-sentence judgment**: From 2028–2038, embodied systems are more likely to form dense adoption first in regions with structured space, reliable energy, maintenance networks, insurance, and predictable liability institutions; this can create regional capability and income differences without proving global polarisation.
 
 #### J-102 · Embodied productivity gains concentrate first in complementary assets and liability carriers
 
-- **Full card**: [Open the complete J-102 card](ledger/96-100.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers)
+- **Full card**: [Open the complete J-102 card](ledger/96-102.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers)
 - **One-sentence judgment**: From 2028–2038, embodied productivity gains are more likely to flow first to complementary assets and liability carriers controlling worksites, order access, finance, insurance, and maintenance, with competition, wage bargaining, and public institutions deciding whether they spread.
 
 ## 15. Judgment cards for the C5 biology-and-medicine chain
@@ -1225,12 +1226,12 @@ hand before publishing:
 
 #### J-096 · Ageing and smaller households move part of care toward formal and coordination layers
 
-- **Full card**: [Open the complete J-096 card](ledger/96-100.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)
+- **Full card**: [Open the complete J-096 card](ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)
 - **One-sentence judgment**: From 2027–2035, ageing and smaller households will move part of care from invisible family obligations toward formal services, insurance/public payment, and cross-institution coordination; this will not mean that hands-on family care exits.
 
 #### J-097 · Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag
 
-- **Full card**: [Open the complete J-097 card](ledger/96-100.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
+- **Full card**: [Open the complete J-097 card](ledger/96-102.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
 - **One-sentence judgment**: From 2027–2038, contact transfer, exception observation, and standardised care assistance are more likely to form stable routines first in institutions and controlled home-care services; general-purpose robots in open-ended homes will not constitute social-scale diffusion in this window.
 
 ## 20. Judgment card for C11: Authority before intelligence
@@ -1239,5 +1240,5 @@ hand before publishing:
 
 #### J-098 · Authority before intelligence: consequential settings form revocable tiered agency first
 
-- **Full card**: [Open the complete J-098 card](ledger/96-100.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first)
+- **Full card**: [Open the complete J-098 card](ledger/96-102.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first)
 - **One-sentence judgment**: From 2027–2035, human–AI relationships in consequential settings are more likely to stabilise first as tiered agency attached to the liability of a person, organisation, or public institution. Authorisation, revocation, logs, and appeals become visible interfaces before AI is broadly recognised as an independent liable subject.
