@@ -59,7 +59,7 @@
 
 ### 1.4 本轮历史材料实际支持的校准记录边界
 
-2026-10 历史校准轮（见[跨领域预测—结果记录](../evidence/historical-calibration-round-2026-10.md)）包含两个可重建的 `CALIBRATION` 配对（FOMC 的 P-04、Webvan 的 B-WEBVAN）和一个仍为 `UNKNOWN/UNVERIFIED` 的科技候选（T-SHUTTLE）。它支持收紧**记录与分类纪律**，不支持新增预测透镜、准确率、方法已验证或任何普及闸已被证伪的说法。
+2026-10 历史校准轮（见[跨领域预测—结果记录](../evidence/historical-calibration-round-2026-10.md)）包含两个可重建的 `CALIBRATION` 配对（FOMC 的 P-04、Webvan 的 B-WEBVAN）和一个仍为 `UNKNOWN/UNVERIFIED` 的科技候选（T-SHUTTLE）。它支持收紧**记录与分类纪律**，不支持新增预测透镜、准确率、方法已验证或任何普及闸已被证伪的说法。结构检查通过或案例数量增加，也不能把这些材料升级为预测准确率证据。
 
 因此，后续 `CALIBRATION` 记录必须逐项保留：预测日期或信息截止点、结果日期与观察窗、预测与结果的同口径指标及单位、对象分母或基期、原始材料定位、可核对摘录，以及明确的缺失／未验证项。没有同窗结果、同口径分母或可重建原件时，必须标为 `UNKNOWN/UNVERIFIED`，不得用相近指标、二手数字或记忆补成失准案例。
 
