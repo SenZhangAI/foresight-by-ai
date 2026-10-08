@@ -29,7 +29,7 @@
 
 ### 历史校准数字怎么读
 
-下列数字有意保留，因为它们的范围不同，不能互相替换：**首份跨领域 evidence slice** 是 `2` 条可重建配对 + `1` 条未知候选；`historical-calibration-round-2026-10.md` 是这同一组 `2 + 1` 的较早档案轮记录，不是第二份样本，不能与 slice 相加；**下一批 evidence batch** 是 `4` 条记录，其中 `3` 条 `CALIBRATION`（前两条是已有记录，只有 `B-ETOYS` 是新增到该批的记录）+ `1` 条未知候选。要看单个切片或批次的数字，回到[证据导航](docs/zh/01-retrospect.md#103-最新跨领域证据切片与下一批等级观察窗与口径2026-10)；要看仓库全量，以上 **6 条**才是总档案口径。
+下列数字有意保留，因为它们的范围不同，不能互相替换：**首份跨领域 evidence slice** 是 `2` 条可重建配对（`P-04`、`B-WEBVAN`）+ `1` 条未知候选（`T-SHUTTLE`）；[historical-calibration-round-2026-10.md](docs/evidence/historical-calibration-round-2026-10.md) 是这同一组 `P-04`、`B-WEBVAN`、`T-SHUTTLE` 的较早档案轮记录，不是第二份样本，不能与 slice 相加；**下一批 evidence batch** 是 `4` 条记录，其中 `3` 条 `CALIBRATION`（前两条是已有记录，只有 `B-ETOYS` 是新增到该批的记录）+ `1` 条未知候选。要看单个切片或批次的数字，回到[证据导航](docs/zh/01-retrospect.md#103-最新跨领域证据切片与下一批等级观察窗与口径2026-10)；要看仓库全量，以上 **6 条**才是总档案口径。
 
 这个实验自己也有证伪条件：**若到期复核时多数卡片的证伪条件被发现无法判定，或判断被静默改写以适配已发生的事实，那么失败的不是某一条判断，而是这套方法**——届时结论写进判断演化记录，而不是删档。该检查已预登记在[台账检查日志](docs/zh/90-ledger.md#八检查日志)，检查日 2027-03-31。
 
@@ -42,7 +42,7 @@
 ### 1. 先看方法与历史：判断是怎样被筛选出来的
 
 - [历史回顾](docs/zh/01-retrospect.md)：从科技、政治和商业史中抽取普及闸，并用成功与失败案例攻击它们。
-- [跨领域历史校准证据切片](docs/evidence/historical-calibration-2026-10-02.md)：逐案查看可重建的预测—结果配对、原始定位、同口径指标与证据等级边界。
+- [历史校准轮档案（与规范切片同一组 2+1，不重复计数）](docs/evidence/historical-calibration-round-2026-10.md)：保留较早轮次的完整叙述，案例为 `P-04`、`B-WEBVAN`、`T-SHUTTLE`，不与规范切片相加。
 - [下一批历史预测—结果证据记录](docs/evidence/historical-calibration-next-batch-2026-10-02.md)：查看批次范围；其中 4 条记录包含 3 条校准配对（前两条沿用切片记录，`B-ETOYS` 为本批新增）与 1 条未知候选。
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
