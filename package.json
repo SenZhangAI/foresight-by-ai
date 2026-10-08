@@ -1,6 +1,7 @@
 {
   "name": "foresight-by-ai",
   "private": true,
+  "description": "Public future-society sandbox knowledge repository",
   "scripts": {
     "check": "python3 scripts/check.py",
     "ship:structure-placeholder": "true"
