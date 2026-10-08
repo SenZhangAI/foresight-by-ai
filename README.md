@@ -42,6 +42,7 @@
 ### 1. 先看方法与历史：判断是怎样被筛选出来的
 
 - [历史回顾](docs/zh/01-retrospect.md)：从科技、政治和商业史中抽取普及闸，并用成功与失败案例攻击它们。
+- [跨领域历史校准证据切片（规范公开入口）](docs/evidence/historical-calibration-2026-10-02.md)：逐案查看 `P-04`、`B-WEBVAN`、`T-SHUTTLE` 的 2+1 分类、原始定位、同口径指标与证据等级边界。
 - [历史校准轮档案（与规范切片同一组 2+1，不重复计数）](docs/evidence/historical-calibration-round-2026-10.md)：保留较早轮次的完整叙述，案例为 `P-04`、`B-WEBVAN`、`T-SHUTTLE`，不与规范切片相加。
 - [下一批历史预测—结果证据记录](docs/evidence/historical-calibration-next-batch-2026-10-02.md)：查看批次范围；其中 4 条记录包含 3 条校准配对（前两条沿用切片记录，`B-ETOYS` 为本批新增）与 1 条未知候选。
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
