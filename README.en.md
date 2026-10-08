@@ -111,6 +111,8 @@ Three boundaries must remain separate:
 
 Read migration status, evidence boundaries, and validation status separately. For any card's actual claim, limitation, and current state, use the card text in the ledger as the authority.
 
+To audit how the legacy cards entered the current structure, read the [legacy ledger migration inventory (Chinese canonical source)](docs/evidence/legacy-ledger-migration.md); English readers can enter the same J-001–J-095 historical anchors through the [English projection](docs/evidence/legacy-ledger-migration.en.md). The English file is a reachable public projection, not a second fact source: where wording or boundaries differ, the Chinese inventory controls. The inventory preserves historical traceability, unknown/unverified fields, the migration scope, and the J-096 starting boundary; complete fields must not be read as method validation.
+
 ## A non-AI starting point: where the current probe stands
 
 The archive does not derive every social change from AI. The **non-AI, non-L1 starting point—population ageing × smaller households** is now expanded into [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md), with testable judgments carried by [J-096–J-097](docs/en/ledger/96-102.md). It first defines the repeat action—an adult providing hands-on or coordinated elder care weekly—then checks institutional carriers and the intersection with AI; Japan and Sweden remain calibration and comparison material, not evidence of a global caregiver denominator or household-robot penetration rate.
