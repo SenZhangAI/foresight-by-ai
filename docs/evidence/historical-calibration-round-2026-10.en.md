@@ -4,7 +4,7 @@
 >
 > **No new future judgment is added in this round.** The technology direction still has no qualified pair under the strict threshold. Retaining `unknown/unverified` is the result; similar metrics are not used to manufacture a case count.
 
-> **Count scope:** This file records one historical-calibration **round**, whose round total is 2 qualified pairs. It is not the repository-wide archive (6 pairs) and not the current methodology snapshot (the two latest records together contain 3 pairs + 1 unknown candidate).
+> **Count scope and file relationship:** This is the earlier **historical-calibration round archive**, containing **2** reconstructable pairs + **1** unknown candidate. It and the canonical public [historical-calibration evidence slice](historical-calibration-2026-10-02.en.md) are two records of the same `P-04`, `B-WEBVAN`, and `T-SHUTTLE` set, not a second sample; do not add the round to the slice. The repository-wide qualified archive is 6 pairs; the de-duplicated methodology snapshot is 3 pairs + 1 unknown candidate.
 
 ## 1. Recording rules and classifications
 
