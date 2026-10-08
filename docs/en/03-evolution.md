@@ -12,7 +12,7 @@ As of the commits linked on this page, the repository has undergone three differ
 
 1. **Rule changes**: five diffusion gates were derived from historical material, and the second calibration round narrowed Gate 5 from “does any gross friction exist?” to “what is the recurring net burden relative to the incumbent?” That changes how later judgments are assessed; it cannot turn an old result into evidence for the new rule.
 2. **Scope and status changes**: the 2026-09-20 Gate 1 review, within the 72-card corpus then in existence, narrowed the society-wide voice of 60 formerly `ACTIVE` cards to occupational or organizational scope. J-004, already `REVISED` for another reason, also received a Gate 1 field, so that historical snapshot contained 61 cards carrying a Gate 1 narrowing note. This is not the same calibration set: the 60 scope-downgraded cards continue independently into due review and the calibration denominator generated from preregistered windows; J-004 is a named-supersession case, is not counted as a separate result, and is reviewed together with J-065. The other 61-card set in ledger §5 is the scope-downgraded set, which includes J-071 but excludes J-004; the two 61s must not be conflated. J-071’s v1 snapshot remains an independent rule version in calibration; the narrowed v2 candidate does not enter holdout before the isolated re-review.
-3. **A re-review obligation**: after Gate 5 changed on 2026-09-21, the v1 card-by-card review became invalid for v2. Protocol §11.B requires a complete de-labelled, deterministically shuffled, isolated re-review. It has been **triggered but not run**; it must not be described as completed, a hit, or a falsification.
+3. **A re-review obligation**: after Gate 5 changed on 2026-09-21, the v1 card-by-card review became invalid for v2. Protocol §11.B requires a complete de-labelled, deterministically shuffled, isolated re-review. There is currently **no verifiable evidence that it has started**: the de-labelled bundle, independent reviewer raw output, input hash, and run timestamp have not been retained together as public evidence. It must therefore not be described as started, run, completed, a hit, or a falsification. This does not reject the re-review direction or imply that the method has been falsified.
 
 ## Evolution table
 
@@ -56,7 +56,7 @@ J-043’s history can be checked directly against the committed trees:
 
 This distinction matters: J-043 has had no real due-date review, so no `HIT` or `FALSIFIED` result can be recorded. Nor is there evidence for turning the external comparison or Gate 1 failure into a numerical confidence change.
 
-## The re-review already triggered by Gate 5
+## The re-review obligation after Gate 5: no verifiable evidence that it has started
 
 The 2026-09-21 narrowing of J-071 changed the Gate 5 rule. Under [Historical Pseudo-Out-of-Sample Validation Protocol §11.B](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change), the promised actions are:
 
@@ -65,7 +65,7 @@ The 2026-09-21 narrowing of J-071 changed the Gate 5 rule. Under [Historical Pse
 3. Use the frozen commit SHA for a deterministic shuffle into `R-NN`, so the reviewer cannot see the mapping;
 4. Submit the isolated review before unsealing the mapping, then flow every inconsistency back into the card and prose in place.
 
-Execution is owned by the pending isolated re-review described in [§11.B of the Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change). As of this page’s record, it has not delivered completion. The 2026-09-20 v1 review therefore remains a historical record of v1 semantics only; it cannot be cited as a result under the current v2 rule.
+Execution is owned by the isolated re-review described in [§11.B of the Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change). As of this page’s record, there is no verifiable evidence that it has started: the de-labelled bundle, independent reviewer raw output, input hash, and run timestamp have not been retained together as public evidence. We therefore cannot claim that the re-review has started, run, or completed, or cite the 2026-09-20 v1 review as a result under the current v2 rule. This does not reject the re-review direction or imply that the method has been falsified.
 
 ## Do not conflate these terms
 
