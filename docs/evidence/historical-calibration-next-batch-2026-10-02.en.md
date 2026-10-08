@@ -4,6 +4,8 @@
 >
 > **Freeze rule.** Each case must state the forecast action, decision time T, outcome window, forecast and outcome metrics, denominator/unit, original-source location, and reconstructability. A post-outcome case is `CALIBRATION`; if a field cannot be closed, the case remains `UNKNOWN/UNVERIFIED`. Similar metrics, secondary retellings, or whole-program totals cannot fill a same-window gap.
 
+> **How this count relates to other counts:** This file is a batch, not a count of new cases and not the repository-wide archive. It contains **4 records**: 3 `CALIBRATION` records (`P-04` and `B-WEBVAN` carried forward from the first slice, with only `B-ETOYS` added in this batch) + 1 `UNKNOWN/UNVERIFIED` record (`T-SHUTTLE`). The repository-wide qualified `CALIBRATION` archive remains **6 pairs**; the methodology snapshot combines this batch with the first slice as 3 reconstructable pairs + 1 unknown candidate. See the [historical-retrospect count navigation](../en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10).
+
 ## 1. Batch register
 
 | case_id | domain | forecast action and T | outcome window | comparable metric / denominator / unit | original source and location | reconstructability | class | supported boundary |

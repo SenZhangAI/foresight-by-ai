@@ -60,7 +60,15 @@
 
 ### 1.4 本轮历史材料实际支持的校准记录边界
 
-2026-10 历史材料由两份可复核记录及其证据包组成：第一份[历史校准轮](../evidence/historical-calibration-round-2026-10.md)对应跨领域切片，其中只有两条可重建配对——`P-04`（FOMC／BEA，公共政策／宏观）与 `B-WEBVAN`（SEC 文件，商业）——并把 `T-SHUTTLE`（NASA 航天计划）保留为 `UNKNOWN/UNVERIFIED`；第二份[下一批结果证据记录](../evidence/historical-calibration-next-batch-2026-10-02.md)在单独冻结的预测版本规则下追加 `B-ETOYS`（SEC 文件，商业）。因此，两份记录合计有三条可重建的、结果已知后整理的 `CALIBRATION` 配对（P-04、B-WEBVAN、B-ETOYS），以及一条结果窗口仍未闭合的科技候选（T-SHUTTLE）。
+这里必须先固定计数范围，避免把摘要、切片、批次和仓库总档案混成一个数字：
+
+- **仓库全量档案（archive total）**：当前可重建的 `CALIBRATION` 配对共 **6 条**——政治 `P-01`、`P-02`、`P-04`、`P-06`，商业 `B-WEBVAN`、`B-ETOYS`；科技合格配对为 0。这是全仓 **6/12** 的唯一口径。
+- **方法论当前摘要（method snapshot）**：2026-10 两份最新记录合计摘要 **3 条**可重建 `CALIBRATION` 配对（`P-04`、`B-WEBVAN`、`B-ETOYS`）与 **1 条** `UNKNOWN/UNVERIFIED` 科技候选（`T-SHUTTLE`）。这不是全仓总量，也不是新增 3 条。
+- **单个 evidence slice**：[首份跨领域切片](../evidence/historical-calibration-2026-10-02.md)自身只有 **2 条**可重建配对 + **1 条**未知候选。
+- **批次（batch）**：[下一批记录](../evidence/historical-calibration-next-batch-2026-10-02.md)有 **4 条记录**：其中 3 条是 `CALIBRATION`（前两条沿用切片记录，只有 `B-ETOYS` 在本批新增）+ 1 条未知候选。
+
+2026-10 历史材料由两份可复核记录及其证据包组成：第一份[历史校准轮](../evidence/historical-calibration-round-2026-10.md)对应跨领域切片，其中只有两条可重建配对——`P-04`（FOMC／BEA，公共政策／宏观）与 `B-WEBVAN`（SEC 文件，商业）——并把 `T-SHUTTLE`（NASA 航天计划）保留为 `UNKNOWN/UNVERIFIED`；第二份[下一批结果证据记录](../evidence/historical-calibration-next-batch-2026-10-02.md)在单独冻结的预测版本规则下追加 `B-ETOYS`（SEC 文件，商业）。因此，**方法论当前摘要**有三条可重建的、结果已知后整理的 `CALIBRATION` 配对，以及一条结果窗口仍未闭合的科技候选；这段摘要不能替代上面的仓库全量口径。
+
 
 这组材料只支持收紧**记录与分类纪律**，且每项收窄都有对应材料：`P-04` 的同口径 Q4/Q4 GDP 方向失准只能说明宏观中心区间可能漏掉危机转折（见[历史校准轮](../evidence/historical-calibration-round-2026-10.md) §3），不能推出宏观预测总体准确率；`B-WEBVAN` 要把收入方向、亏损规模、部署节奏和机制假设分开（见[商业预测校准证据包](../evidence/business-forecast-calibration-2026-09.md) 案例 A），不能因收入方向接近就把亏损规模写成命中；`B-ETOYS` 要按结果前的版本冻结预测，并把区间是否覆盖与偏离幅度分开记录（同证据包案例 B）；`T-SHUTTLE` 则要求把规划／经济分析情景与概率预测分开，并先闭合同窗结果与分母（见[跨领域历史校准证据切片](../evidence/historical-calibration-2026-10-02.md) §5）。这些材料不支持新增预测透镜、准确率、Brier 分数、方法已验证或任何普及闸已被证伪的说法。结构检查通过、`ship:` 占位绿灯或案例数量增加，也不能把事后案例包装成预测准确率。
 

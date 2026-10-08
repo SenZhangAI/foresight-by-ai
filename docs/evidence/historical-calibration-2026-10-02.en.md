@@ -4,6 +4,8 @@
 >
 > No cases are padded to reach a target count. Two cases have reconstructable forecast–outcome pairs; the technology case has reconstructable forecast material but its same-window outcome pair remains open, so it is explicitly retained as `UNKNOWN/UNVERIFIED`. All cases were selected or assembled on 2026-10-02; post-outcome selection limits their maximum evidence class to `CALIBRATION`.
 
+> **How this count relates to other counts:** This file is one evidence slice, not the repository-wide archive. The slice itself contains **2** reconstructable pairs (`P-04`, `B-WEBVAN`) + **1** `UNKNOWN/UNVERIFIED` candidate (`T-SHUTTLE`). The repository-wide `CALIBRATION` archive contains **6** pairs; the current methodology snapshot combines this slice with the next batch as **3** pairs + 1 unknown candidate. See the [historical-retrospect count navigation](../en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10).
+
 ## 1. Classification and recording protocol
 
 Each case records, where available: forecast owner and original material, outcome owner and original material, forecast date or information cutoff, outcome date, observation window, forecast and outcome metrics, units, population / object denominator or base, comparison rule, verbatim excerpts, repository locations, raw-byte hashes, and `unknown/unverified` gaps.

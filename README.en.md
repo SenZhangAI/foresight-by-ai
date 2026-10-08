@@ -18,11 +18,16 @@ As an experiment, what this can claim today is method and falsifiability, **not 
 
 Readers should keep three things distinct:
 
-- **Results actually run**: historical calibration has **6 qualifying cases actually delivered**—4 political, 2 business, and 0 technology. All six were selected after their outcomes were known and are `CALIBRATION`; they expose rule boundaries but are **not** pseudo-out-of-sample hit-rate evidence or future accuracy. The protocol’s minimum total is 12 cases (with at least four in each of technology, politics, and business), and that threshold has not been met.
+- **Repository-wide archive total**: the current reconstructable `CALIBRATION` archive contains **6 pairs**—politics `P-01`, `P-02`, `P-04`, and `P-06` (4), plus business `B-WEBVAN` and `B-ETOYS` (2), with 0 qualified technology pairs. This is the only number that means “the qualified calibration archive as a whole”: **6/12**. All six were selected after their outcomes were known; they are not pseudo-out-of-sample hit-rate evidence or future accuracy.
+- **Current methodology snapshot**: the methodology’s October 2026 summary covers two latest evidence records: three reconstructable `CALIBRATION` pairs (`P-04`, `B-WEBVAN`, `B-ETOYS`) and one `UNKNOWN/UNVERIFIED` technology candidate (`T-SHUTTLE`). This **3 + 1** is the scope of that snapshot, not the repository-wide total and not three new cases.
 - **Conditions not yet met**: the protocol requires at least four cases in each of technology, politics, and business, and at least twelve overall. The technology candidates remain an evidence gap because their pre-T original, same-metric outcome, and observation window could not be reconstructed together. Retrospective narrative or a URL list cannot fill that gap.
 - **Re-review not yet run**: after Gate 5 was narrowed, the v1 review cannot substitute for v2. The de-labelled, deterministically shuffled, isolated full re-review has been triggered but has not been delivered; the existence of a protocol is not evidence that the method has passed validation.
 
 What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
+
+### How to read the historical-calibration numbers
+
+The following numbers are deliberately retained because their scopes differ and they must not be substituted for one another: the **first cross-domain evidence slice** contains `2` reconstructable pairs + `1` unknown candidate; the **next evidence batch** contains `4` records, of which `3` are `CALIBRATION` (the first two are carried-forward records and only `B-ETOYS` is added in that batch) + `1` unknown candidate. Use the [evidence navigation](docs/en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10) for slice/batch scope; use the **6-pair** total above for the repository-wide archive.
 
 The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
 
@@ -36,6 +41,7 @@ This is a progressive reading path. You do not have to accept a forecast before 
 
 - [Retrospect](docs/en/01-retrospect.md): extracts diffusion gates from technological, political, and business history, then attacks them with successes and failures.
 - [Cross-domain historical calibration evidence slice](docs/evidence/historical-calibration-2026-10-02.en.md): inspect reconstructable forecast–outcome pairs, original locations, same-metric fields, and evidence-class boundaries case by case.
+- [Next historical forecast–outcome evidence batch](docs/evidence/historical-calibration-next-batch-2026-10-02.en.md): inspect batch scope; its 4 records contain 3 calibration pairs (the first two carried forward from the slice, with `B-ETOYS` added in this batch) and 1 unknown candidate.
 - [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
 - [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
 - [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the isolated re-review that remains pending.

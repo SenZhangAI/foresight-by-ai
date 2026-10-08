@@ -4,6 +4,8 @@
 >
 > **No new future judgment is added in this round.** The technology direction still has no qualified pair under the strict threshold. Retaining `unknown/unverified` is the result; similar metrics are not used to manufacture a case count.
 
+> **Count scope:** This file records one historical-calibration **round**, whose round total is 2 qualified pairs. It is not the repository-wide archive (6 pairs) and not the current methodology snapshot (the two latest records together contain 3 pairs + 1 unknown candidate).
+
 ## 1. Recording rules and classifications
 
 Each record includes the forecast date or information cutoff, outcome date and observation window, forecast and outcome metrics, units, population / object denominator or base, original-material locations, outcome-material locations, excerpts, and explicit missing fields. Classifications are:
