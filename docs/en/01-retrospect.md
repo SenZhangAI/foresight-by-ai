@@ -369,6 +369,21 @@ The upgrade boundaries between evidence classes are hard. `CALIBRATION` is mater
 
 Accordingly, the only method boundaries supported by this material are: macro records must separate the central scenario, tail risks, and data vintage; commercial records must separate revenue, losses, deployment pace, and mechanism assumptions; technology records must separate capability, planning / mission scenarios, financing thresholds, market estimates, and probabilistic forecasts. The material supports no new future judgment, opportunity candidate, or society-wide prediction. It also supports none of the claims that “the method is validated,” “five-gate accuracy improved,” “a gate has been falsified,” or “future forecasting ability has been proved.” The current count is **two reconstructable `CALIBRATION` pairs, zero qualified technology pairs, with `T-SHUTTLE` excluded from the denominator**; this is a narrowing of evidence classification and method boundaries, not an accuracy conclusion.
 
+### 10.4 Current evidence status and isolated re-review status (2026-10-08)
+
+To stop readers from confusing “the repository contains historical material” with “the method has been validated,” the current status must be explicit:
+
+| Status | What the current material supports | What the current material does not support |
+|---|---|---|
+| `CALIBRATION` | Only `P-04` and `B-WEBVAN` have both a locatable forecast original and a same-metric outcome; they can be used for retrospective calibration, exposing recording gaps, and narrowing rule wording | Method accuracy, hit rate, Brier score, or the overall validity of the five gates |
+| `UNKNOWN/UNVERIFIED` | `T-SHUTTLE` remains an investigation lead, with its missing same-window outcome and denominator stated explicitly | Writing “514 versus 38” as a definite miss, or putting it into the technology-pair count or any accuracy denominator |
+| Relative testing under shared leakage | `CONTAMINATED_RELATIVE_HOLDOUT` exists only after the protocol's freeze, same-input baseline, role isolation, one-shot reveal, and `ΔD` calculation are all complete | Existing calibration, the protocol text, structure checks, or local self-reading cannot stand in for a relative discrimination increment, still less for genuine out-of-sample accuracy |
+| `GENUINE_FUTURE_OOS` | Only a judgment frozen before its outcome, with its information cutoff, outcome definition, and observation window, then reviewed after the window closes, qualifies as genuine future out-of-sample calibration; no current item belongs to this class | Reconstructing what would have been visible at T cannot substitute for a genuine future out-of-sample record |
+
+**The independent isolated re-review is not complete and has not started.** As of this section's date, the fresh-context reviewer service is unavailable, and no verifiable de-labelled, renumbered, deterministically shuffled bundle has been generated. We therefore cannot claim that the old judgments have been re-judged under the narrowed rules, and cannot treat the 2026-09-20 v1 review as a current-rule result; the required preconditions are specified in [Section 11.B of the Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md#b-full-re-review-of-predictions-after-a-rule-change). This is not a forecast and not a judgment about whether the method succeeds: it is the fact that the validation work has not occurred.
+
+Finally, mechanical checks and method evidence are separate. Passing `npm_check` (`npm run check`) means only that the files, links, and repository structure passed that check; passing `ship:structure-placeholder` means only that the release-structure placeholder is present. Neither implies forecast accuracy, method validity, genuine future out-of-sample performance, or completion of this project's mission.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is
