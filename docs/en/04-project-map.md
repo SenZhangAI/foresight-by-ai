@@ -19,7 +19,7 @@ This is a public, bilingual knowledge repository for a future-society sandbox. I
 
 ## Current capability declaration
 
-The current `package.json` declares only one `scripts.ship:*` entry: `ship:structure-placeholder`, whose command is `true`. It is a **structural placeholder** that keeps the public repository's capability-registration shape complete; it is not a gate for content quality, evidence completeness, forecast accuracy, or project completion.
+The current `package.json` declares only one `scripts.ship:*` entry: `ship:structure-placeholder`, whose command is `true`. The key must remain in the manifest for the project's quality gate to enumerate it as `npm_ship`; it is a **structural placeholder** that keeps the public repository's capability-registration shape complete, not a gate for content quality, evidence completeness, forecast accuracy, or project completion.
 
 Read its boundaries separately:
 

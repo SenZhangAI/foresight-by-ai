@@ -19,7 +19,7 @@
 
 ## 当前能力声明
 
-当前 `package.json` 只声明一个 `scripts.ship:*` 项：`ship:structure-placeholder`，命令为 `true`。它是为了保持公开仓库能力注册形状完整的**结构占位**，不是内容质量、证据完整度、预测准确率或项目完成度的闸门。
+当前 `package.json` 只声明一个 `scripts.ship:*` 项：`ship:structure-placeholder`，命令为 `true`。该键必须保留在 manifest 中，才能被项目质量门枚举为 `npm_ship`；它是为了保持公开仓库能力注册形状完整的**结构占位**，不是内容质量、证据完整度、预测准确率或项目完成度的闸门。
 
 它的边界必须分开阅读：
 
