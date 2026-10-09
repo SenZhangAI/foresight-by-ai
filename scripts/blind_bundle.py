@@ -130,12 +130,29 @@ BARE_FILE_RE = re.compile(
 # negative case it owns through.
 CHECK_NAMES = ("identifier", "status", "gate", "metadata", "dependency", "path",
                "link", "title", "code",
-               "lang_semantic", "lang_path", "lang_count",
+               "lang_semantic", "lang_path", "lang_count", "lang_claim_scar",
                "index_order", "cross_language", "mapping_reachability")
 
-# Test-only fault injection. These defects cannot be produced by any valid
-# frozen manifest — they would be generator bugs — so the only way to show the
-# guards that catch them have teeth is to inject them. Never exposed on the CLI.
+# A DELETION SCAR: what a removal leaves behind when it cut text out of the
+# MIDDLE of a sentence instead of emptying the field. Two adjacent separators
+# with nothing but space between them, or a field that now opens on a
+# separator. This is the only observable difference between "the claim survived
+# de-labelling" and "half the claim survived" — `lang_semantic` asks whether
+# readable content remains and is structurally blind to the second case.
+# Measured on the real ledger 2026-10-09: the class has exactly one historical
+# member (`J-017`, whose heading title is a PREFIX of its own judgment, so the
+# round-1 blanket deletion left `2027-2033 年,,但不会…`). The own-title
+# exemption now covers that shape; what this branch still guards is the case
+# the exemption deliberately does NOT cover — ANOTHER card's title embedded
+# mid-claim, which redaction removes and the `title` branch therefore can no
+# longer see.
+CLAIM_SCAR_RE = re.compile(
+    r"[，,、；;：:]\s*[，,、；;：:。.]"      # two separators in a row
+    r"|^\s*[，,、；;：:。.]"                # the field now opens on a separator
+    r"|[（(【\[]\s*[）)】\]]",              # an emptied bracket pair
+    re.M)
+
+
 TEST_FAULTS = ("reordered", "dropped", "unpair_card_set", "drop_claim_exemption")
 
 
@@ -496,6 +513,32 @@ def enforce_language_fields(public: List[Dict[str, Any]], language: str,
                      "de-labelling" % (record["id"], language, key))
 
 
+def enforce_claim_scar(public: List[Dict[str, Any]], language: str,
+                       disabled: Set[str]) -> None:
+    """Refuse a required field that survived de-labelling only in part.
+
+    `enforce_language_fields` asks "is there readable content left"; a claim cut
+    in half answers yes. This branch asks the complementary question and is the
+    only one that can: by the time a mid-sentence removal has happened, the text
+    that was removed is gone, so no scan for PRESENT text can report it. What is
+    left behind is the scar.
+    """
+    if "lang_claim_scar" in disabled:
+        return
+    for record in public:
+        fields = record[language]
+        for key in REQUIRED_KEYS:
+            value = fields.get(key, "")
+            scar = CLAIM_SCAR_RE.search(value)
+            if scar:
+                fail("%s (%s): field %r reads as a partially deleted claim — "
+                     "de-labelling cut text out of the middle and left %r. A "
+                     "half claim must not be shipped as a claim; either the "
+                     "removed span is this card's own title (covered by the "
+                     "claim exemption) or the card's source text must be fixed."
+                     % (record["id"], language, key, scar.group(0)))
+
+
 def enforce_language_paths(public: List[Dict[str, Any]], language: str,
                            disabled: Set[str]) -> None:
     """Path / anchor check for ONE language projection, judged on its own."""
@@ -731,6 +774,7 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
     enforce_index_order(public, seed, disabled)
     for language in LANGUAGES:
         enforce_language_fields(public, language, disabled)
+        enforce_claim_scar(public, language, disabled)
         enforce_language_paths(public, language, disabled)
         enforce_language_count(public, language, len(manifest["cards"]), disabled)
     enforce_cross_language(public, card_ids, disabled)
@@ -1001,6 +1045,16 @@ STRUCTURAL_INJECTIONS: Tuple[Tuple[str, str, Tuple[Tuple[str, str, str], ...],
     ("foreign_title_in_claim", "title",
      (("zh1", "测试材料中的判断必须保持可读而不暴露来源。", "第二张固定装置卡的原始标题"),),
      False, "original card title", None),
+    # The SAME foreign title, embedded mid-claim, with redaction ON — the shape
+    # the branch above cannot report. Redaction deletes the title, so by scan
+    # time there is no clue to find; what remains is half a sentence with the
+    # removal's scar in it, and `lang_semantic` accepts it because readable
+    # content is still present. This is the live residual of the defect that
+    # voided `J-017`'s round-1 claim.
+    ("foreign_title_cut_out_of_claim", "lang_claim_scar",
+     (("zh1", "测试材料中的判断必须保持可读而不暴露来源。",
+       "测试材料中的判断必须保持可读，第二张固定装置卡的原始标题，而不暴露来源。"),),
+     True, "partially deleted claim", "(en)"),
 )
 
 # Generator-internal invariants no valid frozen manifest can violate, so the
