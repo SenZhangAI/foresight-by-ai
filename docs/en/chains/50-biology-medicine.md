@@ -29,7 +29,7 @@ Printing made medical knowledge easier to copy without replacing clinical trials
 ```mermaid
 flowchart TD
   SCENE["At 3 a.m. twenty explanations, a twenty-first is not what is needed"] --> CHAIN["Restore medicine's full production chain: seven steps from hypothesis to responsibility"]
-  CHAIN --> ASYM["Models lower step one, the other six stay constrained by bodies, time, law"]
+  CHAIN --> ASYM["Models mainly lower step one and parts of documentation, retrieval and classification, the other six stay constrained by bodies, time, law"]
   ASYM --> BOTTLE["Information expansion pushes the bottleneck toward causal proof and real execution"]
   BOTTLE --> GATE{"Opportunity-durability gate: can the same force automate the new scarcity"}
   GATE -->|"It lowers design, analysis, and ranking costs"| ABSORB["Absorbed: trial design, analysis, prioritization, scheduling, standard questions"]

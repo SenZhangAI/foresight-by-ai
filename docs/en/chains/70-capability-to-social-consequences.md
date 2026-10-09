@@ -118,9 +118,10 @@ flowchart TD
   HIST["History: general-purpose technology enters existing organizations first, complementary-asset redesign lags"] --> CONF
   TECH["Technology: order of cheap generation, tool use, long-task reliability, open-world evaluation"] --> CONF
   INST["Society and institutions: who authorizes, bears liability, audits, owns data and channels"] --> CONF
-  CONF --> GATE["Five diffusion gates: organizational carriers, substitution, multi-party coordination, recurring cost"]
+  CONF --> GATE["Diffusion gates: organizational carriers, substitution, multi-party coordination, recurring cost"]
   GATE -->|"any gate fails"| STALL["Blocked or redirected: stays a demonstration, or diffuses then is restricted"]
-  GATE -->|"all gates pass"| SEG["Capability sequence rewrites division of labour, employment, institutions, capital, and demand"]
+  CONF -->|"any one force missing"| STALL
+  GATE -->|"these gates all pass"| SEG["Capability sequence rewrites division of labour, employment, institutions, capital, and demand"]
   SEG --> U1["J-087 Human-machine supervisory units before staffless organizations"]
   SEG --> U2["J-088 Junior production seats shrink first, apprenticeship carriers become the bottleneck"]
   SEG --> U3["J-089 Permission, audit, and appeal control planes before broad autonomous authority"]
@@ -128,6 +129,8 @@ flowchart TD
   SEG --> U5["J-091 Demand expansion and task savings together, net employment not set by capability curve"]
   SEG --> FB["Adoption results and accidents feed back into permission, diffusion gates, and demand"]
   FB --> GATE
+  FB --> U3
+  FB --> SUPPLY
 ```
 
 > **How to read this diagram**: boxes are reasoning steps and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the surrounding sections and in the ledger cards.

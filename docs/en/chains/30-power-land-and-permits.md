@@ -21,10 +21,10 @@ At that moment the object being priced quietly changes. **The buyer is no longer
 
 ```mermaid
 flowchart TD
-  SERVE["From C1 and the technology sequence: electrons must become computation"] --> CHIP["Chips and systems: mass-produced, portable, elasticity rises with investment"]
+  SERVE["From C1 and the technology sequence: turning model capability into a real service needs electrons to become computation"] --> CHIP["Chips and systems: mass-produced, portable, elasticity rises with investment"]
   SERVE --> SLOW["Power delivery, permits and land: set by manufacturing, construction and administrative cycles"]
   CHIP -->|"with enough capital only this curve steepens"| BIND["J-056 binding constraint moves to power delivery and interconnection permits"]
-  SLOW -->|"cannot be accelerated by more orders, decoupled from technical progress"| BIND
+  SLOW -->|"cannot be meaningfully accelerated by more orders, and the permitting curve alone is decoupled from technical progress"| BIND
   BIND --> CERT["J-057 what is priced is certainty of the delivery date, not energy"]
   CERT --> GEOG["J-063 geography of compute follows queues and permitting speed, not electricity price"]
   BIND --> SPLIT["J-058 load splits: the schedulable half becomes a grid flexibility resource"]

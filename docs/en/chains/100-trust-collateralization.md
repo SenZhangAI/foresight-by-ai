@@ -30,10 +30,12 @@ flowchart TD
   COST --> B1["Buyers shift toward longitudinal fulfillment, field records, and auditable evidence"]
   COST --> B2["J-035 consequential transactions require an accountable party and loss sharing"]
   COST --> B3["Some settings introduce insurance, reserves, escrow, or collateral"]
+  COST --> B4["Action authorization: agents cross a boundary only when authorization, audit, and risk coverage conditions are met"]
   B1 --> COLL["One local dimension of trust is collateralized: contractualized, priced, attributable"]
   B2 --> COLL
   B3 --> COLL
-  COLL --> NOTCOLL["Harder to collateralize: goodwill, shared experience, reputation repair, bodily harm"]
+  B4 --> COLL
+  COLL --> NOTCOLL["Harder to collateralize: goodwill in intimate relationships, shared experience, reputation repair, bodily harm"]
   COLL --> BOUND["Boundary: a trust interface for consequential transactions, not total social trust"]
   NOTCOLL --> BOUND
   BOUND --> SCOPE["J-035 fails the society-scale diffusion gate: ten-million-scale audience, not yet universal"]

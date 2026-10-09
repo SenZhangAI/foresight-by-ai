@@ -22,7 +22,7 @@ That distinction is the spine of this chain: **a substitute exists economically 
 
 ```mermaid
 flowchart TD
-  DEM["J-056 extends C3: compute demand grows and output must expand"] --> MAT["Critical mineral is too coarse a unit: gallium is a by-product, qualification slower than transport"]
+  DEM["J-056 extends C3: compute investment expands and semiconductor output must expand"] --> MAT["Critical mineral is too coarse a unit: gallium is a by-product, qualification can be slower than transport and inventory release"]
   DEM --> TOOL["Equipment concentration differs: a second tool needs aligned recipes and customer qualification"]
   DEM --> SITE["Fab site is a bundle: firm power, ultrapure water, gases, logistics"]
   MAT --> BIND["The binding constraint is the qualified conversion path, not geological stock"]

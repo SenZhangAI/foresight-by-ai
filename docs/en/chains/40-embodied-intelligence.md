@@ -54,14 +54,14 @@ flowchart TD
   GATE1["Retrospect Gate 1: the audience ceiling is set by headcount and frequency"] --> ASK
   ASK --> POP["Population arithmetic: people whose work surface is a screen are a minority"]
   POP --> CEIL["J-073 information only, Gate 1 holds the ceiling at that minority"]
-  CEIL --> DENOM["Changing the denominator: move mass, stay on site, touch a body"]
+  CEIL --> DENOM["Exactly one way to change the denominator: move mass, stay on site, touch a body"]
   DENOM --> GATES["Gate 1 released, none of the other four gates opens by itself"]
   DENOM --> FAST["Perception and policy fall along the software curve, a fast variable"]
   DENOM --> SLOW["Actuators, deployment, liability ride industrial and institutional curves, slow variables"]
   FAST --> BIND["Binding constraint moves to cost per task, priced liability, scene fragmentation"]
   SLOW --> BIND
   GATES --> BIND
-  BIND --> SCENES["Five squares tested: care, warehousing, manufacturing, agriculture, construction, domestic work"]
+  BIND --> SCENES["Five squares tested: care, warehousing, manufacturing, agriculture, construction and domestic work"]
   SCENES --> KEYS["Sort keys: is the environment structured, the object cooperative, failure reversible"]
   KEYS --> ST1["Stage one: structured, high-frequency, semi-cooperative object, 2026-2030"]
   KEYS --> ST2["Stage two: unstructured but the environment can be modified, 2028-2034"]

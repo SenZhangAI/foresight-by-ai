@@ -44,7 +44,7 @@ flowchart TD
   RESID --> J085
   J083 --> J086["J-086 landscape only: explanation gap narrows, verification gap may widen"]
   J084 --> J086
-  J083 --> GATES["Five diffusion gates: all four fail Gate 1, institutional judgments"]
+  J083 --> GATES["Five diffusion gates: all four fail Gate 1, learning-context or institutional judgments"]
   J084 --> GATES
   J085 --> GATES
   J086 --> GATES
