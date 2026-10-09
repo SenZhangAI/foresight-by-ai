@@ -5,6 +5,8 @@
 > **Where this chain sits**: This is the starting point for the entire analysis. Every more distant judgment has to step forward from here.
 > **In one sentence**: When the cost of “making something” approaches zero, value migrates wholesale to “before it is made” and “after it is made”—to **who you are, what you want, and whether you dare to take responsibility for the result**.
 
+> **Boundary note**: every judgment this chain cites — J-001, J-002, J-003, J-004 (status `REVISED`), J-005, J-017, J-035, J-065, J-072 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence. This note covers the whole file once: the identical “Scope tag · Gate 1” block that was repeated in every section before 2026-10-09 has been consolidated here, with no change to any judgment or conclusion — each card’s audience magnitude and gate reasoning have always lived only in its ledger card, and both this note and the former per-section tags are signposts to it.
+
 ---
 
 ## I. A Glimpse of an Afternoon in 2029
@@ -50,7 +52,9 @@ Generation (code/images/video/copy/proposals) becomes extremely abundant
 - **L6 Irreversibility**: Used to split “which domains are completely rewritten by cheap generation and which barely change.” This dividing line is more useful than industry categories.
 - **L8 Human constants**: Used for a reverse check in the sixth loop—if a conclusion requires human nature to change, it is probably wrong.
 
-L3 (organizational forms), L4 (diffusion lag), L5 (signal forgery), and L7 (rent windows) are not used; each will carry its own weight in a later chain.
+**Lenses not used**: L3 (cost structure), L4 (diffusion lag), L5 (signals and forgery), L7 (institutional lag), L9 (relational asymmetry). Why: this chain reasons only about *where value migrates*. It does not reason about adoption speed or time windows (L4), organizational boundaries and outsourcing (L3), where screening moves once a credential becomes cheap to forge (L5), or the rent window that opens before institutions arrive and closes after (L7) — those four carry their own weight in [C2](20-real-signals-become-contracts.md), [C3](30-power-land-and-permits.md), and [C10](100-trust-collateralization.md). L9 is absent too: section VII (“connections multiply, strong ties do not follow”) rests on L8’s sub-regularity (cognitive limits on the number of strong ties), and the asymmetric human–AI relationship is carried by [C11](110-authority-before-intelligence.md).
+
+Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), this chain’s base is **supply and demand** (L1 verbatim, L2 as an extension) + **human nature** (L8) + **the second half of the technology clause** (L6). It touches neither the historical-regularity nor the social-regularity clause — that is this chain’s own entry-point skew, and a reader may use it to judge the chain out of bounds.
 
 ---
 
@@ -69,9 +73,6 @@ More importantly, cost declines have **three mutually independent channels**:
 The independence of the three means **none of them has to work miracles**. As long as all three do not stall at once, total cost will keep falling. This is the real reason for the high confidence in this judgment—it is not betting on a technological breakthrough, but on three independent random events not failing simultaneously.
 
 > See [judgment ledger J-001](../ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling).
-
-> **Scope tag · Gate 1**: The cited J-001 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
 
 ---
 
@@ -94,9 +95,6 @@ Anything formalizable can be automatically checked by the same force; and genera
 
 > See [judgment ledger J-002](../ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window).
 
-> **Scope tag · Gate 1**: The cited J-002 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
-
 ### But one residue cannot be absorbed
 
 Models can judge “this is high quality,” but **cannot judge “this is what you want.”**
@@ -112,9 +110,6 @@ The only hard constraint here is **ownership / private property**: the critical 
 So what is scarce is not “the ability to select,” but **the input selection requires**: structured, machine-usable preferences and context about you (as an individual or organization).
 
 > See [judgment ledger J-003](../ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form).
-
-> **Scope tag · Gate 1**: The cited J-003 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
 
 ---
 
@@ -141,9 +136,6 @@ What genuinely cannot be copied is the other half: the **right to reverse across
 
 > See [judgment ledger J-065](../ledger/61-70.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse). The original judgment, [J-004](../ledger/01-10.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible), is kept in the ledger rather than deleted, with status now `REVISED`—keeping it is what makes it visible how this step was turned back by the project’s own opportunity-durability gate.
 
-> **Scope tag · Gate 1**: The cited J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
-
 ---
 
 ## VI. Fourth Loop: Pull the Camera Back—What Did Not Become Abundant?
@@ -157,9 +149,6 @@ The essence of generation is **recombination of existing patterns**. Therefore, 
 3. **Validated causality**—correlations can be generated without limit; causality can only be obtained through **intervention** (conducting experiments, changing reality, and observing the result). Hard constraint: physics + time.
 
 > See [judgment ledger J-005](../ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality).
-
-> **Scope tag · Gate 1**: The cited J-005 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
 
 ---
 
@@ -175,8 +164,6 @@ One thing explicitly **not** recommended as a structural opportunity:
 
 - ❌ **Generic “AI output quality assurance / selection” tools**—[J-002](../ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) judges this to be a 2–4 year window that will be internalized by model vendors. It can capture the window, but do not invest in it as a long-term moat.
 
-> **Scope tag · Gate 1**: The cited J-002, J-003, J-005, J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
 ### Structural consequence (Exit B): connection will multiply faster than strong relationships
 
 AI will first drive down the **coordination cost of weak ties**: introductions, translation, scheduling, shared context, and compressing an argument into three sentences can all be mediated. A person can therefore keep in touch with more people. But the bottleneck for strong relationships is not sending information; it is shared experience, mutual responsibility, repair after conflict, and finite attention. Lower communication cost expands weak-tie networks without automatically expanding the number of relationships in which a person can remain present over time.
@@ -184,8 +171,6 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 > See [judgment ledger J-017](../ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships).
 
 **Who should change what behavior**: people and organizations should separate coordination from commitment. Delegate compressible context synchronization to AI, but keep decisions with shared consequences, conflict repair, and important rituals as human presence; otherwise organizations will gain more connections while mistaking connection count for trust.
-
-> **Scope tag · Gate 1**: The cited J-017 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
 ---
 
@@ -203,8 +188,6 @@ AI will first drive down the **coordination cost of weak ties**: introductions, 
 If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001](../ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) fails, the premise of “extremely abundant generation” itself does not hold, and everything afterward is void. I judge this probability to be low (because the three decline channels are mutually independent), but it is the only mechanism capable of overturning the entire chain in one stroke.
 **Signal that would make me withdraw it**: The falsification condition for [J-001](../ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) is triggered.
 
-> **Scope tag · Gate 1**: The cited J-001, J-003, J-065 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
-
 ---
 
 ## IX. What This Chain Grows Into
@@ -213,5 +196,3 @@ If energy, supply chains, or regulation impose a hard ceiling on compute, [J-001
 - From [J-002](../ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) + [J-005](../ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) (accountable commitments become the filter) → follows the long-term **collateralization of trust**: when “speaking well” is no longer a capability signal, society returns to older, more expensive credentials—guarantees, collateral, long-term relationships, and identity. That direction has not yet been written as a chain of its own; for now it sits in [section 5 of the far-term landscape](../30-far.md#5-power-and-institutions-more-answers-do-not-mean-dispersed-action-rights) and in [J-035](../ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output), mostly as “scenario only.” It also **holds no chain identifier**: this chain tail once announced it as “C3,” while the file written as C3 is the power-and-permits chain; identifier ownership is recorded in the [chain registry](../../../README.en.md#chain-registry).
 
 > C2 and C3 are both written as testable successor chains: [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](20-real-signals-become-contracts.md) continues along the raw-signal line, while [C3 · Electrons on the Ground: The Bottleneck Moves from Chips to Grids, Land, and Permits](30-power-land-and-permits.md) takes apart the premise this chain has quietly assumed throughout—that compute can be had as long as you are willing to pay for it. Every chain's identifier, topic, and status is listed in the [chain registry](../../../README.en.md#chain-registry).
-
-> **Scope tag · Gate 1**: The cited J-002, J-005, J-035 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.

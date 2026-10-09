@@ -4,6 +4,8 @@
 
 > **In one sentence**: AI will first make “what might this be, and what could we try?” nearly limitless; medicine will still be short of evidence, authorization, and care capacity that can responsibly turn a candidate into an intervention on a particular body.
 
+> **Boundary note**: every judgment this chain cites — J-079–J-082 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
 ## 1. At 3 a.m., the screen offers twenty explanations
 
 The emergency physician does not need a twenty-first explanation. She needs to know which explanation changes this person's treatment; who can detect, stop, and bear the consequence of an error; and whether a bed, test, drug, and nurse are actually available.
@@ -11,6 +13,16 @@ The emergency physician does not need a twenty-first explanation. She needs to k
 This is not a denial of AI capability. It restores medicine's full production chain: **generate hypotheses → measure bodies → validate prospectively → obtain authorization → intervene → observe outcomes → bear responsibility**. Models mainly lower the cost of the first step and parts of documentation, retrieval, and classification. The other six remain constrained by bodies, time, ethics, law, and organizational capacity.
 
 Printing made medical knowledge easier to copy without replacing clinical trials. Imaging made observation finer without automatically assigning diagnostic responsibility. Computational screening enlarged the molecule space without settling human toxicity or long-term efficacy on a screen. The repeated historical pattern is not that information is useless, but that **information expansion pushes the bottleneck toward causal proof and real execution**.
+
+**Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
+
+- **L1 Abundance → scarcity**: candidate explanations and candidate molecules become abundant, so the complementary prospective validation that does not grow with them appreciates.
+- **L2 Constraint migration**: the bottleneck jumps from “we cannot think of a hypothesis” to causal proof, authorization, and real-world execution.
+- **L4 Diffusion lag**: low-liability workflows become routine before autonomous diagnosis, governed by procurement, licensing, and training cycles rather than model capability.
+- **L6 Irreversibility**: in human trials and clinical action the cost of an error is bodily harm and legal liability, not one more generation.
+- **L7 Institutional lag**: practice authorization, accepted endpoints, and compensation rules decide when “can do” becomes “is permitted to do.”
+
+**Lenses not used**: L3 (cost structure), L5 (signals and forgery), L8 (human nature and demand), L9 (relational asymmetry). Why: this chain does not reason about the organizational boundaries or outsourcing of care providers (L3), nor about where screening moves once a medical credential becomes cheap to forge (L5 — carried by [C2](20-real-signals-become-contracts.md) and [C10](100-trust-collateralization.md)). L8 appears only inside one opposing case (“underserved regions may accept a worse but immediately available system”) as demand-side availability, and is never made a reasoning step. The asymmetry of the clinician–patient relationship (L9) is carried by [C11](110-authority-before-intelligence.md). Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **supply and demand** (L1, L2 as an extension) + **historical regularity** (L4, L7) + **the second half of the technology clause** (L6), with no human-nature or social-regularity clause.
 
 ## 2. Can the same force automate the new scarcity?
 

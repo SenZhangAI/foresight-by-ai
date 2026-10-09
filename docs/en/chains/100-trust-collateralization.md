@@ -5,6 +5,8 @@
 > **Where this chain sits**: It continues from C1's “generated expression becomes cheap” and C2's “real-world signals enter contracts.” It does not upgrade J-035's occupational/organizational judgment into a society-wide inevitability.
 > **In one sentence**: As language, plans, and identity narratives become cheap to generate, consequential transactions may rely more on verifiable fulfillment, solvency, and pre-agreed loss sharing; this may collateralize part of trust, but responsibility collateral has not yet formed universally.
 
+> **Boundary note**: every judgment this chain cites — J-035 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
 ---
 
 ## I. The night before a consequential procurement decision
@@ -40,7 +42,14 @@ One-off “sounding capable” becomes harder to distinguish from real ability
                                       and non-monetary commitments do not follow automatically
 ```
 
-This chain uses **C1's constraint migration** and **C2's contracting of real-world signals**: generation is not fulfillment, explanation is not causality, and a commitment becomes a transaction input only when it can be audited, enforced, or tested over time. It does not treat “abundance → scarcity” as a universal explanation, nor claim that collateral replaces relational trust.
+**Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
+
+- **L5 Signals and forgery**: the core step — once the cost of a one-off performance that merely *sounds* competent collapses, screening moves to guarantees, collateral, long relationships, and attributable identity.
+- **L2 Constraint migration** (written above as “C1's constraint migration”): the bottleneck jumps from “can you convince me?” to “who pays if this is wrong, and which reserve actually absorbs it?”
+- **L6 Irreversibility**: in high-consequence transactions the cost of an error is real-world loss and legal liability, not rewriting a report.
+- **L8 Human nature and demand**: its “paying for certainty” and “attribution of responsibility” elements — the buyer purchases recourse, not a better demo.
+
+**Lenses not used**: L1 (abundance → scarcity), L3 (cost structure), L4 (diffusion lag), L7 (institutional lag), L9 (relational asymmetry). Why: this chain explicitly declines to treat “abundance → scarcity” as a universal explanation (L1 enters only as an input from [C1](10-generation-becomes-free.md); no second flip is run inside the chain); it does not rearrange procuring organizations’ boundaries (L3); it writes no adoption time window for collateralization (L4 — a gap registered here); when insurance and compensation institutions land (L7) is carried by [C11](110-authority-before-intelligence.md); and relational asymmetry (L9) is explicitly out of scope — nor does it claim that collateral replaces relational trust. Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **social regularity** (L5, almost an expansion of the clause) + **an extension of supply and demand** (L2) + **the second half of the technology clause** (L6) + **human nature** (L8), with no historical-regularity clause — which means this chain carries no historical-case calibration at all, and its confidence ceiling therefore stops at medium.
 
 ---
 

@@ -4,6 +4,8 @@
 
 > **One-sentence judgment**: Technical capability does not rewrite society directly. It first lowers the cost of a task, then passes through workflows, liability, authority, and scarce complementary assets. Only when those intermediaries move does capability sequence rewrite the division of labour, employment, institutions, capital, and demand.
 
+> **Boundary note**: every judgment this chain cites — J-087–J-091 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
 ---
 
 ## 1. 9 a.m. in 2030: the model can do the work, but the organization still cannot hand it over
@@ -20,13 +22,15 @@ The [Technology Capability Sequence](../05-tech-sequence.md) answers “what arr
 
 ## 2. Not a single-cause technology chain, but a confluence of five forces
 
-This chain does not use the formula “the model gets stronger, therefore society must do X.” Every step checks five sources at once:
+This chain does not use the formula “the model gets stronger, therefore society must do X.” Every step checks all five legitimate starting points listed in [Methodology §1](../00-method.md) at once, and names in the code vocabulary of [Methodology §2](../00-method.md#2-toolbox-of-lenses) which lens carries each:
 
-1. **Supply and demand**: after costs fall, does demand saturate, expand, or move toward higher frequency and personalization?
-2. **Human behaviour**: will people exchange convenience for more consumption while retaining demands for status, fairness, and appeal?
-3. **History**: general-purpose technologies usually enter existing organizations before competing organizational forms emerge; complementary-asset redesign often lags the core equipment.
-4. **Technology**: in what order do cheap generation, tool use, long-task reliability, and open-world evaluation mature?
-5. **Society and institutions**: who may authorize, who bears liability, who can audit, and who owns the data, channels, capital, and customer relationships?
+1. **Supply and demand** (**L1 Abundance → scarcity**; the demand-side half of **L8 Human nature and demand**): after costs fall, does demand saturate, expand, or move toward higher frequency and personalization?
+2. **Human behaviour** (**L8 Human nature and demand**): will people exchange convenience for more consumption while retaining demands for status, fairness, and appeal?
+3. **History** (**L4 Diffusion lag**, **L3 Cost structure**): general-purpose technologies usually enter existing organizations before competing organizational forms emerge; complementary-asset redesign often lags the core equipment.
+4. **Technology** (**no lens in L1–L9 carries this**, see below): in what order do cheap generation, tool use, long-task reliability, and open-world evaluation mature?
+5. **Society and institutions** (**L7 Institutional lag**, **L6 Irreversibility**): who may authorize, who bears liability, who can audit, and who owns the data, channels, capital, and customer relationships?
+
+**Lenses not used, and one registered gap**: this chain does not invoke L2 (constraint migration), L5 (signals and forgery), or L9 (relational asymmetry) — the moving bottleneck is carried by [C3](30-power-land-and-permits.md), the shift in screening after credentials become forgeable by [C2](20-real-signals-become-contracts.md) and [C10](100-trust-collateralization.md), and human–AI relational asymmetry by [C11](110-authority-before-intelligence.md). **The fourth force, technology, is carried by no lens in L1–L9**: L6 corresponds only to *which steps fall slowly*, while *which kind of work gets cheap first* is the hardest gap in the technology-regularity row of the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9). This chain therefore never asserts capability arrival in the voice of a lens; it writes it as a **trigger and feasibility boundary** and points back to the [technology sequence](../05-tech-sequence.md). “Multi-party coordination” inside the fifth force likewise has no source sentence (registered in §2); it can only pass through Gate 4 of the diffusion gates and never enters the lens layer.
 
 Technology is therefore a **trigger and a feasibility boundary**, not the sole engine. Organizational carriers, substitution, multi-party coordination, and recurring cost still face the [five diffusion gates extracted in the historical retrospective](../01-retrospect.md).
 

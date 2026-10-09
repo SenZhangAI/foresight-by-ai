@@ -6,6 +6,8 @@
 >
 > **In one sentence**: the durable scarcity is not “minerals” in the abstract but **qualified conversion paths that can keep running through local water, power, and climate shocks**. A mine, warehouse, or second building is not redundancy if the replacement material, process, or site has not already passed qualification.
 
+> **Boundary note**: every judgment this chain cites — J-056, J-061, J-092–J-095 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
 ## 1. 2031: three warehouses and no usable substitute
 
 A semiconductor procurement team has done what the risk manual asked. It has six months of a critical input in three warehouses, contracts with two suppliers, and a second fab on another coast.
@@ -40,7 +42,17 @@ The binding constraint is the qualified conversion path, not geological stock al
 Local adaptation cost and service priority become distributional negotiations
 ```
 
-This chain uses supply-and-demand bottlenecks, L2 constraint migration, L4 diffusion lag, L7 institutional lag, and physical/geographic constraints. It does **not** claim that the world is running out of minerals, that one drought proves a global trend, or that every semiconductor process has the same inputs.
+**Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
+
+- **L1 Abundance → scarcity** (written above as “supply-and-demand bottlenecks”): compute investment becomes abundant, so the complementary qualified conversion path that does not expand with it appreciates.
+- **L2 Constraint migration**: the bottleneck jumps from geological reserves to “a qualified recipe that keeps running through local water, power, and climate shocks.”
+- **L4 Diffusion lag**: process qualification, customer approval, and line-transfer cycles decide when a second source actually exists.
+- **L6 Irreversibility** (part of what was written above as “physical/geographic constraints”): yield loss, safety incidents, and voided customer approvals cost real-world loss, not one more run.
+- **L7 Institutional lag**: export licensing, supply-priority rules, and resilience-cost allocation land only after a shock.
+
+**Lenses not used**: L3 (cost structure), L5 (signals and forgery), L8 (human nature and demand), L9 (relational asymmetry). Why: this chain does not reason about semiconductor firms’ organizational boundaries or outsourcing (L3), involves no forged credential (L5), and touches neither demand-side human anchors nor relational asymmetry (L8 / L9). The earlier wording also listed “physical/geographic constraints” as a lens, but in L1–L9 that is **not a lens**: under [Methodology §3](../00-method.md#3-the-opportunity-durability-gate-and-three-exits-not-every-scarcity-is-a-business-opportunity-and-business-opportunities-are-not-the-only-things-that-count), physics is one of the five **hard constraints**, used at the opportunity-durability gate rather than in the lens layer. The phrase is kept here with its membership named, and it is not counted as a tenth lens. Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **supply and demand** (L1, L2 as an extension) + **historical regularity** (L4, L7) + **the second half of the technology clause** (L6), with no human-nature or social-regularity clause.
+
+It does **not** claim that the world is running out of minerals, that one drought proves a global trend, or that every semiconductor process has the same inputs.
 
 ## 3. “Critical mineral” is too coarse a unit
 

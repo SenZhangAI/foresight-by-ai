@@ -4,6 +4,8 @@
 
 > **In one sentence**: AI will first give everyone an infinitely patient explainer. The scarce things become sustained practice, observed real performance, and credible proof on which someone else is willing to grant an opportunity.
 
+> **Boundary note**: every judgment this chain cites — J-083–J-086 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
 ## 1. A student submits a perfect essay, then cannot answer the next question
 
 The essay on the teacher's desk is well structured and fluent. She asks: “If we reverse this condition, does the conclusion still hold?” The student is silent.
@@ -11,6 +13,17 @@ The essay on the teacher's desk is well structured and fluent. She asks: “If w
 Finished artifacts have long served as proxies for learning: homework for mastery, a diploma for capability, course completion for skill formation. Generative AI does more than make cheating easier. It collapses the production cost of **the proxy itself**. Once a polished artifact can be outsourced, education must return to an older question: how do we know that this person can actually do it?
 
 Printing expanded textbook supply without eliminating schools. Correspondence, broadcast, and MOOCs expanded access to courses without automatically producing completion, practice discipline, or qualifications employers accept. History repeatedly shows that **scarcity of explanation and scarcity of skill formation are different things**. Skill requires feedback over time, motivation, and embodied or social practice. Qualification further requires a trusted institution that can turn observation into opportunity.
+
+**Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
+
+- **L1 Abundance → scarcity**: explanation and finished artefacts become abundant, so the complementary sustained practice and credible observation that do not grow with them appreciate.
+- **L2 Constraint migration**: the bottleneck jumps from “no explanation is available” to “practice time, real performance, and who will vouch for it.”
+- **L4 Diffusion lag**: a local loop inside existing institutions diffuses before an institution is rebuilt, at the speed of curriculum, assessment, and credentialing cycles.
+- **L5 Signals and forgery**: the cost of forging take-home artefacts collapses, so screening moves to more expensive, harder-to-subcontract identity, live performance, and long records — the core step of this chain.
+- **L7 Institutional lag**: qualifications and opportunity are granted by schools, employers, and public bodies, and recognition structures move more slowly than tools.
+- **L8 Human nature and demand**: motivation, belonging, and norms are the demand-side anchors for checking whether more explanation converts into mastery.
+
+**Lenses not used**: L3 (cost structure), L6 (irreversibility), L9 (relational asymmetry). Why: this chain does not reason about the organizational boundaries or outsourcing of schools and employers (L3). The cost of a learning error is usually revocable and repeatable, so L6’s irreversibility threshold does not hold here — that is precisely the line between education and [C5](50-biology-medicine.md). The asymmetry of teacher–student and peer relationships once mediated by AI (L9) is only foreshadowed here and is carried by [C11](110-authority-before-intelligence.md). Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **supply and demand** (L1, L2 as an extension) + **historical regularity** (L4, L7) + **social regularity** (L5) + **human nature** (L8) — of the five starting points, the only clause this chain does not touch is technology.
 
 ## 2. Can the same force automate the new scarcity?
 
