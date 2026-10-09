@@ -7,7 +7,7 @@
 This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It does not preselect a single explanatory framework: “abundance → scarcity” is an optional lens, used only when it adds explanatory power. The archive follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
 
 - **Straight into the future** → [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain): the method attacked by history, then one chain.
-- **Boundary first** → [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim): who decides it, what is still unmet.
+- **Boundary first** → [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim): who decides it, what is still unmet, what the structural check proves, and which social dimensions the coverage matrix reaches — every boundary section is gathered there, none left at the foot of the page.
 
 ## A five-minute entry: calibrate first, then follow a reasoning chain
 
@@ -72,7 +72,7 @@ The chains are grouped by the real-world question a reader may want to follow. E
 
 ## What this archive can and cannot claim
 
-This section answers two questions: what this archive can claim today, and what it explicitly cannot. These boundary sections used to sit ahead of the reading path; they are gathered here with their text unchanged.
+This section answers two questions: what this archive can claim today, and what it explicitly cannot. Every boundary section in this repository — some of which used to sit ahead of the reading path, the rest at the foot of the page — is gathered here, with its text unchanged.
 
 A usable judgment must lead back to a reasoning chain and state a time window, falsifier, leading indicator, confidence, and audience boundary. External material is used for comparison and calibration, not as a substitute for independent reasoning. Insufficiently evidenced material is explicitly marked “landscape only.”
 
@@ -131,7 +131,9 @@ This entry does not promise a fixed judgment-card total: cards will grow, be rev
 
 ### Coverage matrix (current boundary)
 
-This matrix is a reader entry point, not a second ledger: it separates an accessible entry from closed evidence. **Covered** means there is at least one reachable chain page and one judgment card (when the card is marked “landscape only,” that boundary is stated here too); **partially covered** means an entry and judgments exist but key institutional, scale, or longitudinal evidence remains open; **not covered** means there is only a gap record, and adjacent topics must not be used as a substitute. The linked prose and ledger remain authoritative for full fields, dependencies, and falsifiers.
+This matrix is a reader entry point, not a second ledger: it separates an accessible entry from closed evidence. **Covered** means there is at least one reachable chain page and one judgment card (when the card is marked “landscape only,” that boundary is stated here too); **partially covered** means an entry and judgments exist but key institutional, scale, or longitudinal evidence remains open. The linked prose and ledger remain authoritative for full fields, dependencies, and falsifiers.
+
+Those two are the only grades here; there is no “not covered” grade — **which does not mean the landscape is closed. It means this table lists only the dimensions that already have an entry**: every row below has at least one reachable chain page and one judgment card, so no row could honestly be marked “not covered.” The gaps that genuinely have no entry yet live in two other places, never in the status column: each row's “what remains open” column (interstate competition and security questions, credential recognition, insurance and cost allocation, long-term outcomes, and the caregiver denominator are itemized there), and the ledger's [section 6, explicit gaps](docs/en/90-ledger.md#6-explicit-gaps-dimensions-not-yet-covered), which is the single source of truth for gaps. So **do not read the number of rows here as the complete set of social dimensions**: a dimension absent from this table is not thereby covered.
 
 | Social dimension | Status | Reachable entry and minimum evidence | What remains open |
 |---|---|---|---|
@@ -150,7 +152,7 @@ This matrix is a reader entry point, not a second ledger: it separates an access
 | Upstream materials, climate, and supply-chain resilience | Partially covered | [C8 Materials and Climate](docs/en/chains/80-fab-materials-and-climate.md); J-092–J-095 | Cross-firm qualification cycles, multi-site climate losses, insurance, and cost allocation |
 | Population ageing and family care | Partially covered | [C9 Ageing and Institutional Care](docs/en/chains/90-aging-care-and-institutional-substitution.md); [J-096](docs/en/ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)–J-097 | Deduplicated caregiver denominator, institutional deployment and retention, household incidents and maintenance cost; no society-scale household-robot diffusion claim |
 
-The matrix deliberately keeps “partially covered” and “not covered” visible: an existing entry is not full landscape closure, and missing national-security, institutional-boundary, long-term-outcome, credential-recognition, insurance, cost-allocation, and family-care-denominator evidence is not filled by adjacent cards.
+The matrix deliberately keeps “partially covered” in the status column rather than promoting it to “covered”: an existing entry is not full landscape closure, and missing national-security, institutional-boundary, long-term-outcome, credential-recognition, insurance, cost-allocation, and family-care-denominator evidence is not filled by adjacent cards — each of those is itemized in the “what remains open” column of the rows above, rather than signalled by a grade no row occupies.
 
 ### Current boundary
 
