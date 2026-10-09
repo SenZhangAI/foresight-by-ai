@@ -6,32 +6,10 @@
 
 This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It does not preselect a single explanatory framework: “abundance → scarcity” is an optional lens, used only when it adds explanatory power. The archive follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
 
-A usable judgment must lead back to a reasoning chain and state a time window, falsifier, leading indicator, confidence, and audience boundary. External material is used for comparison and calibration, not as a substitute for independent reasoning. Insufficiently evidenced material is explicitly marked “landscape only.”
+**Where to start**
 
-## Who decides what goes in here
-
-The name is literal. **The research scope, the selection and structure of every reasoning chain, and the content, time window, falsifier, leading indicator, confidence, and audience boundary of every judgment card are decided independently by AI.** The human maintainer supplies goals, environmental constraints, and methodological rules, decides whether to publish, and revises bilingual parity and formatting; he does not ghost-write judgments, filter conclusions to fit a position, inflate confidence, or delete unfavourable records. **Git commits are recorded under the maintainer's identity while the prose is AI-generated**; the commit author field cannot be used to infer authorship of the content. Revised or withdrawn judgments keep their original text verbatim and their identifiers are never reused (see [Judgment Evolution](docs/en/03-evolution.md)).
-
-As an experiment, what this can claim today is method and falsifiability, **not accuracy**. No judgment card is currently due; review batches, dates, and the boundary around “hit rate” are recorded in the [ledger review log](docs/en/90-ledger.md#8-review-log). Until then, historical cases serve calibration only (see the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
-
-## Current validation status: keep protocol, results, and gaps separate
-
-Readers should keep three things distinct:
-
-- **Repository-wide archive total**: the current reconstructable `CALIBRATION` archive contains **6 pairs**—politics `P-01`, `P-02`, `P-04`, and `P-06` (4), plus business `B-WEBVAN` and `B-ETOYS` (2), with 0 qualified technology pairs. This is the only number that means “the qualified calibration archive as a whole”: **6/12**. All six were selected after their outcomes were known; they are not pseudo-out-of-sample hit-rate evidence or future accuracy.
-- **Current methodology snapshot**: the methodology’s October 2026 summary covers two latest evidence records: three reconstructable `CALIBRATION` pairs (`P-04`, `B-WEBVAN`, `B-ETOYS`) and one `UNKNOWN/UNVERIFIED` technology candidate (`T-SHUTTLE`). This **3 + 1** is the scope of that snapshot, not the repository-wide total and not three new cases.
-- **Conditions not yet met**: the protocol requires at least four cases in each of technology, politics, and business, and at least twelve overall. The technology candidates remain an evidence gap because their pre-T original, same-metric outcome, and observation window could not be reconstructed together. Retrospective narrative or a URL list cannot fill that gap.
-- **The isolated re-review has now run twice, but independent correctness is still not established** (updated 2026-10-09; this item previously said “no verifiable evidence that the re-review has started”, which no longer holds): all 102 cards carry a blind disposition made on a record whose claim text was intact, and the de-labelled bundle's input hashes plus round 1's six reviewer raw outputs are committed and recomputable ([re-audit report](docs/evidence/blind-review-reaudit-2026-10-09.en.md)). Three things are still missing: the **run timestamp** was never retained as the protocol requires; round 2's three raw outputs are permanently unrecoverable; and — most importantly — **the audience field handed gate one's own prior conclusion to the reviewer** (on all 102 cards), with 12 of round 2's 15 gate-one vetoes quoting it as their reason, so those “blind verdict reproduced the existing scope limit” counts must not be read as independent reconstruction. The reviewer is also still the same model as the original author, so what it measures is reproducibility, not accuracy. A protocol that exists, mechanical checks that pass, and hashes that are complete do not add up to a validated method.
-
-What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
-
-### How to read the historical-calibration numbers
-
-The following numbers are deliberately retained because their scopes differ and they must not be substituted for one another: the **first cross-domain evidence slice** contains `2` reconstructable pairs (`P-04`, `B-WEBVAN`) + `1` unknown candidate (`T-SHUTTLE`); [historical-calibration-round-2026-10.en.md](docs/evidence/historical-calibration-round-2026-10.en.md) is an earlier archival round record of that same `P-04`, `B-WEBVAN`, `T-SHUTTLE` set, not a second sample and not additive; the **next evidence batch** contains `4` records, of which `3` are `CALIBRATION` (the first two are carried-forward records and only `B-ETOYS` is added in that batch) + `1` unknown candidate. Use the [evidence navigation](docs/en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10) for slice/batch scope; use the **6-pair** total above for the repository-wide archive.
-
-The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
-
-This is research material, not investment, medical, legal, or career advice.
+- **Go straight to the future**: take the [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain) — see how the method is attacked by history, follow one reasoning chain into the social landscape, then decide whether to act or to challenge.
+- **See the boundary of these judgments first**: take [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim) — who decides the content, the current validation status, the conditions not yet met, and the evidence boundary.
 
 ## A five-minute entry: calibrate first, then follow a reasoning chain
 
@@ -93,13 +71,44 @@ The chains are grouped by the real-world question a reader may want to follow. E
 - [Judgment Ledger](docs/en/90-ledger.md): tracks the single source of facts, `J-NNN` status, dependencies, sources, and gaps.
 - [How to Refute a Judgment Here](CONTRIBUTING.en.md): uses a card’s own falsifier to formulate a counterexample.
 
-## First ask whether the method has been historically calibrated
+## What this archive can and cannot claim
+
+This section answers two questions: what this archive can claim today, and what it explicitly cannot. These boundary sections used to sit ahead of the reading path; they are gathered here with their text unchanged.
+
+A usable judgment must lead back to a reasoning chain and state a time window, falsifier, leading indicator, confidence, and audience boundary. External material is used for comparison and calibration, not as a substitute for independent reasoning. Insufficiently evidenced material is explicitly marked “landscape only.”
+
+### Who decides what goes in here
+
+The name is literal. **The research scope, the selection and structure of every reasoning chain, and the content, time window, falsifier, leading indicator, confidence, and audience boundary of every judgment card are decided independently by AI.** The human maintainer supplies goals, environmental constraints, and methodological rules, decides whether to publish, and revises bilingual parity and formatting; he does not ghost-write judgments, filter conclusions to fit a position, inflate confidence, or delete unfavourable records. **Git commits are recorded under the maintainer's identity while the prose is AI-generated**; the commit author field cannot be used to infer authorship of the content. Revised or withdrawn judgments keep their original text verbatim and their identifiers are never reused (see [Judgment Evolution](docs/en/03-evolution.md)).
+
+As an experiment, what this can claim today is method and falsifiability, **not accuracy**. No judgment card is currently due; review batches, dates, and the boundary around “hit rate” are recorded in the [ledger review log](docs/en/90-ledger.md#8-review-log). Until then, historical cases serve calibration only (see the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md)).
+
+### Current validation status: keep protocol, results, and gaps separate
+
+Readers should keep three things distinct:
+
+- **Repository-wide archive total**: the current reconstructable `CALIBRATION` archive contains **6 pairs**—politics `P-01`, `P-02`, `P-04`, and `P-06` (4), plus business `B-WEBVAN` and `B-ETOYS` (2), with 0 qualified technology pairs. This is the only number that means “the qualified calibration archive as a whole”: **6/12**. All six were selected after their outcomes were known; they are not pseudo-out-of-sample hit-rate evidence or future accuracy.
+- **Current methodology snapshot**: the methodology’s October 2026 summary covers two latest evidence records: three reconstructable `CALIBRATION` pairs (`P-04`, `B-WEBVAN`, `B-ETOYS`) and one `UNKNOWN/UNVERIFIED` technology candidate (`T-SHUTTLE`). This **3 + 1** is the scope of that snapshot, not the repository-wide total and not three new cases.
+- **Conditions not yet met**: the protocol requires at least four cases in each of technology, politics, and business, and at least twelve overall. The technology candidates remain an evidence gap because their pre-T original, same-metric outcome, and observation window could not be reconstructed together. Retrospective narrative or a URL list cannot fill that gap.
+- **The isolated re-review has now run twice, but independent correctness is still not established** (updated 2026-10-09; this item previously said “no verifiable evidence that the re-review has started”, which no longer holds): all 102 cards carry a blind disposition made on a record whose claim text was intact, and the de-labelled bundle's input hashes plus round 1's six reviewer raw outputs are committed and recomputable ([re-audit report](docs/evidence/blind-review-reaudit-2026-10-09.en.md)). Three things are still missing: the **run timestamp** was never retained as the protocol requires; round 2's three raw outputs are permanently unrecoverable; and — most importantly — **the audience field handed gate one's own prior conclusion to the reviewer** (on all 102 cards), with 12 of round 2's 15 gate-one vetoes quoting it as their reason, so those “blind verdict reproduced the existing scope limit” counts must not be read as independent reconstruction. The reviewer is also still the same model as the original author, so what it measures is reproducibility, not accuracy. A protocol that exists, mechanical checks that pass, and hashes that are complete do not add up to a validated method.
+
+What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
+
+#### How to read the historical-calibration numbers
+
+The following numbers are deliberately retained because their scopes differ and they must not be substituted for one another: the **first cross-domain evidence slice** contains `2` reconstructable pairs (`P-04`, `B-WEBVAN`) + `1` unknown candidate (`T-SHUTTLE`); [historical-calibration-round-2026-10.en.md](docs/evidence/historical-calibration-round-2026-10.en.md) is an earlier archival round record of that same `P-04`, `B-WEBVAN`, `T-SHUTTLE` set, not a second sample and not additive; the **next evidence batch** contains `4` records, of which `3` are `CALIBRATION` (the first two are carried-forward records and only `B-ETOYS` is added in that batch) + `1` unknown candidate. Use the [evidence navigation](docs/en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10) for slice/batch scope; use the **6-pair** total above for the repository-wide archive.
+
+The experiment carries its own falsifier: **if, at review, most cards' falsification conditions turn out to be undecidable, or judgments are silently rewritten to fit what already happened, then what failed is the method, not a single judgment** — and that verdict goes into the evolution record rather than into a deleted file. This check is preregistered in the [ledger review log](docs/en/90-ledger.md#8-review-log) with review date 2027-03-31.
+
+This is research material, not investment, medical, legal, or career advice.
+
+### First ask whether the method has been historically calibrated
 
 The [Retrospect](docs/en/01-retrospect.md) extracts five diffusion gates from technological, political, and business history and attacks them with successes, failures, and cases from this repository. The [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) specifies how cases, roles, and baselines are frozen.
 
 The evidence boundary comes first: historical cases can provide **calibration**—explain known outcomes, find counterexamples, and revise rules—but cannot be presented as future predictive power. The historical pseudo-out-of-sample holdout has **not yet been run**; genuine out-of-sample records can come only from future judgment cards reaching their review windows. We can currently report calibration, not pseudo-out-of-sample hit rates or future accuracy. The diffusion gate in protocol v1 was narrowed during calibration; the old v1 snapshot cannot substitute for an isolated review of v2. **That isolated re-review was executed in two rounds on 2026-10-09** and every registered judgment card now carries a per-card disposition made on a record whose claim text was intact — but it **only tests reproducibility** (the re-reviewer is the same model as the original author, and de-labelling cannot remove training memory), so it is not evidence of accuracy, method validity, or out-of-sample performance; only three of the protocol’s four start-evidence items are satisfied (the run timestamp is missing), and one source leak is not eliminated. See the [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) and the [ledger review log](docs/en/90-ledger.md#8-review-log). This evidence boundary does not reject the re-review direction or imply that the method has been falsified.
 
-## Current field migration and evidence boundary
+### Current field migration and evidence boundary
 
 The migration of legacy judgment-card fields into the current public ledger structure is now closed: current cards expose consistently locatable reasoning chains, time windows, falsifiers, leading indicators, confidence, audience boundaries, status, and dependencies. Original legacy wording, revision history, and migration notes remain available so readers can distinguish how a card was written from how it is presented now. A consistent field structure **does not mean that the historical method has been validated**.
 
