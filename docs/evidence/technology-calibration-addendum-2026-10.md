@@ -69,6 +69,42 @@
 
 下一次若继续科技史搜寻，应优先取得可读的 NASA 逐任务汇编或同类官方预测／统计系列；在此之前，本补录的诚实结论是**合格案为零，缺口已具体列明**。
 
-## 7. 与历史验证协议的关系
+## 8. 2026-10-09 原始抓取复核：三条新科技候选均终局为 UNKNOWN/UNVERIFIED
 
-本记录遵守[历史伪样本外验证协议](../zh/02-historical-validation-protocol.md)和方法论对 `CALIBRATION` 的边界：结果已知后选入的案例只能用于校准和暴露规则缺口，不能冒充 holdout。未来真实样本外证据仍只能来自预登记判断卡在时间窗到期后的复核。
+本节不是把旧候选换名重报，而是一次有界的原始来源抓取。抓取时间均为 UTC；`bytes` 是 `curl` 下载体的字节数，SHA-256 对应保存的响应体。三条候选都含有本次提交前全文不存在的来源标识与逐字摘录，因此满足“确实抓取过”的最低证明；三条都因结果口径或项目身份缺口留在 `UNKNOWN/UNVERIFIED`，不增加科技域合格计数。
+
+### 8.1 T-X33：X-33 飞行测试开始时间（UNKNOWN/UNVERIFIED）
+
+- **T 前原件：** NASA NTRS citation `19990070318`，*The X-33 Flight Test Challenge*；来源 <https://ntrs.nasa.gov/api/citations/19990070318>。
+- **抓取证明：** `2026-10-09T03:07:26Z`；HTTP `200`；`3,654` bytes；SHA-256 `22f932ca781b99da8d9437954cb79d2df1b0ed6e7e9a45409797ad704140f095`。
+- **本次新增逐字摘录：** “Flight testing will begin in July 2000, with launches originating from Edwards Air Force Base and initial landings at Michael Army Airfield in Utah.”
+- **科技域归属：** 预测量是飞行测试启动这一技术部署里程碑，不是收入、亏损或订阅数。
+- **结果侧抓取：** NASA NTRS citation `20110016255` 的全文响应，`2026-10-09T03:07:29Z`、HTTP `200`、`34,058` bytes、SHA-256 `ea57e94432d546013b21e9848a75bc4c38a29c09ae7aa367f4f53caa2dbe865e`；其中新增摘录为 “Although a cryogenic tank failure during testing ultimately led to the end of the effort”。
+- **终局与缺口：** `UNKNOWN/UNVERIFIED`。结果原件确认项目因储罐失败结束，但本轮没有从同一结果材料建立“截至 2000-07 是否完成首飞／零次首飞”的明确分母与时间点，不能把“项目结束”偷换成“7 月预测失准”。最强替代解释是预测本来只承诺启动测试，不承诺首飞；该解释目前无法被结果原件排除。
+- **排除性记录：** 同一预测材料还谈到低成本入轨目标、发动机与热防护技术验证；这些是成本目标或子系统验证，不是本案的飞行测试启动指标，不能替代结果列。
+
+### 8.2 T-X34：X-34 首次飞行计划（UNKNOWN/UNVERIFIED）
+
+- **T 前原件：** NASA NTRS citation `19990019135`，*X-34 Program Status*；来源 <https://ntrs.nasa.gov/api/citations/19990019135>。
+- **抓取证明：** `2026-10-09T03:18:53Z`；HTTP `200`；`3,256` bytes；SHA-256 `8e926b7f4d8d8b5aa0102aff8c70eea964c98fdab6e29c27d9b135a425d94c07`。
+- **本次新增逐字摘录：** “The X-34 program has moved rapidly from the drawing board to hardware build-up, with the first flight scheduled for 1999.”
+- **科技域归属：** 预测量是可重复使用运载器技术验证器的首次飞行部署时间，不是商业收入或公司经营指标。
+- **结果侧线索：** NASA NTRS citation `20000092068`（*X-34 Project: Overview and Status*）响应于 `2026-10-09T03:18:55Z` 抓取，HTTP `200`、`3,378` bytes、SHA-256 `8d3434fd0164e8bdaf72b3cc9f1a661f2d401a0e75124e76ed2269879d58311c`。它只证明存在后续状态材料，没有在本轮取得可定位的“1999 年实际首飞／取消前状态”结果段落。
+- **终局与缺口：** `UNKNOWN/UNVERIFIED`。缺少同一观察窗内的官方结果摘录、取消日期及“是否完成 powered flight”的明确分母，不能把二手的“后来取消”叙述当作结果。最强替代解释是“首次飞行”指无动力或 captive-carry 测试而不是 powered flight；本轮未取得能排除该解释的原件。
+- **排除性记录：** 后续状态材料中的发动机、热防护和设计图是能力／部件状态，不是首次飞行结果；不能用它们填补观察窗。
+
+### 8.3 T-FREEDOM：Space Station Freedom 首个组件与 ISS 首次组件（UNKNOWN/UNVERIFIED）
+
+- **T 前原件：** NASA NTRS citation `19900046020`，*Space Station Freedom — A program update*；来源 <https://ntrs.nasa.gov/api/citations/19900046020>。
+- **抓取证明：** `2026-10-09T03:11:02Z`；HTTP `200`；`2,881` bytes；SHA-256 `b1393592c9f584c5a285a88d8ecac63357e0bc0cdc642f905f6bbeb926edce0e`。
+- **本次新增逐字摘录：** “A first Freedom-element launch by the Space Shuttle is planned for 1995, with completion of the assembly process by 1998.”
+- **科技域归属：** 预测量是空间站组件发射与组装完成的部署里程碑，不是商业财务量。
+- **结果侧材料：** NASA NTRS citation `20000109670` 的响应于 `2026-10-09T03:11:04Z` 抓取，HTTP `200`、`3,778` bytes、SHA-256 `6a4e6eaefb817bcfb7c91d1ad72dffd5e83c1ddd819a4eb14ac238d0e95a6ab9`；新增摘录为 “This element (Stage 1A/R) was launched on 20 November 1998 and is currently operating on-orbit.”
+- **终局与缺口：** `UNKNOWN/UNVERIFIED`。预测对象是 Freedom，结果材料是其后重构的 ISS；本轮没有取得同一项目定义下的“Freedom 首个组件／组装完成”结果，无法证明两者是同一分母。最强替代解释是项目重构后仍可把 ISS 视作 Freedom 的连续部署，因此把 1998 的 FGB 发射直接当作 Freedom 结果；这需要项目谱系与指标映射原件，当前没有。
+- **排除性记录：** 结果材料同时包含 2000 年 Service Module 计划和美国实验舱的 TBD 状态；这些是不同组件／不同版本的计划，不能与 1990 年 Freedom 的“首个组件／组装完成”列混用。
+
+### 8.4 本轮判定与边界
+
+三条新候选均已终局为 `UNKNOWN/UNVERIFIED`；科技域合格配对仍为 **0**，三域合计仍为 **6/12**。它们不是旧清单中的 `T-SHUTTLE`、Iridium 2002，也不是核电、卡特太阳能、第五代计算机或 VR 的重复材料；新标识 `19990070318`、`19990019135`、`19900046020` 及其字段缺口使本轮至少留下了此前仓库没有的证据状态。`CALIBRATION` 不支持推翻任何普及闸；本轮没有指名独占案例表行，也没有触碰 `:388` 的重审债，因此不提出推翻闸门的主张。
+
+本轮不能升级为命中率、Brier 分数、holdout 或样本外证据。本记录遵守[历史伪样本外验证协议](../zh/02-historical-validation-protocol.md)和方法论对 `CALIBRATION` 的边界：结果已知后选入的案例只能用于校准和暴露规则缺口，不能冒充 holdout。未来真实样本外证据仍只能来自预登记判断卡在时间窗到期后的复核。

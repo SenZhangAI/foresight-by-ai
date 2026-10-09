@@ -69,6 +69,46 @@ This round adds no future judgment card and produces no sample for a hit rate, B
 
 If the search continues, the next priority should be a readable NASA mission-by-mission summary or an equivalent official forecast/statistics series. Until then, the honest result is **zero qualified cases, with concrete gaps recorded**.
 
-## 7. Relation to the historical-validation protocol
+## 8. Primary-source capture review on 2026-10-09: three new technology candidates end as UNKNOWN/UNVERIFIED
 
-This record follows the [Historical Pseudo-Out-of-Sample Validation Protocol](../en/02-historical-validation-protocol.md) and the methodology's `CALIBRATION` boundary: cases selected after outcomes are known may calibrate rules and expose missing evidence, but may not be presented as holdouts. Genuine future out-of-sample evidence still comes only from preregistered judgment cards reviewed after their windows mature.
+This section is a bounded primary-source capture, not a renamed report of the old candidates. Timestamps are UTC; `bytes` is the downloaded response-body size and each SHA-256 identifies that body. All three candidates contain source identifiers and verbatim excerpts absent from the repository before this commit, proving that the sources were actually fetched. All three remain `UNKNOWN/UNVERIFIED` because their outcome metric or program identity is not closed; the technology qualified count therefore does not increase.
+
+### 8.1 T-X33: X-33 flight-test start date (UNKNOWN/UNVERIFIED)
+
+- **T-before artifact:** NASA NTRS citation `19990070318`, *The X-33 Flight Test Challenge*; source <https://ntrs.nasa.gov/api/citations/19990070318>.
+- **Capture proof:** `2026-10-09T03:07:26Z`; HTTP `200`; `3,654` bytes; SHA-256 `22f932ca781b99da8d9437954cb79d2df1b0ed6e7e9a45409797ad704140f095`.
+- **New verbatim excerpt:** “Flight testing will begin in July 2000, with launches originating from Edwards Air Force Base and initial landings at Michael Army Airfield in Utah.”
+- **Technology-domain attribution:** the forecast quantity is a flight-test deployment milestone, not revenue, loss, or subscriber count.
+- **Outcome-side capture:** the full-text response for NASA NTRS citation `20110016255`, captured at `2026-10-09T03:07:29Z`, HTTP `200`, `34,058` bytes, SHA-256 `ea57e94432d546013b21e9848a75bc4c38a29c09ae7aa367f4f53caa2dbe865e`; its new excerpt is “Although a cryogenic tank failure during testing ultimately led to the end of the effort”.
+- **Terminal verdict and gap:** `UNKNOWN/UNVERIFIED`. The outcome artifact confirms that the effort ended after a tank failure, but this round did not establish from the same outcome material whether the first flight had occurred by July 2000, or define a zero-flight denominator. “The program ended” cannot be substituted for “the July forecast missed.” The strongest alternative explanation is that the forecast promised the start of testing, not a completed first flight; the current outcome artifact does not rule that out.
+- **Exclusion record:** the same forecast material also discusses low-cost access, engines, and thermal-protection validation. Those are cost goals or subsystem tests, not the flight-test-start metric, and cannot replace the outcome column.
+
+### 8.2 T-X34: X-34 first-flight schedule (UNKNOWN/UNVERIFIED)
+
+- **T-before artifact:** NASA NTRS citation `19990019135`, *X-34 Program Status*; source <https://ntrs.nasa.gov/api/citations/19990019135>.
+- **Capture proof:** `2026-10-09T03:18:53Z`; HTTP `200`; `3,256` bytes; SHA-256 `8e926b7f4d8d8b5aa0102aff8c70eea964c98fdab6e29c27d9b135a425d94c07`.
+- **New verbatim excerpt:** “The X-34 program has moved rapidly from the drawing board to hardware build-up, with the first flight scheduled for 1999.”
+- **Technology-domain attribution:** the forecast quantity is the first deployment of a reusable launch-vehicle technology demonstrator, not company revenue or an operating metric.
+- **Outcome-side lead:** NASA NTRS citation `20000092068` (*X-34 Project: Overview and Status*) was captured at `2026-10-09T03:18:55Z`, HTTP `200`, `3,378` bytes, SHA-256 `8d3434fd0164e8bdaf72b3cc9f1a661f2d401a0e75124e76ed2269879d58311c`. It proves that a later status artifact exists, but this round did not obtain a locatable result passage for the actual 1999 flight or the pre-cancellation state.
+- **Terminal verdict and gap:** `UNKNOWN/UNVERIFIED`. The same-window official outcome excerpt, cancellation date, and explicit “powered flight completed?” denominator are missing. A second-hand “later cancelled” narrative cannot be used as the result. The strongest alternative explanation is that “first flight” referred to an unpowered or captive-carry test rather than powered flight; this round obtained no primary artifact that rules that out.
+- **Exclusion record:** later status material about engines, thermal protection, and design views describes capability or component status, not first-flight outcome, and cannot fill the observation window.
+
+### 8.3 T-FREEDOM: Space Station Freedom first element versus ISS first element (UNKNOWN/UNVERIFIED)
+
+- **T-before artifact:** NASA NTRS citation `19900046020`, *Space Station Freedom — A program update*; source <https://ntrs.nasa.gov/api/citations/19900046020>.
+- **Capture proof:** `2026-10-09T03:11:02Z`; HTTP `200`; `2,881` bytes; SHA-256 `b1393592c9f584c5a285a88d8ecac63357e0bc0cdc642f905f6bbeb926edce0e`.
+- **New verbatim excerpt:** “A first Freedom-element launch by the Space Shuttle is planned for 1995, with completion of the assembly process by 1998.”
+- **Technology-domain attribution:** the forecast quantities are space-station deployment milestones, not commercial financial quantities.
+- **Outcome-side artifact:** the response for NASA NTRS citation `20000109670`, captured at `2026-10-09T03:11:04Z`, HTTP `200`, `3,778` bytes, SHA-256 `6a4e6eaefb817bcfb7c91d1ad72dffd5e83c1ddd819a4eb14ac238d0e95a6ab9`; new excerpt: “This element (Stage 1A/R) was launched on 20 November 1998 and is currently operating on-orbit.”
+- **Terminal verdict and gap:** `UNKNOWN/UNVERIFIED`. The forecast names Freedom, while the outcome artifact concerns the subsequently restructured ISS. This round did not obtain a same-program “Freedom first element / assembly complete” outcome, so it cannot establish a common denominator. The strongest alternative explanation is that ISS should be treated as a continuous deployment of Freedom after redesign, making the 1998 FGB launch comparable; that requires a program-lineage and metric-mapping artifact that is not present.
+- **Exclusion record:** the outcome artifact also contains a 2000 Service Module schedule and a TBD U.S. Laboratory schedule. These are different components and versions, not interchangeable with the 1990 Freedom first-element / assembly-completion columns.
+
+### 8.4 Round verdict and boundary
+
+All three new candidates end as `UNKNOWN/UNVERIFIED`; the qualified technology-pair count remains **0**, and the three-domain total remains **6/12**. They are not the old `T-SHUTTLE` or Iridium 2002 records, nor repeats of nuclear power, Carter-era solar, fifth-generation computing, or VR. The new identifiers `19990070318`, `19990019135`, and `19900046020`, together with their field-level gaps, leave information that was not in the repository before this round. `CALIBRATION` does not support overturning a diffusion gate; this round names no exclusive-case-table row and does not touch the re-review debt at `:388`, so it makes no gate-overturning claim.
+
+This round cannot be upgraded into a hit rate, Brier score, holdout, or out-of-sample evidence. If the search continues, each candidate first needs a result original, the same observation window, denominator / metric definition, forecast version, and result vintage. Until then, none may enter the qualified technology denominator.
+
+## 9. Relation to the historical-validation protocol
+
+This record follows the [Historical Pseudo-Out-of-Sample Validation Protocol](../en/02-historical-validation-protocol.md) and the methodology's `CALIBRATION` boundary: cases selected after outcomes are known may calibrate rules and expose evidence gaps, but may not impersonate holdouts. Genuine future out-of-sample evidence still comes only from preregistered judgment cards reviewed after their windows mature.

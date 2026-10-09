@@ -389,6 +389,12 @@ To stop readers from confusing “the repository contains historical material”
 
 Finally, mechanical checks and method evidence are separate. Passing `npm_check` (`npm run check`) means only that the files, links, and repository structure passed that check; passing `ship:structure-placeholder` means only that the release-structure placeholder is present. Neither implies forecast accuracy, method validity, genuine future out-of-sample performance, or completion of this project's mission.
 
+### 10.5 Technology-domain primary-source capture review (2026-10-09): three new candidates, none counted
+
+The [technology-history calibration addendum](../evidence/technology-calibration-addendum-2026-10.en.md#8-primary-source-capture-review-on-2026-10-09-three-new-technology-candidates-end-as-unknownunverified) captured three NASA NTRS source identifiers that were absent from the repository text: `19990070318` (X-33, forecast flight testing beginning in July 2000), `19990019135` (X-34, first flight scheduled for 1999), and `19900046020` (Space Station Freedom, first element launch planned for 1995 and assembly completion for 1998). Each record retains a UTC capture timestamp, HTTP status, byte count, SHA-256, and a verbatim excerpt; new response identities are also recorded on the outcome side.
+
+All three end as `UNKNOWN/UNVERIFIED`, not qualified `CALIBRATION`: X-33 lacks an explicit same-material outcome denominator for whether the first flight had occurred by July 2000; X-34 lacks a same-window official outcome, cancellation date, and powered-flight definition; and Freedom lacks a program-lineage and metric mapping between the forecast object and the later ISS outcome object. Each record names its strongest alternative explanation and excludes nearby same-source metrics, so “the program later ended,” “an element later launched,” or a second-hand narrative cannot fill the gap. The qualified technology count therefore remains **0**, and the three-domain total remains **6/12**. This round adds no judgment, overturns no diffusion gate, and provides no accuracy or holdout evidence.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is
