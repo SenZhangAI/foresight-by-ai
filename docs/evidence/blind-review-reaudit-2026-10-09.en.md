@@ -62,6 +62,8 @@ The per-record verbatim rationale and missing-evidence note, together with the m
 
 ## 4. Results: three sets of counts
 
+> **Scope notice (read before this section)**: every figure below is on the **102-record scope**, which includes the 28 records whose input was defective (their one-sentence judgment was wiped during de-labelling — see [section 11](#11-round-2--the-28-cards-re-judged-on-the-repaired-bundle)). **The still-valid 74-card subset of round 1 has its own set**: `VETO` 26 / `ABSTAIN` 48, gate-two-only vetoes **18**, recognized 64 (`VETO` rate 28.1%) / unrecognized 10 (80.0%), reproducibility 25/73 = 34.2%. The two sets **must not be added together**, and any citation must say which one it uses; the three-column comparison is in [method §1.5(3)](../en/00-method.md) and [§11.5 below](#115-coverage).
+
 **Verdict distribution**: `VETO` 37 / `ABSTAIN` 65.
 
 **State before the re-review** (the side that only becomes readable after unsealing): already `REVISED` 62 / already limited to an occupational or institutional judgment 34 / already marked landscape-only 5 / unlimited 1. In other words, 101 of the 102 cards entered this round with their scope already limited by an earlier diffusion-gate review; exactly one still held a licence for society-level voice.
@@ -258,6 +260,8 @@ The table below carries round 1's disposition for 102 cards. The verbatim ration
 | J-102 | R-59 | VETO | Gate 2 | no | already limited to an occupational/institutional judgment | retain — the blind review reproduced the existing limit |
 
 ## 11. Round 2 — the 28 cards re-judged on the repaired bundle
+
+> **Identifier warning**: the `R-NN` names in this section and the `R-NN` names in [section 10](#10-per-card-disposition-table) are **two disjoint namespaces**. Measured: **all 28** of round 2's identifiers reuse a round-1 name while pointing at a different card (`R-04` = round 1 `J-086` / round 2 `J-002`; `R-44` = `J-080` / `J-032`; `R-50` = `J-092` / `J-043`). Any cross-section citation must carry the round; identical names across the two sections are **not interchangeable**.
 
 Round 1's verdicts on these 28 cards are unusable (13 void, 15 in doubt — see the banner at the top). Once the defect was fixed, the 28 cards were re-judged on the re-frozen 102-record bundle. The relation to section 10 is: **those 28 rows in section 10 are retired and this section governs**; the other 74 rows are unaffected and were deliberately **not** re-run (a re-run would only test reproducibility a second time, and would create two incompatible `R-NN` namespaces).
 
