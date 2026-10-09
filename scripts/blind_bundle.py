@@ -85,6 +85,26 @@ RETAINED_KEYS = sorted(set(ALLOWED_FIELDS.values()))
 REQUIRED_KEYS = ("judgment", "audience", "reasoning_chain", "time_window",
                  "falsifier", "leading_indicator")
 
+# The one field whose content IS the subject matter rather than a pointer to it.
+# Many cards repeat their one-sentence judgment as the card's heading title, so a
+# blanket "delete every source title out of every field" empties the claim and
+# ships a record no reviewer can judge — the defect that voided 28 of the 102
+# cards in the 2026-10-09 freeze. Dropping those cards is not an available fix:
+# the bundle is required to retain the original claim, so a card whose claim is
+# unreadable is a generator defect and not a legitimate exclusion.
+#
+# The exemption is deliberately narrow: only THIS card's own heading title may
+# stand, and only inside THIS field. Another card's title appearing anywhere is a
+# cross-reference and is still refused, and paths, anchors and bare file names are
+# still stripped from the claim like everywhere else.
+#
+# The cost is stated rather than hidden: the claim sentence is retained verbatim,
+# so anyone holding the public repository can match it back to its card. That is
+# the same recoverability the verbatim reasoning chain, time window and falsifier
+# already carry — this bundle's isolation is procedural, never cryptographic, and
+# the reviewer is barred from the repository by role, not by redaction.
+CLAIM_KEY = "judgment"
+
 # Review metadata that must never reach the bundle, in both languages.
 METADATA_TOKENS = (
     "外部对照来源", "external comparison source", "与共识", "against consensus",
@@ -116,7 +136,7 @@ CHECK_NAMES = ("identifier", "status", "gate", "metadata", "dependency", "path",
 # Test-only fault injection. These defects cannot be produced by any valid
 # frozen manifest — they would be generator bugs — so the only way to show the
 # guards that catch them have teeth is to inject them. Never exposed on the CLI.
-TEST_FAULTS = ("reordered", "dropped", "unpair_card_set")
+TEST_FAULTS = ("reordered", "dropped", "unpair_card_set", "drop_claim_exemption")
 
 
 class Refused(ValueError):
@@ -314,19 +334,28 @@ def extract_fields(section: str, card_id: str, redact_values: bool = True) -> Di
 
 
 def redact_traceback_clues(record: Dict[str, Any], titles: Iterable[str],
-                           paths: Iterable[str]) -> None:
+                           paths: Iterable[str],
+                           own_titles: Iterable[str] = ()) -> None:
     """Remove exact source titles and paths that occur inside retained prose.
 
     Heading anchors and bare file names are stripped here too, so the ordinary
     production path is hygienic rather than merely checked: the per-language
     scan afterwards refuses only on a clue that SURVIVED redaction.
+
+    `own_titles` are this card's own heading titles; they are left standing in
+    the claim field alone (see `CLAIM_KEY`), because there the title is the
+    claim and deleting it would leave nothing to judge.
     """
     title_clues = [fold(title) for title in titles if title and len(title) >= 4]
-    path_clues = [fold(path) for path in paths if path]
+    own = {fold(title) for title in own_titles if title}
     for language in LANGUAGES:
         for key, value in record[language].items():
             text = fold(value)
-            for clue in title_clues + path_clues:
+            for clue in title_clues:
+                if key == CLAIM_KEY and clue in own:
+                    continue
+                text = text.replace(clue, "")
+            for clue in path_clues_of(paths):
                 text = text.replace(clue, "")
             text = ANCHOR_FRAG_RE.sub("", text)
             text = BARE_FILE_RE.sub("", text)
@@ -335,8 +364,26 @@ def redact_traceback_clues(record: Dict[str, Any], titles: Iterable[str],
             record[language][key] = text.strip(" ,，;；:：、")
 
 
+def path_clues_of(paths: Iterable[str]) -> List[str]:
+    return [fold(path) for path in paths if path]
+
+
+def heading_titles(section: str) -> List[str]:
+    """The folded title parts a card's own `### J-NNN · title` heading carries."""
+    heading = HEADING_RE.search(section)
+    if not heading:
+        return []
+    parts = []
+    for part in re.split(r"[·:：]", heading.group(2)):
+        part = clean_value(part)
+        if part:
+            parts.append(fold(part))
+    return parts
+
+
 def record_problems(record: Dict[str, Any], titles: Iterable[str],
-                    paths: Iterable[str], disabled: Set[str]) -> List[str]:
+                    paths: Iterable[str], disabled: Set[str],
+                    own_titles: Iterable[str] = ()) -> List[str]:
     """Every traceback clue this record would hand a reader, by check name."""
     text = canonical_json({k: v for k, v in record.items() if k != "id"}).decode("utf-8")
     folded = fold(text)
@@ -372,10 +419,13 @@ def record_problems(record: Dict[str, Any], titles: Iterable[str],
         hit("link", "link or URL")
     if CODE_RE.search(text):
         hit("code", "code block, comment, or front matter")
-    for title in titles:
-        if title and len(title) >= 4 and title in fold(text):
-            hit("title", "original card title")
-            break
+    # Field by field rather than over the merged string, so the claim field's
+    # narrow own-title exemption cannot become a hole anywhere else: another
+    # card's title in the claim, or this card's own title in any other field,
+    # is still a cross-reference and is still reported.
+    own = {fold(title) for title in own_titles if title}
+    if _foreign_title(record, titles, own):
+        hit("title", "original card title")
     for path in paths:
         if path and path in folded:
             hit("path", "original file path")
@@ -383,11 +433,28 @@ def record_problems(record: Dict[str, Any], titles: Iterable[str],
     return problems
 
 
+def _foreign_title(record: Dict[str, Any], titles: Iterable[str],
+                   own: Set[str]) -> bool:
+    for title in titles:
+        if not title or len(title) < 4:
+            continue
+        for language in LANGUAGES:
+            for key, value in record.get(language, {}).items():
+                if key == CLAIM_KEY and title in own:
+                    continue
+                if title in fold(value):
+                    return True
+    return False
+
+
 def scan_records(records: List[Dict[str, Any]], titles: Iterable[str],
-                 paths: Iterable[str], disabled: Set[str]) -> None:
+                 paths: Iterable[str], disabled: Set[str],
+                 own_by_id: Optional[Dict[str, List[str]]] = None) -> None:
     titles, paths = list(titles), list(paths)
+    own_by_id = own_by_id or {}
     for record in records:
-        problems = record_problems(record, titles, paths, disabled)
+        problems = record_problems(record, titles, paths, disabled,
+                                   own_by_id.get(record["id"], ()))
         if problems:
             fail("%s leaks a traceback clue: %s" % (record["id"], "; ".join(sorted(set(problems)))))
 
@@ -591,6 +658,11 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
     records: List[Dict[str, Any]] = []
     titles: List[str] = []
     paths: List[str] = []
+    # Per card, the heading titles that card itself carries. Used only for the
+    # narrow claim-field exemption described at `CLAIM_KEY`; `drop_claim_exemption`
+    # withdraws it so the self-test can show the exemption is load-bearing.
+    own_by_cid: Dict[str, List[str]] = {}
+    claim_exemption = test_fault != "drop_claim_exemption"
     # Derived per language from the heading each language's own file carries, so
     # the cross-language card-set check reads the files rather than asserting
     # what the manifest already said.
@@ -615,11 +687,9 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
             heading = HEADING_RE.search(section)
             if heading:
                 card_ids[language].add(heading.group(1))
-                tail = heading.group(2)
-                for part in re.split(r"[·:：]", tail):
-                    part = clean_value(part)
-                    if part:
-                        titles.append(fold(part))
+            own = heading_titles(section)
+            own_by_cid.setdefault(cid, []).extend(own)
+            titles.extend(own)
         paths.extend([card["zh_path"], card["en_path"]])
         zh_fields = extract_fields(zh_section, cid, redact_values=redact_values)
         en_fields = extract_fields(en_section, cid, redact_values=redact_values)
@@ -633,13 +703,22 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
 
     if redact_values:
         for record in records:
-            redact_traceback_clues(record, titles, paths)
+            own = own_by_cid.get(record["cid"], ()) if claim_exemption else ()
+            redact_traceback_clues(record, titles, paths, own_titles=own)
     ordered = sorted(records, key=lambda r: shuffle_key(seed, r))
     public = [{"id": "R-%02d" % i, "zh": r["zh"], "en": r["en"]}
               for i, r in enumerate(ordered, 1)]
+    own_by_id: Dict[str, List[str]] = {
+        r["id"]: list(own_by_cid.get(o["cid"], ())) if claim_exemption else []
+        for r, o in zip(public, ordered)
+    }
     if test_fault == "reordered" and len(public) >= 2:
         public = [dict(public[1], id=public[0]["id"]),
                   dict(public[0], id=public[1]["id"])] + public[2:]
+        # The own-title map follows the CONTENT, not the label, so permuting the
+        # index does not smuggle a second, unrelated failure into this fault run.
+        first, second = public[0]["id"], public[1]["id"]
+        own_by_id[first], own_by_id[second] = own_by_id[second], own_by_id[first]
     elif test_fault == "dropped" and len(public) >= 2:
         public = public[:-1]
     elif test_fault == "unpair_card_set" and card_ids["en"]:
@@ -656,7 +735,7 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
         enforce_language_count(public, language, len(manifest["cards"]), disabled)
     enforce_cross_language(public, card_ids, disabled)
     enforce_mapping_reachability(public, ordered, disabled)
-    scan_records(public, titles, paths, disabled)
+    scan_records(public, titles, paths, disabled, own_by_id)
 
     bundle_bytes = canonical_json({"schema_version": BUNDLE_SCHEMA_VERSION, "records": public})
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -915,6 +994,13 @@ STRUCTURAL_INJECTIONS: Tuple[Tuple[str, str, Tuple[Tuple[str, str, str], ...],
       ("en4", "A fourth test judgment exists so content-key sorting can be checked.",
        "A third test judgment exists so a different seed can change ordering.")),
      True, "mapping is not reachable", None),
+    # ANOTHER card's title inside the claim field. The claim field carries a
+    # narrow exemption for THIS card's own title (see `CLAIM_KEY`); this case is
+    # the adversarial half of it — a cross-card title is still a reverse-lookup
+    # key and must still be refused, by the title branch and not by a side effect.
+    ("foreign_title_in_claim", "title",
+     (("zh1", "测试材料中的判断必须保持可读而不暴露来源。", "第二张固定装置卡的原始标题"),),
+     False, "original card title", None),
 )
 
 # Generator-internal invariants no valid frozen manifest can violate, so the
@@ -1040,10 +1126,13 @@ def run_self_test() -> Dict[str, Any]:
         for cid, (zh_path, en_path) in files.items():
             zh_text = zh_path.read_bytes().decode("utf-8")
             en_text = en_path.read_bytes().decode("utf-8")
+            zh_section = card_section(zh_text, cid)
+            en_section = card_section(en_text, cid)
             internal = {"cid": cid,
-                        "zh": extract_fields(card_section(zh_text, cid), cid),
-                        "en": extract_fields(card_section(en_text, cid), cid)}
-            redact_traceback_clues(internal, fixture_titles, fixture_paths)
+                        "zh": extract_fields(zh_section, cid),
+                        "en": extract_fields(en_section, cid)}
+            redact_traceback_clues(internal, fixture_titles, fixture_paths,
+                                   own_titles=heading_titles(zh_section) + heading_titles(en_section))
             expected_card_by_hash[sha256_bytes(record_body(internal))] = cid
         mapping_pairs_match = (
             mapping_run["bundle_sha256"] == sha256_bytes((root / "out-map2" / BUNDLE_FILENAME).read_bytes())
@@ -1188,6 +1277,69 @@ def run_self_test() -> Dict[str, Any]:
                 faults.append({"case": name, "check": check,
                                "isolated_by_mutation": True, "error": message})
 
+        # ------------------------------------------------------------------
+        # The claim-field exemption, both halves.
+        #
+        # A card whose one-sentence judgment IS its heading title is the shape
+        # that voided 28 of the 102 cards in the 2026-10-09 freeze: a blanket
+        # title deletion emptied the claim, and the card was then excluded for
+        # "having no claim". The positive case below is that defect as a
+        # regression test; the fault run next to it withdraws the exemption and
+        # shows the card goes straight back to being refused — which is what
+        # makes the exemption load-bearing rather than decorative.
+        # ------------------------------------------------------------------
+        claim_edits = (
+            ("zh1", "测试材料中的判断必须保持可读而不暴露来源。",
+             "固定装置的原始标题不得出现在材料中"),
+            ("en1", "A test judgment must stay readable without exposing its source.",
+             "The fixture original title must not appear in the packet"),
+        )
+        apply_edits(claim_edits)
+        try:
+            claim_run = prepare(repo, manifest_path, root / "claim-is-own-title",
+                                "fixture-seed")
+        except Refused as exc:
+            restore()
+            fail("a card whose claim is its own heading title must still be "
+                 "included, but it was refused: %s" % exc)
+        claim_bundle = json.loads(
+            (root / "claim-is-own-title" / BUNDLE_FILENAME).read_text(encoding="utf-8"))
+        claim_blank = [(r["id"], language)
+                       for r in claim_bundle["records"] for language in LANGUAGES
+                       if not re.search(r"[0-9A-Za-z\u4e00-\u9fff]",
+                                        r[language].get("judgment", ""))]
+        claim_kept_verbatim = any(
+            fold("固定装置的原始标题不得出现在材料中") in fold(r["zh"].get("judgment", ""))
+            and fold("The fixture original title must not appear in the packet")
+            in fold(r["en"].get("judgment", ""))
+            for r in claim_bundle["records"])
+        # Withdraw the exemption, same edit: the claim is emptied again and the
+        # per-language semantic branch must be the one that says so.
+        try:
+            prepare(repo, manifest_path, root / "claim-exemption-dropped", "fixture-seed",
+                    test_fault="drop_claim_exemption")
+        except Refused as exc:
+            claim_fault_message = str(exc)
+        else:
+            restore()
+            fail("withdrawing the claim exemption left the bundle green, so the "
+                 "exemption is not what keeps the claim readable")
+        if "judgment" not in claim_fault_message or "(zh)" not in claim_fault_message:
+            restore()
+            fail("the withdrawn-exemption run refused without naming the zh "
+                 "judgment field: %s" % claim_fault_message)
+        try:
+            prepare(repo, manifest_path, root / "claim-exemption-dropped-mut", "fixture-seed",
+                    test_fault="drop_claim_exemption", disabled_checks={"lang_semantic"})
+        except Refused as exc:
+            restore()
+            fail("the emptied claim is also caught by another branch, so "
+                 "lang_semantic is not what reports it: %s" % exc)
+        restore()
+        if claim_blank or not claim_kept_verbatim or claim_run["record_count"] != 4:
+            fail("the claim field did not survive de-labelling intact: blank=%s "
+                 "verbatim=%s" % (claim_blank, claim_kept_verbatim))
+
         # The refusal path and the process exit code must be the same thing.
         apply_edits(STRUCTURAL_INJECTIONS[0][2])
         refusal_exit_code = main([
@@ -1206,10 +1358,22 @@ def run_self_test() -> Dict[str, Any]:
             fail("mapping or manifest guards did not hold")
         return {
             "status": "SELF_TEST_PASSED",
-            "negative_cases": len(negative) + len(structural) + len(faults),
+            # +1 negative and +1 mutation for the withdrawn claim exemption,
+            # which is injected directly rather than through a table.
+            "negative_cases": len(negative) + len(structural) + len(faults) + 1,
             "merged_scan_negative_cases": len(negative),
-            "per_language_and_structural_cases": len(structural) + len(faults),
-            "mutation_cases": len(mutation) + len(structural) + len(faults),
+            "per_language_and_structural_cases": len(structural) + len(faults) + 1,
+            "mutation_cases": len(mutation) + len(structural) + len(faults) + 1,
+            "regression_cases": 1,
+            "claim_exemption": {
+                "card_whose_claim_is_its_own_title_included": True,
+                "claim_kept_verbatim": claim_kept_verbatim,
+                "blank_claim_fields": len(claim_blank),
+                "withdrawn_exemption_refuses": claim_fault_message,
+                "isolated_by_mutation": True,
+                "cross_card_title_in_claim_still_refused": any(
+                    item["case"] == "foreign_title_in_claim" for item in structural),
+            },
             "all_expected_failures": True,
             "refused_run_exit_code": refusal_exit_code,
             "negative_detail": negative,

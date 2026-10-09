@@ -8,12 +8,18 @@ generator that also decides what goes in could quietly change the population
 between runs while every hash still agreed with itself.
 
 The rule it applies is the published one — a card is included when BOTH its
-Chinese and its English card carry all six required retained fields — with one
-correction over the 2026-10-09 freeze: the rule is evaluated AFTER de-labelling
-rather than before. Several cards repeat their one-sentence judgment as the
-card's heading title, so removing the title (which the isolation requirement
-demands) leaves the judgment field blank. Such a card has no claim left for a
-reviewer to judge, so it is excluded with a reason rather than shipped empty.
+Chinese and its English card carry all six required retained fields — evaluated
+AFTER de-labelling rather than before, so a field the generator will empty
+cannot be counted as present here.
+
+One correction over the first 2026-10-09 freeze, which excluded 28 cards on this
+rule: many cards repeat their one-sentence judgment as the card's heading title,
+and deleting every title out of every field emptied exactly that field. Those
+cards DO carry a claim, so excluding them recorded a fact that was not true. The
+generator now keeps a card's own heading title inside its claim field alone
+(`blind_bundle.CLAIM_KEY`), and this freezer applies the same exemption. A card
+is still excluded when a required field is genuinely unreadable, and the reason
+is then printed per card rather than per class.
 
 Usage
   blind_manifest.py --repo . --out docs/evidence/blind-review/manifest-<date>.json
@@ -59,8 +65,14 @@ def claim_survives(repo: Path, cid: str, zh_rel: str, en_rel: str,
     end up included. That makes this redaction a superset of the generator's
     (whose clue list is built from the included cards only), so a field that
     survives here cannot be emptied later — the conservative direction.
+
+    The one place the superset is deliberately NOT applied is this card's own
+    heading title inside its claim field: see `blind_bundle.CLAIM_KEY`. The
+    freezer must apply the same exemption the generator does, or it would
+    exclude cards the generator is perfectly able to ship.
     """
     record = {"cid": cid}
+    own: List[str] = []
     for language, rel in (("zh", zh_rel), ("en", en_rel)):
         text = (repo / rel).read_text(encoding="utf-8")
         try:
@@ -68,7 +80,8 @@ def claim_survives(repo: Path, cid: str, zh_rel: str, en_rel: str,
             record[language] = bb.extract_fields(section, cid)
         except bb.Refused as exc:
             return False, str(exc).replace(cid, "the card")
-    bb.redact_traceback_clues(record, titles, paths)
+        own.extend(bb.heading_titles(section))
+    bb.redact_traceback_clues(record, titles, paths, own_titles=own)
     for language in bb.LANGUAGES:
         for key in bb.REQUIRED_KEYS:
             if not re.search(r"[0-9A-Za-z\u4e00-\u9fff]", record[language].get(key, "")):
@@ -94,20 +107,15 @@ def main(argv: List[str]) -> int:
     for cid in paired:
         for rel in (zh[cid], en[cid]):
             section = bb.card_section((repo / rel).read_text(encoding="utf-8"), cid)
-            heading = bb.HEADING_RE.search(section)
-            if heading:
-                for part in re.split(r"[·:：]", heading.group(2)):
-                    part = bb.clean_value(part)
-                    if part:
-                        titles.append(bb.fold(part))
+            titles.extend(bb.heading_titles(section))
             paths.append(rel)
 
     cards: List[Dict[str, Any]] = []
-    claim_lost: List[str] = []
+    claim_lost: List[Tuple[str, str]] = []
     for cid in paired:
         ok, reason = claim_survives(repo, cid, zh[cid], en[cid], titles, paths)
         if not ok:
-            claim_lost.append(reason)
+            claim_lost.append((cid, reason))
             continue
         cards.append({
             "id": cid,
@@ -129,11 +137,13 @@ def main(argv: List[str]) -> int:
     }]
     if claim_lost:
         exclusions.append({
-            "subject": "ledger cards whose claim does not survive de-labelling",
-            "reason": ("The card repeats its one-sentence judgment as its heading title, "
-                       "so removing the title — which the isolation requirement demands — "
-                       "leaves no claim for a reviewer to judge. Shipping the record blank "
-                       "would be worse than excluding it."),
+            "subject": "ledger cards with an unreadable required field after de-labelling: "
+                       + ", ".join(cid for cid, _ in sorted(claim_lost)),
+            "reason": ("A required retained field carries no readable content once the "
+                       "de-labelling runs, so there is nothing for a reviewer to judge "
+                       "in it. This is NOT the 'claim equals the heading title' case — "
+                       "that one is now shipped, with the card's own title kept inside "
+                       "its claim field. Per-card causes are on the freezer's stdout."),
             "count": len(claim_lost),
         })
     if unpaired:
@@ -153,8 +163,13 @@ def main(argv: List[str]) -> int:
             "Include every current ledger card for which both the Chinese and English "
             "card contain all six required retained fields — judgment, audience, "
             "reasoning chain, time window, falsifier, leading indicator — AND still "
-            "carry readable content in each of them after de-labelling. Exclude "
-            "migration snapshots because they duplicate current judgments."),
+            "carry readable content in each of them after de-labelling. De-labelling "
+            "strips every card's heading title out of every field, with one narrow "
+            "exemption: a card's OWN title is kept inside its own claim field, because "
+            "many cards repeat their judgment as their title and deleting it there "
+            "would leave no claim. Another card's title in a claim field is still a "
+            "reverse-lookup key and is still refused. Exclude migration snapshots "
+            "because they duplicate current judgments."),
         "exclusions": exclusions,
         "coverage": {"candidate_total": len(cards) + excluded,
                      "included": len(cards), "excluded": excluded},
@@ -168,8 +183,8 @@ def main(argv: List[str]) -> int:
           "  manifest_sha256=%s"
           % (out, head, manifest["coverage"]["candidate_total"], len(cards), excluded,
              bb.sha256_bytes(out.read_bytes())))
-    for reason in sorted(set(claim_lost)):
-        print("  excluded (claim lost): %s" % reason)
+    for cid, reason in sorted(claim_lost):
+        print("  excluded %s: %s" % (cid, reason))
     return 0
 
 
