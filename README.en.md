@@ -19,6 +19,7 @@ This is a progressive reading path. You do not have to accept a forecast before 
 - [Cross-domain historical calibration evidence slice](docs/evidence/historical-calibration-2026-10-02.en.md): inspect reconstructable forecast–outcome pairs, original locations, same-metric fields, and evidence-class boundaries case by case.
 - [Historical-calibration round archive (same 2+1 set as the canonical slice; do not double-count)](docs/evidence/historical-calibration-round-2026-10.en.md): retain the earlier round’s fuller narrative for `P-04`, `B-WEBVAN`, and `T-SHUTTLE` without adding it to the slice.
 - [Next historical forecast–outcome evidence batch](docs/evidence/historical-calibration-next-batch-2026-10-02.en.md): inspect batch scope; its 4 records contain 3 calibration pairs (the first two carried forward from the slice, with `B-ETOYS` added in this batch) and 1 unknown candidate.
+- [Social-regularity calibration (2026-10-10)](docs/evidence/social-regularity-calibration-2026-10-10.en.md): calibrates two social-regularity candidates on political successes and failures — constituency lock-in is admitted as L10 in veto form only, preference-falsification cascades are not admitted because they cannot say no — and registers 4 forecast misses newly found in this round, none upgraded into the qualified count.
 - [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
 - [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
 - [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the two executed rounds of the isolated re-review together with the three items still open (run timestamp, round-2 raw outputs, the audience-field leak).
@@ -203,7 +204,7 @@ Full cards, status, dependency graph, external sources, history, and uncovered d
 
 | English | 中文 | What you get |
 |---|---|---|
-| [Foresight Methodology](docs/en/00-method.md) | [推演方法论](docs/zh/00-method.md) | Required fields, nine lenses, the opportunity-durability gate, and three exits |
+| [Foresight Methodology](docs/en/00-method.md) | [推演方法论](docs/zh/00-method.md) | Required fields, ten lenses, the opportunity-durability gate, and three exits |
 | [Retrospect](docs/en/01-retrospect.md) | [历史回顾](docs/zh/01-retrospect.md) | Five diffusion gates and their counterexamples |
 | [Judgment Evolution](docs/en/03-evolution.md) | [判断演化记录](docs/zh/03-evolution.md) | Rule narrowing, scope/status changes, the J-043 audit, and the two executed rounds of the isolated re-review with the three items still open |
 | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | Calibration, holdout, baselines, and leakage boundaries |

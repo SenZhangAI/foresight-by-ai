@@ -21,6 +21,7 @@
 - [跨领域历史校准证据切片（规范公开入口）](docs/evidence/historical-calibration-2026-10-02.md)：逐案查看 `P-04`、`B-WEBVAN`、`T-SHUTTLE` 的 2+1 分类、原始定位、同口径指标与证据等级边界。
 - [历史校准轮档案（与规范切片同一组 2+1，不重复计数）](docs/evidence/historical-calibration-round-2026-10.md)：保留较早轮次的完整叙述，案例为 `P-04`、`B-WEBVAN`、`T-SHUTTLE`，不与规范切片相加。
 - [下一批历史预测—结果证据记录](docs/evidence/historical-calibration-next-batch-2026-10-02.md)：查看批次范围；其中 4 条记录包含 3 条校准配对（前两条沿用切片记录，`B-ETOYS` 为本批新增）与 1 条未知候选。
+- [社会规律校准（2026-10-10）](docs/evidence/social-regularity-calibration-2026-10-10.md)：用政治史的成败案例校准两条社会规律候选——「受益者锁定」只以否决向入库为 L10，「偏好伪装级联」因无法判否未入库；另登记本轮新找到的 4 条预测失准案例，均不升入合格计数。
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
 - [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订，以及隔离重审两轮的执行记录与仍未闭合的三项（运行时间、第二轮原始输出、受众字段泄漏）。
@@ -205,7 +206,7 @@ flowchart LR
 
 | 中文 | English | 读到什么 |
 |---|---|---|
-| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断字段、九种透镜、机会耐久闸与三个出口 |
+| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断字段、十种透镜、机会耐久闸与三个出口 |
 | [历史回顾](docs/zh/01-retrospect.md) | [Retrospect](docs/en/01-retrospect.md) | 五道普及闸及其反例攻击 |
 | [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查，以及隔离重审两轮的执行记录与仍未闭合的三项 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
