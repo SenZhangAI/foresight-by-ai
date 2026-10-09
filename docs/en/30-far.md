@@ -105,6 +105,8 @@ If [J-039](ledger/31-40.md#j-039--rented-models-become-abundant-while-energy-dat
 
 If [J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)’s presence ceiling and [J-029](ledger/21-30.md#j-029--demand-side-anchors-persist)’s demand anchors are not overturned by new preferences, a reversal may appear: when answers, works, companionship, and identities can all be generated, “what I personally bore” becomes a source of status, trust, and meaning.
 
+> **Scope label · downgrade (2026-10-09 isolated blind re-review)**: J-029, used as a premise here, has been scope-downgraded (round-1 blind record `R1-65` vetoed it at Gate 2; card status `REVISED`) and may only be read as an institutional / human-nature-constant judgment; the reversal pictured in this section cannot borrow a society-level voice from J-029. See the [J-029 card](ledger/21-30.md#j-029--demand-side-anchors-persist) and [section 5 of the isolated blind re-review](../evidence/blind-review-reaudit-2026-10-09.en.md#5-the-one-new-downgrade-j-029).
+
 - **First question: what becomes abundant:** lives to try, generated achievement narratives, instant consolation, and replaceable identities.
 - **Second question: what becomes scarce as a result:** non-delegable responsibility, experiences that consume real lifetime, bodily risk, and commitments witnessed by others over time.
 - **Third question: can the same force that creates abundance automate the new scarcity?:** narratives and consolation can be automated; lifetime, bodily risk, relationship trust, and shared consequences are hard constraints.

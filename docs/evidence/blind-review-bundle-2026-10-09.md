@@ -154,7 +154,7 @@ python3 scripts/blind_bundle.py --repo . \
 - 分语言检查：中、英各自 `semantic_fields`／`path_and_anchor`／`count_against_manifest` 均 `passed`
 - 结构检查：`index_order`、`cross_language_card_set_and_field_meanings`、`mapping_reachability`、`merged_leakage_scan` 均 `passed`
 
-**旧轮证据一律未被覆盖**：`manifest-2026-10-09.json`（纳入 74）与 `bundle-prepared-2026-10-09.json` 原样保留，第二轮用 `-b` 新文件名。这意味着仓库里现在有三套冻结输入（`7c06add3…` 102 条、`404acac5…` 74 条、`181b35ec…` 102 条），读者必须按本节的轮次上下文区分，**不得把三者的计数混用**。
+**旧轮证据一律未被覆盖**〔**2026-10-10 更正：此句对首轮原件不成立**——`manifest-2026-10-09.json` 与 `bundle-prepared-2026-10-09.json` 这两个路径在首轮之后的第一次补救（`da4ef29`）中都被 74 条版本就地覆盖，本句所说「原样保留」的是那份 74 条版本，不是首轮原件。首轮原件已从提交 `66db88f` 分别以 [`manifest-2026-10-09a.json`](blind-review/manifest-2026-10-09a.json)（`7c06add3…`）与 [`bundle-prepared-2026-10-09a.json`](blind-review/bundle-prepared-2026-10-09a.json) 恢复；后者记录的 bundle 哈希为 `a2fdc9db…`，与首轮实际派发的 bundle `5d4e4732…` 不同，差异来源未查清。第二轮的 `-b` 文件不受影响〕：`manifest-2026-10-09.json`（纳入 74）与 `bundle-prepared-2026-10-09.json` 原样保留，第二轮用 `-b` 新文件名。这意味着仓库里现在有三套冻结输入（`7c06add3…` 102 条、`404acac5…` 74 条、`181b35ec…` 102 条），读者必须按本节的轮次上下文区分，**不得把三者的计数混用**。
 
 ### 这一节不证明什么
 

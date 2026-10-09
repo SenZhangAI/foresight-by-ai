@@ -102,6 +102,8 @@ Falling reasoning cost will not distribute gains evenly. [J-027](ledger/21-30.md
 
 [J-029](ledger/21-30.md#j-029--demand-side-anchors-persist) treats status, certainty, embodied presence, and responsibility as demand-side anchors rather than using “human nature is eternal” as proof. It is compatible with the conservative consensus that technology changes tools without automatically changing every need.
 
+> **Scope label · downgrade (2026-10-09 isolated blind re-review)**: J-029, cited in this section, was the only card entering the re-review still licensed for society-level voice. The blind review (round 1 `R1-65`, original not recognised) vetoed it at Gate 2 — it is a demand-side anchor judgment that replaces no existing action — and the disposition is a **scope downgrade**: the card's status is now `REVISED`, with its claim, falsifier and check date unchanged. Read this section only as an institutional / human-nature-constant judgment, not as a society-wide trend claim, and derive no society-level consequence from it. See the [J-029 card](ledger/21-30.md#j-029--demand-side-anchors-persist) and [section 5 of the isolated blind re-review](../evidence/blind-review-reaudit-2026-10-09.en.md#5-the-one-new-downgrade-j-029).
+
 - **More abundant:** identities, works, and life plans to try.
 - **More scarce:** relationships willing to share consequences, real experiences, and witnessed commitments.
 - **Third question:** surface expression can be generated; shared experience, embodied presence, and repeated trust face physical, relational, and bodily constraints, and cannot be fully replaced by the same generative force.
