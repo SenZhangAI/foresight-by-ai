@@ -376,6 +376,8 @@ Accordingly, the repository-wide reconstructable `CALIBRATION` set is the six pa
 
 To stop readers from confusing “the repository contains historical material” with “the method has been validated,” the current status must be explicit:
 
+**Delivery boundary of this narrow closure:** it only organizes locatable historical forecast–outcome material, publishes its evidence classes and stop reasons, and aligns the Chinese and English entry points; it adds no future judgment and does not upgrade historical calibration material into forecast-accuracy evidence.
+
 | Status | What the current material supports | What the current material does not support |
 |---|---|---|
 | `CALIBRATION` | The six pairs P-01, P-02, P-04, P-06, Webvan, and eToys have locatable T-before material, outcome material, observation windows, and explicit metric definitions; they support retrospective calibration, exposure of recording gaps, and narrower rules | Method accuracy, hit rate, Brier score, cross-domain discrimination increment, or overall validity of the five gates |
