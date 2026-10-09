@@ -2808,6 +2808,8 @@
 
 ### English historical snapshot
 
+> **方法论缺口标注（2026-10-09）**：本份快照的 Original reasoning chain 里那一步「under loss aversion」同样**暂无登记透镜背书**，判据见本条目开头的标注与[映射表「人性规律」行](../zh/00-method.md#五类起点与-l1l9-的对应表)。标注不改快照一字。
+
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1473–L1491`
 - **Current card anchor**: `docs/en/ledger/61-70.md:L27–L48`
 - **Original title**: Local externalities of data centres become explicit and social licence becomes a real siting constraint
