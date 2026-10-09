@@ -4,7 +4,11 @@
 
 > **What this file proves, and what it does not.** It proves that 102 registered judgment cards were de-labelled, renumbered and shuffled, then re-judged card by card against the current five diffusion gates by six mutually invisible fresh-context batches, with the results fixed and hashed *before* the mapping was unsealed; and that every judgment therefore carries a recorded disposition. It does **not** prove those judgments are accurate, and it does **not** prove this project's method works. A same-model, same-criteria re-judgment can only test **reproducibility**: agreement with the old conclusion is not independent evidence of correctness, and disagreement does not automatically mean the old conclusion was wrong. Genuine out-of-sample calibration comes only from future judgment cards reaching their due date.
 
-> ⚠ **Retrospective correction, 2026-10-09: a check added this round judged this file's input to be false.** After the generator gained a semantic-field check that runs separately per language, recomputation found that of the 102 cards in the manifest this file used (`7c06add3…`), **28 cards had their one-sentence judgment field emptied entirely by de-labelling** (15 failing in Chinese only, 13 in both). The root cause is that these cards reuse the one-sentence judgment as the `### J-NNN · <title>` heading title, and the isolation requirement demands the title be removed. Roughly 28 of the 102 dispositions below were therefore made on records carrying **no claim prose at all**, and cannot be read as a valid re-judgment of that judgment. The merged leakage scan of the time was structurally blind to an emptied field and reported nothing. The re-frozen input (manifest `404acac5…`, 74 cards included) now excludes those cards explicitly under the same inclusion rule; the affected entries need to be re-judged on the new bundle, and until then the corresponding rows here stand only as a historical record. See [`blind-review-bundle-2026-10-09.en.md`](blind-review-bundle-2026-10-09.en.md).
+> ⚠ **Retrospective correction, 2026-10-09: a check added this round judged this file's input to be false; the defect has been fixed and the affected cards re-judged.** After the generator gained a semantic-field check that runs separately per language, recomputation found that of the 102 cards in the manifest this file used (`7c06add3…`), **28 cards had their one-sentence judgment field emptied entirely by de-labelling** (15 failing in Chinese only, 13 in both). The root cause is that these cards reuse the one-sentence judgment as the `### J-NNN · <title>` heading title, and de-labelling removed every title indiscriminately. Twenty-eight of the 102 dispositions below therefore rest on an insufficient evidentiary premise. The merged leakage scan of the time was structurally blind to an emptied field and reported nothing.
+>
+> **The remedy was not to exclude those 28 cards but to fix the de-labelling defect.** The intermediate version (manifest `404acac5…`, 74 cards included) excluded them explicitly; that path is retired, because excluding a card that does carry a claim cannot satisfy "every existing judgment receives a conclusion". The generator now lets **a card's own title survive inside that card's own judgment field only** (another card's title appearing in any field, or this card's title appearing in any other field, is still rejected), the input was re-frozen under the same inclusion rule at **102 cards** (manifest `181b35ec…`), and the 28 cards were re-judged in a second round on the repaired bundle (`e15b0e36…`). The results are in [section 11](#11-round-2--the-28-cards-re-judged-on-the-repaired-bundle) of this file; the verbatim rationales are in [`blind-review/reaudit-2026-10-09b.json`](blind-review/reaudit-2026-10-09b.json).
+>
+> **The status of those 28 round-1 verdicts must be stated in two classes and never conflated.** **Thirteen cards were blank in both languages** (J-032, J-033, J-035, J-036, J-037, J-040, J-041, J-042, J-043, J-044, J-046, J-050, J-051): the reviewer saw no claim in any projection, so the round-1 verdict is **void**. **Fifteen were blank in the Chinese projection only, with the English projection intact word for word** (J-002–J-005, J-031, J-034, J-038, J-039, J-045, J-047–J-049, J-052–J-054): every bundle record ships both projections, so the claim *was* in the record and the round-1 verdict is **in doubt**, not provably void. The 28 corresponding rows in the table below stand as a historical record only; the governing disposition is in section 11. See [`blind-review-bundle-2026-10-09.en.md`](blind-review-bundle-2026-10-09.en.md).
 
 ---
 
@@ -93,7 +97,9 @@ Disposition: downgrade (a scope downgrade; not one word of the original is delet
 
 ## 6. The largest single finding: 27 of the 37 vetoes come from one sentence
 
-Of the 37 `VETO` records, **27 fail on Gate 2 alone**, and the rationale is almost always the same sentence: "this card replaces no existing activity". The cards vetoed by that sentence are of wildly different kinds — a human-nature constant (J-029), landscape-only claims (J-042, J-053), the method rules themselves (J-066, J-069, J-070), a negative boundary judgment (J-078), an infrastructure-ordering claim (J-089), gain distribution (J-090, J-102), risk pricing (J-094).
+> ⚠ **This section is partly weakened by section 11; do not read it alone.** Nine of those 27 Gate-2-only vetoes (J-005, J-039, J-040, J-041, J-042, J-045, J-048, J-052, J-053) fell on cards whose claim field had been emptied. Once the claim prose was restored and the cards re-judged, **all nine disappeared**: five became `ABSTAIN` (J-041, J-042, J-045, J-048, J-053) and four became Gate 1 vetoes (J-005, J-039, J-040, J-052); round 2 produced **zero** Gate 2 vetoes across all 28 cards. So the Gate-2 concentration was inflated by the input defect: on the 74 cards whose claim was intact it is **18 of 26 vetoes** — still concentrated, but not 27. Among the examples named below, **J-042 and J-053 are no longer instances of a Gate 2 veto**; they are kept here only as a record.
+
+Of the 37 `VETO` records, **27 fail on Gate 2 alone**, and the rationale is almost always the same sentence: "this card replaces no existing activity". The cards vetoed by that sentence are of wildly different kinds — a human-nature constant (J-029), landscape-only claims (J-042, J-053, **whose verdicts are superseded in section 11**), the method rules themselves (J-066, J-069, J-070), a negative boundary judgment (J-078), an infrastructure-ordering claim (J-089), gain distribution (J-090, J-102), risk pricing (J-094).
 
 A rule that returns the same veto reason for ten different kinds of claim is not filtering; it is out of bounds. Gate 2's original induction domain can be read straight off its own case table: the cases [Retrospect](../en/01-retrospect.md) used to induce the five gates — smartphones, health codes, QR payment, containerization, China's household responsibility system, against the control group Google Glass, 3D television, MOOCs, Concorde, Iridium, Esperanto, New Coke — are **without exception about whether one capability or product becomes the way a whole society does things**. Not one of them is about how gains are distributed, how risk is priced, whether a human-nature constant holds, or about a forecasting rule itself.
 
@@ -117,11 +123,14 @@ But one consequence must be stated plainly: **this round cannot simultaneously s
 
 1. **Four classes of claim have no test**: gain distribution, risk pricing, human-nature constants / demand-side anchors, and forecasting rules themselves have no falsifiable filter at all. J-029's society-level licence was withdrawn precisely because of this hole. Next entry point: build and calibrate a candidate test for at least one of these classes under the protocol's as-of discipline (2 successes + 2 failures + 1 exclusive case + it must be able to say no).
 2. **G2-SCOPE is uncalibrated**: see section 6, including its expected falsification shape.
-3. **The 27 Gate 2 vetoes have not been re-reviewed under the new rule**: see section 7.
+3. **Eighteen Gate 2 vetoes have not been re-reviewed under the new rule**: see section 7. This was registered as 27; nine of them fell on cards whose claim had been emptied and all nine disappeared in the round-2 re-judgment (not one is still vetoed on Gate 2), leaving 18 that came from cards with intact claims and still await review.
 4. **The bundle carries no claim class**: de-labelling also erased the information "this is a method card / a landscape-only card / a negative boundary card", so the re-reviewers ran the capability-diffusion gates on method cards too (J-066, J-069, J-070). That is not the reviewers' error; it is a boundary of the bundle's design. The next round should carry a **neutral claim-class label** (for instance "capability diffusion / distribution / pricing / constant / rule") without leaking the old answer, and prove with negative fixtures first that the label cannot be used to recover the old identifiers.
 5. **Reproducibility is only 35.6%**: about two thirds of the existing limits could not be rebuilt by the same model under de-labelled conditions. That number itself needs explaining — either the grounds for the limit are written too thinly (the card does not say why Gate 1 fails), or the gate verdicts are themselves unstable. The two causes call for opposite fixes, and this round cannot tell them apart.
-6. **The leniency bias across identification strata is uncorrected**: a 26.5% `VETO` rate for recognised records against 78.9% for unrecognised. This round only measures it, and under a same-model setup there is no way to correct it.
+6. **The leniency bias across identification strata is uncorrected**: a 26.5% `VETO` rate for recognised records against 78.9% for unrecognised. This round only measures it, and under a same-model setup there is no way to correct it. **The field is also not comparable across rounds**: the same 28 cards were self-reported as recognised 19/28 in round 1 and 0/28 in round 2 (see section 11.2).
 7. **Leakage isolation is procedural**: anyone holding both the bundle and the public repository can restore the mapping, and training memory cannot be removed.
+8. **Round 2's dispatch prompt itself leaked the source project**: its hard-constraint block named the repository path, the `docs/` directory and the `J-NNN` identifier shape, and two batches disclosed unprompted that this let them infer the project (see section 11.3). A future round must phrase the prohibition without naming any path or identifier shape; until that is changed, provenance isolation must not be claimed as achieved.
+9. **The attribution of round 2's Gate 1 concentration is undetermined**: all 15 vetoes fail Gate 1, but these 28 cards are a specific subset of landscape-only cards about relationships, meaning and care, and their audience fields share one boilerplate sentence. "Caused by the repair" and "a property of the subset" cannot be separated by this round; it needs re-testing on another subset whose claims were intact.
+10. **The two rounds' counts cannot be merged**: they are not the same bundle, the same batches or the same seed, and their `R-NN` namespaces are disjoint. Any "102-record statistic" must be stated per round and never summed.
 
 ## 9. Forbidden statements
 
@@ -135,7 +144,9 @@ The results of this round must not be written up as any of the following:
 
 ## 10. Per-card disposition table
 
-The table below carries the disposition of all 102 cards. The verbatim rationale and missing-evidence note for each is in the record with the same `R-NN` in [`blind-review/reaudit-2026-10-09.json`](blind-review/reaudit-2026-10-09.json); the same disposition line is also written into each card in place, immediately above its Status field.
+The table below carries round 1's disposition for 102 cards. The verbatim rationale and missing-evidence note for each is in the record with the same `R-NN` in [`blind-review/reaudit-2026-10-09.json`](blind-review/reaudit-2026-10-09.json).
+
+> ⚠ **Twenty-eight rows in this table are superseded.** The records for J-002–J-005 and J-031–J-054 had their claim field emptied in the round-1 bundle (13 blank in both languages, 15 in Chinese only); those rows stand as a historical record only and **the governing disposition is in [section 11](#11-round-2--the-28-cards-re-judged-on-the-repaired-bundle)**. The other 74 rows are valid and are what the cards themselves carry; the disposition line on those 28 cards has been rewritten in place with the round-2 result.
 
 | Card | Blind id | Blind verdict | Gates failed | Recognised the original | State before this round | Disposition |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -241,3 +252,83 @@ The table below carries the disposition of all 102 cards. The verbatim rationale
 | J-100 | R-72 | ABSTAIN | — | yes | already limited to an occupational/institutional judgment | retain — no veto found (a gate can only veto, never upgrade) |
 | J-101 | R-29 | ABSTAIN | — | yes | already limited to an occupational/institutional judgment | retain — no veto found (a gate can only veto, never upgrade) |
 | J-102 | R-59 | VETO | Gate 2 | no | already limited to an occupational/institutional judgment | retain — the blind review reproduced the existing limit |
+
+## 11. Round 2 — the 28 cards re-judged on the repaired bundle
+
+Round 1's verdicts on these 28 cards are unusable (13 void, 15 in doubt — see the banner at the top). Once the defect was fixed, the 28 cards were re-judged on the re-frozen 102-record bundle. The relation to section 10 is: **those 28 rows in section 10 are retired and this section governs**; the other 74 rows are unaffected and were deliberately **not** re-run (a re-run would only test reproducibility a second time, and would create two incompatible `R-NN` namespaces).
+
+### 11.1 Input and the "results first, unseal second" evidence
+
+| Item | Value |
+| --- | --- |
+| Frozen source commit | `98fd95701da3bacef4d43e304db6b82e3f4d3b9b` |
+| Input manifest | `docs/evidence/blind-review/manifest-2026-10-09b.json`, SHA-256 `181b35ecec7ed9aa04a4af212ac3ca58edf0f6b153820c20cda69c483b4c1af1` |
+| Inclusion rule | The same rule as round 1: both language versions carry all six required retained fields, and every one of them still has readable content **after** de-labelling. The only change this round is that **a card's own title survives inside that card's own judgment field** |
+| Coverage | 197 candidates → **102** included → 95 excluded (historical migration snapshots only; round 1's "lost its claim to de-labelling" exclusion bucket is now empty) |
+| Output bundle | SHA-256 `e15b0e36d427432aeddb436f6fe205f53af691c04c0a58083b51647e34f43360`, 102 records in each language; **zero** empty judgment fields in either language |
+| Selection rule | Re-judge only the 28 cards whose claim had been emptied in round 1 (13 blank in both languages + 15 blank in Chinese only). The list was fixed before any new verdict existed and is independent of any prior verdict |
+| Batches | 3 mutually invisible fresh-context batches (10 / 9 / 9 records), none with repository access |
+| Raw-output hashes | Each batch reported the SHA-256 of its own output while the mapping was still sealed; after unsealing, the leader recomputed all three and they matched byte-for-byte |
+
+```
+60593387b75b93802e9116c10f90ff7cf5f9405cf9d25d082d0fe284543f8159  raw-1.jsonl
+25b20d976c2e3b764bb05e8e945ab83f1481cf619f085d04dbc133bc1cbd2277  raw-2.jsonl
+76aae999b8b8b8681fe785a1977548ad29b270fc33c1a7565b76e9c79eb2abaa  raw-3.jsonl
+```
+
+### 11.2 Results
+
+**Verdict distribution**: `VETO` 15 / `ABSTAIN` 13. `FALSIFIED` 0 — this round again adjudicates no card's falsifier, so that zero is a scoping result, not a finding that no judgment was overturned.
+
+**Every veto lands on Gate 1.** All 15 vetoes fail Gate 1 (the audience ceiling) and **none** fails Gate 2. Compare round 1's verdicts on these same 28 cards when the claim prose was missing — `VETO` 11 / `ABSTAIN` 17, with 10 Gate 2 vetoes and only 1 Gate 1 veto — and the shift has a clear direction: with nothing readable about *what this replaces*, the reviewer tends to veto on Gate 2; once the claim prose is back, the veto reason moves wholesale to "this population cannot carry society-level scale". That directly weakens the "27 Gate 2 vetoes" finding of section 6, which is annotated in place.
+
+**This does not license the conclusion that Gate 2 itself is broken.** These 28 cards are a specific subset (J-002–J-005 and J-031–J-054, mostly landscape-only cards about relationships, meaning and care, whose audience fields all carry the same "raises existing professionals' ceiling" boilerplate), so the Gate 1 concentration may be a property of the subset rather than an effect of the repair. This round cannot separate the two explanations.
+
+**Agreement with round 1**: the verdict word matches on **12 of 28** (42.9%); the verdict *and* the failing gate match on only **7 of 28** (25.0%). This number is **not** evidence about which round was right: round 1 answered on empty or half-empty records, which is not a comparable baseline. Its only use is to quantify how far an input defect can move a verdict.
+
+**Identification stratum**: self-reported recognition of the original judgment, **0 of 28**. The same 28 cards were self-reported as recognised 19/28 in round 1. **Identification counts are therefore not comparable across rounds**: same cards, same model, and the self-reported recognition rate fell from 68% to 0%, while two batches this round volunteered that they could infer which project the records came from. Read the field as "did I recognise this judgment", never as a leakage measurement.
+
+### 11.3 Residual leakage introduced this round (stated, not hidden)
+
+1. **The phrase "reconstructed from the existing review"**: 10 / 9 / 9 records in the three batch files (in each language) carry an audience field reading "reconstructed from the existing review". It discloses to the reviewer *that* a prior review existed; it discloses none of its conclusions. It comes from the card prose itself and was not manufactured this round.
+2. **The dispatch prompt itself leaked the source project**: in the hard-constraint block the leader named the repository path, the `docs/` directory and the `J-NNN` identifier shape — intended as a prohibition on reading them, with the effect of telling the reviewer which project the records belong to. Batches 2 and 3 both **disclosed this unprompted**. This leak was **introduced** this round, by the leader; it leaks provenance, not any prior verdict. A future round must phrase the prohibition without naming any path or identifier shape.
+3. **The old boundary of procedural isolation is unchanged**: anyone holding both the bundle and the public repository can restore the mapping by comparing prose word for word, and the reviewer and the original author are the same model, so training memory cannot be removed by de-labelling.
+
+### 11.4 Per-card disposition (28 records)
+
+The `Round-1 status` column has only two values: **void** = the claim was blank in both languages, so the round-1 verdict cannot be attributed to this judgment; **in doubt** = blank in the Chinese projection only, with the English projection intact word for word, so the claim *was* in the record and the round-1 verdict rests on an insufficient premise without being provably void.
+
+| Card | Round-1 status | Round-1 verdict (on record) | Round-2 record | Round-2 verdict | Gates failed | Recognised | State before review | Disposition |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| J-002 | in doubt | ABSTAIN (no gate) | R-04 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-003 | in doubt | ABSTAIN (no gate) | R-46 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-004 | in doubt | VETO (Gate 3) | R-06 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-005 | in doubt | VETO (Gate 2) | R-101 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-031 | in doubt | ABSTAIN (no gate) | R-64 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-032 | void | ABSTAIN (no gate) | R-44 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-033 | void | ABSTAIN (no gate) | R-70 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-034 | in doubt | ABSTAIN (no gate) | R-10 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-035 | void | ABSTAIN (no gate) | R-55 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-036 | void | ABSTAIN (no gate) | R-39 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-037 | void | ABSTAIN (no gate) | R-90 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-038 | in doubt | ABSTAIN (no gate) | R-08 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-039 | in doubt | VETO (Gate 2) | R-41 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-040 | void | VETO (Gate 2) | R-56 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-041 | void | VETO (Gate 2) | R-81 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-042 | void | VETO (Gate 2) | R-07 | ABSTAIN | — | no | already marked landscape only | retain — no veto found (a gate can only veto, never upgrade) |
+| J-043 | void | ABSTAIN (no gate) | R-50 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-044 | void | ABSTAIN (no gate) | R-102 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-045 | in doubt | VETO (Gate 2) | R-91 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-046 | void | ABSTAIN (no gate) | R-34 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-047 | in doubt | ABSTAIN (no gate) | R-86 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-048 | in doubt | VETO (Gate 2) | R-58 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-049 | in doubt | ABSTAIN (no gate) | R-97 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-050 | void | ABSTAIN (no gate) | R-79 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-051 | void | VETO (Gate 1, Gate 2) | R-49 | ABSTAIN | — | no | already REVISED | retain — no veto found (a gate can only veto, never upgrade) |
+| J-052 | in doubt | VETO (Gate 2) | R-33 | VETO | Gate 1 | no | already REVISED | retain — the blind review reproduced the existing limit |
+| J-053 | in doubt | VETO (Gate 2) | R-62 | ABSTAIN | — | no | already marked landscape only | retain — no veto found (a gate can only veto, never upgrade) |
+| J-054 | in doubt | ABSTAIN (no gate) | R-43 | ABSTAIN | — | no | already marked landscape only | retain — no veto found (a gate can only veto, never upgrade) |
+
+### 11.5 Coverage
+
+Of the 102 registered judgment cards, **all 102** now carry a blind disposition made on a record whose claim prose was intact: 74 from round 1 (section 10) and 28 from this round (this section). Both rounds used the same inclusion rule and the same five gate criteria, but **not the same bundle, not the same batches and not the same seed**, so the two rounds' `R-NN` namespaces are disjoint and their counts must not be added into a single "102-record statistic" — the three count groups in section 4 hold only for round 1's valid 74-card subset.

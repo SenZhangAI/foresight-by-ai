@@ -1,0 +1,873 @@
+{
+ "schema_version": 1,
+ "round": "2026-10-09b",
+ "supersedes_for_these_cards": "docs/evidence/blind-review/reaudit-2026-10-09.json",
+ "source_commit": "98fd95701da3bacef4d43e304db6b82e3f4d3b9b",
+ "input_manifest_sha256": "181b35ecec7ed9aa04a4af212ac3ca58edf0f6b153820c20cda69c483b4c1af1",
+ "bundle_sha256": "e15b0e36d427432aeddb436f6fe205f53af691c04c0a58083b51647e34f43360",
+ "selection_rule": "the 28 ledger cards whose claim field was emptied by the blanket title redaction in bundle 5d4e4732 — 13 blank in both languages, 15 blank in zh only; chosen before any new verdict existed and independent of any previous verdict",
+ "raw_output_sha256": {
+  "raw-1.jsonl": "60593387b75b93802e9116c10f90ff7cf5f9405cf9d25d082d0fe284543f8159",
+  "raw-2.jsonl": "25b20d976c2e3b764bb05e8e945ab83f1481cf619f085d04dbc133bc1cbd2277",
+  "raw-3.jsonl": "76aae999b8b8b8681fe785a1977548ad29b270fc33c1a7565b76e9c79eb2abaa"
+ },
+ "raw_output_hash_discipline": "Each batch reported its own SHA-256 before the mapping was unsealed; the leader recomputed all three and they matched byte-for-byte.",
+ "verdict_vocabulary": {
+  "VETO": "at least one gate is definitely not passed",
+  "ABSTAIN": "no gate was shown to fail; this is NOT a pass and never licenses an upgrade"
+ },
+ "disposition_vocabulary": {
+  "retain-reproduced": "retain; the blind pass reproduced an existing scope limit",
+  "retain-not-reproduced": "retain; the blind pass established no gate failure (gates can only reject)"
+ },
+ "claim_boundary": "Same model, same gate criteria, fresh context: this round can only test REPRODUCIBILITY. Agreement with the round-1 verdict is not independent evidence of correctness, and disagreement is not automatic proof that round 1 was wrong. This round does not adjudicate any falsifier, does not measure accuracy, and does not validate the method.",
+ "why_this_round_exists": "In round 1 the blanket title redaction emptied the claim field of these 28 cards (13 in both languages, 15 in zh only), so their round-1 dispositions were made on records carrying no claim text. The generator was fixed (a card's own title now survives inside its own claim field) and these 28 cards were re-judged on the repaired bundle.",
+ "two_classes_of_round1_invalidity": {
+  "invalid": "the 13 cards blank in BOTH languages — the reviewer could see no claim in any projection, so the round-1 verdict cannot be attributed to the claim",
+  "in_doubt": "the 15 cards blank in zh ONLY — the English projection carried the claim verbatim and every bundle record ships both projections, so the claim WAS in the record; the round-1 verdict is in doubt, not provably void"
+ },
+ "residual_leakage": [
+  "Each batch file carries 9-10 records per language whose audience field reads \"基于现有复核重建\" / \"reconstructed from the existing review\". This discloses THAT a prior review existed; it discloses none of its conclusions.",
+  "The dispatch prompt written by the leader named the repository path, the docs/ directory and the J-NNN card identifier shape as forbidden targets. Batches 2 and 3 both disclosed unprompted that this let them infer which project the records came from. This is a leak introduced by this round, not inherited: it leaks provenance, not any prior verdict.",
+  "recognized is self-reported and is NOT comparable across rounds: the same 28 cards were self-reported as recognised 19/28 in round 1 and 0/28 here, while two batches simultaneously disclosed project-level recognition. Read the field as \"did I recognise this judgment\", not as a leakage measurement."
+ ],
+ "counts": {
+  "cards_total": 28,
+  "by_verdict": {
+   "VETO": 15,
+   "ABSTAIN": 13
+  },
+  "by_disposition": {
+   "retain-reproduced": 15,
+   "retain-not-reproduced": 13
+  },
+  "by_current_state": {
+   "REVISED": 25,
+   "LANDSCAPE": 3
+  },
+  "by_vetoed_gate": {
+   "gate1": 15
+  },
+  "gate2_only_veto": 0,
+  "recognised_true": 0,
+  "recognised_false": 28,
+  "falsified": 0,
+  "archived": 0,
+  "round1_verdict_literally_same": 12,
+  "round1_verdict_and_gates_same": 7,
+  "round1_gate2_only_veto_among_these": 9,
+  "claim_blank_both_languages": 13,
+  "claim_blank_zh_only": 15
+ },
+ "records": [
+  {
+   "card_id": "J-002",
+   "r_id": "R-04",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "64789cdbe60f1ebb64a0911010f4729f6732f3ca76c7cad29b45c9dbfb041eb9",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众字段自报「百万量级(知识工作者与组织采购者),周频」并明确写「提高既有专业者上限」,按闸一判据,这类能力的天花板就是那个职业的人数,不会成为社会风气。闸二通过:推理链说「筛选内化为生成过程的一部分,不再是独立需求」,替掉的是用户今天已在做的「从多个产出里自己挑一个」。闸三通过:所需承载是模型厂商的「多方案生成 + 自动择优」,成本由厂商自己出,且订阅产品本身就是独立收入来源。闸四通过:领先指标写的是「模型厂商是否把多方案生成+自动择优做成默认行为」,采纳决策落在厂商单方手上。闸五通过:内化后用户每次使用的动作减少,相对今天手工筛选是净负担为负。",
+   "missing_evidence_verbatim": "无",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-003",
+   "r_id": "R-46",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "80774019bc081e9c076fdcde5eb2b921ffa62d2ffc1395e7300f55a253eb926b",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "ABSTAIN",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众只有百万量级(专业个人与组织),且自报提高既有专业者上限,天花板就等于这群人的规模,永远不会成为社会风气。闸二通过:领先指标1 写明企业为我们的语境、调性、禁区建立专门资产而不是散在提示词里,替掉的是今天把语境散在提示词里的真实旧动作;按判据成本降幅不是及格线,不影响通过。闸三:领先指标2 的个人导出并携带自己偏好档案需要产权与可携带格式这类专用承载,记录只说硬约束是产权加私有性,没写谁出钱、有无第二用途,信息不足。闸四通过:单个个人或单个企业自己就能决定建立并维护私有上下文资产,单方决策。闸五:领先指标3 的显式记录不像我们这类否决理由,是持续新增的记录负担,但记录没有给出与适配变好所省返工时间的净比较。",
+   "missing_evidence_verbatim": "闸三需要:可携带偏好档案的产权与格式承载由谁出资建设,是否有本判断之外的第二用途或独立收入。闸五需要:每次显式记录取舍、维护偏好档案的时间成本,与因适配更好而减少的返工时间的净比较。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-004",
+   "r_id": "R-06",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "18831390208fe2a252953c6e4f07dba724395e93f26fbded1218fb2a721b269d",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate3"
+   ],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一不通过:受众自述为「百万量级(部署 AI 的组织与高责任专业者),周频」,而且正文本身把场景限定在组织内部的不可逆动作(支付、部署、发送、签约),服务的是既有专业者与组织的上限,不是让原本不会的人也能做;按闸一的读法,天花板等于部署 AI 的组织规模,它不会成为社会风气(这是封顶,不等于判断为假)。闸三通过:专用承载物被点名为「AI 动作沙盘/影子环境/回滚」,出钱方是企业采购、动因是不可逆损失与责任成本,领先指标里「保险公司是否开始为 AI 自主执行动作定价」提供独立收入线索,且 staging/回滚类承载物因别的理由已存在。闸四通过:单个组织可单方决定采购隔离环境。闸二存疑:判断把可撤销化写成「前置条件而非可选项」,形态上偏向新增一层,只有最强反方提到的「人类逐条审批」间接暗示被替掉的旧动作。闸五存疑:记录没有把沙盘与回滚的每次新增负担同节省的事故与赔偿成本做比较。",
+   "missing_evidence_verbatim": "闸二:需要明确它替掉的是人工逐条审批、人工执行,还是既有 staging/备份流程中的哪一个既有动作。闸五:需要相对真实 incumbent(直连生产或人工审批)的全系统重复净负担——双环境维护与延迟成本 vs 事故与赔偿成本的节省。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-005",
+   "r_id": "R-101",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "b9078236e31b6263c7ba8d2c008da148bea13211dbd8c59e7156b44f68fd9b54",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一不通过:受众为「百万量级(医疗、工程、合规等高责任专业者与组织),周频」,三条领先指标(一手数据授权价格、带赔偿承诺的 AI 服务溢价、实验与中试在研发预算中的占比)全部是专业者与机构的动作,提高的是既有专业者上限,天花板等于这些专业人群与机构的规模。闸三通过:三类输入依赖的承载物——现场与传感设备、法律责任制度、实验与中试设施——都因别的理由已被建好且有独立收入,不需要为本判断单修一条路。闸四通过:单个买方或机构可单方决定为一手数据付溢价、或要求带赔偿承诺的服务。闸二存疑:这是价值与定价重分配的判断,没有点名替掉用户今天已在做的哪个动作。闸五存疑:没有把真实观测与实验相对合成数据/模拟的每次净负担做比较。",
+   "missing_evidence_verbatim": "闸二:需要说明「买一手信号/买可追责承诺/做验证实验」替掉了既有流程中的哪个动作,还是只是同一动作涨价。闸五:需要真实实验与观测相对合成替代的重复净负担比较(单次成本、周期、学习与合规负担 vs 节省的错误与责任成本)。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-031",
+   "r_id": "R-64",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "86aae5eae59ac52534a3d514927f0653ba2d0dad810365fd24813cae1df27de7",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一不通过:受众为「千万量级(让 AI 执行真实动作的组织与开发者),周频」,推理链起点就是「组织把长程任务交给代理」,服务的是既有组织与开发者的上限,天花板等于这群组织与开发者的规模,永远不会成为社会风气。闸三通过:专用承载物被点名(沙盘、影子环境、回滚),出钱方是企业采购、动因是失败与责任成本,领先指标正是「企业采购中沙盘、影子环境和回滚条目」,且该类承载物(测试/发布回滚)因别的理由已存在。闸四通过:单个组织或开发团队可单方决定采购隔离环境。闸二存疑:记录把行动环境写成「准入条件」,形态上是新增一层,没有点名被替掉的既有动作。闸五存疑:没有把维护可暂停/可回放/可回滚环境的持续负担与直连生产的事故成本做比较,证伪条件自己也承认「事故成本没有推动独立隔离环境采购」仍是开放可能。",
+   "missing_evidence_verbatim": "闸二:需要明确它替掉的是人工监督、人工执行,还是既有测试与发布流程中的哪一个既有动作。闸五:需要隔离环境的重复净负担(双环境维护、延迟、学习成本)与直连生产的事故与赔偿成本之间的量化比较。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-032",
+   "r_id": "R-44",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "2035df5c266719523a6fb09a5e068710f746c9bd61676a2029076b2a1d8b92bc",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众自报「千万量级(授权、审查与异常升级岗位及其组织),周频」且「提高既有专业者上限」,判断本身就是「审查岗位相对执行步骤升值」这种职业内部的相对变化,天花板等于这些岗位的人数。闸二通过:推理链「可检查工具调用扩散 → 执行步骤被模板化」,替掉的是人今天已在做的执行步骤。闸三通过:承载是「可检查工具调用」与权限系统,它对合规、调试、安全都有第二用途,由代理平台因自身理由建设。闸四通过:授权审查与异常升级流程的采纳落在单个组织手上,一方即可决定。闸五通过:执行工时下降、审查岗位本已存在,相对 incumbent 的全系统净负担为负。",
+   "missing_evidence_verbatim": "无",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-033",
+   "r_id": "R-70",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "d192c6b73a57c45d3ee8a0ee0738099c8636a2158910173c6ad2ddfdbaf63fc4",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众千万量级(医疗、工程、合规等高责任专业者与组织),自报提高既有专业者上限,天花板就等于高责任专业人群,远低于社会风气量级。闸二:记录说可验证记录连接因果与责任、记录获得溢价,但没有写明它替掉了这些专业者今天已在做的哪个记录或报告动作,还是在既有记录之外再加一道现场取证,无法确认判否条件。闸三通过:领先指标里的审计要求说明记录与取证承载有制度性的独立理由与付费方(审计、合规),不是只为本判断专修的一条路。闸四通过:是否保留带现场证据的干预记录,由单个专业者或单个组织自己决定,单方决策。闸五:每次干预额外取证是持续新增负担,记录未把它与审计成本、赔付风险、溢价带来的节省做净比较。",
+   "missing_evidence_verbatim": "闸二需要:可验证记录替掉的是今天已在执行的哪一项记录、报告或复核动作。闸五需要:每次干预现场取证的时间与设备成本,对比审计省下的流程成本与记录溢价收入的净值。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-034",
+   "r_id": "R-10",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "ccedfac2f0ca1445ad9590114e652a170cd9d7283ffedd95edfc0aaec502101f",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众自报「千万量级(高责任组织、审计者与监管机构),周频」且「提高既有专业者上限」,天花板封在这些机构与专业者的规模,远低于社会风气。闸二通过:推理链「合成资料降低探索成本 → 低责任场景可容忍模型误差」,在低责任场景里替掉的是今天已在做的现实试验。闸三通过:合成资料设施对一般研发探索有第二用途,监管采纳框架由监管机构因法定职责出成本。闸四通过:符合判据(a),监管机构有强制力,且「监管文件中合成证据采纳范围」正是可被看见的执行。闸五通过:低责任场景以合成替试验节省试验预算;高责任场景保留的现实试验本身就是 incumbent,没有新增重复负担。",
+   "missing_evidence_verbatim": "无",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-035",
+   "r_id": "R-55",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "4519a5c83f1832276efe52f386f459f3653ef40dd7891169140f02358133952b",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众自报「千万量级(高责任输出的采购组织、保险人与专业者),周频」且「提高既有专业者上限」,天花板封在这些采购方与专业者的规模。闸二弃权:推理链是「保险、赔付准备金和审计进入合同」,即在合同里新增条款,记录没有指明它替掉买方今天的哪一个动作,也不足以断定它只是多一件事。闸三通过:承载是 AI 责任保险与审计机构,保费与审计费就是独立收入来源,保险与审计业本因别的理由已存在。闸四通过:买方在议价中单方就能把赔付上限与审计要求写进合同,不需要多方同时改变。闸五弃权:保费、赔付准备金与审计是持续新增的金钱与流程负担,记录没给它相对自担错误损失的净值。",
+   "missing_evidence_verbatim": "需要两项:(1)责任抵押替掉了买方今天哪个既有动作(自担损失还是自行验收),用来定闸二;(2)保费与审计成本相对错误损失期望的净负担量级,用来定闸五。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-036",
+   "r_id": "R-39",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "1ac88bd2b3468349d948679face1513a62c1927f3259fd66635499e19b72ec4c",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众自报「亿量级(平台、内容生产者与数字服务用户),周频」,所服务的动作是「决定关注谁、信任谁」,人数×频次已超出任何单一职业规模(同一字段又写「提高既有专业者上限」,与亿量级受众描述自相矛盾,此处以规模与频次为准)。闸二通过:推理链「注意力转向长期一致性与兑现率」明确替掉了今天「看一次表达就下判断」这个动作,成本降幅不是闸二的及格线。闸三通过:履约记录可寄生在平台既有交易、复购与违约数据上,平台因降低违约率有独立的商业理由出成本。闸四通过:领先指标是「带历史表现的推荐采用率」,改推荐机制由平台单方决定,本闸自动通过。闸五弃权:生产者侧要持续维持可核验履约记录是新增负担,记录没给它与用户侧节省的筛选成本的净值。",
+   "missing_evidence_verbatim": "需要:内容生产者与服务方维持可核验履约记录的持续成本,以及用户侧因此省下的筛选时间,才能算出全系统净负担方向。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-037",
+   "r_id": "R-90",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "41a9bddb9d7398b40437fb1813eac03dc7e59bc7b7e807962950dfa1602b0e90",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众亿量级(采用代理的小团队与知识工作者)、周频。按判据再问一层,它是少数人编排更多代理步骤,即提高既有专业者上限、不会把动作本身做大,因此天花板就是知识工作者人群 —— 但该人群本身已是亿量级,不构成远低于动作人数的封顶,故不否决。闸二通过:替掉的是团队今天由人做的执行步骤(受限工作流稳定 → 工具调用可检查 → 少数人编排更多代理步骤)。闸三通过:记录没有指出任何专用新基础设施,受限工作流与可检查工具调用由供应商面向众多客户建设,有独立收入与其他用途。闸四通过:要不要用代理由小团队自己单方决定。闸五:领先指标自列返工率,说明编排与审查是持续新增负担,但记录没有给出它与节省时间之间的净比较。",
+   "missing_evidence_verbatim": "闸五需要:相对同规模不用代理团队的基线,单位任务上编排加审查加返工的新增时间,与代理节省时间的净比较数据。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-038",
+   "r_id": "R-08",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "b92084321c880bff81e6a46a3f35af5cd1dec74a9cae49636e58bb90c4944841",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一:受众正文是亿量级(组织中的责任岗位、监督者与专业者)、周频。它自报只提高既有专业者上限,按判据天花板就等于责任岗位人群,但该人群本身已是亿量级,不构成远低于动作人数的封顶,故不否决。闸二:推理链写明正常步骤自动化,替掉的是今天由人做的执行步骤,属真实替代;而责任岗位是既有动作的保留(责任岗位保留),不是多加一件事。闸三:本判断的承载物是组织既有的授权与问责结构,记录没有要求为它专修任何新基础设施。闸四:是否保留责任岗位落在单个组织手上,单方即可决定,本闸自动通过。闸五:记录只说异常与跨界后果不可预先穷尽,没有给出每次任务上监督与异常处理的新增负担、与自动化节省之间的净比较,信息不足。",
+   "missing_evidence_verbatim": "闸五需要:相对不用代理的基线,单位任务上授权审查加异常升级的新增时间,与自动化省下的等待、人力、流程成本的净比较数据。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-039",
+   "r_id": "R-41",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "d4e3c70e4f89bc95eda0ca6ad6c2c19d78a61ad6aac8939b3da062ddc5bc4fd4",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一不通过:受众为「千万量级(模型买方与能源/数据/渠道控制者),周频」,判断讲的是控制者收取准入租金,受益与涉事者是企业与专业买方,属于提高既有专业者上限,天花板等于这群买方与控制者的规模,不会成为社会风气。闸三通过:能源接入、独家数据与渠道都是因别的理由已建好、且各自有独立收入来源的承载物(电力市场、数据许可费、渠道抽成),不需要为本判断单修一条路。闸四通过:租用模型由单个买方单方决定,租金由控制者单方定价,不需要多方同时改变。闸二存疑:推理链只写「单位推理成本下降 → 模型能力可租用」,没有明确点名被替掉的既有动作。闸五存疑:没有把「租用并支付准入租金」相对 incumbent 的每次净负担做比较。",
+   "missing_evidence_verbatim": "闸二:需要明确「租用模型」替掉的是自建训练、自有算力还是自雇专业者中的哪一个既有动作。闸五:需要租用加准入租金相对自建/自雇的重复净负担比较(价格、学习与流程负担 vs 节省的建设与人力成本)。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-040",
+   "r_id": "R-56",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "fb1afa490420131febe988a6ccc9a20c4fecd9b6d5a3265d3794805bb1eecae3",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众千万量级(保险人、资本方与高责任组织),自报提高既有专业者上限,天花板就等于这群机构参与者,不会成为社会风气。闸二:记录只说合同要求赔付能力、资本与保险把偿付能力定价,没有指明这替掉了买方或供方今天已经在做的哪个动作(是替掉既有履约保证与责任保险,还是在现有合同条款上多加一条),判否条件无法确认。闸三通过:承载是责任保险与赔付准备金市场,保险人有独立收入(领先指标即责任保险保费),不是只为本判断专修的一条路。闸四通过:要不要在合同里要求赔付能力,由采购方单方决定。闸五:保费与准备金是持续的金钱负担,但记录没有给出它与因此获得的准入资格或价格优势之间的净比较。",
+   "missing_evidence_verbatim": "闸二需要:赔付能力要求替掉的是哪一项今天已在执行的担保或保险动作。闸五需要:保费与准备金占合同金额的比例,对比因此获得的合同价格、融资或部署资格优势的净值。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-041",
+   "r_id": "R-81",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "5e10e73917e1c77030bddd6698834942ebeeb50c37436db38f018614473bcda3",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众为「亿量级(数字沟通者与组织协调者),周频」,而且推理链里的翻译与跨组织介绍让原本做不到的人也能做跨语言、跨组织沟通,不只是提高既有专业者上限。闸二通过:明写被替掉的旧动作是「翻译、介绍、约时」,三者都是今天已经在做的动作。闸三通过:记录没有点名任何专用新基础设施,它跑在因别的理由已建好的邮件/消息/日历与通用模型服务之上。闸四通过:AI 中介可由一方单方采用,对方不必同时改变,领先指标「AI 中介协调比例」本身就是单方可测的量。闸五通过:相对人工翻译与人工约时这个真实 incumbent,记录给出的机制是「沟通与背景同步成本下降」,并以「单次协调人时」下降为指标,没有出现可观的持续新增负担。",
+   "missing_evidence_verbatim": "无(本轮五道闸都没有被证明不通过;按规则 ABSTAIN 已是非否决的唯一取值,不表示通过)。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-042",
+   "r_id": "R-07",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "bde5515c922821aa717214e3f5c53f3ca2fe8da574e3d9223cde875f0dae5f17",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "LANDSCAPE",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:服务的动作是「共同经历与身体在场」,记录给出十亿量级、日/周频,这是普遍动作而非单一职业人数;受众字段里「提高既有专业者上限」与同句「所有需要共同经历与身体在场的人」自相矛盾,且该字段自述「历史卡没有独立字段,非独立统计」,故不以那半句为据。闸三、闸四、闸五通过(空过):本卡主张的是 incumbent(身体在场的共同经历)继续成立,不需要任何专用新基础设施、不需要任何一方改变采用决策、也不产生相对 incumbent 的新增持续负担,三道闸的否决条件无从触发;反向看,若由代理互动替代在场,则需关系双方同时改变,且记录没有给出强制方或补贴方。闸二存疑:记录只说「代理陪伴与提醒普及」,没有点明它替掉用户今天已在做的哪一个动作。",
+   "missing_evidence_verbatim": "闸二:需要指明代理陪伴与提醒替掉的具体旧动作(见面、通话还是消息往来),以及该替代在长期强关系中的实际占比。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-043",
+   "r_id": "R-50",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "82a821e5825266f459d9418a7e1397402d877197e3d6dde2e274a3a5b37e2ddf",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众千万量级(高价值代理的组织买方与运营者),自报提高既有专业者上限,天花板就等于这群买方与运营者,远低于社会风气量级。闸二通过:记录写明监督转向权限边界与异常升级,证伪条件也以仍普遍逐步审批为准,替掉的是今天真实存在的逐步审批动作。闸三通过:专用承载是可回滚环境与演练,出钱方与理由记录里都有 —— 可回滚环境降低监督成本,买方自身有付费动机(领先指标含演练采购)。闸四通过:组织内部的授权模式由该组织单方决定;记录把事故责任或监管要求逐步审批列为最强反方,属尚未发生的反向可能,不是既成的多方同时改变约束。闸五通过:记录自述可回滚环境降低监督成本,且边界授权替掉逐步审批,每次全系统负担更轻而非更重。",
+   "missing_evidence_verbatim": "无",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-044",
+   "r_id": "R-102",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "a45f4622dd2c53887d362f190a62c2123d948da36a86c1609a571f28984379da",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众自报「千万量级(部署代理的组织、保险人与责任主体),周频」且「提高既有专业者上限」,天花板等于这群组织与从业者的规模。闸二弃权:推理链只说「责任抵押成为准入」,这是在部署流程上新增一道条件,记录没有点出它替掉了部署方今天已在做的哪一个动作,也不足以断定它纯属「多一件事」。闸三通过:承载是「责任保费、合同准备金、偿付条款」,由保险人出成本,保费本身即独立收入来源。闸四通过:保险人或买方任一方单方就能把偿付条款写进合同,不需要多方同时改变。闸五弃权:保费与准备金是持续新增的金钱负担,但记录没给它相对自担尾部损失的净值。",
+   "missing_evidence_verbatim": "需要两项:(1)责任抵押替掉了部署方/买方今天哪个具体动作(自担风险、自行尽调还是自行审计),用来定闸二;(2)保费与合同准备金相对自担尾部损失期望的净负担量级,用来定闸五。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-045",
+   "r_id": "R-91",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "bffcbb56619fedbea9be1fbb2adacce0703906b24a6da855aff9bc2643044e53",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "ABSTAIN",
+    "gate3": "ABSTAIN",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一存疑:受众写「亿量级(需要现实观察的人与组织),周频」,但证伪条件与领先指标把场景收窄到「高责任决策」「现场证据溢价」「原始记录要求」,这是专业与机构动作;记录既没有界定这群人的规模与频次,又同时写着「提高既有专业者上限」,无法判定天花板是否封顶在专业者。闸四通过:单个高责任机构可单方规定只接受现场与原始记录证据,不需要多方同时改变。闸二存疑:现场观察本身就是旧动作,记录没有说明「要求未经安排的现实观察」替掉的是哪个既有动作,还是只在既有流程上多加一道验证。闸三存疑:要在实践中区分现场与合成,需要来源证明/取证类承载物,记录没有说由谁建、谁出钱、是否有第二用途。闸五存疑:没有比较取证现场证据(差旅、时间、保存与核验成本)相对接受合成材料的重复净负担。",
+   "missing_evidence_verbatim": "闸一:需要「需要现实观察」的人群界定与频次,以及它是提高既有专业者上限还是让原本不会的人也能做。闸二:需要点名被替掉的既有动作(接受合成材料或二手叙述)。闸三:需要来源证明与取证基础设施的出资方、动因与第二用途。闸五:需要现场证据相对合成替代的每次净负担比较。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-046",
+   "r_id": "R-34",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "580463bf27058dc22ff88f8a16142875cc5de82d210253c3b5cdf035be8e7bc2",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众自报「千万量级(高责任行业的专业者与组织),周频」且「提高既有专业者上限」,天花板就是这些行业从业者的人数。闸二弃权:判断是「高责任场景仍为现场因果记录保留溢价」,即 incumbent 继续被使用,记录里既没有被替掉的旧动作,也不属于「只是多一件事」,信息不足以判定。闸三通过:承载是现场记录的许可与保险折扣机制,领先指标里的「现场记录许可价」就是独立收入来源,且现场记录本因运营与合规理由已在生成。闸四通过:符合判据(a),高责任领域的试验要求由监管强制,且「试验要求」本身是可见的执行。闸五通过:本卡维持的正是现场记录这个 incumbent,相对它没有新增的持续重复负担。",
+   "missing_evidence_verbatim": "需要:现场因果记录相对责任方今天已有的合规记录流程,是替掉了某个动作还是纯新增,否则闸二只能悬置。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-047",
+   "r_id": "R-86",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "433022b149126c9dd8ff0acf5caa30fafa3335493df52c769283ded449c40b82",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众正文是亿量级(可能使用 AI 陪伴的人)、周频,陪伴与倾诉本身是人人在做、频次很高的动作;推理链的记忆、耐心和人格可复制 → 陪伴随时可用,属于让原本得不到陪伴的人也能做,即把动作本身做大(自报的提高既有专业者上限与受众正文自相矛盾,我按受众正文与推理链判)。闸二通过:复制削弱专属感与共同风险这句说明它替掉的是今天已经在做的人类陪伴与倾诉时间,是替代而非多一件事。闸三通过:记录没有指出任何专用新基础设施,复制式陪伴跑在已因别的理由建好的终端与模型服务上。闸四通过:用不用 AI 陪伴由个人单方决定,本闸自动通过。闸五通过:陪伴随时可用意味着相对约人、排期的真实 incumbent,等待与社交成本下降,记录中看不出持续净负担为正。",
+   "missing_evidence_verbatim": "五闸都没有被证明不通过,但按判据这只表示有资格参赛。若要对后半句(不可复制互惠成为稀缺)给出明确判定,需要领先指标里陪伴复制率、退出率、留存与修复的真实基线数据;本轮五闸不裁定这一点。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-048",
+   "r_id": "R-58",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "0d165a8eca7eeb98b9a7424d4b5fbb2ec72135f80aab6a88585af61be8bbe3ef",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众自报「亿量级(使用 AI 的个人、家庭与组织),周频」,所服务的动作是日常使用 AI 并处理授权与退出,人数×频次足够,不受某个职业人数封顶。闸二通过:最强反方写「AI 稳定归类为普通工具」,说明 incumbent 是用普通合同处理,专门规范与退出条款替掉的正是这一既有做法,而成本降幅不是闸二的及格线。闸三通过:承载是「专门规范或判例」,由立法与司法机关因纠纷压力出成本,属于已有制度机器的延伸而非为一件事单修的路。闸四通过:符合判据(a),立法与司法具有强制力,判例与退出条款是可被看见的执行。闸五弃权:退出条款与合规流程是每次使用的新增流程负担,记录没给它相对今天纠纷处理与协商成本的净值。",
+   "missing_evidence_verbatim": "需要:专门规范下每次授权/退出的流程负担,与它省掉的数据纠纷与协商成本的对比量级,才能定闸五。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-049",
+   "r_id": "R-97",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "62f988d578d609eb7dc127f66c12bcf294b6d8567ba1269fb6c8bea7b6175b66",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一:记录自报亿量级、周频,但受众正文是需要共同承诺的群体与组织,而共同承担不可逆承诺这个动作本身的频次远低于周频;记录又明说该数字是基于现有复核重建、非独立统计,因此人数乘频次无法判定。闸二通过:协调成本下降 → 候选增加,替掉的是今天已经在做的寻找与协调动作,属真实替代。闸三通过:记录没有指出任何专用新基础设施,协调承载跑在已有平台与模型服务上,有独立收入与其他用途。闸四通过:就本卡描述的能力(AI 协调)而言,用不用由个人或单个组织单方决定;卡的后半句共同承担是结论而非采用决策,本闸不对它取值。闸五通过:协调成本下降意味着相对真实 incumbent 每次更轻,记录中看不出持续净负担为正。",
+   "missing_evidence_verbatim": "闸一需要:共同承担不可逆承诺这一动作的真实人数与频次统计(而非由复核重建的数字),以判定天花板是否远低于社会风气量级。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-050",
+   "r_id": "R-79",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "ca2d3e273ddf194e119ab831486787dcec3ff3a454388d801359b0bad1f22bec",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众为「亿量级(劳动者、组织成员与协作者),周频」,协作不是单一职业的动作,规模×频次成立。闸二通过:推理链明写「代理吸收协调 → 人类介入减少」,被替掉的是今天确实在做的旧动作(协调、状态同步、共同执行步骤);按判据只要替掉一个真实旧动作即过闸,成本降幅不是及格线。闸三通过:记录没有点名任何专用新基础设施,代理与协作工具因别的理由已被建好。闸四存疑:「共同选择承诺」与「共同担责」按定义涉及多方与责任归属,记录没有说明采用决策落在个人手上,还是必须组织与各协作方同时改流程与责任分配。闸五存疑:没有比较承诺型协作相对共同执行步骤的每次净负担(共同确认与担责的社会负担 vs 节省的协调时间)。",
+   "missing_evidence_verbatim": "闸四:需要说明采用决策归属——个人能否单方用代理吸收协调,还是必须组织同时改流程与责任归属;若属多方同时改变,需给出 (a) 能强制且执行可见的权力、(b) 单一补贴主体、(c) 承载物已被建好三者之一。闸五:需要承诺型协作相对步骤型协作的重复净负担比较。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  },
+  {
+   "card_id": "J-051",
+   "r_id": "R-49",
+   "batch": "raw-2.jsonl",
+   "record_sha256": "96848c538908d2d16f5cacae839b52621fa70fee408ffca6fbd7cd46dad12e7f",
+   "claim_blank_in_round1": "both_languages",
+   "round1_verdict_invalidity": "invalid",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate1",
+    "gate2"
+   ],
+   "round1_recognized": false,
+   "current_state": "REVISED",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众为「十亿量级(受制度与资源分配影响的普通人),周频」,服务的动作(寻求建议、办事与取得许可)是普遍动作;字段里「提高既有专业者上限」与正文矛盾且自述非独立统计,不作为依据。闸三、闸四、闸五通过(空过):本卡主张的是现状继续成立——「许可、资源接入和赔付仍集中」,既不需要专用新基础设施、不需要任何一方改变采用决策,也不产生相对 incumbent 的新增持续负担。顺带一说,闸四的判据反而支持本卡:要让关键入口广泛分散必须多方同时改变,而最强反方给出的「开放协议打散入口」既没有能强制且执行可被看见的权力,也没有一次性补贴各方启动成本的单一主体。闸二存疑:记录没有点明「建议廉价生成」替掉的是哪个既有动作。",
+   "missing_evidence_verbatim": "闸二:需要指明 AI 建议替掉的既有动作(找专业者咨询、自行检索,还是走窗口办事),以及替代之后关键入口是否随之改变。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-052",
+   "r_id": "R-33",
+   "batch": "raw-3.jsonl",
+   "record_sha256": "48cda0705c06be6162308f63fe967c13fcfc260db06795b633998a0cb621f8fd",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": true,
+   "current_state": "REVISED",
+   "verdict": "VETO",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "vetoed_gates": [
+    "gate1"
+   ],
+   "recognized": false,
+   "rationale_verbatim": "闸一否决:受众是千万量级(能源、现实数据、授权与赔付制度的组织参与者),且自报提高既有专业者上限,按判据天花板就等于这个制度参与者群体,远低于社会风气量级。按判据的正确读法,这不等于判断为假,只等于天花板=该群体规模。闸二:记录通篇是四类入口被定价、控制形成议价位置,没有指出它替掉了谁今天已经在做的哪一个动作,无法确认判否条件。闸三通过:能源、现实数据、审查与保险各自都有本判断之外的独立用途与收入(领先指标即能源价差、数据费、审查费、保险准备金),不需要为本判断专修一条路。闸四:记录没有写出采用决策落在谁手上,也没说明四类入口被定价是否需要监管者、保险人、买方同时改变,信息不足。闸五:记录完全没有每次使用的新增负担或节省描述。",
+   "missing_evidence_verbatim": "闸二需要:这项能力替掉了组织今天已在做的哪个采购、许可或赔付动作。闸四需要:定价的采用决策人是谁,是否需要多方同时改变,以及是否存在能强制且执行可见的权力或单一补贴主体。闸五需要:四类入口被定价后,参与方每次的新增金钱与流程负担对比节省的净值。",
+   "disposition": "retain-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-053",
+   "r_id": "R-62",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "ea9425f49292ec54d365b38670488d845a94d257dd2200567eb4b614ba70c868",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "VETO",
+   "round1_vetoed_gates": [
+    "gate2"
+   ],
+   "round1_recognized": true,
+   "current_state": "LANDSCAPE",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众自报「十亿量级(所有追寻意义、身份与承诺的人),周频」,是全社会级的动作与频次。闸二弃权:本卡是意义与信号层面的存续判断(「承担成为意义来源」),记录没有写它替掉今天在做的哪一个动作,也不是多加一件事,信息不足以判定。闸三通过:推理链依赖的是真实时间、身体风险与责任自然留下的成本信号,不需要专用新基础设施;领先指标里的「经历验证」可寄生在既有凭据与社交记录上。闸四通过:是否以真实承担去换取意义由个人单方决定,本闸自动通过。闸五通过:真实承担本身就是 incumbent(人历来如此),本卡没有在它之上新增持续重复负担。",
+   "missing_evidence_verbatim": "需要:指出「真实承担」替代了哪一个今天已在做的可生成替代动作,才能把闸二从弃权变成明确判定。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": true,
+   "gates_changed_vs_round1": true
+  },
+  {
+   "card_id": "J-054",
+   "r_id": "R-43",
+   "batch": "raw-1.jsonl",
+   "record_sha256": "7565ea1a51a7b6a7180699405b62dde04f9215186c833f687118ddbf8e09aaa3",
+   "claim_blank_in_round1": "zh_only",
+   "round1_verdict_invalidity": "in_doubt",
+   "round1_verdict": "ABSTAIN",
+   "round1_vetoed_gates": [],
+   "round1_recognized": true,
+   "current_state": "LANDSCAPE",
+   "verdict": "ABSTAIN",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS"
+   },
+   "vetoed_gates": [],
+   "recognized": false,
+   "rationale_verbatim": "闸一通过:受众自报「十亿量级(所有人的时间、身体风险与长期承诺),日/周频」,动作人数与频次都是全社会级。闸二弃权:本卡是需求侧的存续判断(「稀缺转向不可委托经历」),记录里没有写它替掉用户今天在做的哪一个动作,也不是在生活上多加一件事,信息不足以判定。闸三通过:推理链落在需求侧偏好(「身体风险与长期承诺仍需本人承担」),不依赖任何专用新基础设施,不存在没人修路的问题。闸四通过:是否亲身投入时间、承担身体风险与长期承诺由个人单方决定,本闸自动通过。闸五通过:亲身承担本身就是 incumbent,本卡没有在它之上新增持续重复负担。",
+   "missing_evidence_verbatim": "需要:指出不可委托经历究竟替代了哪一类今天已在做的委托/代理行为,才能把闸二从弃权变成明确判定。",
+   "disposition": "retain-not-reproduced",
+   "verdict_changed_vs_round1": false,
+   "gates_changed_vs_round1": false
+  }
+ ]
+}

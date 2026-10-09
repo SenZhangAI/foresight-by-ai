@@ -19,11 +19,13 @@ The previous round's generator (commit `66db88f`) serialized the Chinese and Eng
 | `cross_language` | The Chinese and English logical card sets are the same, and each record carries the same field meanings in both | Same reason; after merging you cannot see which side is missing a field |
 | `mapping_reachability` | Every `R-NN` must resolve to exactly one source card and vice versa | When two records share a body the mapping can still be written but is unusable, and nothing leaks for a scan to find |
 
-**These checks immediately judged the material the previous round actually shipped to be false.** Recomputed over the 102 cards on the tree at the frozen commit `0eb7474`: **28 cards lost their one-sentence judgment field entirely during de-labelling** — **15 failing in Chinese only, 0 in English only, and 13 in both**. The root cause is that these cards reuse the one-sentence judgment as the `### J-NNN · <title>` heading title, and the isolation requirement demands that the title be removed, so the claim prose went with it. The merged scan is structurally blind to this: an empty field leaks no clue.
+**These checks immediately judged the material the previous round actually shipped to be false.** Recomputed over the 102 cards on the tree at the frozen commit `0eb7474`: **28 cards lost their one-sentence judgment field entirely during de-labelling** — **15 failing in Chinese only, 0 in English only, and 13 in both**. The root cause is that these cards reuse the one-sentence judgment as the `### J-NNN · <title>` heading title, and de-labelling removed every title indiscriminately, so the claim prose went with it. The merged scan is structurally blind to this: an empty field leaks no clue.
 
 This was verified to be a **pre-existing defect, not one introduced this round**: recomputing on the same tree with the original `redact_traceback_clues` from commit `66db88f` (without this round's anchor / bare-filename stripping) yields exactly the same 41 emptied fields across 28 cards. The bundle published last round (`a2fdc9db…`) therefore did contain 28 records with no claim in them, and no check at the time would have reported it.
 
-The resolution is to exclude them explicitly under the **same inclusion rule**, not to relax the check: the rule was always "both language cards carry the six required retained fields", and this round only evaluates it **after** de-labelling — keeping a card with no claim is worse than excluding it. The selection logic lives in `scripts/blind_manifest.py`, deliberately outside the generator.
+> ⚠ **The "exclude them explicitly" resolution below is superseded and kept only as a record.** It contradicts this project's own acceptance bar — "the bundle retains only the original claim" and "every existing judgment receives a conclusion": those 28 cards do carry a one-sentence judgment, it was merely identical to the card title and deleted along with it, and excluding a card that carries a claim means it can never receive a conclusion. For the current resolution see [the final section, "Round 2"](#round-2--fixing-the-de-labelling-defect-instead-supersedes-the-exclusion-above).
+
+~~The resolution is to exclude them explicitly under the **same inclusion rule**, not to relax the check: the rule was always "both language cards carry the six required retained fields", and this round only evaluates it **after** de-labelling — keeping a card with no claim is worse than excluding it. The selection logic lives in `scripts/blind_manifest.py`, deliberately outside the generator.~~
 
 ## Frozen input
 
@@ -108,3 +110,52 @@ These are structural and isolation checks only. They do not prove that the histo
 - `npm run check`: exit code 0; output was `all automated pre-publication checks pass`. This is mechanical structure evidence only, not evidence of method validity or prediction accuracy.
 - `git diff --check`: exit code 0, no output.
 - committed in this unit: the generator, the freezer, the re-frozen manifest, the hash evidence, the bilingual protocol, and this evidence package; the bundle, seed, and mapping never enter the repository.
+
+## Round 2 — fixing the de-labelling defect instead (supersedes the exclusion above)
+
+The "exclude the 28 cards explicitly" resolution above is superseded. The reason is not taste: it violates this project's own acceptance clauses. "The bundle retains only the original claim" requires the claim to survive, and "every existing judgment receives a retain / REVISED / FALSIFIED / explicit-downgrade conclusion" requires every card to get a conclusion — excluding a card that does carry a judgment satisfies neither.
+
+**A first-hand diagnosis replaced the guess with a fact.** Running a per-card, per-field diagnosis on the real ledger with the repository's own `blind_bundle` and `blind_manifest` modules — that is, with the blanket title deletion described above — the cause of death across the 28 excluded cards is `Counter({'judgment': 41})`: **all 41 failing (card, language) instances, and only those, land on the `judgment` field**. None of the other five required fields (audience, reasoning chain, time window, falsifier, leading indicator) was damaged at all. So this was never "these cards have incomplete fields"; it was "de-labelling deleted titles too broadly".
+
+**The exemption is narrow and symmetric.** Only a card's **own** title, and only inside that card's **own** `judgment` field, may survive. Another card's title appearing in any field, or this card's title appearing in any other field, is still rejected — that remains a reverse-lookup key. The cost is stated rather than hidden: the claim prose can now be reverse-looked-up by anyone holding both the bundle and the public repository, but that is the same order of exposure as the reasoning chain, time window and falsifier, which already appear in the bundle verbatim. The isolation was always procedural (the reviewer is barred from the repository by role), never cryptographic.
+
+**The exemption is load-bearing, and three fixtures hold it there** (all inside `--self-test`):
+
+| Fixture | Kind | What it proves |
+|---|---|---|
+| a card whose claim == its own title must be included | positive regression | both languages keep it verbatim and `blank_claim_fields: 0`; if the exemption breaks, this fails immediately |
+| `foreign_title_in_claim` | structural injection (negative) | another card's title injected into `judgment` must be rejected by the `title` branch, and must pass when only that branch is disabled — proving no other branch catches it indirectly |
+| `drop_claim_exemption` | TEST_FAULT (withdraw the exemption) | with the exemption withdrawn the claim is emptied again, and only `lang_semantic` reports it — proving the exemption is why those 41 fields survive |
+
+`python3 scripts/blind_bundle.py --self-test` currently reports `SELF_TEST_PASSED`, `negative_cases=20`, `mutation_cases=20`, `regression_cases=1`, `refused_run_exit_code=1`, `mapping_pairs_match_bundle=true`.
+
+### The re-frozen input and bundle
+
+```sh
+# freeze (verbatim)
+python3 scripts/blind_manifest.py --repo . \
+  --out docs/evidence/blind-review/manifest-2026-10-09b.json
+# candidate=197 included=102 excluded=95
+
+# production run (bundle / mapping / seed all in a temp dir outside the repository)
+python3 scripts/blind_bundle.py --repo . \
+  --manifest docs/evidence/blind-review/manifest-2026-10-09b.json \
+  --output-dir "$tmpdir/bundle" --mapping-out "$tmpdir/mapping.json" \
+  --seed "$seed" --verify-determinism \
+  --evidence docs/evidence/blind-review/bundle-prepared-2026-10-09b.json
+```
+
+- `source_commit`: `98fd95701da3bacef4d43e304db6b82e3f4d3b9b`
+- manifest SHA-256: `181b35ecec7ed9aa04a4af212ac3ca58edf0f6b153820c20cda69c483b4c1af1`
+- coverage: 197 candidates; **102** included; **95** excluded (historical migration snapshots only; the `claim_lost` bucket is now empty)
+- bundle SHA-256: `e15b0e36d427432aeddb436f6fe205f53af691c04c0a58083b51647e34f43360`; 102 records (102 zh / 102 en); **zero empty judgment fields in either language**
+- seed SHA-256: `a18ea18e3a88ffd865b44d3ca93555a7ac60f91f2e8cc3a4e22df6f5b2c775e0` (the seed itself never enters the repository)
+- determinism: `same_bytes=true`, `order_independent=true`, `archive_same_bytes=true`, `seed_changes_assignment=true`
+- per-language checks: `semantic_fields` / `path_and_anchor` / `count_against_manifest` all `passed` for zh and for en
+- structural checks: `index_order`, `cross_language_card_set_and_field_meanings`, `mapping_reachability`, `merged_leakage_scan` all `passed`
+
+**No earlier evidence was overwritten**: `manifest-2026-10-09.json` (74 included) and `bundle-prepared-2026-10-09.json` are preserved as they were, and round 2 uses new `-b` filenames. That means the repository now holds three frozen inputs (`7c06add3…` at 102, `404acac5…` at 74, `181b35ec…` at 102); a reader must keep them apart by the round context given here and **must not mix their counts**.
+
+### What this section does not prove
+
+It does not prove that predictions are accurate, that the method works, or that the isolation is cryptographic. It proves one thing: de-labelling no longer eats the claim, and that property is held by a test which fails when the exemption is withdrawn. The re-judgment of the 28 cards on this bundle is in [section 11 of the isolated blind re-review](blind-review-reaudit-2026-10-09.en.md#11-round-2--the-28-cards-re-judged-on-the-repaired-bundle).
