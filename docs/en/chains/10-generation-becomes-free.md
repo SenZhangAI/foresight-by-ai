@@ -231,7 +231,7 @@ The need to ask predates AI: looking something up, getting someone to help write
 
 ### What holds up this scale is not technology
 
-Take away the free tier and count only payers, and at the decision date there are fewer than 60 million people; the result falls from society scale back to the tens-of-millions niche tier. The scale rests on a free tier sustained by capital investment and cross-subsidy from subscription and enterprise revenue — a supply-and-demand and capital premise, not a technical one. So the leading indicator this section should watch most closely is not how much stronger the models got, but whether the free tier’s terms changed.
+Take away the free tier and count only payers: at the decision date the provider's self-reported lower bound on payers is above 59 million, and with roughly one user in twenty paying, payers stay in the tens of millions; the result falls from society scale back to the tens-of-millions niche tier. The scale rests on a free tier sustained by capital investment and cross-subsidy from subscription and enterprise revenue — a supply-and-demand and capital premise, not a technical one. So the leading indicator this section should watch most closely is not how much stronger the models got, but whether the free tier’s terms changed.
 
 ### Back to that challenge
 

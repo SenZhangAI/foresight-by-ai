@@ -65,7 +65,7 @@ OpenAI 没有公开它的去重方法：同一人多账号、未登录设备如�
 
 **L8 需求侧复核：不否决，但给这个动作划了边界。** 它不要求人性改变：找答案、找人帮忙写东西的需求早于 AI 存在，搜索与问人就是这个需求的旧动作。L8 的两个锚在这里起作用。「确定性」：人愿意为确定付费，而对话助手的答案可能出错，所以搜索和人类专家会与它并存，而不是被一次性替掉——这正是闸二只在单次场合成立的原因。「责任归属」：一旦一件事有后果、需要有人负责，人倾向留给能被追责的人自己拍板。所以社会级的动作停在「问」与「交办低后果任务」这一侧；「拍板」（N1）与「代为下单付款」（N6）都过不了闸一，与 [J-072](../zh/ledger/71-80.md#j-072--从几十套候选方案中择一是一条职业性判断其受众天花板在百万量级)、[J-098](../zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) 一致。
 
-**必要的非技术前提：免费档持续存在。** 删去它，结论就不成立：只数付费者，T 时是超 5,000 万消费者订阅者加超 900 万付费企业用户（2026-02-27 一手），合计不到 6,000 万，低于 1 亿，结果会从 A 落到 C（千万级）。The Register 2025-10-15 转述《金融时报》：「of ChatGPT's 800 million users, just 5 percent pay」<https://www.theregister.com/software/2025/10/15/chatgpt-so-popular-hardly-anyone-will-pay-for-it/1106309>。免费档靠资本投入和订阅、企业收入的交叉补贴维持，这是供需与资本前提，不是技术前提。
+**必要的非技术前提：免费档持续存在。** 删去它，结论就不成立：只数付费者，T 时是超 5,000 万消费者订阅者加超 900 万付费企业用户（2026-02-27 一手），合计超过 5,900 万——两个数都是下限，原文没有给出上限；按下面《金融时报》约 5% 的付费比例，付费人群在千万级，低于 1 亿，结果会从 A 落到 C（千万级）。The Register 2025-10-15 转述《金融时报》：「of ChatGPT's 800 million users, just 5 percent pay」<https://www.theregister.com/software/2025/10/15/chatgpt-so-popular-hardly-anyone-will-pay-for-it/1106309>。免费档靠资本投入和订阅、企业收入的交叉补贴维持，这是供需与资本前提，不是技术前提。
 
 **结论**：按冻结规则，主候选为 **A · 达到 S 档**。证据强度：**下限来自自报、未审计**。五闸全过只表示「有资格参赛」（`J-066`），不表示这个动作会无条件持续；它的持续性被写成 J-103 的可证伪部分。
 
@@ -79,7 +79,7 @@ OpenAI 没有公开它的去重方法：同一人多账号、未登录设备如�
 | N2 | 与 AI 伴侣／角色类应用进行情感陪伴式对话 | Character.AI 自报「over 20 million monthly active users」（工程博客，约 2025-02）<https://blog.character.ai/harnessing-data-at-scale-character-ais-transition-to-warpstream/>；周活不可能超过月活。Common Sense Media 2025-07-16：美国 13–17 岁青少年「Seventy-two percent … have used AI companions at least once」，「at least a few times a month」的过半——频率弱于周频 <https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds> | `VETO`：闸一。可见上限在千万级 | 一致 |
 | N3 | 日常佩戴带 AI 助手的智能眼镜 | Meta 与 EssilorLuxottica 2025 年售出超过 700 万副（UploadVR 转述 <https://uploadvr.com/meta-essilorluxottica-sold-7-million-smart-glasses-in-2025/>；公司新闻稿仅搜索摘要）。设备不是人，累计出货只是佩戴人数的上限 | `VETO`：闸一。上限在千万级，离十亿日频差两个数量级 | 一致（闸五无需进入） |
 | N4 | 让家用通用（人形）机器人代做家务 | 2025 年全球人形机器人出货约 1.8 万台，各类用途合计（IDC，仅搜索摘要）；1X NEO 2025-10 开放预订，交付数未找到。对照：2025 年全球清洁机器人出货 3,272 万台（IDC 博客 <https://www.idc.com/resource-center/blog/global-home-cleaning-robot-market-2025/>） | `VETO`：闸一。上限在万级 | 一致（闸三无需进入） |
-| N5 | 乘坐无人驾驶出租车出行 | Waymo 超过每周 50 万次全自动驾驶乘次（Alphabet 2026-04-29 电话会，AOL 摘要 <https://www.aol.com/articles/alphabet-googl-q1-2026-earnings-234030000.html>）；乘次是乘客人数的上限。百度萝卜快跑 2026 年二季度约 100 万次完全无人乘次（二手 <https://ventureatlas.org/news/2026-08-19-baidu-apollo-q2-2026-earnings-23-million-rides>） | `VETO`：闸一。每周乘客上限在五十万级 | 一致（闸四无需进入） |
+| N5 | 乘坐无人驾驶出租车出行 | Waymo 超过每周 50 万次全自动驾驶乘次（Alphabet 2026-04-29 电话会，AOL 摘要 <https://www.aol.com/articles/alphabet-googl-q1-2026-earnings-234030000.html>）；乘次是乘客人数的上限。百度萝卜快跑 2026 年二季度约 100 万次完全无人乘次，累计乘次超 2,300 万（二手 <https://ventureatlas.org/news/2026-08-19-baidu-apollo-q2-2026-earnings-23-million-rides>） | `VETO`：闸一。每周乘客上限在五十万级 | 一致（闸四无需进入） |
 | N6 | 把一次购物或订票交给 AI 代理代为下单付款 | 没有任何平台公开每周代下单的去重用户数。OpenAI 的 Instant Checkout「failed to take off」，2026 年 3 月改版（CNBC 2026-03-24 <https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html>）。Amazon Rufus「2025 年内触达 3 亿以上客户」是购物问答、全年口径，不是代下单周活（二手） | `VETO`：闸一。没有合格分母 | 一致（闸四无需进入） |
 
 **这张表说明什么，不说明什么。** 六条全部按预计被否决，说明这把筛子在本方向上不是对什么都放行。但它们全都在闸一就被挡住，差距多在一到三个数量级，所以本轮没有检验到闸二至闸五的独立否决力。这一点登记为缺口，不当作筛子的成绩。
