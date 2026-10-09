@@ -62,6 +62,7 @@ The chains are grouped by the real-world question a reader may want to follow. E
 - [Technology Capability Sequence](docs/en/05-tech-sequence.md): tracks capability arrival order without treating technology as the sole engine of social change.
 - [Coverage matrix](#coverage-matrix-current-boundary): checks which social dimensions have entries and which remain explicit gaps.
 - **C11 Authority before intelligence**: start from agency institutions, authority, and liability to examine the institutional entry point for human–AI relationships.
+- [Society-scale register](docs/en/91-social-scale-register.md): start from the pass side — how many judgments currently clear Gate 1 (measured: none), where every remaining candidate is stuck, and which countable fact would have to be observed.
 
 ### 4. Finally choose action or challenge
 

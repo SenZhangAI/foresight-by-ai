@@ -31,6 +31,7 @@
 - [20. Judgment card for C11: Authority before intelligence](#20-judgment-card-for-c11-authority-before-intelligence)
 - [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
+- [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
 ## 1. How to use this ledger
 
@@ -84,6 +85,8 @@ Copy the fields, not the example ID. The example does not enter the formal index
 ---
 
 ## 2. Registered-judgment overview
+
+> This table records **where each judgment was narrowed to**. For the opposite side — **which judgments clear Gate 1, how many there are, where each remaining candidate is stuck, and what would have to be observed** — see the [society-scale register](91-social-scale-register.md).
 
 | ID | Proposed date | One-sentence judgment | Time window | Confidence | depends-on | Source | Against consensus | Status | Next review |
 |---|---|---|---|---|---|---|---|---|---|
