@@ -23,7 +23,7 @@
 - **仓库全量档案（archive total）**：当前可重建的 `CALIBRATION` 配对共 **6 条**——政治 `P-01`、`P-02`、`P-04`、`P-06` 四条，商业 `B-WEBVAN`、`B-ETOYS` 两条，科技 0 条。这是唯一表示“整个仓库合格校准档案规模”的数字，即 **6/12**；六案都是结局已知后选入的材料，不是伪样本外命中率或未来准确率。
 - **方法论当前摘要（method snapshot）**：2026-10 的方法论只摘要两份最新证据记录：三条可重建 `CALIBRATION` 配对（`P-04`、`B-WEBVAN`、`B-ETOYS`）与一条 `UNKNOWN/UNVERIFIED` 科技候选（`T-SHUTTLE`）。这个 **3 + 1** 是摘要范围，不是仓库全量，也不是新增三案。
 - **尚未满足的条件**：协议要求科技、政治、商业各至少 4 案、总计至少 12 案；科技候选因无法同时重建 T 前原件、同口径指标和观察窗，当前仍为证据缺口。缺口不能用事后叙述或 URL 清单填平。
-- **尚无可核验的重审启动证据**：闸五收窄后，v1 复核不能替代 v2。当前没有同时可核验的去标签 bundle、独立 reviewer 原始输出、输入哈希和运行时间，因此不能声称重审“已启动”、已执行或已交付；这不是对重审方向的否定，也不等于方法已被否定。协议的存在本身不等于方法已经通过验证。
+- **隔离重审已执行两轮，但「独立正确性」仍未得证**（2026-10-09 更新；本条此前写「尚无可核验的重审启动证据」，已不成立）：102 张卡全部拿到了在主张正文完好的记录上作出的盲判处置，去标签 bundle 的输入哈希、首轮 6 份重审者原始输出都已入库可复算（[复审报告](docs/evidence/blind-review-reaudit-2026-10-09.md)）。仍然缺的是三件：**运行时间**未按协议留痕；第二轮 3 份原始输出永久不可恢复；**最重要的一条——受众字段把闸一旧结论原样递给了重审者**（102 张卡全部），第二轮 15 次闸一否决里 12 次直接引用它判闸，所以那些「盲判复现现有限定」不得读作独立重建。重审者与原作者还是同一个模型，所以它测的是可复现性，不是准确率。协议的存在、机械检查通过、哈希齐备，三者相加仍不等于方法已通过验证。
 
 因此，当前入口能诚实提供的是一套**已执行部分校准、明确记录未满足条件、并保留重审承诺**的方法档案，而不是一个已经证明准确的预测系统。细节与提交锚见[判断演化记录](docs/zh/03-evolution.md)。
 
@@ -47,7 +47,7 @@
 - [下一批历史预测—结果证据记录](docs/evidence/historical-calibration-next-batch-2026-10-02.md)：查看批次范围；其中 4 条记录包含 3 条校准配对（前两条沿用切片记录，`B-ETOYS` 为本批新增）与 1 条未知候选。
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
-- [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订，以及尚无可核验启动证据的隔离重审承诺。
+- [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订，以及隔离重审两轮的执行记录与仍未闭合的三项（运行时间、第二轮原始输出、受众字段泄漏）。
 - [下一研究缺口优先级](docs/zh/04-research-gaps.md)：查看部分覆盖维度的公开排序、下一研究动作与证据边界。
 
 先读这一步，是为了把下面的内容当作带证据边界的推演，而不是把叙事流畅误读成预测准确。
@@ -159,7 +159,7 @@ flowchart LR
 |---|---|---|
 | [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断字段、九种透镜、机会耐久闸与三个出口 |
 | [历史回顾](docs/zh/01-retrospect.md) | [Retrospect](docs/en/01-retrospect.md) | 五道普及闸及其反例攻击 |
-| [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查，以及尚无可核验启动证据的隔离重审承诺 |
+| [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查，以及隔离重审两轮的执行记录与仍未闭合的三项 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
 | [下一研究缺口优先级](docs/zh/04-research-gaps.md) | [Next Research-Gap Priorities](docs/en/04-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
