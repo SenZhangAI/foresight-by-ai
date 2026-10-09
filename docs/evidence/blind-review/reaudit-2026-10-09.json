@@ -1,0 +1,2162 @@
+{
+ "bundle_sha256": "5d4e4732a07f80eaceed12e39299b7a77152cd700fede1adc82215a645bfa14e",
+ "claim_boundary": "同模型、同判据、fresh-context、去标签条件下的重判只测试可复现性；与旧结论一致不构成独立正确性证据，也不构成预测准确率。A same-model, same-criteria, fresh-context blind re-judgment tests reproducibility only; agreement with the old conclusion is not independent evidence of correctness.",
+ "counts": {
+  "archived": 0,
+  "by_current_state": {
+   "LANDSCAPE": 5,
+   "REVISED": 62,
+   "SCOPE_LIMITED": 34,
+   "UNLIMITED": 1
+  },
+  "by_disposition": {
+   "downgrade": 1,
+   "retain-not-reproduced": 65,
+   "retain-reproduced": 36
+  },
+  "by_verdict": {
+   "ABSTAIN": 65,
+   "VETO": 37
+  },
+  "cards_total": 102,
+  "falsified": 0,
+  "gate2_only_veto": 27,
+  "recognised_false": 19,
+  "recognised_true": 83,
+  "veto_rate_recognised_false": 0.7895,
+  "veto_rate_recognised_true": 0.2651
+ },
+ "disposition_vocabulary": {
+  "downgrade": "downgrade — newly triggered this round",
+  "retain-not-reproduced": "retain — no veto found (a gate can only veto, never upgrade)",
+  "retain-reproduced": "retain — the blind review reproduced the existing limit"
+ },
+ "input_manifest_sha256": "7c06add34bb30f022b5ad9dc25b915cb53d6bc77d7627f7d9d8dde40caa881ee",
+ "records": [
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-064",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要可数的被替代既有动作及相对原方案的持续净负担证据；跨方采用路径也未定义。",
+   "r_id": "R-01",
+   "rationale_verbatim": "规模与年度观察足以满足人数×频次，但记录只描述约束图景和观察动作，没有明确替代既有具体动作；Gate2直接否决。",
+   "recognized": true,
+   "record_sha256": "be48787809cc76338e1be8b1ba2c86e3a3c70438c16beca70243311f8508739e",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-069",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需说明被替代的既有动作；还缺相对既有承载的持续净负担比较和多方扩散路径。",
+   "r_id": "R-02",
+   "rationale_verbatim": "十万量级受众足够，但该记录是基础设施承载条件的判据，不是替代既有具体动作的能力；没有通过Gate2。专用承载的反例支持Gate3方向，但不改变Gate2结果。",
+   "recognized": true,
+   "record_sha256": "c9e85588c8f5aafdb0d1064a64e3c3329efc6ba1e2cbf7a4db9513d9b4d02d5d",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-041",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要完整命题、明确替代动作、承载方式、可见强制/单一补贴/局部闭环证据，以及与 incumbent 的持续净负担数据。",
+   "r_id": "R-03",
+   "rationale_verbatim": "受众和周频动作可识别，但 judgment 为空，无法指认它替代了哪个既有动作；按Gate2缺失即VETO。",
+   "recognized": false,
+   "record_sha256": "1ea3c394030bfd6e92c53f4d37fdbf667d40ec680e26357f055488abf9c2fdea",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-086",
+   "current_state": "LANDSCAPE",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要按收入和场景比较总成本、教师/设备/评价/支持的长期增量负担，并证明扩散依赖可见强制、单一补贴或局部闭环中的至少一条。",
+   "r_id": "R-04",
+   "rationale_verbatim": "十亿量级影响面满足Gate1；AI解释替代部分既有讲解或辅导动作，且可运行在已有设备与连接上。教育机会的多方采用路径未被明确证明，最关键的相对教师、设备和支持系统的持续净负担也没有证据。",
+   "recognized": true,
+   "record_sha256": "6ab39047206aa3200c9af0ff161e38d7c99081d4a2923f18344d22776bb2dabc",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-070",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要把规则落到一个替代既有动作的具体能力；还缺其相对 incumbent 的持续净负担证据。",
+   "r_id": "R-05",
+   "rationale_verbatim": "十万量级方法判断可观察，且Gate4明确给出三条多方采用路径；但记录本身是扩散规则，不替代任何既有具体动作，Gate2否决。",
+   "recognized": true,
+   "record_sha256": "9f3d29a0c53442472e5fd46a0d76a23fc34b6d97f58ce4457ed2ea9bdea741c6",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-094",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需指出被替代的采购、保险或选址动作；需有相对既有风险管理方案的持续净负担和多方采用路径证据。",
+   "r_id": "R-06",
+   "rationale_verbatim": "百万量级专业执行者、年度观测满足Gate1；记录预测风险定价和采购变化，却没有替代既有具体动作，Gate2直接VETO。",
+   "recognized": true,
+   "record_sha256": "156ad1330ae2781a912823e5c0aaddc67eb551575ab2bc6c6709feecd773fb1a",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-040",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要完整判断、明确被替代动作，并提供相对 incumbent 的长期保费/资本/合规净负担及扩散路径。",
+   "r_id": "R-07",
+   "rationale_verbatim": "受众规模与频次足够，但 judgment 为空，且仅描述赔付能力如何被定价，没有替代既有动作；Gate2否决。",
+   "recognized": false,
+   "record_sha256": "9140abf45bbcbd71d8f345a1fb3da3b9efb066b60322ee7662ed90a0e8de91c6",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-057",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要可数的被替代电力采购/合同动作，以及确定性条款相对电价或现有担保的持续净负担证据。",
+   "r_id": "R-08",
+   "rationale_verbatim": "算力交易参与者的周频观察满足Gate1；记录提出确定性被定价，但没有显示它替代了哪个既有购买或合同动作，Gate2否决。",
+   "recognized": true,
+   "record_sha256": "e5ab46644e7c4a8e80fb0c6fc7336f42a39b9bfa0611f0375a97a060965fc3f8",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-046",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要完整判断和 incumbent 定义，证明合成证据没有专用承载负担，并补充监管/保险采用的可见强制、单一补贴或局部闭环证据。",
+   "r_id": "R-09",
+   "rationale_verbatim": "记录可理解为合成证据替代现场记录，故Gate2通过；但 judgment 只有句号，无法核验替代边界。承载是否为既有系统、多方扩散如何发生、以及相对现场记录的持续净负担均缺证据。",
+   "recognized": false,
+   "record_sha256": "e9d18fdb10964d47fb40f3e7ecfdf8296668496099153417c4e8590a7c269564",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-038",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要跨组织证明强制/补贴/局部闭环中的采用路径，并比较人工责任、监督、事故与系统成本的持续净负担。",
+   "r_id": "R-10",
+   "rationale_verbatim": "亿量级组织角色与周频观察满足Gate1；自动化明确替代正常执行步骤，且可用既有组织和软件承载。组织级扩散路径没有具体证明，责任岗位相对执行岗位的持续净负担也未量化。",
+   "recognized": true,
+   "record_sha256": "2dcf9c05c2e1eb6bebd3953b7ed6c00579530da321d13da1486cb483a8d9b934",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-002",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需给出多个领域的人工基线、责任与复核成本、模型内置后的持续总成本和质量损失；否则不能判断净负担。",
+   "r_id": "R-11",
+   "rationale_verbatim": "百万量级且周频满足Gate1；自动择优替代人工筛选/质检动作，使用模型供应商现有承载，供应商可单方内置因此Gate4通过。相对现有人工筛选的持续净负担没有证据，按Gate5只能ABSTAIN。",
+   "recognized": true,
+   "record_sha256": "36aed18f1bc6722192358df4f119b09b1ffcef93fcd1cef82593a86cdd806c28",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-068",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要对每个候选能力锁定可数的既有动作、证明不是事后重命名，并比较学习/购置/流程变更与被替代动作的长期净负担。",
+   "r_id": "R-12",
+   "rationale_verbatim": "该规则有十万量级判断者和定期观测；其通过条件是替代一个已存在的具体动作，Gate2在定义层面成立。各类能力的承载与多方扩散并未逐案证明，且没有相对 incumbent 的持续净负担数据。",
+   "recognized": true,
+   "record_sha256": "2ebe357cc18c551290ba86abe9d5b9cbb255db80388b66dc16a1cf896097885b",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-015",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要跨领域的人工评估基线、误报漏报与事故成本、部署和维护成本，证明自动化后的净负担持续低于 incumbent。",
+   "r_id": "R-13",
+   "rationale_verbatim": "百万量级且周频满足Gate1；测试、schema检查和反例搜索替代人工测试/检查，使用既有软件承载，模型供应商可单方默认开启，Gate2至Gate4均可通过。相对人工评估、错误损失和外部结果验证的持续净负担缺证。",
+   "recognized": true,
+   "record_sha256": "bbaa1eece7daab079b8b477d13f9e770164e4d27eafb9a8dbeca1ac4e0da9a45",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-059",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要明确被替代的合规动作并证明其持续净负担；还需实际可执行义务、执法案例及三条多方采用路径之一。",
+   "r_id": "R-14",
+   "rationale_verbatim": "监管与云服务参与者规模、频次足够，但从硬件清单转向使用侧管制是管制对象迁移，不是替代一个既有具体动作；Gate2否决。",
+   "recognized": true,
+   "record_sha256": "bef5e819d6e87883b0fa7ce2681d538b57297977a9b96156a7d603f2511bbee9",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-053",
+   "current_state": "LANDSCAPE",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "若主张替代某项既有承诺、身份或信任动作，需给出可数替代对象及相对 incumbent 的持续净负担；当前均无。",
+   "r_id": "R-15",
+   "rationale_verbatim": "十亿量级和周频满足Gate1，但真实承担作为意义/信号是新增价值，不替代既有具体动作；Gate2按规则VETO。",
+   "recognized": true,
+   "record_sha256": "42fc6531e76bd8be4ef2b746a3d5daf3d69245250d7b7dfd1a85ff6f44c090e4",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-099",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要在至少三个行业和制度环境中证明可见强制、单一补贴或局部闭环，并比较设备所有权/租赁、停机、培训、异常与人工成本的长期净负担。",
+   "r_id": "R-16",
+   "rationale_verbatim": "实际重复执行者为百万量级以内且每周执行，Gate1可通过；具身系统明确替代可接管的重复任务段。设备具有通用用途或租赁收入承载，Gate3通过，但跨组织扩散路径和相对人工任务包的持续净负担没有充分证据。",
+   "recognized": true,
+   "record_sha256": "796c7742f2b5eb62267ef950f5bea6fc02a0fc4027fad692c56c8ca85a41a434",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-1.jsonl",
+   "card_id": "J-065",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需明确它替代的既有结算/争议动作；还缺相对终局结算与事后赔付 incumbent 的持续净负担，以及网络或监管采用路径证据。",
+   "r_id": "R-17",
+   "rationale_verbatim": "跨主体支付、物流、签约与结算组织的周频观察满足Gate1；跨主体撤销权是新增权利层，不替代既有具体动作，Gate2直接VETO。",
+   "recognized": true,
+   "record_sha256": "fb882f8f07af0e775ae8d36ac0c87be08f3e8481541180744782686e6af24511",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-074",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "VETO",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要机构装机覆盖、报销/人力折算、设备多用途或收入承载、维护清洁成本、人工接管率和事故责任数据；机构与居家场景不可合并。",
+   "r_id": "R-18",
+   "rationale_verbatim": "照护转移是明确的既有高频动作，机器人若部署可替代部分人工转移；但居家/机构承载要求专用空间、清洁、监督与责任安排，现有证据未证明有第二用途、收入承载或既有承载，Gate3直接否决。多方采用和相对人工的持续净负担也未被量化。",
+   "recognized": true,
+   "record_sha256": "f8f9235dcb4123e4c8121cd0cf70841dd3deded646b9d5e974ae1b69372e598a",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate3"
+   ]
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-067",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需预先定义动作、去重行动者、频次和影响阈值，并检验由技术创造新动作的反例；还需多方采用和相对 incumbent 的长期成本数据。",
+   "r_id": "R-19",
+   "rationale_verbatim": "主张的是评估方法：受服务动作的人数与频次限制扩散上限，动作确实是既有判断活动而非新动作；不存在专用承载否决。但历史案例和反例不能单独证明普遍上限，且未给出跨案例的持续净负担证据，因此按缺证据规则暂不判定。",
+   "recognized": true,
+   "record_sha256": "c8647c4dae884ab10e8a75d828aad5b83b437bd50762b7b583b51737c01df62d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-008",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需连续高价值任务的对照数据：错误率、追责结果、人工复核、存储维护和迁移成本，并观察企业留存与采购，而非仅看接口要求。",
+   "r_id": "R-20",
+   "rationale_verbatim": "长期记忆带来源、版本和撤回能力，替代现有无追溯的记忆/上下文管理动作，且可由既有企业系统承载；但卡片只有必要性推理，没有证明多方采购采用或相对 incumbent 的持续净负担，Gate5证据不足。",
+   "recognized": true,
+   "record_sha256": "b97f2e0d75846a37a87c5bc16e5a23f52d2b3e6768a677f0b1444061110c8cc8",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-087",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需至少三行业的十二个月留存、人工接管率、每责任人执行数、流程重构与培训成本，并与人工基线比较。",
+   "r_id": "R-21",
+   "rationale_verbatim": "机器默认执行、人类处理例外、责任人设边界替代现有生产流程中的人工逐项执行，动作分母和周频定义较清楚，组织已有承载。可是三行业持续部署、多方责任协同和相对 incumbent 的净负担尚无结果数据，不能越过证据边界。",
+   "recognized": true,
+   "record_sha256": "7d6f4bc9803890218b46884ed4b327b5f2351354c820779737bc9beb1de0dc9a",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-098",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需跨机构去重的周频行动者、持续部署规模、撤回完成时间、保险/赔付和相对现有合规流程的总成本；低风险代理不能外推到高责任场景。",
+   "r_id": "R-22",
+   "rationale_verbatim": "授权、撤回、日志、接管和申诉替代了高责任流程中已有的授权与事故处置动作，且挂靠既有责任主体，不触发专用承载否决。实际跨系统行动者频次分母未验证，多方制度采用与持续净负担也未有证据。",
+   "recognized": true,
+   "record_sha256": "92e39b2a693585230e3d81ba0265c39dfe7c90383c014e1e23a2864477cf5a6e",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-003",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需盲测公开交互重建与私有历史的认可率、导出携带率、拒绝率、维护隐私成本和持续留存；‘不像我们’不能单独证明产权稀缺。",
+   "r_id": "R-23",
+   "rationale_verbatim": "私有上下文与偏好档案替代反复解释偏好的既有选择动作，且可由企业资产或个人档案承载，未见专用承载否决。只是‘不可自动获得’和80%反事实尚未被测试，组织采用及相对提示词/人工整理的持续净负担证据不足。",
+   "recognized": true,
+   "record_sha256": "30b5cc8e18903f3ac282c3d07a2a9e16596ecaa096d083ceb8ba60fd7167e2c2",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-001",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需固定能力基准、公开最低价、能耗、利用率、调度复用和资本/维护成本的纵向序列；不能用单次 API 价格替代完整单位成本。",
+   "r_id": "R-24",
+   "rationale_verbatim": "等能力单位推理成本下降，若成立会替代既有推理调用的成本结构；云、芯片和模型是已有承载，不是专用孤立载体。预测依赖未来价格、能耗和追平速度，缺少多方采用与相对 incumbent 的端到端持续净负担证据。",
+   "recognized": true,
+   "record_sha256": "c1225668698622b06c01dc689708b7546ae62a2efb1278a016671d9a9de78343",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-097",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需按任务分别报告付费部署、留存、接管、事故、维护/改造和人工基线；不得以演示、出货量或单任务设备证明开放式家庭扩散。",
+   "r_id": "R-25",
+   "rationale_verbatim": "单任务转移、异常观察和标准化辅助明确替代既有照护动作，并可先由机构及受控服务承载；通用家庭机器人则不能直接由单任务证据推出。跨收入层级、三类机构的多方采用和相对人工的长期净负担尚未测量。",
+   "recognized": true,
+   "record_sha256": "089f88215a95f4ab72def8fc66c98ff2bef7199da5fc6ca35fd2b25c729b7ddb",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-017",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需定义强/弱关系、共同后果和在场指标，进行长期对照并计入协调节省、关系修复和新增注意力成本；不能从协调次数推断关系质量。",
+   "r_id": "R-26",
+   "rationale_verbatim": "AI中介替代协调、翻译、介绍和排期等既有弱关系动作，但不替代共同经历与承担后果；数字通信已有承载。强关系容量不扩大的判断需要纵向证据，且没有证明多方持续采用后的相对净负担。",
+   "recognized": true,
+   "record_sha256": "e08961b2ce1919398702d38adfa4e2b545c4b3e6c562513c79f1042c9db05ba1",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-054",
+   "current_state": "LANDSCAPE",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "ABSTAIN",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需把不可委托经历拆成具体动作并定义代理替代、在场溢价和长期完成率；需证明既有承载、采用路径及相对 incumbent 的持续净负担。",
+   "r_id": "R-27",
+   "rationale_verbatim": "这是明确标注为 landscape 的需求侧图景，不是可执行的单一替代动作；非委托时间、身体风险和长期承诺的规模与频次未被操作化。因而各门均缺少可判定证据，不能把图景当作通过。",
+   "recognized": true,
+   "record_sha256": "78cd0bd6eecaa778ad5e74bff475ac6c50ef5e08b42242e9c6460d14926f536d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-047",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需区分陪伴供给、互惠、退出和修复，测量复制陪伴与真人关系的长期行为结果、平台/制度成本和真实替代率。",
+   "r_id": "R-28",
+   "rationale_verbatim": "AI陪伴可替代部分陪伴与沟通动作，数字平台是既有承载；但‘复制性使互惠稀缺’是图景判断，未给出可核验的行动频次、制度采用或持续净负担证据。",
+   "recognized": true,
+   "record_sha256": "fb5fbc7310b9c46bdca2b1abece93c5a3520a68fd3523d18cb95d3214d23ba30",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-101",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需按相同任务比较部署工时、维修半径、保险、停机、能源、融资和工人转岗，并控制承载设施、责任制度与补贴。",
+   "r_id": "R-29",
+   "rationale_verbatim": "具身设备替代既有现场工业/维护动作，承载条件与区域载体被明确；不是无载体的概念。但区域差异、资本聚集和收入影响需要跨地区持续部署数据，尚无多方闭环或相对 incumbent 净负担证据。",
+   "recognized": true,
+   "record_sha256": "f1824677d4bb7ebee86dc6cdd3a14ef96740272806c737d21403faeca8885650",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-062",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需比较主要市场资产税、用电费、服务税、收益分享和自动化间接税的长期占比；须区分地方财政负担与企业利润迁移。",
+   "r_id": "R-30",
+   "rationale_verbatim": "税收从资产端转向使用端的主张涉及既有征税与收益分配动作，数据中心和公共制度是现有承载；但地方税基份额‘结构性偏低’没有跨法域持续数据，也未证明多方制度采用和相对 incumbent 的净负担。",
+   "recognized": true,
+   "record_sha256": "ac9105242c161e47c43c58b5f3babc1b559f6812f304318081d5ae417c5cd6c9",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-044",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需具体化可证伪判断，跟踪保费、准备金、赔付、融资门槛和事故尾损，与无代理/人工流程对照。",
+   "r_id": "R-31",
+   "rationale_verbatim": "偿付能力影响代理部署、定价和融资，替代的是既有风险承接与资本审查动作，保险、准备金和合同是已有承载。卡片判断为空且只有机制链，没有多方采用或相对 incumbent 持续净负担证据。",
+   "recognized": true,
+   "record_sha256": "92445ca818b92c05865aab5549e58eaebddb4e262fe99a2e6276ef5ec3ccef5d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-049",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需定义承诺、退出、失败承担和修复时间，比较代理声誉/仲裁与真人共同承担的结果，并核验制度采用和长期成本。",
+   "r_id": "R-32",
+   "rationale_verbatim": "AI协调替代候选发现、沟通和匹配等既有动作，但共同承担不可逆承诺不是同一可替代动作；图景没有给出行动分母。共同承诺的多方闭环和相对 incumbent 的持续净负担均未证明。",
+   "recognized": true,
+   "record_sha256": "4a37ca213617f9e57ae77883684569e557a6e4ef88581651d90453d37d1d7748",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-024",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需按风险场景比较单一身份与分层凭据的欺诈、保证、审计、在场和交易成本，并观察采购与法律采纳。",
+   "r_id": "R-33",
+   "rationale_verbatim": "凭据分层替代高风险交易中的单一身份验证动作，且可由现有审计、保证和在场证明系统承载；但‘可能重新分层’明确承认制度形式不确定，缺少多方采用与持续净负担证据。",
+   "recognized": true,
+   "record_sha256": "0fdc0850d8ea9507df140a3a1d1ffc80a2c6b8a50d096f569c66bb86afb93f20",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-2.jsonl",
+   "card_id": "J-033",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需明确记录标准与干预动作，测量一手证据溢价、审计要求、续约和事故结果，并与现有记录/解释流程比较全生命周期成本。",
+   "r_id": "R-34",
+   "rationale_verbatim": "现场干预记录替代生成式解释和不可核验叙述，连接既有干预、因果与责任，且有医疗/工程/合规承载；但判断字段为空，只有机制假设，没有证明多方支付溢价或相对 incumbent 的持续净负担。",
+   "recognized": true,
+   "record_sha256": "fa24c83f42393457ac2d3191d487b7666a8a3bbd16220a77d73b32d0c2eb9509",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-085",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺按机构和年度去重的口试、现场任务与作品集权重；缺强制采用或单一支付方证据；缺身份核验、现场评价和申诉成本相对 incumbent 的长期净负担。",
+   "r_id": "R-35",
+   "rationale_verbatim": "高风险升学和招聘中的评价动作可识别，且现场表现/过程证据确实替代无验证成品；但实际重复执行者和频次远小于构造影响面，多方采纳的强制或闭环机制以及相对现有作品集的持续净负担均缺证据。",
+   "recognized": true,
+   "record_sha256": "55a658c57d408c8ae0d188fc784c8d3c6e2d9c168f9a65807f67c0a5fb706ba3",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-083",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺去重周活、独立迁移和长期保持的对照数据；缺课程、学校、家庭之间的强制/单一补贴/局部闭环证据；缺帮助依赖、验证成本和教师替代成本的持续净负担比较。",
+   "r_id": "R-36",
+   "rationale_verbatim": "每周 AI 辅导动作是可识别且大规模的重复行为，反馈和讲解替代既有辅导动作，并可承载于现有学习平台；但跨学校、家庭和监管的可见采用闭环及独立学习相对既有辅导的持续净负担没有证据。",
+   "recognized": true,
+   "record_sha256": "e6307e5ec067ad28d88b72e145cc9bfd971982e0d6cb4690639d80aaa075d5bc",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-096",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺可比制度中的去重照护者频次和替代比例；缺保险/公共支付、机构授权和家庭共同采用的明确闭环；缺正式服务费用、等待、交通和照护者负担相对 incumbent 的净负担序列。",
+   "r_id": "R-37",
+   "rationale_verbatim": "每周照护与协调是现实重复动作，正式服务和协调岗位可替代部分家庭协调，且使用既有照护承载；但多方支付、授权和跨机构采用的可见闭环，以及相对家庭照护的长期净负担尚未证明。",
+   "recognized": true,
+   "record_sha256": "f4505c99df9bc6eb9ed87248b686c292966e84e9c85a1b8ae01f5d7259f6be7a",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-073",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "VETO",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺可复用的非专用承载、跨场景标准化和独立基础设施收入证据；即使 Gate3 被修复，跨护士、家庭、保险和监管的采用闭环及相对人工的持续净负担仍缺证据。",
+   "r_id": "R-38",
+   "rationale_verbatim": "移动质量、到场和接触身体是高频既有动作，具身系统可替代其中部分搬运或操作；但社会级扩散依赖每个场所的专用改造、部署、责任与维护承载，现有承载并非为此建立且难以证明有第二用途或独立收入，Gate3 直接否决。",
+   "recognized": true,
+   "record_sha256": "c5dbcc05bb96f80c971ecaad374ffd5bce7f5bb9729b053ad98345fa67ed6c25",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate3"
+   ]
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-091",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺五个采用密集行业的单位工时、价格、总产出和非自动化岗位纵向对照；缺能证明多方采用的强制、单一补贴或局部闭环；缺部署、监督和转型成本的长期净负担。",
+   "r_id": "R-39",
+   "rationale_verbatim": "单位服务中的劳动任务是高频既有动作，自动化可替代部分工时并使用现有企业和服务承载；但需求扩张是否足以覆盖节省、跨行业采用是否形成可见闭环，以及相对 incumbent 的持续净负担没有充分证据。",
+   "recognized": true,
+   "record_sha256": "7a1c115101a9c878dd12c3cba4054c420efea907155d7d607d344fbac9e422c7",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-058",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺可调度算力的去重参与者和实际周频；缺可中断合同、容量市场结算和电网披露形成的强制或局部闭环；缺延迟、迁移、SLA和机会成本相对 incumbent 的净负担。",
+   "r_id": "R-40",
+   "rationale_verbatim": "训练、批量推理和评估可调度，能够替代部分现有负荷管理和容量采购动作，且使用既有数据中心、电网和市场承载；但可调度动作的人数与频次规模、跨方市场采用及相对即时计算的持续净负担都未证实。",
+   "recognized": true,
+   "record_sha256": "1346867dc88b267114fca4d0a5eb731efacf919d4192c766a03c4ee900dc2d48",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-028",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺可操作动作、动作分母与频次；缺被替代的既有采购、分发或责任承接流程；缺专用承载、强制采用和相对 incumbent 的净负担证据。",
+   "r_id": "R-41",
+   "rationale_verbatim": "入口控制者获得议价溢价是一个待观察的景观，不是边界清晰的重复动作；它没有明确替代哪项既有动作或既有承载，因此 Gate2 否决。",
+   "recognized": false,
+   "record_sha256": "d6913c728428fc8f6316196cd6a6d04c4d0e4c6f53f54ae28d5101d3758000d3",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-027",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺小组织去重调用和租用的持续份额；缺跨平台可比能力与真实合同渗透数据；缺租金、迁移、配额、合规和供应商锁定相对 incumbent 的全生命周期净负担。",
+   "r_id": "R-42",
+   "rationale_verbatim": "小组织按需租用算力是可识别的重复采购动作，用租赁替代固定资本持有，依托现有云和平台承载，且市场价格与合同提供可见采用机制；但相对自建或既有外包的长期总负担仍缺证据。",
+   "recognized": true,
+   "record_sha256": "b0beaa5d4ba8b17f86ef6350172d8ca8cee5d558069eb7e673dce9d6aa47b1ff",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-051",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺具体动作、执行者、频次、被替代的既有动作、承载方式及相对 incumbent 的负担证据。",
+   "r_id": "R-43",
+   "rationale_verbatim": "记录只有“建议不等于行动权”的抽象判断，没有可独立计数的动作、频次或明确替代对象；Gate1 和 Gate2 均无法通过。",
+   "recognized": false,
+   "record_sha256": "48877a64cdb9db333c3dd9632cf90a340f87f1bf832fe78364a0aeed9f3ec392",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1",
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-080",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺按司法辖区和机构的使用频次、复核比例与结果对照；缺保险、责任、许可和采购形成的采用闭环证据；缺培训、复核、错误处置和责任成本相对 incumbent 的净负担。",
+   "r_id": "R-44",
+   "rationale_verbatim": "摘要、编码、排程和复核型支持替代现有医护行政动作，并嵌入医院、保险和监管的既有承载；但多方采纳的可见强制/支付闭环以及相对人工流程的持续净负担没有充分证据。",
+   "recognized": true,
+   "record_sha256": "a58b626b12fcf3ce9f945029bb76f70282c3ab505dd65f620c1289650711d623",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-076",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺新装机按装配/精密操作拆分、换型时间、集成服务占比和残值的完整序列；缺小批量场景的多方采用证据；缺维护、停产、调试、监督和安全验证相对人工的长期净负担。",
+   "r_id": "R-45",
+   "rationale_verbatim": "制造现场是高频日常动作，机器人替代搬运、码垛、上下料等既有任务，使用已有产线和工厂承载；工厂单一决策者与局部闭环满足 Gate4，但柔性场景相对人工的持续净负担尚未被纵向数据证明。",
+   "recognized": true,
+   "record_sha256": "9c0747aef63311378909f761138a23295d581a98d85a08bc50c0a583405891df",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-055",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺高责任领域的去重周频动作与合同渗透率；缺监管、承保和买方共同采用的强制或闭环证据；缺来源校准、保险费率、争议和合规成本相对普通数据的持续净负担。",
+   "r_id": "R-46",
+   "rationale_verbatim": "高责任领域的来源、校准和责任链可替代普通数据文件在审批和采购中的低保障用法，并使用既有合同、保险和监管承载；但重复参与者规模、多方可见采用与持续净负担均不足以确认。",
+   "recognized": true,
+   "record_sha256": "04164cc9c5413fae80972bf158b72b501fd610029928f5627d9717912349d5b0",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-095",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺跨项目去重参与者和半年频次；缺至少十个项目中条款、争议、交叉补贴和社区协议的可比数据；缺专用设施资本、维护、停供风险与库存方案的长期净负担比较。",
+   "r_id": "R-47",
+   "rationale_verbatim": "晶圆厂项目中的专用设施出资、限供和恢复谈判替代单纯库存或模糊公用事业安排，依托既有审批、合同和地方基础设施；公共审批与合同条款提供局部闭环，但动作频次和相对库存的净负担证据不足。",
+   "recognized": true,
+   "record_sha256": "cc53a34467b12f2e1d6539762501109875a87b078542adcc20e2714a9bf4a96f",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-081",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺按治疗领域去重的候选搜索频次和 AI 起源标识；缺监管、试验机构、支付方和企业共同采用的可见闭环；缺验证、湿实验、受试者和监管排队成本相对传统搜索的长期净负担。",
+   "r_id": "R-48",
+   "rationale_verbatim": "候选搜索替代既有药物发现流程，并可使用现有实验室、临床试验和监管承载；但研发试验动作并非明确高频社会行为，多方采用闭环和 AI 搜索相对 incumbent 的持续净负担均缺证据。",
+   "recognized": true,
+   "record_sha256": "a7eb5553963999cce21f491d9d88fb4829b9a82e038b72def24da173150f59c3",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-048",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺可计数的授权、退出或争议处理动作及其 incumbent；缺明确承载和采用责任主体；缺强制规则、局部闭环与持续净负担证据。",
+   "r_id": "R-49",
+   "rationale_verbatim": "使用 AI 的人群和关系争议可观察，但“关系数据、退出和主体边界成为规范问题”不是明确的替代动作；没有指出它替代哪项既有合同或流程，Gate2 否决。",
+   "recognized": false,
+   "record_sha256": "1bb1e56f26edf266b011749d01e3d5774f513575d1278bd6e4690483f62dc544",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-092",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺企业和集群层面的去重年度执行频次；缺大买方、公共支持和供应商共同采用的合同或政策闭环；缺预验证、冗余服务、演练与库存相对的全生命周期净负担。",
+   "r_id": "R-50",
+   "rationale_verbatim": "先进半导体的替代来源验证、工艺转移和切换演练替代单纯加库存，使用既有供应链、设备和采购承载；但执行动作频次、多方协调闭环以及相对库存的长期净负担没有证据。",
+   "recognized": true,
+   "record_sha256": "6f7342f4aa93841db8ee50c722ad6365827099bb2412438dc3cdfa45461dbdb6",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-3.jsonl",
+   "card_id": "J-010",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺按任务类型的动作跨度、人工接管和不可逆事故纵向基线；缺责任方、保险、监管或采购形成的采用闭环；缺部署、监控、回滚和事故处置相对 incumbent 的长期净负担。",
+   "r_id": "R-51",
+   "rationale_verbatim": "长程代理执行替代逐步人工确认，是高责任工作流中的可识别动作并可嵌入现有系统；但跨组织采用所需的可见强制、单一补贴或局部闭环，以及相对逐步确认的持续净负担尚未证明。",
+   "recognized": true,
+   "record_sha256": "298bb1131621d211471be5cb816e583b5b14a1026e4a40ab1327fe3872cdf108",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-050",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "ABSTAIN",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少明确动作、可核验的替代对象、跨组织采用的强制或单一补贴闭环，以及相对既有协作方式的持续净负担证据。",
+   "r_id": "R-52",
+   "rationale_verbatim": "这是仅保留图景的协作判断，虽给出亿量级受众，但没有可独立识别的被替代动作；承载看似可落在既有组织与专业流程中，但多方采用机制和相对既有协作的持续净负担都未给出。",
+   "recognized": false,
+   "record_sha256": "c3be322ad74d8192b31fc7363defac9e2ef4984efc8e8f7a04d2e7991872338d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-025",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少跨组织采用的可见强制、单一补贴或局部闭环证据，也缺少含监督、验证和事故处理成本的 incumbent 对照。",
+   "r_id": "R-53",
+   "rationale_verbatim": "小团队和知识工作者的重复任务规模与频次足以过 Gate1；受限代理明确替代重复知识步骤，且可嵌入既有工具承载。组织间扩散需要可见的治理或经济闭环，且‘更少步骤、更多产出’尚未证明相对既有流程形成持续净负担下降。",
+   "recognized": true,
+   "record_sha256": "06aada140924637b8c9a2e45ea054ed437f9c6dbc459d033307189a0c810b1aa",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-016",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少授权扩张中可见强制、单一补贴或局部闭环的实际证据，以及监控和干预相对现有评估流程的持续净负担比较。",
+   "r_id": "R-54",
+   "rationale_verbatim": "高责任组织中的长程自主行动评估和授权是高频、可识别的动作；外部观测、干预和持续监控可替代封闭环境下不充分的验证，并能使用既有评估、日志和监控承载。监管、买方和组织的多方采用闭环及相对现有评估的持续净负担尚未证明。",
+   "recognized": true,
+   "record_sha256": "48151c8be0f4cb956698a7b745796b764f6a8726a750d16b367c28dde7a874d8",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-089",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要证明这些控制面替代了既有的具体生产动作或合规动作，而不是增加控制；多方执行闭环和相对 incumbent 的持续净负担也未量化。",
+   "r_id": "R-55",
+   "rationale_verbatim": "影响面和高责任生产场景的动作频次足够，且控制可进入既有核心系统；但身份、权限、日志、暂停、审计和申诉是对既有生产与合规动作的补充约束，并非明确替代某个既有动作，因此 Gate2 否决。",
+   "recognized": true,
+   "record_sha256": "6d0476328d2ff58020fa3ca36bea7cc2fc59805c330e4687f08f67d68a647b10",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-075",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "VETO"
+   },
+   "missing_evidence_verbatim": "缺少覆盖中小仓和全球岗位的规模化采用证据、跨主体责任闭环，以及机器人相对人工含停机、适配和失败尾部成本的持续净负担下降证据。",
+   "r_id": "R-56",
+   "rationale_verbatim": "机器人确实替代拣选、搬运等既有动作，也可利用仓库现有承载；但论证承认受控大仓只覆盖有限场景，而绝大多数相关岗位位于中小、碎片化场所，不能满足所称社会级动作人数×频次。其自身还指出单位任务成本未穿越人工，Gate5 的相对 incumbent 净负担不成立。",
+   "recognized": true,
+   "record_sha256": "33c91875a8ee290c26f42120b4886a1ebba3071e3d01e38e125c0fc6e6b201cd",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1",
+    "gate5"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-005",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要明确被替代的既有动作及其 incumbent；还缺少多方采用机制和三类投入相对既有方案的持续净负担证据。",
+   "r_id": "R-57",
+   "rationale_verbatim": "高责任专业者的相关活动规模和频次可识别，真实数据、责任承诺和因果验证也有既有承载；但该卡描述的是价值稀缺性与投入分配，不是一个替代既有动作的可部署能力，Gate2 直接否决。",
+   "recognized": false,
+   "record_sha256": "b572cd3772f69c130ca1eaa1953701ce73fd81f416f8c1c269c0646fc4dd270e",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-079",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少监管、临床机构、支付方和研发组织之间的可见强制、单一补贴或局部闭环证据；候选成本下降是否抵消验证、样本、随访和安全成本也未形成 incumbent 对照。",
+   "r_id": "R-58",
+   "rationale_verbatim": "候选生成与排序在医疗研发中具有百万级直接执行者和高频工作流，并替代部分候选搜索与排序动作，使用既有实验室、临床和监管承载。临床验证的多方采用闭环，以及全流程相对既有研发的持续净负担，记录中没有足够证据。",
+   "recognized": true,
+   "record_sha256": "79804f4367aa68f111afb0c10bef534eab14aecfdf6bf3cdff08d2ef45417950",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-102",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要把分配判断转化为具体可替代动作并定义 incumbent；还缺少多方收益扩散闭环和持续净负担的对照证据。",
+   "r_id": "R-59",
+   "rationale_verbatim": "记录了具身行业中每周执行、接管和责任审核的重复参与者，但判断对象是生产率收益如何分配，而非替代一个既有动作；Gate2 因此否决。设备、订单、融资和责任确有既有承载，但不改变该卡缺少替代动作。",
+   "recognized": false,
+   "record_sha256": "598947b3225688c7b7b303f374d32e642b15c407dab51baccd41b1b7c56d60d6",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-026",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少明确替代的授权、审查或升级动作；也没有证明多方采用的执行机制和相对现有责任流程的持续净负担。",
+   "r_id": "R-60",
+   "rationale_verbatim": "监督者、责任人和专业者的规模与频次足够，法律实体和组织流程提供既有承载；但‘责任边界不会消失’是对组织约束的描述，不是替代既有动作的方案，Gate2 否决。",
+   "recognized": true,
+   "record_sha256": "47518313793a278cca853bb8a6e440fe7e16fe0dc0e7cc26ff3fc6d42973d2fc",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-066",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "若要按五闸评估，必须给出具体能力、明确既有动作、足够的动作人数×频次及其采用和成本证据；当前记录只提供方法测试。",
+   "r_id": "R-61",
+   "rationale_verbatim": "这是五闸规则的元判断而非面向大量重复执行者的具体能力；其受众仅十万量级且不定频，未满足 Gate1。它也不替代既有社会动作，因此 Gate2 同样否决。",
+   "recognized": false,
+   "record_sha256": "19e46c5d2cf78e705b25a867372e6988fece4a49ed79d7a98d0d701bbe6b1510",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1",
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-077",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "VETO"
+   },
+   "missing_evidence_verbatim": "缺少跨作物、跨季节的规模化复购和足够年有效作业小时证据，缺少多方采用闭环，以及含损伤、停机和适配成本的相对人工长期成本比较。",
+   "r_id": "R-62",
+   "rationale_verbatim": "选择性采摘替代人工采摘动作，但季节性使有效频次和设备利用率很低，且全球农业就业并不等于该具体动作的可替代规模，Gate1 不通过。记录还明确指出单位任务成本受季节性、碎片化和适配成本挤压，未相对人工形成持续净负担下降，Gate5 否决。",
+   "recognized": true,
+   "record_sha256": "31cce399dbb5120a893fc5af6b901bb83d8dbf90a35038dbe46f065697c685af",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1",
+    "gate5"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-090",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要明确被替代动作及 incumbent；还缺少多方扩散的可见强制或局部闭环，以及收益获取相对原有生产方式的持续净负担证据。",
+   "r_id": "R-63",
+   "rationale_verbatim": "企业、劳动者和消费者的影响面很大，既有客户、数据、牌照、渠道和基础设施也是现成承载；但该卡预测收益先流向 incumbent 资产持有者，并未提出替代某个既有动作，Gate2 否决。",
+   "recognized": false,
+   "record_sha256": "b97ad82343d6c4fb3052301ccc1ddab8f3cb0806519dc64e1bf16b5fa1274f3f",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-013",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少工具提供方、开发者和采购方之间的强制标准、单一补贴或局部闭环证据；schema 设计和维护成本相对错误、重试及事故成本的长期净值不完整。",
+   "r_id": "R-64",
+   "rationale_verbatim": "开发者和组织每周进行工具调用，规模足够；带参数、前置条件、权限和结构化结果的调用替代不可检查的自然语言调用，并使用现有软件工具和接口承载。跨组织 schema 采用的可见强制或闭环、以及相对旧调用方式的持续净负担尚未证明。",
+   "recognized": true,
+   "record_sha256": "c33addc7e1e81c7657f59d99f93cc073a7b38d235e26c5c27b6f6a6aaba27cd8",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-029",
+   "current_state": "UNLIMITED",
+   "disposition": "downgrade",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要定义具体可替代动作和 incumbent；当前也没有多方采用机制或相对既有选择的持续净负担证据。",
+   "r_id": "R-65",
+   "rationale_verbatim": "普通人的相关需求具有十亿级日/周频，且依托既有关系、消费和承诺载体；但这是一项需求侧锚点判断，不替代任何既有动作，Gate2 否决。",
+   "recognized": false,
+   "record_sha256": "71adc495a351c37037477204d302fefbe6fbf0a2cd85f179d3ea8f82392c1ad4",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-018",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少跨组织采用的强制、单一补贴或局部闭环证据；需要比较采样、比较和修正的新增成本与人工筛选、错误和返工成本。",
+   "r_id": "R-66",
+   "rationale_verbatim": "知识工作者和产品团队以周频执行候选搜索与比较，规模足够；生成—比较—修正替代单一路径的候选筛选工作，并可用既有软件承载。长程自主与候选搜索的组织性扩散尚无可见强制或闭环，且相对 incumbent 的持续净负担没有量化。",
+   "recognized": true,
+   "record_sha256": "5f7dbf81953da98e0d655080cb0cacef7f53d19461991d640e2e0ed18ab512f0",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-056",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要明确被替代的供给、采购或许可动作；还缺少多方采用闭环及电力约束相对芯片约束的持续净负担比较证据。",
+   "r_id": "R-67",
+   "rationale_verbatim": "数据中心运营、电力开发和许可机构的相关活动有足够的重复频次，且电网、设备和许可是既有承载；但该卡只是判断绑定约束从芯片转向电力和并网许可，没有替代既有动作，Gate2 否决。",
+   "recognized": true,
+   "record_sha256": "37819a76106f06d5b65382afafd881e31e0c97d9fdece5b876224694e301a31a",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-4.jsonl",
+   "card_id": "J-019",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要明确 token 优化所替代的既有动作及其 incumbent；还缺少多方采用机制和相对旧流程的持续净负担证据。",
+   "r_id": "R-68",
+   "rationale_verbatim": "开发者、内容团队和重度用户的调用活动达到百万级以上且高频，模型调用使用既有承载；但‘节省 token 的价值被压缩’是价格和稀缺性判断，没有可识别的替代既有动作，Gate2 否决。",
+   "recognized": true,
+   "record_sha256": "388fc3d63919367a09c9efc3ed089f97c73ca20bacab15909c8a73448c14903f",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-039",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少被替代的具体 incumbent 动作及其载体、采用闭环和相对 incumbent 的持续净负担证据。",
+   "r_id": "R-69",
+   "rationale_verbatim": "规模与周频足以构成可观察动作，但判断是控制者获得准入租金的图景，没有替代既有动作的明确对象。",
+   "recognized": true,
+   "record_sha256": "00d0f66a7e06cc4b021fb9662a64533b88e2a01d7dff0f09a91c9c5acce7ac6f",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-060",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少明确被替代的既有动作；也缺少专用承载、可见强制或局部闭环及持续净负担证据。",
+   "r_id": "R-70",
+   "rationale_verbatim": "东道国、开发商和产业工人的规模与频次可识别，但以场址和电力换取租金就业税收是制度图景，不是替代既有动作。",
+   "recognized": true,
+   "record_sha256": "f2baa70ccfeddcaa2ad311874ea28950cd13f2fd5c7a0ee0973973a30105f58c",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-043",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要证明边界授权使用既有承载或具有唯一用途，并提供可见强制、单一补贴或局部闭环，以及持续净负担账本。",
+   "r_id": "R-71",
+   "rationale_verbatim": "组织买方和运营者的周频部署可识别，边界授权可能替代逐步审批，但专用承载、跨方采用机制和相对原监督流程的持续净负担均未给出。",
+   "recognized": true,
+   "record_sha256": "1a67a5588e9edc8c1d6229e7f7c130a27affd25eb8e19d3306a01de43ddc9bb2",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-100",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需有设备的第二用途/收入或既有承载证据，至少一个可见采用闭环，并同时记录亲手、协调、接管、事故、维护与节省成本。",
+   "r_id": "R-72",
+   "rationale_verbatim": "家庭成员和照护工作者反复执行照护动作，设备辅助明确替代部分亲手动作；但设备是否为专用承载、多方如何采用以及净负担尚无充分证据。",
+   "recognized": true,
+   "record_sha256": "f692f411406dd1eacb3d54c2b5ea1e7ad0e1cb4c8df3d23b9e52667d90b6c715",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-052",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少具体被替代动作；专用承载、多方采用条件和相对 incumbent 的持续净负担也未证实。",
+   "r_id": "R-73",
+   "rationale_verbatim": "组织参与者周频关注四类入口，动作规模可识别，但该条只是控制点和议价租金的图景，没有替代既有动作。",
+   "recognized": true,
+   "record_sha256": "7977dc52cc48a18942fd2cd02cfb816bd0fc3cbef66def949871aac793483a1d",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-078",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "若要成为可通过记录，需改成明确替代的具体工序/家务 incumbent，并补充承载、跨方采用和净负担证据。",
+   "r_id": "R-74",
+   "rationale_verbatim": "建筑与家政动作人数和频次足够大，但核心判断是机器人不会替代整体工地流程或开放式家务，属于负向边界判断而非替代既有动作。",
+   "recognized": true,
+   "record_sha256": "5a1efe24ff642a2639b40e5270572997e506adb5ebd1b97635153a88a3061eb3",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-009",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少相对人工/原工作流的持续净负担核算，尤其是学习、返工、监督和失败处置成本。",
+   "r_id": "R-75",
+   "rationale_verbatim": "采用受限工作流的组织和专业者按周执行，连续工作流可替代既有答疑、练习或反馈步骤；权限边界、可检查输入输出和安全停止构成既有工作流中的局部闭环。",
+   "recognized": true,
+   "record_sha256": "114f3140e4a169a3a02fe0197030b63cecc5b715784cd92b5c4828a890564f60",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-020",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需证明平台、版权方和买方之间存在可见强制、单一补贴或局部闭环，并核算每次生成相对原内容流程的持续净负担。",
+   "r_id": "R-76",
+   "rationale_verbatim": "内容生产者、营销团队和平台买方按周活动，自动生成与筛选可替代部分人工内容交付；现有平台和算力是非专用承载，但多方扩散闭环未被证明。",
+   "recognized": true,
+   "record_sha256": "cb56700b45f99c0ab3a7fe2be6c2fceb88ff805e9841e246c0de605d643fcda5",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-084",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少相对教师或原辅导流程的持续净负担证据，包括教师监督、学习者摩擦、失败补救和成本。",
+   "r_id": "R-77",
+   "rationale_verbatim": "学生与在职学习者的学习动作规模和频次足够，机构内辅导替代答疑、练习和反馈；学校/雇主、课程、评价与资格形成局部闭环。",
+   "recognized": true,
+   "record_sha256": "aacc1e0cba325514e553e77e782347128946eeb387bcf842ea67b90e4c798aad",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-034",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需要证明合成证据使用的是专用且无第二用途的承载，或证明既有承载；还需可见强制/单一补贴/局部闭环和持续净负担账本。",
+   "r_id": "R-78",
+   "rationale_verbatim": "高责任组织、审计者和监管者按周参与，合成证据在低责任场景可替代部分现实试验；但承载是否专用以及监管、保险和采购是否形成采用闭环未证实。",
+   "recognized": true,
+   "record_sha256": "77e9c10b5521d9e5af09c18808abb493cff3574eb12b0e1b14c1e673f44c5d19",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-036",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需提供平台、服务方和用户的采用闭环证据，并比较历史记录带来的持续录入、隐私和核验负担与节省成本。",
+   "r_id": "R-79",
+   "rationale_verbatim": "平台、内容生产者和数字服务用户按周作出选择，履约历史推荐可替代一次性表达的筛选；平台是既有多用途承载，但跨方采用机制未见可见强制或局部闭环。",
+   "recognized": true,
+   "record_sha256": "2657effa1bdfa67903f2e2363e60353d9a5ba0fb33ba6c2a19f9c3c40efbcdfa",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-011",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "VETO",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少被替代的 incumbent 动作；承载、跨方采用和持续净负担无法在当前表述中核验。",
+   "r_id": "R-80",
+   "rationale_verbatim": "内容与产品团队规模及周频可识别，但跨媒介局部一致性是能力顺序判断，不是明确替代某个既有动作。",
+   "recognized": true,
+   "record_sha256": "7c20e5e332430aabd3d776609e261e9b661f942512a018b7e32869bbf5337587",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-071",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "PASS"
+   },
+   "missing_evidence_verbatim": "需给出具体能力、真实 incumbent、实际执行者与重复频次；当前净负担规则本身不能替代 Gate1 和 Gate2 的动作定义。",
+   "r_id": "R-81",
+   "rationale_verbatim": "这是需求侧闸五的方法规则而非新增能力或具体采用动作，且受众无固定频次；Gate1 的动作人数乘频次不足以识别为当前记录。",
+   "recognized": false,
+   "record_sha256": "9813a0e461db2aa4c0a3de039d5f19f58cd3a30609a03fc9d5d4ca44ee89b856",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-037",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺少相对基线的持续净负担，须同时核算返工、审计、编排、培训、错误处置与人均交付节省。",
+   "r_id": "R-82",
+   "rationale_verbatim": "采用代理的小团队和知识工作者按周执行，代理编排可替代部分既有知识工作步骤；工具调用可检查、团队审计记录和小团队场景提供局部闭环。",
+   "recognized": true,
+   "record_sha256": "0f0ee4cb3ff1ac6a552520cf0ace953ec6768270ba76f7594bf6676c53b390c8",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-006",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "VETO",
+    "gate2": "ABSTAIN",
+    "gate3": "ABSTAIN",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需指定实际执行者、可重复动作、频次及被替代的 incumbent 工作；当前仅有技术指标。",
+   "r_id": "R-83",
+   "rationale_verbatim": "并行推理路径是模型研发和基础设施的技术前提，不是社会日常动作；记录明确称其并非社会日常动作，因此 Gate1 不成立。",
+   "recognized": false,
+   "record_sha256": "9e5ca42a3fdd9772e4f96f2a34bd2872adafb18902042359047d303265d1a6ec",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1"
+   ]
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-021",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需证明买方、现场提供者和责任/保险方之间的可见采用机制，并比较记录、核验和采购摩擦相对二手资料的持续净负担。",
+   "r_id": "R-84",
+   "rationale_verbatim": "高责任行业专业者和采购者按周进行信息判断，可追溯现场资料替代部分二手表达；资料、合同和采购是既有承载，但跨方采用闭环证据不足。",
+   "recognized": true,
+   "record_sha256": "76f9f92efed050a675738731b65b8668708521ff517d04f6897a852ebef96029",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-5.jsonl",
+   "card_id": "J-004",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "PASS",
+    "gate2": "PASS",
+    "gate3": "VETO",
+    "gate4": "ABSTAIN",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需证明隔离层具有唯一用途且不存在第二用途/收入，或证明其实际由既有多用途承载提供；同时补齐多方采用与持续净负担证据。",
+   "r_id": "R-85",
+   "rationale_verbatim": "组织和高责任专业者按周执行不可逆动作，回滚/沙盘可替代直接生产执行；但判断明确要求独立的 standalone 基础设施，未证明无第二用途、收入或既有承载，Gate3 否决。",
+   "recognized": true,
+   "record_sha256": "f142b8998778de6aa1634df2928f18ad38ce703572460f647d9b8f7c5b2a39e4",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate3"
+   ]
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-082",
+   "current_state": "LANDSCAPE",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需跨国重复动作分母、周频及干预前后每位照护者的持续净负担。",
+   "r_id": "R-86",
+   "rationale_verbatim": "动作分母、频次和全球可比来源均缺失，不能验证 Gate1；其余是既有照护流程中的替代或承载，但没有相对 incumbent 的持续净负担证据。",
+   "recognized": false,
+   "record_sha256": "f8927eb014f9209209cc84d89427006f570be2f6c3f3425c9621b51fe471089e",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-035",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺采购基线、采用人数频次、责任成本/保费与 incumbent 的持续净负担比较。",
+   "r_id": "R-87",
+   "rationale_verbatim": "责任定价、赔付和审计可替代既有合同中的责任分配，并依托既有保险、合同和审计承载；但千万级周频及相对既有做法的持续净负担没有证据。",
+   "recognized": true,
+   "record_sha256": "5dcb6a50751859c090c53d535737176a2fc705350db0962200a4b9ed01be928b",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-061",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺地区级动作分母、采用频次、政策执行强度及相对原选址方案的持续净负担。",
+   "r_id": "R-88",
+   "rationale_verbatim": "地方限制和专用费率替代既有低价接入与选址决策，承载在既有电网、水务和许可制度中；但影响面与频次为构造值，净负担缺量化。",
+   "recognized": true,
+   "record_sha256": "119a76751ec1800f7df9da6d26e05dbecf93990505e90751b888682a775d2287",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-093",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺十个以上项目的可比基线、动作频次、专用设施第二用途/收益和长期净负担。",
+   "r_id": "R-89",
+   "rationale_verbatim": "组合公用工程条件替代分别比较平均价格的选址动作，并使用既有公用事业与许可承载；但决策者规模、频次和新增专用系统的持续净负担未被证实。",
+   "recognized": true,
+   "record_sha256": "2c37a0f3bcb02b53626675b84f67f2e515af5dfe4897dea1e254089a744ff5c2",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-042",
+   "current_state": "LANDSCAPE",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需定义可观察的被替代动作、参与人数频次及相对共同经历的持续净负担。",
+   "r_id": "R-90",
+   "rationale_verbatim": "这是共享经历的图景而非已识别的可执行动作；没有证明它替代任何既有动作，因此 Gate2 直接 VETO。",
+   "recognized": false,
+   "record_sha256": "d6e98abce83f9f38f36e934543e22ba0c0cd019934ab2dfe6bcb3ad16edff711",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-031",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺高价值部署分母、动作频次、环境成本与事故损失的 incumbent 对照。",
+   "r_id": "R-91",
+   "rationale_verbatim": "隔离、暂停和回滚环境替代直接写入生产系统的执行方式，承载于既有开发与运维流程；但采用规模、频次和相对直连方案的持续净负担没有量化。",
+   "recognized": true,
+   "record_sha256": "d246e0e7f24ed60d19304cd77e71818f297566de5ee285a5b8921775a5f40bbc",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-032",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺授权动作分母/频次、事故对照、审查工时与既有流程的长期净负担。",
+   "r_id": "R-92",
+   "rationale_verbatim": "授权、审查和异常升级替代未经检查的执行路径，并可嵌入既有权限与责任流程；但动作规模及审查相对执行的持续净负担缺证据。",
+   "recognized": true,
+   "record_sha256": "f82a153f70859d689132679bdb67316c303e7d65d753c953121f1b60b4dfe446",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-030",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需明确被替代动作、跨方采用约束、人数频次和相对人工协调的持续净负担。",
+   "r_id": "R-93",
+   "rationale_verbatim": "可识别为协调工具的图景，涉及替代弱关系协调的既有消息动作且可用既有平台承载；但 Gate1 分母频次与 Gate5 净负担均未证实，不能升级为通过。",
+   "recognized": false,
+   "record_sha256": "7e47723528a048402ec391b053c4b59bc1a98afc3b8249d2e40af84ca27e2360",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-072",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "FAIL",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需可引用的全球动作分母；若消费级批量候选普及需重新估计 Gate1，并补充净负担。",
+   "r_id": "R-94",
+   "rationale_verbatim": "卡片自身给出百万级周频，低于社会级门槛，Gate1 失败；即使选择替代既有筛选动作，也不能作为社会级动作通过。",
+   "recognized": false,
+   "record_sha256": "5ac88e13d85a78ed91affc3b3d268b112451f27eb4f1b38ce4b6480d8e04454c",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate1"
+   ]
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-045",
+   "current_state": "REVISED",
+   "disposition": "retain-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "VETO",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "需定义可重复执行的现场观察动作、替代对象、采用机制和持续净负担。",
+   "r_id": "R-95",
+   "rationale_verbatim": "仅为“现场观察稀缺”的图景，没有具体既有动作被替代；Gate2 未通过，故 VETO。",
+   "recognized": false,
+   "record_sha256": "25364bc085ae8f5b1524ad57f097e5adfc7afd91e2e5c2692e63a3a2f26ea756",
+   "verdict": "VETO",
+   "vetoed_gates": [
+    "gate2"
+   ]
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-007",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺长任务动作分母/频次、跨组织采用证据、检索维护成本与 incumbent 对照。",
+   "r_id": "R-96",
+   "rationale_verbatim": "任务级检索替代无结构聊天回放并使用既有知识工具承载；但百万级技术使用者的频次、采用约束及相对聊天的持续净负担未给出。",
+   "recognized": true,
+   "record_sha256": "4e2467365fa9983b01c131eddcbf9bd33d2a7190a4b7c0a0f2600322320812b5",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-088",
+   "current_state": "SCOPE_LIMITED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺跨职业动作分母频次、培训承载的第二用途/收益、采用强制性和相对旧培训的长期成本。",
+   "r_id": "R-97",
+   "rationale_verbatim": "结构化培训、模拟和监督实战替代或补足初级生产练习，并可借既有教育/工作承载；但千万级构造规模与持续净负担缺证据。",
+   "recognized": true,
+   "record_sha256": "0b5cb16e41ad72dbd8e333c357c9e2665eab1d4f7ab4c66825c0e3819dc0412d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-063",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺区域项目分母/频次、公开决策样本、强制性或补贴闭环及长期净负担比较。",
+   "r_id": "R-98",
+   "rationale_verbatim": "按接入队列和审批速度选址替代单看电价的选址动作，依托既有电网和许可承载；但动作规模、跨方约束和相对电价选址的持续净负担未量化。",
+   "recognized": true,
+   "record_sha256": "70471b99da0eac452266825bf5a8728133b145f0b56ef74936070f3e115a0b9d",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-022",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺高价值交易分母频次、跨方采纳机制、凭据第二用途/收入及相对现有验证的长期负担。",
+   "r_id": "R-99",
+   "rationale_verbatim": "身份、履约和责任凭据替代低成本生成信号的交易判断，并可嵌入既有认证、合同和赔付承载；但亿级频次和新增凭据的持续净负担无证据。",
+   "recognized": true,
+   "record_sha256": "a78752829af1f551d14a5d0d5ae9c46837151d349665250ce094cc51897688c6",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-012",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺生产项目分母/频次、跨团队采用证据、专用状态设施的复用/收益和维护成本对照。",
+   "r_id": "R-100",
+   "rationale_verbatim": "状态记忆与回放验证替代短片段式无状态生成，并依托既有研发、内容和运营系统；但采用规模、频次及长期维护相对 incumbent 的净负担未证实。",
+   "recognized": true,
+   "record_sha256": "2a58aebeaf6fab2443303f64bc10718df66eb071695282a6c926cb434c1bdc56",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-023",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺重要决策分母频次、跨方采用/强制机制、记录的第二用途/收入和长期净负担。",
+   "r_id": "R-101",
+   "rationale_verbatim": "兑现记录和持续关系替代一次性表达信号，可嵌入既有平台记录与交易承载；但亿级周频及记录维护相对一次性信号的持续净负担没有证据。",
+   "recognized": true,
+   "record_sha256": "93e9ef567058cbac2cfd126f9a46116be9e7dd194f2e2fa65ed8e6b0594b54b0",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  },
+  {
+   "batch": "raw-6.jsonl",
+   "card_id": "J-014",
+   "current_state": "REVISED",
+   "disposition": "retain-not-reproduced",
+   "gates": {
+    "gate1": "ABSTAIN",
+    "gate2": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "ABSTAIN"
+   },
+   "missing_evidence_verbatim": "缺高价值自主动作分母频次、强制采用或局部闭环、承载复用收益及 incumbent 成本对照。",
+   "r_id": "R-102",
+   "rationale_verbatim": "快照、影子运行、权限和回滚替代直接写入真实环境，依托既有工作流与运维承载；但采用规模、频次以及环境成本相对人工审批/直连的持续净负担缺证据。",
+   "recognized": true,
+   "record_sha256": "ee0b195aa26ba4bb4763cf9da30c552772337d5c567a1044f5afc593e7c4e437",
+   "verdict": "ABSTAIN",
+   "vetoed_gates": []
+  }
+ ],
+ "round": "blind-review-reaudit-2026-10-09",
+ "schema_version": 1,
+ "source_commit": "0eb7474ef19533d9db40ba966e0ccf788ea05adb",
+ "verdict_vocabulary": {
+  "ABSTAIN": "no gate failure established; the gate set can only veto",
+  "VETO": "at least one diffusion gate fails"
+ }
+}
