@@ -94,8 +94,29 @@ METADATA_TOKENS = (
 GATE_TOKENS = ("普及闸", "adoption gate", "diffusion-gate", "diffusion gate", "闸复核")
 DEPENDENCY_TOKENS = ("depends-on", "depends on", "depends_on", "依赖于", "上游判断")
 
+LANGUAGES = ("zh", "en")
+
+# Two traceback shapes the merged token scan is structurally unable to see, so
+# the per-language scan is not a duplicate of it: a bare heading anchor (no
+# brackets, so `LINK_RE` misses it; no scheme, so `URL_RE` misses it) and a bare
+# source file name (`PATH_RE` requires a `./` or a known directory in front of
+# it, so `02.md` on its own walks straight through).
+ANCHOR_FRAG_RE = re.compile(r"#[0-9A-Za-z\u4e00-\u9fff][0-9A-Za-z\u4e00-\u9fff_-]+")
+BARE_FILE_RE = re.compile(
+    r"(?<![/\w.-])[0-9A-Za-z_-]+\.(?:md|markdown|json|py|txt|csv|ya?ml)\b", re.I)
+
+# Merged-record leakage branches, then the per-language and structural branches.
+# Each name is a mutation handle: disabling exactly one must let exactly the
+# negative case it owns through.
 CHECK_NAMES = ("identifier", "status", "gate", "metadata", "dependency", "path",
-               "link", "title", "code")
+               "link", "title", "code",
+               "lang_semantic", "lang_path", "lang_count",
+               "index_order", "cross_language", "mapping_reachability")
+
+# Test-only fault injection. These defects cannot be produced by any valid
+# frozen manifest — they would be generator bugs — so the only way to show the
+# guards that catch them have teeth is to inject them. Never exposed on the CLI.
+TEST_FAULTS = ("reordered", "dropped", "unpair_card_set")
 
 
 class Refused(ValueError):
@@ -294,14 +315,21 @@ def extract_fields(section: str, card_id: str, redact_values: bool = True) -> Di
 
 def redact_traceback_clues(record: Dict[str, Any], titles: Iterable[str],
                            paths: Iterable[str]) -> None:
-    """Remove exact source titles and paths that occur inside retained prose."""
+    """Remove exact source titles and paths that occur inside retained prose.
+
+    Heading anchors and bare file names are stripped here too, so the ordinary
+    production path is hygienic rather than merely checked: the per-language
+    scan afterwards refuses only on a clue that SURVIVED redaction.
+    """
     title_clues = [fold(title) for title in titles if title and len(title) >= 4]
     path_clues = [fold(path) for path in paths if path]
-    for language in ("zh", "en"):
+    for language in LANGUAGES:
         for key, value in record[language].items():
             text = fold(value)
             for clue in title_clues + path_clues:
                 text = text.replace(clue, "")
+            text = ANCHOR_FRAG_RE.sub("", text)
+            text = BARE_FILE_RE.sub("", text)
             text = re.sub(r"\s+", " ", text)
             text = re.sub(r"\s*([,，;；:：、])\s*", r"\1", text)
             record[language][key] = text.strip(" ,，;；:：、")
@@ -364,6 +392,149 @@ def scan_records(records: List[Dict[str, Any]], titles: Iterable[str],
             fail("%s leaks a traceback clue: %s" % (record["id"], "; ".join(sorted(set(problems)))))
 
 
+# --------------------------------------------------------------------------
+# Per-language and structural checks.
+#
+# `scan_records` above serializes BOTH language projections into one string and
+# looks for forbidden text that is PRESENT. That shape cannot answer three
+# different questions, which is why the checks below exist as separate branches
+# rather than extra patterns inside it:
+#   * a defect in one projection while the other is clean (it reports neither
+#     language, so "the Chinese output was checked" is not a claim it supports);
+#   * a field that is ABSENT, EMPTIED or MISMATCHED between the languages — a
+#     scan for present text is blind to a missing one;
+#   * whether the renumbering and the index order are internally consistent at
+#     all, which is a property of the sequence and of no single record.
+# Each branch below names the language and/or the index object it refuses on.
+# --------------------------------------------------------------------------
+
+
+def enforce_language_fields(public: List[Dict[str, Any]], language: str,
+                            disabled: Set[str]) -> None:
+    """Semantic field check for ONE language projection, judged on its own."""
+    if "lang_semantic" in disabled:
+        return
+    for record in public:
+        fields = record[language]
+        unknown = sorted(set(fields) - set(RETAINED_KEYS))
+        if unknown:
+            fail("%s (%s): field(s) outside the retained whitelist: %s"
+                 % (record["id"], language, ", ".join(unknown)))
+        for key in REQUIRED_KEYS:
+            if key not in fields:
+                fail("%s (%s): required field %r is absent from this language projection"
+                     % (record["id"], language, key))
+            if not re.search(r"[0-9A-Za-z\u4e00-\u9fff]", fields[key]):
+                fail("%s (%s): required field %r carries no readable content after "
+                     "de-labelling" % (record["id"], language, key))
+
+
+def enforce_language_paths(public: List[Dict[str, Any]], language: str,
+                           disabled: Set[str]) -> None:
+    """Path / anchor check for ONE language projection, judged on its own."""
+    if "lang_path" in disabled:
+        return
+    for record in public:
+        for key, value in sorted(record[language].items()):
+            folded = fold(value)
+            anchor = ANCHOR_FRAG_RE.search(folded)
+            if anchor:
+                fail("%s (%s): field %r keeps a heading anchor a reader can follow "
+                     "back: %s" % (record["id"], language, key, anchor.group(0)))
+            bare = BARE_FILE_RE.search(folded)
+            if bare:
+                fail("%s (%s): field %r keeps a bare source file name: %s"
+                     % (record["id"], language, key, bare.group(0)))
+
+
+def enforce_language_count(public: List[Dict[str, Any]], language: str,
+                           expected_total: int, disabled: Set[str]) -> None:
+    """Count check for ONE language projection against the frozen manifest."""
+    if "lang_count" in disabled:
+        return
+    present = sum(1 for record in public if record.get(language))
+    if present != expected_total:
+        fail("%s projection carries %d records but the frozen manifest pins %d cards"
+             % (language, present, expected_total))
+
+
+def enforce_index_order(public: List[Dict[str, Any]], seed: str,
+                        disabled: Set[str]) -> None:
+    """Index and order consistency — a property of the sequence, not a record.
+
+    Two rules: the identifiers must read `R-01 … R-NN` with no gap, duplicate or
+    width change, and that sequence must equal the order recomputed here from
+    the seed-keyed content digests. The second rule is what makes the position
+    of a record provably a function of its own content and the seed, so nobody
+    can read the manifest's order out of the bundle's order.
+    """
+    if "index_order" in disabled:
+        return
+    for position, record in enumerate(public, 1):
+        expected = "R-%02d" % position
+        if record["id"] != expected:
+            fail("index position %d holds %s but the renumbering must read %s"
+                 % (position, record["id"], expected))
+    actual = [record["id"] for record in public]
+    recomputed = [record["id"] for record in sorted(public, key=lambda r: shuffle_key(seed, r))]
+    if actual != recomputed:
+        for position, (got, want) in enumerate(zip(actual, recomputed), 1):
+            if got != want:
+                fail("index/order inconsistency at position %d: %s sits where %s "
+                     "belongs under the seed-keyed content order" % (position, got, want))
+        fail("index/order inconsistency: the sequence length changed under recomputation")
+
+
+def enforce_cross_language(public: List[Dict[str, Any]], card_ids: Dict[str, Set[str]],
+                           disabled: Set[str]) -> None:
+    """The two projections must describe the same logical cards and fields.
+
+    Counts are reported instead of the differing card ids on purpose: a refusal
+    message is written to a log, and naming a `J-NNN` there would re-create the
+    very link the bundle exists to cut.
+    """
+    if "cross_language" in disabled:
+        return
+    for record in public:
+        zh_keys, en_keys = set(record["zh"]), set(record["en"])
+        if zh_keys != en_keys:
+            fail("%s: the zh and en projections do not carry the same field meanings "
+                 "(zh-only: %s; en-only: %s)"
+                 % (record["id"], sorted(zh_keys - en_keys) or "-",
+                    sorted(en_keys - zh_keys) or "-"))
+    if card_ids["zh"] != card_ids["en"]:
+        fail("the zh and en logical card sets differ: %d card(s) only in zh, "
+             "%d only in en" % (len(card_ids["zh"] - card_ids["en"]),
+                                len(card_ids["en"] - card_ids["zh"])))
+
+
+def enforce_mapping_reachability(public: List[Dict[str, Any]],
+                                 ordered: List[Dict[str, Any]],
+                                 disabled: Set[str]) -> None:
+    """Every `R-NN` must resolve to exactly one source card, and vice versa.
+
+    If two records carry the same body, the sealed mapping is a lie even when it
+    is written: the holder cannot tell which card a given `R-NN` came from, so
+    the re-review result could never be posted back to the right card.
+    """
+    if "mapping_reachability" in disabled:
+        return
+    bodies: Dict[str, List[str]] = {}
+    for record in public:
+        digest = sha256_bytes(canonical_json({"zh": record["zh"], "en": record["en"]}))
+        bodies.setdefault(digest, []).append(record["id"])
+    collided = sorted(ids for ids in bodies.values() if len(ids) > 1)
+    if collided:
+        fail("mapping is not reachable: %s share one record body, so neither "
+             "resolves to a single source card"
+             % "; ".join(" = ".join(ids) for ids in collided))
+    source = {sha256_bytes(record_body(record)) for record in ordered}
+    for digest, ids in sorted(bodies.items()):
+        if digest not in source:
+            fail("mapping is not reachable: %s has no source card with a matching "
+                 "record body" % ids[0])
+
+
 def shuffle_key(seed: str, record: Dict[str, Any]) -> Tuple[str, str]:
     """Order by a seed-keyed digest of the record's own content.
 
@@ -404,19 +575,26 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
             evidence_path: Optional[Path] = None, verify_determinism: bool = False,
             mapping_out: Optional[Path] = None,
             disabled_checks: Optional[Set[str]] = None,
-            redact_values: bool = True) -> Dict[str, Any]:
+            redact_values: bool = True,
+            test_fault: Optional[str] = None) -> Dict[str, Any]:
     if not isinstance(seed, str) or not seed.strip():
         fail("seed must be a non-empty string")
     disabled = set(disabled_checks or ())
     unknown = disabled - set(CHECK_NAMES)
     if unknown:
         fail("unknown check name(s): " + ", ".join(sorted(unknown)))
+    if test_fault is not None and test_fault not in TEST_FAULTS:
+        fail("unknown test fault: %r" % (test_fault,))
     manifest, manifest_raw = read_manifest(manifest_path)
     validate_manifest(manifest)
 
     records: List[Dict[str, Any]] = []
     titles: List[str] = []
     paths: List[str] = []
+    # Derived per language from the heading each language's own file carries, so
+    # the cross-language card-set check reads the files rather than asserting
+    # what the manifest already said.
+    card_ids: Dict[str, Set[str]] = {"zh": set(), "en": set()}
     zh_count = en_count = 0
     for card in manifest["cards"]:
         cid = card["id"]
@@ -433,9 +611,10 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
             fail("%s: source files must be UTF-8" % cid)
         zh_section = card_section(zh_text, cid)
         en_section = card_section(en_text, cid)
-        for section in (zh_section, en_section):
+        for section, language in ((zh_section, "zh"), (en_section, "en")):
             heading = HEADING_RE.search(section)
             if heading:
+                card_ids[language].add(heading.group(1))
                 tail = heading.group(2)
                 for part in re.split(r"[·:：]", tail):
                     part = clean_value(part)
@@ -444,8 +623,8 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
         paths.extend([card["zh_path"], card["en_path"]])
         zh_fields = extract_fields(zh_section, cid, redact_values=redact_values)
         en_fields = extract_fields(en_section, cid, redact_values=redact_values)
-        zh_count += 1
-        en_count += 1
+        zh_count += 1 if zh_fields else 0
+        en_count += 1 if en_fields else 0
         records.append({"cid": cid, "zh": zh_fields, "en": en_fields})
 
     if zh_count != en_count or zh_count != len(manifest["cards"]):
@@ -458,8 +637,25 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
     ordered = sorted(records, key=lambda r: shuffle_key(seed, r))
     public = [{"id": "R-%02d" % i, "zh": r["zh"], "en": r["en"]}
               for i, r in enumerate(ordered, 1)]
+    if test_fault == "reordered" and len(public) >= 2:
+        public = [dict(public[1], id=public[0]["id"]),
+                  dict(public[0], id=public[1]["id"])] + public[2:]
+    elif test_fault == "dropped" and len(public) >= 2:
+        public = public[:-1]
+    elif test_fault == "unpair_card_set" and card_ids["en"]:
+        card_ids["en"] = set(sorted(card_ids["en"])[:-1])
     if len({r["id"] for r in public}) != len(public):
         fail("renumbering produced duplicate R-NN identifiers")
+
+    # Structural and per-language branches run BEFORE the merged leakage scan:
+    # a defect they own must be reported by them, never indirectly by it.
+    enforce_index_order(public, seed, disabled)
+    for language in LANGUAGES:
+        enforce_language_fields(public, language, disabled)
+        enforce_language_paths(public, language, disabled)
+        enforce_language_count(public, language, len(manifest["cards"]), disabled)
+    enforce_cross_language(public, card_ids, disabled)
+    enforce_mapping_reachability(public, ordered, disabled)
     scan_records(public, titles, paths, disabled)
 
     bundle_bytes = canonical_json({"schema_version": BUNDLE_SCHEMA_VERSION, "records": public})
@@ -469,6 +665,9 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
         if stray.name != BUNDLE_FILENAME:
             fail("the public bundle directory must contain only %s; found %s"
                  % (BUNDLE_FILENAME, stray.name))
+
+    def verdict(check: str) -> str:
+        return "disabled (mutation run)" if check in disabled else "passed"
 
     result: Dict[str, Any] = {
         "status": "BUNDLE_PREPARED",
@@ -481,6 +680,24 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
         "record_count": len(public),
         "zh_records": zh_count,
         "en_records": en_count,
+        # A branch that was switched off did not pass; it was not asked. Saying
+        # "passed" there would turn a mutation run into false evidence.
+        "per_language_checks": {
+            language: {
+                "semantic_fields": verdict("lang_semantic"),
+                "path_and_anchor": verdict("lang_path"),
+                "count_against_manifest": verdict("lang_count"),
+                "records": sum(1 for r in public if r.get(language)),
+            }
+            for language in LANGUAGES
+        },
+        "structural_checks": {
+            "index_order": verdict("index_order"),
+            "cross_language_card_set_and_field_meanings": verdict("cross_language"),
+            "mapping_reachability": verdict("mapping_reachability"),
+            "merged_leakage_scan": "passed" if not (disabled & set(CHECK_NAMES[:9]))
+                                   else "partly disabled",
+        },
         "coverage": manifest["coverage"],
         "renumbering": "R-NN assigned after a seed-keyed content shuffle",
         "mapping_in_bundle": False,
@@ -658,6 +875,56 @@ INJECTIONS: Tuple[Tuple[str, str, str], ...] = (
     ("split_id", "identifier", "先测量一个可重复动作，参见 J-\n    004 的定义。"),
 )
 ANCHOR = "先测量一个可重复动作。"
+
+# Defects that the merged scan is structurally UNABLE to report, each owned by
+# exactly one per-language or cross-language branch. Every entry names the file
+# to edit, the single edit, whether production redaction is on, and which
+# language tag the refusal must and must not carry — that last pair is the
+# direct evidence that the two projections are judged separately rather than as
+# one merged string.
+#
+# (case, owning check, (file key, old, new), redact_values, must name, must not name)
+STRUCTURAL_INJECTIONS: Tuple[Tuple[str, str, Tuple[Tuple[str, str, str], ...],
+                                   bool, Optional[str], Optional[str]], ...] = (
+    # A retained field whose whole content was the source title: redaction
+    # empties it, and an emptied field leaks nothing for the merged scan to see.
+    ("zh_required_field_emptied", "lang_semantic",
+     (("zh1", "到 2030 年该动作没有出现可重复执行者。", "固定装置的原始标题不得出现在材料中"),),
+     True, "(zh)", "(en)"),
+    ("en_required_field_emptied", "lang_semantic",
+     (("en1", "By 2030 no repeated actor performs the action.",
+       "The fixture original title must not appear in the packet"),),
+     True, "(en)", "(zh)"),
+    # A bare heading anchor: no brackets, no scheme, no directory prefix.
+    ("zh_bare_heading_anchor", "lang_path",
+     (("zh1", "年度部署量与接管次数。", "年度部署量与接管次数，详见 #锚点二 一节。"),),
+     False, "(zh)", "(en)"),
+    # A bare file name: `PATH_RE` needs a directory in front of it.
+    ("en_bare_source_filename", "lang_path",
+     (("en1", "Annual deployments and takeover counts.",
+       "Annual deployments and takeover counts; see 02.md for the tally."),),
+     False, "(en)", "(zh)"),
+    # One projection carries a field meaning the other does not.
+    ("en_field_meaning_dropped", "cross_language",
+     (("en1", "- **Strongest opposing mechanism**: A platform may supply the carrier.\n", ""),),
+     True, "opposing_mechanism", None),
+    # Two cards whose retained content is identical: the sealed mapping becomes
+    # unusable because no `R-NN` resolves to a single source card.
+    ("duplicate_record_body", "mapping_reachability",
+     (("zh4", "第四条测试判断用于证明内容键排序。", "第三条测试判断用于证明不同 seed 可以改变顺序。"),
+      ("en4", "A fourth test judgment exists so content-key sorting can be checked.",
+       "A third test judgment exists so a different seed can change ordering.")),
+     True, "mapping is not reachable", None),
+)
+
+# Generator-internal invariants no valid frozen manifest can violate, so the
+# only way to show the guard has teeth is to inject the defect.
+# (case, owning check, fault, must appear in the refusal)
+FAULT_INJECTIONS: Tuple[Tuple[str, str, str, str], ...] = (
+    ("index_order_permuted", "index_order", "reordered", "index/order inconsistency"),
+    ("language_count_short", "lang_count", "dropped", "projection carries"),
+    ("card_set_unpaired", "cross_language", "unpair_card_set", "logical card sets differ"),
+)
 
 
 def _fixture_repo(root: Path) -> Tuple[Path, Path, Path, Path, Path, Path, Path, Path, Path]:
@@ -842,17 +1109,112 @@ def run_self_test() -> Dict[str, Any]:
             hash_guard = False
         freeze()
 
+        # ------------------------------------------------------------------
+        # Per-language, index/order and cross-language cases.
+        #
+        # Each case is run twice: once to confirm the owning branch refuses and
+        # names the right object, and once with ONLY that branch disabled, to
+        # confirm no other branch — in particular not the merged leakage scan —
+        # was quietly doing the reporting for it.
+        # ------------------------------------------------------------------
+        handles = {"zh1": zh1, "en1": en1, "zh4": zh4, "en4": en4}
+        originals = {key: path.read_bytes().decode("utf-8") for key, path in handles.items()}
+
+        def restore() -> None:
+            for key, path in handles.items():
+                path.write_bytes(originals[key].encode("utf-8"))
+            freeze()
+
+        def apply_edits(edits: Tuple[Tuple[str, str, str], ...]) -> None:
+            for key, old, new in edits:
+                text = originals[key]
+                if old not in text:
+                    restore()
+                    fail("injection payload not found in fixture %s: %r" % (key, old))
+                handles[key].write_bytes(text.replace(old, new, 1).encode("utf-8"))
+            freeze()
+
+        structural: List[Dict[str, Any]] = []
+        for name, check, edits, redact, must, must_not in STRUCTURAL_INJECTIONS:
+            apply_edits(edits)
+            try:
+                prepare(repo, manifest_path, root / ("struct-" + name), "fixture-seed",
+                        redact_values=redact)
+            except Refused as exc:
+                message = str(exc)
+            else:
+                restore()
+                fail("structural case %s was not caught" % name)
+            if must is not None and must not in message:
+                restore()
+                fail("structural case %s refused without naming %s: %s" % (name, must, message))
+            if must_not is not None and must_not in message:
+                restore()
+                fail("structural case %s named the clean language %s: %s"
+                     % (name, must_not, message))
+            named_record = bool(re.search(r"\bR-\d{2}\b", message))
+            # Now switch off only the owning branch: the defect must survive.
+            try:
+                prepare(repo, manifest_path, root / ("struct-mut-" + name), "fixture-seed",
+                        disabled_checks={check}, redact_values=redact)
+            except Refused as exc:
+                restore()
+                fail("case %s is also caught by another branch, so %s is not what "
+                     "reports it: %s" % (name, check, exc))
+            else:
+                structural.append({"case": name, "check": check,
+                                   "named_record": named_record,
+                                   "isolated_by_mutation": True, "error": message})
+            restore()
+
+        faults: List[Dict[str, Any]] = []
+        for name, check, fault, must in FAULT_INJECTIONS:
+            try:
+                prepare(repo, manifest_path, root / ("fault-" + name), "fixture-seed",
+                        test_fault=fault)
+            except Refused as exc:
+                message = str(exc)
+            else:
+                fail("fault case %s was not caught" % name)
+            if must not in message:
+                fail("fault case %s refused without naming %s: %s" % (name, must, message))
+            try:
+                prepare(repo, manifest_path, root / ("fault-mut-" + name), "fixture-seed",
+                        disabled_checks={check}, test_fault=fault)
+            except Refused as exc:
+                fail("fault case %s is also caught by another branch, so %s is not "
+                     "what reports it: %s" % (name, check, exc))
+            else:
+                faults.append({"case": name, "check": check,
+                               "isolated_by_mutation": True, "error": message})
+
+        # The refusal path and the process exit code must be the same thing.
+        apply_edits(STRUCTURAL_INJECTIONS[0][2])
+        refusal_exit_code = main([
+            "--repo", str(repo), "--manifest", str(manifest_path),
+            "--output-dir", str(root / "exit-code-probe"), "--seed", "fixture-seed",
+        ])
+        restore()
+        if refusal_exit_code != 1:
+            fail("a refused run must exit 1, got %r" % (refusal_exit_code,))
+
         if len(negative) != len(INJECTIONS) or len(mutation) != len(INJECTIONS):
             fail("negative or mutation coverage is incomplete")
+        if len(structural) != len(STRUCTURAL_INJECTIONS) or len(faults) != len(FAULT_INJECTIONS):
+            fail("per-language or structural coverage is incomplete")
         if not (mapping_refused_inside and mapping_is_test_only and mapping_pairs_match and hash_guard):
             fail("mapping or manifest guards did not hold")
         return {
             "status": "SELF_TEST_PASSED",
-            "negative_cases": len(negative),
-            "mutation_cases": len(mutation),
+            "negative_cases": len(negative) + len(structural) + len(faults),
+            "merged_scan_negative_cases": len(negative),
+            "per_language_and_structural_cases": len(structural) + len(faults),
+            "mutation_cases": len(mutation) + len(structural) + len(faults),
             "all_expected_failures": True,
+            "refused_run_exit_code": refusal_exit_code,
             "negative_detail": negative,
             "mutation_detail": mutation,
+            "per_language_and_structural_detail": structural + faults,
             "mapping_refused_inside_repo": mapping_refused_inside,
             "mapping_is_test_only_not_production": mapping_is_test_only,
             "mapping_pairs_match_bundle": mapping_pairs_match,
