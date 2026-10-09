@@ -1707,6 +1707,8 @@
 
 **Current pair / 当前双语卡片**：`docs/zh/ledger/61-70.md:L27–L48`；`docs/en/ledger/61-70.md:L27–L48`
 
+> **Methodology-gap annotation (2026-10-09; the annotation is not part of the snapshot)**: the step “under loss aversion” in the Original reasoning chain below **has no registered lens behind it** — “loss aversion” does not occur even once in the nine `### L<n>` definition blocks of §2 (the Chinese 「损失厌恶」 has the same distribution), and the definition of the L8 the current card declares does not contain it either. The gap and its consequence are in the [human-regularities row of the mapping table](../en/00-method.md#mapping-the-five-starting-points-to-l1l9); the same step carries the same annotation on the [current J-061 card](../en/ledger/61-70.md#j-061--local-externalities-of-data-centres-become-explicit-and-social-licence-becomes-a-real-siting-constraint) and in [C3 · Electrons on the Ground](../en/chains/30-power-land-and-permits.md). **This annotation changes no word of the snapshot**: per this file's historical-boundary rule the snapshot text is reproduced verbatim and annotations sit outside it.
+
 ### English historical snapshot
 
 - **Historical anchor**: `1f99c832be8cbc82631beb7679d82994a2b7e0fb^:docs/en/90-ledger.md:L1473–L1491`
