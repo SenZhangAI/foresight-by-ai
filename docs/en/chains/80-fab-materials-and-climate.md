@@ -20,27 +20,28 @@ That distinction is the spine of this chain: **a substitute exists economically 
 
 ## 2. Skeleton of the chain
 
-```text
-More compute investment and chip demand (C3 / J-056)
-        │
-        ▼
-Semiconductor output must expand
-        │
-        ├── materials: ore → refining → electronic grade → qualified recipe
-        ├── tools: unique platforms → parts/service → process qualification
-        └── site utilities: firm power + ultrapure water + gases/chemicals + logistics
-                         │
-                         ▼
-The binding constraint is the qualified conversion path, not geological stock alone
-                         │
-                         ├── inventory buffers short outages, not shared transformation nodes
-                         ├── climate shocks expose water/power/site coupling
-                         ├── nominal multi-sourcing can hide common geographic dependence
-                         └── true redundancy requires pre-qualified process replication
-                                      │
-                                      ▼
-Local adaptation cost and service priority become distributional negotiations
+```mermaid
+flowchart TD
+  DEM["J-056 extends C3: compute demand grows and output must expand"] --> MAT["Critical mineral is too coarse a unit: gallium is a by-product, qualification slower than transport"]
+  DEM --> TOOL["Equipment concentration differs: a second tool needs aligned recipes and customer qualification"]
+  DEM --> SITE["Fab site is a bundle: firm power, ultrapure water, gases, logistics"]
+  MAT --> BIND["The binding constraint is the qualified conversion path, not geological stock"]
+  TOOL --> BIND
+  SITE --> BIND
+  BIND --> J092["J-092 resilience spending moves from raw stockpiles to pre-qualified conversion paths"]
+  SITE --> J093["J-093 siting priced as a bundle: firm power, water reuse, discharge, adaptation"]
+  SITE --> CLIM["Climate coupling splits into three: event, exposure, transmission"]
+  CLIM --> TRANS["Transmission: qualified output loss inventory and alternate paths cannot absorb"]
+  TRANS --> J094["J-094 climate risk priced through repeated qualified-output loss, not hazard maps"]
+  TRANS --> RED["Two map dots can be one supply chain: shared refiner, service, port"]
+  RED --> DRILL["True redundancy needs prior process and customer qualification, plus exercised failover"]
+  DRILL -->|"dedicated utility costs are local"| J095["J-095 explicit bargaining over who pays and who is curtailed first"]
+  BIND --> GATE{"Opportunity-durability gate: can the same force automate it"}
+  GATE -->|"Yes: supplier mapping, recipe search, hazard modeling"| SOFT["A generic supply-chain dashboard is not the durable layer"]
+  GATE -->|"No: refinery, ultrapure water, tools, port, water rights"| DUR["The durable layer is the physical and contractual work of qualification"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 

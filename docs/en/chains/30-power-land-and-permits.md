@@ -19,26 +19,28 @@ At that moment the object being priced quietly changes. **The buyer is no longer
 
 ## 2. Skeleton of the chain
 
-```text
-Model capability and token supply become abundant (C1 / technology chain)
-        │
-        ▼
-Capital floods into compute → electrons must become computation
-        │
-        ├──▶ Chips: mass-produced, portable, embargoable (fast variable)
-        │
-        └──▶ Power delivery + interconnection permits + land and cooling (slow variables)
-                 │
-                 ▼
-        The binding constraint moves to deliverable power and interconnection capacity
-                 │
-                 ├──▶ What is priced is certainty of the delivery date, not energy
-                 ├──▶ Load splits: latency-sensitive / schedulable (the latter becomes a grid resource)
-                 ├──▶ Control follows the constraint: hardware export → the use side
-                 └──▶ Immovable heavy assets land in specific places
-                          ├──▶ Social licence becomes a real cost
-                          └──▶ Tax base and value layer diverge (landscape only)
+```mermaid
+flowchart TD
+  SERVE["From C1 and the technology sequence: electrons must become computation"] --> CHIP["Chips and systems: mass-produced, portable, elasticity rises with investment"]
+  SERVE --> SLOW["Power delivery, permits and land: set by manufacturing, construction and administrative cycles"]
+  CHIP -->|"with enough capital only this curve steepens"| BIND["J-056 binding constraint moves to power delivery and interconnection permits"]
+  SLOW -->|"cannot be accelerated by more orders, decoupled from technical progress"| BIND
+  BIND --> CERT["J-057 what is priced is certainty of the delivery date, not energy"]
+  CERT --> GEOG["J-063 geography of compute follows queues and permitting speed, not electricity price"]
+  BIND --> SPLIT["J-058 load splits: the schedulable half becomes a grid flexibility resource"]
+  CHIP -->|"chips were the ideal control object: countable, must clear customs"| USE["J-059 control handle moves from hardware export to the use side"]
+  RENT["J-027 rented compute spreads capability: hardware stays, capability crosses the border"] -->|"rental removes those properties"| USE
+  BIND --> SITE["Immovable heavy assets must land in a specific place"]
+  SITE --> HOST["J-060 landscape only: sites traded for rent, not capability sovereignty"]
+  USE -->|"hardware and use authorization stay with others"| HOST
+  SITE -->|"residents see the bill and not the revenue"| LIC["J-061 local externalities become explicit, social licence a real siting constraint"]
+  LIC --> TAX["J-062 landscape only: heavy assets taxable, value layer instantly mobile"]
+  CERT --> GATE{"Opportunity-durability gate: can the same force automate it"}
+  GATE -->|"eaten: site evaluation, load forecasting, permit preparation"| EATEN["AI compresses the cost and cycle time of this information work"]
+  GATE -->|"not eaten: physics, law and permitting, ownership"| OPP["Certainty of delivery time as a tradable product, bridging only a window"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 

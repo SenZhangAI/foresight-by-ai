@@ -17,22 +17,26 @@ This is not a replay of “data is the new oil.” Oil can be stored and resold.
 
 ## II. The chain
 
-```text
-C1: Generation and explanation become cheap
-        │
-        ▼
-Second-hand expression and synthetic samples multiply
-        │
-        ├──▶ Ordinary material loses marginal price
-        │
-        └──▶ High-liability tasks still require real-world signals
-                 │
-                 ▼
-       Collection permission + provenance + calibration + liability
-                 │
-                 ├──▶ Data becomes a contractual asset
-                 └──▶ Can high-fidelity simulation replace it?—partly, not universally
+```mermaid
+flowchart TD
+  CHEAP["C1: generation and explanation become cheap"] --> SYN["Second-hand expression and synthetic samples multiply"]
+  SYN --> PRICE["Ordinary material loses marginal price"]
+  SYN --> NEED["High-liability tasks still require real-world signals"]
+  J005["J-005 raw signals, accountable commitments and validated causality resist recombination"] --> LAYERS["Split data into four layers: expression, observation, proof, liability"]
+  NEED --> LAYERS
+  LAYERS --> PREM["Only if the latter three layers matter can data earn structural premium"]
+  PREM --> COND["Three conditions: irreversible errors, real inputs cannot be generated, traceable liability"]
+  COND --> PKG["Buyer buys a bounded commitment package: permitted use, coverage, tamper evidence, compensation"]
+  PKG --> J33["J-033 verifiable records of real interventions are worth more than explanation"]
+  PKG --> J34["J-034 synthetic evidence accepted first in low-liability settings, real trials in high-liability"]
+  PKG --> GATE{"Opportunity-durability gate: can the same force automate it"}
+  GATE -->|"Automatable"| AUTO["Cleaning, deduplication, format conversion, common labels, in-distribution completion"]
+  GATE -->|"Hard to automate"| HARD["Making an absent observation occur, making an unwilling party accountable"]
+  HARD --> J055["J-055 real-world signals earn a premium as contract assets in high-liability tasks"]
+  J055 --> J039["J-039 data access rent only where permission and liability bind to high-liability tasks"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 

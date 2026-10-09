@@ -46,17 +46,25 @@ An authorisation can show who permitted what without proving that the agent can 
 
 ## 3. Reasoning chain: institutional agency → computable permissions → AI enters bounded relationships
 
-```text
-Families, organisations, and public institutions keep delegating action
-                              ↓
-Authority, revocation, oversight, evidence, and liability split into checkable interfaces
-                              ↓
-Digital tools enter narrow boundaries that an existing liable party can carry
-                              ↓
-AI receives tiered, auditable, revocable execution rights
-                              ↓
-The human–AI relationship first appears as “who may make it do what,” not “is it a person?”
+```mermaid
+flowchart TD
+  DELEG["Families, organisations, and public institutions keep delegating action"] --> FOUR["Institutional agency rests on four enforceable boundaries: authority, revocation, liability, evidence"]
+  FOUR --> NOAI["Delete AI and agency, liability allocation, and revocation requirements remain"]
+  FOUR --> IFACE["Authority, revocation, oversight, evidence, and liability split into checkable interfaces"]
+  IFACE --> REVB["Reverse boundary: authority is not trust, logs are not compensation"]
+  REVB --> SPEED["Without enforceable revocation, appeal, insurance, liability carrier, automation only speeds loss"]
+  IFACE --> NARROW["Digital tools enter narrow boundaries an existing liable party can carry"]
+  FIDUC["Historical prior: legal persons and trustees separate execution, liability cannot disappear"] --> NARROW
+  HIRISK["Historical prior: high-risk sectors define scope, oversight, logs, incident handling first"] --> NARROW
+  NARROW --> RIGHTS["AI receives tiered, auditable, revocable execution rights"]
+  SPEED --> RIGHTS
+  RIGHTS --> REL["J-098 relationship first asks who may make it do what, not personhood"]
+  REL --> SCARCE["Not more human-like, but an authorisable, revocable, accountable continuous relationship"]
+  SCARCE --> NOTOPP["Not automatically a business opportunity: platforms may bundle authority, logs, appeals"]
+  NOTOPP --> NOW["Now: measure authorisation closure and exception takeover with an existing liable party"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 The key question is not whether AI is clever enough, but whether the delegation closes the loop. A model can generate an opinion, but that opinion becomes social action only when a party authorises data access and execution, receives appeals, and absorbs losses. If AI is deleted, agency institutions, liability allocation, and revocation requirements remain; AI is therefore not the sole external driver of this social chain.
 

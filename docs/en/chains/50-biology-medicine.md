@@ -24,6 +24,35 @@ Printing made medical knowledge easier to copy without replacing clinical trials
 
 **Lenses not used**: L3 (cost structure), L5 (signals and forgery), L8 (human nature and demand), L9 (relational asymmetry). Why: this chain does not reason about the organizational boundaries or outsourcing of care providers (L3), nor about where screening moves once a medical credential becomes cheap to forge (L5 — carried by [C2](20-real-signals-become-contracts.md) and [C10](100-trust-collateralization.md)). L8 appears only inside one opposing case (“underserved regions may accept a worse but immediately available system”) as demand-side availability, and is never made a reasoning step. The asymmetry of the clinician–patient relationship (L9) is carried by [C11](110-authority-before-intelligence.md). Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **supply and demand** (L1, L2 as an extension) + **historical regularity** (L4, L7) + **the second half of the technology clause** (L6), with no human-nature or social-regularity clause.
 
+**The skeleton of this chain**:
+
+```mermaid
+flowchart TD
+  SCENE["At 3 a.m. twenty explanations, a twenty-first is not what is needed"] --> CHAIN["Restore medicine's full production chain: seven steps from hypothesis to responsibility"]
+  CHAIN --> ASYM["Models lower step one, the other six stay constrained by bodies, time, law"]
+  ASYM --> BOTTLE["Information expansion pushes the bottleneck toward causal proof and real execution"]
+  BOTTLE --> GATE{"Opportunity-durability gate: can the same force automate the new scarcity"}
+  GATE -->|"It lowers design, analysis, and ranking costs"| ABSORB["Absorbed: trial design, analysis, prioritization, scheduling, standard questions"]
+  GATE -->|"It cannot replace real outcomes or human trials"| LOOP["Durable scarcity: a loop authorized to act on a body and accountable through outcomes"]
+  LOOP --> J079["J-079 candidate generation and clinical proof diverge"]
+  LOOP --> J080["J-080 low-liability workflows diffuse before autonomous care"]
+  LOOP --> J081["J-081 more candidates do not proportionally shorten human time"]
+  LOOP --> J082["J-082 scarcity moves to authorized intervention and continuity of care, landscape only"]
+  J079 --> REFUTE["Each judgment carries a falsifier: if triggered, withdraw it"]
+  J080 --> REFUTE
+  J081 --> REFUTE
+  J082 --> REFUTE
+  J079 --> GATES5["Five diffusion gates: scale, replacement, carrier, coordination, recurring friction"]
+  J080 --> GATES5
+  J081 --> GATES5
+  J082 --> GATES5
+  GATES5 --> CONC["Candidates and workflows change before the speed at which bodies yield evidence"]
+  CONC --> EVID["External comparison: FDA and WHO support governance limits, not acceleration claims"]
+  EVID --> ACT["What to do now: track the funnel, contract for review and exit"]
+```
+
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
+
 ## 2. Can the same force automate the new scarcity?
 
 | Stage | What AI makes abundant | New scarcity | Can the same force automate it? |

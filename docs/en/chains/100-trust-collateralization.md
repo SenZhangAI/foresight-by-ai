@@ -23,24 +23,29 @@ This does not mean every person and every transaction enters an age of collatera
 
 ## II. The skeleton of the chain
 
-```text
-Generated expression, plans, and identity narratives become abundant
-                              │
-                              ▼
-One-off “sounding capable” becomes harder to distinguish from real ability
-                              │
-                              ├──▶ Buyers shift toward longitudinal fulfillment, field records, and auditable evidence
-                              │
-                              ├──▶ Consequential transactions require an accountable party and loss sharing
-                              │
-                              └──▶ Some settings introduce insurance, reserves, escrow, or collateral
-                                                     │
-                                                     ▼
-                                      One local dimension of trust is collateralized
-                                                     │
-                                      But open-ended relationships, low-risk expression,
-                                      and non-monetary commitments do not follow automatically
+```mermaid
+flowchart TD
+  ABUND["Generated expression, plans, and identity narratives become abundant"] --> WEAK["One-off sounding capable is harder to distinguish from real ability"]
+  WEAK --> COST["Premise: error cost high enough that buyers pay for verification"]
+  COST --> B1["Buyers shift toward longitudinal fulfillment, field records, and auditable evidence"]
+  COST --> B2["J-035 consequential transactions require an accountable party and loss sharing"]
+  COST --> B3["Some settings introduce insurance, reserves, escrow, or collateral"]
+  B1 --> COLL["One local dimension of trust is collateralized: contractualized, priced, attributable"]
+  B2 --> COLL
+  B3 --> COLL
+  COLL --> NOTCOLL["Harder to collateralize: goodwill, shared experience, reputation repair, bodily harm"]
+  COLL --> BOUND["Boundary: a trust interface for consequential transactions, not total social trust"]
+  NOTCOLL --> BOUND
+  BOUND --> SCOPE["J-035 fails the society-scale diffusion gate: ten-million-scale audience, not yet universal"]
+  COLL --> WIN["Window 2028-2035, Low-to-Medium confidence, diffusion evidence still open"]
+  WIN --> FALS["Falsifier: by 2035 no independent liability, cap, or fulfillment-record items"]
+  WIN --> OPP["Strongest opposing mechanism: platforms bundle liability, regulators mandate standards, models regain discrimination"]
+  OPP -->|"if these mechanisms hold"| LOCAL["Collateralization stays a local compliance format, not new transaction infrastructure"]
+  BOUND --> NOW["Now: define the incident, accountable party, compensation source, audit evidence"]
+  NOW --> UPG["Upgrade only on sustained independent pricing, repeated fulfillment, cross-party compensation"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 

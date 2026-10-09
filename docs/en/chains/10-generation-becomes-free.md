@@ -47,7 +47,7 @@ flowchart TD
   S4 --> R4["J-017 connections multiply, strong ties do not follow"]
 ```
 
-> **How to read this diagram**: boxes are reasoning steps and the diamonds are the [opportunity-durability gate](../00-method.md); the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the ledger links at the end of each section below.
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 **Lenses used in this chain** (definitions in [Methodology §2](../00-method.md)):
 

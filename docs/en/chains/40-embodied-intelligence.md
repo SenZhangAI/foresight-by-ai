@@ -48,27 +48,28 @@ This chain therefore uses L2 (constraint migration), L4 (diffusion lag), L6 (irr
 
 ## 3. Skeleton of the chain
 
-```text
-Model capability rises, unit inference cost falls (C1 / technology chain)
-        │
-        ▼
-Information only → audience ceiling = people whose work surface is a screen (Gate 1)
-        │
-        ▼
-To change the denominator → must move mass, stay on site, touch a body
-        │
-        ├──▶ Perception and policy: fall with model capability (fast variable)
-        │
-        └──▶ Actuators / deployment / liability: do not (slow variables)
-                 │
-                 ▼
-        Binding constraint moves to "cost per task + priced liability + deployment hours"
-                 │
-                 ├──▶ Structured + high frequency + semi-cooperative object: arrives first
-                 ├──▶ Unstructured but modifiable environment: arrives mid-sequence
-                 ├──▶ Touching a body / one-off sites: arrives late, institutions before homes
-                 └──▶ Open-ended household tasks: no society-level diffusion inside the window
+```mermaid
+flowchart TD
+  GEN["C1: value concentrates in inputs that cannot be recombined"] --> ASK["If AI can only move information, how many people perform the activity"]
+  GATE1["Retrospect Gate 1: the audience ceiling is set by headcount and frequency"] --> ASK
+  ASK --> POP["Population arithmetic: people whose work surface is a screen are a minority"]
+  POP --> CEIL["J-073 information only, Gate 1 holds the ceiling at that minority"]
+  CEIL --> DENOM["Changing the denominator: move mass, stay on site, touch a body"]
+  DENOM --> GATES["Gate 1 released, none of the other four gates opens by itself"]
+  DENOM --> FAST["Perception and policy fall along the software curve, a fast variable"]
+  DENOM --> SLOW["Actuators, deployment, liability ride industrial and institutional curves, slow variables"]
+  FAST --> BIND["Binding constraint moves to cost per task, priced liability, scene fragmentation"]
+  SLOW --> BIND
+  GATES --> BIND
+  BIND --> SCENES["Five squares tested: care, warehousing, manufacturing, agriculture, construction, domestic work"]
+  SCENES --> KEYS["Sort keys: is the environment structured, the object cooperative, failure reversible"]
+  KEYS --> ST1["Stage one: structured, high-frequency, semi-cooperative object, 2026-2030"]
+  KEYS --> ST2["Stage two: unstructured but the environment can be modified, 2028-2034"]
+  KEYS --> ST3["Stage three: touching a body or one-off sites, 2032-2040, institutions first"]
+  KEYS --> ST4["Stage four: open-ended household tasks, no society-level diffusion by 2040"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 ## 4. Care and ageing: the place that needs it most is the hardest to enter
 
@@ -189,16 +190,22 @@ Stack the constraints from the five sections and the arrival sequence is essenti
 
 The first ten sections answer only “which scenes can adopt first.” That is not yet a social landscape. When a machine enters a warehouse, ward, or farm, it first changes **which tasks make up a job, who must be present, who bears failure, and who can pass costs to someone else**—not whether an entire occupation disappears. Social consequences must be derived through this middle layer; shipment counts cannot jump directly to “jobs are replaced” or “families are liberated.”
 
-```text
-A local scene clears unit-task economics
-        │
-        ▼
-Task bundles change inside occupations; occupations do not vanish at once (J-099)
-        │
-        ├──▶ Family care: part of hands-on care becomes purchased service and coordination; authorization and relationship remain with families (J-100)
-        ├──▶ Regional development: structured space, insurance, and maintenance networks cluster first in a few regions (J-101)
-        └──▶ Political economy: gains flow first to those with sites, liability capacity, and financing (J-102)
+```mermaid
+flowchart TD
+  LOCAL["A local scene clears unit-task economics"] --> MID["What changes first: job task makeup, who is present, who bears failure"]
+  MID --> J099["J-099 embodied automation re-bundles occupational tasks, occupations do not vanish at once"]
+  J091["J-091 net employment cannot be inferred from a capability curve"] --> J099
+  MID --> J100["J-100 hands-on care partly becomes purchased service, authorization stays with families"]
+  CARE["J-096 and J-097: care moves to formal services, institutions first, homes later"] --> J100
+  MID --> J101["J-101 structured space, insurance, maintenance networks cluster in a few regions"]
+  MID --> J102["J-102 gains flow first to those with sites, liability capacity, financing"]
+  J099 --> RULE["Downgrade rule: scene-level adoption is one fact, society-scale consequence is another judgment"]
+  J100 --> RULE
+  J101 --> RULE
+  J102 --> RULE
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the surrounding sections and in the ledger cards.
 
 **Audit entry points (all four are inferences, not yet observed society-scale results)**:
 

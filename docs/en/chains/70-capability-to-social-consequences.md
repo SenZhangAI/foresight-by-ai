@@ -111,20 +111,28 @@ Formal judgment: [J-091 · Demand expansion and task savings occur together; net
 
 ## 8. Stack the five cards: one social transmission chain
 
-```text
-Technical feasibility ──────────────┐
-                                    ├─[institutions can block/redirect]─[demand, behaviour, and assets can block/redirect]─→ social outcome
-Organizational/institutional carriers┤                         ↑                                         │
-                                    │                         └──── adoption and accident feedback ───────┘
-Demand, behaviour, and asset structure┘
-                                                               ├─ Supervisory human–machine units (J-087)
-                                                               ├─ Occupational entry and apprenticeship carriers (J-088)
-                                                               ├─ Permission, logging, and appeal controls (J-089)
-                                                               ├─ Complementary-asset shares of gains (J-090)
-                                                               └─ New demand and net employment direction (J-091)
+```mermaid
+flowchart TD
+  SUPPLY["Supply and demand: does demand saturate, expand, or personalize after costs fall"] --> CONF["Confluence of five forces: technology is only a trigger and feasibility boundary"]
+  HUMAN["Human behaviour: convenience for consumption, but status, fairness, and appeal remain"] --> CONF
+  HIST["History: general-purpose technology enters existing organizations first, complementary-asset redesign lags"] --> CONF
+  TECH["Technology: order of cheap generation, tool use, long-task reliability, open-world evaluation"] --> CONF
+  INST["Society and institutions: who authorizes, bears liability, audits, owns data and channels"] --> CONF
+  CONF --> GATE["Five diffusion gates: organizational carriers, substitution, multi-party coordination, recurring cost"]
+  GATE -->|"any gate fails"| STALL["Blocked or redirected: stays a demonstration, or diffuses then is restricted"]
+  GATE -->|"all gates pass"| SEG["Capability sequence rewrites division of labour, employment, institutions, capital, and demand"]
+  SEG --> U1["J-087 Human-machine supervisory units before staffless organizations"]
+  SEG --> U2["J-088 Junior production seats shrink first, apprenticeship carriers become the bottleneck"]
+  SEG --> U3["J-089 Permission, audit, and appeal control planes before broad autonomous authority"]
+  SEG --> U4["J-090 Productivity gains first concentrate with scarce complementary assets"]
+  SEG --> U5["J-091 Demand expansion and task savings together, net employment not set by capability curve"]
+  SEG --> FB["Adoption results and accidents feed back into permission, diffusion gates, and demand"]
+  FB --> GATE
 ```
 
-The three force classes enter from the same starting line, and any one can block or redirect the outcome. Adoption results and accidents feed back into permission, diffusion gates, and demand. Technology opens feasibility; it does not sit upstream of organizations, institutions, supply and demand, or human behaviour.
+> **How to read this diagram**: boxes are reasoning steps and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the surrounding sections and in the ledger cards.
+
+The five forces enter from the same starting line, and any one can block or redirect the outcome. Adoption results and accidents feed back into permission, diffusion gates, and demand. Technology opens feasibility; it does not sit upstream of organizations, institutions, supply and demand, or human behaviour.
 
 These are not independent headlines. Together they form a reversible test. If organizations can capture durable autonomous value without redesigning workflows, J-087 fails. If junior entry does not contract relatively, J-088 fails. If autonomous authority expands without audit and appeal entering production, J-089 fails. If returns do not tilt toward complementary assets, J-090 fails. If unit costs fall but variety and frequency do not expand, the demand side of J-091 fails.
 

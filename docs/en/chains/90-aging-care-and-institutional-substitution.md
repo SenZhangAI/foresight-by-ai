@@ -48,17 +48,23 @@ This chain therefore does not treat Japan or Sweden as forecasts. They are two o
 
 ## 3. Reasoning chain A: demography → household time gap → formal service and coordination layers
 
-```text
-Longer lives + low fertility + smaller households
-        ↓
-Less continuous care time per family, while care demand persists
-        ↓
-Hands-on care, appointments, scheduling, medication and benefits navigation split into actions
-        ↓
-Insurance/public payment, formal providers and cross-institution coordination expand
-        ↓
-“Who keeps care connected?” is closer to scarcity than “who can generate a suggestion?”
+```mermaid
+flowchart TD
+  ADEMO["Longer lives, low fertility, smaller households"] --> ALEDGER["Three ledgers change first: time, payment, responsibility"]
+  ALEDGER --> ATIME["Less continuous care time per family, while care demand persists"]
+  ATIME --> ASPLIT["Hands-on care, appointments, scheduling, medication, benefits navigation split into actions"]
+  ASPLIT --> AFORMAL["J-096 insurance and public payment, formal providers, cross-institution coordination expand"]
+  AHIST["Japan and Sweden: the carrier reorganises, the family action may remain"] --> AFORMAL
+  ASPLIT --> ACHEAP["Reminders, record summaries, service matching and scheduling may become cheap"]
+  ACHEAP --> ALIMIT["They cannot obtain family authorisation, change a pharmacy ledger, carry a fall"]
+  ALIMIT --> ANOPOS["AI reduces coordination friction, it cannot create a responsibility position"]
+  AFORMAL --> ASCARCE["Who keeps care connected is closer to scarcity than generating a suggestion"]
+  ANOPOS --> ASCARCE
+  AFORMAL --> AFAMILY["J-096 families keep authorisation, companionship and exception decisions, hands-on care stays"]
+  AHIST --> AFAMILY
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 The key question is not whether demand grows, but who carries the actions after it grows. Generating reminders, summarising records, matching services, and scheduling may become cheap. They do not automatically obtain family authorisation, change a pharmacy ledger, carry liability for a fall, or make an irreversible decision at midnight. AI can reduce coordination friction; it cannot create a responsibility position by itself.
 
@@ -85,17 +91,21 @@ The key question is not whether demand grows, but who carries the actions after 
 
 Care is a bundle of tasks. Institutions concentrate people, tools, procedures, records, and responsibility in one place, making it easier to deploy assistance first: transfers, cleaning, medication sorting, vital-sign collection, and exception escalation can be bounded and repeatedly trained. Households are the opposite: spaces differ, staff are not fixed, budgets are fragmented, tasks have no clean boundaries, and failure falls directly on relatives and the person receiving care.
 
-```text
-Standardised, repetitive, observable subtask
-        ↓
-Institution concentrates procurement, training, maintenance and recorded responsibility
-        ↓
-Assistive equipment enters institutional routines first
-        ↓
-Households receive observation, reminders and local devices, not a universal care robot
-        ↓
-Open-ended home care remains shared by relatives, care workers and community services
+```mermaid
+flowchart TD
+  BBUNDLE["Care is a bundle of tasks, not one task"] --> BSTD["Standardised, repetitive, observable subtasks can be bounded and trained"]
+  BSTD --> BINST["Institutions concentrate people, tools, procedures, records and responsibility"]
+  BINST --> BROUT["J-097 assistive equipment enters institutional and controlled home-care routines first"]
+  BCONSTR["Procurement, maintenance and liability constrain this sequence, not the capability curve"] --> BROUT
+  BROUT --> BLOCAL["Households first get remote observation, reminders and service dispatch"]
+  BLOCAL --> BFEW["Combinations appear in a few high-income, modified, responsibility-clear homes"]
+  BBUNDLE --> BHOME["Open homes reverse this: spaces, staff, budgets vary, failure falls on relatives"]
+  BHOME --> BNOGEN["J-097 general-purpose robots in open homes: no social-scale diffusion this window"]
+  BCONSTR --> BNOGEN
+  BNOGEN --> BSHARE["Open-ended home care stays shared by relatives, care workers and community services"]
 ```
+
+> **How to read this diagram**: boxes are reasoning steps, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
 
 This does not mean households will not adopt technology. It means the unit of adoption is unlikely to be “each household buys a general-purpose robot.” A more plausible sequence is single-task equipment and sensing in institutions → remote observation, reminders, and service dispatch at home → combinations in a minority of high-income, modified, responsibility-clear homes. Procurement, maintenance, and liability constrain this sequence; a capability curve alone does not determine it.
 

@@ -25,6 +25,35 @@ Printing expanded textbook supply without eliminating schools. Correspondence, b
 
 **Lenses not used**: L3 (cost structure), L6 (irreversibility), L9 (relational asymmetry). Why: this chain does not reason about the organizational boundaries or outsourcing of schools and employers (L3). The cost of a learning error is usually revocable and repeatable, so L6’s irreversibility threshold does not hold here — that is precisely the line between education and [C5](50-biology-medicine.md). The asymmetry of teacher–student and peer relationships once mediated by AI (L9) is only foreshadowed here and is carried by [C11](110-authority-before-intelligence.md). Reverse-looked-up against the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9), the base is **supply and demand** (L1, L2 as an extension) + **historical regularity** (L4, L7) + **social regularity** (L5) + **human nature** (L8) — of the five starting points, the only clause this chain does not touch is technology.
 
+**The skeleton of this chain**:
+
+```mermaid
+flowchart TD
+  PROXY["Finished artifacts long served as proxies for learning: homework, diplomas, completion"] --> COLLAPSE["Generative AI collapses the production cost of the proxy itself"]
+  COLLAPSE --> QUESTION["Education must re-answer: how do we know this person can do it"]
+  QUESTION --> HIST["Historical check: scarcity of explanation is not scarcity of skill formation"]
+  HIST --> GATE{"Opportunity-durability gate: can the same force automate the new scarcity"}
+  GATE -->|"Yes: explanation keeps being enriched"| AUTO["What it can do: cheaper explanation, practice material and feedback"]
+  GATE -->|"No: blocked by time, identity, recognition"| HARD["Hard constraints: time, identity, trust, credential authority, embodied practice"]
+  HARD --> RESID["Not solved automatically: who observed, whose performance, who recognizes it"]
+  AUTO --> J083["J-083 Personalized explanation becomes abundant before verifiable mastery"]
+  HARD --> J083
+  AUTO --> J084["J-084 AI tutoring enters teacher and institutional workflows first"]
+  RESID --> J084
+  COLLAPSE --> J085["J-085 Take-home artifact signals weaken, controlled performance gains weight"]
+  RESID --> J085
+  J083 --> J086["J-086 landscape only: explanation gap narrows, verification gap may widen"]
+  J084 --> J086
+  J083 --> GATES["Five diffusion gates: all four fail Gate 1, institutional judgments"]
+  J084 --> GATES
+  J085 --> GATES
+  J086 --> GATES
+  GATES --> EVID["Evidence boundary: no long-term trial series, confidence not raised"]
+  EVID --> ACT["What can be done now: schools, employers, builders, learners"]
+```
+
+> **How to read this diagram**: boxes are reasoning steps, diamonds are the opportunity-durability gate, and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the sections below and in the ledger cards.
+
 ## 2. Can the same force automate the new scarcity?
 
 | Stage | What AI makes abundant | New scarcity | Can the same force automate it? |
