@@ -1,11 +1,11 @@
 # Society-scale register: how many judgments clear Gate 1, and where the rest are stuck
 
-> **Judgments currently clearing Gate 1 (society-scale): 0.**
-> Counted on 2026-10-09. The counting rule and how to recount it are in [section 1](#1-how-this-0-was-counted); all 102 registered judgment cards were counted card by card, and `python3 scripts/count-social-scale.py` recomputes it.
+> **Judgments currently clearing Gate 1 (society-scale): 1 (`J-103`).**
+> Counted on 2026-10-10. The counting rule and how to recount it are in [section 1](#1-how-this-0-was-counted); all 103 registered judgment cards were counted card by card, and `python3 scripts/count-social-scale.py` recomputes it. The first version of this page (2026-10-09) read **0**; how the number went from 0 to 1 is at the [end of section 3](#3-answering-one-question-verbatim-where-are-all-these-people-who-need-ai-to-decide-for-them).
 
 [中文版](../zh/91-social-scale-register.md)
 
-**The 0 is the most important thing on this page, not its failure.** This archive built registration, counting and re-review for everything that *fails* a gate (see [Ledger · review log](90-ledger.md#8-review-log)), and never built the symmetric surface for what *passes* — so a reader sees a net of vetoes and cannot tell rigour from idling. This page is that surface: it states the passing count, states where every candidate is stuck and what it lacks, and names **the countable fact that would have to be observed** for it to clear the gate.
+**This number is the most important thing on this page; when the first version read 0, the 0 was not its failure either.** This archive built registration, counting and re-review for everything that *fails* a gate (see [Ledger · review log](90-ledger.md#8-review-log)), and never built the symmetric surface for what *passes* — so a reader sees a net of vetoes and cannot tell rigour from idling. This page is that surface: it states the passing count, states where every candidate is stuck and what it lacks, and names **the countable fact that would have to be observed** for it to clear the gate.
 
 This page adds **no new judgment and changes no existing card's gate verdict**. It only aggregates and navigates; every field is authoritative in the [judgment ledger](90-ledger.md) and in the card text under `ledger/`.
 
@@ -19,19 +19,19 @@ This page adds **no new judgment and changes no existing card's gate verdict**. 
 2. that pass has **not been revoked in place**;
 3. the card is not landscape-only — its confidence is neither `Low` nor `Low (landscape only)`. The [methodology](00-method.md#4-judgment-cards-the-five-part-requirement-and-ids) rules that an entry missing a required field, or carrying low confidence, may only be labelled landscape-only and may not be used as a judgment — so a landscape-only card does not constitute a usable society-scale judgment even when Gate 1 passes.
 
-**Result of the card-by-card count (2026-10-09, all 102 cards):**
+**Result of the card-by-card count (updated 2026-10-10, all 103 cards; the 2026-10-09 first version counted 102 cards and 0 passes):**
 
 | Counting rule | Count | Note |
 |---|---|---|
 | "Diffusion-gate review" records Gate 1 **FAIL** | **98** | All written as occupational/organisational, institutional, or landscape-only judgments |
-| "Diffusion-gate review" records Gate 1 **PASS** | **4** | `J-029`, `J-042`, `J-053`, `J-054` |
+| "Diffusion-gate review" records Gate 1 **PASS** | **5** | `J-029`, `J-042`, `J-053`, `J-054`, `J-103` |
 | ↳ of which the society-scale writing permission was revoked in place | 1 | `J-029`, corrected in place by the 2026-10-09 isolated blind re-review |
 | ↳ of which confidence is `Low` or `Low (landscape only)` | 3 | `J-042`, `J-053`, `J-054`; the cards themselves say "do not treat this as a society-level conclusion" |
-| **Judgments clearing Gate 1 and permitted to be written at society scale** | **0** | Neither group satisfies the numerator |
+| **Judgments clearing Gate 1 and permitted to be written at society scale** | **1** | `J-103`: the first four fall into the two groups above and do not satisfy the numerator; `J-103` satisfies all three conditions (confidence `Medium`, not revoked) |
 
-**How to recount:** run `python3 scripts/count-social-scale.py` (no dependencies, read-only, seconds). It reads three fields per card — Diffusion-gate review, Confidence, Status — counts both language projections separately, and prints the list; every number on this page should match its output. Without the script: search `docs/en/ledger/` for `Gate 1 **PASS**`, find four cards, then read each card's confidence and status note.
+**How to recount:** run `python3 scripts/count-social-scale.py` (no dependencies, read-only, seconds). It reads three fields per card — Diffusion-gate review, Confidence, Status — counts both language projections separately, and prints the list; every number on this page should match its output. Without the script: search `docs/en/ledger/` for `Gate 1 **PASS**`, find five cards, then read each card's confidence and status note.
 
-**What this 0 does not say.** It does not say society-scale trends do not exist, and it does not say the method has been falsified. It says exactly one thing: **this archive currently holds no judgment that meets the society-scale threshold it set for itself.**
+**What this 1 does not say.** (The 2026-10-09 first version read "What this 0 does not say": it did not say society-scale trends do not exist or that the method had been falsified, only that the archive then held no judgment meeting the society-scale threshold it set for itself.) It does not say AI is making decisions for people — the action `J-103` passes with is only "on one's own initiative, asking a general-purpose AI chat assistant a question or handing it a task"; deciding for people and ordering-and-paying on their behalf both fail Gate 1 at the decision date. Nor does it say the method has been validated — passing all five gates only makes a candidate eligible to keep competing (`J-066`), and since all six controls this round were stopped at Gate 1, the independent veto power of Gates 2–5 was not tested.
 
 ---
 
@@ -58,7 +58,7 @@ This project received the following challenge; it is quoted verbatim (the origin
 
 > "I simply cannot see one general thing here that could become a society-wide norm. The mobile phone became one. Live streaming became one. Where are all these people who have so much to decide?"
 
-**Answer: by the archive's own threshold, it really is 0 right now. The challenge holds, and it has already rewritten this archive.**
+**Answer: by the archive's own threshold, society-scale judgments about AI *deciding* really are 0 right now. The challenge holds, and it has already rewritten this archive.** (The 2026-10-09 first version read "it really is 0 right now", meaning all society-scale judgments; since 2026-10-10 one card in the archive passes, but what it counts is *asking*, not *deciding* — see the end of this section.)
 
 What it identified was concrete. Chain C1 opens with a marketing lead who receives sixty finished proposals and spends two full afternoons deciding nothing, and from there derives "choosing and trading off becomes scarce". [Section 7 of the retrospective](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) ran that claim through a mechanical head count: with the action defined as "faced with a batch of generated candidates, select one and own the outcome", the people who simultaneously (a) produce candidates in batches as a job, (b) hold the decision rather than execute it, and (c) do so at least weekly are concentrated in the decision layer of a few occupations — globally **million-scale, weekly**, which is two to three orders of magnitude below a billion daily or a hundred million weekly. It was registered as `J-072`, an occupational judgment that may not be written in the voice of "the whole of society". The 2026-09-20 review then applied the same ruler to the whole ledger, which is where the 98 in section 1 comes from.
 
@@ -75,13 +75,25 @@ Turning that into a countable fact requires four things **at once**; miss one an
 
 This page deliberately does **not** name "the one most likely to clear it first". Until historical calibration and the isolated re-review are closed out, this project does not open new prediction work, and naming a front-runner would be exactly that: one more uncalibrated judgment. Section 4 gives each candidate its own countable fact; which one is observed first is settled by observation, not by this page.
 
+[Note added 2026-10-10: the paragraph above was written before the isolated re-review closed out, and its condition — "does not open new prediction work" — has since been lifted; the close-out is recorded in the 2026-10-10 row of the [ledger review log](90-ledger.md#8-review-log). After it, the archive opened one front outside this page, and what names a candidate there is the [freeze record](../evidence/social-action-freeze-2026-10-10.en.md) and the [verdict and check log](../evidence/social-action-verdict-2026-10-10.en.md), not this page; this page still only aggregates.]
+
+**What the frozen front found: the first action for which all four conditions hold is asking.** On 2026-10-10, before any figure was gathered, the freeze record fixed one action — on one's own initiative, asking a general-purpose AI chat assistant a question or handing it a task; denominator: de-duplicated people within 7 days; threshold: 100 million — together with six controls this direction must veto. After the count: a single service self-reports more than 900 million weekly active users (lower bound self-reported, unaudited), all four conditions hold, and the result is registered as [J-103](ledger/103-110.md#j-103--the-society-scale-ai-action-is-asking-not-deciding-hundred-million-weekly-reach-rests-on-the-free-tier). All six controls were vetoed at Gate 1, among them "selecting one from a batch of AI candidates and taking responsibility for the result" (`J-072`) and "letting an AI order and pay on your behalf". So the full answer to this challenge is: **there really are not that many people who need to decide; what crossed the society-scale threshold is the people who ask.** This scale also has one non-technical necessary premise — the free tier; counting payers only gives fewer than 60 million people at the decision date, which falls back to the tens-of-millions niche tier.
+
 ---
 
 ## 4. Candidates and where each is stuck: what it lacks, and the countable fact to observe
 
-All 102 registered cards are below, in six groups ordered from the closest to passing down to the ones that structurally should not pass. The last column of each row is the fact that would have to be **observed** for that card to clear Gate 1; it is derived from that card's own one-sentence judgment, audience scale and leading indicator, and is not a new judgment.
+All 103 registered cards are below. The passing `J-103` is listed first on its own (Group 0, added 2026-10-10); the other 102 are in six groups ordered from the closest to passing down to the ones that structurally should not pass. The last column of each row is the fact that would have to be **observed** for that card to clear Gate 1; it is derived from that card's own one-sentence judgment, audience scale and leading indicator, and is not a new judgment.
 
 **Two notes before the tables.** The third column is the gate verdict the card itself records, reproduced verbatim — not one word has been re-judged, and words like `partly passes` and `unverified` are copied as they stand. For older cards that record only Gate 1, the third column holds only Gate 1.
+
+### Group 0 · Clears Gate 1 and may be written at society scale (1)
+
+**What is missing:** not scale — evidence strength. The denominator is a single service's self-reported lower bound, unaudited; the survey measures give shares only, with no population base. The last column of this row is not "the fact that would have to be observed" but **the fact already observed**, and what must keep being observed for the pass to hold.
+
+| Judgment | Current audience ceiling | Gate it is stuck at | What is missing | Countable fact already observed, and the condition for the pass to hold |
+|---|---|---|---|---|
+| [J-103 · The society-scale AI action is asking, not deciding; hundred-million weekly reach rests on the free tier](ledger/103-110.md#j-103--the-society-scale-ai-action-is-asking-not-deciding-hundred-million-weekly-reach-rests-on-the-free-tier) | Hundred-millions-scale: de-duplicated individuals who at least once in 7 days, on their own initiative, ask a general-purpose AI chat assistant a question or hand it a task; the billion-scale impact reach is not counted in the denominator | Not stuck: Gate 1 passes (self-reported lower bound); Gate 2 passes counted per single occasion; Gates 3 and 4 pass; Gate 5 passes on voluntary repeat use already observed; L8 confines the boundary to the asking side | De-duplication method unpublished; surveys lack a population base; replacement in total search volume is not shown | Already observed: a single service self-reports more than 900 million weekly active users (2026-02-27). For the pass to hold: some qualifying measure stays at 100 million or more, and the free tier remains |
 
 ### Group 1 · The card records Gate 1 **PASS**, but the whole card is landscape-only (3)
 
@@ -247,6 +259,8 @@ This page only aggregates and navigates. The card-by-card count surfaced the fol
 
 ## 6. How this 0 stops being 0
 
+[Note added 2026-10-10: the first card to pass, `J-103`, did not take the path below; it froze a new action first and then gathered figures — see the [end of section 3](#3-answering-one-question-verbatim-where-are-all-these-people-who-need-ai-to-decide-for-them). The path below still applies to the other 102 candidates.]
+
 The path is ordered; the steps cannot be skipped:
 
 1. **Obtain an adequate denominator first.** Pick a row from Group 3 and measure the countable fact in its last column: one well-defined action, de-duplicated actors, a stated frequency and point in time, a citable source. If it cannot be obtained, write "unknown" honestly rather than passing impact reach off as a denominator — that substitution is exactly where these cards are stuck now.
@@ -262,4 +276,4 @@ Running in parallel is what Groups 5 and 6 are owed: **a criterion that can rule
 - This is an **aggregation and navigation surface**, not a second ledger. Every number, field and gate verdict is authoritative in the [judgment ledger](90-ledger.md#2-registered-judgment-overview) and in the card text under `ledger/`; where the two disagree, the card wins and this page is corrected.
 - The grouping is a reading projection, not a new ruling layer. Moving a card between groups changes nothing about its gate verdict.
 - The "What is missing" and "Countable fact" columns are **distillations of existing card fields** — not new judgments; they do not enter the ledger and carry no time window or confidence. They can be attacked, and the way to attack them is to show that a row disagrees with the card it cites.
-- The passing count of 0 is the measured reading on 2026-10-09. It will change — and when it does, it will be because somebody obtained the denominator one of the Group 3 rows asks for, not because this page rephrased something.
+- The passing count of 0 is the measured reading on 2026-10-09. It will change — and when it does, it will be because somebody obtained the denominator one of the Group 3 rows asks for, not because this page rephrased something. [Note added 2026-10-10: it has become 1. The reason is that the frozen front obtained a qualifying denominator for a new action (`J-103`, not from Group 3), not that this page rephrased anything; the Group 3 path is still empty.]
