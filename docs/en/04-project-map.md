@@ -32,12 +32,12 @@ Read its boundaries separately:
 
 ## Current boundary
 
-The project is still expanding: public prose now covers, to different degrees, the full-landscape entry, embodied intelligence, care, infrastructure, organizations, education, biomedicine, and supply-chain resilience. Institutional, scale, long-term-outcome, and cross-region evidence remains open in places. The map does not turn “has an entry” into “complete.”
+The project is still expanding: public prose now covers, to different degrees, the full-landscape entry, the order of technology-capability arrival, embodied intelligence, care, infrastructure, organizations, education, biomedicine, and supply-chain resilience. Institutional, scale, long-term-outcome, and cross-region evidence remains open in places. The map does not turn “has an entry” into “complete.”
 
 ## Reading path
 
 1. To understand the scope quickly, start with the repository-root README.
 2. To understand the method, read the [methodology](00-method.md) and [retrospective](01-retrospect.md).
-3. To follow causal structure, enter any chain, click a `J-NNN`, and follow `depends-on` upstream.
+3. To follow causal structure, enter any chain (chains are numbered only in the README's [chain registry](../../README.en.md#chain-registry), currently C1–C12 including C12, the Technology Capability Sequence; no text missing from the registry is a chain), click a `J-NNN`, and follow `depends-on` upstream.
 4. To verify status, use the [judgment ledger](90-ledger.md) and its shards.
 5. To challenge a judgment, use its own falsifier through the [contribution and falsification guide](../../CONTRIBUTING.en.md).
