@@ -6,10 +6,8 @@
 
 This is a public, reader-facing sandbox for reasoning about the future from supply and demand, human behaviour, history, technology, and social institutions. It does not preselect a single explanatory framework: “abundance → scarcity” is an optional lens, used only when it adds explanatory power. The archive follows capability through the physical world, organizations, and institutions, then screens for possible opportunities. Opportunities are not the only destination: collaboration, care, manufacturing, agriculture, logistics, relationships between people and AI, power, law, and meaning remain equally valid structural outcomes.
 
-**Where to start**
-
-- **Go straight to the future**: take the [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain) — see how the method is attacked by history, follow one reasoning chain into the social landscape, then decide whether to act or to challenge.
-- **See the boundary of these judgments first**: take [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim) — who decides the content, the current validation status, the conditions not yet met, and the evidence boundary.
+- **Straight into the future** → [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain): see the method attacked by history, then follow one chain into the landscape.
+- **Boundary of these judgments first** → [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim): who decides the content, how far validation has got, what is still unmet.
 
 ## A five-minute entry: calibrate first, then follow a reasoning chain
 
