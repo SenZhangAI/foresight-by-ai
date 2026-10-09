@@ -27,23 +27,27 @@ What this chain argues is that **the scenario above is not a joke—but neither 
 
 ## II. The Skeleton of the Chain
 
+```mermaid
+flowchart TD
+  COST["J-001 Unit cost of reasoning keeps falling"] --> ABUND["Generation becomes extremely abundant: code, images, video, copy, proposals"]
+  ABUND --> S1["New scarcity 1: selecting high quality from abundance"]
+  ABUND --> S2["New scarcity 2: producing fewer duds"]
+  ABUND --> S3["Reverse question: what did not become abundant"]
+  ABUND --> S4["Exit B: coordination cost of weak ties collapses"]
+  S1 --> G1{"Opportunity-durability gate: can the same force automate it"}
+  G1 -->|"Mostly yes"| W1["J-002 a 2-4 year window, not an opportunity"]
+  G1 -->|"Residual blocked by ownership and privacy"| R1["J-003 private context about you"]
+  S2 --> G2{"Opportunity-durability gate: can the same force automate it"}
+  G2 -->|"Yes: rollback software inside your own boundary"| W2["J-004 REVISED, downgraded to a window"]
+  G2 -->|"Residual blocked by ownership and trust"| R2["J-065 cross-party reversal rights"]
+  S3 --> R3["J-005 three non-recombinable inputs: raw signals, accountable commitments, validated causality"]
+  R1 --> O1["O-001 ownership layer for private context"]
+  R2 --> O2["O-002 access layer for cross-party reversal rights"]
+  R3 --> O3["O-003 accountable commitment layer"]
+  S4 --> R4["J-017 connections multiply, strong ties do not follow"]
 ```
-The cost of reasoning keeps falling
-      │
-      ▼
-Generation (code/images/video/copy/proposals) becomes extremely abundant
-      │
-      ├──▶ “Selecting high quality from abundance” becomes scarce ──▶ 【Opportunity-durability gate】Can it be automated?
-      │                                          Yes (mostly) → Merely a window, not an opportunity
-      │                                          Residual that cannot → “Private context about you”
-      │
-      ├──▶ “Producing fewer duds” becomes scarce ──▶ 【Opportunity-durability gate】Can it be automated?
-      │                                Yes (mostly) → A window
-      │                                Residual that cannot → Situations where outcomes are irreversible
-      │
-      └──▶ Things that did not become abundant along with it appreciate as a whole:
-               Irreproducible raw signals / accountable commitments / validated causality
-```
+
+> **How to read this diagram**: boxes are reasoning steps and the diamonds are the [opportunity-durability gate](../00-method.md); the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the ledger links at the end of each section below.
 
 **Lenses used in this chain** (definitions in [Methodology §2](../00-method.md)):
 
