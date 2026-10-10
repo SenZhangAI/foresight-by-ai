@@ -38,6 +38,6 @@ The project is still expanding: public prose now covers, to different degrees, t
 
 1. To understand the scope quickly, start with the repository-root README.
 2. To understand the method, read the [methodology](00-method.md) and [retrospective](01-retrospect.md).
-3. To follow causal structure, enter any chain (chains are numbered only in the README's [chain registry](../../README.en.md#chain-registry), currently C1–C12 including C12, the Technology Capability Sequence; no text missing from the registry is a chain), click a `J-NNN`, and follow `depends-on` upstream.
+3. To follow causal structure, enter any chain (chains are numbered only in the README's [chain registry](../../README.en.md#chain-registry), currently C1–C13 including C12, the Technology Capability Sequence, and C13, Fiscal Squeeze; no text missing from the registry is a chain), click a `J-NNN`, and follow `depends-on` upstream.
 4. To verify status, use the [judgment ledger](90-ledger.md) and its shards.
 5. To challenge a judgment, use its own falsifier through the [contribution and falsification guide](../../CONTRIBUTING.en.md).

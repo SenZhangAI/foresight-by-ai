@@ -66,6 +66,7 @@
 - [C12 · 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)：查看能力出现次序，但不要把技术当作社会变化的唯一发动机。
 - [全景覆盖矩阵](#全景覆盖矩阵当前边界)：检查哪些社会维度已有入口，哪些仍是明确缺口。
 - **C11 授权先于智能**：从代理制度、授权与责任开始，查看人与 AI 关系的制度入口。
+- [C13 · 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md)：从财政与主权债务开始、不以 AI 为前提，查看预算收紧时刀先落在谁身上。
 - [社会级判断登记面](docs/zh/91-social-scale-register.md)：先看通过侧——现在有几条判断过了闸一（2026-10-10 实测为 1 条：[J-103](docs/zh/ledger/103-110.md#j-103--社会级的-ai-动作是问不是拍板亿级周频靠免费档撑住)，本人主动向通用 AI 对话助手提问或交办任务；同日按同一冻结口径检验的不以 AI 为前提的动作——居家有酬工作——停在 D 档（分众档），登记为 [J-104](docs/zh/ledger/103-110.md#j-104--居家有酬工作停在分众档千万级周频2023-年后进入平台期去留由雇主决定)），其余候选卡在哪一闸、要过闸必须观测到哪个可数事实。
 
 ### 4. 最后决定行动或质疑
@@ -131,7 +132,7 @@
 
 仓库提供一个结构检查命令 `python3 scripts/check.py`，用于发现双语编号、内部链接和必要字段等机械不一致。它不判断推演质量、历史证据是否充分、预测是否准确，也不代表项目已经完成或适合发布。公开读者应以方法、判断卡、证据边界和研究缺口为准，而不是把结构检查的通过理解为内容质量证明。
 
-本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 104 张判断卡片、12 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
+本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 107 张判断卡片、13 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
 
 ### 全景覆盖矩阵（当前边界）
 
@@ -149,7 +150,7 @@
 | 注意力与信任 | 已覆盖 | [C1 生成变得免费之后](docs/zh/chains/10-generation-becomes-free.md)；J-035–J-036 | 长期重复行动与可信凭据分配的跨地域证据 |
 | 资本与权力 | 已覆盖 | [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md)；J-039–J-040 | 融资、收益分配与权力集中／扩散的长期数据 |
 | 人性、意义与身体在场 | 已覆盖 | [远期图景第 6 节](docs/zh/30-far.md#6-人性意义与身体在场稀缺可能从物品转向承担)；J-041–J-042（J-042 明确标为「仅图景」） | 需求变化、意义结构与共同经历的社会级证据 |
-| 地缘政治与制度 | 部分覆盖 | [C3 算力基础设施](docs/zh/chains/30-power-land-and-permits.md)；J-059–J-060（J-060 明确标为「仅图景」） | 国家间竞争、安全议题与制度演化 |
+| 地缘政治与制度 | 部分覆盖 | [C3 算力基础设施](docs/zh/chains/30-power-land-and-permits.md)；J-059–J-060（J-060 明确标为「仅图景」）；[C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md)；[J-105](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上)–[J-107](docs/zh/ledger/103-110.md#j-107--65-岁以上的每周有酬工作停在分众档千万级不到亿级)（三张都没过闸一） | 国家间竞争与安全议题本身仍未推演（C13 只把北约国防承诺当作一笔已签署的预算要求）；选举、移民与能源地缘尚无入口 |
 | 法律、产权与责任 | 部分覆盖 | [C2 现实信号](docs/zh/chains/20-real-signals-become-contracts.md)；[C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) | 数据所有权、模型产出许可、跨制度代理事故与责任制度的完整边界 |
 | 人与人协作 | 部分覆盖 | [远期图景第 4 节](docs/zh/30-far.md#4-人与人协作从共同做步骤转向共同选择承诺)；J-049–J-050（均明确标为「仅图景」） | 具体制度、组织案例与可观测重复行动 |
 | 人与 AI 关系 | 部分覆盖 | [C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理)；远期 J-047–J-048 仍为「仅图景」 | 授权、退出、有限主体地位的跨制度案例与长期产品数据 |
@@ -161,13 +162,15 @@
 
 ### 当前边界
 
-这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点，但地缘制度、数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
+这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点；C13 已从财政与主权债务补入一条不以 AI 为前提的政治起点，但国家间竞争与安全、数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
 
 ## 一个重要的非 AI 起点：当前探针到哪里了
 
 项目没有把所有社会变化都从 AI 里推出。档案中还保留一条**不从 AI 或 L1「丰富→稀缺」起步的人口老龄化 × 家庭缩小**非 AI 社会力量探针；它现在已经扩展为 [C9 人口老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)，并由 [J-096–J-097](docs/zh/ledger/96-102.md) 承载可检验判断。它先定义「成年人每周亲手或协调老人照护」这一重复动作，再检查制度载体与 AI 的交集；日本与瑞典材料仍只是校准和对照，不提供全球照护者分母或家庭机器人渗透率。
 
 这条探针的意义不是证明老龄化预测已经成立，而是把一个可检验的原则放在台面上：删掉 AI，若人口、家庭和制度机制仍成立，就不能把 AI 写成唯一根因。它与 C7 的技术传导链互相连接，但不被 C1 的生成成本曲线吞并。
+
+第二条不以 AI 为前提的链是 [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md)，也是第一条从政治与财政起步的链：利息、老龄化与国防三份账单争同一本预算，[J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) 删去 J-001 及所有以 AI／算力为前提的卡后原样成立；其中 65 岁以上每周有酬工作按事先冻结的口径判为 C · 只到 D 档，没有过闸一。
 
 ## 怎么读完整档案
 
@@ -196,6 +199,7 @@ flowchart LR
   M -.责任与信任.-> C10[C10 信任抵押化]
   M -.授权与制度.-> C11[C11 授权先于智能]
   N -.能力次序.-> C12[C12 技术能力演进链]
+  M -.财政与政治.-> C13[C13 财政挤压]
 ```
 
 图中的箭头是阅读入口，不表示对应判断必然成立；要追溯因果依赖，请从链正文进入 `J-NNN`，再沿台账的 `depends-on` 回到上游。
@@ -212,7 +216,7 @@ flowchart LR
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
 | [下一研究缺口优先级](docs/zh/04-research-gaps.md) | [Next Research-Gap Priorities](docs/en/04-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
-| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C12 十二条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论）；编号与「什么算一条链」的判据只在登记表里 |
+| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C13 十三条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压：第一条从政治与财政起步、不以 AI 为前提的链）；编号与「什么算一条链」的判据只在登记表里 |
 | [近期／中期／远期图景](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | [近期](docs/en/10-near.md) · [中期](docs/en/20-mid.md) · [远期](docs/en/30-far.md) | 横向全景故事与各自的判断链接 |
 | [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 候选与窗口清单 |
 | [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 唯一事实源、状态、来源与缺口 |
@@ -236,6 +240,7 @@ flowchart LR
 | C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | **仅图景／证据未闭合**：锚定 J-035 的机制延伸，尚未证明责任抵押普遍化 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/zh/ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) · [链文证据边界](docs/zh/chains/100-trust-collateralization.md) |
 | C11 | 授权先于智能：代理、责任与人与 AI 的关系 | **已有 calibration 支持**：委托与责任制度有历史先验；跨制度事故、撤回和保险数据未闭合 | [中文](docs/zh/chains/110-authority-before-intelligence.md) · [English](docs/en/chains/110-authority-before-intelligence.md) · [链文证据边界](docs/zh/chains/110-authority-before-intelligence.md#6-证据边界与后续检查) · [J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) |
 | C12 | 技术能力演进链：什么先到，什么才因此成为可能 | **已写成但证据仍开放**：能力次序有外部对照；12 张卡在闸一复核中全部降级为职业／组织性判断，「哪类能力先到」在 L1–L9 中无透镜承载（见页首透镜声明） | [中文](docs/zh/chains/120-technology-capability-sequence.md) · [English](docs/en/chains/120-technology-capability-sequence.md) · [J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降) · [J-006–J-016](docs/zh/90-ledger.md) |
+| C13 | 财政挤压：刀先落在谁身上 | **已写成但证据仍开放**：英、美、日、意、法等先例只作叙事性对照，只有 L10（只用否决向）经过 2+2 校准，其余步骤就地标为无承载透镜；三张卡都没过闸一，65 岁以上每周有酬工作按冻结口径判 C · D 档 | [中文](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [English](docs/en/chains/130-fiscal-squeeze-who-gets-cut.md) · [J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) · [冻结记录](docs/evidence/older-workers-freeze-2026-10-10.md) · [判定与检查日志](docs/evidence/older-workers-verdict-2026-10-10.md) |
 
 > 入口状态只回答“读者现在能看到什么证据边界”。历史校准、留存重审和未来到期复核是三件不同的事；当前仍不能把任何一条链的存在或 `python3 scripts/check.py` 通过写成预测方法已经验证。完整状态、证伪条件与缺口以[判断台账](docs/zh/90-ledger.md)和各链正文为准。
 
