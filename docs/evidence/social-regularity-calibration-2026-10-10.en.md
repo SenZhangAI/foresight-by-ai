@@ -46,13 +46,46 @@ Both yes → the rule says “it has defenders” (a pass only; no survival pred
 
 The veto form meets the admission bar: 2 passed-and-survived (S1, S2), 2 judged-no-and-repealed (F1, F2), and 1 sufficiency counterexample (X1). The positive half (“lock-in means survival / grandfathering only”) is **refuted and must not be used as a prediction**. Confidence: medium-low — all 5 cases are post-1970 US cases, and all are calibration material with known outcomes.
 
-**How to overturn it:** find a public arrangement for which (i) or (ii) is no, yet which survived a genuine repeal window. A single such case breaks the veto form of L10, and it must then be deleted or narrowed.
+**How to overturn it:** find a public arrangement for which (i) or (ii) is no, yet which survived a [repeal window as defined in §2.6](#26-operational-definition-of-a-repeal-window). A single such case breaks the veto form of L10, and it must then be deleted or narrowed. (Before 2026-10-10 this sentence said “survived a genuine repeal window” without saying what counts as a window; the definition is in §2.6.)
 
 ### 2.5 External comparison (agreement / divergence / why we still hold it)
 
 - **Agreement (this agrees with consensus; it is not presented as an independent discovery):** the asymmetry of concentrated benefits and diffuse costs comes from Mancur Olson's 1965 *The Logic of Collective Action*; the “client politics” type in James Q. Wilson (ed.), *The Politics of Regulation* (Basic Books, 1980); and Paul Pierson, *Dismantling the Welfare State? Reagan, Thatcher and the Politics of Retrenchment* (Cambridge University Press, 1994), on welfare programmes creating their own supporters and retrenchment advancing through obfuscation and grandfathering. Page numbers in these two books were not re-checked in this round.
 - **Divergence:** the popular version often treats “once an entitlement exists it is irreversible” as a prediction. AFDC shows that this positive claim already failed within this round's calibration; this page keeps only the half that can say no.
 - **Why we still hold it:** the increment is not a novel mechanism but writing it as two variables checkable at time T, keeping only the veto direction, and stating what would overturn it.
+
+### 2.6 Operational definition of a repeal window
+
+> **Frozen on 2026-10-10, written before the case-by-case re-judgment and the counterexample test.** This section lands on its own, in a commit that contains only the definition and the test list; the re-judgment under it is written into a separate section in a later commit, and this section may not be changed afterwards. Before freezing, the author roughly knew how each case ended (like everything on this page, this is `CALIBRATION` with known outcomes), but had not yet looked up any of the legislative vote records used below.
+
+§2.4 used to say “survived a genuine repeal window” without saying what counts as a window. Any survival could then be explained as “the window had not opened yet”, which is the same defect that got candidate B rejected: protecting a rule with a quantity that can be moved after the fact. The definition below turns the window into an event that can be looked up case by case in legislative records.
+
+**Object:** a public arrangement A established by legislation, whether a benefit, a regulation or a tax. Coding of (i) and (ii) follows §2.2.
+
+**Outright-repeal measure:** a measure such that, once all its provisions are in force, the individual benefit claims A confers, or the obligations it imposes, end for everyone, and all three of the following hold: (a) current recipients or obligors are not kept on (no grandfather clause); (b) they are not replaced by an individual claim of the same type (the same benefit paid under a new name does not count); (c) there is no sunset clause that brings A back on expiry. A measure that relaxes only part of A (some roads, some groups, some years), or cuts only the cost side, is not an outright-repeal measure. This is the same yardstick by which §2.3 records S2 (“penalty set to $0, benefits kept”) as survival.
+
+**Window opens:** in the legislature with the power to repeal A, a bill carrying an outright-repeal measure against A wins final passage in at least one vote that the measure must clear. In a bicameral legislature, final passage on the floor of either chamber suffices, including passage as part of a larger bill; in a unicameral or parliamentary legislature, passage at second reading or an equivalent vote on principle counts. The window opens on the date of that passage.
+
+**Window closes:** at the end of that legislative term. For the US, that is the end of that Congress, the day before the next Congress convenes.
+
+**What does not open a window:** a measure that is only introduced, only reported out of committee, defeated on the floor, or merely advocated by the head of the executive in a speech or a budget. These show only that not even one required majority has yet chosen repeal.
+
+**How to decide:** at US federal level, use the “Passed House” / “Passed Senate” entries and roll-call numbers in congress.gov (or api.congress.gov) bill actions to fix the date of passage, the passed text to decide whether it is an outright-repeal measure, and the public-law text (govinfo) to decide whether it became law. For other legislatures, use their official records of proceedings.
+
+**What the rule claims about time:** under this definition, “outright repeal is within reach” in the veto form of L10 means one thing only: for an arrangement with (i) or (ii) no, **once a window opens, outright repeal becomes law before that window closes** (including over an executive veto). The rule does not predict when a window opens or whether one ever will; an arrangement continuing to exist in years with no window is neither evidence nor counterexample. For an arrangement with both (i) and (ii) yes, the rule predicts nothing within a window; it says only that repeal will meet defenders.
+
+**Overturn condition (replaces “a genuine repeal window” in §2.4):** an arrangement with (i) or (ii) no that still exists when a window opened under this definition closes — that is, outright repeal did not become law — is a counterexample. One such case breaks the veto form of L10, which must then be deleted or narrowed under §2.4, with the change marked in place in the “social regularities” row of the methodology mapping table and in the L10 section.
+
+**Test list (frozen with this section):**
+
+1. **Re-judge the five cases.** Re-judge S1, S2, F1, F2 and X1 under this definition, giving for each whether a window occurred within the interval, its opening and closing dates, and source locators. The intervals:
+   - S1: 2005-01-04 to 2007-01-03 (the 109th Congress);
+   - S2: 2010-03-23 to 2019-01-03 (from enactment to the end of the 115th Congress);
+   - F1: 1988-07-01 to 1989-12-13;
+   - F2: 1974-01-02 to 1995-11-28, with **a separate answer on whether a window occurred between 1974-01-02 and 1987-12-31**;
+   - X1: 1993-01-05 to 1996-08-22.
+2. **Counterexample test: the US federal estate tax**, interval 1999-01-06 to 2019-01-03 (the 106th to the 115th Congress). Coded in advance: estate-tax revenue goes into the general budget, and no group draws its benefit on a recurring basis, so (i) is no. Indirect income that estate planners, life insurers or charities earn because of the tax is not counted as “the arrangement's benefit”; F2 likewise did not count insurers' gains from fewer crashes as a benefit, so the yardstick is the same. The rule therefore says “no protection from beneficiaries” and predicts that, within a window, outright repeal becomes law. The reason for choosing it is stated plainly: before freezing, the author already knew that its repeal had been proposed many times, had passed the House, and that the tax still exists; it is the most conspicuous candidate the author could name. Like every other case on this page, it was chosen after its outcome was known.
+3. **Disposition fixed in advance.** If any counterexample holds, the veto form of L10 fails under §2.4; the deletion, narrowing or downgrade, and the in-place marking, are made public in the re-judgment commit. This section may not be changed afterwards to escape the result.
 
 ## 3. Candidate B · Preference-falsification cascades: not admitted (cannot say no)
 
