@@ -47,7 +47,7 @@ These were found by fornix's 2026-10-13 review of the 2026-10-08..10 runs. A fre
 
 - C12 (`docs/zh/chains/120-…:22`) lists lenses without `（名称）`.
 - C13 (`docs/zh/chains/130-…:35`) has no colon or list on that line.
-- A literal implementation of `wu-a77ae69e`'s criteria would go red on a clean HEAD.
+- A literal implementation of the audit work unit's criteria would go red on a clean HEAD.
 
 ## Fixed
 

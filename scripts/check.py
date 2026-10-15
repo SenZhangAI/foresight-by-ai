@@ -936,6 +936,97 @@ def check_readme_counts(per_lang_cards, chains):
                  "check covers nothing" % kind)
 
 
+DIMENSION_GRADES = {
+    "zh": (u"已覆盖", u"部分覆盖", u"尚未建立入口"),
+    "en": ("Covered", "Partially covered", "No entry yet"),
+}
+DIMENSION_README_HEADING = {
+    "zh": u"### 全景覆盖矩阵（当前边界）",
+    "en": "### Coverage matrix (current boundary)",
+}
+DIMENSION_LEDGER_HEADING = {
+    "zh": u"## 六、未覆盖维度缺口清单",
+    "en": "## 6. Explicit gaps: dimensions not yet covered",
+}
+
+
+def _dimension_tables(text, heading, stop_heading, status_column):
+    """Return (name, status) rows from the dimension section's tables."""
+    start = text.find(heading)
+    if start < 0:
+        raise ValueError("missing heading %s" % heading)
+    end = text.find(stop_heading, start + len(heading))
+    if end < 0:
+        end = len(text)
+    rows = []
+    for line in text[start:end].splitlines():
+        if not line.lstrip().startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 4 or not cells[0] or cells[0].lower() in (
+                "社会维度", "social dimension", "缺口维度", "gap dimension"):
+            continue
+        if re.match(r"^\|?\s*:?-{2,}", line):
+            continue
+        rows.append((cells[0], cells[status_column]))
+    return rows
+
+
+def _leading_dimension_status(raw, grades):
+    for grade in grades:
+        if raw == grade or raw.startswith(grade):
+            return grade
+    return raw
+
+
+def check_dimension_status():
+    """README and ledger expose the same bilingual dimension/status ledger."""
+    parsed = {}
+    for lang in LANGS:
+        try:
+            readme_rows = _dimension_tables(
+                read(REGISTRY_README[lang]), DIMENSION_README_HEADING[lang],
+                "\n### ", 1)
+            ledger_raw = _dimension_tables(
+                read("docs/%s/90-ledger.md" % lang), DIMENSION_LEDGER_HEADING[lang],
+                "### 6.1", 3)
+            ledger_rows = [(name, _leading_dimension_status(status, DIMENSION_GRADES[lang]))
+                           for name, status in ledger_raw]
+        except ValueError as exc:
+            fail("dimension-status", "%s: %s" % (lang, exc))
+            continue
+        grades = DIMENSION_GRADES[lang]
+        for label, rows in (("README", readme_rows), ("ledger", ledger_rows)):
+            if not rows:
+                fail("dimension-status", "%s %s dimension table is empty" % (lang, label))
+            names = [name for name, _status in rows]
+            if len(names) != len(set(names)):
+                fail("dimension-status", "%s %s has duplicate dimension names" % (lang, label))
+            for name, status in rows:
+                if status not in grades:
+                    fail("dimension-status", "%s %s %r has unrecognized status %r" %
+                         (lang, label, name, status))
+        if readme_rows and ledger_rows:
+            readme_names = {name for name, _status in readme_rows}
+            ledger_names = {name for name, _status in ledger_rows}
+            if readme_names != ledger_names:
+                fail("dimension-status", "%s README/ledger dimension sets differ: README-only %s; ledger-only %s" %
+                     (lang, sorted(readme_names - ledger_names), sorted(ledger_names - readme_names)))
+            readme_status = dict(readme_rows)
+            ledger_status = dict(ledger_rows)
+            for name in sorted(readme_names & ledger_names):
+                if readme_status[name] != ledger_status[name]:
+                    fail("dimension-status", "%s %s status differs: README %s, ledger %s" %
+                         (lang, name, readme_status[name], ledger_status[name]))
+        parsed[lang] = (readme_rows, ledger_rows)
+    for kind, index in (("README", 0), ("ledger", 1)):
+        sequences = {lang: [DIMENSION_GRADES[lang].index(status)
+                            for _name, status in parsed.get(lang, ([], []))[index]]
+                     for lang in LANGS}
+        if sequences["zh"] and sequences["en"] and sequences["zh"] != sequences["en"]:
+            fail("dimension-status", "%s grade sequence differs between zh and en" % kind)
+
+
 def run_checks():
     files = markdown_files()
     check_public_internal_ids(files)
@@ -945,6 +1036,7 @@ def run_checks():
     chains = check_chain_registry()
     check_chain_titles()
     check_readme_counts(cards, len(chains))
+    check_dimension_status()
 
     print("files checked      : %d" % len(files))
     print("internal links     : %d" % links)
@@ -1935,6 +2027,27 @@ def _embolden_correct_count(root):
     return u"the first card count wrapped in `**` in both READMEs"
 
 
+
+def _break_dimension_status_ledger_grade(root):
+    path = os.path.join(root, "docs", "zh", "90-ledger.md")
+    text = _read_file(path)
+    pattern = r"^(\| " + re.escape(u"人与人协作") + r" \|[^\n]*\| )" + re.escape(u"部分覆盖")
+    if not re.search(pattern, text, re.M):
+        raise AssertionError("zh ledger has no collaboration row with partial status")
+    _write_file(path, re.sub(pattern, r"\1" + u"已覆盖", text, count=1, flags=re.M))
+    return u"zh ledger: collaboration status changed from partial to covered"
+
+
+def _break_dimension_status_missing_gap(root):
+    path = os.path.join(root, "docs", "en", "90-ledger.md")
+    text = _read_file(path)
+    pattern = r"^\| Culture, entertainment, and leisure \|[^\n]*\n"
+    if not re.search(pattern, text, re.M):
+        raise AssertionError("en ledger has no culture gap row")
+    _write_file(path, re.sub(pattern, "", text, count=1, flags=re.M))
+    return u"en ledger: one no-entry dimension row removed"
+
+
 def _break_public_internal_id(root):
     """A production-line work-unit handle must never reach public Markdown."""
     path = _readme(root, "en")
@@ -1944,6 +2057,10 @@ def _break_public_internal_id(root):
 
 
 NEGATIVE_CASES = [
+    (u"README/ledger dimension grade differs", "dimension-status",
+     _break_dimension_status_ledger_grade),
+    (u"ledger loses one no-entry dimension", "dimension-status",
+     _break_dimension_status_missing_gap),
     (u"public prose exposes an internal work-unit id", "public-internal-ids",
      _break_public_internal_id),
     (u"dangling anchor", "links", _break_dangling_anchor),
