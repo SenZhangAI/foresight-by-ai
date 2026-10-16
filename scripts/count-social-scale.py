@@ -122,7 +122,7 @@ def tally(lang, verbose):
                 revoked.append(jid)
             if conf in LANDSCAPE_ONLY_CONFIDENCE[lang]:
                 landscape.append(jid)
-            if not status.startswith("ACTIVE"):
+            if not status.rstrip("。.!` ").strip() == "ACTIVE":
                 inactive.append(jid)
         elif GATE1_FAIL[lang].search(gate):
             fails.append(jid)
@@ -157,30 +157,38 @@ def tally(lang, verbose):
     print("")
     return {"total": len(found), "fail": len(fails), "not_applicable": len(not_applicable),
             "pass": len(passes), "revoked": len(revoked), "landscape": len(landscape),
-            "inactive": len(inactive), "usable": len(usable), "broken": len(unparsable) + len(dupes)}
+            "inactive": len(inactive), "usable": len(usable),
+            "pass_ids": passes, "usable_ids": usable,
+            "broken": len(unparsable) + len(dupes)}
 
 
 def check_page(lang, counts):
     path = os.path.join(REPO, "docs", lang, "91-social-scale-register.md")
     text = open(path, encoding="utf-8").read()
     if lang == "zh":
+        pass_members = "、".join("`%s`" % jid for jid in counts["pass_ids"])
+        usable_members = "、".join("`%s`" % jid for jid in counts["usable_ids"])
         checks = [
             ("headline total", r"全库 %d 张在册判断卡" % counts["total"]),
             ("result total", r"全库 %d 张卡" % counts["total"]),
+            ("group total", r"其余 %d 张按" % (counts["total"] - 1)),
             ("FAIL row", r"\| 「普及闸复核」写「闸一\*\*不过\*\*」 \| \*\*%d\*\* \|" % counts["fail"]),
             ("not-applicable row", r"\| 「普及闸复核」写「闸一不适用」 \| \*\*%d\*\* \|" % counts["not_applicable"]),
-            ("PASS row", r"\| 「普及闸复核」写「闸一\*\*过\*\*」 \| \*\*%d\*\* \|" % counts["pass"]),
-            ("usable row", r"\| \*\*已过闸一且可作社会级书写的判断\*\* \| \*\*%d\*\* \|" % counts["usable"]),
+            ("PASS row", r"\| 「普及闸复核」写「闸一\*\*过\*\*」 \| \*\*%d\*\* \|.*%s" % (counts["pass"], re.escape(pass_members))),
+            ("usable row", r"\| \*\*已过闸一且可作社会级书写的判断\*\* \| \*\*%d\*\* \|.*%s" % (counts["usable"], re.escape(usable_members))),
             ("J-108 listing", r"J-108"),
         ]
     else:
+        pass_members = ", ".join("`%s`" % jid for jid in counts["pass_ids"])
+        usable_members = ", ".join("`%s`" % jid for jid in counts["usable_ids"])
         checks = [
             ("headline total", r"all %d registered judgment cards" % counts["total"]),
             ("result total", r"all %d cards" % counts["total"]),
+            ("group total", r"the other %d are in six groups" % (counts["total"] - 1)),
             ("FAIL row", r'\| "Diffusion-gate review" records Gate 1 \*\*FAIL\*\* \| \*\*%d\*\* \|' % counts["fail"]),
             ("not-applicable row", r'\| "Diffusion-gate review" records Gate 1 \*\*not applicable\*\* \| \*\*%d\*\* \|' % counts["not_applicable"]),
-            ("PASS row", r'\| "Diffusion-gate review" records Gate 1 \*\*PASS\*\* \| \*\*%d\*\* \|' % counts["pass"]),
-            ("usable row", r"\| \*\*Judgments clearing Gate 1 and permitted to be written at society scale\*\* \| \*\*%d\*\* \|" % counts["usable"]),
+            ("PASS row", r'\| "Diffusion-gate review" records Gate 1 \*\*PASS\*\* \| \*\*%d\*\* \|.*%s' % (counts["pass"], re.escape(pass_members))),
+            ("usable row", r"\| \*\*Judgments clearing Gate 1 and permitted to be written at society scale\*\* \| \*\*%d\*\* \|.*%s" % (counts["usable"], re.escape(usable_members))),
             ("J-108 listing", r"J-108"),
         ]
     failures = []
