@@ -26,9 +26,9 @@ Brexit does not prove that other countries will copy Brexit. The UK ODA reshuffl
 
 > **[J-108 · Security commitments become budgets and industrial policy first; electoral-rule change is not the first response](../ledger/103-110.md#j-108--security-commitments-become-budgets-and-industrial-policy-first-electoral-rule-change-is-not-the-first-response)** (confidence: Medium)
 
-Between 2026-10-16 and 2031-12-31, if the United Kingdom, France, Germany, and Italy continue to face NATO defence commitments or an openly documented external security shock, at least three of the four countries’ first observable national responses will be an annual defence appropriation, procurement/industrial policy, or an annual alliance pathway; rather than a law changing national electoral rules or the constitutional distribution of power under an explicit security rationale.
+Between 2026-10-16 and 2031-12-31, record for each of the United Kingdom, France, Germany, and Italy its first qualifying security trigger in the window: a national government or legislature publishes an official security/defence document explicitly naming a new external threat or a new alliance defence commitment, or an official record documents an external armed event; a generic NATO annual document is not a country’s trigger. For each country with a qualifying trigger, order the first national response within 365 days of the trigger’s public date. If at least three countries have a trigger, at least three of them will first publish an annual defence appropriation, procurement, or industrial-policy document rather than an electoral-rule or constitutional power-distribution law whose security rationale is explicit. If fewer than three countries have a qualifying trigger by 31 December 2031, this card is undecidable; the absence of triggers is not counted as a hit.
 
-“First” is ordered by public date: a budget, appropriation, procurement, or industrial-policy document must precede an electoral/constitutional law whose stated security rationale is explicit. Only the four countries listed here are compared; this is not a comparison of all states. The absence of a new electoral law does not mean democratic stability or falling polarisation.
+“First” is ordered by public date and only compares the four countries listed here. A general NATO document is context, not a national response. The absence of a new electoral law does not mean democratic stability or falling polarisation.
 
 ### Reasoning chain
 
@@ -42,11 +42,11 @@ External security pressure requires executable collective commitments → NATO h
 
 Any one of the following falsifies the corresponding claim:
 
-1. Fewer than three of the four countries show a publicly verifiable annual defence appropriation, procurement, industrial-policy, or alliance-pathway document after the security commitment/shock but before a national electoral-rule or constitutional power-distribution law whose official rationale explicitly names that security reason;
-2. At least two of the four countries enact such an electoral/constitutional law by 31 December 2031, and their public legislative reasons identify the security shock as necessary, before an observable defence-budget or procurement response in that country;
-3. At least two of the four countries have core defence expenditure as a share of GDP no higher than their 2025 baseline by 2031, without an alternative annual alliance pathway or procurement commitment explaining the difference—this would refute the forward direction that the budget is the first executable container.
+1. By 31 December 2031, at least three countries have qualifying triggers, but in at least two of them an electoral-rule or constitutional power-distribution law with an explicit security rationale precedes an annual defence appropriation, procurement, or industrial-policy document within 365 days after that country’s trigger;
+2. By 31 December 2031, at least three countries have qualifying triggers, but at least three of them have no publicly verifiable annual defence appropriation, procurement, or industrial-policy document within 365 days after the trigger, and also have no electoral/constitutional law with an explicit security rationale—this would refute the forward direction that budgets are the first executable container;
+3. A country with only a generic NATO annual pathway and no qualifying national trigger is not counted as a hit or a counterexample; if fewer than three countries have triggers, the card is undecidable.
 
-“No new electoral law” is not itself supporting evidence. If the security rationale, date, or budget data cannot be judged, that country is undecidable rather than counted as a hit.
+“No new electoral law” is not itself supporting evidence. If the security rationale, trigger date, or document level cannot be judged, that country is undecidable rather than counted as a hit.
 
 ### Leading indicators
 
