@@ -38,6 +38,6 @@
 
 1. 想快速理解范围：从仓库根目录 README 开始。
 2. 想理解推演方法：读[推演方法论](00-method.md)和[历史回顾](01-retrospect.md)。
-3. 想沿因果关系阅读：从任意推演链进入（推演链只在 README 的[推演链登记](../../README.md#推演链登记)里编号，目前为 C1–C15，含 C12 技术能力演进链、C13 财政挤压、C14 选票与安全账本及 [C15 家庭的三只时钟](chains/150-households-three-clocks.md)；不在登记表里的正文都不是链），再点击 `J-NNN`，沿 `depends-on` 回到上游。
+3. 想沿因果关系阅读：从任意推演链进入（推演链只在 README 的[推演链登记](../../README.md#推演链登记)里编号，目前为 C1–C16，含 C12 技术能力演进链、C13 财政挤压、C14 选票与安全账本、[C15 家庭的三只时钟](chains/150-households-three-clocks.md)及[C16 文化、环境与日常承载](chains/160-culture-climate-mobility.md)；不在登记表里的正文都不是链），再点击 `J-NNN`，沿 `depends-on` 回到上游。
 4. 想核对状态：以[判断台账](90-ledger.md)及其分片为准。
 5. 想质疑判断：按[贡献与反驳指南](../../CONTRIBUTING.md)使用卡片自己的证伪条件。
