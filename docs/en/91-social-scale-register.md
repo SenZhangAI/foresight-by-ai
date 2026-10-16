@@ -285,15 +285,15 @@ All 116 registered cards are below. The passing `J-103` is listed first on its o
 
 This page only aggregates and navigates. Card-by-card counting surfaced the following inconsistencies; this round fixes the ones that can be resolved by field consistency, while items requiring external input remain explicitly unresolved:
 
-1. **Resolved (`J-042`, `J-053`, `J-054`)**: Gate 1 now records only the scale-axis pass; the three low-confidence / landscape-only cards state that society-wide writing also requires not landscape-only and confidence above Low. See this round’s check log.
-2. **Resolved (18 cards)**: each Diffusion-gate review field now writes back the valid Gate 2 `VETO` and its disposition; `J-102` retains the opposite old annotation as an explicit disagreement. The full list and predicate are in [ledger §6.3](90-ledger.md#63-isolated-blind-re-review-backflow-reconciliation-2026-10-10). See this round’s check log.
-3. **Resolved (`J-102`)**: the current field adopts the blind-review `VETO`; the former “Gate 2 partly passes” note remains an explicit disagreement, not the current ruling. See this round’s check log.
-4. **Resolved (`J-014`, `J-016`)**: confidence is now `Low (landscape only)`, matching the evidence-limited landscape wording. See this round’s check log.
-5. **Resolved (`J-036`)**: the audience is now professionals in platforms, content-production teams, and digital-service organizations; the constructed hundred-million upper bound no longer mixes users of digital services into an occupational/organizational ceiling. See this round’s check log.
-6. **Resolved (`J-066`–`J-071`)**: the audience field now says “method/demand-side criterion; the capability-diffusion binary does not apply”, rather than assigning and withdrawing the same class. See this round’s check log.
-7. **Resolved (`J-072`)**: the card now uses one identity—“the criterion itself, not a predicted society-wide consumption activity”—for the Gate 1 failure; the scale estimate remains in the audience field rather than serving as a second reason. See this round’s check log.
+1. **Resolved (`J-042`, `J-053`, `J-054`)**: Gate 1 now records only the scale-axis pass; the three low-confidence / landscape-only cards state that society-wide writing also requires not landscape-only and confidence above Low. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+2. **Resolved (18 cards)**: each Diffusion-gate review field now writes back the valid Gate 2 `VETO` and its disposition; `J-102` retains the opposite old annotation as an explicit disagreement. The full list and predicate are in [ledger §6.3](90-ledger.md#63-isolated-blind-re-review-backflow-reconciliation-2026-10-10). See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+3. **Resolved (`J-102`)**: the current field adopts the blind-review `VETO`; the former “Gate 2 partly passes” note remains an explicit disagreement, not the current ruling. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+4. **Resolved (`J-014`, `J-016`)**: confidence is now `Low (landscape only)`, matching the evidence-limited landscape wording. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+5. **Resolved (`J-036`)**: the audience is now professionals in platforms, content-production teams, and digital-service organizations; the constructed hundred-million upper bound no longer mixes users of digital services into an occupational/organizational ceiling. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+6. **Resolved (`J-066`–`J-071`)**: the audience field now says “method/demand-side criterion; the capability-diffusion binary does not apply”, rather than assigning and withdrawing the same class. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
+7. **Resolved (`J-072`)**: the card now uses one identity—“the criterion itself, not a predicted society-wide consumption activity”—for the Gate 1 failure; the scale estimate remains in the audience field rather than serving as a second reason. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
 8. **Still unresolved (`J-017`)**: this round did not split the audience field; the card and this page now both say “unresolved — depends on the audience-field split”. Re-derive this row after the split.
-9. **Resolved (`J-045`, `J-050`)**: the English “Against consensus” fields now include the corresponding “Why I still hold it … this card remains landscape only” sentence. See this round’s check log.
+9. **Resolved (`J-045`, `J-050`)**: the English “Against consensus” fields now include the corresponding “Why I still hold it … this card remains landscape only” sentence. See commit `d1ebb6b34fba855f81984f3865daf91c4ce701b4`.
 
 ## 6. How the historical 0 became today's 1
 
