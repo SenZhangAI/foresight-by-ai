@@ -53,6 +53,11 @@ GATE1_FAIL = {
     "en": re.compile(r"Gate 1\b[^.;]{0,30}?(\*\*FAIL\*\*|fails\b)"),
 }
 
+GATE1_NOT_APPLICABLE = {
+    "zh": re.compile(r"闸一不适用"),
+    "en": re.compile(r"Gate 1 does not apply"),
+}
+
 # A pass that the card itself has taken back. Matched against the whole card so
 # the revocation is found wherever it was written in place.
 REVOKED = {
@@ -98,6 +103,7 @@ def cards(lang):
 def tally(lang, verbose):
     found, dupes = cards(lang)
     unparsable, passes, fails = [], [], []
+    not_applicable = []
     revoked, landscape = [], []
     for jid in sorted(found):
         title, body, path = found[jid]
@@ -114,6 +120,8 @@ def tally(lang, verbose):
                 landscape.append(jid)
         elif GATE1_FAIL[lang].search(gate):
             fails.append(jid)
+        elif GATE1_NOT_APPLICABLE[lang].search(gate):
+            not_applicable.append(jid)
         else:
             unparsable.append((jid, path, "no readable Gate 1 verdict"))
 
@@ -121,6 +129,8 @@ def tally(lang, verbose):
               if j not in revoked and j not in landscape]
     print("[%s] cards parsed        : %d" % (lang, len(found)))
     print("[%s] Gate 1 FAIL         : %d" % (lang, len(fails)))
+    print("[%s] Gate 1 NOT APPLICABLE: %d  %s"
+          % (lang, len(not_applicable), ", ".join(not_applicable)))
     print("[%s] Gate 1 PASS         : %d  %s"
           % (lang, len(passes), ", ".join(passes)))
     print("[%s]   pass revoked      : %d  %s"
@@ -137,8 +147,8 @@ def tally(lang, verbose):
         for jid in sorted(found):
             print("[%s]   %s %s" % (lang, jid, found[jid][0]))
     print("")
-    return {"total": len(found), "fail": len(fails), "pass": len(passes),
-            "revoked": len(revoked), "landscape": len(landscape),
+    return {"total": len(found), "fail": len(fails), "not_applicable": len(not_applicable),
+            "pass": len(passes), "revoked": len(revoked), "landscape": len(landscape),
             "usable": len(usable), "broken": len(unparsable) + len(dupes)}
 
 
@@ -146,7 +156,7 @@ def main():
     verbose = "--verbose" in sys.argv
     out = {lang: tally(lang, verbose) for lang in LANGS}
     ok = True
-    for key in ("total", "fail", "pass", "revoked", "landscape", "usable"):
+    for key in ("total", "fail", "not_applicable", "pass", "revoked", "landscape", "usable"):
         if out["zh"][key] != out["en"][key]:
             print("MISMATCH %s: zh %d vs en %d"
                   % (key, out["zh"][key], out["en"][key]))
