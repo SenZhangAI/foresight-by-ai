@@ -31,6 +31,7 @@ be parsed (an unparsable card is reported, never silently skipped).
 import os
 import re
 import sys
+from collections import Counter
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ("zh", "en")
@@ -159,16 +160,31 @@ def tally(lang, verbose):
             "pass": len(passes), "revoked": len(revoked), "landscape": len(landscape),
             "inactive": len(inactive), "usable": len(usable),
             "pass_ids": passes, "usable_ids": usable,
+            "all_ids": sorted(found),
             "broken": len(unparsable) + len(dupes)}
 
 
 def check_page(lang, counts):
     path = os.path.join(REPO, "docs", lang, "91-social-scale-register.md")
     text = open(path, encoding="utf-8").read()
+    section_start = r"^## 四、" if lang == "zh" else r"^## 4\."
+    section_end = r"^## 五、" if lang == "zh" else r"^## 5\."
+    section_match = re.search(section_start + r"[\s\S]*?(?=" + section_end + r")", text, re.M)
+    page_ids = re.findall(r"^\| \[(J-\d{3})\b", section_match.group(0), re.M) if section_match else []
+    expected_ids = counts["all_ids"]
+    checks = []
+    if not section_match:
+        checks.append(("section 4", section_start))
+    elif Counter(page_ids) != Counter(expected_ids):
+        checks.append(("section 4 card set", "expected each ledger card exactly once"))
+    group_heading = r"^### 第[零一二三四五六]组" if lang == "zh" else r"^### Group [0-6]"
+    group_count = len(re.findall(group_heading, section_match.group(0), re.M)) if section_match else 0
+    if group_count != 7:
+        checks.append(("section 4 group headings", "seven groups"))
     if lang == "zh":
         pass_members = "、".join("`%s`" % jid for jid in counts["pass_ids"])
         usable_members = "、".join("`%s`" % jid for jid in counts["usable_ids"])
-        checks = [
+        checks += [
             ("headline total", r"全库 %d 张在册判断卡" % counts["total"]),
             ("result total", r"全库 %d 张卡" % counts["total"]),
             ("group total", r"其余 %d 张按" % (counts["total"] - 1)),
@@ -181,7 +197,7 @@ def check_page(lang, counts):
     else:
         pass_members = ", ".join("`%s`" % jid for jid in counts["pass_ids"])
         usable_members = ", ".join("`%s`" % jid for jid in counts["usable_ids"])
-        checks = [
+        checks += [
             ("headline total", r"all %d registered judgment cards" % counts["total"]),
             ("result total", r"all %d cards" % counts["total"]),
             ("group total", r"the other %d are in six groups" % (counts["total"] - 1)),
