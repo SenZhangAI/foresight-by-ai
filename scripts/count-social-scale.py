@@ -105,13 +105,14 @@ def tally(lang, verbose):
     found, dupes = cards(lang)
     unparsable, passes, fails = [], [], []
     not_applicable = []
-    revoked, landscape = [], []
+    revoked, landscape, inactive = [], [], []
     for jid in sorted(found):
         title, body, path = found[jid]
         gate = field(body, FIELD[lang]["gate"])
         conf = field(body, FIELD[lang]["conf"])
-        if gate is None or conf is None:
-            unparsable.append((jid, path, "missing gate or confidence field"))
+        status = field(body, FIELD[lang]["status"])
+        if gate is None or conf is None or status is None:
+            unparsable.append((jid, path, "missing gate, confidence or status field"))
             continue
         if GATE1_PASS[lang].search(gate):
             passes.append(jid)
@@ -119,6 +120,8 @@ def tally(lang, verbose):
                 revoked.append(jid)
             if conf in LANDSCAPE_ONLY_CONFIDENCE[lang]:
                 landscape.append(jid)
+            if not status.startswith("ACTIVE"):
+                inactive.append(jid)
         elif GATE1_FAIL[lang].search(gate):
             fails.append(jid)
         elif GATE1_NOT_APPLICABLE[lang].search(gate):
@@ -127,7 +130,7 @@ def tally(lang, verbose):
             unparsable.append((jid, path, "no readable Gate 1 verdict"))
 
     usable = [j for j in passes
-              if j not in revoked and j not in landscape]
+              if j not in revoked and j not in landscape and j not in inactive]
     print("[%s] cards parsed        : %d" % (lang, len(found)))
     print("[%s] Gate 1 FAIL         : %d" % (lang, len(fails)))
     print("[%s] Gate 1 NOT APPLICABLE: %d  %s"
@@ -138,6 +141,8 @@ def tally(lang, verbose):
           % (lang, len(revoked), ", ".join(revoked)))
     print("[%s]   landscape-only    : %d  %s"
           % (lang, len(landscape), ", ".join(landscape)))
+    print("[%s]   inactive          : %d  %s"
+          % (lang, len(inactive), ", ".join(inactive)))
     print("[%s] CLEARS GATE 1 AND MAY BE WRITTEN AT SOCIETY SCALE: %d  %s"
           % (lang, len(usable), ", ".join(usable) or "(none)"))
     for jid, path, why in unparsable:
@@ -150,7 +155,7 @@ def tally(lang, verbose):
     print("")
     return {"total": len(found), "fail": len(fails), "not_applicable": len(not_applicable),
             "pass": len(passes), "revoked": len(revoked), "landscape": len(landscape),
-            "usable": len(usable), "broken": len(unparsable) + len(dupes)}
+            "inactive": len(inactive), "usable": len(usable), "broken": len(unparsable) + len(dupes)}
 
 
 def check_page(lang, counts):
@@ -187,7 +192,7 @@ def main():
     verbose = "--verbose" in sys.argv
     out = {lang: tally(lang, verbose) for lang in LANGS}
     ok = True
-    for key in ("total", "fail", "not_applicable", "pass", "revoked", "landscape", "usable"):
+    for key in ("total", "fail", "not_applicable", "pass", "revoked", "landscape", "inactive", "usable"):
         if out["zh"][key] != out["en"][key]:
             print("MISMATCH %s: zh %d vs en %d"
                   % (key, out["zh"][key], out["en"][key]))
