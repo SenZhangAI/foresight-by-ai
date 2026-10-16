@@ -42,15 +42,14 @@ External security pressure requires executable collective commitments → NATO h
 
 Any one of the following falsifies the corresponding claim:
 
-1. By 31 December 2031, at least three countries have qualifying triggers, but in at least two of them an electoral-rule or constitutional power-distribution law with an explicit security rationale precedes an annual defence appropriation, procurement, or industrial-policy document within 365 days after that country’s trigger;
-2. By 31 December 2031, at least three countries have qualifying triggers, but at least three of them have no publicly verifiable annual defence appropriation, procurement, or industrial-policy document within 365 days after the trigger, and also have no electoral/constitutional law with an explicit security rationale—this would refute the forward direction that budgets are the first executable container;
+1. By 31 December 2031, at least three countries have qualifying triggers, but fewer than three have A as their first A/B response (B-first or an A/B tie is not A-first);
+2. By 31 December 2031, at least three countries have qualifying triggers, but at least three of them have no A-class document within 365 days after the trigger, or their first A/B response is not A—this would refute the forward direction that A comes before B;
 3. A country with only a generic NATO annual pathway and no qualifying national trigger is not counted as a hit or a counterexample; if fewer than three countries have triggers, the card is undecidable.
 
-“No new electoral law” is not itself supporting evidence. If the security rationale, trigger date, or document level cannot be judged, that country is undecidable rather than counted as a hit.
-
+The A/B comparison does not silently count other security executive orders, information controls, or emergency laws. A/B is first only when an official date or timestamp is strictly earlier; the same date without a timestamp or official sequence is a tie. If the trigger date, the law’s security rationale, the document class, or strict ordering cannot be judged, that country is undecidable rather than counted as a hit.
 ### Leading indicators
 
-NATO annual defence-expenditure tables and the 2029 review; annual core-defence and ODA appropriations in the four countries; publication dates of defence procurement and domestic defence-industry/supply-chain policies; explicit references to an external security rationale in government bill notes; the dates of electoral-law, constitutional-amendment, and security-policy documents. Check annually and once after a major security event.
+NATO annual defence-expenditure tables and the 2029 review; annual core-defence and ODA appropriations in the four countries; publication dates of defence procurement and domestic defence-industry/supply-chain policies; explicit references to an external security rationale in government bill notes; the dates of electoral-law, constitutional-amendment, and security-policy documents. A/B is first only when an official date or timestamp is strictly earlier; the same date without a timestamp or official sequence is a tie and that country is not counted as A-first. Check annually and once after a major security event.
 
 ### Confidence
 
