@@ -143,6 +143,8 @@ To audit how the legacy cards entered the current structure, read the [legacy le
 
 The repository provides a structural check command, `python3 scripts/check.py`, to detect mechanical inconsistencies such as bilingual identifiers, internal links, and required fields. It does not judge the quality of the reasoning, the sufficiency of historical evidence, or forecast accuracy, and it does not mean that the project is complete or fit for release. Public readers should use the methodology, judgment cards, evidence boundaries, and research gaps—not a green structural check—as the basis for evaluating the archive.
 
+**Release-verification boundary**: public `main` file access and desktop GitHub rendering have been checked; **GitHub narrow/mobile rendering: unverified**. Desktop evidence therefore must not be read as verification for every viewport.
+
 This entry does not promise a fixed judgment-card total: cards will grow, be revised, and sometimes be migrated as the research develops. **The current snapshot is 116 judgment cards and 16 independent reasoning chains**; this is not a permanent promise and may change with the next revision. For a current snapshot, use the [Judgment Ledger](docs/en/90-ledger.md) and its shard navigation. The full inventory, per-card status, historical calibration status, source boundaries, and gaps are maintained in the ledger and protocols rather than copied here.
 
 ### Coverage matrix (current boundary)
