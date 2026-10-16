@@ -174,6 +174,7 @@ def check_page(lang, counts):
     page_ids = re.findall(r"^\| \[(J-\d{3})\b", section_match.group(0), re.M) if section_match else []
     expected_ids = counts["all_ids"]
     checks = []
+    group_ids = []
     if not section_match:
         checks.append(("section 4", section_start))
     elif Counter(page_ids) != Counter(expected_ids):
@@ -186,12 +187,21 @@ def check_page(lang, counts):
     elif section_match:
         group_bodies = []
         section_text = section_match.group(0)
+        group_ids = []
         for index, heading in enumerate(group_matches):
             end = group_matches[index + 1].start() if index + 1 < group_count else len(section_text)
-            group_bodies.append(section_text[heading.end():end])
-        group0_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[0], re.M)
-        group1_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[1], re.M)
-        group2_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[2], re.M)
+            body = section_text[heading.end():end]
+            ids = re.findall(r"^\| \[(J-\d{3})\b", body, re.M)
+            group_bodies.append(body)
+            group_ids.append(ids)
+            number_match = re.search(r"\((\d+)(?: 条)?\)\s*$", heading.group(0))
+            if number_match is None:
+                number_match = re.search(r"[,，]\s*(\d+)(?: 条)?\)\s*$", heading.group(0))
+            if number_match is None or int(number_match.group(1)) != len(ids):
+                checks.append(("group heading count", heading.group(0)))
+        group0_ids = group_ids[0]
+        group1_ids = group_ids[1]
+        group2_ids = group_ids[2]
         expected_group2 = sorted(set(counts["revoked_ids"]) - set(counts["landscape_ids"]))
         if Counter(group0_ids) != Counter(counts["usable_ids"]):
             checks.append(("group 0 members", "the usable card set"))
@@ -229,7 +239,7 @@ def check_page(lang, counts):
     for label, pattern in checks:
         if not re.search(pattern, text):
             failures.append((path, label, pattern))
-    return failures
+    return failures, group_ids
 
 
 def main():
@@ -241,11 +251,17 @@ def main():
             print("MISMATCH %s: zh %d vs en %d"
                   % (key, out["zh"][key], out["en"][key]))
             ok = False
+    page_groups = {}
     for lang in LANGS:
-        for path, label, pattern in check_page(lang, out[lang]):
+        failures, groups = check_page(lang, out[lang])
+        page_groups[lang] = groups
+        for path, label, pattern in failures:
             print("PAGE MISMATCH [%s] %s in %s: %s"
                   % (lang, label, path, pattern))
             ok = False
+    if page_groups["zh"] != page_groups["en"]:
+        print("PAGE MISMATCH: Chinese and English group membership differs")
+        ok = False
     if out["zh"]["broken"] or out["en"]["broken"]:
         ok = False
     if ok:
