@@ -18,7 +18,8 @@ Both language projections are counted separately and compared: they are two
 projections of the same judgment, so a disagreement is a finding, not noise.
 
 This script never writes anything. It is deliberately NOT wired into
-`scripts/check.py`: it reports a number, it does not gate a commit.
+`scripts/check.py`: it reports the count and checks the two public register pages,
+but it does not gate a commit.
 
 Usage:  python3 scripts/count-social-scale.py [--verbose]
 Exit code: 0 when both languages agree, 1 when they do not or a card cannot
@@ -152,6 +153,36 @@ def tally(lang, verbose):
             "usable": len(usable), "broken": len(unparsable) + len(dupes)}
 
 
+def check_page(lang, counts):
+    path = os.path.join(REPO, "docs", lang, "91-social-scale-register.md")
+    text = open(path, encoding="utf-8").read()
+    if lang == "zh":
+        checks = [
+            ("headline total", r"全库 %d 张在册判断卡" % counts["total"]),
+            ("result total", r"全库 %d 张卡" % counts["total"]),
+            ("FAIL row", r"\| 「普及闸复核」写「闸一\*\*不过\*\*」 \| \*\*%d\*\* \|" % counts["fail"]),
+            ("not-applicable row", r"\| 「普及闸复核」写「闸一不适用」 \| \*\*%d\*\* \|" % counts["not_applicable"]),
+            ("PASS row", r"\| 「普及闸复核」写「闸一\*\*过\*\*」 \| \*\*%d\*\* \|" % counts["pass"]),
+            ("usable row", r"\| \*\*已过闸一且可作社会级书写的判断\*\* \| \*\*%d\*\* \|" % counts["usable"]),
+            ("J-108 listing", r"J-108"),
+        ]
+    else:
+        checks = [
+            ("headline total", r"all %d registered judgment cards" % counts["total"]),
+            ("result total", r"all %d cards" % counts["total"]),
+            ("FAIL row", r'\| "Diffusion-gate review" records Gate 1 \*\*FAIL\*\* \| \*\*%d\*\* \|' % counts["fail"]),
+            ("not-applicable row", r'\| "Diffusion-gate review" records Gate 1 \*\*not applicable\*\* \| \*\*%d\*\* \|' % counts["not_applicable"]),
+            ("PASS row", r'\| "Diffusion-gate review" records Gate 1 \*\*PASS\*\* \| \*\*%d\*\* \|' % counts["pass"]),
+            ("usable row", r"\| \*\*Judgments clearing Gate 1 and permitted to be written at society scale\*\* \| \*\*%d\*\* \|" % counts["usable"]),
+            ("J-108 listing", r"J-108"),
+        ]
+    failures = []
+    for label, pattern in checks:
+        if not re.search(pattern, text):
+            failures.append((path, label, pattern))
+    return failures
+
+
 def main():
     verbose = "--verbose" in sys.argv
     out = {lang: tally(lang, verbose) for lang in LANGS}
@@ -160,6 +191,11 @@ def main():
         if out["zh"][key] != out["en"][key]:
             print("MISMATCH %s: zh %d vs en %d"
                   % (key, out["zh"][key], out["en"][key]))
+            ok = False
+    for lang in LANGS:
+        for path, label, pattern in check_page(lang, out[lang]):
+            print("PAGE MISMATCH [%s] %s in %s: %s"
+                  % (lang, label, path, pattern))
             ok = False
     if out["zh"]["broken"] or out["en"]["broken"]:
         ok = False
