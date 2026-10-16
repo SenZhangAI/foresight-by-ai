@@ -160,7 +160,8 @@ def tally(lang, verbose):
             "pass": len(passes), "revoked": len(revoked), "landscape": len(landscape),
             "inactive": len(inactive), "usable": len(usable),
             "pass_ids": passes, "usable_ids": usable,
-            "all_ids": sorted(found),
+            "revoked_ids": revoked, "landscape_ids": landscape,
+            "inactive_ids": inactive, "all_ids": sorted(found),
             "broken": len(unparsable) + len(dupes)}
 
 
@@ -177,10 +178,27 @@ def check_page(lang, counts):
         checks.append(("section 4", section_start))
     elif Counter(page_ids) != Counter(expected_ids):
         checks.append(("section 4 card set", "expected each ledger card exactly once"))
-    group_heading = r"^### 第[零一二三四五六]组" if lang == "zh" else r"^### Group [0-6]"
-    group_count = len(re.findall(group_heading, section_match.group(0), re.M)) if section_match else 0
+    group_heading = r"^### 第[零一二三四五六]组[^\n]*" if lang == "zh" else r"^### Group [0-6][^\n]*"
+    group_matches = list(re.finditer(group_heading, section_match.group(0), re.M)) if section_match else []
+    group_count = len(group_matches)
     if group_count != 7:
         checks.append(("section 4 group headings", "seven groups"))
+    elif section_match:
+        group_bodies = []
+        section_text = section_match.group(0)
+        for index, heading in enumerate(group_matches):
+            end = group_matches[index + 1].start() if index + 1 < group_count else len(section_text)
+            group_bodies.append(section_text[heading.end():end])
+        group0_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[0], re.M)
+        group1_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[1], re.M)
+        group2_ids = re.findall(r"^\| \[(J-\d{3})\b", group_bodies[2], re.M)
+        expected_group2 = sorted(set(counts["revoked_ids"]) - set(counts["landscape_ids"]))
+        if Counter(group0_ids) != Counter(counts["usable_ids"]):
+            checks.append(("group 0 members", "the usable card set"))
+        if Counter(group1_ids) != Counter(counts["landscape_ids"]):
+            checks.append(("group 1 members", "the landscape-only PASS set"))
+        if Counter(group2_ids) != Counter(expected_group2):
+            checks.append(("group 2 members", "the revoked PASS set"))
     if lang == "zh":
         pass_members = "、".join("`%s`" % jid for jid in counts["pass_ids"])
         usable_members = "、".join("`%s`" % jid for jid in counts["usable_ids"])
