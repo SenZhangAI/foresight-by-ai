@@ -99,7 +99,7 @@ Readers should keep three things distinct:
 
 What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
 
-**Public landing record (2026-10-16)**: the anonymous `main` pointer verified for this publication was `b75bf7fc736dccecbd32a7a33e4678e7dc3e9b22`, which contains target commit `b75bf7f`; the target tree's archive run of `python3 scripts/check.py` exited `0`. This records public landing and structural checks, not a claim about reasoning quality or forecast accuracy.
+**Public landing record (content commit, 2026-10-16)**: this content publication was verified on public `main` at `b75bf7fc736dccecbd32a7a33e4678e7dc3e9b22`, whose archive ran `python3 scripts/check.py` with exit `0`; the subsequent README explanation update was carried to public `main` by commit `3ff8eac`. This records evidence for the content commit rather than misrepresenting a later explanatory update as another content release.
 
 #### How to read the historical-calibration numbers
 
