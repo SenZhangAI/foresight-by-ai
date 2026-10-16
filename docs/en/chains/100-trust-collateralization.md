@@ -5,7 +5,12 @@
 > **Where this chain sits**: It continues from C1's “generated expression becomes cheap” and C2's “real-world signals enter contracts.” It does not upgrade J-035's occupational/organizational judgment into a society-wide inevitability.
 > **In one sentence**: As language, plans, and identity narratives become cheap to generate, consequential transactions may rely more on verifiable fulfillment, solvency, and pre-agreed loss sharing; this may collateralize part of trust, but responsibility collateral has not yet formed universally.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-035 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ---
 

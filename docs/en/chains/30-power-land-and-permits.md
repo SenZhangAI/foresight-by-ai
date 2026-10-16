@@ -5,7 +5,12 @@
 > **This chain extends [C1](10-generation-becomes-free.md) and the [technology sequence](120-technology-capability-sequence.md).** C1 argues that generation becomes cheap; the technology chain argues that capabilities arrive in a specific order. Both quietly assume one thing: that compute can be bought if you are willing to pay. This chain takes that assumption apart. Turning model capability into a real service requires turning electrons into computation, and that step happens in land, transformers, and permitting windows.
 > **In one sentence**: the scarce thing is not electricity but **the kilowatt-hour that is already permitted and can be delivered on the promised date**; and once the constraint moves from portable chips to immovable grids and sites, control regimes, taxation, and local politics move with it.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-027, J-039, J-056–J-064 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence. This note covers the whole file once: the identical “Scope tag · Gate 1” block that was repeated in every section before 2026-10-09 has been consolidated here, with no change to any judgment or conclusion — each card’s audience magnitude and gate reasoning have always lived only in its ledger card, and both this note and the former per-section tags are signposts to it.
+
+</details>
 
 ## 1. 2029: a project manager holding a queue number
 

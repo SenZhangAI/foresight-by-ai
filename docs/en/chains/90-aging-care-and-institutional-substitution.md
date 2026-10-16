@@ -6,7 +6,12 @@
 >
 > **One-sentence thesis**: More older people will not automatically create a unified market in which a billion people provide hands-on care every week. More likely, care first moves from an invisible family obligation toward formal services, public/insurance payment, and cross-institution coordination, while bodily contact and long-term responsibility remain the hardest parts to copy cheaply.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-066, J-069, J-073, J-074, J-096, J-097 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ## 1. Take the problem out of AI first
 

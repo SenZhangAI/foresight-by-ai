@@ -6,7 +6,12 @@
 > **Correction (2026-10-10)**: this line used to read “This is the starting point for the entire analysis. Every more distant judgment has to step forward from here.” That sentence contradicts the side-by-side chains of the chain registry, and it breaks the constraint in [Methodology §1](../00-method.md#1-legitimate-starting-points-for-reasoning) that the five sources stand side by side, with technological regularities only one of them. It is withdrawn. The withdrawal changes only this note on where the chain sits; it changes no content, status, or confidence of any judgment card in this chain.
 > **In one sentence**: When the cost of “making something” approaches zero, value migrates wholesale to “before it is made” and “after it is made”—to **who you are, what you want, and whether you dare to take responsibility for the result**.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment sections I–IX of this chain cite — J-001, J-002, J-003, J-004 (status `REVISED`), J-005, J-017, J-035, J-065, J-072 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” **The one exception is section X (added 2026-10-10)**: it counts people under a measure frozen in advance, and the card it registers, [J-103](../ledger/103-110.md#j-103--the-society-scale-ai-action-is-asking-not-deciding-hundred-million-weekly-reach-rests-on-the-free-tier), passes Gate 1; but its boundary reaches only the single action “asking a question or handing off a low-stakes task on one’s own initiative”, and it does not raise the audience ceiling of any card above. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence. This note covers the whole file once: the identical “Scope tag · Gate 1” block that was repeated in every section before 2026-10-09 has been consolidated here, with no change to any judgment or conclusion — each card’s audience magnitude and gate reasoning have always lived only in its ledger card, and both this note and the former per-section tags are signposts to it.
+
+</details>
 
 ---
 

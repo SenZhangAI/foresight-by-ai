@@ -4,7 +4,12 @@
 
 > **One-sentence judgment**: Technical capability does not rewrite society directly. It first lowers the cost of a task, then passes through workflows, liability, authority, and scarce complementary assets. Only when those intermediaries move does capability sequence rewrite the division of labour, employment, institutions, capital, and demand.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-087–J-091 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ---
 

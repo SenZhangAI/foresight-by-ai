@@ -6,7 +6,12 @@
 >
 > **In one sentence**: the durable scarcity is not “minerals” in the abstract but **qualified conversion paths that can keep running through local water, power, and climate shocks**. A mine, warehouse, or second building is not redundancy if the replacement material, process, or site has not already passed qualification.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-056, J-061, J-092–J-095 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ## 1. 2031: three warehouses and no usable substitute
 

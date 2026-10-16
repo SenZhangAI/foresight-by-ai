@@ -4,7 +4,12 @@
 
 > **In one sentence**: AI will first make “what might this be, and what could we try?” nearly limitless; medicine will still be short of evidence, authorization, and care capacity that can responsibly turn a candidate into an intervention on a particular body.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-079–J-082 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ## 1. At 3 a.m., the screen offers twenty explanations
 

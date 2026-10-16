@@ -6,7 +6,12 @@
 >
 > **One-sentence thesis**: The human–AI relationship will first be shaped by who may authorise an action, who can revoke it, and who bears an irreversible consequence. AI can expand the scope of delegated execution without automatically becoming a legal person or bearing liability in its own right.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: every judgment this chain cites — J-009, J-031, J-055, J-065, J-070, J-098 — **does not pass Gate 1 (scale)** and is an occupational / organizational / institutional judgment. Each card’s audience ceiling is defined by its own “audience scale” and “diffusion-gate review” fields, so no step of this chain may be restated as a claim about “all society,” “generally,” or “the norm.” See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 
 ## 1. Take “agency” out of AI first
 

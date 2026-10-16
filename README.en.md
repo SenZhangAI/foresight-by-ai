@@ -6,7 +6,8 @@
 
 This is a public, reader-facing sandbox for the future, and what it reasons about is the picture of society as a whole: care, manufacturing, agriculture, logistics, and embodied robots in the physical world; attention, organizations, and capital in the information world; and population and families, power and institutions, how people work together, how people relate to AI, and meaning. It reasons from [five sources held side by side](docs/en/00-method.md#1-legitimate-starting-points-for-reasoning) — supply and demand, human nature, historical regularities, technological regularities, and social regularities — and none of them is the main axis. AI and other technical capabilities are one of the forces being reasoned about, alongside demographic structure, institutions and law, capital, physical and geographic constraints, and shifts in culture and demand; they are not the engine that drives everything. Opportunities are one destination, not the only one: ways of working together, social relationships, power, and meaning remain equally valid structural outcomes. Nor does the archive preselect a single explanatory framework: “abundance → scarcity” is an optional lens, used only when it adds explanatory power.
 
-- **Straight into the future** → [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain): the method attacked by history, then one chain.
+- **Straight into the future** → [C1 · What Becomes Unbuyable After Generation Becomes Free](docs/en/chains/10-generation-becomes-free.md): enter a concrete scene first, then follow the chain through the physical world, organizations, and institutions.
+- **For readers who want to audit the method first** → [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain): start with historical calibration, evidence boundaries, and methodology before choosing a chain.
 - **Boundary first** → [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim): who decides it, what is still unmet, what the structural check proves, and which social dimensions the coverage matrix reaches — every boundary section is gathered there, none left at the foot of the page.
 
 ## A five-minute entry: calibrate first, then follow a reasoning chain
@@ -203,21 +204,28 @@ The diagram below shows recommended reading relationships only: near, mid, and f
 
 ```mermaid
 flowchart LR
-  N[Near landscape\n2026–2028] --> M[Mid landscape\n2029–2032]
-  M --> F[Far landscape\n2033–2040]
-  N -.narrative chain.-> C1[C1 Generation]
-  M -.narrative chain.-> C2[C2 Real-world signals]
-  M -.narrative chain.-> C3[C3 Compute infrastructure]
-  N -.physical-world entry.-> C4[C4 Embodied intelligence]
-  M -.structural extension.-> C5[C5 Biomedicine]
-  M -.structural extension.-> C6[C6 Education and skills]
-  M -.social transmission.-> C7[C7 Technology and power]
-  M -.upstream constraint.-> C8[C8 Materials and climate]
-  M -.population and care.-> C9[C9 Ageing and institutional care]
-  M -.liability and trust.-> C10[C10 Collateralization of trust]
-  M -.authority and institutions.-> C11[C11 Authority before intelligence]
-  N -.capability order.-> C12[C12 Technology capability sequence]
-  M -.public finance and politics.-> C13[C13 Fiscal squeeze]
+  subgraph START[Enter through a story first]
+    C1[C1 Generation] --> C2[C2 Real-world signals]
+    C2 --> C3[C3 Compute infrastructure]
+  end
+  subgraph BODY[Physical world and care]
+    C4[C4 Embodied intelligence] --> C9[C9 Ageing and institutional care]
+    C4 -.upstream materials and climate.-> C8[C8 Materials and climate]
+  end
+  subgraph SOCIETY[Organizations, power, and relationships]
+    C7[C7 Technology and power] --> C10[C10 Collateralization of trust]
+    C10 --> C11[C11 Authority before intelligence]
+    C6[C6 Education and skills] --> C7
+    C13[C13 Fiscal squeeze] --> C9
+  end
+  subgraph PREREQ[Capability premise (not social causation)]
+    C12[C12 Technology capability sequence]
+  end
+  C3 -.deployment constraints.-> C4
+  C3 -.upstream bottlenecks.-> C8
+  C12 -.capability-arrival premise.-> C4
+  C12 -.capability-arrival premise.-> C7
+  C5 -.proof and liability.-> C10
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.

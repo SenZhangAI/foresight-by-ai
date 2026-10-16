@@ -5,7 +5,12 @@
 > **This chain extends [C1](10-generation-becomes-free.md) and the five gates in the [retrospect](../01-retrospect.md).** C1 argues that once generation becomes cheap, value concentrates in inputs that cannot be recombined; the retrospect argues that a capability's audience ceiling is set by the headcount and frequency of the activity it serves, not by the ceiling of the technology. Put the two sentences together and an uncomfortable question follows: **if AI can only move information, how many people perform the activity it serves?**
 > **In one sentence**: embodied intelligence is the **necessary complement** for AI to pass the diffusion gates, not a **sufficient condition** — without a body the population base is too small; with a body, three separate gates remain (cost per task, priced liability, and scene fragmentation), and none of them opens automatically as model capability improves.
 
+<details>
+<summary><strong>Reading boundary (story first)</strong></summary>
+
 > **Boundary note**: J-073–J-078 were written from the start at the occupational/organizational level. They describe the audience boundary of particular activities, institutions, or scenes; they are not society-wide diffusion claims. C4 is therefore not the only chain that passes the diffusion gate, and these cards must not be rewritten as claims about “all society,” “generally,” or “the norm.” This chain also cites J-091, J-096, J-097, J-099–J-102, which likewise **do not pass Gate 1 (scale)** and fall under the same boundary; see [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
+
+</details>
 >
 > **A note on identifiers**: this file calls itself C4, but chain identifiers are allocated only in the [chain registry in the README](../../../README.en.md#chain-registry). Until a C4 row appears there, this is a **candidate chain**. It also allocates no judgment identifiers (`J-NNN`): the prose carries reasoning, time windows, indicators, and counterarguments, while the cards are registered by whoever maintains the ledger.
 
