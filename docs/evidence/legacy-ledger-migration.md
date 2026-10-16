@@ -1,6 +1,7 @@
 # Legacy ledger migration: J-001–J-095 / 旧判断卡完整迁移清单
 
-> **English projection:** [legacy-ledger-migration.en.md](legacy-ledger-migration.en.md)
+> **中英双语投影规则：** 本文件与[英文对应文件](legacy-ledger-migration.en.md)是同一份历史审计清单的两个公开投影，使用相同的 J-NNN 编号并在同一次提交中同步维护；任何一方都不因语言而拥有更高的事实权威。当前判断字段的文件层级事实源仍是稳定编号的双语台账文件，而不是其中某一种语言；中英文出现差异时，应在同一次提交中修复为等价投影。
+>
 > **Closed set / 闭集**：J-001–J-095。历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`；当前卡位于 `docs/{zh,en}/ledger/`。本文件是逐卡双语审计清单，不替代台账。
 
 ## Scope and reading rules / 范围与阅读规则

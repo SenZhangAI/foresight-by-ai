@@ -1,6 +1,6 @@
 # Legacy ledger migration: J-001–J-095 (English projection)
 
-> **Projection notice.** This is the English projection of [`legacy-ledger-migration.md`](legacy-ledger-migration.md), the canonical bilingual audit inventory. It does not establish a second fact source: where wording or facts differ, the Chinese source controls.
+> **Bilingual projection rule.** This file and its [Chinese counterpart](legacy-ledger-migration.md) are two public projections of the same historical audit inventory. They share the same J-NNN identifiers and must be updated in the same commit; neither language has higher factual authority. The file-level source of truth for current judgment fields remains the stable-numbered bilingual ledger files, not either language. Any Chinese–English mismatch is a synchronization defect to repair in the same commit.
 >
 > **Closed set:** J-001–J-095. Historical source: the pre-sharding Git snapshot `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`; current cards are in `docs/{zh,en}/ledger/`. This projection is a card-by-card English historical migration audit, not a replacement for the ledgers.
 
@@ -11,7 +11,7 @@
 - **Unknown / unverified boundary:** fields absent from the historical body remain unknown/unverified. The standalone Audience scale added to current cards is reconstructed only from that card’s existing Diffusion-gate review and is labelled as reconstructed; it is not presented as a historical field or independent statistic.
 - Historical standalone Audience scale is 0/86. The historical schema kept scale inside the Diffusion-gate review, so the standalone field remains unknown rather than being invented.
 - **Evidence level:** this inventory is a historical-card migration audit, not `CALIBRATION`, relative `holdout`, or genuine future out-of-sample evidence. For delivered historical cases, see the [political calibration packet](politics-calibration.md) and the [commercial forecast calibration packet](business-forecast-calibration-2026-09.md). Cases added after outcomes were known can calibrate rule boundaries only; genuine future out-of-sample evidence arises only when preregistered cards reach their due windows. This inventory does not back-project current-card outcomes into historical snapshots.
-- **Canonical-source rule:** this projection preserves the English blocks and lineage metadata from the bilingual source. Consult the [Chinese canonical inventory](legacy-ledger-migration.md) for the controlling audit record and any bilingual context.
+- **Bilingual audit scope:** this file preserves the English blocks and lineage metadata for the same historical audit set documented in the Chinese counterpart. Consult the paired file for bilingual context; neither language controls the other.
 
 ## Coverage summary
 
