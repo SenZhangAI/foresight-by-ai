@@ -7,33 +7,41 @@ This record captures the public verification of the reading-experience update an
 - Repository: `SenZhangAI/foresight-by-ai`
 - Branch: `main`
 - Initial synchronization checkpoint: `b5b6ce2947bc18e47dc4b7afac963ff21b116402`
-- This record's publication commit: `76d816edb4a816a6f1539357c8139cb9e32604d3`
+- First audit-record commit: `76d816edb4a816a6f1539357c8139cb9e32604d3`
+- Latest verification snapshot recorded here: `d7362c77ca2f30398b78afec61b24f4a54f4d52b`
 - Reading-experience change included as an ancestor: `36d8654a1973fa56a0c93dd4f75e1a8a47229abe`
 
-After pushing the record, three independent readings of the default branch matched at `76d816edb4a816a6f1539357c8139cb9e32604d3`:
+At the verification snapshot, three independent readings of the default branch matched:
 
 ```text
 gh api repos/SenZhangAI/foresight-by-ai/commits/main --jq .sha
-76d816edb4a816a6f1539357c8139cb9e32604d3
+d7362c77ca2f30398b78afec61b24f4a54f4d52b
 
 git ls-remote https://github.com/SenZhangAI/foresight-by-ai.git refs/heads/main
-76d816edb4a816a6f1539357c8139cb9e32604d3  refs/heads/main
+d7362c77ca2f30398b78afec61b24f4a54f4d52b  refs/heads/main
 
 git rev-parse main
-76d816edb4a816a6f1539357c8139cb9e32604d3
+d7362c77ca2f30398b78afec61b24f4a54f4d52b
 
-git merge-base --is-ancestor 36d8654a1973fa56a0c93dd4f75e1a8a47229abe 76d816edb4a816a6f1539357c8139cb9e32604d3
+git merge-base --is-ancestor 36d8654a1973fa56a0c93dd4f75e1a8a47229abe d7362c77ca2f30398b78afec61b24f4a54f4d52b
 exit 0
 ```
 
+The verification snapshot is intentionally identified separately from the file's own later commits: adding a record necessarily advances `main`, so the commands above are the reproducible evidence rather than a claim that this prose can freeze a moving branch head. Re-run the same three reads before treating it as the current head.
+
 ## Mechanical check
 
-`python3 scripts/check.py` passed on the committed archive tree:
+`python3 scripts/check.py` passed on the committed archive tree. The observed command output ended with `CHECK_EXIT=0`:
 
-- 141 files checked
-- 5,013 internal links
-- 113 Chinese and 113 English judgment cards
-- 16 registered reasoning chains
+```text
+files checked      : 141
+internal links     : 5013
+judgment cards     : zh 113 / en 113
+chains registered  : 16 (C1, C10, C11, C12, C13, C14, C15, C16, C2, C3, C4, C5, C6, C7, C8, C9)
+
+all automated pre-publication checks pass
+CHECK_EXIT=0
+```
 
 ## Public rendering spot-check
 
