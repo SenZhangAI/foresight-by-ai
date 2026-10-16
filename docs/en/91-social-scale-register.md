@@ -1,7 +1,7 @@
 # Society-scale register: how many judgments clear Gate 1, and where the rest are stuck
 
 > **Judgments currently clearing Gate 1 (society-scale): 1 (`J-103`).**
-> Counted on 2026-10-10. The counting rule and how to recount it are in [section 1](#1-how-this-0-was-counted); all 107 registered judgment cards were counted card by card, and `python3 scripts/count-social-scale.py` recomputes it. The first version of this page (2026-10-09) read **0**; how the number went from 0 to 1 is at the [end of section 3](#3-answering-one-question-verbatim-where-are-all-these-people-who-need-ai-to-decide-for-them).
+> Counted on 2026-10-10. The counting rule and how to recount it are in [section 1](#1-how-this-1-was-counted); all 107 registered judgment cards were counted card by card, and `python3 scripts/count-social-scale.py` recomputes it. The first version of this page (2026-10-09) read **0**; how the number went from 0 to 1 is at the [end of section 3](#3-answering-one-question-verbatim-where-are-all-these-people-who-need-ai-to-decide-for-them).
 
 [中文版](../zh/91-social-scale-register.md)
 
@@ -11,7 +11,7 @@ This page adds **no new judgment and changes no existing card's gate verdict**. 
 
 ---
 
-## 1. How this 0 was counted
+## 1. How this 1 was counted
 
 **Definition of the numerator** (all three must hold):
 
