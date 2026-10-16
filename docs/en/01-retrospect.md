@@ -172,6 +172,12 @@ This rule is recorded as [J-070](ledger/61-70.md#j-070--when-many-parties-must-c
 
 This rule is recorded as [J-071](ledger/71-80.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling).
 
+### Commercial-history candidate B1 · Payer–beneficiary closure (not admitted to the toolbox)
+
+After calibrating Gates 3 and 4, we can state a narrower commercial candidate: an innovation that needs dedicated fixed start-up cost must identify who has authority to pay first and who can recover that cost repeatedly as usage grows; otherwise it stops at the pilot. The falsifiable definition, two passing cases, two failing cases, and independence test are in the [commercial regularity calibration evidence page](../evidence/business-regularity-calibration-2026-10-16.en.md).
+
+This round's conclusion is **do not admit it to the toolbox**: advertising for US television, a single actor subsidizing BankAmericard's start-up, Webvan's fixed cost and order-density problem, and Better Place's dedicated swap network are already carried by Gate 3 or Gate 4. B1 found no exclusive case in which every other gate passes and B1 alone says no; adding it as an L lens would count the same bottleneck twice. It leaves only a calibrated writing reminder: commercial judgments should state the fixed-cost payer, recovery path, and second use explicitly, without presenting that reminder as a new regularity.
+
 ---
 
 ## 4. Two layers: one rules on the ceiling, one on speed
