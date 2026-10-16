@@ -6,6 +6,8 @@
 
 > **Registration note (2026-10-10)**: this file used to live at `docs/en/05-tech-sequence.md`. It was written before the [chain registry](../../../README.en.md#chain-registry) existed and never received a number, so from the outside the archive looked as if it had 11 chains and as if it had 12. It is now registered as **C12** under the criteria the registry states (it advances dependencies vertically around one question, carries its testable judgments on `J-NNN` cards, and declares its lenses at the head of the page). It is one of twelve parallel chains: it answers “which capability arrives first,” but it does not decide for the other chains “what becomes abundant,” and it is not a precondition layer shared beneath them; what a capability still has to pass through after it arrives before it becomes a social consequence is answered by [C7](70-capability-to-social-consequences.md). Not a word of the prose or of the 12 cards was deleted; the old path remains as a redirect page.
 
+> **Scope update (2026-10-17)**: this chain no longer uses “technology capability” as shorthand for AI software capability. The AI sequence remains as one sub-chain; the new non-AI sections put the same question back into energy, materials/chips, life science, and embodied systems: which capabilities first appear as repeatable, verifiable local loops, and which must wait for open-world conditions, long-lived liability, and physical infrastructure. The three new cards are [J-114](../ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots), [J-115](../ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems), and [J-116](../ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity). This does not make technology the sole engine of the social picture: it fills in the internal order of one parallel force, while social consequences still return to their own chains and the five starting points. The three cards are mechanism-ordering judgments, not society-wide adoption claims; their historical-calibration boundary is recorded in the [calibration freeze](../../evidence/technology-order-calibration-2026-10-16.en.md).
+
 At four o'clock on Wednesday, Lin gives a workbench one sentence: “Turn last quarter’s customer feedback into three actionable redesigns; do not send anything yet.”
 
 Ten minutes later, the system returns three plans, prototypes, risk lists, and contradictory evidence. It has not failed because it cannot generate. It has failed because it cannot decide what to trust next. Lin asks it to check the sources, open a test environment, and rerun the validation; the system proposes new hypotheses. The decisive change is not one model suddenly learning one task. Capabilities have to arrive in an order: cheap reasoning makes attempts routine, memory connects attempts, interfaces let attempts touch an environment, and evaluation determines which actions deserve to remain.
@@ -147,7 +149,39 @@ The claim is not that a later capability must wait for an earlier one to become 
 
 > **Scope tag · Gate 1**: The cited J-015, J-016, J-001, J-006 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](../01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](../90-ledger.md#8-review-log) for card-level evidence.
 
-## 7. Boundary of the chain
+## 7. The non-AI capability chain: from modular units to the open world
+
+The order of AI software capabilities cannot stand for the entire technology landscape. Historically, units that can be standardized, copied in parallel, and locally accepted often arrive before systems that must run for a long time, carry responsibility across parties, and face physical exceptions; this is a sequencing hypothesis to test, not a new lens. The 2026-10-16 calibration freeze records this hypothesis as **not yet independently calibrated**. This section therefore keeps medium-to-low confidence, explicit falsifiers, and data gaps rather than smuggling “technology regularities” in as a validated method.
+
+### 7.1 Embodied systems: calibrated single-task loops first
+
+Fixed workcells, warehouse routes, and controlled institutions can pre-calibrate objects, space, tempo, permissions, and failure exits; open homes, construction sites, and care settings expose grasping, cleaning, coordination, liability, and exception handling at once. Embodied intelligence should therefore not first be written as “robots enter society,” but as **calibrated single-task systems gaining retention before open-task expansion**. This connects to the setting boundaries in [C4](40-embodied-intelligence.md) and the institutional-first judgment in [C9](90-aging-care-and-institutional-substitution.md), without adding a new adoption claim to either. Full judgment: [J-114](../ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots).
+
+### 7.2 Energy systems: modular generation and short-duration storage first
+
+Standardized generation components and short-duration electrochemical storage can be procured in stages and built in parallel, first settling intraday mismatch in local markets; seasonal storage, long-duration storage, nuclear, and other firm capacity still require long validation of interconnection, permits, finance, fuel/geology, and capacity responsibility. This does not pick a winning energy end state or treat falling costs as proof of whole-system substitution. It proposes only an order that can be tested against commissioned capacity, available duration, and application-to-commercial-operation time. It connects to the grid, land, and permitting constraints in [C3](30-power-land-and-permits.md). Full judgment: [J-115](../ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems).
+
+### 7.3 Chips and materials: validate conversion before turning nominal capacity into output
+
+Advanced manufacturing is constrained by more than whether a fab exists. Electronic-grade specifications, recipes, equipment service, yield, water, utility redundancy, and actual loss after climate events determine whether a substitution path can turn inputs into deliverable chips. The shared conversion nodes, validation cycles, and climate coupling in [C8](80-fab-materials-and-climate.md) should therefore be read as part of capability order: **substitution paths and stable yield are validated before nominal expansion becomes meaningful**. Full judgment: [J-116](../ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity).
+
+### 7.4 Life science: measurement and design before open-world intervention
+
+Life science has the same boundary: sequencing, imaging, screening, and model design can scale first in laboratories and controlled trials, while interventions facing human variation, long-term side effects, ethical liability, and health-system capacity move more slowly. This is a cross-domain scene, not a new card; the judgment belongs in [C5](50-biology-medicine.md), and “measuring more” must not be rewritten as “treatment arrives universally.”
+
+> **Non-AI sequence diagram (reading projection):** an arrow means reliable use treats the earlier capability as a substrate, not that it must become perfect first.
+>
+> ```mermaid
+> flowchart LR
+>   A[J-114 calibrated single-task embodied loop] --> B[open-world multi-task embodied system]
+>   C[J-115 modular generation and short-duration storage] --> D[long-duration storage and firm capacity]
+>   E[J-116 validated conversion path and stable yield] --> F[deliverable advanced capacity expansion]
+>   G[measurement, screening, and design] --> H[open-world life-science intervention]
+> ```
+
+The three new cards do not mean that technology automatically becomes a social trend. They separate **repeatable local capabilities** from **system capabilities that carry long-lived responsibility**. Adoption, institutions, capital allocation, and population scale must be judged separately by [C7](70-capability-to-social-consequences.md) and the relevant domain chains.
+
+## 8. Boundary of the chain
 
 The strongest opposing mechanism is not simply “technology may slow down.” Specialized systems, human procedures, and vendor packaging may hide memory, tools, and evaluation inside one product, making the capabilities appear simultaneous. Or energy, hardware supply, and data access may hold reasoning costs on a plateau, preventing parallel attempts from becoming widespread. If either mechanism persists, the windows for [J-001](../ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) and [J-006](../ledger/01-10.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy) move, and the later order must be rearranged.
 

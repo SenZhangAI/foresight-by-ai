@@ -145,7 +145,7 @@
 
 仓库提供一个结构检查命令 `python3 scripts/check.py`，用于发现双语编号、内部链接和必要字段等机械不一致。它不判断推演质量、历史证据是否充分、预测是否准确，也不代表项目已经完成或适合发布。公开读者应以方法、判断卡、证据边界和研究缺口为准，而不是把结构检查的通过理解为内容质量证明。
 
-本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 113 张判断卡片、16 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
+本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 116 张判断卡片、16 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
 
 ### 全景覆盖矩阵（当前边界）
 
@@ -168,7 +168,7 @@
 | 社会关系演进 | 部分覆盖 | [远期图景第 7 节](docs/zh/30-far.md#7-社会关系以家庭照护为例先变的是谁来做而不是关系还在不在)；[J-096](docs/zh/ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)、[J-100](docs/zh/ledger/96-102.md#j-100--具身照护先重分配家庭角色而非消除家庭照护关系)（家庭照护角色，千万量级）、J-041；J-042 仍为「仅图景」，卡上写明缺什么 | 第 7 节只以家庭照护为例，婚恋、友谊、社区、代际等关系尚未覆盖；中、日、印等国的合格照护者周口径；「强关系数量不随通信成本下降而扩大」这条子规律尚无历史对照组 |
 | 算力的上游物料与气候耦合 | 部分覆盖 | [C8 材料与气候](docs/zh/chains/80-fab-materials-and-climate.md)；J-092–J-095 | 跨企业验证周期、多场址气候减产、保险与成本分摊序列 |
 | 技术能力出现次序的社会后果 | 已覆盖 | [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md)；J-087–J-091 | 跨国长期组织数据仍是证据缺口 |
-| 技术能力到达次序 | 已覆盖 | [C12 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)；[J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降)、J-006–J-016 | 「哪类能力先到」在 L1–L9 中无透镜承载；能力到达不等于采用，采用与社会后果由 C7、C4 承接 |
+| 技术能力到达次序 | 已覆盖 | [C12 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)；[J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降)、J-006–J-016、[J-114–J-116](docs/zh/ledger/117-120.md) | 「哪类能力先到」在 L1–L9 中无透镜承载；能力到达不等于采用，采用与社会后果由 C7、C4 承接 |
 | 人口老龄化与家庭照护 | 部分覆盖 | [C9 人口老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)；[J-096](docs/zh/ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)–J-097；[C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md)；J-109–J-111 | 照护者去重分母、机构部署与留存、家庭设备事故与维护成本；C15 已补入住房、迁移与生育的第一轮入口，但具体城市、宗教、财富分配与难民迁移仍未覆盖 |
 | 城市化与住房 | 已覆盖 | [C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md)；[J-109](docs/zh/ledger/111-113.md#j-109--住房成本会继续把家庭形成推迟到更晚更少数的可负担地点) | 都市区住房许可、租金负担与家庭形成的跨国可比序列仍需补强；C15 不代填具体城市项目效果 |
 | 移民与人口流动 | 已覆盖 | [C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md)；[J-110](docs/zh/ledger/111-113.md#j-110--迁移是劳动力与照护的缓冲器不是人口老化的逆转器) | 国内迁移、难民与非正规迁移、资格互认和政治整合的长期序列仍缺 |
@@ -279,7 +279,7 @@ flowchart LR
 | C9 | 人口老龄化与制度化照护：谁承担每天的身体与协调工作 | **已有 calibration 支持**：日本、瑞典等制度案例用于 calibration；全球分母与家庭设备证据未闭合 | [中文](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [English](docs/en/chains/90-aging-care-and-institutional-substitution.md) · [链文的历史先验](docs/zh/chains/90-aging-care-and-institutional-substitution.md#2-历史先验照护压力会改写载体不保证家庭动作消失) · [J-096–J-097](docs/zh/90-ledger.md) |
 | C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | **仅图景／证据未闭合**：锚定 J-035 的机制延伸，尚未证明责任抵押普遍化 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/zh/ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) · [链文证据边界](docs/zh/chains/100-trust-collateralization.md) |
 | C11 | 授权先于智能：代理、责任与人与 AI 的关系 | **已有 calibration 支持**：委托与责任制度有历史先验；跨制度事故、撤回和保险数据未闭合 | [中文](docs/zh/chains/110-authority-before-intelligence.md) · [English](docs/en/chains/110-authority-before-intelligence.md) · [链文证据边界](docs/zh/chains/110-authority-before-intelligence.md#6-证据边界与后续检查) · [J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) |
-| C12 | 技术能力演进链：什么先到，什么才因此成为可能 | **已写成但证据仍开放**：能力次序有外部对照；12 张卡在闸一复核中全部降级为职业／组织性判断，「哪类能力先到」在 L1–L9 中无透镜承载（见页首透镜声明） | [中文](docs/zh/chains/120-technology-capability-sequence.md) · [English](docs/en/chains/120-technology-capability-sequence.md) · [J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降) · [J-006–J-016](docs/zh/90-ledger.md) |
+| C12 | 技术能力演进链：什么先到，什么才因此成为可能 | **已写成但证据仍开放**：能力次序有外部对照；原有 12 张卡在闸一复核中全部降级为职业／组织性判断，现新增 3 张非 AI 技术次序卡；「哪类能力先到」在 L1–L9 中无透镜承载（见页首透镜声明） | [中文](docs/zh/chains/120-technology-capability-sequence.md) · [English](docs/en/chains/120-technology-capability-sequence.md) · [J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降) · [J-006–J-016](docs/zh/90-ledger.md) |
 | C13 | 财政挤压：刀先落在谁身上 | **已写成但证据仍开放**：英、美、日、意、法等先例只作叙事性对照；唯一经过 2+2 校准的 L10（只用否决向）已于 2026-10-10 被反例推翻撤出，各步骤现在都标为无承载透镜；三张卡都没过闸一，65 岁以上每周有酬工作按冻结口径判 C · D 档 | [中文](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [English](docs/en/chains/130-fiscal-squeeze-who-gets-cut.md) · [J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) · [冻结记录](docs/evidence/older-workers-freeze-2026-10-10.md) · [判定与检查日志](docs/evidence/older-workers-verdict-2026-10-10.md) |
 | C14 | 选票与安全账本：制度先吸收冲击，社会不会自动同质化 | **已写成但证据仍开放**：英国公投、英国国防／ODA 重排与北约承诺提供历史／政治校准；J-108 只在各国本国官方新安全触发事件后的 365 天内比较四国 A/B 制度响应，战争、极化与所有国家仍未覆盖 | [中文](docs/zh/chains/140-ballots-and-security-ledgers.md) · [English](docs/en/chains/140-ballots-and-security-ledgers.md) · [J-108](docs/zh/ledger/103-110.md#j-108--安全承诺先变成预算与产业政策选举制度改变不是第一响应) · [外部来源 EXT-96、EXT-105、EXT-116](docs/zh/90-ledger.md#九本轮外部对照来源) |
 | C15 | 家庭的三只时钟：住房、迁移与生育如何共同改写社会 | **已写成但证据仍开放**：住房、迁移与生育有 OECD 资料与历史对照入口；J-109–J-111 是制度性判断，具体城市、国内迁移、宗教与财富分配仍未闭合 | [中文](docs/zh/chains/150-households-three-clocks.md) · [English](docs/en/chains/150-households-three-clocks.md) · [J-109–J-111](docs/zh/ledger/111-113.md) · [外部来源 EXT-117–EXT-119](docs/zh/90-ledger.md) |

@@ -33,7 +33,8 @@
 - [22. Judgment cards for the C13 fiscal-squeeze chain](#22-judgment-cards-for-the-c13-fiscal-squeeze-chain)
 - [23. Judgment card for C14: Ballots and Security Ledgers](#23-judgment-card-for-c14-ballots-and-security-ledgers)
 - [24. Judgment cards for C15: Three Clocks of the Household](#24-judgment-cards-for-c15-three-clocks-of-the-household)
-- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [From J-103](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md)
+- [25. New C12 technology-sequencing judgment cards](#25-new-c12-technology-sequencing-judgment-cards)
+- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [From J-103](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md) · [J-114–J-116](ledger/117-120.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
@@ -207,6 +208,9 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-111](#j-111--fertility-policy-is-more-likely-to-change-timing-and-gaps-than-restore-replacement-fertility-across-the-oecd) | 2026-10-16 | By 2035 most OECD countries remain below 2.1 fertility; policy is more likely to change timing and gaps than restore replacement fertility | 2026-01-01 to 2035-12-31 | Medium | J-109, J-110 | [C15: Three Clocks of the Household](chains/150-households-three-clocks.md) | Consistent with the OECD below-replacement consensus; policy mixes may recover some outcomes, but causal estimates remain open. | ACTIVE | 2028-12-31 |
 | [J-112](#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access) | 2026-10-17 | 2027–2032 offline cultural participation remains constrained by fragmented leisure, ticket prices, and access; streaming substitutes for some slots | 2027-01-01 to 2032-12-31 | Medium | J-109, J-111 | [C16: Culture, Climate, and Everyday Carrying Capacity](chains/160-culture-climate-mobility.md) | Consistent with time, price, and access mechanisms; substitution and cross-city data remain open. | ACTIVE | 2028-12-31 |
 | [J-113](#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption) | 2026-10-17 | From 2027–2035, exposure-related shocks are more likely to widen low-income risk first through insurance gaps, adaptation shortfalls, and travel disruption; specific disasters remain uncertain | 2027-01-01 to 2035-12-31 | Medium | J-061, J-095, J-109 | [C16: Culture, Climate, and Everyday Carrying Capacity](chains/160-culture-climate-mobility.md) | Consistent with uneven climate risk and adaptation capacity; regional outcomes and magnitude remain open. | ACTIVE | 2029-12-31 |
+| [J-114](#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots) | 2026-10-17 | From 2027–2035, embodied systems stabilise first in calibrated single-task loops, then expand toward open-home, construction, and care multi-task settings | 2027-01-01 to 2035-12-31 | Medium | J-073, J-076, J-097 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with controlled-setting priority; does not turn a demonstration into open-world adoption, and cross-setting retention data remain thin. | ACTIVE | 2030-12-31 |
+| [J-115](#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems) | 2026-10-17 | From 2027–2035, standardized renewable generation plus short-duration storage first forms repeatable local combinations; long-duration and firm-capacity systems arrive later | 2027-01-01 to 2035-12-31 | Low to medium | J-056, J-058, J-063 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with interconnection, permitting, and capacity-responsibility constraints; does not turn cost decline into whole-system substitution, and exact ordering remains data-dependent. | ACTIVE | 2030-12-31 |
+| [J-116](#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity) | 2026-10-17 | From 2027–2035, advanced-chip expansion is first constrained by yield, electronic-grade conversion, equipment service, and utility validation, then by the number of nominal fabs | 2027-01-01 to 2035-12-31 | Medium | J-069, J-092, J-094, J-095 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with joint constraints from materials, equipment, process, and geographic concentration; does not treat one outage or a risk map as evidence of ordering. | ACTIVE | 2030-12-31 |
  2026-10-16 | By 2035, fertility remains below 2.1 in most OECD countries; policy is more likely to change timing and country differences than restore replacement fertility | 2026-01-01 to 2035-12-31 | Medium | J-109, J-110 | [C15: Three Clocks of the Household](chains/150-households-three-clocks.md) | Consistent with the OECD below-replacement direction; retains the divergence that policy bundles can produce limited recovery without a broad rebound, while causal evaluation remains open. | ACTIVE | 2028-12-31 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
@@ -220,7 +224,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-113; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-116; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -336,6 +340,9 @@ J-110 <- J-096, J-105, J-107
 J-111 <- J-109, J-110
 J-112 <- J-109, J-111
 J-113 <- J-061, J-095, J-109
+J-114 <- J-073, J-076, J-097
+J-115 <- J-056, J-058, J-063
+J-116 <- J-069, J-092, J-094, J-095
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -815,6 +822,10 @@ This comparison followed the independent reasoning. External material marks agre
 > **C3 comparison round closed (19 September 2026)**: EXT-21 through EXT-32 were added here. All nine cards J-056–J-064 have now completed their first external comparison, and no ACTIVE judgment in this ledger is still marked "unknown / comparison not completed" (**this clause went void the same day**: the later O-002 opportunity-durability review added J-065, which is a product of that re-review, has not been compared yet, and is marked "unknown" per the methodology until the next round). The added comparison surfaced three cases where the **falsifier is currently not computable**, each written into the card itself rather than hidden: J-057 (large-load contract terms are commercially confidential and no public statistics on terms exist), J-058 (no statistics on contracted data-centre demand-response capacity broken out by industry), and J-063 (no public data comparing the explanatory power of electricity price versus interconnection wait time for siting). One **frequently misused source is also corrected**: EXT-19 (LBNL *Queued Up*) covers generation and storage interconnection queues only and **does not cover the load side**, so it must not be used as evidence about data-centre siting or large-load queues.
 
 > **C4 comparison round closed (20 September 2026)**: EXT-41 through EXT-47 were added here, and all six cards J-073–J-078 completed their first external comparison with the three elements present, so this registration adds no judgment marked "unknown / comparison not completed." **The evidential strength of this batch must be read honestly**: only EXT-45 (IFR) is an industry-level statistic; EXT-41, EXT-42 and EXT-43 are **order-of-magnitude** and existence evidence (O\*NET covers the United States only); EXT-44, EXT-46 and EXT-47 are **a single prototype or a single company case**, with EXT-46's shutdown possibly driven jointly by funding and management reasons and EXT-47 being vendor self-description. The four data series that matter most to this chain were **all unavailable this round**, and each is written into the cards rather than hidden: (1) cost-per-task time series by scene; (2) insurance rates and liability rulings for embodied work; (3) the learning curve of deployment hours per unit; (4) deployment scale and retention in care worldwide. Confidence for J-073–J-078 therefore stays at Medium across the board, and none of these cards may be cited as grounds for "embodied intelligence is about to diffuse."
+
+- **EXT-120**: Comparative city data on time use, cultural participation, and digital entertainment; supports mechanism comparison about time budgets, prices, access, and streaming substitution, but not a city ranking or long-run causal claim.
+>
+- **EXT-121**: Comparative data on climate exposure, insurance, adaptation investment, and travel disruption; supports mechanism comparison about risk transmission and uneven adaptation capacity, but not a specific disaster, regional magnitude, or timetable.
 
 ## 10. Judgment cards for technology and cross-domain chains
 
@@ -1527,6 +1538,21 @@ hand before publishing:
 - **Full card**: [Open the complete J-113 card](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
 - **One-sentence judgment**: From 2027 to 2035, households and local governments in highly exposed places are more likely to bear environmental shocks first through insurance gaps, inadequate adaptation investment, and travel disruption, with greater risks to discretionary consumption and housing stability among low-income households and fiscally weak places; particular disasters and magnitudes are not certain forecasts.
 
+#### J-114 · Calibrated single-task embodied systems precede open-world general robots
+
+- **Full card**: [Open the complete J-114 card](ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots)
+- **One-sentence judgment**: From 2027 to 2035, embodied systems are more likely to stabilize first as calibrated single-task loops in workcells, warehouses, institutions, and controlled services, then expand into multi-task robots for open homes, construction sites, and care; one successful demonstration is not a retained, society-scale service.
+
+#### J-115 · Modular generation and short-duration storage precede dispatchable long-duration systems
+
+- **Full card**: [Open the complete J-115 card](ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems)
+- **One-sentence judgment**: From 2027 to 2035, in new power projects, standardized renewable generation plus short-duration electrochemical storage is more likely to form a repeatable local combination first; long-duration storage, nuclear, or other dispatchable low-carbon systems reaching comparable stable scale still require longer interconnection, permitting, financing, and operating-validation cycles.
+
+#### J-116 · Chip expansion is first constrained by yield and validated conversion paths, then by nominal capacity
+
+- **Full card**: [Open the complete J-116 card](ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity)
+- **One-sentence judgment**: From 2027 to 2035, expansion of advanced chips and critical materials is more likely to be constrained first by jointly validated electronic-grade conversion, equipment service, process yield, water, and climate-resilience paths than by the number of announced fabs; only validated substitution paths and stable yield turn nominal capacity into deliverable output.
+
 ## 25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity
 
 > C16 has two full cards for culture/leisure and climate/environment; transport is landscape only, while religion and belief, public safety and crime, and income/wealth distribution are not yet covered. See the [C16 chain](chains/160-culture-climate-mobility.md).
@@ -1534,5 +1560,13 @@ hand before publishing:
 - [J-112](ledger/114-116.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
 - [J-113](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
 
-- **EXT-120**: Comparative city data on time use, cultural participation, and digital entertainment; mechanism comparison only.
-- **EXT-121**: Comparative data on climate exposure, insurance, adaptation investment, and travel disruption; mechanism comparison only.
+
+## 25. New C12 technology-sequencing judgment cards
+
+> C12 adds three non-AI technology-ordering cards: calibrated embodied single-task loops, modular energy and short-duration storage, and validated conversion and yield paths in chip materials. They complete the internal order of one parallel force—technology—without turning capability into social adoption. Historical calibration is not complete; full fields are in the [J-114–J-116 shard](ledger/117-120.md).
+
+- [J-114](ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots): controlled single-task embodied systems precede open-world multi-task systems.
+- [J-115](ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems): modular generation and short-duration storage precede long-duration and firm-capacity systems.
+- [J-116](ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity): validated conversion paths and stable yield precede nominal capacity becoming deliverable output.
+
+- **Calibration boundary**: this round did not register “modular, copyable, locally accepted capabilities arrive first” as a new L1–L9 lens. The calibration freeze marks it as a sequencing hypothesis to test, so all three cards retain medium-to-low confidence and an indeterminate exit.
