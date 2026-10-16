@@ -98,6 +98,8 @@ Readers should keep three things distinct:
 
 What this entrance can honestly offer today is a method archive with **partial calibration executed, unmet conditions made explicit, and the re-review obligation preserved**—not a forecasting system already shown to be accurate. See [Judgment Evolution](docs/en/03-evolution.md) for details and commit anchors.
 
+**Public landing record (2026-10-16)**: the anonymous `main` pointer verified for this publication was `773265b8bfb71e3b2e91ae47c7e61f965331bd61`, which contains target commit `54d4573dd3de072f08fff57fb808f49a12522b96`; the target tree's archive run of `python3 scripts/check.py` exited `0`. This records public landing and structural checks, not a claim about reasoning quality or forecast accuracy.
+
 #### How to read the historical-calibration numbers
 
 The following numbers are deliberately retained because their scopes differ and they must not be substituted for one another: the **first cross-domain evidence slice** contains `2` reconstructable pairs (`P-04`, `B-WEBVAN`) + `1` unknown candidate (`T-SHUTTLE`); [historical-calibration-round-2026-10.en.md](docs/evidence/historical-calibration-round-2026-10.en.md) is an earlier archival round record of that same `P-04`, `B-WEBVAN`, `T-SHUTTLE` set, not a second sample and not additive; the **next evidence batch** contains `4` records, of which `3` are `CALIBRATION` (the first two are carried-forward records and only `B-ETOYS` is added in that batch) + `1` unknown candidate. Use the [evidence navigation](docs/en/01-retrospect.md#103-latest-cross-domain-evidence-slice-and-next-batch-classes-windows-and-metric-definitions-2026-10) for slice/batch scope; use the **6-pair** total above for the repository-wide archive.
