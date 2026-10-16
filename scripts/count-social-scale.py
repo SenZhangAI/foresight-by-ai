@@ -59,7 +59,24 @@ GATE1_FAIL = {
 
 GATE1_NOT_APPLICABLE = {
     "zh": re.compile(r"闸一不适用"),
-    "en": re.compile(r"Gate 1 does not apply"),
+    "en": re.compile(r"(?:Gate 1 does not apply|Not applicable)"),
+}
+
+# Some pre-existing cards encode the diffusion decision in the audience-scale
+# paragraph rather than carrying a dedicated gate field. Keep that historical
+# card text unchanged and derive only the same two register buckets from the
+# explicit denominator wording. Unknown legacy shapes remain unparsable.
+LEGACY_GATE = {
+    "zh": {
+        "not_applicable": re.compile(r"实际重复执行者／行为分母＝不适用"),
+        "fail": re.compile(r"当前没有跨国统一分母，不能声称亿级普及"),
+    },
+    "en": {
+        "not_applicable": re.compile(
+            r"actual repeated actors/behaviour denominator = not applicable"),
+        "fail": re.compile(
+            r"no cross-country common denominator exists, so billion-scale diffusion is not claimed"),
+    },
 }
 
 # A pass that the card itself has taken back. Matched against the whole card so
@@ -114,10 +131,27 @@ def tally(lang, verbose):
         gate = field(body, FIELD[lang]["gate"])
         conf = field(body, FIELD[lang]["conf"])
         status = field(body, FIELD[lang]["status"])
-        if gate is None or conf is None or status is None:
-            unparsable.append((jid, path, "missing gate, confidence or status field"))
+        if conf is None or status is None:
+            unparsable.append((jid, path, "missing confidence or status field"))
             continue
-        if GATE1_PASS[lang].search(gate):
+        if gate is None:
+            if LEGACY_GATE[lang]["not_applicable"].search(body):
+                gate_kind = "not_applicable"
+            elif LEGACY_GATE[lang]["fail"].search(body):
+                gate_kind = "fail"
+            else:
+                unparsable.append((jid, path, "missing gate field"))
+                continue
+        elif GATE1_PASS[lang].search(gate):
+            gate_kind = "pass"
+        elif GATE1_FAIL[lang].search(gate):
+            gate_kind = "fail"
+        elif GATE1_NOT_APPLICABLE[lang].search(gate):
+            gate_kind = "not_applicable"
+        else:
+            unparsable.append((jid, path, "no readable Gate 1 verdict"))
+            continue
+        if gate_kind == "pass":
             passes.append(jid)
             if REVOKED[lang].search(body):
                 revoked.append(jid)
@@ -125,12 +159,10 @@ def tally(lang, verbose):
                 landscape.append(jid)
             if not status.rstrip("。.!` ").strip() == "ACTIVE":
                 inactive.append(jid)
-        elif GATE1_FAIL[lang].search(gate):
+        elif gate_kind == "fail":
             fails.append(jid)
-        elif GATE1_NOT_APPLICABLE[lang].search(gate):
+        elif gate_kind == "not_applicable":
             not_applicable.append(jid)
-        else:
-            unparsable.append((jid, path, "no readable Gate 1 verdict"))
 
     usable = [j for j in passes
               if j not in revoked and j not in landscape and j not in inactive]
