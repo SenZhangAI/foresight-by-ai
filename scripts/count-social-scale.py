@@ -6,13 +6,15 @@ registered judgments currently clear Gate 1 *and* are permitted to be written
 at society scale. That number is the whole point of the page, so it must be
 re-derivable by any reader in one command rather than trusted.
 
-The numerator has three conditions, all of which must hold:
+The numerator has four conditions, all of which must hold:
 
   1. the card's diffusion-gate review field records that Gate 1 PASSES;
   2. that pass has not been revoked in place on the card itself;
   3. the card is not landscape-only (confidence is neither `低`/`Low` nor
      `低（仅图景）`/`Low (landscape only)`) -- the methodology forbids using a
-     landscape-only entry as a judgment at all.
+     landscape-only entry as a judgment at all;
+  4. the card's status is ACTIVE -- a revised or otherwise non-active card is
+     not part of the current usable numerator.
 
 Both language projections are counted separately and compared: they are two
 projections of the same judgment, so a disagreement is a finding, not noise.

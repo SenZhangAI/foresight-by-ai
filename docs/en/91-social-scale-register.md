@@ -13,11 +13,12 @@ This page adds **no new judgment and changes no existing card's gate verdict**. 
 
 ## 1. How this 1 was counted
 
-**Definition of the numerator** (all three must hold):
+**Definition of the numerator** (all four must hold):
 
 1. the card's "Diffusion-gate review" field records that **Gate 1 passes**;
 2. that pass has **not been revoked in place**;
-3. the card is not landscape-only — its confidence is neither `Low` nor `Low (landscape only)`. The [methodology](00-method.md#4-judgment-cards-the-five-part-requirement-and-ids) rules that an entry missing a required field, or carrying low confidence, may only be labelled landscape-only and may not be used as a judgment — so a landscape-only card does not constitute a usable society-scale judgment even when Gate 1 passes.
+3. the card is not landscape-only — its confidence is neither `Low` nor `Low (landscape only)`. The [methodology](00-method.md#4-judgment-cards-the-five-part-requirement-and-ids) rules that an entry missing a required field, or carrying low confidence, may only be labelled landscape-only and may not be used as a judgment — so a landscape-only card does not constitute a usable society-scale judgment even when Gate 1 passes;
+4. the card's `Status` is `ACTIVE`; a non-active status such as `REVISED` is excluded from the current usable numerator even when its Gate 1 record still says PASS.
 
 **Result of the card-by-card count (updated 2026-10-16, all 108 cards; the 2026-10-09 first version counted 102 cards and 0 passes):**
 
@@ -28,7 +29,7 @@ This page adds **no new judgment and changes no existing card's gate verdict**. 
 | "Diffusion-gate review" records Gate 1 **PASS** | **5** | `J-029`, `J-042`, `J-053`, `J-054`, `J-103` |
 | ↳ of which the society-scale writing permission was revoked in place | 1 | `J-029`, corrected in place by the 2026-10-09 isolated blind re-review |
 | ↳ of which confidence is `Low` or `Low (landscape only)` | 3 | `J-042`, `J-053`, `J-054`; the cards' own "What can be done now" is marked "Landscape only" |
-| **Judgments clearing Gate 1 and permitted to be written at society scale** | **1** | `J-103`: the first four fall into the two groups above and do not satisfy the numerator; `J-103` satisfies all three conditions (confidence `Medium`, not revoked) |
+| **Judgments clearing Gate 1 and permitted to be written at society scale** | **1** | `J-103`: the first four fall into the two groups above and do not satisfy the numerator; `J-103` satisfies all four conditions (confidence `Medium`, not revoked, status `ACTIVE`) |
 
 **How to recount:** run `python3 scripts/count-social-scale.py` (no dependencies, read-only, seconds). It reads three fields per card — Diffusion-gate review, Confidence, Status — counts both language projections separately, and prints the list; every number on this page should match its output. Without the script: search `docs/en/ledger/` for `Gate 1 **PASS**`, find five cards, then read each card's confidence and status note; `J-108`'s “Gate 1 does not apply” is listed separately and is not part of the society-scale denominator.
 
