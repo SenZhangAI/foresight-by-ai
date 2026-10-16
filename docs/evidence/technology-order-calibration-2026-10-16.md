@@ -17,7 +17,7 @@ R-T2 要求阶段分离：原型或组件价格下降不算系统成功；只有
 | 编号 | T 与冻结排序 | 结果及与规则的关系 | 证据状态 |
 |---|---|---|---|
 | T-CONT | 1956-04-26 Ideal X 首航；预测为本组最早「是」 | 现代集装箱化从 Ideal X 装载 58 个拖车车厢开始。里士满联储的历史材料报告，传统装卸约 5.83 美元／吨，而集装箱装船低于 0.16 美元／吨；IICL 记录其后来成为每年涉及数亿集装箱货物单元的全球多式联运系统。**成功案例，与预测一致。** | 成本对比是装卸成本，不是全航程社会成本；扩散来源是定性证据。 |
-| T-PV | 1954-04-25 贝尔实验室展示；预测为「是」，但晚于 T-CONT | Bell System Memorial 报告早期硅电池效率约 6%。OWID 世界序列给出的光伏组件成本为：1975 年 132.3757、2010 年 2.5118067、2024 年 0.26518628（单位沿用图表定义）；累计装机 CSV 给出：2000 年 0.756669 GW、2010 年 39.84921 GW、2020 年 710.7258 GW、2024 年 1866.8978 GW。**成功案例，与预测一致，但保留组件／系统边界。** | 价格和装机序列分别是组件与累计装机，不是全项目发电成本；1954 原型不算系统成功。 |
+| T-PV | 1954-04-25 贝尔实验室展示；预测为「是」，但晚于 T-CONT | Bell System Memorial 报告早期硅电池效率约 6%。OWID 世界序列给出的光伏组件成本为：1975 年 132.3757、2010 年 2.5118067、2024 年 0.26518628（单位沿用图表定义）；累计装机 CSV 给出：2000 年 0.756669 GW、2010 年 39.84921 GW、2020 年 710.7258 GW、2024 年 1866.8978 GW。为满足 R-T2 的同一系统边界，IRENA 的可比全系统 LCOE 还报告：2010 年全球加权光伏 LCOE 比最便宜化石燃料方案高 414%，2023 年则低 56%；这与累计光伏发电系统扩散共同构成系统级闭合，组件价格仅作学习曲线的补充。**成功案例，与预测一致。** | 价格序列是组件成本；但系统级闭合使用 IRENA 的 LCOE 与累计装机：前者把 2010 与 2023 作为同一光伏发电系统的可比单位成本，后者是跨场址扩散。组件价格仍是补充证据，不是把组件与全系统价格直接比较；1954 原型也不算系统成功。 |
 | T-NUC | 1954-06-27《原子能法》签署；预测对「最先低价规模扩散」判**否** | OECD NEA 2020 年研究称，第三代反应堆在若干地区出现延期和建设成本超支，挑战核电竞争力；并把统一法规、标准、许可、融资，以及 SMR／先进反应堆列为仍需解决的降本工作。IAEA 的 2023 数据显示核电约占全球发电量 10%，发电量同比增加 2.6%；这是实际规模，但不是最先、广泛低价复制的证据。**负例对照与判否一致。** | 「低价」不是单一全球电价；IAEA 的规模数字也不是全系统价格序列。这是有边界的负结果，不是「核电失败」。 |
 | T-SST | 1962-11-05 SST 计划阶段；预测对「最先低价大众客运扩散」判**否** | Smithsonian 记录协和式飞机 1976 年开始服务、16 架量产机（共造 20 架）、最多 100 名乘客、平均往返票价超过 12,000 美元、高运营成本、航线收缩，并于 2003 年退役；许多航班只有半满。GAO 1978 年报告称机场地方选择权可能不是可行的协和噪声监管方式，并认为需要明确的联邦标准。**负例对照与判否一致。** | 目标是低价大众复制，不是技术飞行或高价服务；事故、制造商停止支持和 2001 年后需求下降是混杂因素，但不抹去成本／监管证据。 |
 
@@ -65,6 +65,7 @@ L11 作为当前透镜纳入，但本轮校准不产生 holdout。任何此前�
 - Bell System Memorial，*Bell Labs—Photovoltaics*：<https://memorial.bellsystem.com/belllabs_photovoltaics.html>（1954 年展示；约 6% 效率）。
 - Our World in Data，*Solar PV module cost* CSV：<https://ourworldindata.org/grapher/solar-pv-prices.csv>（冻结后直接抓取；数字见上）。
 - Our World in Data，*Solar photovoltaic cumulative capacity* CSV：<https://ourworldindata.org/grapher/solar-pv-cumulative-capacity.csv>（冻结后直接抓取；数字见上）。
+- IRENA，*Renewable Power Generation Costs in 2023*：<https://www.irena.org/Publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023>（2010 与 2023 光伏 LCOE 的同口径比较；检索摘要给出相对化石燃料的数字）。
 - 美国能源部，*Solar Achievements Timeline*：<https://www.energy.gov/cmei/systems/solar-achievements-timeline>（2008 年实际与反事实组件成本估计；反事实数字不是市场价格）。
 - OECD Nuclear Energy Agency，*Unlocking Reductions in the Construction Costs of Nuclear*：<https://www.oecd.org/en/publications/unlocking-reductions-in-the-construction-costs-of-nuclear_33ba86e1-en.html>（2020 年成本／标准／许可／融资研究；本运行时页面保护限制了直接抓取）。
 - IAEA，*Nuclear Power Data and Operating Experience for 2023*：<https://www.iaea.org/newscenter/news/iaea-releases-nuclear-power-data-and-operating-experience-for-2023>（2023 年规模与发电量；本运行时页面保护限制了直接抓取）。
