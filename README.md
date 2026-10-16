@@ -21,7 +21,7 @@
 - [跨领域历史校准证据切片（规范公开入口）](docs/evidence/historical-calibration-2026-10-02.md)：逐案查看 `P-04`、`B-WEBVAN`、`T-SHUTTLE` 的 2+1 分类、原始定位、同口径指标与证据等级边界。
 - [历史校准轮档案（与规范切片同一组 2+1，不重复计数）](docs/evidence/historical-calibration-round-2026-10.md)：保留较早轮次的完整叙述，案例为 `P-04`、`B-WEBVAN`、`T-SHUTTLE`，不与规范切片相加。
 - [下一批历史预测—结果证据记录](docs/evidence/historical-calibration-next-batch-2026-10-02.md)：查看批次范围；其中 4 条记录包含 3 条校准配对（前两条沿用切片记录，`B-ETOYS` 为本批新增）与 1 条未知候选。
-- [社会规律校准（2026-10-10）](docs/evidence/social-regularity-calibration-2026-10-10.md)：用政治史的成败案例校准两条社会规律候选——「受益者锁定」只以否决向入库为 L10，「偏好伪装级联」因无法判否未入库；另登记本轮新找到的 4 条预测失准案例，均不升入合格计数。
+- [社会规律校准（2026-10-10）](docs/evidence/social-regularity-calibration-2026-10-10.md)：用政治史的成败案例校准两条社会规律候选——「受益者锁定」以否决向入库为 L10，同日按冻结的窗口定义被美国联邦遗产税反例推翻、已撤出工具箱，「偏好伪装级联」因无法判否未入库；另登记本轮新找到的 4 条预测失准案例，均不升入合格计数。
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
 - [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订，以及隔离重审两轮的执行记录与仍未闭合的三项（运行时间、第二轮原始输出、受众字段泄漏）。
@@ -228,7 +228,7 @@ flowchart LR
 
 | 中文 | English | 读到什么 |
 |---|---|---|
-| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断字段、十种透镜、机会耐久闸与三个出口 |
+| [推演方法论](docs/zh/00-method.md) | [Foresight Methodology](docs/en/00-method.md) | 判断字段、九种透镜（L10 已撤出）、机会耐久闸与三个出口 |
 | [历史回顾](docs/zh/01-retrospect.md) | [Retrospect](docs/en/01-retrospect.md) | 五道普及闸及其反例攻击 |
 | [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查，以及隔离重审两轮的执行记录与仍未闭合的三项 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
@@ -258,7 +258,7 @@ flowchart LR
 | C10 | 信任抵押化：当表达不再证明能力，谁为结果承担后果 | **仅图景／证据未闭合**：锚定 J-035 的机制延伸，尚未证明责任抵押普遍化 | [中文](docs/zh/chains/100-trust-collateralization.md) · [English](docs/en/chains/100-trust-collateralization.md) · [J-035](docs/zh/ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) · [链文证据边界](docs/zh/chains/100-trust-collateralization.md) |
 | C11 | 授权先于智能：代理、责任与人与 AI 的关系 | **已有 calibration 支持**：委托与责任制度有历史先验；跨制度事故、撤回和保险数据未闭合 | [中文](docs/zh/chains/110-authority-before-intelligence.md) · [English](docs/en/chains/110-authority-before-intelligence.md) · [链文证据边界](docs/zh/chains/110-authority-before-intelligence.md#6-证据边界与后续检查) · [J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) |
 | C12 | 技术能力演进链：什么先到，什么才因此成为可能 | **已写成但证据仍开放**：能力次序有外部对照；12 张卡在闸一复核中全部降级为职业／组织性判断，「哪类能力先到」在 L1–L9 中无透镜承载（见页首透镜声明） | [中文](docs/zh/chains/120-technology-capability-sequence.md) · [English](docs/en/chains/120-technology-capability-sequence.md) · [J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降) · [J-006–J-016](docs/zh/90-ledger.md) |
-| C13 | 财政挤压：刀先落在谁身上 | **已写成但证据仍开放**：英、美、日、意、法等先例只作叙事性对照，只有 L10（只用否决向）经过 2+2 校准，其余步骤就地标为无承载透镜；三张卡都没过闸一，65 岁以上每周有酬工作按冻结口径判 C · D 档 | [中文](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [English](docs/en/chains/130-fiscal-squeeze-who-gets-cut.md) · [J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) · [冻结记录](docs/evidence/older-workers-freeze-2026-10-10.md) · [判定与检查日志](docs/evidence/older-workers-verdict-2026-10-10.md) |
+| C13 | 财政挤压：刀先落在谁身上 | **已写成但证据仍开放**：英、美、日、意、法等先例只作叙事性对照；唯一经过 2+2 校准的 L10（只用否决向）已于 2026-10-10 被反例推翻撤出，各步骤现在都标为无承载透镜；三张卡都没过闸一，65 岁以上每周有酬工作按冻结口径判 C · D 档 | [中文](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [English](docs/en/chains/130-fiscal-squeeze-who-gets-cut.md) · [J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) · [冻结记录](docs/evidence/older-workers-freeze-2026-10-10.md) · [判定与检查日志](docs/evidence/older-workers-verdict-2026-10-10.md) |
 
 > 入口状态只回答“读者现在能看到什么证据边界”。历史校准、留存重审和未来到期复核是三件不同的事；当前仍不能把任何一条链的存在或 `python3 scripts/check.py` 通过写成预测方法已经验证。完整状态、证伪条件与缺口以[判断台账](docs/zh/90-ledger.md)和各链正文为准。
 

@@ -1,6 +1,8 @@
-# 社会规律候选的历史校准（2026-10-10）：受益者锁定以否决向入库，偏好伪装级联因无法判否未入库
+# 社会规律候选的历史校准（2026-10-10）：受益者锁定以否决向入库后被遗产税反例推翻、已撤出，偏好伪装级联因无法判否未入库
 
 [English version](social-regularity-calibration-2026-10-10.en.md) · [方法论 §2](../zh/00-method.md#2-透镜工具箱) · [历史回顾](../zh/01-retrospect.md)
+
+> **2026-10-10 更新（先读这一句）**：L10 受益者锁定的否决向，已按 [§2.6](#26-废除窗口的操作化定义) 冻结的窗口定义被美国联邦遗产税推翻，**撤出工具箱**，见 [§2.7](#27-按-26-的逐案重判与反例检验l10-否决向被推翻撤出工具箱)。§2.1–§2.5 是入库时的记录，原文保留；其中「入库」「满足入库门槛」等说法只描述当时的判断。
 
 > **状态边界（必须先读）**：本页全部案例都是**看到结局之后**选入的 `CALIBRATION`。候选文本写于逐案核验之前，但作者事先知道这些案例的大致结局，所以这**不是**盲测，也不是 holdout；它只能说明一条规则能否在已知历史上被校准、在哪里失效，不提供预测力、命中率或准确率。所有原件抓取时间为 UTC 2026-10-09；本页没有把任何原件存入仓库，可复核性依赖下列 URL、页码与 SHA-256。
 
@@ -42,11 +44,13 @@
 
 **F1 的混杂必须写明**：该法部分收益在废除前可能尚未完整给付一个周期，所以这一案不能单独记为「受益者自付」子句的证据——两种解释都指向「否」，规则判对了，但不能把功劳只记给其中一个子句。
 
+（2026-10-10 补：按 §2.6 的窗口定义重判，本表五案都不与规则冲突，F2 在 1974–1987 年间没有出现窗口；但反例检验推翻了 L10，见 [§2.7](#27-按-26-的逐案重判与反例检验l10-否决向被推翻撤出工具箱)。）
+
 ### 2.4 结论与置信度
 
 否决向满足入库门槛：2 个放行且存活（S1、S2）、2 个判否且被废除（F1、F2）、1 个充分性反例（X1）。正向半句（「有锁定就挺得过去／只会祖父化」）**被推翻，不得用作预测**。置信度：中低——5 案全部是 1970 年后的美国案例，全是结局已知的校准材料。
 
-**怎样推翻它**：找到一个 (i) 或 (ii) 为否、却在[§2.6 定义的废除窗口](#26-废除窗口的操作化定义)里存活下来的公共安排。只要一例成立，L10 的否决向就失效，必须删除或收窄。（2026-10-10 前本句写「在真实的废除窗口里存活」，没有说什么算窗口；定义见 §2.6。）
+**怎样推翻它**：找到一个 (i) 或 (ii) 为否、却在[§2.6 定义的废除窗口](#26-废除窗口的操作化定义)里存活下来的公共安排。只要一例成立，L10 的否决向就失效，必须删除或收窄。（2026-10-10 前本句写「在真实的废除窗口里存活」，没有说什么算窗口；定义见 §2.6。）**这个条件已经成立**：美国联邦遗产税在第 114、115 届国会的窗口里存活，L10 否决向已撤出工具箱，见 [§2.7](#27-按-26-的逐案重判与反例检验l10-否决向被推翻撤出工具箱)。
 
 ### 2.5 外部对照（一致／分歧／为何仍坚持）
 
@@ -86,6 +90,70 @@
    - X1：1993-01-05 至 1996-08-22。
 2. **反例检验：美国联邦遗产税**，区间 1999-01-06 至 2019-01-03（第 106 至 115 届国会）。预先编码：遗产税收入进入一般预算，没有按周期领取其收益的群体，(i) 为否。遗产规划从业者、寿险公司、慈善机构因该税得到的间接收入，不计为「该安排的收益」；F2 也没有把保险公司因事故减少得到的好处计为收益，口径相同。规则因此判「无受益者保护」，预言窗口内整体废除成为法律。选它的理由如实写明：作者在冻结前就知道它的废除多次被提出、曾在众议院通过、它至今仍然存在，它是作者能想到的最显眼的候选。与全页其他案例一样，它是看过结局后选的。
 3. **处置预先写定**。任一反例成立，L10 否决向即按 §2.4 失效；删除、收窄或降级的处置与就地标记，在重判提交中公开。不得为了规避结果回头改本节。
+
+### 2.7 按 §2.6 的逐案重判与反例检验：L10 否决向被推翻，撤出工具箱
+
+> 本节写于 §2.6 冻结（提交 `c9188d9`）之后。下文用到的每一条立法表决与法案文本都在冻结之后才查，原件、字节与 SHA-256 见 §6 末尾「2026-10-10 补」各行。§2.6 一字未改。
+
+**结论**：反例检验成立。美国联邦遗产税在冻结前就被编码为 (i) 为否，而它在第 114 届与第 115 届国会各打开过一次符合 §2.6 的窗口，两次窗口关闭时都仍然存续。按 §2.6 的推翻条件，**L10 否决向失效，撤出工具箱**。五个原案例按新定义没有一个与规则冲突：F1、F2 吻合，S1、S2、X1 规则本来就不作预言。F2 在 1974–1987 年间没有出现窗口。
+
+| 案例 | (i) / (ii) | 区间 | 窗口 | 打开（依据） | 关闭 | 结局 | 与规则 |
+|---|---|---|---|---|---|---|---|
+| S1 社会保障个人账户 | 是 / 是 | 2005-01-04 至 2007-01-03 | 未出现 | — | — | 存续 | 规则不预言；不构成检验 |
+| S2 平价医疗法案 | 是 / 是（编码时点见下） | 2010-03-23 至 2019-01-03 | 出现 3 次 | 2011-01-19 众院通过 H.R.2（第 112 届），245–189，Roll no.14，文本「such Act is repealed」；2013-05-16 众院通过 H.R.45（第 113 届），229–195，Roll no.154；最晚 2015-12-03 参院通过 H.R.3762（第 114 届），52–47，Record Vote 329，废除保费税收抵免、费用分担补贴与 Medicaid 扩张 | 第 112、113、114 届各自结束时 | 三次关闭时都存续；H.R.3762 于 2016-01-08 被否决，2016-02-02 众院推翻否决失败（241–186） | 规则不预言（有捍卫者） |
+| F1 医疗保险巨灾保障法 | 部分 / 否 | 1988-07-01 至 1989-12-13 | 出现 | 最晚 1989-11-08：众院通过 H.R.3607「to repeal Medicare provisions in the MCCA of 1988」 | 第 101 届结束 | 1989-12-13 整体废除成法（P.L. 101-234） | **吻合** |
+| F2 55 英里限速 | 否 / — | 1974-01-02 至 1995-11-28 | 1974–1987 未出现；1995-09-20 打开 | 1995-09-20 众院以修正案通过 S.440，Sec.348「Sections 141(a) and 154 … are repealed」 | 第 104 届结束 | 1995-11-28 P.L. 104-59 §205(d) 成法，在窗口内 | **吻合** |
+| X1 AFDC | 是 / 是 | 1993-01-05 至 1996-08-22 | 出现 | 1995-03-24 众院通过 H.R.4（第一编改为对州的 TANF 整笔拨款，请求权归州而非个人） | 第 104 届结束 | 1996-08-22 P.L. 104-193 成法 | 规则不预言；强形式被推翻（§2.3 不变） |
+| 遗产税（反例检验） | **否**（冻结前预编码） | 1999-01-06 至 2019-01-03 | 出现，主证据 2 次 | 2015-04-16 众院通过 H.R.1105（第 114 届），240–179，Roll no.161；2017-11-16 众院通过 H.R.1（第 115 届），227–205，Roll no.637 | 2017-01-02；2019-01-02 | 两次关闭时都存续 | **反例** |
+
+**F2 在 1974–1987 年间：按现有记录，没有出现符合定义的窗口。**
+
+- 院会真正表决过的，全是部分放宽，按 §2.6 不是整体废除措施。依据 CRS IB86153（1987-04-09 更新）的立法史一节：第 99 届提出 8 个限速法案，「None of these bills received favorable committee action」。1986-08-06 众院否决 McCurdy 修正案（郊区州际公路可提到 65），198–298。1986-09-23 参院通过 Symms 修正案（同为郊区州际公路），56–36；更宽的 Hecht 修正案（所有郊区公路）以 36–60 被否，它也只是部分放宽。第 100 届：参院 1987-02-03 以 65–33 通过 Symms 修正案；众院 1987-03-18 以 217–206、参院 1987-03-20 以 60–21 通过 H.Con.Res.77；1987-03-31 与 1987-04-02 两院越过里根的否决，成法（P.L. 100-17 §174）。
+- 单独提出的整体废除法案都没有过院。国会《History of Bills》1983–1987 卷里，S.1121（「A bill to repeal the national maximum speed limit」）、H.R.785、H.R.851、H.R.2826（1983）、H.R.1086（第 99 届）、H.R.263、H.R.670（1987）都只有提出与联署动作。
+- **覆盖缺口**：《History of Bills》在线版从 1983 年起，1974–1982（第 93–97 届）只核了 CRS 的立法史叙述，没有逐届核对院会修正案。所以「1974–1987 年没有窗口」对 1983–1987 年是逐卷核过的，对 1974–1982 年是「现有来源没有记载」。
+- 这 13 年在 §2.6 下既不是证据也不是反例：没有窗口，规则不作主张。§2.3 表里「放宽前已过 13 年」由此有了答案：那 13 年里，连一院通过整体废除都没有发生过。
+
+**F2 在 1988–1995 年**：1992 年的 H.R.5606、H.R.5884，1993 年的 H.R.1512，1995 年的 S.476、H.R.427 等单独废除法案都没有过院；1991 年大型公路法（ISTEA）的院会修正案没有逐条核对（govinfo 的 1991 年主题索引未能取得），记为缺口。1995-06-22 参院通过的 S.440 第 115 条只把全国限速「限于某些商用车」（「Limitation of national maximum speed limit to certain commercial motor vehicles」），仍是部分放宽，不打开窗口。众院 1995-09-20 的版本整体废除，窗口从这一天打开，69 天后成法。
+
+**遗产税：为什么是反例，以及批评者会从哪里攻击。**
+
+1. **第 114 届**。H.R.1105「Death Tax Repeal Act of 2015」新增 §2210：「this chapter shall not apply to the estates of decedents dying on or after the date of the enactment」，隔代转移税同样终止（§2664）。它没有日落条款，也没有改动死亡时的升值基数规则（没有用结转基数替代）。它对赠与税只改税率；过渡条款只涉及颁布前已去世者配偶的合格国内信托，10 年后同样终止。按 §2.6 的 (a)(b)(c)，这是整体废除措施。众院 2015-04-16 通过，参院始终没有表决；第 115 届 2017-01-03 开幕，窗口在前一天关闭，遗产税仍在。
+2. **第 115 届**。众院通过的 H.R.1（后来的减税与就业法）Sec.1602 新增 §2210：「this chapter shall not apply to the estates of decedents dying after December 31, 2024」，并保留升值基数（只改 §1014 的引用）。条款全部生效后对所有人终止，没有日落、没有替代，是整体废除措施。最终成法的 P.L. 115-97 只在 §11061 把基本免税额翻倍（「after December 31, 2017, and before January 1, 2026」，$5,000,000 改为 $10,000,000），没有废除。窗口在 2019-01-02 关闭，遗产税仍在。
+3. **敏感性：带结转基数的各版本**。第 106 届 H.R.8 于 2000-06-09 通过众院，登记本证明两院都通过了，但没有成为法律（否决日期本轮未取原件，不写）。它从 2010 年起废除遗产税、赠与税与隔代转移税，同时以结转基数（新 §1022）取代升值基数。第 107 届 H.R.2143（众院 2002-06-06）、第 108 届 H.R.8（众院 2003-06-18，264–163，Roll no.288）、第 109 届 H.R.8（众院 2005-04-13，272–162，Roll no.102；参院 2006-06-08 就动议进行辩论的终结辩论以 57–41 未获通过，Record Vote 164）都是「使 2001 年减税法（EGTRRA）的废除永久化」，而 EGTRRA 的废除同样带结转基数。批评者可以说，结转基数让继承人在出售时为死者生前的增值纳税，构成 §2.6 (b) 所说的同类替代。本页不依赖这些窗口：**把所有带结转基数的版本都剔除，第 114、115 两届仍然各是一个反例。** EGTRRA（2001）本身带 §901 日落条款，按 (c) 不是整体废除措施，不打开窗口。
+4. **「遗产规划业、寿险公司、慈善机构就是捍卫者」**：§2.6 在冻结时已写明，这些间接收入不计为该安排的收益，与 F2 不把保险公司因事故减少得到的好处计为收益同一口径。现在改口，就是看到结果后挪动编码。
+5. **「颁布前去世者的遗产仍要缴税，算祖父条款」**：遗产税的义务在死亡时发生，颁布前已发生的是已到期的税款，不是继续存在的义务人；F2 与 X1 的废除同样只对生效之后起作用。
+6. **「赠与税保留了，所以不算整体废除」**：§2.6 预编码的对象是联邦遗产税（《国内税收法》第 11 章），赠与税是第 12 章。若改把「统一的财产转移税」当作对象，H.R.1105 与众院版 H.R.1 都不算整体废除措施，但这个对象是在看到结果后才换的，§2.6 第 3 条预先禁止。
+
+**S2 在第 115 届没有打开窗口**：众院 2017-05-04 以 217–213（Roll no.256）通过的 H.R.1628（美国医疗法案）用新的可退税抵免（Sec.214）接替交易所补贴，属于 §2.6 (b) 的同类替代；它废除 Medicaid 扩张（Sec.112）时保留「grandfathered expansion enrollee」，属于 (a) 的祖父条款，所以不是整体废除措施。参院的 SA 667 以 49–51 被否（§2.3）。
+
+**S2 的编码时点（如实写出的定义缺口）**：§2.2 的 (i) 在「时点 T」编码，§2.6 沿用它，却没有写明窗口打开时要不要按当天重新编码。第 112、113 届的两次窗口都在 2014 年交易所给付开始之前（§1311，见 §6 既有行）。此前已经生效的条款能不能构成「已按周期领取过收益的群体」，§2.2 没有给判据。本页按 §2.3 的编码把 S2 记为 (i)(ii) 为是，不把这两次窗口计为反例；若按窗口打开当天编为否，它们只会是另外两个反例，结论不变。
+
+**处置：撤出，而不是收窄。**
+
+- L10 否决向按 §2.4 与 §2.6 **撤出工具箱**，降为「入库后被反例推翻的候选」。方法论 [L10 段](../zh/00-method.md#l10--受益者锁定否决向)原文保留，作为历史记录，并加撤出标记；任何判断卡不得再以 L10 为透镜承载一步推理。
+- **不收窄的理由**：把对象收窄为「给付类安排」以排除税收，F2（规制）会一起出局，判否对照只剩 F1，达不到 2+2 门槛。若改为「两院都通过才算窗口」，就是看到反例后改定义，§2.6 第 3 条预先禁止；而且 F2 的 1995 年参院版本本身就只是部分放宽。任何在这一步提出的收窄，都是为挽救规则而事后选择的范围。
+- **这次失败暴露了什么（不是新规则）**：两个反例窗口都由一院打开，挡住废除的是另一院与预算规则——参院 60 票的终结辩论门槛、废除的财政成本——而不是受益者。L10 的「整体废除可达」实际上是一个充分性主张：只要没有受益者保护，废除就过得去。它忽略了制度上的否决点。按项目原则，这个观察要成为规则，必须作为新候选先用 2+2 历史案例校准，并且能判否；本页不把它写成规则，也不让它继承 L10 的校准。
+
+### 2.8 协议 §11.B 受影响卡清点（2026-10-10）
+
+**范围**：中英各 12 个台账分片文件（`docs/{zh,en}/ledger/` 下除 `91-100.md`、`96-100.md` 两个跳转页外的全部文件），J-001 至 J-107 共 107 张卡，含 C13 的 J-105–J-107。
+
+**方法**：
+
+- 中文探测词（35 个）：受益者、受益群体、领取者、领取、既得、捍卫、阻挡、阻止、反对改革、废除、撤销、取消、游说、利益集团、俘获、牌照、准入、执照、补贴、社保、养老金、退休金、新人新办法、祖父、在位者、选民、选票、锁定、应享、福利、工会、行会、职业保护、保护主义，另查「否决」（仅保留不含「闸」的行）。
+- 英文探测词（26 个，不区分大小写）：beneficiar、recipient、vested、defend、incumbent、lobby、interest group、capture、licen[cs]、grandfather、entitlement、repeal、abolish、subsid、pension、social security、constituen、voter、lock-in、welfare、union、guild、protectionis、status quo，另查「veto」（仅保留不含「gate」的行）。
+- 命令：对每个分片执行 `awk` 跟踪当前 `### J-NNN` 标题与 `- **字段**` 名，输出「卡号、字段、行号」；`否决`／`veto` 两词各有 105／67 张卡命中，全部来自普及闸否决或隔离盲判复审的裁定词，按上述规则过滤。
+- 判定：对命中落在「推理链」「透镜」「一句话判断」字段的每一处读原句，判断推理链是否在事实上依赖「既得受益者阻挡废除／改革」。
+
+**结果**：中文命中 30 张卡、英文命中 38 张卡（并集 47 张，两种语言都命中的 21 张）；推理链在事实上依赖这一逻辑的只有 3 张，全在 C13：
+
+| 卡 | 依赖句原文（中文版） | 是否调用 L10 | 本次处置 |
+|---|---|---|---|
+| J-106 | 推理链：「加税与削减国内领取项目都会遇到捍卫者 → 援外在援助国国内没有按周期领取的人（L10 否决向：可达）」 | **调用**（透镜字段写「受益者锁定（**L10**，只用否决向）」） | 透镜字段补一句：L10 已撤出，这一步改为 L1–L9 中无承载；结论、状态、置信度、时间窗、证伪条件不变 |
+| J-105 | 推理链：「提高领取年龄、改变未来公式落在尚未领取的队列身上，是先例里最常见的一刀（无承载：L10 的单位是整个安排，不判养老金内部的子队列……）」；「对现领取者，能自主融资的国家改用不写进通知信的办法」 | 不调用（透镜字段已声明「本卡不调用 L10」） | 不改 |
+| J-107 | 透镜：「本卡不调用 **L10**：『提高领取年龄落在尚未领取的队列身上、因而可达』这一步 **L1–L10 中无承载透镜**」 | 不调用 | 不改 |
+
+其余 44 张命中卡都只是提到这些词，不依赖这一逻辑。例如 J-039、J-040、J-044、J-031 的「准入」指市场或部署的准入门槛；J-090 的「牌照」是收益流向的持有者；J-102 的「工会」是分配由谁决定；J-070 的「1933 年废除」是禁酒令的历史例子；J-071 的「补贴」与「incumbent」属于闸五的成本比较。因为 L10 已撤出，J-105、J-107 原本「不调用 L10」的声明仍然成立，不需改卡。
 
 ## 3. 候选 B · 偏好伪装级联：未入库（无法判否）
 
@@ -137,8 +205,9 @@
 ## 5. 本页不支持什么
 
 - 不支持「L10 已被验证」「方法准确率提高」或任何 holdout／样本外结论；
+- 不支持继续把 L10 当透镜使用：它的否决向已被遗产税反例推翻并撤出工具箱（§2.7）；
 - 不支持把 L10 的正向半句当作存活预言；
-- 不改任何判断卡的结论或状态，也不声称任何卡已经用 L10 复核；
+- 不改任何判断卡的结论或状态，也不声称任何卡已经用 L10 复核（§2.8 的清点只改了 J-106 的透镜字段）；
 - 不改变 §10.2 的 6/12 合格配对计数。
 
 ## 6. 来源与抓取记录（UTC 2026-10-09）
@@ -153,7 +222,7 @@
 | S2 | P.L. 115-97 §11081：罚款「$695」改为「$0」、「2.5 percent」改为「Zero percent」，适用于「months beginning after December 31, 2018」 <https://www.govinfo.gov/content/pkg/PLAW-115publ97/html/PLAW-115publ97.htm> | 200 / 677577 | `ff67e79aff30ec09b589027898ad702318e6074020fb644cc07e1fea6dbadfb1` |
 | F1 | H.R.2470（第 100 届）动作记录：1988-07-01「Became Public Law No: 100-360」，api.congress.gov `bill/100/hr/2470/actions` | 200 / 29091 | `ea0378c017c5e86c54fe918837d9288755cc560007f6e3ace4fa0f0580484118` |
 | F1 | 会议报告 H.Rept 100-661 的 CRS 摘要：「impose an annual supplemental Medicare premium on individuals who are eligible for benefits under part A … and whose tax liability equals or exceeds $150」，`bill/100/hr/2470/summaries` | 200 / 78563 | `f0566750ff005981aeabbb8958f344f92d9b490a09c58b6638943543f97f1faf` |
-| F1 | H.R.3607（第 101 届）动作记录：1989-11-21「Failed by the Yeas and Nays: 55 - 346 (Roll no. 378)」、「The Senate amendment sought to avoid a complete repeal」；1989-12-13「Became Public Law No: 101-234」 | 200 / 31416 | `f15301f9517c54c65bc2c651dc17e0669201a25b4c8417224b3233d85fb03d7d` |
+| F1 | H.R.3607（第 101 届）动作记录：1989-11-21「Failed by the Yeas and Nays: 55 - 346 (Roll no. 378)」、「The Senate amendment sought to avoid a complete repeal」；1989-12-13「Became Public Law No: 101-234」，api.congress.gov `bill/101/hr/3607/actions`（2026-10-10 补路径；立法史日期另见本表末 `STATUTE-103-Pg1979.pdf` 行） | 200 / 31416 | `f15301f9517c54c65bc2c651dc17e0669201a25b4c8417224b3233d85fb03d7d` |
 | F2 | P.L. 93-239，87 Stat. 1046：「to conserve fuel … national maximum highway speed limit」「in excess of 55 miles per hour」，govinfo `STATUTE-87-Pg1046.pdf` | 200 / 647430 | `3d51ac9bf0d7662b46e57bb7db60542d307c88d6287444878adfd3cf907c8042` |
 | F2 | P.L. 100-17 §174，101 Stat. 218：郊区州际公路「in excess of 65 miles per hour」；立法史「Mar. 31, House overrode veto. Apr. 2, Senate overrode veto.」，govinfo `STATUTE-101-Pg132.pdf` | 200 / 22233731 | `a2fbba00306b1d3e81c69d8f9eba786c3f5843013e278f50b650ca376d45ec60` |
 | F2 | P.L. 104-59 §205(d)：「Repeal of National Maximum Speed Limit Compliance Program」；「Approved November 28, 1995」 <https://www.govinfo.gov/content/pkg/PLAW-104publ59/html/PLAW-104publ59.htm> | 200 / 231974 | `8ac715b1ae816ccfd6fa3a021eef0ae98fdf14746ff6c1c58c536235b31d1da6` |
@@ -165,9 +234,46 @@
 | M2 | HPSCI 报告扫描件（UCLA 馆藏，个人上传），p.6 <https://archive.org/download/iran_20260528/Iran.pdf> | 200 / 3055460 | `68f6c690308ad05f7c8a635b3ffad0f10f16883764b1004bcf6264d3adfdeb83` |
 | M2 | 卡特 1979-01-17 记者会 <https://www.presidency.ucsb.edu/documents/the-presidents-news-conference-979> | 200 / 91938 | 前缀 `66d0857c` |
 | M3 | CBO 1989 报告 OCR 文本 <https://archive.org/download/micro_IA41152639_0271/micro_IA41152639_0271_djvu.txt> | 200 / 130045 | `a7e51e1f604a7d11d923c4489b93231d6fae6a7d81e596b54234f9f4ee0cb51d` |
-| M4 | 下院辩论 1990-04-03「community-charge-capping」（historic-hansard，经 Wayback） | 200 / 277835 | `a57c3d3267eec89276199b456f1320e4fd5615a84ac786931cb6f7b69b0f3a4e` |
+| M4 | 下院辩论 1990-04-03「community-charge-capping」（historic-hansard，经 Wayback）<https://web.archive.org/web/20241015105151id_/https://api.parliament.uk/historic-hansard/commons/1990/apr/03/community-charge-capping>（2026-10-10 补 URL 并重新抓取，解压后字节数与 SHA-256 与原记录一致） | 200 / 277835 | `a57c3d3267eec89276199b456f1320e4fd5615a84ac786931cb6f7b69b0f3a4e` |
 | 候选 B | 布什 1989-06-05 记者会 <https://www.presidency.ucsb.edu/documents/the-presidents-news-conference-45> | 200 / 81260 | 前缀 `efb0ed36` |
 | 候选 B | CRS R40095，Food Aid 节 <https://www.everycrsreport.com/reports/R40095.html> | 200 / 149523 | 前缀 `d9a79b93` |
 | 候选 B | Timur Kuran，「Now Out of Never」，*World Politics* 44(1): 7–48（1991），uvm.edu 扫描件经 Wayback、本地 OCR（引用页 p.31、p.36、p.43 于 2026-10-09 重新抓取并 OCR 复核）<https://web.archive.org/web/2024id_/https://pdodds.w3.uvm.edu/teaching/courses/2009-08UVM-300/docs/others/1991/kuran1991a.pdf> | 200 / 4151579 | `8f327873804146a271eae7a5e692bf3ccd36678451317b367ba1b89fcfcce4bd` |
 
-未能取得的原件（不得用记忆填补）：CIA 阅读室的 DIA／NID 原件（站点把请求重定向到首页）、cbo.gov 的 1988 年原件（403）、senate.gov 第 179 号表决明细（403）、英国 1991 年宣布废除人头税的原件。
+**2026-10-10 补（§2.7 用到的原件，抓取时间 UTC 2026-10-10）**。下表的「来源与定位」列以包名开头时，URL 按三种固定形式拼出：法案文本 `https://www.govinfo.gov/content/pkg/<包名>/html/<包名>.htm`；法案动作记录 `https://www.govinfo.gov/bulkdata/BILLSTATUS/<届>/hr/<包名>.xml`（govinfo 的这批数据从第 108 届起才有）；《History of Bills》年卷 `https://www.govinfo.gov/content/pkg/<包名>/html/<包名>.htm`，包名形如 `HOB-1983`。其余各行写出完整 URL。govinfo 偶尔返回 200 却截断正文，复核时请比对字节数与 SHA-256。
+
+| 用途 | 来源与定位 | HTTP / 字节 | SHA-256 |
+|---|---|---|---|
+| S2 第 112 届 | `BILLS-112hr2eh`：「such Act is repealed」；「Passed the House of Representatives January 19, 2011」 | 200 / 2559 | `eb10596e9f6b95207ea399e7c57530dd1fa8c94dfa3df2b0fd3e314658dc6a0a` |
+| S2 第 112 届 | `BILLSTATUS-112hr2`：「245 - 189 (Roll no. 14)」 | 200 / 110870 | `3fda21f64e47b085ed522af69128727ae1e489d3806c1d5f67d161d4c3ae57dc` |
+| S2 第 113 届 | `BILLSTATUS-113hr45`：「229 - 195 (Roll no. 154)」 | 200 / 83882 | `aa1801bb117d2d6fe003d19cde23ff5ec476fc9bd671262e090928bd2caa0383` |
+| S2 第 114 届 | `BILLSTATUS-114hr3762`：2015-12-03「Passed Senate with an amendment by Yea-Nay Vote. 52 - 47. Record Vote Number: 329.」；2016-01-08「Vetoed by President」；2016-02-02 推翻否决未成「241 - 186 (Roll no. 53)」 | 200 / 257363 | `d0917f6ad9928d3ae9119553a210484f2188752cffb65f117f7044d5840a9829` |
+| S2 第 114 届 | `BILLS-114hr3762enr`：Sec.202「Premium tax credit and cost-sharing subsidies」、Sec.207「Medicaid」 | 200 / 21188 | `30c9a4f968eb7f3731480be73e5ca561b48ec9fedfdc5f2332b6305050eb6bbf` |
+| S2 第 115 届 | `BILLS-115hr1628eh`：Sec.112「Repeal of Medicaid expansion」与「grandfathered expansion enrollee」；Sec.214「Refundable tax credit for health insurance coverage」；「Passed the House of Representatives May 4, 2017」 | 200 / 177535 | `9aa3de8b0346e4b7e90dce408d5c7f5b2c9216f35f2a4184b1763452689bf22c` |
+| S2 第 115 届 | `BILLSTATUS-115hr1628`：「217 - 213 (Roll no. 256)」 | 200 / 488455 | `82709f1498e14e29d5026328e5bddc62fa99ee5a125582187f0763271c502908` |
+| F1 | P.L. 101-234 立法史「Nov. 8, considered and passed House」 <https://www.govinfo.gov/content/pkg/STATUTE-103/pdf/STATUTE-103-Pg1979.pdf> | 200 / 1341281 | `282170e603d7dbee1f5b032b07051c84b7b54f8bf2a725ba107fdd4815cb53d5` |
+| F2 1974–1987 | CRS IB86153《Speed Limits for Motor Vehicles》（1987-04-09 更新）立法史一节：第 99 届 8 个限速法案「None of these bills received favorable committee action」；McCurdy 修正案 198–298、Symms 修正案 56–36、Hecht 修正案 36–60；1987 年 Symms 修正案 65–33，H.Con.Res.77 217–206 与 60–21，越过否决 <https://www.everycrsreport.com/files/19870409_IB86153_08fe581aa020b58ac495c0d557a726689e362119.pdf> | 200 / 686658 | `96f4719fb11855ccfa3a858c1816fd0946ff9592ecc3dc440015e7e6aa926de2` |
+| F2 1983 | `HOB-1983`：S.1121「A bill to repeal the national maximum speed limit for motor vehicles」、H.R.785、H.R.851、H.R.2826，都只有提出与联署 | 200 / 3236464 | `07fddd31d7bc0b8842c50b065cb2cce5fcda50840a4fea6e460a5e316e9e0fab` |
+| F2 1984 | `HOB-1984`：没有任何限速法案条目，即这一年没有动作 | 200 / 2157884 | `a7d6f8b0b6678f0fa5bc40adfd6e4d39eaa517e891e60ecbdc811932d36cc4f1` |
+| F2 1985 | `HOB-1985`：H.R.1086「A bill to repeal section 154 of title 23」只有提出与联署 | 200 / 2394773 | `b23628c0cf69a8b8eb3d102b4b17d6192e592c1c321a3ab91ac2cc0342697c60` |
+| F2 1986 | `HOB-1986`：H.R.1086 只有联署 | 200 / 2135716 | `5a6879e9de9415b3bcd2c2ad4dc93936f610794deb376ee42e61fa213e653ebf` |
+| F2 1987 | `HOB-1987`：H.R.263「A bill to repeal section 154」、H.R.670「to repeal the 55-mile-per-hour speed limit requirements」只有提出与联署 | 200 / 3072657 | `bbd654cb7ace1d1b9649fa446fc3e43bd80430deda53a36512f4ac699a474f8f` |
+| F2 1992 | `HOB-1992`：H.R.5606、H.R.5884 只有提出 | 200 / 2847725 | `01643e0db9647580f66e7ba45d3e50ae09bd78da12ed902e9bb8229d549b9038` |
+| F2 1993 | `HOB-1993`：H.R.1512「to repeal provisions establishing a national maximum speed limit」只有提出 | 200 / 3092453 | `3dcad963a10817c9cc9cb7df208a4caece63118c46f940c302b92440d8f05c2b` |
+| F2 1995 | `HOB-1995`：S.476「to eliminate the national maximum speed limit」、H.R.427 只有提出与联署 | 200 / 2611286 | `a237750db1ee1a42060136bed452ec139e8c5b86caa20b78690d6f2e75279dd8` |
+| F2 1995 | `BILLS-104s440es`：「Sec. 115. Limitation of national maximum speed limit to certain commercial motor vehicles」；「Passed the Senate June 22 (legislative day, June 19), 1995」 | 200 / 116431 | `11a0738bb176b7db7039c3648b2af0767a5aa99551753d36a76c35f53e7d09c9` |
+| F2 1995 | 参院 1995-06-22 通过 S.440 的议事记录 <https://www.govinfo.gov/content/pkg/CREC-1995-06-22/html/CREC-1995-06-22-pt1-PgS8924.htm> | 200 / 122930 | `ae08be42d89dc7419bb6a7afb40d614388dd76f7e421f16675a2bdf982daad4e` |
+| F2 1995 | `BILLS-104s440eah`：「In the House of Representatives, U. S., September 20, 1995」；Sec.348「Sections 141(a) and 154 of title 23 … are repealed」 | 200 / 146193 | `6101af3303e7178739c15fded8fada65dcc31a4ae422804818576f7dae6f56a7` |
+| X1 | `BILLS-104hr4eh`：「Title I--Block grants for temporary assistance for needy families」；「Passed the House of Representatives March 24, 1995」 | 200 / 545570 | `2e53b5d8909e5f13ec924f322991a99e2847551b792ba9d0c87a712fafe4b9cb` |
+| 遗产税第 114 届 | `BILLS-114hr1105eh`：§2210「shall not apply to the estates of decedents dying on or after the date of the enactment」、§2664；「Passed the House of Representatives April 16, 2015」 | 200 / 8571 | `d6bbf52a4ad1b0b2cc159354a4cb9d7e8d8d8e10f3ae57eb7ffb79ea553a1fe5` |
+| 遗产税第 114 届 | `BILLSTATUS-114hr1105`：「240 - 179 (Roll no. 161)」 | 200 / 80284 | `cd014425963ca534d2c7f990eca51505d4ce447555b0aaff37f30579290b83c9` |
+| 遗产税第 115 届 | `BILLS-115hr1eh`：Sec.1602 §2210「shall not apply to the estates of decedents dying after December 31, 2024」；「Passed the House of Representatives November 16, 2017」 | 200 / 585883 | `305dd662c250fa9a25ddab62b2628d6df9b2cb0155cdc2c1a365e5ebafb9fac9` |
+| 遗产税第 115 届 | `BILLSTATUS-115hr1`：「227 - 205 (Roll no. 637)」 | 200 / 1024095 | `3a350dfa93e1ae57f1ccd671554e5b5efee6863cb34ec842fc2e28ab56ea4207` |
+| 遗产税第 115 届 | P.L. 115-97 §11061：「after December 31, 2017, and before January 1, 2026」，「$10,000,000」替代「$5,000,000」；与上表 S2 行是同一份原件，字节数与 SHA-256 一致 | 200 / 677577 | `ff67e79aff30ec09b589027898ad702318e6074020fb644cc07e1fea6dbadfb1` |
+| 遗产税敏感性 | `BILLS-106hr8eh`：「June 9, 2000」；新 §1022「Carryover basis for certain property acquired from a decedent」 | 200 / 45705 | `9a2aebe6a3f92fb983e2579b62a6422de5ef6752fcb32a5830c878db6db1e20c` |
+| 遗产税敏感性 | `BILLS-106hr8enr`：两院都通过后的登记本 | 200 / 40478 | `b3682d15e75bb26bd08655697c337996abd9f76d80e6a0e565240f192666ad14` |
+| 遗产税敏感性 | `BILLS-107hr2143eh`：「June 6, 2002」 | 200 / 1778 | `cfd80f1c9b0da98077929d8605cb8f2d498307fbbb812698969e31b06c6229a0` |
+| 遗产税敏感性 | `BILLSTATUS-108hr8`：「264 - 163 (Roll no. 288)」 | 200 / 106919 | `88a2a23a5f0f7606ffa0e9d8cca3a99f7aaa13305159f8d114a0e91f3f946d9c` |
+| 遗产税敏感性 | `BILLS-109hr8eh`：「Passed the House of Representatives April 13, 2005」 | 200 / 1266 | `d3d31311b7c6b8fb63b1a0cab8a402d9c3a875db71c88463260bb7e6fdde8b46` |
+| 遗产税敏感性 | `BILLSTATUS-109hr8`：「272 - 162 (Roll no. 102)」；参院「57 - 41. Record Vote Number: 164」 | 200 / 115071 | `314027b13969fda42a4d67bc273694979c4310b5cd7843b8c397a2b432859202` |
+
+未能取得的原件（不得用记忆填补）：CIA 阅读室的 DIA／NID 原件（站点把请求重定向到首页）、cbo.gov 的 1988 年原件（403）、senate.gov 第 179 号表决明细（403）、英国 1991 年宣布废除人头税的原件；2026-10-10 补：1974–1982 年的《History of Bills》在线年卷（govinfo 从 1983 年起才有）、1991 年 ISTEA 院会修正案所需的 govinfo 主题索引、第 106 届 H.R.8 被否决的日期原件（govinfo 批量动作记录从第 108 届起才有，api.congress.gov 的公共演示 key 当日超限）。

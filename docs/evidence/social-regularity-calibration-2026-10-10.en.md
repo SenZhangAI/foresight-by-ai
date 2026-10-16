@@ -1,6 +1,8 @@
-# Calibrating social-regularity candidates against history (2026-10-10): constituency lock-in admitted in veto form; preference-falsification cascades not admitted because they cannot say no
+# Calibrating social-regularity candidates against history (2026-10-10): constituency lock-in admitted, then refuted by an estate-tax counterexample and withdrawn; preference-falsification cascades not admitted because they cannot say no
 
 [中文版](social-regularity-calibration-2026-10-10.md) · [Methodology §2](../en/00-method.md#2-toolbox-of-lenses) · [Retrospect](../en/01-retrospect.md)
+
+> **Update, 2026-10-10 (read this first):** The veto form of L10, constituency lock-in, was refuted by the US federal estate tax under the frozen window definition in [§2.6](#26-operational-definition-of-a-repeal-window) and **withdrawn from the toolbox**. Sections 2.1–2.5 preserve the admission-time record; references there to admission describe the earlier judgment.
 
 > **Status boundary (read this first):** every case on this page was selected **after its outcome was known** and is `CALIBRATION`. The candidate texts were written before the case-by-case verification, but the author already knew roughly how these cases ended, so this is **not** a blind test and not a holdout. It can show only whether a rule can be calibrated on known history and where it fails; it provides no predictive power, hit rate, or accuracy. All primary sources were fetched on UTC 2026-10-09. None of them is stored in this repository; reproducibility rests on the URLs, page locators, and SHA-256 values below.
 
@@ -46,7 +48,7 @@ Both yes → the rule says “it has defenders” (a pass only; no survival pred
 
 The veto form meets the admission bar: 2 passed-and-survived (S1, S2), 2 judged-no-and-repealed (F1, F2), and 1 sufficiency counterexample (X1). The positive half (“lock-in means survival / grandfathering only”) is **refuted and must not be used as a prediction**. Confidence: medium-low — all 5 cases are post-1970 US cases, and all are calibration material with known outcomes.
 
-**How to overturn it:** find a public arrangement for which (i) or (ii) is no, yet which survived a [repeal window as defined in §2.6](#26-operational-definition-of-a-repeal-window). A single such case breaks the veto form of L10, and it must then be deleted or narrowed. (Before 2026-10-10 this sentence said “survived a genuine repeal window” without saying what counts as a window; the definition is in §2.6.)
+**How to overturn it:** find a public arrangement for which (i) or (ii) is no, yet which survived a [repeal window as defined in §2.6](#26-operational-definition-of-a-repeal-window). A single such case breaks the veto form of L10, and it must then be deleted or narrowed. (Before 2026-10-10 this sentence said “survived a genuine repeal window” without saying what counts as a window; the definition is in §2.6.) **This condition has now occurred**: the federal estate tax survived windows in the 114th and 115th Congresses; L10 is withdrawn.
 
 ### 2.5 External comparison (agreement / divergence / why we still hold it)
 
@@ -86,6 +88,33 @@ The veto form meets the admission bar: 2 passed-and-survived (S1, S2), 2 judged-
    - X1: 1993-01-05 to 1996-08-22.
 2. **Counterexample test: the US federal estate tax**, interval 1999-01-06 to 2019-01-03 (the 106th to the 115th Congress). Coded in advance: estate-tax revenue goes into the general budget, and no group draws its benefit on a recurring basis, so (i) is no. Indirect income that estate planners, life insurers or charities earn because of the tax is not counted as “the arrangement's benefit”; F2 likewise did not count insurers' gains from fewer crashes as a benefit, so the yardstick is the same. The rule therefore says “no protection from beneficiaries” and predicts that, within a window, outright repeal becomes law. The reason for choosing it is stated plainly: before freezing, the author already knew that its repeal had been proposed many times, had passed the House, and that the tax still exists; it is the most conspicuous candidate the author could name. Like every other case on this page, it was chosen after its outcome was known.
 3. **Disposition fixed in advance.** If any counterexample holds, the veto form of L10 fails under §2.4; the deletion, narrowing or downgrade, and the in-place marking, are made public in the re-judgment commit. This section may not be changed afterwards to escape the result.
+
+### 2.7 Case-by-case re-judgment and counterexample test: L10 veto form refuted and withdrawn
+
+> This section was written after §2.6 was frozen (commit `c9188d9`). The definition in §2.6 is unchanged.
+
+**Conclusion:** the counterexample test holds. The federal estate tax was coded in advance as (i) no, yet the 114th and 115th Congresses each opened an outright-repeal window and both windows closed with the tax still in force. Therefore **the veto form of L10 fails and is withdrawn from the toolbox**. None of the five original cases conflicts with the rule under the new definition: F1 and F2 are consistent; S1, S2 and X1 are outside its predictions. F2 had no window in 1974–1987.
+
+| Case | (i)/(ii) | Window | Outcome | Relation to rule |
+|---|---|---|---|---|
+| S1 Social Security personal accounts | yes/yes | none | survives | no prediction |
+| S2 Affordable Care Act | yes/yes | three | survives each; H.R.3762 vetoed | no prediction |
+| F1 Medicare Catastrophic Coverage Act | partly/no | opened 1989 | outright repeal, P.L.101-234 | **consistent** |
+| F2 55-mph limit | no/— | opened 1995-09-20 | P.L.104-59 within window | **consistent** |
+| X1 AFDC | yes/yes | opened 1995 | P.L.104-193 | no prediction; strong form refuted |
+| Federal estate tax (counterexample) | **no** | opened 2015 and 2017 | survives both closures | **counterexample** |
+
+**Estate tax:** H.R.1105 passed the House on 2015-04-16 (240–179) and H.R.1 passed the House on 2017-11-16 (227–205); each contained an outright repeal provision, but the tax remained after the relevant Congress ended. Versions using carryover basis are not needed: excluding them leaves these two counterexamples. Indirect income to estate planners, insurers and charities remains excluded exactly as pre-coded; changing that definition after the result would be moving the goalposts.
+
+**F2:** available records show no qualifying window in 1974–1987; 1983–1987 History of Bills volumes were checked, while 1974–1982 remains a stated coverage gap. In 1988–1995, separate repeal bills did not pass; the 1995 House version of S.440 opened the window on September 20 and the repeal became law 69 days later. These gaps are not evidence either way.
+
+**S2:** H.R.1628 (2017) used replacement credits and grandfathered Medicaid expansion enrollees, so it was not an outright repeal under §2.6. The coding-time definition gap for S2 is recorded; changing it would not alter the conclusion.
+
+**Disposition: withdrawal, not narrowing.** Narrowing the object to benefit programmes would discard F2 and fail the 2+2 threshold; changing the window definition after seeing the counterexample is forbidden. The institutional veto points that stopped repeal are not beneficiary protection. They may motivate a new candidate, but are not a successor rule here.
+
+### 2.8 Protocol §11.B affected-card inventory (2026-10-10)
+
+The bilingual inventory covered all 107 cards. Only three C13 cards had reasoning that factually depended on the “incumbent beneficiaries block repeal/reform” logic: J-105, J-106 and J-107. Only J-106 invoked L10. After withdrawal its lens field states that this step is carried by no lens in L1–L9; its conclusion, status, confidence, time window and falsifier are unchanged. J-105 and J-107 already said they did not invoke L10 and are unchanged. The other keyword hits were incidental mentions, not uses of the logic.
 
 ## 3. Candidate B · Preference-falsification cascades: not admitted (cannot say no)
 
@@ -137,8 +166,9 @@ None of these 4 cases **changes** the qualified pair count in [Retrospect §10.2
 ## 5. What this page does not support
 
 - It does not support “L10 has been validated,” “the method's accuracy improved,” or any holdout / out-of-sample conclusion;
+- it does not support continued use of L10: the estate-tax counterexample refuted and withdrew its veto form;
 - it does not support using the positive half of L10 as a survival prediction;
-- it changes no judgment card's conclusion or status, and does not claim that any card has been re-reviewed with L10;
+- it changes no judgment card's conclusion or status; §2.8 records the inventory, and only J-106's lens field was amended;
 - it does not change the 6/12 qualified pair count of §10.2.
 
 ## 6. Sources and fetch record (UTC 2026-10-09)

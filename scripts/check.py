@@ -177,6 +177,53 @@ def check_links(files):
     return total
 
 
+TABLE_DELIMITER = re.compile(r"^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$")
+
+
+def check_table_rows(files):
+    """Every pipe row is a row GitHub actually renders inside a table.
+
+    A GFM table ends at the first blank line. Rows written after one are not
+    a second table (they have no header and delimiter row): GitHub renders
+    the whole run as a single paragraph of literal `|` text. The ledger
+    overview parser below reads every `|` line in its section regardless, so
+    a blank line inside the overview kept every count, dependency and parity
+    check green while J-098–J-102 (zh) and J-099–J-102 (en) were unreadable
+    on the published page. This check closes that parser/renderer gap: a run
+    of pipe lines that does not open with a header row followed by a
+    delimiter row, and is not the continuation of one, fails.
+
+    Not covered: tables inside blockquotes (`> | ... |`) and fenced code,
+    which GitHub does not render as top-level tables either way.
+    """
+    for path in files:
+        lines = read(path).split("\n")
+        fence = in_table = orphan = False
+        for i, line in enumerate(lines):
+            s = line.strip()
+            if s.startswith("```") or s.startswith("~~~"):
+                fence = not fence
+                in_table = orphan = False
+                continue
+            if fence:
+                continue
+            if not s.startswith("|"):
+                in_table = orphan = False
+                continue
+            if in_table or orphan:
+                continue
+            following = lines[i + 1].strip() if i + 1 < len(lines) else ""
+            if TABLE_DELIMITER.match(following):
+                in_table = True
+                continue
+            orphan = True
+            fail("table-rows",
+                 "%s:%d pipe rows outside any table (a blank line split the "
+                 "table above, or the header/delimiter row is missing); "
+                 "GitHub renders them as literal text: %s"
+                 % (path, i + 1, s[:60]))
+
+
 LEDGER_ROOT = "docs/%s/90-ledger.md"
 LEDGER_SHARD_DIR = "docs/%s/ledger"
 
@@ -959,7 +1006,8 @@ def _dimension_tables(text, heading, stop_heading, status_column):
     if end < 0:
         end = len(text)
     rows = []
-    for line in text[start:end].splitlines():
+    section = text[start:end]
+    for line in section.splitlines():
         if not line.lstrip().startswith("|"):
             continue
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
@@ -1031,6 +1079,7 @@ def run_checks():
     files = markdown_files()
     check_public_internal_ids(files)
     links = check_links(files)
+    check_table_rows(files)
     cards = {lang: check_ledger(lang) for lang in LANGS}
     check_parity(cards)
     chains = check_chain_registry()
@@ -1245,6 +1294,18 @@ def _break_missing_overview_row(root):
     return u"zh J-095 overview row removed"
 
 
+def _break_split_overview_table(root):
+    """A blank line inside the overview: every parser count stays right,
+    but GitHub stops rendering the rows after it as a table."""
+    path = os.path.join(root, "docs", "en", "90-ledger.md")
+    text = _read_file(path)
+    m = re.search(r"^\| \[J-095\].*\n", text, re.M)
+    if not m:
+        raise AssertionError("fixture has no J-095 overview row")
+    _write_file(path, text[:m.start()] + "\n" + text[m.start():])
+    return u"en overview split by a blank line before J-095"
+
+
 def _break_duplicate_graph_row(root):
     """Duplicate a text dependency row; the graph must reject it."""
     for lang in LANGS:
@@ -1340,6 +1401,13 @@ def _break_new_card_without_audience_scale(root):
         next_card = re.search(r"^### J-\d{3}", source_text[source.end():], re.M)
         end = source.end() + next_card.start() if next_card else len(source_text)
         section = source_text[source.start():end].replace(source_id, new_id)
+        # J-055 was picked because it predated the field; the legacy-card
+        # migration has since given it one, which made this fixture raise
+        # instead of testing anything. Strip the field so the clone's only
+        # defect is the missing Audience scale, whatever the source carries.
+        section = re.sub(r"^- \*\*%s\*\*[:\uff1a][^\n]*\n"
+                         % re.escape(AUDIENCE_FIELD[lang]), "", section,
+                         flags=re.M)
         if audience_scale_value(section, lang) is not None:
             raise AssertionError("source card unexpectedly carries audience scale")
         shard = os.path.join(root, "docs", lang, "ledger", "96-105.md")
@@ -1627,7 +1695,13 @@ def _break_forecast_row_numbered(root):
             lines[i] = "| C4 |" + "|".join(cells[1:]) + "|"
             _write_file(path, "\n".join(lines))
             return u"README.md: the announced-direction row now claims C4"
-    raise AssertionError("fixture has no row after the last registry row")
+    # Current READMEs have no announced row. Preserve the fixture's purpose by
+    # making the last registered identifier collide with an existing one.
+    i = last
+    cells = lines[i].strip().strip("|").split("|")
+    lines[i] = "| C4 |" + "|".join(cells[1:]) + "|"
+    _write_file(path, "\n".join(lines))
+    return u"README.md: fallback registry row now duplicates C4"
 
 
 def _chain_citation_fixture(root):
@@ -1797,9 +1871,9 @@ def _break_registered_chain_without_h1(root):
     Nothing read this before: registry rows link with plain link text
     (`[中文](path)`), so the citation check never opened these files at all.
     """
-    _register_fixture_chain(root, 10, "100-no-h1-fixture",
+    _register_fixture_chain(root, 14, "140-no-h1-fixture",
                             body=u"No heading at all.\n\nBody.\n")
-    return u"C10 registered, its files carry no H1"
+    return u"C14 registered, its files carry no H1"
 
 
 def _break_registry_topic_renamed(root):
@@ -2027,7 +2101,6 @@ def _embolden_correct_count(root):
     return u"the first card count wrapped in `**` in both READMEs"
 
 
-
 def _break_dimension_status_ledger_grade(root):
     path = os.path.join(root, "docs", "zh", "90-ledger.md")
     text = _read_file(path)
@@ -2069,6 +2142,8 @@ NEGATIVE_CASES = [
     (u"dependency edge disagrees with the card", "dep-graph", _break_dep_edge),
     (u"invented Mermaid dependency edge", "mermaid-graph", _break_mermaid_edge),
     (u"overview row missing while card remains", "overview-rows", _break_missing_overview_row),
+    (u"blank line splits the overview table", "table-rows",
+     _break_split_overview_table),
     (u"dependency graph row duplicated", "graph-rows", _break_duplicate_graph_row),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
