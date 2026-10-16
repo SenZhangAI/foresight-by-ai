@@ -48,6 +48,25 @@ Two further rules decide why this page can only look the way it does:
 - **The five gates are a veto filter, not a sufficiency predictor.** One gate failing forces the audience to be narrowed; all five passing only means the claim is still in the running (see [Methodology · The diffusion gates are not a tenth optional lens](00-method.md#the-diffusion-gates-are-not-a-tenth-optional-lens), and card `J-066`). So this page will never say "this one will certainly diffuse".
 - **Failing Gate 1 ≠ the judgment is wrong.** [The retrospective](01-retrospect.md#gate-1--count-the-people-before-you-look-at-the-technology) makes the point with professional video-editing software: it fails Gate 1 — its ceiling is the number of editors — yet its penetration among editors approaches 100% and it is a good business. The correct reading of a Gate 1 failure is: **the ceiling equals the size of that group, and it will not become a society-wide norm.**
 
+## 2.5 Calibrating evidence coverage: asymmetry is coverage loss, not systemic bias
+
+This round calibrates the gate from a **freeze-first, count-second** record rather than changing the threshold after seeing the outcome: the [freeze record](../evidence/social-scale-coverage-calibration-freeze-2026-10-16.en.md) lists two success cases and two failure controls. None presupposes AI.
+
+| Case | Strict person-level weekly measure | Result |
+|---|---|---|
+| S1 US CPS | **162.667 million** employed people in the September 2026 reference week; BLS counts a person with multiple jobs once | One country clears 100M; Gate 1 passes |
+| S2 India PLFS CWS | Quarterly-average **566 million** employed people aged 15+ in April–June 2026; each person is classified by the preceding seven days, not by jobs | One country clears 100M; Gate 1 passes |
+| F1 Organised volunteering in Australia | Only **23%** did it at least once in the preceding 12 months in 2025; this is a looser, upper-bound-like window than weekly | Gate 1 fails |
+| F2 Cycling in England | Cycling was **2% of all trips** in 2023, at 15 trips per person per year; the public figure is trips, not de-duplicated weekly people | Gate 1 fails; trips cannot be converted into people |
+
+The controls answer the real bias question: a success case can clear the threshold in **one country** from a qualifying official person-level survey. “A country without a qualifying survey counts as 0” therefore lowers the global lower bound, but does not systematically reject an action that has already reached society scale. The controls remain rejected, so the loss here is coverage, not the direction of the filter.
+
+This round therefore selects branch **(b) no misclassification** from the frozen record: missing countries for `J-104`, `J-107`, and M2 remain 0. That means their current lower-bound evidence is incomplete; it does not prove their latent scale is society-wide. No gate was added, no denominator was widened, no administrative dose/trip total was converted into people, and no existing judgment's judgment, status, or confidence field was changed.
+
+**Read J-103's evidence grade separately.** Its “single service reports more than 900M weekly active users” remains a lower bound that is self-reported and unaudited. The official-survey success cases in this calibration do not strengthen its de-duplication method, and a platform report is not an independent survey of the same evidence grade as BLS or PLFS. J-103's judgment, status, and confidence remain unchanged; readers should label it “platform self-report, unaudited” and compare it separately from the two official-survey success cases here.
+
+Definitions and sources are in the [Gate 1 coverage calibration freeze](../evidence/social-scale-coverage-calibration-freeze-2026-10-16.en.md).
+
 ---
 
 ## 3. Answering one question verbatim: where are all these people who need AI to decide for them?
