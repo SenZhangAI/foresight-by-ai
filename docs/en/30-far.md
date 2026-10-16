@@ -258,7 +258,7 @@ Convergence: C12’s far-term silence is a methodological constraint, not techno
 
 ### C13 · Fiscal Squeeze: after 2034, do not extrapolate interstate competition
 
-C13’s J-105 window runs to 2034, and the fiscal chain stops extrapolating here. One boundary remains explicit: budget pressure among pensions, defence, foreign aid, and care payments may continue as background constraint, but this repository has not reasoned from it to interstate competition or security, nor written NATO targets or sovereign debt directly as far-term social judgments. Continuing would require a separate historical calibration and national-security chain, not an automatic extension of C13.
+C13’s [J-105](ledger/103-110.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing) window runs to 2034, and the fiscal chain stops extrapolating here. One boundary remains explicit: budget pressure among pensions, defence, foreign aid, and care payments may continue as background constraint, but this repository has not reasoned from it to interstate competition or security, nor written NATO targets or sovereign debt directly as far-term social judgments. Continuing would require a separate historical calibration and national-security chain, not an automatic extension of C13.
 
 Convergence: C13 determines which C4, C5, and C9 devices and services can receive public payment; it is not a substitute explanation for C7 power distribution or geopolitics.
 
