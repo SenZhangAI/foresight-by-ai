@@ -286,7 +286,7 @@ This page only aggregates and navigates. The card-by-card count surfaced the fol
 10. **Grouping boundaries (this is this page's own weakness, not the cards').** The boundary between Group 4 (ceiling = an occupational population) and Group 5 (the subject is not an individual action) is systematically arguable: this page's grouping rule matches "institutional / allocation subject" before "occupational-scale ceiling", so a set of tens-of-millions-scale occupational cards (`J-024`, `J-027`, `J-033`, `J-043`, `J-046`, `J-055`, `J-057`, `J-059`, `J-060`, `J-062`) landed in Group 5 where another reading puts them in Group 4. Equally arguable: `J-003`–`J-005`, `J-016`, `J-031`, `J-038`, `J-048`, `J-049`, `J-056`, `J-058`, `J-061`, `J-063`, `J-082`, `J-087`, `J-093`, `J-096`, `J-101`. **The grouping is a reading projection; moving a card changes nothing about its gate verdict** — the third column of each row is what the card itself records.
 ---
 
-## 6. How this 0 stops being 0
+## 6. How the historical 0 became today's 1
 
 [Note added 2026-10-10: the first card to pass, `J-103`, did not take the path below; it froze a new action first and then gathered figures — see the [end of section 3](#3-answering-one-question-verbatim-where-are-all-these-people-who-need-ai-to-decide-for-them). The path below still applies to the other 106 candidates.]
 
