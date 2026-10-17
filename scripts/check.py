@@ -1239,6 +1239,23 @@ LENS_INTERSECTION_WHITELIST = {
     ("en", "C9", "L7", "J-096"): "L7 covers only the “institutions arrive late” end",
 }
 
+# Existing cards whose prose explicitly records that no L1–L9 lens carries it.
+# This is an auditable allowlist, not a generic empty-field escape hatch.
+ZERO_CODE_ALLOWLIST = {
+    (lang, cid, jid)
+    for lang in LANGS
+    for cid, jids in {
+        "C7": {"J-087", "J-088", "J-089", "J-090", "J-091"},
+        "C8": {"J-094", "J-095"},
+        "C12": {"J-114", "J-115", "J-116"},
+        "C13": {"J-105", "J-106", "J-107"},
+        "C14": {"J-108"}, "C15": {"J-109", "J-110", "J-111"},
+        "C16": {"J-112", "J-113"},
+    }.items()
+    for jid in jids
+}
+
+
 
 def check_chain_lens_cards():
     registry = {lang: parse_registry(lang)[0] for lang in LANGS}
@@ -1261,11 +1278,8 @@ def check_chain_lens_cards():
                     for card_path, body in cards.values())
                 # C10 is the sole declared no-own-card exception; cardless
                 # historical shells also keep an implicit empty U.
-                if cid == "C10" and not own_exists:
-                    u = set()
-                else:
-                    fail("chain-lenses", err)
-                    u = set()
+                fail("chain-lenses", err)
+                u = set()
             categories = {"own": set(), "external": set(), "other": set(), "embedded": set(), "zero-code": set()}
             details = {}
             cited = set(re.findall(r"(?<![A-Za-z0-9])(J-\d{3})(?![A-Za-z0-9])", visible(text)))
@@ -1322,6 +1336,8 @@ def check_chain_lens_cards():
                 d |= codes
                 if not codes:
                     categories["zero-code"].add(jid)
+                    if (lang, cid, jid) not in ZERO_CODE_ALLOWLIST:
+                        fail("chain-card-lens", "%s:%s has an unallowlisted zero-code Lens field" % (path, jid))
             overlap = sorted(u & d)
             for lens in overlap:
                 for jid in sorted(categories["own"] | categories["embedded"]):
@@ -2507,6 +2523,21 @@ def _break_bullet_tail(root):
     return "C13 U bullet changed to L10"
 
 
+def _break_c10_u_missing(root):
+    path = _chain_doc(root, "zh", "C10"); text = _read_file(path)
+    new = re.sub(r"^\*\*未使用的透镜\*\*：.*$\n?", "", text, count=1, flags=re.M)
+    _write_file(path, new)
+    return "C10 U line removed despite its zero-card exemption"
+
+
+def _break_unlisted_zero_code(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    m = re.search(r"(^### J-096.*?)(?=^### J-|\Z)", text, re.M | re.S)
+    body = re.sub(r"^- \*\*透镜\*\*[:：].*$", "- **透镜**：本卡没有 L1–L9 承载。", m.group(1), count=1, flags=re.M)
+    _write_file(path, text[:m.start()] + body + text[m.end():])
+    return "J-096 became zero-code outside the allowlist"
+
+
 LENS_NEGATIVE_CASES = [
     (u"U last-token intersection (zh)", "chain-lenses", lambda root: _break_u_last_token(root, "zh"), "C9"),
     (u"U last-token intersection (en)", "chain-lenses", lambda root: _break_u_last_token(root, "en"), "C9"),
@@ -2522,6 +2553,8 @@ LENS_NEGATIVE_CASES = [
     (u"card source to an unregistered file is other", "chain-card-source", _break_source_other, "J-096"),
     (u"card source to an existing unlisted page is other", "chain-card-source", _break_source_existing_unlisted, "J-096"),
     (u"C13 malformed U bullet tail is rejected", "chain-lenses", _break_bullet_tail, "C13"),
+    (u"C10 malformed U is not masked by zero-card exemption", "chain-lenses", _break_c10_u_missing, "C10"),
+    (u"unallowlisted zero-code card is rejected", "chain-card-lens", _break_unlisted_zero_code, "J-096"),
 ]
 
 
