@@ -1081,7 +1081,7 @@ def check_dimension_status():
 # ---------------------------------------------------------------------------
 LENS_CODE = re.compile(r"(?<![A-Za-z0-9])L([1-9])(?![0-9])")
 LENS_INVALID = re.compile(r"(?<![A-Za-z0-9])L(0|[1-9][0-9]+)(?![A-Za-z0-9])", re.I)
-LENS_BROAD_RANGE = re.compile(r"L1\s*[-–—~至]\s*L9", re.I)
+LENS_BROAD_RANGE = re.compile(r"L1\s*[-‐‑‒–—―~至]\s*L9", re.I)
 LENS_ANY_RANGE = re.compile(r"L\s*[0-9]+\s*[-‐‑‒–—―~至]\s*L?\s*[0-9]+", re.I)
 CHAIN_U_LABEL = {"zh": "**未使用的透镜**", "en": "**Lenses not used**"}
 CARD_LENS = {"zh": re.compile(r"^- \*\*透镜\*\*[:：]([^\
@@ -1205,6 +1205,16 @@ def _source_target(raw, card_path):
     return os.path.normpath(os.path.join(os.path.dirname(card_path), m.group(1))).replace(os.sep, "/")
 
 
+EXTERNAL_PAGE_PATTERNS = (
+    re.compile(r"^docs/(?:zh|en)/(?:00-method|01-retrospect|10-near|20-mid|30-far|90-ledger|91-social-scale-register)\.md$"),
+    re.compile(r"^evidence/[^/]+\.md$"),
+)
+
+
+def _is_listed_external(target):
+    return any(pattern.match(target) for pattern in EXTERNAL_PAGE_PATTERNS)
+
+
 def _all_cards(lang):
     out = {}
     for path in ledger_paths(lang)[1:]:
@@ -1251,9 +1261,7 @@ def check_chain_lens_cards():
                     for card_path, body in cards.values())
                 # C10 is the sole declared no-own-card exception; cardless
                 # historical shells also keep an implicit empty U.
-                if cid in ("C10", "C14", "C15", "C16"):
-                    u = set()
-                elif not own_exists and not re.search(r"^### J-\d{3}", text, re.M):
+                if cid == "C10" and not own_exists:
                     u = set()
                 else:
                     fail("chain-lenses", err)
@@ -1290,7 +1298,7 @@ def check_chain_lens_cards():
                 if target == path:
                     origins[jid] = "own"
                     details[jid] = body
-                elif target and os.path.exists(os.path.join(REPO, target)):
+                elif target and os.path.exists(os.path.join(REPO, target)) and (target in chain_paths or _is_listed_external(target)):
                     origins[jid] = "external"
                 else:
                     origins[jid] = "other"
@@ -2485,6 +2493,19 @@ def _break_source_other(root):
     _write_file(path, text)
     return "J-096 source points to an unregistered chain file"
 
+def _break_source_existing_unlisted(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    text = re.sub(r"(^- \*\*出处\*\*[:：].*?\()[^)]*", r"\1../../../README.md", text, count=1, flags=re.M)
+    _write_file(path, text)
+    return "J-096 source points to an existing but unlisted page"
+
+
+def _break_bullet_tail(root):
+    path = _chain_doc(root, "zh", "C13"); text = _read_file(path)
+    if "- **L9**" not in text: raise AssertionError("C13 L9 bullet not found")
+    _write_file(path, text.replace("- **L9**", "- **L10**", 1))
+    return "C13 U bullet changed to L10"
+
 
 LENS_NEGATIVE_CASES = [
     (u"U last-token intersection (zh)", "chain-lenses", lambda root: _break_u_last_token(root, "zh"), "C9"),
@@ -2499,12 +2520,14 @@ LENS_NEGATIVE_CASES = [
     (u"full-width lens intersection is still visible", "chain-lenses", _break_u_fullwidth, "C9"),
     (u"none marker may not have a tail", "chain-lenses", _break_none_with_tail, "C4"),
     (u"card source to an unregistered file is other", "chain-card-source", _break_source_other, "J-096"),
+    (u"card source to an existing unlisted page is other", "chain-card-source", _break_source_existing_unlisted, "J-096"),
+    (u"C13 malformed U bullet tail is rejected", "chain-lenses", _break_bullet_tail, "C13"),
 ]
 
 
 def _positive_broad_range(root):
     path = _card_path(root, "zh", "J-096"); text = _read_file(path)
-    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 是范围说明", text, count=1, flags=re.M)
+    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 L1‐L9 L1‑L9 L1‒L9 L1—L9 L1―L9 是范围说明", text, count=1, flags=re.M)
     _write_file(path, text)
     return "broad L1–L9 explanatory range remains non-declarative"
 

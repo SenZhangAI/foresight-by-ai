@@ -2,6 +2,8 @@
 
 > **This chain is not a one-cause story in which low fertility mechanically produces one future.** It places three observable but interacting constraints together: housing determines whether a household can form in a desired place; migration changes the geography of labour and care supply; fertility turns today's choices into an age structure twenty or thirty years later. AI is not a premise of this chain. It may change information, design, and execution costs, but it cannot replace the hard constraints of housing, borders, care, and time.
 
+**Lenses not used**: none — the current cards declare no L1–L9 carrier; update this line whenever lens attribution changes.
+
 ## 1. Return to history first: the same policy produces different results under different household constraints
 
 Housing, family policy, and population movement cannot be explained by a rule that says “subsidies make people have more children.” Historical material gives at least two success/failure contrasts:

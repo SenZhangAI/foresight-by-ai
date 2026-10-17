@@ -2,6 +2,8 @@
 
 [中文版本](../../zh/chains/160-culture-climate-mobility.md)
 
+**Lenses not used**: none — this chain currently has no L1–L9 card carrier; update this line whenever lens attribution changes.
+
 > This chain starts from cultural, institutional, demographic, capital, geographic, and environmental constraints, not from AI. It maps six dimensions together, but only paragraphs backed by cards and checkable indicators are “covered”; the rest are question entrances or landscape only, not definite forecasts.
 
 ## Three independent entrances with coverage

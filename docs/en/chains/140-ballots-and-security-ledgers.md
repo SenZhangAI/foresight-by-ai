@@ -2,6 +2,8 @@
 
 [中文版](../../zh/chains/140-ballots-and-security-ledgers.md)
 
+**Lenses not used**: none — the current cards declare no L1–L9 carrier; update this line whenever lens attribution changes.
+
 [Back to README / document map](../../../README.en.md)
 
 After 2026, a future landscape cannot begin only with model capability or the falling cost of generation. A harder starting point is how external security commitments enter budgets, and how income and regional divisions enter elections. Two historical lines anchor the question: on 23 June 2016, the UK government’s official page records that the people voted to leave the European Union; in 2025, the UK government explicitly described defence expansion as funded by reducing overseas development assistance. The first shows that elections can compress long-running divisions into a sovereign choice. The second shows that security pressure first enters politics through budgets and existing institutions, rather than automatically producing a new political system.
