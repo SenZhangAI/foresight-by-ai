@@ -1075,6 +1075,270 @@ def check_dimension_status():
             fail("dimension-status", "%s grade sequence differs between zh and en" % kind)
 
 
+
+# ---------------------------------------------------------------------------
+# Chain lens/card audit.  The README registry is the chain universe.
+# ---------------------------------------------------------------------------
+LENS_CODE = re.compile(r"(?<![A-Za-z0-9])L([1-9])(?![0-9])")
+LENS_INVALID = re.compile(r"(?<![A-Za-z0-9])L(0|[1-9][0-9]+)(?![A-Za-z0-9])", re.I)
+LENS_BROAD_RANGE = re.compile(r"L1\s*[-–—~至]\s*L9", re.I)
+LENS_ANY_RANGE = re.compile(r"L\s*[0-9]+\s*[-‐‑‒–—―~至]\s*L?\s*[0-9]+", re.I)
+CHAIN_U_LABEL = {"zh": "**未使用的透镜**", "en": "**Lenses not used**"}
+CARD_LENS = {"zh": re.compile(r"^- \*\*透镜\*\*[:：]([^\
+]*)$", re.M),
+             "en": re.compile(r"^- \*\*Lens\*\*:\s*([^\
+]*)$", re.M)}
+CARD_SOURCE = {"zh": re.compile(r"^- \*\*出处\*\*[:：]([^\
+]*)$", re.M),
+               "en": re.compile(r"^- \*\*Source\*\*:\s*([^\
+]*)$", re.M)}
+
+
+def _chain_path_set(registry):
+    return {p for rows in registry.values() for paths in rows.values() for p in paths}
+
+
+def _normalize_lens_text(text):
+    t = visible(text).replace("\u2011", "-")
+    return t.replace("Ｌ", "L")
+
+
+def _lens_codes(text, location=None):
+    """Read real L1..L9 declarations without treating explanatory ranges as codes."""
+    t = _normalize_lens_text(text)
+    # L1-L9 is the repository's documented universe phrase, not nine declarations.
+    broad = LENS_BROAD_RANGE.sub("", t)
+    bad_range = LENS_ANY_RANGE.search(broad)
+    if bad_range:
+        fail("lens-range", "%s: %r" % (location or "lens field", text))
+    negative = r"(?:不调用|未调用|未使用|不使用|撤出|仅作历史|does not invoke|doesn\'t invoke|not invoke|not invoked|not used|withdrawn|historical context)"
+    historical = bool(re.search(negative + r".{0,24}L10", broad, re.I) or re.search(r"L10.{0,80}(?:历史上下文|撤出工具箱|historical context|withdrawn)", broad, re.I))
+    invalid = []
+    for m in LENS_INVALID.finditer(broad):
+        before = broad[max(0, m.start()-70):m.start()].lower()
+        if re.search(negative + r"\W*$", before, re.I) or (m.group(1) == "10" and historical):
+            continue
+        invalid.append(m.group(0))
+    if invalid:
+        fail("lens-token", "%s: unknown lens token(s) %s; original=%r" %
+             (location or "lens field", sorted(set(invalid)), text))
+    codes = set()
+    for m in LENS_CODE.finditer(broad):
+        before = broad[max(0, m.start()-70):m.start()].lower()
+        after = broad[m.end():m.end()+120]
+        if (re.search(negative + r"\W*$", before, re.I) or
+                re.search(negative, broad[max(0, m.start()-220):m.start()], re.I) or
+                re.search(r"(?:未调用|not invoked|not invoke)", after, re.I)):
+            continue
+        codes.add("L" + m.group(1))
+    return codes
+
+
+def _parse_u(text, lang, path, cid):
+    lines = text.splitlines()
+    label = CHAIN_U_LABEL[lang]
+    hits = [(i + 1, line) for i, line in enumerate(lines)
+            if line.lstrip().startswith(label)]
+    if len(hits) != 1:
+        return None, "%s: U declaration count=%d (expected exactly one), original=%r" % (path, len(hits), hits)
+    lineno, line = hits[0]
+    rest = line[line.index(label) + len(label):]
+    # C13's current declaration is a heading followed by one bullet per lens.
+    if not re.match(r"^\s*[:：]", rest):
+        bullets = []
+        for candidate in lines[lineno:]:
+            if re.match(r"^#{1,6}\s", candidate):
+                break
+            if not candidate.strip() or candidate.strip() == "</details>":
+                continue
+            if re.match(r"^[-*]\s+\*\*L(?:[1-9])\*\*", candidate):
+                bullets.append(candidate)
+                continue
+            if bullets or candidate.lstrip().startswith(("-", "*")):
+                return None, "%s:%d malformed U bullet, original=%r" % (path, lineno, candidate)
+        if bullets:
+            nums = re.findall(r"\*\*L([1-9])\*\*", "\n".join(bullets))
+            if len(nums) != len(set(nums)):
+                return None, "%s:%d duplicate U bullet, original=%r" % (path, lineno, line)
+            print("chain-lenses adaptation: %s:%d bullet U" % (path, lineno))
+            return {"L" + n for n in nums}, None
+        return None, "%s:%d U has no list separator, original=%r" % (path, lineno, line)
+    fragment = re.split(r"。|\.\s", re.split(r"[:：]", rest, maxsplit=1)[1], maxsplit=1)[0].strip()
+    plain = visible(re.sub(r"\*\*", "", fragment))
+    empty = re.match(r"^(无——|none\s*[—-])\s*", plain, re.I)
+    if empty:
+        tail = plain[empty.end():].lstrip(" 、,;；")
+        if re.match(r"^L(?:[0-9]+)", tail, re.I):
+            return None, "%s:%d empty marker followed by lens entries, original=%r" % (path, lineno, line)
+        return set(), None
+    item = r"L([1-9])(?:\s*(?:（[^）]*）|\([^)]*\)))?"
+    if lang == "zh":
+        pattern = r"^%s(?:、%s)*$" % (item, item)
+    else:
+        pattern = r"^%s(?:,\s*(?:and\s+)?%s|\s+and\s+%s)*$" % (item, item, item)
+    if not re.match(pattern, plain):
+        return None, "%s:%d malformed U fragment %r (original=%r)" % (path, lineno, fragment, line)
+    nums = re.findall(r"L([1-9])", plain)
+    if len(nums) != len(set(nums)):
+        return None, "%s:%d duplicate U token, original=%r" % (path, lineno, line)
+    return {"L" + n for n in nums}, None
+
+
+def _card_body(path, jid):
+    text = read(path)
+    m = re.search(r"^### %s(?:[^\
+]*)$" % re.escape(jid), text, re.M)
+    if not m:
+        return None
+    nxt = re.search(r"^### J-\d{3}", text[m.end():], re.M)
+    end = m.end() + nxt.start() if nxt else len(text)
+    sec = re.search(r"^## ", text[m.end():end], re.M)
+    if sec:
+        end = m.end() + sec.start()
+    return text[m.start():end]
+
+
+def _source_target(raw, card_path):
+    m = re.search(r"\]\(([^)#\s]+)", raw)
+    if not m:
+        return None
+    return os.path.normpath(os.path.join(os.path.dirname(card_path), m.group(1))).replace(os.sep, "/")
+
+
+def _all_cards(lang):
+    out = {}
+    for path in ledger_paths(lang)[1:]:
+        for jid in re.findall(r"^### (J-\d{3})", read(path), re.M):
+            if jid in out:
+                fail("chain-card-source", "%s duplicated in %s and %s" % (jid, out[jid][0], path))
+            out[jid] = (path, _card_body(path, jid))
+    return out
+
+
+def _card_lens(body, lang, location):
+    fields = CARD_LENS[lang].findall(body or "")
+    if len(fields) != 1:
+        fail("chain-card-lens", "%s has %d Lens fields (expected exactly one)" % (location, len(fields)))
+        return set(), ""
+    return _lens_codes(fields[0], location), fields[0]
+
+
+# Only these two intersections are allowed, and only if their exact wording remains.
+LENS_INTERSECTION_WHITELIST = {
+    ("zh", "C9", "L7", "J-096"): "L7 也只承接「制度后到」这一端",
+    ("en", "C9", "L7", "J-096"): "L7 covers only the “institutions arrive late” end",
+}
+
+
+def check_chain_lens_cards():
+    registry = {lang: parse_registry(lang)[0] for lang in LANGS}
+    chain_paths = _chain_path_set(registry)
+    for lang in LANGS:
+        cards = _all_cards(lang)
+        for cid in sorted(registry[lang]):
+            own_paths = sorted(p for p in registry[lang][cid] if p.startswith("docs/%s/" % lang))
+            if len(own_paths) != 1:
+                continue
+            path = own_paths[0]
+            if not os.path.exists(os.path.join(REPO, path)):
+                continue
+            text = read(path)
+            u, err = _parse_u(text, lang, path, cid)
+            if err:
+                own_exists = any(
+                    (CARD_SOURCE[lang].search(body or "") and
+                     _source_target(CARD_SOURCE[lang].search(body or "").group(1), card_path) == path)
+                    for card_path, body in cards.values())
+                # C10 is the sole declared no-own-card exception; cardless
+                # historical shells also keep an implicit empty U.
+                if cid in ("C10", "C14", "C15", "C16"):
+                    u = set()
+                elif not own_exists and not re.search(r"^### J-\d{3}", text, re.M):
+                    u = set()
+                else:
+                    fail("chain-lenses", err)
+                    u = set()
+            categories = {"own": set(), "external": set(), "other": set(), "embedded": set(), "zero-code": set()}
+            details = {}
+            cited = set(re.findall(r"(?<![A-Za-z0-9])(J-\d{3})(?![A-Za-z0-9])", visible(text)))
+            embedded = set(re.findall(r"^### (J-\d{3})", text, re.M))
+            own_from_ledger = set()
+            for jid, (card_path, body) in cards.items():
+                sm = CARD_SOURCE[lang].search(body or "")
+                target = _source_target(sm.group(1), card_path) if sm else None
+                if target == path:
+                    own_from_ledger.add(jid)
+            candidates = cited | embedded | own_from_ledger
+            origins = {}
+            for jid in sorted(candidates):
+                if jid in embedded:
+                    body = _card_body(path, jid)
+                    if body is None:
+                        fail("chain-card-source", "%s embeds %s but its card body is unreadable" % (path, jid))
+                        origins[jid] = "other"
+                    else:
+                        origins[jid] = "embedded"
+                        details[jid] = body
+                    continue
+                if jid not in cards:
+                    origins[jid] = "other"
+                    fail("chain-card-source", "%s cites %s, but no ledger card is available" % (path, jid))
+                    continue
+                card_path, body = cards[jid]
+                sm = CARD_SOURCE[lang].search(body or "")
+                target = _source_target(sm.group(1), card_path) if sm else None
+                if target == path:
+                    origins[jid] = "own"
+                    details[jid] = body
+                elif target and os.path.exists(os.path.join(REPO, target)):
+                    origins[jid] = "external"
+                else:
+                    origins[jid] = "other"
+            for jid, origin in origins.items():
+                categories[origin].add(jid)
+            # Origin categories are a partition; zero-code is deliberately an annotation.
+            origin_sets = [categories[k] for k in ("own", "external", "other", "embedded")]
+            overlap_ids = set()
+            for i, left in enumerate(origin_sets):
+                for right in origin_sets[i + 1:]:
+                    overlap_ids |= left & right
+            if overlap_ids:
+                fail("chain-card-source", "%s has overlapping provenance categories: %s" % (path, ",".join(sorted(overlap_ids))))
+            if set().union(*origin_sets) != candidates:
+                fail("chain-card-source", "%s provenance categories are not exhaustive" % path)
+            for jid in sorted(categories["other"]):
+                fail("chain-card-source", "%s has unclassified card reference %s" % (path, jid))
+            d = set()
+            for jid in sorted(categories["own"] | categories["embedded"]):
+                codes, raw = _card_lens(details.get(jid), lang, "%s:%s" % (path, jid))
+                d |= codes
+                if not codes:
+                    categories["zero-code"].add(jid)
+            overlap = sorted(u & d)
+            for lens in overlap:
+                for jid in sorted(categories["own"] | categories["embedded"]):
+                    codes, raw = _card_lens(details.get(jid), lang, "%s:%s" % (path, jid))
+                    if lens not in codes:
+                        continue
+                    expected = LENS_INTERSECTION_WHITELIST.get((lang, cid, lens, jid))
+                    if expected is None:
+                        fail("chain-lenses", "%s: U∩D contains %s via %s; U-original=%r, card-lens=%r" % (path, lens, jid, [x for x in text.splitlines() if CHAIN_U_LABEL[lang] in x], raw))
+                    else:
+                        phrase_count = raw.count(expected)
+                        code_count = len(re.findall(r"(?<![A-Za-z0-9])L7(?![0-9])", _normalize_lens_text(raw)))
+                        if phrase_count != 1 or code_count != 1 or expected not in raw:
+                            fail("chain-lenses", "%s: stale/non-unique whitelist (%s), phrase_count=%d, L7_count=%d, card-lens=%r" % (path, (lang, cid, lens, jid), phrase_count, code_count, raw))
+            if categories["other"]:
+                fail("chain-card-source", "%s has unclassified card references: %s" % (path, ",".join(sorted(categories["other"]))))
+            if not categories["own"] and cid != "C10":
+                fail("chain-card-source", "%s has no own-chain cards (only C10 may be empty)" % path)
+            print("chain %-3s %-2s U=%s own=%s external=%s other=%s embedded=%s zero-code=%s" %
+                  (cid, lang, ",".join(sorted(u)) or "—", ",".join(sorted(categories["own"])) or "—",
+                   ",".join(sorted(categories["external"])) or "—", ",".join(sorted(categories["other"])) or "—",
+                   ",".join(sorted(categories["embedded"])) or "—", ",".join(sorted(categories["zero-code"])) or "—"))
+            original = [line for line in text.splitlines() if CHAIN_U_LABEL[lang] in line]
+            print("  U-original: %s" % (original[0] if original else "(implicit empty for cardless chain)"))
+
 def run_checks():
     files = markdown_files()
     check_public_internal_ids(files)
@@ -1084,6 +1348,7 @@ def run_checks():
     check_parity(cards)
     chains = check_chain_registry()
     check_chain_titles()
+    check_chain_lens_cards()
     check_readme_counts(cards, len(chains))
     check_dimension_status()
 
@@ -2129,6 +2394,124 @@ def _break_public_internal_id(root):
     return u"README.en.md: appended an internal wu-* handle"
 
 
+
+
+
+
+def _chain_doc(root, lang, cid):
+    directory = os.path.join(root, "docs", lang, "chains")
+    for name in sorted(os.listdir(directory)):
+        if not is_markdown(name):
+            continue
+        path = os.path.join(directory, name)
+        if re.search(r"^#\s+%s\b" % re.escape(cid), _read_file(path), re.M):
+            return path
+    raise AssertionError("fixture carries no chain %s/%s" % (lang, cid))
+
+
+def _replace_chain_u(root, lang, cid, old, new):
+    path = _chain_doc(root, lang, cid); text = _read_file(path)
+    if old not in text:
+        raise AssertionError("%s U fixture text not found" % old)
+    _write_file(path, text.replace(old, new, 1))
+    return "%s:%s U changed" % (lang, cid)
+
+
+def _break_u_last_token(root, lang):
+    if lang == "zh":
+        return _replace_chain_u(root, lang, "C9", "L9（关系不对称）", "L9（关系不对称）、L8（人性）")
+    return _replace_chain_u(root, lang, "C9", "L9 (relational asymmetry)", "L9 (relational asymmetry), and L8 (human nature)")
+
+
+def _break_c4_u_j100(root):
+    return _replace_chain_u(root, "zh", "C4", "**未使用的透镜**：无——", "**未使用的透镜**：L8（人性）")
+
+
+def _break_c9_non_l7_j096(root):
+    return _replace_chain_u(root, "zh", "C9", "L9（关系不对称）", "L8（人性）")
+
+
+def _break_c9_l7_non_j096(root):
+    path = _card_path(root, "zh", "J-097"); text = _read_file(path)
+    m = re.search(r"(^### J-097.*?)(?=^### J-|\Z)", text, re.M | re.S)
+    if not m: raise AssertionError("J-097 body not found")
+    body = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda x: x.group(1) + "、L7", m.group(1), count=1, flags=re.M)
+    if body == m.group(1): raise AssertionError("J-097 lens field not found")
+    _write_file(path, text[:m.start()] + body + text[m.end():])
+    return "J-097 lens field gained L7"
+
+def _break_c9_j096_extra_l7(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    text = re.sub(r"(^- \*\*透镜\*\*[:：])", r"\1L7（制度后到）；", text, count=1, flags=re.M)
+    text = text.replace("L7 也只承接「制度后到」这一端", "L7 也只承接制度后到这一端", 1)
+    _write_file(path, text)
+    return "J-096 gained L7 without the exact whitelist phrase"
+
+
+def _break_u_missing(root):
+    path = _chain_doc(root, "zh", "C4"); text = _read_file(path)
+    new = re.sub(r"^\*\*未使用的透镜\*\*：.*$\n?", "", text, count=1, flags=re.M)
+    if new == text: raise AssertionError("zh U line not found")
+    _write_file(path, new)
+    return "%s: U line removed" % path
+
+
+def _break_u_missing_en(root):
+    path = _chain_doc(root, "en", "C4"); text = _read_file(path)
+    new = re.sub(r"^\*\*Lenses not used\*\*:.*$\n?", "", text, count=1, flags=re.M)
+    if new == text: raise AssertionError("en U line not found")
+    _write_file(path, new)
+    return "%s: U line removed" % path
+
+
+def _break_u_range(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "、L7–L9", text, count=1, flags=re.M)
+    _write_file(path, text)
+    return "J-096 lens field gained L7–L9"
+
+
+def _break_u_fullwidth(root):
+    return _replace_chain_u(root, "zh", "C9", "L9（关系不对称）", "L9（关系不对称）、Ｌ8（人性）")
+
+
+def _break_none_with_tail(root):
+    return _replace_chain_u(root, "zh", "C4", "**未使用的透镜**：无——", "**未使用的透镜**：无——、L1（供需）")
+
+
+def _break_source_other(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    text = re.sub(r"(^- \*\*出处\*\*[:：].*?\()[^)]*", r"\1../chains/999-unregistered.md", text, count=1, flags=re.M)
+    _write_file(path, text)
+    return "J-096 source points to an unregistered chain file"
+
+
+LENS_NEGATIVE_CASES = [
+    (u"U last-token intersection (zh)", "chain-lenses", lambda root: _break_u_last_token(root, "zh"), "C9"),
+    (u"U last-token intersection (en)", "chain-lenses", lambda root: _break_u_last_token(root, "en"), "C9"),
+    (u"C4 U names an own card lens", "chain-lenses", _break_c4_u_j100, "C4"),
+    (u"C9 non-L7 lens intersects J-096", "chain-lenses", _break_c9_non_l7_j096, "C9"),
+    (u"C9 L7 intersects a non-J-096 card", "chain-lenses", _break_c9_l7_non_j096, "C9"),
+    (u"whitelist J-096 phrase is stale", "chain-lenses", _break_c9_j096_extra_l7, "J-096"),
+    (u"zh U declaration is unreadable", "chain-lenses", _break_u_missing, "C4"),
+    (u"en U declaration is unreadable", "chain-lenses", _break_u_missing_en, "C4"),
+    (u"a non-universe lens range is rejected", "lens-range", _break_u_range, "J-096"),
+    (u"full-width lens intersection is still visible", "chain-lenses", _break_u_fullwidth, "C9"),
+    (u"none marker may not have a tail", "chain-lenses", _break_none_with_tail, "C4"),
+    (u"card source to an unregistered file is other", "chain-card-source", _break_source_other, "J-096"),
+]
+
+
+def _positive_broad_range(root):
+    path = _card_path(root, "zh", "J-096"); text = _read_file(path)
+    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 是范围说明", text, count=1, flags=re.M)
+    _write_file(path, text)
+    return "broad L1–L9 explanatory range remains non-declarative"
+
+
+LENS_POSITIVE_CASES = [
+    (u"broad L1–L9 prose is not nine declarations", _positive_broad_range),
+]
 NEGATIVE_CASES = [
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
@@ -2205,7 +2588,7 @@ NEGATIVE_CASES = [
      _break_registry_topic_renamed),
     (u"the registry allocates an id with no topic", "chain-title",
      _break_registry_topic_empty),
-    (u"a registered chain whose file has no H1", "chain-title",
+    (u"a registered chain whose file has no H1", "chain-registry",
      _break_registered_chain_without_h1),
     (u"an identifier cited for a file that is no chain", "chain-title",
      _break_citation_to_a_file_that_is_no_chain),
@@ -2312,7 +2695,25 @@ def self_test():
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
 
-        print("\nconfidence values that must be rejected:")
+        print("\nlens/card negative cases (each must name its chain/card location):")
+        for title, tag, mutate, marker in LENS_NEGATIVE_CASES:
+            work = fresh()
+            detail = mutate(work)
+            code, out = _run_checker(work)
+            ok = code != 0 and ("[%s]" % tag) in out and marker in out
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, u"exit %d, expected [%s] + %s — %s" %
+                   (code, tag, marker, detail))
+
+        print("\nlens/card edits that must NOT be reported:")
+        for title, mutate in LENS_POSITIVE_CASES:
+            work = fresh()
+            detail = mutate(work)
+            code, out = _run_checker(work)
+            ok = code == 0
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, u"exit %d — %s" % (code, detail))
+
         for lang, value in CONFIDENCE_REJECTED:
             work = fresh()
             _set_confidence(lang, value)(work)
