@@ -51,7 +51,7 @@
 
 | 指针 | 先读什么 | 当前能支持的核心方向 | 证据等级与边界 |
 |---|---|---|---|
-| 读&nbsp;物&nbsp;理&nbsp;世&nbsp;界 | [具身智能：AI 要过普及闸，缺的是一具能承担后果的身体](docs/zh/chains/40-embodied-intelligence.md) · [J-073](docs/zh/ledger/71-80.md#j-073--具身智能是-ai-触及物理劳动人口的必要补足不是普及的充分条件)–[J-078](docs/zh/ledger/71-80.md#j-078--建筑与家政被一次性现场与别人的家挡住本窗口内只以单工序设备与单任务切片到达)；社会后果扩展：[J-099](docs/zh/ledger/96-102.md#j-099--具身自动化先重排职业任务包而非同步消灭整个职业)–[J-102](docs/zh/ledger/96-102.md#j-102--具身生产率收益先向互补资产与责任承载者集中) | 具身能力是 AI 进入照护、物流、制造、农业、建筑与家政等物理劳动的必要补足；扩散后先重排任务、家庭角色、区域承载与收益分配，不自动等于社会级普及。 | 中等；主要是职业／组织与社会后果推演，部署规模、保险责任、单位任务成本、跨区域与分配序列仍是缺口。 |
+| 读&nbsp;物&nbsp;理&nbsp;世&nbsp;界 | [具身智能进入具身劳动世界：照护、制造、物流、建筑与农业如何重排任务、关系与责任](docs/zh/chains/40-embodied-intelligence.md) · [J-073](docs/zh/ledger/71-80.md#j-073--具身智能是-ai-触及物理劳动人口的必要补足不是普及的充分条件)–[J-078](docs/zh/ledger/71-80.md#j-078--建筑与家政被一次性现场与别人的家挡住本窗口内只以单工序设备与单任务切片到达)；社会后果扩展：[J-099](docs/zh/ledger/96-102.md#j-099--具身自动化先重排职业任务包而非同步消灭整个职业)–[J-102](docs/zh/ledger/96-102.md#j-102--具身生产率收益先向互补资产与责任承载者集中) | 具身能力是 AI 进入照护、物流、制造、农业、建筑与家政等物理劳动的必要补足；扩散后先重排任务、家庭角色、区域承载与收益分配，不自动等于社会级普及。 | 中等；主要是职业／组织与社会后果推演，部署规模、保险责任、单位任务成本、跨区域与分配序列仍是缺口。 |
 | 读&nbsp;生&nbsp;物&nbsp;医&nbsp;学 | [生物与医疗：答案会先变便宜，证明与照护不会](docs/zh/chains/50-biology-medicine.md) · [J-079](docs/zh/ledger/71-80.md#j-079--生物医学候选生成与临床级因果证明会分叉)–[J-082](docs/zh/ledger/81-90.md#j-082--解释变多后医疗稀缺移向获授权的干预与连续照护仅图景) | 候选生成与临床级因果证明、照护和责任承担会分叉。 | 中等至低；跨国部署与长期结局证据不足，不能把候选数量当成医疗结果。 |
 | 读&nbsp;教&nbsp;育 | [教育与技能形成：讲解会泛滥，掌握仍要留下痕迹](docs/zh/chains/60-education-skill-formation.md) · [J-083](docs/zh/ledger/81-90.md#j-083--个性化讲解先于可验证掌握变丰富)–[J-086](docs/zh/ledger/81-90.md#j-086--解释鸿沟缩小但练习与验证鸿沟可能扩大仅图景) | 解释可能变便宜，但掌握、评估、资格与制度承载不会自动同步丰富。 | 中等至低；若涉及大范围社会结论，须回到卡片的规模判定；长期跨国证据仍缺。 |
 | 读&nbsp;人&nbsp;口&nbsp;与&nbsp;照&nbsp;护 | [人口老龄化与制度化照护：谁承担每天的身体与协调工作](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [J-096](docs/zh/ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层) / [J-097](docs/zh/ledger/96-102.md#j-097--照护辅助先在机构与受控服务中稳定开放家庭通用机器人滞后) | 从人口、家庭时间与制度载体出发，推演正式照护、协调层与具身设备的先后；不把 AI 当作唯一根因。 | 中等；照护者分母、机构部署留存与家庭设备事故数据仍缺。 |
@@ -199,11 +199,13 @@
 
 ## 一个重要的非 AI 起点：当前探针到哪里了
 
-项目没有把所有社会变化都从 AI 里推出。档案中还保留一条**不从 AI 或 L1「丰富→稀缺」起步的人口老龄化 × 家庭缩小**非 AI 社会力量探针；它现在已经扩展为 [C9 人口老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)，并由 [J-096–J-097](docs/zh/ledger/96-102.md) 承载可检验判断。它先定义「成年人每周亲手或协调老人照护」这一重复动作，再检查制度载体与 AI 的交集；日本与瑞典材料仍只是校准和对照，不提供全球照护者分母或家庭机器人渗透率。
+项目没有把所有社会变化都从 AI 里推出。档案中还保留一条**从人口老龄化 × 家庭缩小开始、而不是从 AI 或 L1「丰富→稀缺」开始**的社会力量探针；它现在已经扩展为 [C9 人口老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)，并由 [J-096–J-097](docs/zh/ledger/96-102.md) 承载可检验判断。它先定义「成年人每周亲手或协调老人照护」这一重复动作，再检查制度载体与 AI 的交集；但 C9 的 `depends-on` 仍包含上游扩散与技术判断，因此「人口起点」不等于「整条链删掉 AI 后每一步都原样成立」。日本与瑞典材料仍只是校准和对照，不提供全球照护者分母或家庭机器人渗透率。
 
-这条探针的意义不是证明老龄化预测已经成立，而是把一个可检验的原则放在台面上：删掉 AI，若人口、家庭和制度机制仍成立，就不能把 AI 写成唯一根因。它与 C7 的技术传导链互相连接，但不被 C1 的生成成本曲线吞并。
+这条探针的意义不是证明老龄化预测已经成立，而是把一个可检验的原则放在台面上：人口与家庭机制可以先于 AI 定义问题，但链条必须逐项披露 AI 交集，不能把 AI 写成唯一根因。它与 C7 的技术传导链互相连接，但不被 C1 的生成成本曲线吞并。
 
-第二条不以 AI 为前提的链是 [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md)，也是第一条从政治与财政起步的链：利息、老龄化与国防三份账单争同一本预算，[J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) 删去 J-001 及所有以 AI／算力为前提的卡后原样成立；其中 65 岁以上每周有酬工作按事先冻结的口径判为 C · 只到 D 档，没有过闸一。
+[C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)同样有一个**从代理制度、责任与撤回权开始的非技术入口**，但它的台账依赖 J-009、J-031、J-055、J-065、J-070 等 AI 相关上游卡；因此它证明的是入口不是「模型能力先行」，不是整条链不以 AI 为前提。其余判断仍须按 `depends-on` 图逐项追溯。
+
+第二条可以在整条链层面删去 AI 前提的链是 [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md)，也是第一条从政治与财政起步的链：利息、老龄化与国防三份账单争同一本预算，[J-105–J-107](docs/zh/ledger/103-110.md#j-105--财政挤压时现领取者的名义养老金最难动刀先落在还没开始领的人身上) 的独立性测试逐卡写明，删去 J-001 及所有以 AI／算力为前提的卡后，J-105 与 J-106 原样成立，J-107 还依赖 J-066、J-067 的普及判据（这些是方法约束，不是 AI 前提）；其中 65 岁以上每周有酬工作按事先冻结的口径判为 C · 只到 D 档，没有过闸一。
 
 第三条不以 AI 为前提的链是 [C14 选票与安全账本](docs/zh/chains/140-ballots-and-security-ledgers.md)：它用 2016 年英国公投和北约／英国防务预算安排校准两个制度通道，再只对英国、法国、德国、意大利提出一条可证伪的“预算与产业政策先于选举制度改变”判断。它明确把战争、核威慑、移民、能源地缘与跨国政治极化留在未覆盖清单，不把局部制度证据包装成全社会趋势。
 
@@ -273,7 +275,7 @@ flowchart LR
 | C1 | 生成变得免费之后，什么反而买不到了 | **已有 calibration 支持**：历史机制对照；未来判断未验证 | [中文](docs/zh/chains/10-generation-becomes-free.md) · [English](docs/en/chains/10-generation-becomes-free.md) · [历史校准边界](docs/zh/02-historical-validation-protocol.md) · [J-001–J-005](docs/zh/90-ledger.md) · [J-103](docs/zh/ledger/103-110.md#j-103--社会级的-ai-动作是问不是拍板亿级周频靠免费档撑住) |
 | C2 | 当数据不再免费：现实信号如何变成合同资产 | **已写成但证据仍开放**：机制与外部材料有入口，价格、跨市场和长期证据未闭合 | [中文](docs/zh/chains/20-real-signals-become-contracts.md) · [English](docs/en/chains/20-real-signals-become-contracts.md) · [J-055](docs/zh/ledger/51-60.md#j-055--高责任任务中的现实信号以合同资产形式获得溢价) |
 | C3 | 电子落地：算力的瓶颈从芯片移到电网、土地与许可 | **已写成但证据仍开放**：有队列、许可和基础设施证据；跨市场价格与等待时间仍缺 | [中文](docs/zh/chains/30-power-land-and-permits.md) · [English](docs/en/chains/30-power-land-and-permits.md) · [J-056–J-064](docs/zh/90-ledger.md) |
-| C4 | 具身智能：AI 要过普及闸，缺的是一具能承担后果的身体 | **已有 calibration 支持**：历史普及闸与案例对照；部署规模、责任和成本未验证 | [中文](docs/zh/chains/40-embodied-intelligence.md) · [English](docs/en/chains/40-embodied-intelligence.md) · [历史回顾 · 五道闸](docs/zh/01-retrospect.md) · [J-073–J-078、J-099–J-102](docs/zh/90-ledger.md) |
+| C4 | 具身智能进入具身劳动世界：照护、制造、物流、建筑与农业如何重排任务、关系与责任 | **已有 calibration 支持**：历史普及闸与案例对照；部署规模、责任和成本未验证 | [中文](docs/zh/chains/40-embodied-intelligence.md) · [English](docs/en/chains/40-embodied-intelligence.md) · [历史回顾 · 五道闸](docs/zh/01-retrospect.md) · [J-073–J-078、J-099–J-102](docs/zh/90-ledger.md) |
 | C5 | 生物与医疗：答案会先变便宜，证明与照护不会 | **已有 calibration 支持**：历史“信息扩张≠现实证明”对照；跨国部署与长期结局未闭合 | [中文](docs/zh/chains/50-biology-medicine.md) · [English](docs/en/chains/50-biology-medicine.md) · [J-079–J-082](docs/zh/90-ledger.md) |
 | C6 | 教育与技能形成：讲解会泛滥，掌握仍要留下痕迹 | **已有 calibration 支持**：印刷、函授与 MOOC 等历史对照；长期跨国证据未闭合 | [中文](docs/zh/chains/60-education-skill-formation.md) · [English](docs/en/chains/60-education-skill-formation.md) · [J-083–J-086](docs/zh/90-ledger.md) |
 | C7 | 技术先到，权力后到：能力出现次序如何穿过组织，才变成社会后果 | **已有 calibration 支持**：通用技术与组织传导的历史对照；就业与分配结果未验证 | [中文](docs/zh/chains/70-capability-to-social-consequences.md) · [English](docs/en/chains/70-capability-to-social-consequences.md) · [历史回顾](docs/zh/01-retrospect.md) · [J-087–J-091](docs/zh/90-ledger.md) |

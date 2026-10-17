@@ -50,7 +50,7 @@ flowchart TD
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 
-- **L1 Abundance → scarcity** (written above as “supply-and-demand bottlenecks”): compute investment becomes abundant, so the complementary qualified conversion path that does not expand with it appreciates.
+- **L1 Abundance → scarcity (optional lens; “supply-and-demand bottlenecks” is this chain's source phrase, not a mapping-table attribution of the §1 clause to L1)**: this chain treats abundant compute investment as a supply-and-demand hypothesis to test; whether the complementary qualified conversion path appreciates depends on process, climate, and liability evidence.
 - **L2 Constraint migration**: the bottleneck jumps from geological reserves to “a qualified recipe that keeps running through local water, power, and climate shocks.”
 - **L3 Cost structure** (partly used): only its “how products are bundled” face — a fab site is priced and contracted as one bundle of simultaneously available utilities, not item by item.
 - **L4 Diffusion lag**: process qualification, customer approval, and line-transfer cycles decide when a second source actually exists.

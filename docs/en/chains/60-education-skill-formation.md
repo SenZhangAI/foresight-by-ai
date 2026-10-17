@@ -21,7 +21,7 @@ Printing expanded textbook supply without eliminating schools. Correspondence, b
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 
-- **L1 Abundance → scarcity**: explanation and finished artefacts become abundant, so the complementary sustained practice and credible observation that do not grow with them appreciate.
+- **L1 Abundance → scarcity (optional lens)**: this chain treats abundant explanation and finished artefacts as a supply-and-demand hypothesis to test; whether sustained practice and credible observation appreciate must be checked against diffusion and credential evidence.
 - **L2 Constraint migration**: the bottleneck jumps from “no explanation is available” to “practice time, real performance, and who will vouch for it.”
 - **L4 Diffusion lag**: a local loop inside existing institutions diffuses before an institution is rebuilt, at the speed of curriculum, assessment, and credentialing cycles.
 - **L5 Signals and forgery**: the cost of forging take-home artefacts collapses, so screening moves to more expensive, harder-to-subcontract identity, live performance, and long records — the core step of this chain.

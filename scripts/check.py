@@ -1081,8 +1081,8 @@ def check_dimension_status():
 # ---------------------------------------------------------------------------
 LENS_CODE = re.compile(r"(?<![A-Za-z0-9])L([1-9])(?![0-9])")
 LENS_INVALID = re.compile(r"(?<![A-Za-z0-9])L(0|[1-9][0-9]+)(?![A-Za-z0-9])", re.I)
-LENS_BROAD_RANGE = re.compile(r"L1\s*[-‐‑‒–—―~至]\s*L9", re.I)
-LENS_ANY_RANGE = re.compile(r"L\s*[0-9]+\s*[-‐‑‒–—―~至]\s*L?\s*[0-9]+", re.I)
+LENS_BROAD_RANGE = re.compile(r"L1\s*[-‐‑‒–—―－~至]\s*L9", re.I)
+LENS_ANY_RANGE = re.compile(r"L\s*[0-9]+\s*[-‐‑‒–—―－~至]\s*L?\s*[0-9]+", re.I)
 CHAIN_U_LABEL = {"zh": "**未使用的透镜**", "en": "**Lenses not used**"}
 CARD_LENS = {"zh": re.compile(r"^- \*\*透镜\*\*[:：]([^\
 ]*)$", re.M),
@@ -1235,8 +1235,8 @@ def _card_lens(body, lang, location):
 
 # Only these two intersections are allowed, and only if their exact wording remains.
 LENS_INTERSECTION_WHITELIST = {
-    ("zh", "C9", "L7", "J-096"): "L7 也只承接「制度后到」这一端",
-    ("en", "C9", "L7", "J-096"): "L7 covers only the “institutions arrive late” end",
+    ("zh", "C9", "L7", "J-096", "L7(制度滞后)、L9(关系不对称)"): "L7 也只承接「制度后到」这一端",
+    ("en", "C9", "L7", "J-096", "L7 (institutional lag), L9 (relational asymmetry)"): "L7 covers only the “institutions arrive late” end",
 }
 
 # Existing cards whose prose explicitly records that no L1–L9 lens carries it.
@@ -1255,6 +1255,20 @@ ZERO_CODE_ALLOWLIST = {
     for jid in jids
 }
 
+
+
+def _u_fragment(text, lang):
+    label = CHAIN_U_LABEL[lang]
+    item = r"L[1-9](?:\s*(?:（[^）]*）|\([^)]*\)))?"
+    for line in text.splitlines():
+        if line.lstrip().startswith(label) and re.search(r"[:：]", line):
+            rest = visible(re.sub(r"\*\*", "", re.split(r"[:：]", line, maxsplit=1)[1]))
+            if lang == "zh":
+                m = re.match(r"%s(?:、%s)*" % (item, item), rest)
+            else:
+                m = re.match(r"%s(?:,\s*(?:and\s+)?%s|\s+and\s+%s)*" % (item, item, item), rest)
+            return m.group(0).strip() if m else ""
+    return ""
 
 
 def check_chain_lens_cards():
@@ -1339,12 +1353,13 @@ def check_chain_lens_cards():
                     if (lang, cid, jid) not in ZERO_CODE_ALLOWLIST:
                         fail("chain-card-lens", "%s:%s has an unallowlisted zero-code Lens field" % (path, jid))
             overlap = sorted(u & d)
+            u_fragment = _u_fragment(text, lang)
             for lens in overlap:
                 for jid in sorted(categories["own"] | categories["embedded"]):
                     codes, raw = _card_lens(details.get(jid), lang, "%s:%s" % (path, jid))
                     if lens not in codes:
                         continue
-                    expected = LENS_INTERSECTION_WHITELIST.get((lang, cid, lens, jid))
+                    expected = LENS_INTERSECTION_WHITELIST.get((lang, cid, lens, jid, u_fragment))
                     if expected is None:
                         fail("chain-lenses", "%s: U∩D contains %s via %s; U-original=%r, card-lens=%r" % (path, lens, jid, [x for x in text.splitlines() if CHAIN_U_LABEL[lang] in x], raw))
                     else:

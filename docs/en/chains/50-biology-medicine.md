@@ -21,7 +21,7 @@ Printing made medical knowledge easier to copy without replacing clinical trials
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 
-- **L1 Abundance → scarcity**: candidate explanations and candidate molecules become abundant, so the complementary prospective validation that does not grow with them appreciates.
+- **L1 Abundance → scarcity (optional lens)**: this chain treats abundant candidate explanations and molecules as a supply-and-demand hypothesis to test; whether complementary prospective validation appreciates depends on evidence.
 - **L2 Constraint migration**: the bottleneck jumps from “we cannot think of a hypothesis” to causal proof, authorization, and real-world execution.
 - **L4 Diffusion lag**: low-liability workflows become routine before autonomous diagnosis, governed by procurement, licensing, and training cycles rather than model capability.
 - **L6 Irreversibility**: in human trials and clinical action the cost of an error is bodily harm and legal liability, not one more generation.

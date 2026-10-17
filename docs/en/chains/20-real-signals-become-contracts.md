@@ -45,7 +45,7 @@ flowchart TD
 
 **Lens declaration for this chain** (codes defined in [Methodology §2 · Toolbox of lenses](../00-method.md#2-toolbox-of-lenses); reverse lookup to the five starting points in the [mapping table](../00-method.md#mapping-the-five-starting-points-to-l1l9)):
 
-- **L1 Abundance → scarcity**: once explanation gets cheap, un-copied real-world observation appreciates relative to it.
+- **L1 Abundance → scarcity (optional lens)**: this chain treats “explanation gets cheap” as a supply-and-demand hypothesis to test; whether un-copied real-world observation appreciates is decided by evidence from high-liability contracts and responsibility.
 - **L2 Constraint migration**: the bottleneck jumps from “is there data?” to “can provenance, permission, and liability be proven?”
 - **L5 Signals and forgery**: synthetic samples collapse the cost of forging something that *looks like* a real record, so screening moves to calibration logs, timestamps, and a party that can be pursued.
 - **L6 Irreversibility**: in high-liability settings the cost of an error is real-world loss, not one more generation.
