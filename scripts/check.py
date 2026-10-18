@@ -1262,7 +1262,7 @@ def _u_fragment(text, lang):
     item = r"L[1-9](?:\s*(?:（[^）]*）|\([^)]*\)))?"
     for line in text.splitlines():
         if line.lstrip().startswith(label) and re.search(r"[:：]", line):
-            rest = visible(re.sub(r"\*\*", "", re.split(r"[:：]", line, maxsplit=1)[1]))
+            rest = visible(re.sub(r"\*\*", "", re.split(r"[:：]", line, maxsplit=1)[1])).lstrip()
             if lang == "zh":
                 m = re.match(r"%s(?:、%s)*" % (item, item), rest)
             else:
@@ -2514,6 +2514,18 @@ def _break_u_fullwidth(root):
     return _replace_chain_u(root, "zh", "C9", "L9（关系不对称）", "L9（关系不对称）、Ｌ8（人性）")
 
 
+def _break_u_fullwidth_dash(root):
+    return _replace_chain_u(root, "zh", "C9", "L7（制度滞后）", "L1－L9")
+
+
+def _break_c9_u_phrase(root):
+    path = _chain_doc(root, "zh", "C9"); text = _read_file(path)
+    new = text.replace("L7（制度滞后）", "L7（制度延迟）", 1)
+    if new == text: raise AssertionError("C9 U phrase not found")
+    _write_file(path, new)
+    return "C9 U phrase changed without changing the card whitelist"
+
+
 def _break_none_with_tail(root):
     return _replace_chain_u(root, "zh", "C4", "**未使用的透镜**：无——", "**未使用的透镜**：无——、L1（供需）")
 
@@ -2560,10 +2572,12 @@ LENS_NEGATIVE_CASES = [
     (u"C9 non-L7 lens intersects J-096", "chain-lenses", _break_c9_non_l7_j096, "C9"),
     (u"C9 L7 intersects a non-J-096 card", "chain-lenses", _break_c9_l7_non_j096, "C9"),
     (u"whitelist J-096 phrase is stale", "chain-lenses", _break_c9_j096_extra_l7, "J-096"),
+    (u"whitelist U phrase is stale", "chain-lenses", _break_c9_u_phrase, "C9"),
     (u"zh U declaration is unreadable", "chain-lenses", _break_u_missing, "C4"),
     (u"en U declaration is unreadable", "chain-lenses", _break_u_missing_en, "C4"),
     (u"a non-universe lens range is rejected", "lens-range", _break_u_range, "J-096"),
     (u"full-width lens intersection is still visible", "chain-lenses", _break_u_fullwidth, "C9"),
+    (u"full-width dash range is rejected", "chain-lenses", _break_u_fullwidth_dash, "C9"),
     (u"none marker may not have a tail", "chain-lenses", _break_none_with_tail, "C4"),
     (u"card source to an unregistered file is other", "chain-card-source", _break_source_other, "J-096"),
     (u"card source to an existing unlisted page is other", "chain-card-source", _break_source_existing_unlisted, "J-096"),
@@ -2575,7 +2589,7 @@ LENS_NEGATIVE_CASES = [
 
 def _positive_broad_range(root):
     path = _card_path(root, "zh", "J-096"); text = _read_file(path)
-    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 L1‐L9 L1‑L9 L1‒L9 L1—L9 L1―L9 是范围说明", text, count=1, flags=re.M)
+    text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 L1‐L9 L1‑L9 L1‒L9 L1—L9 L1―L9 L1－L9 是范围说明", text, count=1, flags=re.M)
     _write_file(path, text)
     return "broad L1–L9 explanatory range remains non-declarative"
 
