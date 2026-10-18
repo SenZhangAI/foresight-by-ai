@@ -1,6 +1,6 @@
 # GitHub rendering and narrow-screen measurement (2026-10-18)
 
-This page records a rendering check against the public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `0c5bf915221dd3831384af76de9009faacbe4a2f`; public `main`, anonymous HTTPS `git ls-remote`, and the local HEAD all pointed to this commit during the check.
+This page records a rendering check against the public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `0c5bf915221dd3831384af76de9009faacbe4a2f`; after the measurement, public `main` and the local HEAD advanced to final publication commit `2f09cebb247222862de9a31a23e8fd5ac070a4fd`, so every reproducible command below explicitly uses the fixed measurement commit rather than silently drifting to the final publication commit.
 
 ## 1. GitHub's own rendered HTML
 
