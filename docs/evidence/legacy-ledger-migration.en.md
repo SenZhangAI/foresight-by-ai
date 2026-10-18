@@ -18,6 +18,14 @@
 
 - **Current public rendering and narrow-screen measurement (2026-10-18, measurement commit `0c5bf915...`):** The current public `main` renders the ledger overview as a real 117-row, 10-column table in both GitHub Contents projections; the narrow-screen experiment shows horizontal scrolling inside the table rather than page-level horizontal overflow. The complete commands, the SSR `richTextTruncated` false negative, the JSON-route anchor recovery, and the unmeasured real-device boundary are in the [GitHub rendering and narrow-screen evidence page](github-render-check-2026-10-18.en.md).
 
+## Delivery state (2026-10-18)
+
+- **Evidence-page delivery commit**: `03290275412093e82953fb4ba71b862077a4ca39`. This commit carries the migration-evidence repair documented here and is an ancestor of the current public `main`. It supports the claim that the evidence-page change landed; it is not the same claim as either moving branch pointer below.
+- **Numbering-fix commit**: `5fd940e479bc7a60066b1d4d652dc59fc2131042`. It fixes the bilingual README chapter navigation and clarifies the legacy audience-field boundary, and contains the evidence-page delivery commit above.
+- **Local current main**: `5fd940e479bc7a60066b1d4d652dc59fc2131042` at verification time (`git rev-parse HEAD`).
+- **Public remote**: both `git ls-remote origin refs/heads/main` and the GitHub API returned `5fd940e479bc7a60066b1d4d652dc59fc2131042` at verification time. The public `main` therefore carries the local target commits, with `0329027…` as an ancestor. The stale local tracking ref `e35e921…` is not used as public-state evidence.
+- These are three separate claims: which change was delivered, where the local branch points now, and what public readers can reach now. The GitHub rendering measurements in this page remain pinned to `0c5bf915221dd3831384af76de9009faacbe4a2f`; they establish only that fixed commit’s rendering boundary, not unmeasured mobile visual usability or historical semantic correctness.
+
 ## Coverage summary
 
 - Historical cards: 95 Chinese + 95 English; current paired cards: 95 Chinese + 95 English.

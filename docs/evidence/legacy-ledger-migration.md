@@ -18,6 +18,14 @@
 
 - **本台账当前公开渲染与窄屏量测（2026-10-18，测量提交 `0c5bf915...`）：** 当前公开 `main` 的台账总览在 GitHub Contents 渲染 HTML 中仍是中英文各 117 行、10 列的真实表格；窄屏实验显示表格自身横向滚动而页面不发生横向溢出。完整命令、SSR `richTextTruncated` 假阴性、JSON 路由补拉锚点以及未验的真机边界见[GitHub 渲染与窄屏实测证据页](github-render-check-2026-10-18.md)。
 
+## Delivery state / 交付状态（2026-10-18）
+
+- **证据页交付提交 / Evidence-page delivery commit**：`03290275412093e82953fb4ba71b862077a4ca39`；该提交承载本页所依据的迁移证据修复，并已成为当前公开 `main` 的祖先。它是「证据页改动已落地」这一断言，不等同于下面两个移动中的分支指针。
+- **编号修复所在提交 / Numbering-fix commit**：`5fd940e479bc7a60066b1d4d652dc59fc2131042`；它修正双语 README 的章节导航并澄清历史受众字段边界，且包含上述证据页交付提交。
+- **本地当前主线 / Local current main**：核验时为 `5fd940e479bc7a60066b1d4d652dc59fc2131042`（`git rev-parse HEAD`）。
+- **公开远端 / Public remote**：核验时 `git ls-remote origin refs/heads/main` 与 GitHub API 均返回 `5fd940e479bc7a60066b1d4d652dc59fc2131042`；因此公开 `main` 承载本地目标提交，且 `0329027…` 是其祖先。此前本地跟踪引用曾停在 `e35e921…`，不作为公开状态证据。
+- 这三层分别回答「哪次改动交付」「本地现在指向哪里」「公开读者现在指向哪里」。本页的 GitHub 渲染测量仍固定在 `0c5bf915221dd3831384af76de9009faacbe4a2f`；它证明的是该固定提交的渲染边界，不把未测的移动端视觉体验或历史语义正确性扩大为已验证。
+
 ## Coverage summary / 覆盖摘要
 
 - 历史卡：中文 95 + 英文 95；当前配对卡：中文 95 + 英文 95。
