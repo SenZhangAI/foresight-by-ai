@@ -34,9 +34,9 @@ Physical exposure and infrastructure fragility → losses and insurance prices r
 
 - **Religion and belief**: moved to independent [C17 Religion and Belief](170-religion-and-belief.md), with [J-117](../ledger/121-125.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) covering affiliation, practice, institutional carriers, and normative identity; comparable long-run series remain open.
 - **Public safety and crime:** Not yet covered. Next, harmonise reports, victimisation surveys, policing inputs, and justice outcomes, separating actual risk from reporting probability and institutional trust.
-- **Income, wealth distribution, and inequality:** Not yet covered. Next, join pre-/post-tax income, wealth, inheritance, housing capital, and intergenerational mobility in one household panel to test how distribution changes cultural consumption, migration, and travel.
+- **Income, wealth distribution, and inequality:** moved to independent [C18 Income, Wealth, and Inequality](180-income-wealth-inequality.md), with [J-118](../ledger/121-125.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) first testing how productivity differentiates claims, then whether taxation, housing, bargaining power, and public services diffuse gains; comparable long-run household distributional panels remain open.
 
-C16 therefore currently means “three independent question entrances, two with full cards and one landscape only; three other dimensions explicitly not covered,” not a completed six-dimension forecast. The next round should prioritise comparable data and one independent card each for religion and belief, public safety and crime, and income/wealth distribution.
+C16 therefore currently means “three independent question entrances, two with full cards and one landscape only; public safety and crime remain uncovered, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
 
 ## Cards and evidence boundary
 
