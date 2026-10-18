@@ -1,9 +1,9 @@
-# C4 · Embodied intelligence (Embodied Intelligence) in the Embodied Labour World: How Care, Manufacturing, Logistics, Construction, and Agriculture Rebundle Tasks, Relationships, and Responsibility
+# C4 · Physical Labour and Embodied Intelligence in the Embodied World: How Care, Manufacturing, Logistics, Construction, and Agriculture Rebundle Tasks, Relationships, and Responsibility
 
 [中文版](../../zh/chains/40-embodied-intelligence.md)
 
 > **This chain extends the five gates in the [retrospect](../01-retrospect.md), while treating AI as only one force among several.** Demography, wages and demand, liability institutions, scene retrofits, energy, and capital jointly determine which physical work is rebundled first. C1's falling generation cost can change complements around information work, but it is not this chain's starting point.
-> **In one sentence**: embodied systems first rebundle tasks in local scenes where responsibility, frequency, and maintenance can be counted, then reshape care relationships, occupational boundaries, and household roles; bodies, places, and liability are hard constraints, but they do not imply society-scale diffusion.
+> **In one sentence**: People and institutions carrying physical work first rebundle tasks in local scenes where responsibility, frequency, and maintenance can be counted; robots, AI, and other embodied systems then reshape care relationships, occupational boundaries, and household roles, while bodies, places, and liability remain hard constraints against automatic society-scale diffusion.
 
 > **Correction record (2026-10-17):** The old entrance treated “AI can only move information → change the denominator” as the main question, making the embodied world a supplement to AI. That entrance could not carry this chain's whole landscape, so the chain now starts from the population, tasks, and institutional carriers of physical work; the old argument remains in Git history and below as a testable “information-system boundary” subcase, not as the chain's engine.
 
