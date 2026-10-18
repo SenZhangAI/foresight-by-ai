@@ -1,6 +1,6 @@
 # GitHub rendering and narrow-screen measurement (2026-10-18)
 
-This page records a rendering check against the public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `0c5bf915221dd3831384af76de9009faacbe4a2f`; after the measurement, public `main` and the local HEAD advanced to final publication commit `2f09cebb247222862de9a31a23e8fd5ac070a4fd`, so every reproducible command below explicitly uses the fixed measurement commit rather than silently drifting to the final publication commit.
+This page records a rendering check against public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `0c5bf915221dd3831384af76de9009faacbe4a2f`; the public tree may later contain commits that only update this evidence record, so every reproducible command below explicitly uses the fixed measurement commit rather than drifting with `main`.
 
 ## 1. GitHub's own rendered HTML
 
@@ -12,6 +12,18 @@ for lang in zh en; do
   gh api "repos/SenZhangAI/foresight-by-ai/contents/docs/$lang/90-ledger.md?ref=$sha" \
     -H 'Accept: application/vnd.github.html' > "$lang.html"
 done
+```
+
+Use closed-tag patterns to count the full page and overview table (`<thead>` must not be counted by a `<th` prefix):
+
+```bash
+python3 - <<'PY'
+import re
+for lang, needle in [('zh', '二、在册判断总览'), ('en', '2. Registered-judgment overview')]:
+    doc = open(f'{lang}.html', encoding='utf-8').read()
+    section = re.search(r'<h2\b[^>]*>' + re.escape(needle) + r'</h2>(.*?)(?=<h2\b)', doc, re.S).group(1)
+    print(lang, 'render_bytes=', len(doc.encode()), 'headings=', len(re.findall(r'<h[1-6]\b', doc)), 'user_content_ids=', len(re.findall(r'id="user-content-[^"]+"', doc)), 'tables=', len(re.findall(r'<table\b', doc)), 'overview_tr=', len(re.findall(r'<tr\b', section)), 'overview_th=', len(re.findall(r'<th\b[^>]*>.*?</th>', section, re.S)), 'overview_td=', len(re.findall(r'<td\b[^>]*>.*?</td>', section, re.S)))
+PY
 ```
 
 Closed-tag patterns (not `grep -c '<th'`) produced:

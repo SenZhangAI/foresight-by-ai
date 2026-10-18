@@ -1,6 +1,6 @@
 # GitHub 渲染与窄屏实测（2026-10-18）
 
-本页记录当前公开 `main` 的渲染复核，不把源码大小、WebFetch 摘要或截图解码失败当成渲染结论。测量提交固定为 `0c5bf915221dd3831384af76de9009faacbe4a2f`；测量完成后公开 `main` 与本地 HEAD 已推进至最终发布提交 `2f09cebb247222862de9a31a23e8fd5ac070a4fd`，因此下文所有可重建命令都显式使用固定测量提交，不把最终发布提交漂移误读为测量对象。
+本页记录公开 `main` 的渲染复核，不把源码大小、WebFetch 摘要或截图解码失败当成渲染结论。测量提交固定为 `0c5bf915221dd3831384af76de9009faacbe4a2f`；公开树随后可能包含仅修改本证据记录的后续提交，因此下文所有可重建命令都显式使用固定测量提交，不随 `main` 漂移。
 
 ## 1. GitHub 自己的渲染 HTML
 
@@ -12,6 +12,18 @@ for lang in zh en; do
   gh api "repos/SenZhangAI/foresight-by-ai/contents/docs/$lang/90-ledger.md?ref=$sha" \
     -H 'Accept: application/vnd.github.html' > "$lang.html"
 done
+```
+
+用闭合标签正则清点整页和总览表（`<thead>` 不能被 `<th` 前缀误计）：
+
+```bash
+python3 - <<'PY'
+import re
+for lang, needle in [('zh', '二、在册判断总览'), ('en', '2. Registered-judgment overview')]:
+    doc = open(f'{lang}.html', encoding='utf-8').read()
+    section = re.search(r'<h2\b[^>]*>' + re.escape(needle) + r'</h2>(.*?)(?=<h2\b)', doc, re.S).group(1)
+    print(lang, 'render_bytes=', len(doc.encode()), 'headings=', len(re.findall(r'<h[1-6]\b', doc)), 'user_content_ids=', len(re.findall(r'id="user-content-[^"]+"', doc)), 'tables=', len(re.findall(r'<table\b', doc)), 'overview_tr=', len(re.findall(r'<tr\b', section)), 'overview_th=', len(re.findall(r'<th\b[^>]*>.*?</th>', section, re.S)), 'overview_td=', len(re.findall(r'<td\b[^>]*>.*?</td>', section, re.S)))
+PY
 ```
 
 在返回 HTML 上用闭合标签正则（不是 `grep -c '<th'`）清点：
