@@ -7,7 +7,7 @@ This page records a rendering check against the public `main`. It does not treat
 The expectation was written before counting: each overview table should contain a header plus 116 cards, therefore 117 rows and 10 header cells; the full ledger should contain 12 tables per language. The fetch shape was:
 
 ```bash
-sha=47ad2228ec8397f3bed5d74cfc54b8954714242a
+sha=0c5bf915221dd3831384af76de9009faacbe4a2f
 for lang in zh en; do
   gh api "repos/SenZhangAI/foresight-by-ai/contents/docs/$lang/90-ledger.md?ref=$sha" \
     -H 'Accept: application/vnd.github.html' > "$lang.html"

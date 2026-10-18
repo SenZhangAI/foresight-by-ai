@@ -7,7 +7,7 @@
 预期先写下：每种语言的总览表应为表头加 116 张卡，即 117 行、10 个表头单元；整页台账应有 12 个表格。使用：
 
 ```bash
-sha=47ad2228ec8397f3bed5d74cfc54b8954714242a
+sha=0c5bf915221dd3831384af76de9009faacbe4a2f
 for lang in zh en; do
   gh api "repos/SenZhangAI/foresight-by-ai/contents/docs/$lang/90-ledger.md?ref=$sha" \
     -H 'Accept: application/vnd.github.html' > "$lang.html"
