@@ -1,6 +1,6 @@
 # GitHub 渲染与窄屏实测（2026-10-18）
 
-本页记录当前公开 `main` 的渲染复核，不把源码大小、WebFetch 摘要或截图解码失败当成渲染结论。测量提交固定为 `47ad2228ec8397f3bed5d74cfc54b8954714242a`；公开 `main`、匿名 HTTPS `git ls-remote` 与本地 HEAD 在本轮复核中均指向此提交。
+本页记录当前公开 `main` 的渲染复核，不把源码大小、WebFetch 摘要或截图解码失败当成渲染结论。测量提交固定为 `0c5bf915221dd3831384af76de9009faacbe4a2f`；公开 `main`、匿名 HTTPS `git ls-remote` 与本地 HEAD 在本轮复核中均指向此提交。
 
 ## 1. GitHub 自己的渲染 HTML
 
@@ -17,8 +17,8 @@ done
 在返回 HTML 上用闭合标签正则（不是 `grep -c '<th'`）清点：
 
 ```text
-zh render_bytes=600517 headings=154 user_content_ids=154 tables=12 overview_tr=117 overview_th=10 overview_td=1160
-en render_bytes=620374 headings=154 user_content_ids=154 tables=12 overview_tr=117 overview_th=10 overview_td=1160
+zh render_bytes=599117 headings=153 user_content_ids=153 tables=12 overview_tr=117 overview_th=10 overview_td=1160
+en render_bytes=618821 headings=153 user_content_ids=153 tables=12 overview_tr=117 overview_th=10 overview_td=1160
 ```
 
 总览表在两种语言中都是真正的 117 行、10 列，未发现一段以 `|` 开头的断裂表格文本。Contents 渲染 HTML 是结构证据；它不等同于对页面在手机上的外框尺寸作了实机验证。
@@ -42,19 +42,19 @@ curl -sSL -H 'Accept: application/json' -H 'X-Requested-With: XMLHttpRequest' \
 本轮输出（英文路径同样执行）：
 
 ```text
-zh raw_http=200 raw_bytes=316706
+zh raw_http=200 raw_bytes=317071
 zh raw_local_cmp=identical
-zh blob_http=200 blob_bytes=773159
+zh blob_http=200 blob_bytes=771554
 zh blob_user_content=0
 zh blob_truncated_flags=richTextTruncated":true
-zh json_user_content=154
+zh json_user_content=153
 zh json_truncated_flags=richTextTruncated":false
-en raw_http=200 raw_bytes=377955
+en raw_http=200 raw_bytes=378400
 en raw_local_cmp=identical
-en blob_http=200 blob_bytes=850698
+en blob_http=200 blob_bytes=848820
 en blob_user_content=0
 en blob_truncated_flags=richTextTruncated":true
-en json_user_content=154
+en json_user_content=153
 en json_truncated_flags=richTextTruncated":false
 ```
 

@@ -1,6 +1,6 @@
 # GitHub rendering and narrow-screen measurement (2026-10-18)
 
-This page records a rendering check against the public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `47ad2228ec8397f3bed5d74cfc54b8954714242a`; public `main`, anonymous HTTPS `git ls-remote`, and the local HEAD all pointed to this commit during the check.
+This page records a rendering check against the public `main`. It does not treat source-file size, a WebFetch summary, or a screenshot decoding failure as rendering evidence. The measurement is pinned to public commit `0c5bf915221dd3831384af76de9009faacbe4a2f`; public `main`, anonymous HTTPS `git ls-remote`, and the local HEAD all pointed to this commit during the check.
 
 ## 1. GitHub's own rendered HTML
 
@@ -17,8 +17,8 @@ done
 Closed-tag patterns (not `grep -c '<th'`) produced:
 
 ```text
-zh render_bytes=600517 headings=154 user_content_ids=154 tables=12 overview_tr=117 overview_th=10 overview_td=1160
-en render_bytes=620374 headings=154 user_content_ids=154 tables=12 overview_tr=117 overview_th=10 overview_td=1160
+zh render_bytes=599117 headings=153 user_content_ids=153 tables=12 overview_tr=117 overview_th=10 overview_td=1160
+en render_bytes=618821 headings=153 user_content_ids=153 tables=12 overview_tr=117 overview_th=10 overview_td=1160
 ```
 
 Both language versions therefore render a real 117-row, 10-column overview table. No overview rows appeared as a paragraph beginning with a literal `|`. Contents HTML is structural evidence; it is not a real-device measurement of a phone's outer frame.
@@ -42,19 +42,19 @@ curl -sSL -H 'Accept: application/json' -H 'X-Requested-With: XMLHttpRequest' \
 The output (the English path was run identically) was:
 
 ```text
-zh raw_http=200 raw_bytes=316706
+zh raw_http=200 raw_bytes=317071
 zh raw_local_cmp=identical
-zh blob_http=200 blob_bytes=773159
+zh blob_http=200 blob_bytes=771554
 zh blob_user_content=0
 zh blob_truncated_flags=richTextTruncated":true
-zh json_user_content=154
+zh json_user_content=153
 zh json_truncated_flags=richTextTruncated":false
-en raw_http=200 raw_bytes=377955
+en raw_http=200 raw_bytes=378400
 en raw_local_cmp=identical
-en blob_http=200 blob_bytes=850698
+en blob_http=200 blob_bytes=848820
 en blob_user_content=0
 en blob_truncated_flags=richTextTruncated":true
-en json_user_content=154
+en json_user_content=153
 en json_truncated_flags=richTextTruncated":false
 ```
 
