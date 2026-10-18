@@ -260,7 +260,7 @@ flowchart LR
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
 | [下一研究缺口优先级](docs/zh/06-research-gaps.md) | [Next Research-Gap Priorities](docs/en/06-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
-| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C16 十六条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压与 C14 选票与安全账本都是不以 AI 为前提的政治／制度链）；编号与「什么算一条链」的判据只在登记表里 |
+| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C17 十七条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压与 C14 选票与安全账本都是不以 AI 为前提的政治／制度链）；编号与「什么算一条链」的判据只在登记表里 |
 | [近期／中期／远期图景](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | [近期](docs/en/10-near.md) · [中期](docs/en/20-mid.md) · [远期](docs/en/30-far.md) | 横向全景故事与各自的判断链接 |
 | [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 候选与窗口清单 |
 | [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 唯一事实源、状态、来源与缺口 |
