@@ -41,6 +41,10 @@
 
 ## 1. How to use this ledger
 
+### Migration status and judgment-card field migration
+
+The public ledger's **structure and navigation migration is complete**, but the field standard still has an explicit legacy exception: J-001–J-086 predate the standalone **Audience scale** requirement and remain covered by a compatibility rule. The current `python3 scripts/check.py` keeps an `audience-scale` warning for that range and exits 0; that is not an unconditional all-fields pass. From J-087 onward, a card without a standalone Audience scale field fails validation. The legacy field boundary, original wording, and revision trail are documented in the [Chinese legacy-card migration inventory](../evidence/legacy-ledger-migration.md) and its [English counterpart](../evidence/legacy-ledger-migration.en.md); they are bilingual projections of one audit inventory.
+
 ### 1.1 Judgment-card fields
 
 A testable judgment must contain every field below. J-001–J-086 are pre-migration cards and may temporarily carry scale only inside Diffusion-gate review while the checker warns; **J-087 and later fail validation without a standalone Audience scale field**. If any other field is missing, label the statement **landscape only**; it cannot serve as a business-opportunity judgment or summary conclusion.
