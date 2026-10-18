@@ -14,6 +14,10 @@
 >
 > The far horizon has no chain of its own yet. Sections 1–6 stand on mid-term judgments; to see where those dependencies come from, go back to the [mid-term landscape, 2029–2032](20-mid.md). For the physical-world line, start with the new C4 passage below, which moves embodied intelligence from structured workstations into institutional care, construction, and the boundary of the home. Sections 3.1, 4.1 and 7 take other entry points and stand mainly on cards whose populations were counted in 2026 under frozen definitions and on [C9 · Ageing and Institutional Care](chains/90-aging-care-and-institutional-substitution.md): the mechanisms in 4.1 and section 7 do not presuppose AI; the object of 3.1 is AI itself, so what it swaps is the starting point for the scale and boundary verdicts, while the capability to “ask” still rests on reasoning cost (see that section).
 
+> **Methodological re-entry (decision 950)**: The old version used “L1 abundance → scarcity × AI output” as a single skeleton; this page is now organized by each section’s actual starting point. L1 is an optional lens, not the default starting point; see [method §2 “Toolbox of lenses”](00-method.md#2-toolbox-of-lenses).
+
+> **Page**: Starting-point boundary for this page: Some of sections 1–6 take AI capability as a premise, but section 7 places population structure, care labour, and institutional capacity beside them as a non-AI starting point. The far horizon therefore does not have AI as its sole axis; law and property, energy infrastructure, and interstate security remain explicit gaps at the end of the page.
+
 ## Reading navigation map (relationship projection)
 
 This map provides reading entrances among the near/mid/far pages and the reasoning chains. It adds no judgment and does not replace the `J-NNN` ledger. Time layers are coarse reading containers; causal dependencies live in the ledger’s `depends-on` fields.
@@ -41,6 +45,10 @@ flowchart LR
 
 ## 1. Execution and infrastructure: people grant boundaries instead of operating every step
 
+> **Starting point**: This section starts from **social regularity and institutional constraint**, with AI capability as a premise: as execution expands, organizations first grant boundaries and then decide who owns the result.
+
+> **Lens choice**: This section explicitly selects L1: after execution supply expands, whether scarcity moves toward authorization boundaries and accident-bearing positions is its structural hypothesis.
+
 If [J-031](ledger/31-40.md#j-031--pausable-replayable-rollback-capable-action-environments-become-admission-conditions-for-long-horizon-ai-execution)’s rollback-capable environments, [J-032](ledger/31-40.md#j-032--authorization-review-and-exception-escalation-become-scarcer-than-execution-steps)’s authorization review, and [J-014](ledger/11-20.md#j-014--rehearsable-environments-follow-single-tool-integration)’s rehearsal environments take shape in the mid term, the high-value AI interface in 2033–2040 may no longer be “perform this step,” but “act within these boundaries; who owns the result?”
 
 - **First question: what becomes abundant:** agent execution across tools, organizations, and time, with continuous task monitoring.
@@ -53,6 +61,10 @@ If [J-031](ledger/31-40.md#j-031--pausable-replayable-rollback-capable-action-en
 
 ## 2. Information and content: expression becomes infinite; unarranged reality becomes a scarce input
 
+> **Starting point**: This section starts from **historical and technical regularity**, with AI capability as a premise: the replication of expression and simulation must be separated from unrepeatable field time and causal records.
+
+> **Lens choice**: This section explicitly selects L1: whether abundant generable expression and simulation move value toward unrepeatable field reality and accountable records is its core inversion.
+
 If [J-033](ledger/31-40.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself)’s verified records of real intervention and [J-034](ledger/31-40.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials)’s liability separation hold, the far-term content industry may focus less on who generates the most convincing artifact and more on who observed, intervened, and bears the result. Synthetic content does not disappear; it becomes a cheap substrate for exploring and explaining reality.
 
 - **First question: what becomes abundant:** replayable histories, personalities, settings, explanations, and counterfactual simulations.
@@ -64,6 +76,10 @@ If [J-033](ledger/31-40.md#j-033--verifiable-records-of-real-interventions-becom
 > **Scope tag · Gate 1**: The cited J-033, J-034, J-045, J-046 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 3. People and AI: the most intimate object may be the most asymmetric
+
+> **Starting point**: This section starts from **human nature and social regularity**, with AI capability as a premise: the intimate question is reciprocity, refusal, and shared risk, not the realism of anthropomorphic expression.
+
+> **Lens choice**: This section explicitly selects L1: whether abundant copyable companionship makes non-copyable reciprocity and shared risk more salient must be tested with human and institutional constraints.
 
 If [J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties)’s expansion of weak-tie coordination and [J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)’s embodied-presence ceiling persist, AI may become the most enduring, patient, and copyable interaction object. The issue is not only whether AI resembles a person, but that memory, patience, copyability, and refusal are asymmetric between the sides.
 
@@ -78,6 +94,9 @@ If [J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-we
 > **Scope tag · Gate 1**: The cited J-041 is an occupational/organizational judgment; J-042, J-047 and J-048 are landscape only (J-042’s card says Gate 1 “passes”, which speaks only to the scale axis; no licence to write at society scale has been granted, and the conflict is registered for ruling in [section 5 of the social-scale register](91-social-scale-register.md#5-this-page-re-judges-nothing-these-contradictions-are-registered)); their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ### 3.1 A different starting point: the human–AI relationship that has reached society scale is “asking”
+
+> **Starting point**: This branch starts from **human nature and historical regularity**; AI is the relationship object being tested, not a reason to make unit reasoning cost the only engine.
+
 
 The section above starts from J-041’s coordination radius, and J-041 traces all the way back to “unit reasoning cost keeps falling”—starting only from there is exactly the single-origin axis error the [method](00-method.md#1-legitimate-starting-points-for-reasoning) rules out. Here the same object is re-examined from other starting points: **human nature** (the “certainty” and “attribution of responsibility” anchors of [L8](00-method.md#l8--human-nature-and-demand)) and **historical regularity** (a new habit first rides on a carrier that already exists, see [Historical retrospective · Gate 3](01-retrospect.md#gate-3--nobody-builds-a-road-for-one-thing)), plus **agency institutions**—who may act in whose name, see [C11 · Authority before intelligence](chains/110-authority-before-intelligence.md). Agency institutions have no carrying lens in L1–L9; what carries them is Gate 4, see the [mapping of the five starting points to the lenses](00-method.md#mapping-the-five-starting-points-to-l1l9).
 
@@ -108,6 +127,10 @@ The reasons for the two landscape-only cards are written into each card’s own 
 
 ## 4. Collaboration between people: from doing steps together to choosing commitments together
 
+> **Starting point**: This section starts from **historical regularity, human nature, and supply and demand**, with AI capability as a premise: as coordination tools multiply, how humans jointly bear irreversible commitments is what must be tested.
+
+> **Lens choice**: This section explicitly selects L1: whether abundant coordination shifts scarcity toward groups willing to jointly bear commitments is the testable inversion.
+
 If [J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties)’s coordination radius expands while [J-038](ledger/31-40.md#j-038--authorization-exception-escalation-and-responsibility-roles-do-not-shrink-as-fast-as-execution-steps)’s responsibility roles persist, AI will handle translation, scheduling, negotiation drafts, and context synchronization; people will appear together mainly at a few irreversible choice points.
 
 - **First question: what becomes abundant:** instant collaboration drafts and agent negotiation across time zones, languages, and organizations.
@@ -121,6 +144,9 @@ If [J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-we
 > **Scope tag · Gate 1**: The cited J-038 and J-041 are occupational/organizational judgments; J-049 and J-050 are landscape only (Gate 1 fails); their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ### 4.1 A different starting point: after one forced mass experiment, collaboration settled on “hybrid”
+
+> **Starting point**: This branch starts from **historical regularity, human nature, and supply and demand**; AI is one coordination condition, while the tension between shared presence and attendance cost is tested first.
+
 
 The section above also starts from J-041. Here three other starting points re-examine it: **historical regularity** (the forced move home in 2020 was a natural experiment of unprecedented scale; [L4](00-method.md#l4--diffusion-lag) is used to turn the plateau after it into a time window), **human nature** (the “presence” and “real relationships” anchors of [L8](00-method.md#l8--human-nature-and-demand)), and **supply and demand** (via [L3](00-method.md#l3--cost-structure): employers set office days by the cost of coordination and supervision; per the [mapping table](00-method.md#mapping-the-five-starting-points-to-l1l9), L3 is an “extension” of supply and demand with no source sentence in the starting-point text). AI is not part of this mechanism.
 
@@ -144,6 +170,10 @@ The reasons for the two landscape-only cards are written into each card’s own 
 
 ## 5. Power and institutions: more answers do not mean dispersed action rights
 
+> **Starting point**: This section starts from **social regularity, supply and demand, and technical regularity**, with AI capability as a premise; capital, institutions, and physical constraints are load-bearing conditions derived from those starting points: advice and simulation can be copied, but resource allocation, authorization, and loss-bearing capacity do not copy at the same speed.
+
+> **Lens choice**: This section explicitly selects L1: whether abundant advice and simulation raise the value of real action rights, resource access, and solvency is its core hypothesis.
+
 If [J-039](ledger/31-40.md#j-039--rented-models-become-abundant-while-energy-data-and-channel-control-create-access-rents)’s access rents, [J-040](ledger/31-40.md#j-040--balance-sheets-able-to-absorb-ai-accidents-become-a-separate-scarcity)’s liability balance sheets, and [J-035](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output)’s responsibility collateral enter institutions, far-term power may reorganize around four access points: energy and compute, real-world data, action authorization, and compensation for accidents.
 
 - **First question: what becomes abundant:** advice, forecasts, candidate policies, and simulated decisions for organizations and individuals.
@@ -155,6 +185,10 @@ If [J-039](ledger/31-40.md#j-039--rented-models-become-abundant-while-energy-dat
 > **Scope tag · Gate 1**: The cited J-035, J-039, J-040, and J-052 are occupational/organizational judgments. J-051's billion-scale figure is an upper bound on people affected by an institutional arrangement, not a count of distinct people repeating the same action weekly; it therefore remains an institutional judgment and landscape only. The audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 6. Human needs, meaning, and embodied presence: scarcity may move from objects to responsibility
+
+> **Starting point**: This section starts from **human nature and demand-side constraints**, with AI capability as a premise: as generable objects multiply, whether meaning shifts toward non-delegable time, bodily risk, and responsibility remains low-confidence.
+
+> **Lens choice**: This section explicitly selects L1: whether more generable objects make non-delegable time, bodily risk, and long commitments more valued remains a low-confidence landscape.
 
 > **Scope label · Gate 1 and evidence tier**: J-053 and J-054 reach a society-scale audience magnitude at Gate 1, but both remain low-confidence landscape judgments because cross-generational or comparative evidence is missing; this section must not turn an audience ceiling into an already widespread behavior. See each card’s “Why landscape only” field for the concrete gaps.
 
@@ -169,6 +203,8 @@ If [J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain
 - **Boundary:** This is the lowest-confidence Exit-B landscape. If a new generation broadly stops treating real experience, responsibility, and presence as sources of value, withdraw or rewrite the relevant judgments. The corresponding judgments are [J-053](ledger/51-60.md#j-053--as-generatable-goods-become-abundant-what-one-personally-bore-may-become-a-signal-of-meaning-landscape-only) and [J-054](ledger/51-60.md#j-054--non-delegable-time-bodily-risk-and-long-commitments-remain-demand-side-scarcities-landscape-only).
 
 ## 7. Social relationships (family care as the case): what changes first is who does the work, not whether the relationship remains
+
+> **Starting point**: This section starts from **population structure, supply and demand, and human nature**, without presupposing AI: whether care relationships persist first depends on how household size, longevity, and institutional capacity redistribute labour.
 
 Whenever the sections above touched on social relationships, they started from “what AI makes abundant”. This section switches to starting points that do not presuppose AI, and does not use the abundance → scarcity questions: **population structure** (ageing × smaller households; [method §2.1](00-method.md#21-example-without-l1-population-households-and-care) registers it as a legitimate starting point that does not use L1, but it has no carrying lens in L1–L9), **supply and demand** (care demand rises as lives lengthen, while the number of hands at home able to give care falls as households shrink; whether the family, the market or public institutions fill the gap—“institutional substitution”—is only partly carried by [L3](00-method.md#l3--cost-structure)), and **human nature** (the “attribution of responsibility” and “real relationships” anchors of [L8](00-method.md#l8--human-nature-and-demand)). AI and robots are only tools that arrive later here. For J-096, delete them and the mechanism still holds; J-100 is different—it is conditional on stable deployment of embodied care assistance, a layer laid on top of this mechanism, and without deployment there is none of the reallocation it describes. This section takes only one relationship, family care, as its case: how courtship and marriage, friendship, community and intergenerational relationships evolve has not been reasoned about in this repository and cannot be inferred from this one case.
 
@@ -224,7 +260,7 @@ Convergence: education’s remaining far-term question is not how many explanati
 
 ### C7 · Technology Arrives First, Power Later: the distribution of liability and gains reaches review
 
-The windows for [J-090](ledger/81-90.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread) and [J-091](ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone) run to 2035. The far-term review is not whether AI raises productivity, but whether gains spread from scarce complementary-asset owners to wider organizational members, and whether replacement apprenticeship and responsibility entrances appear after junior seats shrink. If gains remain concentrated and training entrances have no replacement, C7’s power consequence is reinforced; if institutions and competition spread gains and training again, its concentration boundary must be lowered.
+The windows for [J-090](ledger/81-90.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread) and [J-091](ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone) run to 2035. The far-term review is not whether AI raises productivity, but whether gains spread from scarce complementary-asset owners to wider organizational members, and whether demand expansion offsets task savings; the net employment direction cannot be inferred from the capability curve alone. If gains remain concentrated and demand does not absorb the saved tasks, C7’s power consequence is reinforced; if institutions and competition spread gains and new demand, its concentration boundary must be lowered.
 
 Convergence: Section 5’s judgment about capital and access points becomes a distribution question here; C13’s fiscal capacity affects which training, care, and transition costs public institutions can absorb.
 

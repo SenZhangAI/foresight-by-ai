@@ -16,6 +16,10 @@
 >
 > This layer spreads one time window out horizontally. To follow a single causal line vertically instead, read [C2 · When Data Is No Longer Free: How Real-World Signals Become Contract Assets](chains/20-real-signals-become-contracts.md)—its argument sits in exactly these years.
 
+> **Methodological re-entry (decision 950)**: The old version used “L1 abundance → scarcity × AI output” as a single skeleton; this page is now organized by each section’s actual starting point. L1 is an optional lens, not the default starting point; see [method §2 “Toolbox of lenses”](00-method.md#2-toolbox-of-lenses).
+
+> **Page**: Starting-point boundary for this layer: The six top-level sections carry recent technical judgments into organizational and institutional consequences. Non-AI starting points—population, care, fiscal pressure, materials, and physical labour—are developed independently in the C4, C8, C9, and C13 passages below. They are not forced into AI as their cause, and no uncalibrated society-wide voice is added merely to make the top-level structure look balanced.
+
 ## Reading navigation map (relationship projection)
 
 This map provides reading entrances among the near/mid/far pages and the reasoning chains. It adds no judgment and does not replace the `J-NNN` ledger. Time layers are coarse reading containers; causal dependencies live in the ledger’s `depends-on` fields.
@@ -43,6 +47,10 @@ flowchart LR
 
 ## 1. Compute and tokens: generation stops being the bottleneck; execution boundaries become the bottleneck
 
+> **Starting point**: This section starts from **technical regularity**, with AI capability as a premise: generation expands first, then continuous execution, state, and authorization are tested against real-world consequences.
+
+> **Lens choice**: This section explicitly selects L1: whether more candidate plans shift scarcity toward replayable state, permissions, and recoverable action is its core hypothesis.
+
 If [J-001](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) and [J-006](ledger/01-10.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy) hold, by around 2029 the same budget can search many candidate plans. The mid-term question is no longer whether a system can generate, but whether it can act continuously without transferring trial-and-error costs to the real world.
 
 - **More abundant:** candidate plans, parallel reasoning, and automatic revision.
@@ -56,6 +64,10 @@ If [J-001](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling) and [J-006]
 > **Scope tag · Gate 1**: The cited J-001, J-006, J-009, J-010, J-031, J-032 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 2. Information and content: content becomes feedstock; causality becomes the product
+
+> **Starting point**: This section starts from **supply and demand plus technical regularity**, with AI capability as a premise: as explanations and simulations multiply, real intervention and causal evidence become the constraint to test.
+
+> **Lens choice**: This section explicitly selects L1: whether abundant explanation and simulation move value toward real observation, intervention, and accountable commitments must be tested against reality.
 
 Near-term [J-002](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window) says objective selection will be internalized, while [J-005](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) moves value toward raw signals, accountable commitments, and verified causality. The uncomfortable mid-term shift is that explanations become cheap while changing reality remains expensive.
 
@@ -73,13 +85,11 @@ The strongest opposing mechanism is a high-fidelity world model combined with in
 
 ## 3. Attention and trust: credibility moves from expression to collateral
 
+> **Starting point**: This section starts from **human nature and social regularity**, with AI capability as a premise: credibility moves from expression toward long fulfillment, responsibility, and compensation.
+
 Near-term [J-017](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships) separates weak-tie coordination from strong-tie commitment; [J-005](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) says accountable entities themselves will appreciate. If both hold, the more real content looks, the more people ask who pays when it is wrong.
 
-- **More abundant:** personalized explanations, identity narratives, and simulated intimacy.
-- **More scarce:** consistency over time, accountability, and trust willing to put assets at risk.
-- **Third question:** faces, language, and instant patience can be copied; repeated exchange, relationship repair, and legal responsibility cannot be generated in one step.
-- **Who should change behavior:** organizations should build liability, audit, and compensation paths around consequential AI output; individuals should treat credibility as accountability, not natural-sounding tone.
-- **Window opportunity:** fulfillment records, responsibility collateral, and audit interfaces.
+**Result from this starting point**: the old version placed “personalized explanations, identity narratives, and simulated intimacy” first; this page now treats it as a result rather than a starting premise, with pressure landing on “consistency over time, accountability, and trust willing to put assets at risk”. **Automation boundary**: faces, language, and instant patience can be copied; repeated exchange, relationship repair, and legal responsibility cannot be generated in one step. **Action boundary**: organizations should build liability, audit, and compensation paths around consequential AI output; individuals should treat credibility as accountability, not natural-sounding tone; a possible window is fulfillment records, responsibility collateral, and audit interfaces.
 
 This produces two mid-term judgments: responsibility collateral enters the transaction structure around consequential AI output ([J-035](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output)), and long fulfillment records allocate attention better than one-off natural expression ([J-036](ledger/31-40.md#j-036--long-term-fulfillment-records-allocate-attention-better-than-one-off-natural-expression)). If [J-017](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships) is falsified, the pressure for [J-036](ledger/31-40.md#j-036--long-term-fulfillment-records-allocate-attention-better-than-one-off-natural-expression)’s credential upgrade weakens because weak-tie coordination did not become cheap; if [J-005](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality) is falsified, [J-035](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output) loses its compensation basis. The strongest opposing mechanism is platforms shifting all responsibility to users while society accepts cheap, low-liability services; then responsibility collateral is a window rather than a structural opportunity.
 
@@ -87,19 +97,21 @@ This produces two mid-term judgments: responsibility collateral enters the trans
 
 ## 4. Organizations and employment: firm boundaries are set by responsibility, not production capacity
 
+> **Starting point**: This section starts from **social and technical regularity**, with AI capability as a premise: automation first changes the work unit, then organizations must allocate authority and responsibility.
+
 Near-term [J-009](ledger/01-10.md#j-009--continuous-execution-in-constrained-workflows-matures-first) says constrained workflows mature first, and [J-013](ledger/11-20.md#j-013--checkable-tool-calls-precede-open-environment-action) says inspectable tool calls spread first. The mid-term result may not be “no people,” but a smaller number of people managing more verifiable agent processes.
 
-- **More abundant:** decomposable, monitorable work steps and the output capacity of small teams.
-- **More scarce:** organizational positions that authorize across teams, escalate exceptions, and own final responsibility.
-- **Third question:** workflow coordination can be automated; responsibility, relationships, and negotiation after failure remain constrained by law and trust.
-- **Who should change behavior:** hiring and education should shift from “can you perform the step?” toward “can you define boundaries, judge exceptions, and bear consequences?”
-- **Window opportunity:** permission and exception-escalation layers for small-team agent workflows.
+**Result from this starting point**: the old version placed “decomposable, monitorable work steps and the output capacity of small teams” first; this page now treats it as a result rather than a starting premise, with pressure landing on “organizational positions that authorize across teams, escalate exceptions, and own final responsibility”. **Automation boundary**: workflow coordination can be automated; responsibility, relationships, and negotiation after failure remain constrained by law and trust. **Action boundary**: hiring and education should shift from “can you perform the step?” toward “can you define boundaries, judge exceptions, and bear consequences?”; a possible window is permission and exception-escalation layers for small-team agent workflows.
 
 This yields two mid-term judgments: comparable small teams produce more verifiable output ([J-037](ledger/31-40.md#j-037--comparable-small-teams-produce-more-verifiable-output)), while authorization, exception escalation, and responsibility roles do not shrink at the same rate ([J-038](ledger/31-40.md#j-038--authorization-exception-escalation-and-responsibility-roles-do-not-shrink-as-fast-as-execution-steps)). If [J-009](ledger/01-10.md#j-009--continuous-execution-in-constrained-workflows-matures-first) is falsified, [J-037](ledger/31-40.md#j-037--comparable-small-teams-produce-more-verifiable-output) loses its continuous-execution premise; if [J-013](ledger/11-20.md#j-013--checkable-tool-calls-precede-open-environment-action) is falsified, [J-038](ledger/31-40.md#j-038--authorization-exception-escalation-and-responsibility-roles-do-not-shrink-as-fast-as-execution-steps) loses its programmable-permission premise. The strongest opposing mechanism is firms keeping every agent workflow inside vendors and purchasing only outcomes, hiding rather than eliminating boundary change.
 
 > **Scope tag · Gate 1**: The cited J-009, J-013, J-037, J-038 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 5. Capital and power: scarcity moves from models to access
+
+> **Starting point**: This section starts from **supply and demand plus technical regularity**, with AI capability as a premise: as model supply expands, complementary constraints—energy, data, channels, and solvency—are priced.
+
+> **Lens choice**: This section explicitly selects L1: whether more model supply raises the value of complementary assets and access rights is the section’s core testable inversion.
 
 If [J-001](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling)’s cost decline and [J-005](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality)’s appreciation of real inputs both hold, capital will not only chase the strongest model. It will chase control of energy, data, distribution, licensing, and the ability to compensate for loss.
 
@@ -115,13 +127,11 @@ This yields two mid-term judgments: rented models become abundant while energy, 
 
 ## 6. Human needs and relationships: AI can mediate coordination, not shared experience
 
+> **Starting point**: This section starts from **human nature and social regularity**; AI is only a coordination tool and cannot replace shared experience or personally borne consequences.
+
 [J-017](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships) rests on [J-006](ledger/01-10.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy) and [J-007](ledger/01-10.md#j-007--resumable-context-precedes-reliable-long-term-memory): communication and shared context become cheap, while strong-relationship capacity remains constrained by attention, bodies, and repeated responsibility. The most tempting mid-term mistake is treating “someone replies for you” as “someone is present for you.”
 
-- **More abundant:** always-available companion replies, relationship-maintenance reminders, and conflict summaries.
-- **More scarce:** unmediated shared experience, genuine reciprocity, and repair that the parties must personally undertake.
-- **Third question:** language and reminders can be automated; embodied presence, trust, and shared consequences cannot be copied by the same generation force.
-- **Who should change behavior:** families, schools, and organizations should reserve shared presence for decisions that cannot be delegated, using AI for preparation and reflection rather than substituted responsibility.
-- **Window opportunity:** weak-tie coordination tools; strong-tie presence remains landscape only, not an opportunity.
+**Result from this starting point**: the old version placed “always-available companion replies, relationship-maintenance reminders, and conflict summaries” first; this page now treats it as a result rather than a starting premise, with pressure landing on “unmediated shared experience, genuine reciprocity, and repair that the parties must personally undertake”. **Automation boundary**: language and reminders can be automated; embodied presence, trust, and shared consequences cannot be copied by the same generation force. **Action boundary**: families, schools, and organizations should reserve shared presence for decisions that cannot be delegated, using AI for preparation and reflection rather than substituted responsibility.; a possible window is weak-tie coordination tools; strong-tie presence remains landscape only, not an opportunity.
 
 This yields two mid-term judgments: AI first expands the coordination radius of weak ties ([J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties)), while shared experience and embodied presence remain the capacity ceiling for strong ties ([J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)). If [J-017](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships) is falsified, [J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties) loses its coordination-supply premise; if [J-011](ledger/11-20.md#j-011--cross-media-consistency-precedes-long-range-coherence) is falsified, [J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)’s premise about richer multimodal expression weakens. This is an Exit-B structural landscape with medium-low confidence, not a business opportunity. The strongest opposing mechanism is people treating persistent AI-mediated interaction as sufficiently reciprocal to replace shared experience; if behavior shows stable substitution, rewrite the judgment.
 

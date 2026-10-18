@@ -10,6 +10,10 @@
 >
 > This layer spreads one time window out horizontally. To follow a single causal line vertically instead, read [C1 · What Becomes Unbuyable After Generation Becomes Free](chains/10-generation-becomes-free.md).
 
+> **Methodological re-entry (decision 950)**: The old version used “L1 abundance → scarcity × AI output” as a single skeleton; this page is now organized by each section’s actual starting point. L1 is an optional lens, not the default starting point; see [method §2 “Toolbox of lenses”](00-method.md#2-toolbox-of-lenses).
+
+> **Page**: Starting-point boundary for this layer: The six top-level sections mainly discuss AI entering information, organizations, and demand. Non-AI starting points—population, physical labour, and fiscal pressure—appear in the C4, C9, and C13 passages below. They are not promoted to standalone top-level sections here; that absence is not a claim that those dimensions do not exist, and this page does not invent society-wide judgments for symmetry.
+
 ## Reading navigation map (relationship projection)
 
 This map provides reading entrances among the near/mid/far pages and the reasoning chains. It adds no judgment and does not replace the `J-NNN` ledger. Time layers are coarse reading containers; causal dependencies live in the ledger’s `depends-on` fields.
@@ -37,6 +41,10 @@ flowchart LR
 
 ## 1. One answer becomes a batch of attempts
 
+> **Starting point**: This section starts from **technical regularity**, with AI capability as a premise: first ask how falling unit reasoning cost changes replicable steps, then test the boundary of real-world action.
+
+> **Lens choice**: This section explicitly selects L1: whether parallel generation shifts judgment pressure toward irreversible action is a testable inversion between supply and complementary constraints.
+
 As unit reasoning cost falls, systems will generate, compare, and revise in parallel rather than deliver one answer. [J-018](ledger/11-20.md#j-018--parallel-reasoning-before-long-horizon-autonomy) is the near-term spine; its direction is consistent with common expectations, but the reasoning here is about how many attempts the same budget buys, not whether models “can think.”
 
 - **More abundant:** equivalent reasoning calls, candidate plans, and automated tests.
@@ -49,6 +57,10 @@ As unit reasoning cost falls, systems will generate, compare, and revise in para
 > **Scope tag · Gate 1**: The cited J-018, J-019 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 2. Finding things becomes more expensive than making them
+
+> **Starting point**: This section starts from **technical regularity**, with AI capability as a premise: the arrival of synthesis changes the supply of reproducible content first, then field facts must be tested.
+
+> **Lens choice**: This section explicitly selects L1: whether the changing supply of reproducible content explains value moving toward field signals must be tested against ownership, presence, and liability.
 
 Code, images, video, and copy will become easier to synthesize. [J-020](ledger/11-20.md#j-020--reproducible-content-keeps-falling-in-price) tests an answer that is easy to overstate: objective quality selection will mostly be built into generation, rather than remain a permanent independent market.
 
@@ -63,12 +75,11 @@ Code, images, video, and copy will become easier to synthesize. [J-020](ledger/1
 
 ## 3. Being seen is not being believed
 
+> **Starting point**: This section starts from **human nature and social regularity**, with AI capability as a premise: as signals become easier to forge, attention seeks relationships and liability that are harder to forge.
+
 When everyone can receive personalized content, attention is no longer only about whether content exists; it is about who deserves time. [J-022](ledger/21-30.md#j-022--forgable-signals-drive-credential-upgrades) judges that forgable signals will push selection toward more expensive credentials. The direction is consistent with the consensus that trust will matter more, but the mechanism and time window are this project’s own bet.
 
-- **More abundant:** personalized messages, recommendations, and apparently authentic interaction.
-- **More scarce:** consistent identity, accountable commitments, and long relationships.
-- **Third question:** a generator can copy surface signals but cannot create years of repeated exchange in one step; trust, relationships, and liability are hard constraints that more tokens cannot fill.
-- **Who should change behavior now:** organizations should track fulfilled commitments rather than exposure; people should move important judgments from “who sounds right” toward “who bears the consequences.”
+**Result from this starting point**: the old version placed “personalized messages, recommendations, and apparently authentic interaction” first; this page now treats it as a result rather than a starting premise, with pressure landing on “consistent identity, accountable commitments, and long relationships”. **Automation boundary**: a generator can copy surface signals but cannot create years of repeated exchange in one step; trust, relationships, and liability are hard constraints that more tokens cannot fill. **Action boundary**: organizations should track fulfilled commitments rather than exposure; people should move important judgments from “who sounds right” toward “who bears the consequences.”
 
 [J-023](ledger/21-30.md#j-023--attention-shifts-toward-fulfilled-commitments) says attention will move from expression toward relationships and commitments. [J-024](ledger/21-30.md#j-024--credentials-re-layer-landscape-only) remains a weaker landscape only: credentials may be re-layered, but the institutional destination is unclear. The strongest opposing mechanism is a platform internalizing reliable identity and liability so completely that users need no new credential layer; if screening costs keep falling after that internalization, [J-023](ledger/21-30.md#j-023--attention-shifts-toward-fulfilled-commitments) must be rewritten.
 
@@ -76,18 +87,21 @@ When everyone can receive personalized content, attention is no longer only abou
 
 ## 4. Fewer people do the steps; more coordination is required
 
+> **Starting point**: This section starts from **social regularity**, with AI capability as a premise: organizations first rearrange steps, authority, and responsibility rather than inferring social consequences from headcount.
+
 AI first lowers the cost of documents, scheduling, translation, and plans, then moves the bottleneck to authorization, review, and responsibility. [J-025](ledger/21-30.md#j-025--small-team-output-rises) bets that small teams will produce more verifiable output. This is consistent with the common direction of knowledge-work automation, but it does not mean people disappear from companies.
 
-- **More abundant:** outsourceable, automatable, and monitorable knowledge-work steps.
-- **More scarce:** people who define goals, allocate permissions, handle exceptions, and answer for outcomes.
-- **Third question:** workflow orchestration can be automated; legal responsibility and organizational trust cannot be borne by generated text, so positions of responsibility will not become abundant at the same rate.
-- **Who should change behavior now:** rewrite roles from “produce documents” toward “define boundaries, inspect evidence, and own decisions.”
+**Result from this starting point**: the old version placed “outsourceable, automatable, and monitorable knowledge-work steps” first; this page now treats it as a result rather than a starting premise, with pressure landing on “people who define goals, allocate permissions, handle exceptions, and answer for outcomes”. **Automation boundary**: workflow orchestration can be automated; legal responsibility and organizational trust cannot be borne by generated text, so positions of responsibility will not become abundant at the same rate. **Action boundary**: rewrite roles from “produce documents” toward “define boundaries, inspect evidence, and own decisions.”
 
 [J-026](ledger/21-30.md#j-026--responsibility-boundaries-remain) judges that responsibility boundaries will not disappear along with production capacity. It is a structural consequence, not a forecast of headcount. The strongest opposing mechanism is regulation assigning all responsibility to platforms, leaving organizations without a need to redesign boundaries; if high-value use cases routinely transfer all liability to platforms, reduce confidence in [J-026](ledger/21-30.md#j-026--responsibility-boundaries-remain).
 
 > **Scope tag · Gate 1**: The cited J-025, J-026 are occupational/organizational judgments; their audience ceiling is defined by the cited cards, so this passage makes no society-wide trend claim. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
 
 ## 5. Compute gets cheap; access points remain expensive
+
+> **Starting point**: This section starts from **supply and demand plus technical regularity**, with AI capability as a premise: capability diffusion does not mean energy, access, and loss-bearing capacity diffuse at the same speed.
+
+> **Lens choice**: This section explicitly selects L1: whether more compute supply raises the value of complementary energy, access, and liability assets is the section’s core testable hypothesis.
 
 Falling reasoning cost will not distribute gains evenly. [J-027](ledger/21-30.md#j-027--rented-compute-spreads-capability) judges that rented compute will spread capability. This is consistent with the common expectation that model capability will diffuse, but it does not imply that power diffuses at the same time.
 
@@ -102,14 +116,13 @@ Falling reasoning cost will not distribute gains evenly. [J-027](ledger/21-30.md
 
 ## 6. More choices do not automatically create new desires
 
+> **Starting point**: This section starts from **human nature and supply and demand**; AI is an intervention in that demand structure, not the section’s only engine.
+
 [J-029](ledger/21-30.md#j-029--demand-side-anchors-persist) treats status, certainty, embodied presence, and responsibility as demand-side anchors rather than using “human nature is eternal” as proof. It is compatible with the conservative consensus that technology changes tools without automatically changing every need.
 
 > **Scope label · downgrade (2026-10-09 isolated blind re-review)**: J-029, cited in this section, was the only card entering the re-review still licensed for society-level voice. The blind review (round 1 `R1-65`, original not recognised) vetoed it at Gate 2 — it is a demand-side anchor judgment that replaces no existing action — and the disposition is a **scope downgrade**: the card's status is now `REVISED`, with its claim, falsifier and check date unchanged. Read this section only as an institutional / human-nature-constant judgment, not as a society-wide trend claim, and derive no society-level consequence from it. See the [J-029 card](ledger/21-30.md#j-029--demand-side-anchors-persist) and [section 5 of the isolated blind re-review](../evidence/blind-review-reaudit-2026-10-09.en.md#5-the-one-new-downgrade-j-029).
 
-- **More abundant:** identities, works, and life plans to try.
-- **More scarce:** relationships willing to share consequences, real experiences, and witnessed commitments.
-- **Third question:** surface expression can be generated; shared experience, embodied presence, and repeated trust face physical, relational, and bodily constraints, and cannot be fully replaced by the same generative force.
-- **Who should change behavior now:** do not confuse more options with more meaning; reserve time for irreplaceable presence and commitment.
+**Result from this starting point**: the old version placed “identities, works, and life plans to try” first; this page now treats it as a result rather than a starting premise, with pressure landing on “relationships willing to share consequences, real experiences, and witnessed commitments”. **Automation boundary**: surface expression can be generated; shared experience, embodied presence, and repeated trust face physical, relational, and bodily constraints, and cannot be fully replaced by the same generative force. **Action boundary**: do not confuse more options with more meaning; reserve time for irreplaceable presence and commitment.
 
 [J-030](ledger/21-30.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only) extends the picture: AI can mediate coordination but cannot mediate shared experience. This is a weaker but useful structural landscape. The strongest opposing mechanism is a generational shift that treats persistent AI interaction as sufficiently real reciprocal relationship; if longitudinal behavior shows agent-mediated relationships reliably replacing shared experience, rewrite [J-030](ledger/21-30.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only).
 
