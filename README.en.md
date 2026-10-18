@@ -75,7 +75,7 @@ The chains are grouped by the real-world question a reader may want to follow. E
 
 ### 4. Finally choose action or challenge
 
-- [Opportunity Candidates](docs/en/40-opportunities.md): lists directions with payers and hard constraints as candidates; others remain windows or landscape only.
+- [Opportunity Candidates](docs/en/40-opportunities.md): lists directions with payers and hard constraints as candidates; others remain windows or landscape only. **On 2026-10-18, C4–C13 were routed back into this page: C4 adds an embodied single-task candidate, C10 reconnects to an existing candidate, C8's O-005 remains explicitly a screening direction, and every other chain records an honest no-candidate disposition without erasing structural consequences.**
 - [Judgment Ledger](docs/en/90-ledger.md): tracks the single source of facts, `J-NNN` status, dependencies, sources, and gaps.
 - [How to Refute a Judgment Here](CONTRIBUTING.en.md): uses a card’s own falsifier to formulate a counterexample.
 

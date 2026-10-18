@@ -9,6 +9,44 @@
 
 ---
 
+## Chain-by-chain disposition for C4–C13 (2026-10-18)
+
+This section connects each later chain to the opportunity page. **“Candidate” is not an endorsement of the chain itself**: it means that the current record can name a payer, an amount anchor, a timing reason, a strongest counterargument, and a hard constraint that the same force creating abundance cannot automate away. “No candidate” preserves a structural consequence honestly rather than commercialising social outcomes to fill the page.
+
+| Chain | Current disposition | Why it passes or does not pass |
+|---|---|---|
+| C4 Embodied labour and intelligence | [New O-006: embodied single-task deployment, maintenance, and liability layer](#o-006--embodied-single-task-deployment-maintenance-and-liability-layer) | Candidate. Physical-site adaptation, maintenance, bodily presence, and accident liability cannot be copied by generation software; warehouses, manufacturers, and controlled-care operators have identifiable budgets. The strongest counterargument is that equipment makers bundle integration and liability, or task fragmentation prevents an independent service. |
+| C5 Biology and medicine | No candidate | The gap between candidate generation and clinical proof, authorization, and continuous care is a real structural consequence, but there is no independently verified paid layer yet; hospitals, drug companies, and regulators may internalize the evidence work, and the hard constraint of human trials does not itself create a new supplier opportunity. |
+| C6 Education and skill formation | No candidate | Practice, observed performance, and credential recognition remain scarce, but schools, employers, and public institutions are both carriers and potential internalizers. No durable candidate is yet supported by a hard constraint and an independent budget; educational inequality is not relabelled as a product opportunity. |
+| C7 Technology first, power later | No candidate | Human–machine supervision, apprenticeship carriers, and productivity distribution are organizational and power consequences, not a named product. Employers or platforms may bundle permissions and audit; the current record does not identify an external payer and durable barrier. |
+| C8 The fab before the chip | No candidate (O-005 remains a screening direction) | Electronic-grade material, customer approval, utilities, and yield conversion face physical, ownership, and liability constraints, so the direction deserves another screen; the current record has not shown that an independent paid layer has passed the opportunity-durability gate. Standard recipes, faster approval, or internalisation may still eliminate the independent service, so O-005 is not counted as a formal candidate in this round. |
+| C9 Ageing and institutional care | No candidate | Bodily contact, continuous care, and incident liability are hard constraints, but the current record identifies existing care services and public payment—not a verified new opportunity. Care-coordination software may be bundled by institutions, and payment, retention, and incident data are insufficient. |
+| C10 Collateralized trust | [Candidate O-003: accountable commitment layer](#o-003--accountable-commitment-layer) | Candidate. A legally named party that can pay or lose its license cannot be copied by compute; high-liability institutions, insurers, and named practitioners have budgets. The counterargument is uniform statutory liability or absorption by existing professional signatures and liability insurance. |
+| C11 Authority before intelligence | No candidate | Authority, logs, and appeals are important institutional consequences, but platforms, employers, and regulators may bundle them for free; no independently priced supply layer has yet been shown to bear cross-party responsibility without being internalized. |
+| C12 Technology capability sequence | No candidate | The order in which capabilities arrive is a prerequisite for other chains, not a buyer demand by itself. Compute, memory, and tools may be internalized by foundation-model or platform providers; this chain names no independent payer, amount, and non-copyable hard constraint. |
+| C13 Fiscal squeeze | No candidate | Budget reshuffling and the distribution of pension and defence cuts are structural consequences of public power. The opportunity page must not invent a commercial outlet to fill space; the current judgments name neither an independent payer nor a tradable hard-constraint layer. |
+
+### O-006 · Embodied single-task deployment, maintenance, and liability layer
+
+**Source judgments**: [J-073](ledger/71-80.md#j-073--embodied-intelligence-is-the-necessary-complement-for-ai-to-reach-the-physical-labour-population-not-a-sufficient-condition-for-diffusion), [J-075](ledger/71-80.md#j-075--warehousings-bottleneck-has-moved-from-moving-to-grasping-unstructured-picking-arrives-first-and-door-to-door-delivery-does-not-hold-inside-this-window), [J-099](ledger/96-102.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations), [J-114](ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots) ｜ **Hard constraints**: physical + bodily presence + law / liability
+
+**What exactly is scarce**
+Not another robot demonstration or general model, but the combination that puts a calibratable physical task into a live site: site adaptation, end-effector and safety changes, continuous maintenance, exception takeover, staff training, and a named bearer of liability when an incident occurs. Software can copy policies and simulations; it cannot copy a warehouse’s layout, a physical installation, the response to bodily injury, or permitting liability. This candidate is limited to single tasks in controlled settings; general-purpose household robots are not included.
+
+**Who pays, and how much**
+Warehouses, manufacturers, farms, and controlled-care operators are the primary buyers; robot makers and insurers may co-pay or share the cost. The current amount anchor is deliberately testable: approximately **$100,000–$1 million per deployment site per year**, or **5%–20% of the first-year field-labour and incident budget being replaced or avoided** for implementation and liability packaging. This is not a market quote; it must be tested against maintenance invoices, exception-takeover charges, insurance rates, liability clauses, and renewals.
+
+**Why now**
+J-114 narrows the sequence to calibratable single-task systems, while J-075 and J-099 say diffusion arrives through task packages rather than whole occupations. Deployers now face the gap between “can be demonstrated” and “can run continuously on site”; general generation lowers planning and software-adaptation costs without removing physical installation, maintenance, and liability. The window is therefore the first scaling period for controlled tasks, not a bet that general robots mature first.
+
+**Strongest counterargument and withdrawal signal**
+Equipment makers may bundle site integration, maintenance, insurance, and liability into a robot lease; or task variation and incident rates may be high enough that buyers purchase labour rather than a packaging layer. Withdraw this candidate if, by 2032, contracts in three or more major physical-labour settings routinely contain only equipment leasing, with no independent site-adaptation, maintenance, or liability terms, and external providers show poor renewal rates.
+
+**What to watch now**
+Continuous operating hours by task rather than robot model, exception-takeover rates, per-site maintenance and adaptation costs, incident and insurance clauses, buyer renewal rates, and the human hours needed to copy the same task to another site.
+
+---
+
 ## O-001 · Ownership Layer for Private Context
 
 **Source judgment**: [J-003](ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form) ｜ **Hard constraint**: ownership / private property
@@ -127,7 +165,7 @@ One sharp pullback in compute demand, or energy per unit of service falling fast
 Not another supply-chain dashboard, but the **qualification evidence, failover rehearsal, and liability wrapper** that lets alternate materials, recipes, tool service, and site utilities carry the same specified output. Compute can copy maps and reports; it cannot manufacture electronic-grade material, secure customer approval, install a tool, obtain a water right, or bear the yield and delivery liability of a failed transfer.
 
 **Who pays, and how much**
-Advanced fabs, materials and equipment firms, chip buyers, and public sponsors may jointly pay for process qualification, audits, rehearsals, and dedicated utilities; no amount is estimated until independently priced qualification/failover services and contractual liability terms appear.
+Advanced fabs, materials and equipment firms, chip buyers, and public sponsors may jointly pay for process qualification, audits, rehearsals, and dedicated utilities. A usable order-of-magnitude anchor is **$500,000–$5 million per critical conversion path as a one-time qualification cost, plus $100,000–$1 million per year for review and rehearsals**; this is not a market quote and must be tested against independent procurement lines, contractual liability terms, and repeat payments.
 
 **Why now**
 Advanced-semiconductor expansion, water/power investment, and climate adaptation are arriving together, while material by-products, tool service, customer approval, and utility common nodes are not yet covered by one qualified-path map. That leaves a window for qualification, failover, and liability packaging, but whether it becomes a chargeable business remains to be screened.
@@ -154,4 +192,4 @@ Standard recipes, open tool interfaces, trusted simulation, and faster customer 
 
 > The small number of candidates is deliberate: following the screening discipline in Section 3 of the methodology, **better one fewer candidate than one more false opportunity.** All scarcity items that fail the opportunity-durability gate remain in the Window List; they will not be quietly upgraded.
 
-> **Window-list scope tag · Gate 1**: The four rows in the window list above (lines 144–147), citing J-002, J-019, J-031, J-057, and J-065, are occupational/organizational judgments; these windows hold only within the audience scale defined by those cards, not as society-wide market claims. This tag does not apply to the O-005 candidate above. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
+> **Window-list scope tag · Gate 1**: the four rows in the Window List above, citing J-002, J-019, J-031, J-057, and J-065, are occupational/organizational judgments; these windows hold only within the audience scale defined by those cards, not as society-wide market claims. This tag does not apply to the O-005 screening direction above. See [Historical retrospective · Gate 1](01-retrospect.md#7-running-these-gates-on-what-we-ourselves-have-written) for the criterion and the [ledger review log](90-ledger.md#8-review-log) for card-level evidence.
