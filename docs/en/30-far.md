@@ -234,7 +234,7 @@ J-042’s reason is written into the card’s own “Why landscape only” field
 
 The first six sections follow the fault lines of authorization, real-world signals, relationships, and power; the remaining ten chains are gathered here at their 2033–2040 boundaries. “Far term” here does not mechanically extend the mid-term curves. It asks which load-bearing walls remain and which judgments stop at their review date. Audience scale and diffusion gates remain governed by the ledger cards.
 
-### C4 · Embodied Intelligence
+### C4 · Embodied Intelligence: bodies enter institutions, but the open world still does not become a button
 
 In 2037, a regional care institution separates night transfers, getting someone up, delivery of objects, and first response after a fall into different authorizations. The device can move through a corridor and complete a task; it may still not take a relative’s place in deciding whether this time the mother should be sent to hospital. The real far-term change is not that a machine finally looks human, but that a body has entered a work chain once carried only by institutions and families: who permits it to touch, who takes over when it fails, and who confirms that this care still counts as care within the relationship.
 
