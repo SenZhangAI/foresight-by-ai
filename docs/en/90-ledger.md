@@ -33,7 +33,8 @@
 - [22. Judgment cards for the C13 fiscal-squeeze chain](#22-judgment-cards-for-the-c13-fiscal-squeeze-chain)
 - [23. Judgment card for C14: Ballots and Security Ledgers](#23-judgment-card-for-c14-ballots-and-security-ledgers)
 - [24. Judgment cards for C15: Three Clocks of the Household](#24-judgment-cards-for-c15-three-clocks-of-the-household)
-- [25. New C12 technology-sequencing judgment cards](#25-new-c12-technology-sequencing-judgment-cards)
+- [25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity](#25-judgment-cards-for-c16-culture-climate-and-everyday-carrying-capacity)
+- [26. New C12 technology-sequencing judgment cards](#26-new-c12-technology-sequencing-judgment-cards)
 - [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [From J-103](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md) · [J-114–J-116](ledger/117-120.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
@@ -1511,7 +1512,6 @@ hand before publishing:
 - **EXT-119**: OECD, the fertility chapter of *Society at a Glance 2024* and the OECD Family Database, **registration scope (2026-10-16)**: J-111 uses the 38-member list in the 2024 edition and the linked PDF’s member-country rows, deduplicated by member-country ID; it does not claim a 2026 snapshot. **Theme: fertility is below replacement in most OECD countries, while housing, labour-market outcomes, household budgets, and policy combinations are relevant constraints behind differences**; supports distinguishing one-off cash incentives from housing, childcare, and work arrangements and supports the direction of cross-country comparison; **does not support** any single policy necessarily raising fertility, complete causal attribution to France/Nordic policies, or the specific 2035 forecast. <https://www.oecd.org/en/publications/society-at-a-glance-2024_918d8db3-en/full-report/fertility-trends-across-the-oecd-underlying-drivers-and-the-role-for-policy_770679b8.html> · <https://webfs.oecd.org/Els-com/Family_Database/SF_2_1-Fertility_rates.pdf>
 
 ## 24. Judgment cards for C15: Three Clocks of the Household
-- [25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity](#25-judgment-cards-for-c16-culture-climate-and-everyday-carrying-capacity)
 
 > This chain starts from historical and institutional constraints on housing affordability, migration carrying capacity, and fertility/family formation, not from AI or abundance → scarcity. Housing, migration, and fertility interact, but none is treated as a total explanation; specific cities, internal migration, religion, wealth distribution, and refugee migration remain explicit gaps.
 
@@ -1563,7 +1563,7 @@ hand before publishing:
 - [J-113](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
 
 
-## 25. New C12 technology-sequencing judgment cards
+## 26. New C12 technology-sequencing judgment cards
 
 > C12 adds three non-AI technology-ordering cards: calibrated embodied single-task loops, modular energy and short-duration storage, and validated conversion and yield paths in chip materials. They complete the internal order of one parallel force—technology—without turning capability into social adoption. Historical calibration is not complete; full fields are in the [J-114–J-116 shard](ledger/117-120.md).
 
