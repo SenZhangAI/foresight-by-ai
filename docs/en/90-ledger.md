@@ -213,6 +213,8 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-116](#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity) | 2026-10-17 | From 2027–2035, advanced-chip expansion is first constrained by yield, electronic-grade conversion, equipment service, and utility validation, then by the number of nominal fabs | 2027-01-01 to 2035-12-31 | Medium | J-069, J-092, J-094, J-095 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with joint constraints from materials, equipment, process, and geographic concentration; does not treat one outage or a risk map as evidence of ordering. | ACTIVE | 2030-12-31 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
+
+> **Narrow-screen note (measured 2026-10-18):** The overview table requires horizontal swiping on a narrow screen; at simulated article widths of 320–382 px, Chinese shows 3–4/10 columns completely and English 2–3/10, while the page itself does not overflow horizontally. A real phone frame and touch behaviour remain unmeasured. See the [GitHub rendering and narrow-screen measurement](../evidence/github-render-check-2026-10-18.en.md).
 ---
 
 ## 3. The `depends-on` graph
