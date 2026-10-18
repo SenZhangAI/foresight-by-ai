@@ -61,8 +61,13 @@ This chain therefore does not treat Japan or Sweden as forecasts. They are two o
 ```mermaid
 flowchart TD
   ADEMO["Longer lives, low fertility, smaller households"] --> ALEDGER["Three ledgers change first: time, payment, responsibility"]
-  ALEDGER --> ATIME["Less continuous care time per family, while care demand persists"]
-  ATIME --> ASPLIT["Hands-on care, appointments, scheduling, medication, benefits navigation split into actions"]
+  ALEDGER --> ATIME["Time ledger: less continuous care time per family, while care demand persists"]
+  ALEDGER --> APAY["Payment ledger: care payment extends from household cash flow to insurance and public payment"]
+  ALEDGER --> ARESP["Responsibility ledger: authority, liability, and evidence need a carrying position"]
+  ATIME --> ASCALE["Joint conclusion of the three ledgers: elder count is not robot-market scale; care enters the social picture without becoming a high-frequency consumer product for everyone"]
+  APAY --> ASCALE
+  ARESP --> ASCALE
+  ASCALE --> ASPLIT["Hands-on care, appointments, scheduling, medication, benefits navigation split into actions"]
   ASPLIT --> AFORMAL["J-096 insurance and public payment, formal providers, cross-institution coordination expand"]
   AHIST["Japan and Sweden: the carrier reorganises, the family action may remain"] --> AFORMAL
   ASPLIT --> ACHEAP["Reminders, record summaries, service matching and scheduling may become cheap"]

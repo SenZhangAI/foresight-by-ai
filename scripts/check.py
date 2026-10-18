@@ -817,7 +817,193 @@ def check_chain_registry():
     return known
 
 
+
+
+# ---------------------------------------------------------------------------
+# Mermaid projections in chain pages and the eight copied navigation maps.
+# These diagrams are deliberately only checked for the mechanical layer: a
+# graph must parse, cite real cards, and have the same bilingual skeleton. The
+# prose remains the authority for whether an arrow is a sound argument.
+# ---------------------------------------------------------------------------
+
+MERMAID_BLOCK = re.compile(r"^[ \t>]*```mermaid[^\n]*\n(?P<body>.*?)(?=^[ \t>]*```)",
+                           re.M | re.S)
+MERMAID_CARD = re.compile(r"(?<![0-9A-Za-z])J-\d{3}(?![0-9])")
+MERMAID_EDGE = re.compile(
+    r"^([A-Za-z][A-Za-z0-9_-]*)(?:\[[^\]]*\]|\{[^}]*\})?"
+    r"\s*(-->|-.+?->)\s*(?:\|[^|]*\|\s*)?"
+    r"([A-Za-z][A-Za-z0-9_-]*)(?:\[[^\]]*\]|\{[^}]*\})?$")
+MERMAID_NODE = re.compile(
+    r"^([A-Za-z][A-Za-z0-9_-]*)(\[[^\]]*\]|\{[^}]*\})$")
+MERMAID_FLOW = re.compile(r"^flowchart\s+(?:LR|RL|TB|TD|BT)\s*$")
+NAV_FILES = (
+    "README.md", "README.en.md",
+    "docs/zh/10-near.md", "docs/zh/20-mid.md", "docs/zh/30-far.md",
+    "docs/en/10-near.md", "docs/en/20-mid.md", "docs/en/30-far.md",
+)
+NAV_CHAIN_IDS = {"C%d" % n for n in range(1, 14)}
+
+
+def _mermaid_line(raw):
+    """Remove the optional blockquote marker used by some quoted fences."""
+    return re.sub(r"^\s*>\s?", "", raw).strip()
+
+
+def _parse_mermaid(path, text, kind):
+    """Return parsed Mermaid blocks, recording every syntax failure."""
+    matches = list(MERMAID_BLOCK.finditer(text))
+    if not matches:
+        fail(kind, "%s: no Mermaid block found" % path)
+        return []
+    parsed = []
+    for index, match in enumerate(matches, 1):
+        start_line = text[:match.start()].count("\n") + 1
+        lines = []
+        for offset, raw in enumerate(match.group("body").splitlines()):
+            line = _mermaid_line(raw)
+            if line and not line.startswith("%%"):
+                lines.append((start_line + offset + 1, line))
+        if not lines or not MERMAID_FLOW.match(lines[0][1]):
+            fail(kind, "%s:%d: Mermaid block %d has no valid flowchart declaration"
+                 % (path, start_line, index))
+            continue
+        nodes = []
+        node_shapes = {}
+        edges = []
+        malformed = False
+        for line_no, line in lines[1:]:
+            if line == "end" or line.startswith("subgraph "):
+                continue
+            edge = MERMAID_EDGE.match(line)
+            if edge:
+                source, arrow, target = edge.groups()
+                shape_matches = list(re.finditer(
+                    r"([A-Za-z][A-Za-z0-9_-]*)(\[|\{)", line))
+                for shape_match in shape_matches:
+                    node_id, opener = shape_match.groups()
+                    if node_id not in node_shapes:
+                        node_shapes[node_id] = opener
+                        nodes.append(node_id)
+                for node_id in (source, target):
+                    if node_id not in node_shapes:
+                        node_shapes[node_id] = ""
+                        nodes.append(node_id)
+                edges.append((source, "-->" if arrow.startswith("-->") else "-.->", target))
+                continue
+            node = MERMAID_NODE.match(line)
+            if node:
+                node_id, shape = node.groups()
+                if node_id not in node_shapes:
+                    node_shapes[node_id] = shape[0]
+                    nodes.append(node_id)
+                continue
+            # A line that is neither a declaration nor an edge is not a graph
+            # we can safely check. In particular, never skip a malformed label.
+            fail(kind, "%s:%d: Mermaid block %d cannot parse line %r"
+                 % (path, line_no, index, line))
+            malformed = True
+        if malformed:
+            continue
+        cards = sorted(set(MERMAID_CARD.findall(match.group("body"))))
+        parsed.append({"path": path, "start": start_line, "nodes": nodes,
+                       "shapes": node_shapes, "edges": edges, "cards": cards})
+    return parsed
+
+
+def _mermaid_skeleton(block):
+    """Labels are reader-language text; ids, shapes, and edges are structure."""
+    return (tuple((node, block["shapes"].get(node, "")) for node in block["nodes"]),
+            tuple(block["edges"]))
+
+
+
 def title_of(path):
+    """(identifier, title) from a chain file's H1, or a reported failure."""
+    h1 = re.search(r"^#\s+(.*)$", read(path), re.M)
+    if not h1:
+        return None, None
+    head = CHAIN_H1.match("# " + h1.group(1).strip())
+    if not head:
+        return None, h1.group(1).strip()
+    return head.group(1), head.group(2)
+
+
+def check_chain_mermaid(registry, cards):
+    """Check all registered chain diagrams and the zh/en skeleton pairs."""
+    for cid in sorted(registry["zh"]):
+        if int(cid[1:]) > 13:
+            continue  # the first 13 registered chains are the Mermaid-paired set
+        zh_paths = [p for p in registry["zh"][cid] if p.startswith(CHAIN_DIR % "zh")]
+        en_paths = [p for p in registry["en"][cid] if p.startswith(CHAIN_DIR % "en")]
+        if len(zh_paths) != 1 or len(en_paths) != 1:
+            continue  # registry checks already report the cardinality failure
+        parsed = {}
+        for lang, path in (("zh", zh_paths[0]), ("en", en_paths[0])):
+            if not os.path.exists(os.path.join(REPO, path)):
+                continue  # chain-registry reports the missing file
+            parsed[lang] = _parse_mermaid(path, read(path), "chain-mermaid")
+            for block in parsed[lang]:
+                for jid in block["cards"]:
+                    if jid not in cards[lang]:
+                        fail("chain-mermaid", "%s:%d: Mermaid cites %s, which has no %s card"
+                             % (path, block["start"], jid, lang))
+        if len(parsed) != 2:
+            continue  # chain-registry reports the missing side
+        if len(parsed["zh"]) != len(parsed["en"]):
+            fail("chain-mermaid", "%s/%s: Mermaid block count differs (%d vs %d)"
+                 % (zh_paths[0], en_paths[0], len(parsed["zh"]), len(parsed["en"])))
+            continue
+        for index, (zh_block, en_block) in enumerate(zip(parsed["zh"], parsed["en"]), 1):
+            if _mermaid_skeleton(zh_block) != _mermaid_skeleton(en_block):
+                fail("chain-mermaid", "%s block %d and %s block %d have different ids/shapes/edges"
+                     % (zh_paths[0], index, en_paths[0], index))
+    print("chain Mermaid     : checked all registered zh/en chain block pairs")
+
+
+def _navigation_projection(path, text):
+    blocks = _parse_mermaid(path, text, "navigation-mermaid")
+    if len(blocks) != 1:
+        fail("navigation-mermaid", "%s: expected exactly one navigation Mermaid block, got %d"
+             % (path, len(blocks)))
+        return None
+    block = blocks[0]
+    chain_nodes = {node for node in block["nodes"] if re.match(r"^C\d+$", node)}
+    layers = {target: source for source, _arrow, target in block["edges"]
+              if source in ("N", "M") and re.match(r"^C\d+$", target)}
+    return chain_nodes, layers
+
+
+def check_navigation_mermaid():
+    """The eight hand-copied maps share chain nodes and N/M source layers."""
+    projections = []
+    for path in NAV_FILES:
+        if not os.path.exists(os.path.join(REPO, path)):
+            fail("navigation-mermaid", "%s: navigation file does not exist" % path)
+            continue
+        projection = _navigation_projection(path, read(path))
+        if projection is not None:
+            projections.append((path, projection))
+    if len(projections) != len(NAV_FILES):
+        return
+    expected_nodes = projections[0][1][0]
+    if expected_nodes != NAV_CHAIN_IDS:
+        fail("navigation-mermaid", "%s: expected chain node set %s, got %s"
+             % (projections[0][0], sorted(NAV_CHAIN_IDS), sorted(expected_nodes)))
+    # README's story graph intentionally has no N/M scaffolding. The six
+    # time-layer pages do, and all explicit layer projections must agree.
+    expected_layers = None
+    for path, (_nodes, layers) in projections:
+        if layers:
+            if expected_layers is None:
+                expected_layers = layers
+            elif layers != expected_layers:
+                fail("navigation-mermaid", "%s: N/M source layers %s differ from %s"
+                     % (path, sorted(layers.items()), sorted(expected_layers.items())))
+        elif path.startswith("docs/"):
+            fail("navigation-mermaid", "%s: time-layer map has no N/M source layers" % path)
+    print("navigation Mermaid: checked %d copied maps (node set + explicit N/M layers)"
+          % len(projections))
+
     """(identifier, title) from a chain file's H1, or a reported failure."""
     h1 = re.search(r"^#\s+(.*)$", read(path), re.M)
     if not h1:
@@ -1386,6 +1572,9 @@ def run_checks():
     cards = {lang: check_ledger(lang) for lang in LANGS}
     check_parity(cards)
     chains = check_chain_registry()
+    registry = {lang: parse_registry(lang)[0] for lang in LANGS}
+    check_chain_mermaid(registry, cards)
+    check_navigation_mermaid()
     check_chain_titles()
     check_chain_lens_cards()
     check_readme_counts(cards, len(chains))
@@ -2597,7 +2786,68 @@ def _positive_broad_range(root):
 LENS_POSITIVE_CASES = [
     (u"broad L1–L9 prose is not nine declarations", _positive_broad_range),
 ]
+
+def _break_chain_unknown_card_edge(root):
+    path = os.path.join(root, "docs", "zh", "chains", "10-generation-becomes-free.md")
+    text = _read_file(path)
+    needle = '  S4 --> R4["J-017 连接变多，强关系不会同步变多"]'
+    if needle not in text:
+        raise AssertionError("C1 fixture has no stable terminal edge")
+    _write_file(path, text.replace(needle, needle + '\n  R4 --> BAD["J-999 invented card"]', 1))
+    return "zh C1: Mermaid edge cites J-999, which has no ledger card"
+
+
+def _break_bilingual_chain_skeleton(root):
+    path = os.path.join(root, "docs", "en", "chains", "10-generation-becomes-free.md")
+    text = _read_file(path)
+    needle = '  S4 --> R4["J-017 connections multiply, strong ties do not follow"]'
+    if needle not in text:
+        raise AssertionError("C1 English fixture has no stable terminal edge")
+    _write_file(path, text.replace(needle, '  S4 --> R3["J-017 More connections, not more strong ties"]', 1))
+    return "en C1: one edge endpoint diverges from the Chinese skeleton"
+
+
+def _break_malformed_labeled_chain_edge(root):
+    path = os.path.join(root, "docs", "zh", "chains", "10-generation-becomes-free.md")
+    text = _read_file(path)
+    needle = '  S4 --> R4["J-017 连接变多，强关系不会同步变多"]'
+    if needle not in text:
+        raise AssertionError("C1 fixture has no stable terminal edge")
+    _write_file(path, text.replace(needle, needle + '\n  R4 -->|"unclosed label" R3', 1))
+    return "zh C1: malformed labeled Mermaid edge has no closing pipe/target"
+
+
+def _break_navigation_node_set(root):
+    path = os.path.join(root, "docs", "zh", "20-mid.md")
+    text = _read_file(path)
+    needle = "  M -.人口与照护.-> C9"
+    if needle not in text:
+        raise AssertionError("mid navigation fixture has no C9 layer edge")
+    _write_file(path, text.replace(needle + "[C9 老龄化与制度化照护]\n", "", 1))
+    return "zh mid navigation: C9 node removed from the copied map"
+
+
+def _break_navigation_source_layer(root):
+    path = os.path.join(root, "docs", "zh", "20-mid.md")
+    text = _read_file(path)
+    needle = "  M -.人口与照护.-> C9"
+    if needle not in text:
+        raise AssertionError("mid navigation fixture has no C9 layer edge")
+    _write_file(path, text.replace(needle, "  N -.人口与照护.-> C9", 1))
+    return "zh mid navigation: C9 source layer changed from M to N"
+
+
 NEGATIVE_CASES = [
+    (u"chain Mermaid cites a non-existent card", "chain-mermaid",
+     _break_chain_unknown_card_edge),
+    (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
+     _break_bilingual_chain_skeleton),
+    (u"malformed labeled chain Mermaid edge", "chain-mermaid",
+     _break_malformed_labeled_chain_edge),
+    (u"navigation map loses a chain node", "navigation-mermaid",
+     _break_navigation_node_set),
+    (u"navigation map changes an N/M source layer", "navigation-mermaid",
+     _break_navigation_source_layer),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",

@@ -82,6 +82,15 @@ The precedents below are not rules that passed 2+2 calibration; they are narrati
 
 Put together, the order is: **first cut programmes with no domestic periodic recipients, then cut cohorts who have not yet started drawing, and only last current recipients — and for current recipients, countries that can finance themselves would rather use methods that never appear in a notification letter, such as threshold freezes, taxation and automatic formulas, than pass a new law that cuts nominal amounts.** In this order, none of the steps is currently carried by a calibrated lens; the former L10 veto direction is retained only as historical record, as declared at the head of this page.
 
+```mermaid
+flowchart LR
+  B1["Three bills: interest, ageing, defence"] --> B2["One budget: shares must be reallocated"]
+  B2 --> B3["Who gives up share first: visibility, vote, and whether benefits have started"]
+  B3 --> F1["J-105 Future cohorts bear pressure first"]
+  B3 --> F2["J-106 Programmes without domestic periodic recipients are cut first"]
+  B3 --> F3["J-107 Hidden erosion comes before nominal cuts"]
+```
+
 ## 3. J-105: current recipients' nominal pensions are the hardest to cut
 
 > **[J-105 · Under fiscal squeeze, current recipients' nominal pensions are the hardest to cut; the knife falls first on those not yet drawing](../ledger/103-110.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing)** (confidence: Medium)

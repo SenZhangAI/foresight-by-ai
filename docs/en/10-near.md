@@ -29,7 +29,7 @@ flowchart LR
   M -.population and care.-> C9[C9 Ageing and institutional care]
   M -.liability and trust.-> C10[C10 Collateralization of trust]
   M -.authority and institutions.-> C11[C11 Authority before intelligence]
-  N -.capability sequence.-> C12[C12 Technology capability sequence]
+  M -.capability sequence.-> C12[C12 Technology capability sequence]
   M -.fiscal constraint.-> C13[C13 Fiscal squeeze]
 ```
 

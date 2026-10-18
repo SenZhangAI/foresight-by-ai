@@ -145,6 +145,12 @@ The table answers one question only: **as of 2026-10-09, which method rule is su
 
 “Abundance → scarcity” is an **optional lens** in the toolbox, not the default starting point, mandatory step, or master explanation for every chain. Each reasoning chain must state which lenses it actually uses and why; usually one to three are enough. If the supply–demand inversion adds no explanatory power, discard L1 and start from another calibrated regularity—constraint, cost, diffusion, institutions, human behaviour, or otherwise.
 
+### Chain diagrams and cross-chain handoff
+
+A chain diagram projects only load-bearing dependencies already written in the prose; it does not create a new fact. A box is a reasoning step, and an arrow means “the antecedent is established before the consequent is entered.” Every `J-NNN` shown in a diagram must resolve to a card in that language's ledger. The diagram is not a third language edition or a proof that replaces the prose: when it conflicts with the prose, the prose and card fields win, and the diagram must be corrected in the same revision.
+
+Cross-chain handoff uses **card identifiers rather than implicit narrative**: a conclusion from one chain is reusable as an antecedent only when the next chain's prose explicitly declares `depends-on: J-NNN` (or its bilingual equivalent); placing two nodes next to each other in a navigation map is not a handoff. Navigation maps may be copied across near/mid/far pages, but all eight copies must retain the same chain-node set; any edge that declares a source layer must retain `N` (near) or `M` (mid) ownership. This lets a reader follow the map into the prose, while the mechanical check verifies structure without mistaking visual adjacency for causation.
+
 ### Mapping the five starting points to L1–L9
 
 (The heading keeps “L1–L9” so existing links stay stable; L10 was added on 2026-10-10 and is retained below as historical record, but was withdrawn from the toolbox the same day and is not part of the reverse lookup.)
