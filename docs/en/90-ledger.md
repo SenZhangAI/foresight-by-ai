@@ -35,7 +35,8 @@
 - [24. Judgment cards for C15: Three Clocks of the Household](#24-judgment-cards-for-c15-three-clocks-of-the-household)
 - [25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity](#25-judgment-cards-for-c16-culture-climate-and-everyday-carrying-capacity)
 - [26. New C12 technology-sequencing judgment cards](#26-new-c12-technology-sequencing-judgment-cards)
-- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [From J-103](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md) · [J-114–J-116](ledger/117-120.md)
+- [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
+- [Complete judgment-card shards](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [From J-103](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md) · [J-114–J-116](ledger/117-120.md) · [J-117](ledger/121-125.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
@@ -216,6 +217,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-114](#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots) | 2026-10-17 | From 2027–2035, embodied systems stabilise first in calibrated single-task loops, then expand toward open-home, construction, and care multi-task settings | 2027-01-01 to 2035-12-31 | Medium | J-073, J-076, J-097 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with controlled-setting priority; does not turn a demonstration into open-world adoption, and cross-setting retention data remain thin. | ACTIVE | 2030-12-31 |
 | [J-115](#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems) | 2026-10-17 | From 2027–2035, standardized renewable generation plus short-duration storage first forms repeatable local combinations; long-duration and firm-capacity systems arrive later | 2027-01-01 to 2035-12-31 | Medium | J-056, J-058, J-063 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with interconnection, permitting, and capacity-responsibility constraints; does not turn cost decline into whole-system substitution, and exact ordering remains data-dependent. | ACTIVE | 2030-12-31 |
 | [J-116](#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity) | 2026-10-17 | From 2027–2035, advanced-chip expansion is first constrained by yield, electronic-grade conversion, equipment service, and utility validation, then by the number of nominal fabs | 2027-01-01 to 2035-12-31 | Medium | J-069, J-092, J-094, J-095 | [C12: Technology Capability Sequence](chains/120-technology-capability-sequence.md) | Consistent with joint constraints from materials, equipment, process, and geographic concentration; does not treat one outage or a risk map as evidence of ordering. | ACTIVE | 2030-12-31 |
+| [J-117](#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) | 2026-10-19 | From 2027–2035, religious affiliation and practice do not decline synchronously worldwide; intergenerational transmission, ritual frequency, migration networks, and community supply differentiate and recombine first | 2027-01-01 to 2035-12-31 | Medium | — | [C17: Religion and Belief](chains/170-religion-and-belief.md) | not completed this round; the independent pass provisionally matches the working premise that modernisation weakens some traditional religious monopolies while secularisation paths differ; it does not extrapolate a European path into a global endpoint or migration mobilisation into universal revival; the unified long-run comparison remains open. | ACTIVE | 2029-12-31 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 
@@ -230,7 +232,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-116; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-117; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -349,6 +351,7 @@ J-113 <- J-061, J-095, J-109
 J-114 <- J-073, J-076, J-097
 J-115 <- J-056, J-058, J-063
 J-116 <- J-069, J-092, J-094, J-095
+J-117 <- —
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -502,7 +505,7 @@ This table is also **the single list of social dimensions**. The status column h
 | Evolution of social relationships | How do household size, living arrangements, working hours, and population movement change the way people sustain intimate relationships, friendships, and communities; which relationship forms reorganize, and which stay the same? | High | Partially covered (far-term landscape §7, with family care as its case; J-096, J-100 (family care roles, tens of millions), J-041; J-042 remains “landscape only”, and the card states what it lacks; courtship and marriage, friendship, community, and intergenerational relationships are not yet covered. Added 2026-10-10: this row previously appeared only in the README matrix) |
 | Order of technology-capability arrival | Historically, which technologies and kinds of work got cheaper and arrived first, and which of verifiability, capital, regulation, and physical constraints decided that; what is the current order of capabilities and their dependencies? | High | Covered (C12: J-001, J-006–J-016, all 12 occupational/organizational judgments; “which capability arrives first” is carried by no lens in L1–L9, and arrival is not adoption. Added 2026-10-10: this row previously appeared only in the README matrix) |
 | Culture, entertainment, and leisure | How do available leisure time, income, attention habits, and peer effects determine which forms of entertainment people spend their free time on; historically, what conditions carried a form (live streaming, for example) from niche to society scale? | Medium | Partially covered (C16: independent culture/leisure problem entrance and J-112; comparable long-run series for offline participation, streaming substitution, and city time use remain open) |
-| Religion and belief | How do education, urbanization, intergenerational transmission, and the need for community change religious affiliation and the intensity of practice; where has secularization happened, where has it not, and why? | To be ranked | No entry yet. Why it belongs in the whole-society picture: religion still organizes identity, norms of marriage and childbearing, the rhythm of life, and community for most of the world's people; without it, the “Human needs, meaning, and embodied presence” and “Evolution of social relationships” rows cover only the secular side. Contact in the prose: none (zero hits for religion, belief, church, temple, or believers) |
+| Religion and belief | How do education, urbanization, intergenerational transmission, and the need for community change religious affiliation and the intensity of practice; where has secularization happened, where has it not, and why? | Medium | Covered (C17: J-117 separates affiliation, practice, institutional carriers, and normative identity, judging differentiation and functional recombination before synchronous global decline; comparable long-run series on practice, transmission, and institutional functions remain open) |
 | Urbanization and housing | How do land supply, planning, interest rates, in-migration, and job clustering determine where people live and what they can afford; how do housing costs in turn affect marriage and childbearing, migration, and care? | Medium | Covered (C15: J-109; cross-country series for housing permits, rent burden, and family formation remain to be strengthened, and specific city-project effects are open) |
 | Migration and population movement | How do income gaps, demographic structure, border and visa regimes, and kin networks determine who moves where; how do labour markets, care supply, and political reactions in receiving places change in turn? | Medium | Covered (C15: J-110; long-run series for internal migration, refugees and irregular migration, credential recognition, and political integration remain open) |
 | Fertility and family formation | How do housing and childcare costs, women's education and employment, marriage norms, religion, and policy determine when and how many people form families and have children; under what conditions have pro-natalist policies worked, and under what conditions have they not? | Medium | Covered (C15: J-111; religion and marriage norms, wealth distribution, and causal evaluation of specific policies remain open) |
@@ -1561,7 +1564,7 @@ hand before publishing:
 
 ## 25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity
 
-> C16 has two full cards for culture/leisure and climate/environment; transport is landscape only, while religion and belief, public safety and crime, and income/wealth distribution are not yet covered. See the [C16 chain](chains/160-culture-climate-mobility.md).
+> C16 has two full cards for culture/leisure and climate/environment; transport is landscape only, religion and belief has moved to independent C17, and public safety/crime and income/wealth distribution remain uncovered. See the [C16 chain](chains/160-culture-climate-mobility.md).
 
 - [J-112](ledger/114-116.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
 - [J-113](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
@@ -1576,3 +1579,12 @@ hand before publishing:
 - [J-116](ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity): validated conversion paths and stable yield precede nominal capacity becoming deliverable output.
 
 - **Calibration boundary**: this round did not register “modular, copyable, locally accepted capabilities arrive first” as a new L1–L9 lens. The calibration freeze marks it as a sequencing hypothesis to test, so all three cards retain medium-to-low confidence and an indeterminate exit.
+
+## 27. C17 religion and belief judgment card
+
+> C17 starts from religion as a carrier of identity, ritual, mutual aid, and norms, not from AI or “abundance → scarcity.” Its first card tests whether differentiation and functional recombination precede synchronous global decline; comparable long-run data on practice, generations, and institutional functions are not yet unified.
+
+#### J-117 · Religion differentiates and recombines before it synchronously declines with modernisation
+
+- **Full card**: [Open the complete J-117 card](ledger/121-125.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation)
+- **One-sentence judgment**: From 2027 to 2035, education, urbanisation, and abundant online content will not make religious affiliation and practice decline synchronously worldwide; in multi-country samples with comparable repeated surveys, intergenerational transmission, ritual frequency, migration networks, and community supply are more likely to differentiate and recombine first, while lower formal affiliation will not proportionally eliminate religion’s identity, mutual-aid, and normative functions.

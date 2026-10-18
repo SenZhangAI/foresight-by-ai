@@ -32,7 +32,7 @@ Physical exposure and infrastructure fragility → losses and insurance prices r
 
 ## Subdomains not yet covered and next gaps
 
-- **Religion and belief:** Not yet covered. Next, freeze a comparable panel of affiliation, practice intensity, intergenerational transmission, and marriage/fertility norms, distinguishing affiliation from practice rather than treating secularisation as one-way.
+- **Religion and belief**: moved to independent [C17 Religion and Belief](170-religion-and-belief.md), with [J-117](../ledger/121-125.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) covering affiliation, practice, institutional carriers, and normative identity; comparable long-run series remain open.
 - **Public safety and crime:** Not yet covered. Next, harmonise reports, victimisation surveys, policing inputs, and justice outcomes, separating actual risk from reporting probability and institutional trust.
 - **Income, wealth distribution, and inequality:** Not yet covered. Next, join pre-/post-tax income, wealth, inheritance, housing capital, and intergenerational mobility in one household panel to test how distribution changes cultural consumption, migration, and travel.
 
