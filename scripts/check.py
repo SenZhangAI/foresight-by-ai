@@ -992,7 +992,10 @@ def check_navigation_mermaid():
     # README's story graph intentionally has no N/M scaffolding. The six
     # time-layer pages do, and all explicit layer projections must agree.
     expected_layers = None
-    for path, (_nodes, layers) in projections:
+    for path, (nodes, layers) in projections:
+        if nodes != expected_nodes:
+            fail("navigation-mermaid", "%s: chain node set %s differs from %s"
+                 % (path, sorted(nodes), sorted(expected_nodes)))
         if layers:
             if expected_layers is None:
                 expected_layers = layers
@@ -1003,15 +1006,6 @@ def check_navigation_mermaid():
             fail("navigation-mermaid", "%s: time-layer map has no N/M source layers" % path)
     print("navigation Mermaid: checked %d copied maps (node set + explicit N/M layers)"
           % len(projections))
-
-    """(identifier, title) from a chain file's H1, or a reported failure."""
-    h1 = re.search(r"^#\s+(.*)$", read(path), re.M)
-    if not h1:
-        return None, None
-    head = CHAIN_H1.match("# " + h1.group(1).strip())
-    if not head:
-        return None, h1.group(1).strip()
-    return head.group(1), head.group(2)
 
 
 def check_registry_topics(registry, topics):
@@ -2818,13 +2812,13 @@ def _break_malformed_labeled_chain_edge(root):
 
 
 def _break_navigation_node_set(root):
-    path = os.path.join(root, "docs", "zh", "20-mid.md")
+    path = os.path.join(root, "README.md")
     text = _read_file(path)
-    needle = "  M -.人口与照护.-> C9"
+    needle = "    C13[C13 财政与政治] --> C9"
     if needle not in text:
-        raise AssertionError("mid navigation fixture has no C9 layer edge")
-    _write_file(path, text.replace(needle + "[C9 老龄化与制度化照护]\n", "", 1))
-    return "zh mid navigation: C9 node removed from the copied map"
+        raise AssertionError("README navigation fixture has no C13 node")
+    _write_file(path, text.replace(needle, "    C99[C99 财政与政治] --> C9", 1))
+    return "README navigation: C13 node changed to C99 without changing N/M layers"
 
 
 def _break_navigation_source_layer(root):
