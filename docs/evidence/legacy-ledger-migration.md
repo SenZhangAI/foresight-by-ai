@@ -22,9 +22,9 @@
 
 - **证据页交付提交 / Evidence-page delivery commit**：`03290275412093e82953fb4ba71b862077a4ca39`；该提交承载本页所依据的迁移证据修复，并已成为当前公开 `main` 的祖先。它是「证据页改动已落地」这一断言，不等同于下面两个移动中的分支指针。
 - **编号修复所在提交 / Numbering-fix commit**：`5fd940e479bc7a60066b1d4d652dc59fc2131042`；它修正双语 README 的章节导航并澄清历史受众字段边界，且包含上述证据页交付提交。
-- **本地当前主线 / Local current main**：核验时为 `5fd940e479bc7a60066b1d4d652dc59fc2131042`（`git rev-parse HEAD`）。
-- **公开远端 / Public remote**：核验时 `git ls-remote origin refs/heads/main` 与 GitHub API 均返回 `5fd940e479bc7a60066b1d4d652dc59fc2131042`；因此公开 `main` 承载本地目标提交，且 `0329027…` 是其祖先。此前本地跟踪引用曾停在 `e35e921…`，不作为公开状态证据。
-- 这三层分别回答「哪次改动交付」「本地现在指向哪里」「公开读者现在指向哪里」。本页的 GitHub 渲染测量仍固定在 `0c5bf915221dd3831384af76de9009faacbe4a2f`；它证明的是该固定提交的渲染边界，不把未测的移动端视觉体验或历史语义正确性扩大为已验证。
+- **本地当前主线 / Local current main**：本轮发布复核时为 `ae218cd3081c327e467284aa4c9d17692d00ea6f`（`git rev-parse HEAD`）。本页随后会产生一个新的证据页提交，因此该 SHA 是本页更新前的可核验快照，不冒充本页自身的新提交。
+- **公开远端 / Public remote**：该复核时点 `git ls-remote origin refs/heads/main` 与 GitHub API 均返回 `ae218cd3081c327e467284aa4c9d17692d00ea6f`；因此公开 `main` 承载本地目标提交，且 `0329027…` 是其祖先。此前本地跟踪引用曾停在 `e35e921…`，不作为公开状态证据。页内更新提交之后，公开头会按下方命令重新读取，不能把这个快照 SHA 当成后续提交的 SHA。
+- 这三层分别回答「哪次改动交付」「本地在该复核时点指向哪里」「公开读者在该复核时点指向哪里」。本页更新后的最终状态以 `git rev-parse HEAD`、`git ls-remote origin refs/heads/main` 和 GitHub API 三者重新输出为准；本页的 GitHub 渲染测量仍固定在 `0c5bf915221dd3831384af76de9009faacbe4a2f`；它证明的是该固定提交的渲染边界，不把未测的移动端视觉体验或历史语义正确性扩大为已验证。
 
 ## Coverage summary / 覆盖摘要
 
