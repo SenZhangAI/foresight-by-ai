@@ -28,7 +28,7 @@ This is a progressive reading path. You do not have to accept a forecast before 
 - [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md): shows how cases, roles, and baselines are frozen, and what historical material cannot prove.
 - [Foresight Methodology](docs/en/00-method.md): defines judgment fields, parallel evidence sources, optional lenses, and the opportunity gate.
 - [Judgment Evolution](docs/en/03-evolution.md): records narrowed rules, revised judgments, and the two executed rounds of the isolated re-review together with the remaining open or limited boundaries (run timestamp, round-2 output ordering, the audience-field leak, and same-model reproducibility).
-- [Next Research-Gap Priorities](docs/en/04-research-gaps.md): ranks partially covered dimensions, next research actions, and evidence boundaries.
+- [Next Research-Gap Priorities](docs/en/06-research-gaps.md): ranks partially covered dimensions, next research actions, and evidence boundaries.
 
 Read this step first so that the pages below are read as bounded reasoning rather than as forecasts whose fluency proves accuracy.
 
@@ -257,7 +257,7 @@ Full cards, status, dependency graph, external sources, history, and uncovered d
 | [Judgment Evolution](docs/en/03-evolution.md) | [判断演化记录](docs/zh/03-evolution.md) | Rule narrowing, scope/status changes, the J-043 audit, and the two executed rounds of the isolated re-review with the remaining open or limited boundaries (run timestamp, round-2 output ordering, the audience-field leak, and same-model reproducibility) |
 | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | Calibration, holdout, baselines, and leakage boundaries |
 | [Project Map and Capability Declaration](docs/en/04-project-map.md) | [项目地图与能力声明](docs/zh/04-project-map.md) | Public entry roles, current boundaries, and the real boundary of the `ship:` structural placeholder |
-| [Next Research-Gap Priorities](docs/en/04-research-gaps.md) | [下一研究缺口优先级](docs/zh/04-research-gaps.md) | Ranking of partially covered dimensions, next research actions, and evidence boundaries not to cross |
+| [Next Research-Gap Priorities](docs/en/06-research-gaps.md) | [下一研究缺口优先级](docs/zh/06-research-gaps.md) | Ranking of partially covered dimensions, next research actions, and evidence boundaries not to cross |
 | [Chain registry](#chain-registry) | [推演链登记](README.md#推演链登记) | Sixteen parallel reasoning chains, C1–C16 (including C12, the Technology Capability Sequence: capability arrival order without importing social conclusions early; C13 Fiscal Squeeze and C14 Ballots and Security Ledgers are political/institutional chains that do not presuppose AI); identifiers and the criterion for what counts as a chain live only in the registry |
 | [Near / mid / far landscapes](docs/en/10-near.md) · [mid](docs/en/20-mid.md) · [far](docs/en/30-far.md) | [近期](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | Cross-cutting landscape narratives and linked judgments |
 | [Opportunity Candidates](docs/en/40-opportunities.md) | [商机候选](docs/zh/40-opportunities.md) | Candidates and windows |
