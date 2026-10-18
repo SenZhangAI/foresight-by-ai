@@ -51,6 +51,23 @@ This result does **not** claim that the judgments are correct or that the propos
 - **[self-imposed] Require a concrete local-first sample or comparison** — this preserves the cards’ existing distinction between an immediately inspectable observation and a population-level background indicator.
 - **[self-imposed] Check both language shards for every ID** — this tests bilingual correspondence without treating translation identity as a substitute for meaning.
 
-## Verification command
+## Verification command and provenance
 
 The harvest and parity check reported 21 cards in each language, no action-field issues, and no ID mismatches for J-096 onward. The exact command was a repository-local Python scan over the five ledger shards per language; the pointers above are the evidence used for the per-card kill decisions.
+
+The scan was run against the exact index tree that became audit commit `815850410a61008bc1baa002dcfc4188706310c6`. The pre-commit tree digest was `d55a7e2afa87fd6c28c45d5c6f7c02e04119d3ea` (the `CommitWork`-returned tree for that commit). The reviewed ledger paths in that tree were:
+
+```text
+docs/zh/ledger/96-102.md
+docs/zh/ledger/103-110.md
+docs/zh/ledger/111-113.md
+docs/zh/ledger/114-116.md
+docs/zh/ledger/117-120.md
+docs/en/ledger/96-102.md
+docs/en/ledger/103-110.md
+docs/en/ledger/111-113.md
+docs/en/ledger/114-116.md
+docs/en/ledger/117-120.md
+```
+
+This provenance identifies the committed source tree being audited; it does not claim that a later tree has identical card contents. The subsequent provenance-only correction is recorded in the commit that modifies this audit file.
