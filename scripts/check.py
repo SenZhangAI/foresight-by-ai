@@ -968,8 +968,17 @@ def _navigation_projection(path, text):
         return None
     block = blocks[0]
     chain_nodes = {node for node in block["nodes"] if re.match(r"^C\d+$", node)}
-    layers = sorted((source, target) for source, _arrow, target in block["edges"]
-                    if source in ("N", "M") and re.match(r"^C\d+$", target))
+    raw_layers = [(source, target) for source, _arrow, target in block["edges"]
+                  if source in ("N", "M") and re.match(r"^C\d+$", target)]
+    seen_targets = {}
+    for source, target in raw_layers:
+        if target in seen_targets:
+            relation = "conflicting" if seen_targets[target] != source else "duplicate"
+            fail("navigation-mermaid", "%s:%d: %s N/M source edge for %s (%s and %s)"
+                 % (path, block["start"], relation, target, seen_targets[target], source))
+        else:
+            seen_targets[target] = source
+    layers = sorted(raw_layers)
     return chain_nodes, layers
 
 
@@ -2831,6 +2840,16 @@ def _break_navigation_source_layer(root):
     return "zh mid navigation: C9 source layer changed from M to N"
 
 
+def _break_navigation_duplicate_layer(root):
+    path = os.path.join(root, "docs", "zh", "20-mid.md")
+    text = _read_file(path)
+    needle = "  M -.人口与照护.-> C9[C9 老龄化与制度化照护]"
+    if needle not in text:
+        raise AssertionError("mid navigation fixture has no C9 layer edge")
+    _write_file(path, text.replace(needle, needle + "\n" + needle, 1))
+    return "zh mid navigation: duplicate M source edge for C9"
+
+
 NEGATIVE_CASES = [
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
@@ -2842,6 +2861,8 @@ NEGATIVE_CASES = [
      _break_navigation_node_set),
     (u"navigation map changes an N/M source layer", "navigation-mermaid",
      _break_navigation_source_layer),
+    (u"navigation map duplicates an N/M source edge", "navigation-mermaid",
+     _break_navigation_duplicate_layer),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",
