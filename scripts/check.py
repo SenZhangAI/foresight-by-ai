@@ -967,6 +967,11 @@ def _navigation_projection(path, text):
              % (path, len(blocks)))
         return None
     block = blocks[0]
+    if path.startswith("docs/"):
+        for source, _arrow, target in block["edges"]:
+            if re.match(r"^C\d+$", target) and source not in ("N", "M"):
+                fail("navigation-mermaid", "%s:%d: chain node %s has invalid source layer %s"
+                     % (path, block["start"], target, source))
     chain_nodes = {node for node in block["nodes"] if re.match(r"^C\d+$", node)}
     raw_layers = [(source, target) for source, _arrow, target in block["edges"]
                   if source in ("N", "M") and re.match(r"^C\d+$", target)]
@@ -2840,6 +2845,16 @@ def _break_navigation_source_layer(root):
     return "zh mid navigation: C9 source layer changed from M to N"
 
 
+def _break_navigation_invalid_layer(root):
+    path = os.path.join(root, "docs", "zh", "20-mid.md")
+    text = _read_file(path)
+    needle = "  M -.人口与照护.-> C9[C9 老龄化与制度化照护]"
+    if needle not in text:
+        raise AssertionError("mid navigation fixture has no C9 layer edge")
+    _write_file(path, text.replace(needle, "  X -.人口与照护.-> C9[C9 老龄化与制度化照护]", 1))
+    return "zh mid navigation: C9 source layer changed from M to invalid X"
+
+
 def _break_navigation_duplicate_layer(root):
     path = os.path.join(root, "docs", "zh", "20-mid.md")
     text = _read_file(path)
@@ -2863,6 +2878,8 @@ NEGATIVE_CASES = [
      _break_navigation_source_layer),
     (u"navigation map duplicates an N/M source edge", "navigation-mermaid",
      _break_navigation_duplicate_layer),
+    (u"navigation map uses an invalid source layer", "navigation-mermaid",
+     _break_navigation_invalid_layer),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",
