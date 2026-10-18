@@ -968,8 +968,8 @@ def _navigation_projection(path, text):
         return None
     block = blocks[0]
     chain_nodes = {node for node in block["nodes"] if re.match(r"^C\d+$", node)}
-    layers = {target: source for source, _arrow, target in block["edges"]
-              if source in ("N", "M") and re.match(r"^C\d+$", target)}
+    layers = sorted((source, target) for source, _arrow, target in block["edges"]
+                    if source in ("N", "M") and re.match(r"^C\d+$", target))
     return chain_nodes, layers
 
 
@@ -1001,7 +1001,7 @@ def check_navigation_mermaid():
                 expected_layers = layers
             elif layers != expected_layers:
                 fail("navigation-mermaid", "%s: N/M source layers %s differ from %s"
-                     % (path, sorted(layers.items()), sorted(expected_layers.items())))
+                     % (path, layers, expected_layers))
         elif path.startswith("docs/"):
             fail("navigation-mermaid", "%s: time-layer map has no N/M source layers" % path)
     print("navigation Mermaid: checked %d copied maps (node set + explicit N/M layers)"
