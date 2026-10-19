@@ -556,6 +556,17 @@ def _field_value(body, lang, field):
     return matches[0] if len(matches) == 1 else None
 
 
+def _embedded_heading_level(raw):
+    """Return the reader-visible ATX/HTML heading level, or None."""
+    line = raw.strip()
+    line = re.sub(r"^(?:>\s*){1,3}", "", line)
+    match = re.match(r"^#{1,6}(?= )", line)
+    if match:
+        return len(match.group(0))
+    match = re.match(r"^<h([1-6])(?:\s[^>]*)?>", line, re.I)
+    return int(match.group(1)) if match else None
+
+
 def _embedded_card_sections(path, lang):
     """Yield formal card blocks embedded in a registered chain page.
 
@@ -566,19 +577,21 @@ def _embedded_card_sections(path, lang):
     ordinary prose.
     """
     text = read(path)
-    headings = list(re.finditer(r"^ {0,3}#{1,6} [^\n]*$", text, re.M))
+    headings = list(re.finditer(
+        r"^(?: {0,3}(?:>\s*){1,3})?(?:#{1,6} [^\n]*|<h[1-6](?:\s[^>]*)?>.*?</h[1-6]>)$",
+        text, re.M | re.I))
     for index, match in enumerate(headings):
         heading_text = match.group(0)
-        heading_match = re.match(r"^ {0,3}(#+)", heading_text)
-        heading_level = len(heading_match.group(1))
+        heading_level = _embedded_heading_level(heading_text)
+        if heading_level is None:
+            continue
         # A formal card may contain explanatory subheadings. End its block at
         # the next heading of the same or a higher level, not at an arbitrary
         # nested heading that would otherwise split the reader-visible copy.
         end = len(text)
         for following in headings[index + 1:]:
-            following_match = re.match(r"^ {0,3}(#+)", following.group(0))
-            following_level = len(following_match.group(1))
-            if following_level <= heading_level:
+            following_level = _embedded_heading_level(following.group(0))
+            if following_level is not None and following_level <= heading_level:
                 end = following.start()
                 break
         section = text[match.start():end]
@@ -3311,6 +3324,32 @@ def _break_embedded_html_field(root):
     return "%s: HTML-labeled J-096 field diverged" % path
 
 
+def _break_embedded_html_heading(root):
+    """Make a formal copy's heading reader-visible HTML while diverging a field."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old_heading = "### 判断卡片 1：J-096"
+    old_field = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
+    if old_heading not in text or old_field not in text:
+        raise AssertionError("C9 J-096 heading/field not found")
+    text = text.replace(old_heading, "<h3>判断卡片 1：J-096</h3>", 1)
+    _write_file(path, text.replace(old_field, "- **一句话判断**：2027–2035 年（HTML heading negative）", 1))
+    return "%s: HTML-heading J-096 field diverged" % path
+
+
+def _break_embedded_blockquote_heading(root):
+    """Make a formal copy's heading reader-visible blockquote while diverging a field."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    old_heading = "### Judgment card 1: J-096"
+    old_field = "- **One-sentence judgment**: From 2027–2035"
+    if old_heading not in text or old_field not in text:
+        raise AssertionError("English C9 J-096 heading/field not found")
+    text = text.replace(old_heading, "> ### Judgment card 1: J-096", 1)
+    _write_file(path, text.replace(old_field, "- **One-sentence judgment**: From 2027–2035 (blockquote heading negative)", 1))
+    return "%s: blockquote-heading J-096 field diverged" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3491,6 +3530,8 @@ PARITY_NEGATIVE_CASES = [
     (u"ordered-list embedded field diverges", "chain-card-parity", _break_embedded_ordered_list_field),
     (u"blockquote embedded field diverges", "chain-card-parity", _break_embedded_blockquote_field),
     (u"HTML-labeled embedded field diverges", "chain-card-parity", _break_embedded_html_field),
+    (u"HTML-heading embedded field diverges", "chain-card-parity", _break_embedded_html_heading),
+    (u"blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_blockquote_heading),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3522,6 +3563,8 @@ PARITY_NEGATIVE_MARKERS = {
     u"ordered-list embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"blockquote embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"HTML-labeled embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"HTML-heading embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"blockquote-heading embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
