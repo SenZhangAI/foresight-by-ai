@@ -616,7 +616,7 @@ def _embedded_card_sections(path, lang):
             r"^\s*(?:[-*+]\s+|\d+[.)]\s+)\*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
         has_summary_link = any(
             link.group(1).strip() in _summary_link_labels(lang)
-            for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section))
+            for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", _without_html_comments(section)))
         if not has_card_field and not has_summary_marker and not has_summary_link:
             continue
         heading_ids = re.findall(r"(?<![A-Za-z0-9])J-\d{3}(?=$|[\s\]\)·—–,:：,，])",
@@ -635,9 +635,15 @@ def _ledger_card_location(lang, jid):
     return None, None
 
 
+def _without_html_comments(text):
+    """Remove non-rendered HTML comments before reader-visible link parsing."""
+    return re.sub(r"<!--[\s\S]*?-->", "", text)
+
+
 def _summary_link_target(section, lang, jid):
     """Return the resolved ledger target named by an explicit summary link."""
     labels = _summary_link_labels(lang)
+    section = _without_html_comments(section)
     for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
         if match.group(1).strip() not in labels:
             continue
@@ -780,7 +786,7 @@ def check_chain_card_parity(registry, per_lang_cards):
                                        if summary_start is not None else [])
                 unexpected_summary_lines = []
                 for raw_line in lines_after_summary:
-                    line = raw_line.strip()
+                    line = _without_html_comments(raw_line).strip()
                     if not line:
                         continue
                     line = re.sub(r"^(?:>\s*)+", "", line)
@@ -3436,6 +3442,17 @@ def _break_summary_extra_prose(root):
     return "%s: extra prose after J-109 summary diverges" % path
 
 
+def _break_summary_comment_link(root):
+    """Hide an otherwise required summary ledger link in an HTML comment."""
+    path = _chain_doc(root, "zh", "C15")
+    text = _read_file(path)
+    old = "- [完整卡](../ledger/109-111.md#j-109--住房成本会继续把家庭形成推迟到更晚更少数的可负担地点)"
+    if old not in text:
+        raise AssertionError("C15 J-109 summary link not found")
+    _write_file(path, text.replace(old, "<!-- %s -->" % old, 1))
+    return "%s: hidden HTML-comment J-109 summary link" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3621,6 +3638,7 @@ PARITY_NEGATIVE_CASES = [
     (u"deeply nested blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_deep_blockquote_heading),
     (u"mixed nested field wrappers diverge", "chain-card-parity", _break_embedded_mixed_field_wrappers),
     (u"summary extra prose diverges", "chain-card-parity", _break_summary_extra_prose),
+    (u"hidden summary link diverges", "chain-card-parity", _break_summary_comment_link),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3657,6 +3675,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"deeply nested blockquote-heading embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"mixed nested field wrappers diverge": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"summary extra prose diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
+    u"hidden summary link diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
