@@ -610,6 +610,17 @@ def _field_occurrences(body, lang, field):
     return [visible(value).strip() for value in re.findall(pattern, body, re.M)]
 
 
+def check_english_chain_punctuation(registry):
+    """Reject Chinese sentence separators accidentally copied into English chains."""
+    for paths in registry["en"].values():
+        for path in paths:
+            if not path.startswith("docs/en/"):
+                continue
+            text = read(path)
+            if "；" in text:
+                fail("english-punctuation", "%s contains Chinese semicolon" % path)
+
+
 def check_chain_card_parity(registry, per_lang_cards):
     """Enumerate and validate formal chain-page card copies.
 
@@ -1734,6 +1745,7 @@ def run_checks():
     chains = check_chain_registry()
     registry = {lang: parse_registry(lang)[0] for lang in LANGS}
     check_chain_card_parity(registry, cards)
+    check_english_chain_punctuation(registry)
     check_chain_mermaid(registry, cards)
     check_navigation_mermaid()
     check_chain_titles()
@@ -3013,6 +3025,15 @@ def _break_summary_missing_id(root):
     return "%s: summary heading lost J-096" % path
 
 
+def _break_english_chain_punctuation(root):
+    path = _chain_doc(root, "en", "C11")
+    text = _read_file(path)
+    if "incidents; Use" not in text:
+        raise AssertionError("C11 English action line has no stable punctuation")
+    _write_file(path, text.replace("incidents; Use", "incidents；Use", 1))
+    return "%s: English chain contains Chinese semicolon" % path
+
+
 def _break_summary_wrong_language(root):
     path = _replace_embedded_summary(root, "en")
     text = _read_file(path).replace("**Summary**", "**摘要**", 1)
@@ -3199,6 +3220,7 @@ PARITY_NEGATIVE_CASES = [
     (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
     (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
     (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
+    (u"English chain uses Chinese semicolon", "english-punctuation", _break_english_chain_punctuation),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
 ]
 
