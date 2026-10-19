@@ -559,7 +559,13 @@ def _field_value(body, lang, field):
 def _embedded_heading_level(raw):
     """Return the reader-visible ATX/HTML heading level, or None."""
     line = raw.strip()
-    line = re.sub(r"^(?:>\s*){1,3}", "", line)
+    previous = None
+    while line != previous:
+        previous = line
+        line = re.sub(r"^(?:>\s*)+", "", line)
+        line = re.sub(r"^(?:<(?!h[1-6]\b)[A-Za-z][\w-]*(?:\s[^>]*)?>\s*)+", "", line, flags=re.I)
+        line = re.sub(r"\s*</(?:blockquote|div|section|aside)>\s*$", "", line, flags=re.I)
+        line = re.sub(r"^\s*(?:[-*+]\s+|\d+[.)]\s+)", "", line)
     match = re.match(r"^#{1,6}(?= )", line)
     if match:
         return len(match.group(0))
@@ -577,9 +583,8 @@ def _embedded_card_sections(path, lang):
     ordinary prose.
     """
     text = read(path)
-    headings = list(re.finditer(
-        r"^(?: {0,3}(?:>\s*){1,3})?(?:#{1,6} [^\n]*|<h[1-6](?:\s[^>]*)?>.*?</h[1-6]>)$",
-        text, re.M | re.I))
+    headings = [match for match in re.finditer(r"^.*$", text, re.M)
+                if _embedded_heading_level(match.group(0)) is not None]
     for index, match in enumerate(headings):
         heading_text = match.group(0)
         heading_level = _embedded_heading_level(heading_text)
@@ -3350,6 +3355,19 @@ def _break_embedded_blockquote_heading(root):
     return "%s: blockquote-heading J-096 field diverged" % path
 
 
+def _break_embedded_deep_blockquote_heading(root):
+    """Keep a divergent copy under an arbitrarily nested blockquote heading."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old_heading = "### 判断卡片 1：J-096"
+    old_field = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
+    if old_heading not in text or old_field not in text:
+        raise AssertionError("C9 J-096 heading/field not found")
+    text = text.replace(old_heading, "> > > > ### 判断卡片 1：J-096", 1)
+    _write_file(path, text.replace(old_field, "- **一句话判断**：2027–2035 年（深层引用块负例）", 1))
+    return "%s: deeply nested blockquote-heading J-096 field diverged" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3532,6 +3550,7 @@ PARITY_NEGATIVE_CASES = [
     (u"HTML-labeled embedded field diverges", "chain-card-parity", _break_embedded_html_field),
     (u"HTML-heading embedded field diverges", "chain-card-parity", _break_embedded_html_heading),
     (u"blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_blockquote_heading),
+    (u"deeply nested blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_deep_blockquote_heading),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3565,6 +3584,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"HTML-labeled embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"HTML-heading embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"blockquote-heading embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"deeply nested blockquote-heading embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
