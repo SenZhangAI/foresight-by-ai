@@ -3085,6 +3085,34 @@ def _break_blind_review_suffix(root):
     return "%s:%d injected invalid R1-65_foo" % (path, line)
 
 
+def _break_blind_review_hyphen_suffix(root):
+    path = _card_path(root, "zh", "J-001")
+    text = _read_file(path)
+    match = re.search(r"^.*隔离盲判复审.*$", text, re.M)
+    if not match:
+        raise AssertionError("J-001 carries no isolated blind-review line")
+    changed = re.sub(r"R[12]-\d{2,3}", "R1-65-foo", match.group(0), count=1)
+    if changed == match.group(0):
+        raise AssertionError("J-001 isolated blind-review line carries no R1/R2 id")
+    _write_file(path, text[:match.start()] + changed + text[match.end():])
+    line = text.count("\n", 0, match.start()) + 1
+    return "%s:%d injected invalid R1-65-foo" % (path, line)
+
+
+def _break_blind_review_slash_suffix(root):
+    path = _card_path(root, "zh", "J-001")
+    text = _read_file(path)
+    match = re.search(r"^.*隔离盲判复审.*$", text, re.M)
+    if not match:
+        raise AssertionError("J-001 carries no isolated blind-review line")
+    changed = re.sub(r"R[12]-\d{2,3}", "R1-65/extra", match.group(0), count=1)
+    if changed == match.group(0):
+        raise AssertionError("J-001 isolated blind-review line carries no R1/R2 id")
+    _write_file(path, text[:match.start()] + changed + text[match.end():])
+    line = text.count("\n", 0, match.start()) + 1
+    return "%s:%d injected invalid R1-65/extra" % (path, line)
+
+
 def _break_u_missing(root):
     path = _chain_doc(root, "zh", "C4"); text = _read_file(path)
     new = re.sub(r"^\*\*未使用的透镜\*\*：.*$\n?", "", text, count=1, flags=re.M)
@@ -3861,6 +3889,10 @@ NEGATIVE_CASES = [
      _break_invalid_blind_review_prefix),
     (u"isolated blind-review card uses a suffixed id", "blind-review-id",
      _break_blind_review_suffix),
+    (u"isolated blind-review card uses a hyphenated suffix", "blind-review-id",
+     _break_blind_review_hyphen_suffix),
+    (u"isolated blind-review card uses a slash suffix", "blind-review-id",
+     _break_blind_review_slash_suffix),
     (u"new card missing audience scale", "audience-scale",
      _break_new_card_without_audience_scale),
     (u"audience scale embedded inside diffusion review", "audience-scale",
