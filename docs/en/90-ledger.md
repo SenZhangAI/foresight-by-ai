@@ -36,6 +36,7 @@
 - [25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity](#25-judgment-cards-for-c16-culture-climate-and-everyday-carrying-capacity)
 - [26. New C12 technology-sequencing judgment cards](#26-new-c12-technology-sequencing-judgment-cards)
 - [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
+- [28. C18 income, wealth, and inequality judgment card](#28-c18-income-wealth-and-inequality-judgment-card)
 - [29. C19 public safety and crime judgment card](#29-c19-public-safety-and-crime-judgment-card)
 - [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-110](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
