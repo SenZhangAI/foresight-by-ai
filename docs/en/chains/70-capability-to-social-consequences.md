@@ -27,7 +27,7 @@ The [Technology Capability Sequence](120-technology-capability-sequence.md) answ
 
 ## 2. Not a single-cause technology chain, but a confluence of five forces
 
-This chain does not use the formula “the model gets stronger, therefore society must do X.” Every step checks all five legitimate starting points listed in [Methodology §1](../00-method.md) at once, and names in the code vocabulary of [Methodology §2](../00-method.md#2-toolbox-of-lenses) which lens carries each:
+This chain does not use the formula “the model gets stronger, therefore society must do X.” Every step checks all five candidate sources listed in [Methodology §1](../00-method.md) at once, and names in the code vocabulary of [Methodology §2](../00-method.md#2-toolbox-of-lenses) which lens carries each:
 
 1. **Supply and demand** (the demand-side half of **L8 Human nature and demand**, **L2 Constraint migration**, **L3 Cost structure**): after costs fall, does demand saturate, expand, or move toward higher frequency and personalization?
 2. **Human behaviour** (**L8 Human nature and demand**, with **L9 Relational asymmetry** derived indirectly through L8): will people exchange convenience for more consumption while retaining demands for status, fairness, and appeal?
