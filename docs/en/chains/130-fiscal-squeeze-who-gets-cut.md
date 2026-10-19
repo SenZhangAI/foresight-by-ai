@@ -93,7 +93,7 @@ flowchart LR
 
 ## 3. J-105: current recipients' nominal pensions are the hardest to cut
 
-> **[J-105 · Under fiscal squeeze, current recipients' nominal pensions are the hardest to cut; the knife falls first on those not yet drawing](../ledger/103-110.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing)** (confidence: Medium)
+> **[J-105 · Under fiscal squeeze, current recipients' nominal pensions are the hardest to cut; the knife falls first on those not yet drawing](../ledger/103-108.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing)** (confidence: Medium)
 
 From 2026-10-10 to 2034-12-31, no G7 country that can still borrow on the market and has not entered a creditor assistance programme passes **new legislation** that lowers the nominal amount of the median current recipient's basic public pension.
 
@@ -105,7 +105,7 @@ What is excluded and what counts are written in advance: automatic indexation ru
 
 ## 4. J-106: aid gives way to defence
 
-> **[J-106 · Aid gives way to defence: the budget with no domestic periodic recipients is squeezed out first](../ledger/103-110.md#j-106--aid-gives-way-to-defence-the-budget-with-no-domestic-periodic-recipients-is-squeezed-out-first)** (confidence: Medium)
+> **[J-106 · Aid gives way to defence: the budget with no domestic periodic recipients is squeezed out first](../ledger/103-108.md#j-106--aid-gives-way-to-defence-the-budget-with-no-domestic-periodic-recipients-is-squeezed-out-first)** (confidence: Medium)
 
 Foreign aid was L10's cleanest sample: no one in the donor country draws it on a recurring basis. (L10 was withdrawn on 2026-10-10; the fact remains, but the inference is now carried by no calibrated lens.) From 2023 to 2025, the UK's official development assistance (ODA) as a share of gross national income fell from 0.58% to 0.44%, France's from 0.50% to 0.42%, and Germany's from 0.79% to 0.56%; over the same period, core defence spending as a share of GDP rose in all three. Across the members of the OECD Development Assistance Committee (DAC), the ODA share fell to 0.26% in 2025, 23.1% less than the year before in real terms. Italy is the exception: its share rose slightly in 2025, to about 0.3%.
 
@@ -117,7 +117,7 @@ This is a “no swing back” judgment, and it agrees with mainstream reporting 
 
 ## 5. J-107: working on past the old retirement age — counted once
 
-> **[J-107 · Paid weekly work at 65+ stops at the D tier: tens of millions, short of a hundred million](../ledger/103-110.md#j-107--paid-weekly-work-at-65-stops-at-the-d-tier-tens-of-millions-short-of-a-hundred-million)** (confidence: Medium)
+> **[J-107 · Paid weekly work at 65+ stops at the D tier: tens of millions, short of a hundred million](../ledger/103-108.md#j-107--paid-weekly-work-at-65-stops-at-the-d-tier-tens-of-millions-short-of-a-hundred-million)** (confidence: Medium)
 
 The most direct way a fiscal squeeze reaches individuals is a later pension age, so that some people keep going to work every week at an age when they would otherwise have retired. Before collecting any number, this chain first committed a separate [freeze record](../../evidence/older-workers-freeze-2026-10-10.en.md): the action is “aged 65 or over and working at least one hour for pay in the reference week”, the denominator is the de-duplicated head count from each country's labour force survey, and the sum across countries counts only as a lower bound (countries not covered are simply not counted).
 

@@ -28,12 +28,12 @@ These were found by fornix's 2026-10-13 review of the 2026-10-08..10 runs. A fre
   - metadata in prose is moved into non-whitelisted bullets at source (86 audience-provenance clauses, 37 dated lens annotations, J-066, J-094).
 - **Why it is not merged**:
   1. After those moves, `scripts/check.py`'s audience "identity floor" fails 107 cards. Those cards passed only because the provenance prefix sat in front of the magnitude; their group is written as "magnitude（group）". The floor needs to accept that form. That is a judgment for this project.
-  2. J-106 (in `docs/zh/ledger/103-110.md`, which has uncommitted edits in the main tree) carries another card's title in its falsifier. The new scan refuses it, by design.
+  2. J-106 (in `docs/zh/ledger/103-108.md`, which has uncommitted edits in the main tree) carries another card's title in its falsifier. The new scan refuses it, by design.
 - **Falsify**: build a bundle on a fresh freeze; every retained field is byte-identical to its source except for card-id aliases.
 
 ### RA-1013-2 · obs · Uncommitted edits left by a stopped run
 
-- `git status` shows 10 modified files with mtimes 2026-10-10 11:35–11:51: README, `scripts/check.py`, `docs/zh/00-method.md`, `01-retrospect.md`, `03-evolution.md`, `90-ledger.md`, `chains/130-…`, `ledger/103-110.md`, `docs/en/90-ledger.md`, `docs/evidence/social-regularity-calibration-2026-10-10.md`.
+- `git status` shows 10 modified files with mtimes 2026-10-10 11:35–11:51: README, `scripts/check.py`, `docs/zh/00-method.md`, `01-retrospect.md`, `03-evolution.md`, `90-ledger.md`, `chains/130-…`, `ledger/103-108.md`, `docs/en/90-ledger.md`, `docs/evidence/social-regularity-calibration-2026-10-10.md`.
 - The last fornix LLM call in this project was 2026-10-10 11:51:36, so these are a stopped cluster's half-done edits (an L10-lens rewrite). Nobody owns them.
 - **Falsify**: they are committed or deliberately discarded. (fornix-side card: Session500/fornix#1002.)
 
