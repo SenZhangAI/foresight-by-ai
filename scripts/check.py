@@ -587,12 +587,19 @@ def _summary_link_target(section, lang, jid):
     """Return the resolved ledger target named by an explicit summary link."""
     labels = (u"完整卡", "Full card")
     for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
-        if not any(label in match.group(1) for label in labels):
+        if match.group(1).strip() not in labels:
             continue
         raw_target = match.group(2)
         target, anchor = raw_target.split("#", 1) if "#" in raw_target else (raw_target, "")
         return target, anchor
     return None
+
+
+def _field_occurrences(body, lang, field):
+    """Return all reader-visible occurrences of one canonical field."""
+    separator = r"[:：]" if lang == "zh" else r":"
+    pattern = r"^- \*\*%s\*\*%s\s*(.*)$" % (re.escape(field), separator)
+    return [visible(value).strip() for value in re.findall(pattern, body, re.M)]
 
 
 def check_chain_card_parity(registry, per_lang_cards):
@@ -628,10 +635,18 @@ def check_chain_card_parity(registry, per_lang_cards):
                     else:
                         fail("chain-card-parity", "%s has no matching ledger card" % location)
                     continue
-                values = [_field_value(section, lang, field) for field in CARD_FIELDS[lang]]
-                if all(value is not None for value in values):
+                field_values = {field: _field_occurrences(section, lang, field)
+                                for field in CARD_FIELDS[lang]}
+                duplicate_fields = [field for field, values in field_values.items()
+                                    if len(values) > 1]
+                if duplicate_fields:
+                    fail("chain-card-parity",
+                         "%s repeats canonical fields %s; use one complete copy" %
+                         (location, duplicate_fields))
+                    continue
+                if all(len(values) == 1 for values in field_values.values()):
                     for field in CARD_FIELDS[lang]:
-                        chain_value = _field_value(section, lang, field)
+                        chain_value = field_values[field][0]
                         ledger_value = _field_value(ledger_body, lang, field)
                         if chain_value != ledger_value:
                             fail("chain-card-parity",
@@ -639,10 +654,11 @@ def check_chain_card_parity(registry, per_lang_cards):
                                  (location, field, ledger_path, ledger_line,
                                   chain_value, ledger_value))
                     continue
-                summary_marker = ("**摘要**" in section or "**Summary**" in section)
+                summary_marker = bool(re.search(
+                    r"^- \*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
                 link = _summary_link_target(section, lang, jid)
-                present_fields = [field for field, value in zip(CARD_FIELDS[lang], values)
-                                  if value is not None]
+                present_fields = [field for field, values in field_values.items()
+                                  if values]
                 if present_fields:
                     fail("chain-card-parity",
                          "%s summary form carries canonical fields %s; use a complete copy" %
@@ -3041,6 +3057,22 @@ def _break_embedded_missing_card_id(root):
     return "%s: embedded formal card heading lost J-096" % path
 
 
+def _break_embedded_duplicate_field(root):
+    """Duplicate a canonical field so it cannot be mistaken for a summary."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### 判断卡片 1：J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 J-096 embedded card not found")
+    section = match.group(1)
+    field = re.search(r"^- \*\*一句话判断\*\*[:：][^\n]*$", section, re.M)
+    if not field:
+        raise AssertionError("C9 J-096 judgment field not found")
+    section = section[:field.end()] + "\n" + field.group(0) + section[field.end():]
+    _write_file(path, text[:match.start()] + section + text[match.end():])
+    return "%s: J-096 canonical field duplicated" % path
+
+
 def _break_bilingual_chain_skeleton(root):
     path = os.path.join(root, "docs", "en", "chains", "10-generation-becomes-free.md")
     text = _read_file(path)
@@ -3100,13 +3132,26 @@ def _break_navigation_duplicate_layer(root):
     _write_file(path, text.replace(needle, needle + "\n" + needle, 1))
     return "zh mid navigation: duplicate M source edge for C9"
 
-NEGATIVE_CASES = [
+PARITY_NEGATIVE_CASES = [
     (u"embedded audience field diverges", "chain-card-parity", _break_embedded_audience_field),
     (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
     (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
+    (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
+]
+
+PARITY_NEGATIVE_MARKERS = {
+    u"embedded audience field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"embedded chain card copy diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
+    u"embedded card heading loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
+    u"embedded card repeats a canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+}
+
+NEGATIVE_CASES = [
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
@@ -3309,11 +3354,14 @@ def self_test():
 
         print("negative cases (the checker must exit non-zero, "
               "and name the right check):")
-        for title, tag, mutate in NEGATIVE_CASES:
+        for title, tag, mutate in PARITY_NEGATIVE_CASES + NEGATIVE_CASES:
             work = fresh()
             detail = mutate(work)
             code, out = _run_checker(work)
-            ok = code != 0 and ("[%s]" % tag) in out
+            expected_marker = PARITY_NEGATIVE_MARKERS.get(title)
+            marker_ok = (expected_marker is None or
+                         all(part in out for part in expected_marker))
+            ok = code != 0 and ("[%s]" % tag) in out and marker_ok
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
 
