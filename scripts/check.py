@@ -566,13 +566,23 @@ def _embedded_card_sections(path, lang):
     ordinary prose.
     """
     text = read(path)
-    headings = list(re.finditer(r"^#{3,6} [^\n]*$", text, re.M))
+    headings = list(re.finditer(r"^#{1,6} [^\n]*$", text, re.M))
     for index, match in enumerate(headings):
         end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
         section_end = re.search(r"^## ", text[match.end():end], re.M)
         if section_end:
             end = match.end() + section_end.start()
         section = text[match.start():end]
+        heading = visible(match.group(0))
+        # Only a heading that advertises a judgment-card block is formal. A
+        # normal prose section can contain bullets such as ``证伪条件`` or
+        # ``领先指标`` without becoming an embedded copy; the card-id/missing-id
+        # checks are still exercised by the explicit "判断卡片" heading marker.
+        formal_heading = (re.search(r"J-\d{3}", heading) is not None or
+                          re.search(r"判断卡片|Judgment card", heading,
+                                    re.I) is not None)
+        if not formal_heading:
+            continue
         has_card_field = any(_field_occurrences(section, lang, field)
                              for field in CARD_FIELDS[lang])
         has_summary_marker = bool(re.search(
@@ -3185,6 +3195,17 @@ def _break_embedded_en_missing_copy(root):
     return "%s: English J-096 embedded copy removed" % path
 
 
+def _break_level_two_embedded_field(root):
+    """Change the J-109 summary under its real level-two card heading."""
+    path = _chain_doc(root, "zh", "C15")
+    text = _read_file(path)
+    old = "- **摘要**：完整卡见台账"
+    if old not in text:
+        raise AssertionError("C15 J-109 summary not found")
+    _write_file(path, text.replace(old, old + "（副本负例）", 1))
+    return "%s: level-two J-109 summary diverged" % path
+
+
 def _break_embedded_unknown_card(root):
     """Rename a formal embedded heading to an unregistered judgment id."""
     path = _chain_doc(root, "zh", "C9")
@@ -3347,6 +3368,7 @@ def _break_navigation_duplicate_layer(root):
 PARITY_NEGATIVE_CASES = [
     (u"embedded audience field diverges", "chain-card-parity", _break_embedded_audience_field),
     (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
+    (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
@@ -3370,6 +3392,7 @@ PARITY_NEGATIVE_CASES = [
 PARITY_NEGATIVE_MARKERS = {
     u"embedded audience field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded chain card copy diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
