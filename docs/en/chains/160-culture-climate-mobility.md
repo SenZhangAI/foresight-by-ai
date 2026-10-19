@@ -32,14 +32,14 @@ Physical exposure and infrastructure fragility → losses and insurance prices r
 
 ## Subdomains not yet covered and next gaps
 
-- **Religion and belief**: moved to independent [C17 Religion and Belief](170-religion-and-belief.md), with [J-117](../ledger/121-125.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) covering affiliation, practice, institutional carriers, and normative identity; comparable long-run series remain open.
+- **Religion and belief**: moved to independent [C17 Religion and Belief](170-religion-and-belief.md), with [J-117](../ledger/117-119.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) covering affiliation, practice, institutional carriers, and normative identity; comparable long-run series remain open.
 - **Public safety and crime:** Not yet covered. Next, harmonise reports, victimisation surveys, policing inputs, and justice outcomes, separating actual risk from reporting probability and institutional trust.
-- **Income, wealth distribution, and inequality:** moved to independent [C18 Income, Wealth, and Inequality](180-income-wealth-inequality.md), with [J-118](../ledger/121-125.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) first testing how productivity differentiates claims, then whether taxation, housing, bargaining power, and public services diffuse gains; comparable long-run household distributional panels remain open.
+- **Income, wealth distribution, and inequality:** moved to independent [C18 Income, Wealth, and Inequality](180-income-wealth-inequality.md), with [J-118](../ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) first testing how productivity differentiates claims, then whether taxation, housing, bargaining power, and public services diffuse gains; comparable long-run household distributional panels remain open.
 
 C16 therefore currently means “three independent question entrances, two with full cards and one landscape only; public safety and crime remain uncovered, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
 
 ## Cards and evidence boundary
 
-- [J-112](../ledger/114-116.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access) and [J-113](../ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption) are the current full judgments.
+- [J-112](../ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access) and [J-113](../ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption) are the current full judgments.
 - The audience scales on both cards are impact reaches, not verified society-scale repeated actions; confidence and falsifiers are in the cards.
 - External sources are registered as EXT-120 and EXT-121 in the bilingual ledger; they support mechanisms and comparisons only, and missing evidence is not upgraded into a definite forecast.

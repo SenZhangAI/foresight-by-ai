@@ -37,7 +37,7 @@
 - [26. New C12 technology-sequencing judgment cards](#26-new-c12-technology-sequencing-judgment-cards)
 - [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
 - [29. C19 public safety and crime judgment card](#29-c19-public-safety-and-crime-judgment-card)
-- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-110](ledger/103-110.md) · [J-109–J-111](ledger/111-113.md) · [J-112–J-113](ledger/114-116.md) · [J-114–J-116](ledger/117-120.md) · [J-117–J-119](ledger/121-125.md)
+- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-110](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
@@ -1534,59 +1534,59 @@ hand before publishing:
 
 #### J-109 · Housing costs will keep delaying household formation into later life and fewer affordable places
 
-- **Full card**: [Open the complete J-109 card](ledger/111-113.md#j-109--housing-costs-will-keep-delaying-household-formation-into-later-life-and-fewer-affordable-places)
+- **Full card**: [Open the complete J-109 card](ledger/109-111.md#j-109--housing-costs-will-keep-delaying-household-formation-into-later-life-and-fewer-affordable-places)
 - **One-sentence judgment**: From 2026 to 2032, housing-cost pressure in the high-income OECD member-country urban sample will continue to delay first independent residence, cohabitation/marriage, and first births, concentrating family formation in fewer affordable places; housing, childcare, and transport policy can buffer the mechanism but will not return every household to the previous generation’s floor area and geography.
 
 #### J-110 · Migration is a labour-and-care shock absorber, not a reversal of population ageing
 
-- **Full card**: [Open the complete J-110 card](ledger/111-113.md#j-110--migration-is-a-labour-and-care-shock-absorber-not-a-reversal-of-population-ageing)
+- **Full card**: [Open the complete J-110 card](ledger/109-111.md#j-110--migration-is-a-labour-and-care-shock-absorber-not-a-reversal-of-population-ageing)
 - **One-sentence judgment**: From 2026 to 2032, major OECD receiving countries will continue using permanent and temporary migration to ease labour and care shortages; migration can improve local ratios of working-age people to service demand but cannot restore the old age structure within one generation, and the receiving place’s constraints will move toward housing, credential recognition, language, schools, job quality, and political integration.
 
 #### J-111 · Fertility policy is more likely to change timing and gaps than restore replacement fertility across the OECD
 
-- **Full card**: [Open the complete J-111 card](ledger/111-113.md#j-111--fertility-policy-is-more-likely-to-change-timing-and-gaps-than-restore-replacement-fertility-across-the-oecd)
+- **Full card**: [Open the complete J-111 card](ledger/109-111.md#j-111--fertility-policy-is-more-likely-to-change-timing-and-gaps-than-restore-replacement-fertility-across-the-oecd)
 - **One-sentence judgment**: By 2035, total fertility rates will remain below 2.1 in most OECD countries; the more plausible policy result is to reduce postponement caused by housing, childcare, and work conflicts and to make some countries higher than comparable countries without complementary policy, rather than return the OECD as a whole to replacement fertility.
 
 #### J-112 · Leisure culture consumption is constrained by time budgets and access
 
-- **Full card**: [Open the complete J-112 card](ledger/114-116.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
+- **Full card**: [Open the complete J-112 card](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
 - **One-sentence judgment**: From 2027 to 2032, in high-income cities with comparable data, middle-income adults’ offline cultural participation will remain constrained by fragmented leisure, ticket prices, and access time, while pausable streaming/short-form video substitutes for some everyday entertainment slots; this is directional, not a claim about a platform or national winner.
 
 #### J-113 · Climate shocks first widen inequality through insurance, adaptation, and travel disruption
 
-- **Full card**: [Open the complete J-113 card](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
+- **Full card**: [Open the complete J-113 card](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
 - **One-sentence judgment**: From 2027 to 2035, households and local governments in highly exposed places are more likely to bear environmental shocks first through insurance gaps, inadequate adaptation investment, and travel disruption, with greater risks to discretionary consumption and housing stability among low-income households and fiscally weak places; particular disasters and magnitudes are not certain forecasts.
 
 #### J-114 · Calibrated single-task embodied systems precede open-world general robots
 
-- **Full card**: [Open the complete J-114 card](ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots)
+- **Full card**: [Open the complete J-114 card](ledger/114-116.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots)
 - **One-sentence judgment**: From 2027 to 2035, embodied systems are more likely to stabilize first as calibrated single-task loops in workcells, warehouses, institutions, and controlled services, then expand into multi-task robots for open homes, construction sites, and care; one successful demonstration is not a retained, society-scale service.
 
 #### J-115 · Modular generation and short-duration storage precede dispatchable long-duration systems
 
-- **Full card**: [Open the complete J-115 card](ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems)
+- **Full card**: [Open the complete J-115 card](ledger/114-116.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems)
 - **One-sentence judgment**: From 2027 to 2035, in new power projects, standardized renewable generation plus short-duration electrochemical storage is more likely to form a repeatable local combination first; long-duration storage, nuclear, or other dispatchable low-carbon systems reaching comparable stable scale still require longer interconnection, permitting, financing, and operating-validation cycles.
 
 #### J-116 · Chip expansion is first constrained by yield and validated conversion paths, then by nominal capacity
 
-- **Full card**: [Open the complete J-116 card](ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity)
+- **Full card**: [Open the complete J-116 card](ledger/114-116.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity)
 - **One-sentence judgment**: From 2027 to 2035, expansion of advanced chips and critical materials is more likely to be constrained first by jointly validated electronic-grade conversion, equipment service, process yield, water, and climate-resilience paths than by the number of announced fabs; only validated substitution paths and stable yield turn nominal capacity into deliverable output.
 
 ## 25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity
 
 > C16 has two full cards for culture/leisure and climate/environment; transport is landscape only, public safety and crime has moved to independent C19, and income/wealth distribution has moved to independent C18. See the [C16 chain](chains/160-culture-climate-mobility.md).
 
-- [J-112](ledger/114-116.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
-- [J-113](ledger/114-116.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
+- [J-112](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
+- [J-113](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
 
 
 ## 26. New C12 technology-sequencing judgment cards
 
-> C12 adds three non-AI technology-ordering cards: calibrated embodied single-task loops, modular energy and short-duration storage, and validated conversion and yield paths in chip materials. They complete the internal order of one parallel force—technology—without turning capability into social adoption. Historical calibration is not complete; full fields are in the [J-114–J-116 shard](ledger/117-120.md).
+> C12 adds three non-AI technology-ordering cards: calibrated embodied single-task loops, modular energy and short-duration storage, and validated conversion and yield paths in chip materials. They complete the internal order of one parallel force—technology—without turning capability into social adoption. Historical calibration is not complete; full fields are in the [J-114–J-116 shard](ledger/114-116.md).
 
-- [J-114](ledger/117-120.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots): controlled single-task embodied systems precede open-world multi-task systems.
-- [J-115](ledger/117-120.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems): modular generation and short-duration storage precede long-duration and firm-capacity systems.
-- [J-116](ledger/117-120.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity): validated conversion paths and stable yield precede nominal capacity becoming deliverable output.
+- [J-114](ledger/114-116.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots): controlled single-task embodied systems precede open-world multi-task systems.
+- [J-115](ledger/114-116.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems): modular generation and short-duration storage precede long-duration and firm-capacity systems.
+- [J-116](ledger/114-116.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity): validated conversion paths and stable yield precede nominal capacity becoming deliverable output.
 
 - **Calibration boundary**: this round did not register “modular, copyable, locally accepted capabilities arrive first” as a new L1–L9 lens. The calibration freeze marks it as a sequencing hypothesis to test, so all three cards retain medium-to-low confidence and an indeterminate exit.
 
@@ -1596,7 +1596,7 @@ hand before publishing:
 
 #### J-117 · Religion differentiates and recombines before it synchronously declines with modernisation
 
-- **Full card**: [Open the complete J-117 card](ledger/121-125.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation)
+- **Full card**: [Open the complete J-117 card](ledger/117-119.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation)
 - **One-sentence judgment**: From 2027 to 2035, education, urbanisation, and abundant online content will not make religious affiliation and practice decline synchronously worldwide; in multi-country samples with comparable repeated surveys, intergenerational transmission, ritual frequency, migration networks, and community supply are more likely to differentiate and recombine first, while lower formal affiliation will not proportionally eliminate religion’s identity, mutual-aid, and normative functions.
 
 ## 28. C18 income, wealth, and inequality judgment card
@@ -1605,7 +1605,7 @@ hand before publishing:
 
 #### J-118 · Productivity growth first differentiates claims, then determines whether income diffuses
 
-- **Full card**: [Open the complete J-118 card](ledger/121-125.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses)
+- **Full card**: [Open the complete J-118 card](ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses)
 - **One-sentence judgment**: From 2027 to 2035, in economies affected by high-productivity technologies, increased productivity or output will not automatically become sustainable income and wealth growth for most households; where housing, capital, and complementary-asset supply is constrained, gains are more likely first to appear in asset returns, rents on scarce positions, and returns to complementary skills, while bottom-household disposable capacity catches up only where bargaining power, public services, taxation, or broad asset ownership expand alongside productivity.
 
 ## 29. C19 public safety and crime judgment card
@@ -1614,5 +1614,5 @@ hand before publishing:
 
 #### J-119 · Risk recombines before public safety improves; no single technology produces safety automatically
 
-- **Full card**: [Open the complete J-119 card](ledger/121-125.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically)
+- **Full card**: [Open the complete J-119 card](ledger/117-119.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically)
 - **One-sentence judgment**: From 2027 to 2035, visible street violence may fall or remain low in some high-income cities, while online fraud, identity theft, and organised property crime are more likely to move or expand across groups and platforms; overall public safety will depend on reporting, recovery, cross-institution responsibility, and lawful appeal improving together, not on one policing or AI technology.

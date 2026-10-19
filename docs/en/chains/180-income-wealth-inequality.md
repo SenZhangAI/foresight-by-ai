@@ -40,7 +40,7 @@ This 2+2 set is currently a set of historical candidates to register, not comple
 
 From 2027 to 2035, in economies affected by high-productivity technologies, increased productivity or output will not automatically become sustainable income and wealth growth for most households. Where housing, capital, and complementary-asset supply is constrained, gains are more likely first to appear in asset returns, rents on scarce positions, and returns to complementary skills; bottom-household disposable capacity catches up only where bargaining power, public services, taxation, or broad asset ownership expand alongside productivity.
 
-See the [J-118 judgment card](../ledger/121-125.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) for all testable fields.
+See the [J-118 judgment card](../ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) for all testable fields.
 
 ## 5. What readers can do next
 
