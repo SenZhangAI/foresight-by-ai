@@ -482,7 +482,9 @@ def blind_review_id_violations(body):
     for offset, line in enumerate(body.splitlines(), 1):
         if not any(label in line for label in labels):
             continue
-        identifiers = re.findall(r"(?<![A-Za-z0-9])R[A-Za-z0-9]*-[A-Za-z0-9-]+", line)
+        candidates = re.findall(
+            r"(?<![A-Za-z0-9])R[^\s,，。；;：:.,）)】\]`]+", line)
+        identifiers = [candidate for candidate in candidates if "-" in candidate]
         for identifier in identifiers:
             if not allowed.match(identifier):
                 violations.append((offset, line.strip()))
@@ -3075,12 +3077,12 @@ def _break_blind_review_suffix(root):
     match = re.search(r"^.*隔离盲判复审.*$", text, re.M)
     if not match:
         raise AssertionError("J-001 carries no isolated blind-review line")
-    changed = re.sub(r"R[12]-\d{2,3}", "R1-65-foo", match.group(0), count=1)
+    changed = re.sub(r"R[12]-\d{2,3}", "R1-65_foo", match.group(0), count=1)
     if changed == match.group(0):
         raise AssertionError("J-001 isolated blind-review line carries no R1/R2 id")
     _write_file(path, text[:match.start()] + changed + text[match.end():])
     line = text.count("\n", 0, match.start()) + 1
-    return "%s:%d injected invalid R1-65-foo" % (path, line)
+    return "%s:%d injected invalid R1-65_foo" % (path, line)
 
 
 def _break_u_missing(root):
