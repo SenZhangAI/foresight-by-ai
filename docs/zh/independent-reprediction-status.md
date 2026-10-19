@@ -10,7 +10,7 @@
 
 项目在历史校准之后，按既定顺序把旧预测材料送入隔离式重审：不是让一个新实例直接阅读带有旧状态的台账，而是先冻结输入，再生成去标签、重编号、乱序的 bundle，由 fresh-context 批次逐条重判，最后才解封映射。
 
-这页是面向公开读者的状态入口。它不创建新的未来判断，也不替代[判断台账](90-ledger.md)、[历史伪样本外验证协议](02-historical-validation-protocol.md)或[隔离盲判复审报告](../evidence/blind-review-reaudit-2026-10-09.md)。
+这页是面向公开读者的状态入口。它不创建新的未来判断，也不替代[判断台账](90-ledger.md)、[历史伪样本外验证协议](02-historical-validation-protocol.md)或[隔离盲判复审报告](../evidence/blind-review-reaudit-2026-10-09.md)。它是当前证据状态的导航页，不是把历史重审升级为未来样本外预测的凭证。
 
 ## 四个状态要分开读
 

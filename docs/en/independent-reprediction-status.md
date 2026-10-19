@@ -10,7 +10,7 @@
 
 After historical calibration, the project followed the stated sequence for reviewing the old forecast material in isolation. It did not simply give a new instance a ledger containing old statuses. It froze the input, generated a de-labelled, renumbered, shuffled bundle, sent records to fresh-context batches for item-by-item re-judgement, and only then unsealed the mapping.
 
-This is the public reader's status entrance. It creates no new future judgment and does not replace the [Judgment Ledger](90-ledger.md), the [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md), or the [isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md).
+This is the public reader's status entrance. It creates no new future judgment and does not replace the [Judgment Ledger](90-ledger.md), the [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md), or the [isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md). It is a navigation page for the current evidence state, not a certificate that upgrades the historical review into a future out-of-sample forecast.
 
 ## Read four statuses separately
 
