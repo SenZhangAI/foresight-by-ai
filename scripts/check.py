@@ -37,6 +37,8 @@ CONFIDENCE = {
 }
 CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
 AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
+SUMMARY_LABEL = {"zh": u"摘要", "en": "Summary"}
+FULL_CARD_LABEL = {"zh": u"完整卡", "en": "Full card"}
 # J-001..J-086 predate the audience-scale requirement. They stay readable
 # during migration, but every later card must carry the field. Freezing the
 # boundary by identifier rather than by today's file contents means deleting a
@@ -591,7 +593,7 @@ def _ledger_card_location(lang, jid):
 
 def _summary_link_target(section, lang, jid):
     """Return the resolved ledger target named by an explicit summary link."""
-    labels = (u"完整卡", "Full card")
+    labels = (SUMMARY_LABEL[lang], FULL_CARD_LABEL[lang])
     for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
         if match.group(1).strip() not in labels:
             continue
@@ -661,7 +663,8 @@ def check_chain_card_parity(registry, per_lang_cards):
                                   chain_value, ledger_value))
                     continue
                 summary_marker = bool(re.search(
-                    r"^- \*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
+                    r"^- \*\*%s\*\*[:：]" % re.escape(SUMMARY_LABEL[lang]),
+                    section, re.M))
                 link = _summary_link_target(section, lang, jid)
                 present_fields = [field for field, values in field_values.items()
                                   if values]
@@ -3010,6 +3013,14 @@ def _break_summary_missing_id(root):
     return "%s: summary heading lost J-096" % path
 
 
+def _break_summary_wrong_language(root):
+    path = _replace_embedded_summary(root, "en")
+    text = _read_file(path).replace("**Summary**", "**摘要**", 1)
+    text = text.replace("[Full card]", "[完整卡]", 1)
+    _write_file(path, text)
+    return "%s: English summary uses Chinese labels" % path
+
+
 LENS_POSITIVE_CASES = [
     (u"broad L1–L9 prose is not nine declarations", _positive_broad_range),
     (u"explicit embedded summary link is accepted", _positive_embedded_summary),
@@ -3187,6 +3198,7 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
     (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
     (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
+    (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
 ]
 
