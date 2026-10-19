@@ -45,9 +45,10 @@ SUMMARY_TEXT = {"zh": u"完整卡见台账", "en": "See the Full card in the led
 # wording in the public report, not only in a code comment: a reader must know
 # what the inventory proves and what it does not.
 EMBEDDED_PARITY_BASIS = (
-    "basis: exact reader-visible text after visible() normalization "
-    "(逐字口径，经 visible() 规范化后)"
+    "basis: exact reader-visible text after visible() normalization; "
+    "逐字口径（经 visible() 规范化后）"
 )
+EMBEDDED_PARITY_RERUN = "rerun: python3 scripts/check.py"
 # J-001..J-086 predate the audience-scale requirement. They stay readable
 # during migration, but every later card must carry the field. Freezing the
 # boundary by identifier rather than by today's file contents means deleting a
@@ -868,6 +869,7 @@ def check_chain_card_parity(registry, per_lang_cards):
                          (location, resolved, anchor, ledger_path, expected_anchor))
         print("embedded card copies (%s; %s): %d" %
               (lang, EMBEDDED_PARITY_BASIS, counts.get(lang, 0)))
+    print(EMBEDDED_PARITY_RERUN)
     zh_only = inventories.get("zh", set()) - inventories.get("en", set())
     en_only = inventories.get("en", set()) - inventories.get("zh", set())
     if zh_only or en_only:
