@@ -543,6 +543,13 @@ def check_ledger(lang):
 
 
 
+def _summary_link_labels(lang):
+    labels = {SUMMARY_LABEL[lang], FULL_CARD_LABEL[lang]}
+    if lang == "zh":
+        labels.add(u"台账")
+    return labels
+
+
 def _field_value(body, lang, field):
     """Return one reader-visible card field value, or None when absent."""
     matches = _field_occurrences(body, lang, field)
@@ -571,7 +578,7 @@ def _embedded_card_sections(path, lang):
         has_summary_marker = bool(re.search(
             r"^- \*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
         has_summary_link = any(
-            link.group(1).strip() in (u"完整卡", "Full card")
+            link.group(1).strip() in _summary_link_labels(lang)
             for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section))
         if not has_card_field and not has_summary_marker and not has_summary_link:
             continue
@@ -593,9 +600,7 @@ def _ledger_card_location(lang, jid):
 
 def _summary_link_target(section, lang, jid):
     """Return the resolved ledger target named by an explicit summary link."""
-    labels = (SUMMARY_LABEL[lang], FULL_CARD_LABEL[lang])
-    if lang == "zh":
-        labels = labels + (u"台账",)
+    labels = _summary_link_labels(lang)
     for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
         if match.group(1).strip() not in labels:
             continue
@@ -3062,6 +3067,15 @@ def _break_summary_spaced_field(root):
     return "%s: canonical field has whitespace before its colon" % path
 
 
+def _break_summary_missing_marker(root):
+    """Keep a Chinese ledger link but remove the required summary field marker."""
+    path = _replace_embedded_summary(root, "zh")
+    text = _read_file(path).replace(
+        "- **摘要**：完整卡见[台账]", "完整卡见[台账]", 1)
+    _write_file(path, text)
+    return "%s: Chinese ledger summary link has no 摘要 field" % path
+
+
 def _break_english_chain_punctuation(root):
     path = _chain_doc(root, "en", "C11")
     text = _read_file(path)
@@ -3325,6 +3339,7 @@ PARITY_NEGATIVE_CASES = [
     (u"summary card prose is misleading", "chain-card-parity", _break_summary_content_disguise),
     (u"summary card appends divergent prose", "chain-card-parity", _break_summary_appended_disguise),
     (u"summary card has a spaced canonical field", "chain-card-parity", _break_summary_spaced_field),
+    (u"summary card lacks its field marker", "chain-card-parity", _break_summary_missing_marker),
     (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
     (u"English chain uses Chinese semicolon", "english-punctuation", _break_english_chain_punctuation),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
@@ -3346,6 +3361,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"summary card prose is misleading": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"summary card appends divergent prose": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"summary card has a spaced canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"summary card lacks its field marker": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
 }
 
 NEGATIVE_CASES = [
