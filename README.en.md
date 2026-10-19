@@ -231,7 +231,7 @@ The third non-AI-premised chain is [C14 Ballots and Security Ledgers](docs/en/ch
 
 ### Reading relationship map (navigation projection)
 
-The diagram below shows recommended reading relationships only: near, mid, and far are reading containers, not strict calendars or a new source of judgments. Full facts remain authoritative in each page and its `J-NNN` ledger cards.
+The diagram below is a **local relationship sketch / navigation projection**: it extracts only a few recommended reading relationships between chains. It is **not** the complete C1–C19 chain-dependency graph, and an unshown chain or edge should not be read as absent. For the complete [C1–C19 chain registry](#chain-registry), use the registry as the authority; for complete causal dependencies between judgments, use the [`depends-on` graph in the Judgment Ledger](docs/en/90-ledger.md#3-the-depends-on-graph).
 
 ```mermaid
 flowchart LR
@@ -250,7 +250,7 @@ flowchart LR
   C3 --> C8
 ```
 
-The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
+The arrows are local reading entrances, not claims that the linked judgments must hold, and not a claim to cover the complete dependency structure. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream; the complete chain list remains in the [chain registry](#chain-registry).
 
 Full cards, status, dependency graph, external sources, history, and uncovered dimensions live in the [Judgment Ledger](docs/en/90-ledger.md). It is the maintenance area; this README does not duplicate its statistics or facts. Terms are in the [bilingual glossary](docs/glossary.zh-en.md).
 
