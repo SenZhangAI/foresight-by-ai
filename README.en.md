@@ -145,7 +145,7 @@ The repository provides a structural check command, `python3 scripts/check.py`, 
 
 **Release-verification boundary**: public `main` file access and desktop GitHub rendering have been checked; **GitHub narrow/mobile rendering: unverified**. Desktop evidence therefore must not be read as verification for every viewport.
 
-This entry does not promise a fixed judgment-card total: cards will grow, be revised, and sometimes be migrated as the research develops. **The current snapshot is 119 judgment cards and 19 independent reasoning chains**; this is not a permanent promise and may change with the next revision. For a current snapshot, use the [Judgment Ledger](docs/en/90-ledger.md) and its shard navigation. The full inventory, per-card status, historical calibration status, source boundaries, and gaps are maintained in the ledger and protocols.d in the ledger and protocols rather than copied here.
+This entry does not promise a fixed judgment-card total: cards will grow, be revised, and sometimes be migrated as the research develops. **The current snapshot is 119 judgment cards and 19 independent reasoning chains**; this is not a permanent promise and may change with the next revision. For a current snapshot, use the [Judgment Ledger](docs/en/90-ledger.md) and its shard navigation. The full inventory, per-card status, historical calibration status, source boundaries, and gaps are maintained in the ledger and protocols rather than copied here.
 
 ### Coverage matrix (current boundary)
 
