@@ -567,7 +567,7 @@ def _embedded_card_sections(path, lang):
         if section_end:
             end = match.end() + section_end.start()
         section = text[match.start():end]
-        has_card_field = any(_field_value(section, lang, field) is not None
+        has_card_field = any(_field_occurrences(section, lang, field)
                              for field in CARD_FIELDS[lang])
         has_summary_marker = bool(re.search(
             r"^- \*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
@@ -3151,6 +3151,25 @@ def _break_embedded_duplicate_field(root):
     return "%s: J-096 canonical field duplicated" % path
 
 
+def _break_embedded_duplicate_all_fields(root):
+    """Duplicate every canonical field to attack formal-block discovery itself."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### 判断卡片 1：J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 J-096 embedded card not found")
+    section = match.group(1)
+    for field in CARD_FIELDS["zh"]:
+        pattern = r"^- \*\*%s\*\*[:：][^\n]*$" % re.escape(field)
+        field_match = re.search(pattern, section, re.M)
+        if not field_match:
+            raise AssertionError("C9 J-096 field %s not found" % field)
+        line = field_match.group(0)
+        section = section[:field_match.end()] + "\n" + line + section[field_match.end():]
+    _write_file(path, text[:match.start()] + section + text[match.end():])
+    return "%s: all J-096 canonical fields duplicated" % path
+
+
 def _break_bilingual_chain_skeleton(root):
     path = os.path.join(root, "docs", "en", "chains", "10-generation-becomes-free.md")
     text = _read_file(path)
@@ -3217,6 +3236,7 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
     (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
     (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
+    (u"embedded card repeats every canonical field", "chain-card-parity", _break_embedded_duplicate_all_fields),
     (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
     (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
     (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
@@ -3231,6 +3251,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"embedded card heading loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card repeats a canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"embedded card repeats every canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"summary card uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"summary card loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
 }
