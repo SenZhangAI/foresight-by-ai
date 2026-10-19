@@ -53,12 +53,12 @@ CONFIDENCE_VALUE = (r"\*\*(?:Confidence|\u7f6e\u4fe1\u5ea6)\*\*[:\uff1a]"
 # is not optional: sentence-final periods are rejected to keep one spelling per
 # field across both ledgers.
 CARD_FIELDS = {
-    "zh": [u"\u63d0\u51fa\u65e5\u671f", u"\u4e00\u53e5\u8bdd\u5224\u65ad", u"\u900f\u955c",
+    "zh": [u"\u63d0\u51fa\u65e5\u671f", u"\u4e00\u53e5\u8bdd\u5224\u65ad", u"\u53d7\u4f17\u89c4\u6a21", u"\u900f\u955c",
            u"\u63a8\u7406\u94fe", u"\u65f6\u95f4\u7a97", u"\u8bc1\u4f2a\u6761\u4ef6",
            u"\u9886\u5148\u6307\u6807", u"\u7f6e\u4fe1\u5ea6", u"depends-on",
            u"\u6700\u5f3a\u53cd\u65b9", u"\u4e0e\u5171\u8bc6", u"\u5916\u90e8\u5bf9\u7167\u6765\u6e90",
            u"\u51fa\u5904", u"\u4e0b\u6b21\u68c0\u67e5\u65e5", u"\u72b6\u6001"],
-    "en": ["Proposed date", "One-sentence judgment", "Lens", "Reasoning chain",
+    "en": ["Proposed date", "One-sentence judgment", "Audience scale", "Lens", "Reasoning chain",
            "Time window", "Falsifier", "Leading indicator", "Confidence", "depends-on",
            "Strongest opposing mechanism", "Against consensus",
            "External comparison source", "Source", "Next review", "Status"],
@@ -536,6 +536,133 @@ def check_ledger(lang):
               AUDIENCE_FIELD[lang]))
     check_comparison(lang, cards, overview_consensus)
     return cards
+
+
+
+
+def _field_value(body, lang, field):
+    """Return one reader-visible card field value, or None when absent."""
+    separator = r"[:：]" if lang == "zh" else r":"
+    pattern = r"^- \*\*%s\*\*%s\s*(.*)$" % (re.escape(field), separator)
+    matches = re.findall(pattern, body, re.M)
+    return visible(matches[0]).strip() if len(matches) == 1 else None
+
+
+def _embedded_card_sections(path, lang):
+    """Yield formal card blocks embedded in a registered chain page.
+
+    A block is considered formal when its heading is level 3 and its body carries
+    at least one canonical card field. The heading is then validated separately:
+    exactly one J-xxx id is required. Scanning by fields first is deliberate: a
+    card heading with its id removed must be rejected, not silently treated as
+    ordinary prose.
+    """
+    text = read(path)
+    headings = list(re.finditer(r"^### [^\n]*$", text, re.M))
+    for index, match in enumerate(headings):
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
+        section_end = re.search(r"^## ", text[match.end():end], re.M)
+        if section_end:
+            end = match.end() + section_end.start()
+        section = text[match.start():end]
+        if not any(_field_value(section, lang, field) is not None
+                   for field in CARD_FIELDS[lang]):
+            continue
+        heading_ids = re.findall(r"(?<![A-Za-z0-9])J-\d{3}(?!\d)", match.group(0))
+        jid = heading_ids[0] if len(heading_ids) == 1 else None
+        yield (jid, match.start(), section)
+
+
+def _ledger_card_location(lang, jid):
+    """Return the shard path and 1-based line of a ledger card."""
+    for path in ledger_paths(lang)[1:]:
+        text = read(path)
+        match = re.search(r"^### %s(?:[^\n]*)$" % re.escape(jid), text, re.M)
+        if match:
+            return path, text.count("\n", 0, match.start()) + 1
+    return None, None
+
+
+def _summary_link_target(section, lang, jid):
+    """Return the resolved ledger target named by an explicit summary link."""
+    labels = (u"完整卡", "Full card")
+    for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
+        if not any(label in match.group(1) for label in labels):
+            continue
+        raw_target = match.group(2)
+        target, anchor = raw_target.split("#", 1) if "#" in raw_target else (raw_target, "")
+        return target, anchor
+    return None
+
+
+def check_chain_card_parity(registry, per_lang_cards):
+    """Enumerate and validate formal chain-page card copies.
+
+    A copy is either a full form (all canonical fields, compared after
+    ``visible()``) or an explicit summary form carrying a link labelled
+    ``完整卡`` / ``Full card`` to this language's ledger card. Anything that
+    looks like a card block but matches neither form fails hard.
+    """
+    counts = {}
+    for lang in LANGS:
+        seen = set()
+        paths = sorted(p for rows in registry[lang].values() for p in rows
+                       if p.startswith("docs/%s/" % lang))
+        for path in paths:
+            if path in seen or not os.path.exists(os.path.join(REPO, path)):
+                continue
+            seen.add(path)
+            for jid, offset, section in _embedded_card_sections(path, lang):
+                line = read(path).count("\n", 0, offset) + 1
+                ledger_body = per_lang_cards[lang].get(jid)
+                ledger_path, ledger_line = (_ledger_card_location(lang, jid)
+                                            if jid is not None else (None, None))
+                print("embedded %s %s:%d %s -> %s:%s" %
+                      (lang, path, line, jid, ledger_path or "(missing)",
+                       ledger_line or "?"))
+                counts[lang] = counts.get(lang, 0) + 1
+                location = "%s:%d %s" % (path, line, jid or "(missing card id)")
+                if ledger_body is None or not ledger_path:
+                    if jid is None:
+                        fail("chain-card-parity", "%s formal card block heading must contain exactly one J-xxx id" % location)
+                    else:
+                        fail("chain-card-parity", "%s has no matching ledger card" % location)
+                    continue
+                values = [_field_value(section, lang, field) for field in CARD_FIELDS[lang]]
+                if all(value is not None for value in values):
+                    for field in CARD_FIELDS[lang]:
+                        chain_value = _field_value(section, lang, field)
+                        ledger_value = _field_value(ledger_body, lang, field)
+                        if chain_value != ledger_value:
+                            fail("chain-card-parity",
+                                 "%s field %s differs from %s:%d (chain=%r; ledger=%r)" %
+                                 (location, field, ledger_path, ledger_line,
+                                  chain_value, ledger_value))
+                    continue
+                summary_marker = ("**摘要**" in section or "**Summary**" in section)
+                link = _summary_link_target(section, lang, jid)
+                present_fields = [field for field, value in zip(CARD_FIELDS[lang], values)
+                                  if value is not None]
+                if present_fields:
+                    fail("chain-card-parity",
+                         "%s summary form carries canonical fields %s; use a complete copy" %
+                         (location, present_fields))
+                    continue
+                if not summary_marker or not link:
+                    fail("chain-card-parity",
+                         "%s is neither a complete field copy nor an explicit summary" %
+                         location)
+                    continue
+                target, anchor = link
+                resolved = os.path.normpath(os.path.join(os.path.dirname(path), target)).replace(os.sep, "/")
+                heading = re.search(r"^### %s([^\n]*)$" % re.escape(jid), ledger_body, re.M)
+                expected_anchor = slug(jid + heading.group(1)) if heading else ""
+                if resolved != ledger_path or anchor != expected_anchor:
+                    fail("chain-card-parity",
+                         "%s summary link %s#%s does not target %s#%s" %
+                         (location, resolved, anchor, ledger_path, expected_anchor))
+        print("embedded card copies (%s): %d" % (lang, counts.get(lang, 0)))
+    return counts
 
 
 def check_parity(per_lang_cards):
@@ -1581,6 +1708,7 @@ def run_checks():
     check_parity(cards)
     chains = check_chain_registry()
     registry = {lang: parse_registry(lang)[0] for lang in LANGS}
+    check_chain_card_parity(registry, cards)
     check_chain_mermaid(registry, cards)
     check_navigation_mermaid()
     check_chain_titles()
@@ -1986,6 +2114,32 @@ def _break_missing_field(root):
     return u"zh %s: the %s line is gone" % (jid, field)
 
 
+def _sync_embedded_field_fixture(root, lang, jid, field, value):
+    """Keep a valid fixture mutation synchronized across its formal copies."""
+    directory = os.path.join(root, "docs", lang, "chains")
+    separator = u"：" if lang == "zh" else ": "
+    pattern = r"(^### [^\n]*?\b%s\b[^\n]*$)(.*?)(?=^### |^## |\Z)" % re.escape(jid)
+    for name in sorted(os.listdir(directory)):
+        if not is_markdown(name):
+            continue
+        path = os.path.join(directory, name)
+        text = _read_file(path)
+        changed = False
+        def replace_section(match):
+            nonlocal changed
+            body = match.group(2)
+            if not re.search(r"^- \*\*%s\*\*[:：]" % re.escape(field), body, re.M):
+                return match.group(0)
+            changed = True
+            body = re.sub(r"^- \*\*%s\*\*[:：][^\n]*$" % re.escape(field),
+                          "- **%s**%s%s" % (field, separator, value), body,
+                          count=1, flags=re.M)
+            return match.group(1) + body
+        updated = re.sub(pattern, replace_section, text, flags=re.M | re.S)
+        if changed:
+            _write_file(path, updated)
+
+
 def _set_confidence(lang, value):
     """Rewrite the first card's confidence value in `lang` to `value`."""
     field = CONFIDENCE_FIELD[lang]
@@ -2003,6 +2157,7 @@ def _set_confidence(lang, value):
         line = u"- **%s**%s%s" % (field, sep, value)
         _write_file(path, text[:head + m.start()] + line
                     + text[head + m.end():])
+        _sync_embedded_field_fixture(root, lang, jid, field, value)
         if line not in _read_file(path):
             raise AssertionError("confidence fixture was not applied")
         return u"%s %s: confidence = %s" % (lang, jid, value)
@@ -2788,6 +2943,9 @@ def _positive_broad_range(root):
     path = _card_path(root, "zh", "J-096"); text = _read_file(path)
     text = re.sub(r"(^- \*\*透镜\*\*[:：][^\n]*)", lambda m: m.group(1) + "；L1–L9 L1‐L9 L1‑L9 L1‒L9 L1—L9 L1―L9 L1－L9 是范围说明", text, count=1, flags=re.M)
     _write_file(path, text)
+    lens = re.search(r"^- \*\*透镜\*\*[:：]([^\n]*)$", text, re.M)
+    if lens:
+        _sync_embedded_field_fixture(root, "zh", "J-096", "透镜", lens.group(1))
     return "broad L1–L9 explanatory range remains non-declarative"
 
 
@@ -2803,6 +2961,84 @@ def _break_chain_unknown_card_edge(root):
         raise AssertionError("C1 fixture has no stable terminal edge")
     _write_file(path, text.replace(needle, needle + '\n  R4 --> BAD["J-999 invented card"]', 1))
     return "zh C1: Mermaid edge cites J-999, which has no ledger card"
+
+
+def _break_embedded_chain_field(root):
+    """Change only a chain-page copy; the ledger remains authoritative."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### 判断卡片 1：J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 J-096 embedded card not found")
+    body = re.sub(r"(^- \*\*一句话判断\*\*[:：][^\n]*)",
+                  r"\1（副本负例）", match.group(1), count=1, flags=re.M)
+    if body == match.group(1):
+        raise AssertionError("C9 J-096 judgment field not found")
+    _write_file(path, text[:match.start()] + body + text[match.end():])
+    return "%s: J-096 one-sentence judgment diverged" % path
+
+
+def _break_embedded_audience_field(root):
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### 判断卡片 1：J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 J-096 embedded card not found")
+    body = re.sub(r"(^- \*\*受众规模\*\*[:：][^\n]*)",
+                  r"\1（副本负例）", match.group(1), count=1, flags=re.M)
+    if body == match.group(1):
+        raise AssertionError("C9 J-096 audience field not found")
+    _write_file(path, text[:match.start()] + body + text[match.end():])
+    return "%s: J-096 audience scale diverged" % path
+
+
+def _break_embedded_ledger_field(root):
+    """Change the ledger field while leaving both embedded copies unchanged."""
+    path = _card_path(root, "zh", "J-098")
+    text = _read_file(path)
+    body = re.sub(r"(^- \*\*一句话判断\*\*[:：][^\n]*)",
+                  r"\1（台账负例）", text, count=1, flags=re.M)
+    if body == text:
+        raise AssertionError("J-098 judgment field not found")
+    _write_file(path, body)
+    return "zh J-098 ledger one-sentence judgment diverged"
+
+
+def _break_embedded_en_field(root):
+    """Change only the English chain-page copy for language-specific coverage."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### Judgment card 1: J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("English C9 J-096 embedded card not found")
+    body = re.sub(r"(^- \*\*One-sentence judgment\*\*:\s*[^\n]*)",
+                  r"\1 (English-only negative control)", match.group(1), count=1, flags=re.M)
+    if body == match.group(1):
+        raise AssertionError("English J-096 judgment field not found")
+    _write_file(path, text[:match.start()] + body + text[match.end():])
+    return "%s: J-096 one-sentence judgment diverged (English only)" % path
+
+
+def _break_embedded_unknown_card(root):
+    """Rename a formal embedded heading to an unregistered judgment id."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old = "### 判断卡片 1：J-096"
+    if old not in text:
+        raise AssertionError("C9 J-096 embedded heading not found")
+    _write_file(path, text.replace(old, "### 判断卡片 1：J-999", 1))
+    return "%s: embedded heading changed from J-096 to unknown J-999" % path
+
+
+def _break_embedded_missing_card_id(root):
+    """Remove the id while retaining the formal card fields."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old = "### 判断卡片 1：J-096"
+    if old not in text:
+        raise AssertionError("C9 J-096 embedded heading not found")
+    _write_file(path, text.replace(old, "### 判断卡片 1", 1))
+    return "%s: embedded formal card heading lost J-096" % path
 
 
 def _break_bilingual_chain_skeleton(root):
@@ -2828,7 +3064,7 @@ def _break_malformed_labeled_chain_edge(root):
 def _break_navigation_node_set(root):
     path = os.path.join(root, "README.md")
     text = _read_file(path)
-    needle = "    C13[C13 财政与政治] --> C9"
+    needle = "  C13[C13 财政与政治] --> C9"
     if needle not in text:
         raise AssertionError("README navigation fixture has no C13 node")
     _write_file(path, text.replace(needle, "    C99[C99 财政与政治] --> C9", 1))
@@ -2864,8 +3100,13 @@ def _break_navigation_duplicate_layer(root):
     _write_file(path, text.replace(needle, needle + "\n" + needle, 1))
     return "zh mid navigation: duplicate M source edge for C9"
 
-
 NEGATIVE_CASES = [
+    (u"embedded audience field diverges", "chain-card-parity", _break_embedded_audience_field),
+    (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
+    (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
+    (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
+    (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
+    (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
@@ -3028,6 +3269,12 @@ CONFIDENCE_ACCEPTED = [
 ]
 
 
+def _embedded_counts(output):
+    """Read the parity inventory emitted by a checker run."""
+    pairs = re.findall(r"embedded card copies \((zh|en)\): (\d+)", output)
+    return tuple((lang, int(count)) for lang, count in pairs)
+
+
 def self_test():
     base = tempfile.mkdtemp(prefix="ledger-check-self-test-")
     counter = itertools.count()
@@ -3046,6 +3293,14 @@ def self_test():
             print(out)
             return 1
         print("baseline: unbroken copy exits 0\n")
+        baseline_embedded_counts = _embedded_counts(out)
+        if (len(baseline_embedded_counts) != 2 or
+                len(set(count for _lang, count in baseline_embedded_counts)) != 1):
+            print("baseline: embedded-card inventory is unexpected: %r\n" %
+                  (baseline_embedded_counts,))
+            return 1
+        print("baseline: embedded-card inventory %r\n" %
+              (baseline_embedded_counts,))
 
         def fresh():
             work = os.path.join(base, "case-%d" % next(counter))
@@ -3077,7 +3332,7 @@ def self_test():
             work = fresh()
             detail = mutate(work)
             code, out = _run_checker(work)
-            ok = code == 0
+            ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d — %s" % (code, detail))
 
@@ -3094,7 +3349,7 @@ def self_test():
             work = fresh()
             _set_confidence(lang, value)(work)
             code, out = _run_checker(work)
-            ok = code == 0
+            ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
 
@@ -3103,7 +3358,7 @@ def self_test():
             work = fresh()
             detail = mutate(work)
             code, out = _run_checker(work)
-            ok = code == 0
+            ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d — %s" % (code, detail))
 
