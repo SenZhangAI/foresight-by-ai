@@ -219,28 +219,19 @@ The diagram below shows recommended reading relationships only: near, mid, and f
 
 ```mermaid
 flowchart LR
-  subgraph START[Enter through a story first]
-    C1[C1 Generation] --> C2[C2 Real-world signals]
-    C2 --> C3[C3 Compute infrastructure]
-  end
-  subgraph BODY[Physical world and care]
-    C4[C4 Embodied intelligence] --> C9[C9 Ageing and institutional care]
-    C4 --> C8[C8 Materials and climate]
-  end
-  subgraph SOCIETY[Organizations, power, and relationships]
-    C7[C7 Technology and power] --> C10[C10 Collateralization of trust]
-    C10 --> C11[C11 Authority before intelligence]
-    C6[C6 Education and skills] --> C7
-    C13[C13 Fiscal squeeze] --> C9
-  end
-  subgraph PREREQ[Capability premise (not social causation)]
-    C12[C12 Technology capability sequence]
-  end
+  C1[C1 Generation] --> C2[C2 Real-world signals]
+  C2 --> C3[C3 Compute infrastructure]
+  C4[C4 Embodied intelligence] --> C9[C9 Ageing and institutional care]
+  C4 --> C8[C8 Materials and climate]
+  C7[C7 Technology and power] --> C10[C10 Collateralization of trust]
+  C10 --> C11[C11 Authority before intelligence]
+  C6[C6 Education and skills] --> C7
+  C13[C13 Fiscal squeeze] --> C9
+  C12[C12 Technology capability sequence] --> C4
+  C12 --> C7
+  C5[C5 Biology and medicine] --> C10
   C3 --> C4
   C3 --> C8
-  C12 --> C4
-  C12 --> C7
-  C5 --> C10
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
