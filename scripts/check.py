@@ -544,10 +544,8 @@ def check_ledger(lang):
 
 def _field_value(body, lang, field):
     """Return one reader-visible card field value, or None when absent."""
-    separator = r"[:：]" if lang == "zh" else r":"
-    pattern = r"^- \*\*%s\*\*%s\s*(.*)$" % (re.escape(field), separator)
-    matches = re.findall(pattern, body, re.M)
-    return visible(matches[0]).strip() if len(matches) == 1 else None
+    matches = _field_occurrences(body, lang, field)
+    return matches[0] if len(matches) == 1 else None
 
 
 def _embedded_card_sections(path, lang):
@@ -604,10 +602,11 @@ def _summary_link_target(section, lang, jid):
 
 
 def _field_occurrences(body, lang, field):
-    """Return all reader-visible occurrences of one canonical field."""
+    """Return all reader-visible occurrences of one canonical card field."""
     separator = r"[:：]" if lang == "zh" else r":"
-    pattern = r"^- \*\*%s\*\*%s\s*(.*)$" % (re.escape(field), separator)
-    return [visible(value).strip() for value in re.findall(pattern, body, re.M)]
+    pattern = r"^- \*\*([^*\n]+)\*\*%s\s*(.*)$" % separator
+    return [visible(value).strip() for label, value in re.findall(pattern, body, re.M)
+            if visible(label).strip() == field]
 
 
 def check_english_chain_punctuation(registry):
@@ -3170,6 +3169,27 @@ def _break_embedded_duplicate_all_fields(root):
     return "%s: all J-096 canonical fields duplicated" % path
 
 
+def _break_embedded_zero_width_summary_disguise(root):
+    """Hide every field label with Cf characters and add a misleading summary link."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    match = re.search(r"(^### 判断卡片 1：J-096.*?)(?=^### |^## |\Z)", text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 J-096 embedded card not found")
+    section = match.group(1)
+    section = re.sub(r"(^- \*\*一句话判断\*\*[:：][^\n]*)",
+                     r"\1（伪装负例）", section, count=1, flags=re.M)
+    for field in CARD_FIELDS["zh"]:
+        pattern = r"(^- \*\*)%s(\*\*[:：])" % re.escape(field)
+        masked = "\u200b".join(field)
+        section, count = re.subn(pattern, r"\1" + masked + r"\2", section, count=1, flags=re.M)
+        if count != 1:
+            raise AssertionError("C9 J-096 field %s not found" % field)
+    section += "- **摘要**：完整卡见[完整卡](../ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)\n"
+    _write_file(path, text[:match.start()] + section + text[match.end():])
+    return "%s: zero-width field labels disguise a divergent summary" % path
+
+
 def _break_bilingual_chain_skeleton(root):
     path = os.path.join(root, "docs", "en", "chains", "10-generation-becomes-free.md")
     text = _read_file(path)
@@ -3237,6 +3257,7 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
     (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
     (u"embedded card repeats every canonical field", "chain-card-parity", _break_embedded_duplicate_all_fields),
+    (u"zero-width fields disguise a summary", "chain-card-parity", _break_embedded_zero_width_summary_disguise),
     (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
     (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
     (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
@@ -3252,6 +3273,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"embedded card heading loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card repeats a canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded card repeats every canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"zero-width fields disguise a summary": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"summary card uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"summary card loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
 }
