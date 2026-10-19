@@ -225,7 +225,7 @@ flowchart LR
   end
   subgraph BODY[Physical world and care]
     C4[C4 Embodied intelligence] --> C9[C9 Ageing and institutional care]
-    C4 -.upstream materials and climate.-> C8[C8 Materials and climate]
+    C4 -.->|upstream materials and climate| C8[C8 Materials and climate]
   end
   subgraph SOCIETY[Organizations, power, and relationships]
     C7[C7 Technology and power] --> C10[C10 Collateralization of trust]
@@ -236,11 +236,11 @@ flowchart LR
   subgraph PREREQ[Capability premise (not social causation)]
     C12[C12 Technology capability sequence]
   end
-  C3 -.deployment constraints.-> C4
-  C3 -.upstream bottlenecks.-> C8
-  C12 -.capability-arrival premise.-> C4
-  C12 -.capability-arrival premise.-> C7
-  C5 -.proof and liability.-> C10
+  C3 -.->|deployment constraints| C4
+  C3 -.->|upstream bottlenecks| C8
+  C12 -.->|capability-arrival premise| C4
+  C12 -.->|capability-arrival premise| C7
+  C5 -.->|proof and liability| C10
 ```
 
 The arrows are reading entrances, not claims that the linked judgments must hold. To trace causal dependence, enter through a chain, open a `J-NNN`, and follow the ledger’s `depends-on` field upstream.
