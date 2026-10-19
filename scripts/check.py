@@ -575,7 +575,7 @@ def _embedded_card_sections(path, lang):
             for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section))
         if not has_card_field and not has_summary_marker and not has_summary_link:
             continue
-        heading_ids = re.findall(r"(?<![A-Za-z0-9])J-\d{3}(?![A-Za-z0-9])",
+        heading_ids = re.findall(r"(?<![A-Za-z0-9])J-\d{3}(?=$|[\s\]\)·—–,:：,，])",
                                  visible(match.group(0)))
         jid = heading_ids[0] if len(heading_ids) == 1 else None
         yield (jid, match.start(), section)
@@ -3181,6 +3181,17 @@ def _break_embedded_missing_card_id(root):
     return "%s: embedded formal card heading lost J-096" % path
 
 
+def _break_embedded_card_id_punctuation(root):
+    """Append a dotted sub-number so J-096 is no longer a complete token."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old = "### 判断卡片 1：J-096"
+    if old not in text:
+        raise AssertionError("C9 J-096 embedded heading not found")
+    _write_file(path, text.replace(old, "### 判断卡片 1：J-096.1", 1))
+    return "%s: embedded heading changed from J-096 to invalid J-096.1" % path
+
+
 def _break_embedded_duplicate_field(root):
     """Duplicate a canonical field so it cannot be mistaken for a summary."""
     path = _chain_doc(root, "zh", "C9")
@@ -3302,6 +3313,7 @@ PARITY_NEGATIVE_CASES = [
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
     (u"embedded card heading has an invalid suffix", "chain-card-parity", _break_embedded_card_id_suffix),
+    (u"embedded card heading has an invalid dotted suffix", "chain-card-parity", _break_embedded_card_id_punctuation),
     (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
     (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
     (u"embedded card repeats every canonical field", "chain-card-parity", _break_embedded_duplicate_all_fields),
@@ -3322,6 +3334,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"embedded card heading has an invalid suffix": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
+    u"embedded card heading has an invalid dotted suffix": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card heading loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card repeats a canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded card repeats every canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
