@@ -152,6 +152,17 @@
 
 ### 全景覆盖矩阵（当前边界）
 
+窄屏读者不必先横向滚动整张矩阵：先按主题进入链页，再回到下方展开完整矩阵做宽屏比较。分组入口只负责导航，状态、证据与缺口仍以各链正文和台账为准。
+
+- **物理世界与生命**： [具身劳动与具身智能](docs/zh/chains/40-embodied-intelligence.md) · [生物与医疗](docs/zh/chains/50-biology-medicine.md) · [人口老龄化与家庭照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md)
+- **技术与基础设施**： [算力、能源与物理基础设施](docs/zh/chains/30-power-land-and-permits.md) · [材料与气候](docs/zh/chains/80-fab-materials-and-climate.md) · [技术能力出现次序](docs/zh/chains/120-technology-capability-sequence.md)
+- **组织、制度与分配**： [技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md) · [授权先于智能](docs/zh/chains/110-authority-before-intelligence.md) · [财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [选票与安全账本](docs/zh/chains/140-ballots-and-security-ledgers.md) · [收入、财富与不平等](docs/zh/chains/180-income-wealth-inequality.md)
+- **关系、文化与日常生活**： [教育与技能](docs/zh/chains/60-education-skill-formation.md) · [家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md) · [文化、环境与日常承载](docs/zh/chains/160-culture-climate-mobility.md) · [宗教与信仰](docs/zh/chains/170-religion-and-belief.md)
+- **信息、信任与安全**： [生成变得免费之后](docs/zh/chains/10-generation-becomes-free.md) · [现实信号成为合同资产](docs/zh/chains/20-real-signals-become-contracts.md) · [信任抵押化](docs/zh/chains/100-trust-collateralization.md) · [公共安全与犯罪](docs/zh/chains/190-public-safety-and-crime.md)
+
+<details>
+<summary>展开完整矩阵（适合宽屏比较）</summary>
+
 本表只列出已有入口的维度，但它不再把整张全景的缺口藏起来：完整的社会维度清单由本矩阵与紧邻的[尚未建立入口的维度](#尚未建立入口的维度)两张表共同组成，二者应与台账「六、未覆盖维度缺口清单」逐行对应。**已覆盖**表示至少有一篇可达正文和一条判断卡（卡片若标为「仅图景」，这里也明确保留）；**部分覆盖**表示已有主题入口和判断，或已有明确的仅图景入口但关键制度、规模或长期证据仍缺；**尚未建立入口**表示没有一章把该维度作为主题，只能列出为什么它属于全社会图景，不能在此预填预测。完整字段、依赖和证伪条件仍以链接正文与台账为准。
 
 这里必须分开两个可独立判断的命题：**入口命题**是「每个列出的社会维度目前至少有一个可到达的主题入口」；**完成度命题**是「全方位社会图景已经完成」。当前证据只支持前一个命题，不支持后一个命题。当前仍为「部分覆盖」的边界包括：地缘政治与制度、法律／产权／责任、人与人协作、人与 AI 关系、社会关系演进、算力上游物料与气候耦合、人口老龄化与家庭照护、文化／娱乐／闲暇、气候与环境、交通与日常出行；每一行的「尚未完成的部分」仍是未闭合的范围。下表暂时没有「尚未建立入口」的维度，只表示入口已补齐，不表示这些部分覆盖的证据、国家范围、长期结果或社会后果已经补齐。
@@ -196,6 +207,8 @@
 本轮已为「公共安全与犯罪」建立 [C19 独立入口](docs/zh/chains/190-public-safety-and-crime.md)与 [J-119 判断卡](docs/zh/ledger/117-119.md#j-119--风险会先重组公共安全不会由单一技术自动改善)。当前没有仍处于「尚未建立入口」状态的维度——这只表示下表所列的社会维度目前各自至少有一个可到达的入口，不表示全方位图景已经完成；上方矩阵中的「部分覆盖」和本节下一段列出的证据、国家与长期结局缺口仍然有效。下一轮若发现新缺口，再在这里登记。
 
 这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点；C13 已从财政与主权债务补入一条不以 AI 为前提的政治起点；C14 又补入选举结果与安全预算的窄入口，但只覆盖四国的制度响应，不等于战争、极化或所有国家的政治预测。数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
+
+</details>
 
 </details>
 
@@ -264,6 +277,17 @@ flowchart LR
 
 编号只在这里分配；表格只做导航，链正文与台账承载具体事实。**什么算一条链**：(1) 围绕一个问题纵向推进依赖（「什么先到 → 因此什么才成为可能」），而不是按时间层横向汇总——所以[近期／中期／远期图景](docs/zh/10-near.md)虽然也是卡片的出处，却是阅读容器，不是链；(2) 可检验的判断写在 `J-NNN` 卡上，卡的「出处」指回该链正文；(3) 页首有「本链的透镜声明」。三条都满足的正文才登记编号；不在本表里的正文都不是链。**“证据成熟度”不是预测准确率，也不是结构检查结果**：`已有 calibration 支持` 只表示链所依赖的机制有历史案例对照，不能当作未来判断已经通过验证；`已写成但证据仍开放` 表示有可读正文和判断入口，但证据边界仍需逐卡检查；`仅图景／证据未闭合` 表示当前只能保留为场景或机制假设。每一行都链接到对应的证据说明或判断卡，缺口不以“已写成但证据仍开放”掩盖。
 
+按主题进入推演链（适合窄屏）：
+
+- **生成、现实与算力**： [C1 生成变得免费之后](docs/zh/chains/10-generation-becomes-free.md) · [C2 现实信号成为合同资产](docs/zh/chains/20-real-signals-become-contracts.md) · [C3 算力基础设施](docs/zh/chains/30-power-land-and-permits.md)
+- **具身世界、生命与技能**： [C4 具身智能](docs/zh/chains/40-embodied-intelligence.md) · [C5 生物与医疗](docs/zh/chains/50-biology-medicine.md) · [C6 教育与技能](docs/zh/chains/60-education-skill-formation.md)
+- **组织、材料与信任**： [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md) · [C8 材料与气候](docs/zh/chains/80-fab-materials-and-climate.md) · [C10 信任抵押化](docs/zh/chains/100-trust-collateralization.md)
+- **照护、授权与技术次序**： [C9 老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md) · [C12 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)
+- **政治、家庭与公共生活**： [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [C14 选票与安全账本](docs/zh/chains/140-ballots-and-security-ledgers.md) · [C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md) · [C16 文化、环境与日常承载](docs/zh/chains/160-culture-climate-mobility.md) · [C17 宗教与信仰](docs/zh/chains/170-religion-and-belief.md) · [C18 收入、财富与不平等](docs/zh/chains/180-income-wealth-inequality.md) · [C19 公共安全与犯罪](docs/zh/chains/190-public-safety-and-crime.md)
+
+<details>
+<summary>展开完整 C1–C19 登记表（适合宽屏比较）</summary>
+
 | 编号 | 主题 | 证据成熟度（当前边界） | 文件与证据说明 |
 |---|---|---|---|
 | C1 | 生成变得免费之后，什么反而买不到了 | **已有 calibration 支持**：历史机制对照；未来判断未验证 | [中文](docs/zh/chains/10-generation-becomes-free.md) · [English](docs/en/chains/10-generation-becomes-free.md) · [历史校准边界](docs/zh/02-historical-validation-protocol.md) · [J-001–J-005](docs/zh/ledger/01-10.md) · [J-103](docs/zh/ledger/103-110.md#j-103--社会级的-ai-动作是问不是拍板亿级周频靠免费档撑住) |
@@ -287,6 +311,8 @@ flowchart LR
 | C19 | 公共安全与犯罪：安全不会被单一技术自动生产 | **已写成但证据仍开放**：独立入口分开受害、报案、记录、安全感与治理；J-119 判断可见暴力与线上损失分化，跨国受害分母与追偿、申诉序列待补 | [中文](docs/zh/chains/190-public-safety-and-crime.md) · [English](docs/en/chains/190-public-safety-and-crime.md) · [J-119](docs/zh/ledger/117-119.md#j-119--风险会先重组公共安全不会由单一技术自动改善) |
 
 > 入口状态只回答“读者现在能看到什么证据边界”。历史校准、留存重审和未来到期复核是三件不同的事；当前仍不能把任何一条链的存在或 `python3 scripts/check.py` 通过写成预测方法已经验证。完整状态、证伪条件与缺口以[判断台账](docs/zh/90-ledger.md)和各链正文为准。
+
+</details>
 
 ## 许可证
 
