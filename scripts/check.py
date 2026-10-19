@@ -39,7 +39,7 @@ CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
 AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
 SUMMARY_LABEL = {"zh": u"摘要", "en": "Summary"}
 FULL_CARD_LABEL = {"zh": u"完整卡", "en": "Full card"}
-SUMMARY_TEXT = {"zh": u"完整卡见完整卡", "en": "See the Full card"}
+SUMMARY_TEXT = {"zh": u"完整卡见台账", "en": "See the Full card in the ledger"}
 # J-001..J-086 predate the audience-scale requirement. They stay readable
 # during migration, but every later card must carry the field. Freezing the
 # boundary by identifier rather than by today's file contents means deleting a
@@ -594,6 +594,8 @@ def _ledger_card_location(lang, jid):
 def _summary_link_target(section, lang, jid):
     """Return the resolved ledger target named by an explicit summary link."""
     labels = (SUMMARY_LABEL[lang], FULL_CARD_LABEL[lang])
+    if lang == "zh":
+        labels = labels + (u"台账",)
     for match in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section):
         if match.group(1).strip() not in labels:
             continue
@@ -3004,10 +3006,10 @@ def _replace_embedded_summary(root, lang, heading_id="J-096"):
         raise AssertionError("C9 embedded %s heading not found" % heading_id)
     if lang == "zh":
         link = "../ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层"
-        summary = "- **摘要**：完整卡见[完整卡](%s)" % link
+        summary = "- **摘要**：完整卡见[台账](%s)" % link
     else:
         link = "../ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers"
-        summary = "- **Summary**: See the [Full card](%s)" % link
+        summary = "- **Summary**: See the [Full card](%s) in the ledger" % link
     replacement = heading + "\n\n" + summary + "\n"
     _write_file(path, text[:match.start()] + replacement + text[match.end():])
     return path
@@ -3243,7 +3245,7 @@ def _break_embedded_zero_width_summary_disguise(root):
         section, count = re.subn(pattern, r"\1" + masked + r"\2", section, count=1, flags=re.M)
         if count != 1:
             raise AssertionError("C9 J-096 field %s not found" % field)
-    section += "- **摘要**：完整卡见[完整卡](../ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)\n"
+    section += "- **摘要**：完整卡见[台账](../ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)\n"
     _write_file(path, text[:match.start()] + section + text[match.end():])
     return "%s: zero-width field labels disguise a divergent summary" % path
 
