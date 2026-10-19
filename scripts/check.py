@@ -771,6 +771,33 @@ def check_chain_card_parity(registry, per_lang_cards):
                          "%s is neither a complete field copy nor an explicit summary" %
                          location)
                     continue
+                summary_lines = section.splitlines()
+                summary_start = next(
+                    (index for index, raw_line in enumerate(summary_lines)
+                     if _field_occurrences(raw_line, lang, SUMMARY_LABEL[lang])),
+                    None)
+                lines_after_summary = (summary_lines[summary_start + 1:]
+                                       if summary_start is not None else [])
+                unexpected_summary_lines = []
+                for raw_line in lines_after_summary:
+                    line = raw_line.strip()
+                    if not line:
+                        continue
+                    line = re.sub(r"^(?:>\s*)+", "", line)
+                    line = re.sub(r"^(?:<(?!strong\b|b\b)[A-Za-z][\w-]*(?:\s[^>]*)?>\s*)+", "", line, flags=re.I)
+                    line = re.sub(r"^(?:[-*+]\s+|\d+[.)]\s+)", "", line)
+                    line = re.sub(r"(?:</[A-Za-z][\w-]*>\s*)+$", "", line, flags=re.I).strip()
+                    if not line or _field_occurrences(line, lang, SUMMARY_LABEL[lang]):
+                        continue
+                    if any(link.group(1).strip() in _summary_link_labels(lang)
+                           for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", line)):
+                        continue
+                    unexpected_summary_lines.append(raw_line.strip())
+                if unexpected_summary_lines:
+                    fail("chain-card-parity",
+                         "%s summary form carries unexpected reader-visible prose %s" %
+                         (location, unexpected_summary_lines[:3]))
+                    continue
                 target, anchor = link
                 resolved = os.path.normpath(os.path.join(os.path.dirname(path), target)).replace(os.sep, "/")
                 heading = re.search(r"^### %s([^\n]*)$" % re.escape(jid), ledger_body, re.M)
@@ -3398,6 +3425,17 @@ def _break_embedded_mixed_field_wrappers(root):
     return "%s: mixed nested field wrappers diverged" % path
 
 
+def _break_summary_extra_prose(root):
+    """Append conflicting reader-visible prose after an otherwise valid summary."""
+    path = _chain_doc(root, "zh", "C15")
+    text = _read_file(path)
+    old = "- [完整卡](../ledger/109-111.md#j-109--住房成本会继续把家庭形成推迟到更晚更少数的可负担地点)\n"
+    if old not in text:
+        raise AssertionError("C15 J-109 summary link not found")
+    _write_file(path, text.replace(old, old + "本页判断与台账相反。\n", 1))
+    return "%s: extra prose after J-109 summary diverges" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3582,6 +3620,7 @@ PARITY_NEGATIVE_CASES = [
     (u"blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_blockquote_heading),
     (u"deeply nested blockquote-heading embedded field diverges", "chain-card-parity", _break_embedded_deep_blockquote_heading),
     (u"mixed nested field wrappers diverge", "chain-card-parity", _break_embedded_mixed_field_wrappers),
+    (u"summary extra prose diverges", "chain-card-parity", _break_summary_extra_prose),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3617,6 +3656,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"blockquote-heading embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"deeply nested blockquote-heading embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"mixed nested field wrappers diverge": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"summary extra prose diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
