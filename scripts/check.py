@@ -595,7 +595,7 @@ def _embedded_card_sections(path, lang):
         has_card_field = any(_field_occurrences(section, lang, field)
                              for field in CARD_FIELDS[lang])
         has_summary_marker = bool(re.search(
-            r"^\s*[-*+]\s+\*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
+            r"^\s*(?:[-*+]\s+|\d+[.)]\s+)\*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
         has_summary_link = any(
             link.group(1).strip() in _summary_link_labels(lang)
             for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section))
@@ -634,7 +634,8 @@ def _field_occurrences(body, lang, field):
     body = unicodedata.normalize(
         "NFKC", "".join(c for c in body if unicodedata.category(c) != "Cf"))
     separator = r"\s*[:：]"
-    pattern = r"^\s*[-*+]\s+\*\*([^*\n]+)\*\*%s\s*(.*)$" % separator
+    pattern = (r"^\s*(?:[-*+]\s+|\d+[.)]\s+)"
+               r"\*\*([^*\n]+)\*\*%s\s*(.*)$" % separator)
     return [visible(value).strip() for label, value in re.findall(pattern, body, re.M)
             if visible(label).strip() == field]
 
@@ -706,7 +707,7 @@ def check_chain_card_parity(registry, per_lang_cards):
                                   chain_value, ledger_value))
                     continue
                 summary_marker = bool(re.search(
-                    r"^\s*[-*+]\s+\*\*%s\*\*[:：]" % re.escape(SUMMARY_LABEL[lang]),
+                    r"^\s*(?:[-*+]\s+|\d+[.)]\s+)\*\*%s\*\*[:：]" % re.escape(SUMMARY_LABEL[lang]),
                     section, re.M))
                 summary_values = _field_occurrences(section, lang, SUMMARY_LABEL[lang])
                 if (not summary_marker or len(summary_values) != 1 or
@@ -3260,6 +3261,17 @@ def _break_embedded_indented_list_field(root):
     return "%s: indented-list J-096 field diverged" % path
 
 
+def _break_embedded_ordered_list_field(root):
+    """Keep a divergent field reader-visible in an ordered Markdown list."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    old = "- **One-sentence judgment**: From 2027–2035"
+    if old not in text:
+        raise AssertionError("English C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, "1. **One-sentence judgment**: From 2027–2035 (ordered-list negative)", 1))
+    return "%s: ordered-list J-096 field diverged" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3437,6 +3449,7 @@ PARITY_NEGATIVE_CASES = [
     (u"English full-width field separator diverges", "chain-card-parity", _break_embedded_english_fullwidth_colon),
     (u"indented heading hides embedded card", "chain-card-parity", _break_embedded_indented_heading),
     (u"indented-list embedded field diverges", "chain-card-parity", _break_embedded_indented_list_field),
+    (u"ordered-list embedded field diverges", "chain-card-parity", _break_embedded_ordered_list_field),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3465,6 +3478,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"English full-width field separator diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"indented heading hides embedded card": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"indented-list embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"ordered-list embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
