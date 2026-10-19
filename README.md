@@ -248,6 +248,7 @@ flowchart LR
 | [历史回顾](docs/zh/01-retrospect.md) | [Retrospect](docs/en/01-retrospect.md) | 五道普及闸及其反例攻击 |
 | [判断演化记录](docs/zh/03-evolution.md) | [Judgment Evolution](docs/en/03-evolution.md) | 规则收窄、口径／状态变化、J-043 核查，以及隔离重审两轮的执行记录与仍未闭合的三项 |
 | [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md) | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | 历史校准、留存、基线与泄漏边界 |
+| [历史校准后的独立重新预测：当前状态](docs/zh/independent-reprediction-status.md) | [Independent Re-prediction After Historical Calibration: Current Status](docs/en/independent-reprediction-status.md) | 冻结输入、旧文档隔离、两轮重判及尚未证明的边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
 | [下一研究缺口优先级](docs/zh/06-research-gaps.md) | [Next Research-Gap Priorities](docs/en/06-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
 | [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C19 十九条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压与 C14 选票与安全账本都是不以 AI 为前提的政治／制度链；C19 公共安全与犯罪分开受害、记录、安全感与治理责任）；编号与「什么算一条链」的判据只在登记表里 |
