@@ -468,6 +468,24 @@ def audience_scale_is_structured(value, lang):
     return bool(magnitude and identity and mode)
 
 
+def blind_review_id_violations(body):
+    """Return naked legacy R-NN identifiers on isolated-review card lines.
+
+    The governance roots (`docs/{zh,en}/90-ledger.md`, including §6.2's prose
+    that explains the historical collision) are deliberately out of scope:
+    `check_ledger()` passes only complete card bodies parsed from ledger shards.
+    Round-qualified R1-NN and R2-NN identifiers are the allowed card syntax.
+    """
+    labels = (u"隔离盲判复审", u"Isolated blind re-review")
+    violations = []
+    for offset, line in enumerate(body.splitlines(), 1):
+        if not any(label in line for label in labels):
+            continue
+        if re.search(r"(?<![A-Za-z0-9])R-\d{2,3}\b", line):
+            violations.append((offset, line.strip()))
+    return violations
+
+
 def check_ledger(lang):
     cards, graph, overview, overview_consensus = parse_ledger(lang)
     if not cards:
@@ -476,6 +494,12 @@ def check_ledger(lang):
     legacy_audience_missing = []
     for jid in sorted(cards):
         body = cards[jid]
+        card_path, card_line = _ledger_card_location(lang, jid)
+        for relative_line, source in blind_review_id_violations(body):
+            fail("blind-review-id", "%s:%d %s uses a naked R-NN identifier; "
+                 "isolated blind-review card lines require R1-NN or R2-NN: %s"
+                 % (card_path or (LEDGER_SHARD_DIR % lang),
+                    (card_line or 1) + relative_line - 1, jid, source))
         missing = [f for f in CARD_FIELDS[lang]
                    if ("**%s**" % f) not in body]
         if missing:
@@ -3013,6 +3037,20 @@ def _break_c9_j096_extra_l7(root):
     return "J-096 gained L7 without the exact whitelist phrase"
 
 
+def _break_naked_blind_review_id(root):
+    path = _card_path(root, "zh", "J-001")
+    text = _read_file(path)
+    match = re.search(r"^.*隔离盲判复审.*$", text, re.M)
+    if not match:
+        raise AssertionError("J-001 carries no isolated blind-review line")
+    changed = re.sub(r"R[12]-\d{2,3}", "R-65", match.group(0), count=1)
+    if changed == match.group(0):
+        raise AssertionError("J-001 isolated blind-review line carries no R1/R2 id")
+    _write_file(path, text[:match.start()] + changed + text[match.end():])
+    line = text.count("\n", 0, match.start()) + 1
+    return "%s:%d injected naked R-65" % (path, line)
+
+
 def _break_u_missing(root):
     path = _chain_doc(root, "zh", "C4"); text = _read_file(path)
     new = re.sub(r"^\*\*未使用的透镜\*\*：.*$\n?", "", text, count=1, flags=re.M)
@@ -3783,6 +3821,8 @@ NEGATIVE_CASES = [
     (u"one value readable, one field unreadable", "confidence",
      _break_partial_readable_confidence),
     (u"required card field missing", "card-fields", _break_missing_field),
+    (u"isolated blind-review card uses naked R-NN id", "blind-review-id",
+     _break_naked_blind_review_id),
     (u"new card missing audience scale", "audience-scale",
      _break_new_card_without_audience_scale),
     (u"audience scale embedded inside diffusion review", "audience-scale",
