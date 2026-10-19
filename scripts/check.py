@@ -782,6 +782,16 @@ def check_chain_card_parity(registry, per_lang_cards):
                     (index for index, raw_line in enumerate(summary_lines)
                      if _field_occurrences(raw_line, lang, SUMMARY_LABEL[lang])),
                     None)
+                summary_line = summary_lines[summary_start]
+                summary_line = re.sub(r"^\s*(?:>\s*)+", "", summary_line)
+                summary_line = re.sub(r"^\s*(?:[-*+]\s+|\d+[.)]\s+)", "", summary_line)
+                summary_remainder = re.sub(
+                    r"^\s*(?:\*\*[^*\n]+\*\*|<(?:strong|b)\b[^>]*>[^<\n]+</(?:strong|b)>)\s*[:：]\s*",
+                    "", summary_line, count=1, flags=re.I)
+                if visible(summary_remainder).strip() != SUMMARY_TEXT[lang]:
+                    fail("chain-card-parity",
+                         "%s summary line carries unexpected reader-visible content" % location)
+                    continue
                 lines_after_summary = (summary_lines[summary_start + 1:]
                                        if summary_start is not None else [])
                 unexpected_summary_lines = []
@@ -3470,6 +3480,17 @@ def _break_summary_same_line_prose(root):
     return "%s: same-line prose after J-109 summary link" % path
 
 
+def _break_summary_inline_field(root):
+    """Append a conflicting canonical field to the summary marker line."""
+    path = _chain_doc(root, "en", "C15")
+    text = _read_file(path)
+    old = "- **Summary**: See the Full card in the ledger"
+    if old not in text:
+        raise AssertionError("English C15 summary marker not found")
+    _write_file(path, text.replace(old, old + " **One-sentence judgment**: WRONG", 1))
+    return "%s: inline canonical field after J-109 summary" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3657,6 +3678,7 @@ PARITY_NEGATIVE_CASES = [
     (u"summary extra prose diverges", "chain-card-parity", _break_summary_extra_prose),
     (u"hidden summary link diverges", "chain-card-parity", _break_summary_comment_link),
     (u"summary same-line prose diverges", "chain-card-parity", _break_summary_same_line_prose),
+    (u"summary inline field diverges", "chain-card-parity", _break_summary_inline_field),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3695,6 +3717,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"summary extra prose diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"hidden summary link diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"summary same-line prose diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
+    u"summary inline field diverges": ("docs/en/chains/150-households-three-clocks.md", "J-109"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
