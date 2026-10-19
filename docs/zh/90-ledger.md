@@ -1410,7 +1410,7 @@ python3 scripts/check.py --self-test
 
 ## 十九、C9 人口老龄化与制度化照护判断卡片
 
-> 这两张卡来自 [C9：人口老龄化与制度化照护](chains/90-aging-care-and-institutional-substitution.md)。它们从人口结构、家庭时间和制度载体出发，再把具身设备放回机构采购、责任与家庭开放环境的扩散闸中；不把 AI 当作唯一根因。
+> 这两张卡来自 [C9：人口老龄化与制度化照护](chains/90-aging-care-and-institutional-substitution.md)。它们从人口结构、家庭时间和制度载体出发，再把具身设备放回机构采购、责任与家庭开放环境的普及闸中；不把 AI 当作唯一根因。
 
 #### J-096 · 老龄化与家庭缩小把部分照护推向正式服务与协调层
 
