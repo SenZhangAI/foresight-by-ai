@@ -630,14 +630,31 @@ def _summary_link_target(section, lang, jid):
 
 
 def _field_occurrences(body, lang, field):
-    """Return all reader-visible occurrences of one canonical card field."""
-    body = unicodedata.normalize(
-        "NFKC", "".join(c for c in body if unicodedata.category(c) != "Cf"))
+    """Return all reader-visible occurrences of one canonical card field.
+
+    Normalize Markdown list/blockquote wrappers and equivalent HTML list/bold
+    wrappers before comparing labels. The caller has already constrained the
+    body to a formal card block, so this reader-visible normalization does not
+    make ordinary prose a card.
+    """
     separator = r"\s*[:：]"
-    pattern = (r"^\s*(?:[-*+]\s+|\d+[.)]\s+)"
-               r"\*\*([^*\n]+)\*\*%s\s*(.*)$" % separator)
-    return [visible(value).strip() for label, value in re.findall(pattern, body, re.M)
-            if visible(label).strip() == field]
+    pattern = re.compile(
+        r"^(?:\*\*([^*\n]+)\*\*|<(?:strong|b)\b[^>]*>([^<\n]+)</(?:strong|b)>)"
+        r"%s\s*(.*)$" % separator, re.I)
+    values = []
+    for raw_line in body.splitlines():
+        line = re.sub(r"^\s*(?:>\s*)+", "", raw_line)
+        line = re.sub(r"^\s*<li\b[^>]*>\s*", "", line, flags=re.I)
+        line = re.sub(r"\s*</li>\s*$", "", line, flags=re.I)
+        line = re.sub(r"^\s*(?:[-*+]\s+|\d+[.)]\s+)", "", line)
+        match = pattern.match(line)
+        if not match:
+            continue
+        label = match.group(1) or match.group(2)
+        value = match.group(3)
+        if visible(label).strip() == field:
+            values.append(visible(value).strip())
+    return values
 
 
 def check_english_chain_punctuation(registry):
@@ -3272,6 +3289,28 @@ def _break_embedded_ordered_list_field(root):
     return "%s: ordered-list J-096 field diverged" % path
 
 
+def _break_embedded_blockquote_field(root):
+    """Keep a divergent field reader-visible inside a blockquote list."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    old = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
+    if old not in text:
+        raise AssertionError("C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, "> - **一句话判断**：2027–2035 年（引用块负例）", 1))
+    return "%s: blockquote J-096 field diverged" % path
+
+
+def _break_embedded_html_field(root):
+    """Keep a divergent field reader-visible with an HTML strong label."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    old = "- **One-sentence judgment**: From 2027–2035"
+    if old not in text:
+        raise AssertionError("English C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, "- <strong>One-sentence judgment</strong>: From 2027–2035 (HTML label negative)", 1))
+    return "%s: HTML-labeled J-096 field diverged" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3450,6 +3489,8 @@ PARITY_NEGATIVE_CASES = [
     (u"indented heading hides embedded card", "chain-card-parity", _break_embedded_indented_heading),
     (u"indented-list embedded field diverges", "chain-card-parity", _break_embedded_indented_list_field),
     (u"ordered-list embedded field diverges", "chain-card-parity", _break_embedded_ordered_list_field),
+    (u"blockquote embedded field diverges", "chain-card-parity", _break_embedded_blockquote_field),
+    (u"HTML-labeled embedded field diverges", "chain-card-parity", _break_embedded_html_field),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3479,6 +3520,8 @@ PARITY_NEGATIVE_MARKERS = {
     u"indented heading hides embedded card": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"indented-list embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"ordered-list embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"blockquote embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"HTML-labeled embedded field diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
