@@ -565,8 +565,14 @@ def _embedded_card_sections(path, lang):
         if section_end:
             end = match.end() + section_end.start()
         section = text[match.start():end]
-        if not any(_field_value(section, lang, field) is not None
-                   for field in CARD_FIELDS[lang]):
+        has_card_field = any(_field_value(section, lang, field) is not None
+                             for field in CARD_FIELDS[lang])
+        has_summary_marker = bool(re.search(
+            r"^- \*\*(?:摘要|Summary)\*\*[:：]", section, re.M))
+        has_summary_link = any(
+            link.group(1).strip() in (u"完整卡", "Full card")
+            for link in re.finditer(r"\[([^]]+)\]\(([^)]+)\)", section))
+        if not has_card_field and not has_summary_marker and not has_summary_link:
             continue
         heading_ids = re.findall(r"(?<![A-Za-z0-9])J-\d{3}(?!\d)", match.group(0))
         jid = heading_ids[0] if len(heading_ids) == 1 else None
@@ -2965,8 +2971,48 @@ def _positive_broad_range(root):
     return "broad L1–L9 explanatory range remains non-declarative"
 
 
+def _replace_embedded_summary(root, lang, heading_id="J-096"):
+    path = _chain_doc(root, lang, "C9")
+    text = _read_file(path)
+    heading = ("### 判断卡片 1：%s" if lang == "zh" else "### Judgment card 1: %s") % heading_id
+    match = re.search(r"(^### [^\n]*?%s.*?)(?=^### |^## |\Z)" % re.escape(heading_id),
+                      text, re.M | re.S)
+    if not match:
+        raise AssertionError("C9 embedded %s heading not found" % heading_id)
+    if lang == "zh":
+        link = "../ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层"
+        summary = "- **摘要**：完整卡见[完整卡](%s)" % link
+    else:
+        link = "../ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers"
+        summary = "- **Summary**: See the [Full card](%s)" % link
+    replacement = heading + "\n\n" + summary + "\n"
+    _write_file(path, text[:match.start()] + replacement + text[match.end():])
+    return path
+
+
+def _positive_embedded_summary(root):
+    _replace_embedded_summary(root, "zh")
+    _replace_embedded_summary(root, "en")
+    return "zh/en C9 J-096 use explicit summary links"
+
+
+def _break_summary_unknown_id(root):
+    path = _replace_embedded_summary(root, "zh")
+    text = _read_file(path).replace("### 判断卡片 1：J-096", "### 判断卡片 1：J-999", 1)
+    _write_file(path, text)
+    return "%s: summary heading uses unknown J-999" % path
+
+
+def _break_summary_missing_id(root):
+    path = _replace_embedded_summary(root, "zh", heading_id="J-096")
+    text = _read_file(path).replace("### 判断卡片 1：J-096", "### 判断卡片 1", 1)
+    _write_file(path, text)
+    return "%s: summary heading lost J-096" % path
+
+
 LENS_POSITIVE_CASES = [
     (u"broad L1–L9 prose is not nine declarations", _positive_broad_range),
+    (u"explicit embedded summary link is accepted", _positive_embedded_summary),
 ]
 
 def _break_chain_unknown_card_edge(root):
@@ -3139,6 +3185,8 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
     (u"embedded card heading loses its id", "chain-card-parity", _break_embedded_missing_card_id),
     (u"embedded card repeats a canonical field", "chain-card-parity", _break_embedded_duplicate_field),
+    (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
+    (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
 ]
 
@@ -3149,6 +3197,8 @@ PARITY_NEGATIVE_MARKERS = {
     u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"embedded card heading loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card repeats a canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"summary card uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
+    u"summary card loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
 }
 
 NEGATIVE_CASES = [
