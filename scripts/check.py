@@ -576,7 +576,8 @@ def _embedded_card_sections(path, lang):
         # nested heading that would otherwise split the reader-visible copy.
         end = len(text)
         for following in headings[index + 1:]:
-            following_level = len(following.group(0).split(" ", 1)[0])
+            following_match = re.match(r"^ {0,3}(#+)", following.group(0))
+            following_level = len(following_match.group(1))
             if following_level <= heading_level:
                 end = following.start()
                 break
@@ -3212,7 +3213,9 @@ def _break_embedded_nested_heading(root):
     heading = "### 判断卡片 1：J-096"
     if heading not in text:
         raise AssertionError("C9 J-096 embedded card not found")
-    text = text.replace(heading, heading + "\n\n#### 说明\n", 1)
+    text = text.replace(heading,
+                        heading + "\n\n#### 说明 0\n\n #### 说明 1\n\n  #### 说明 2\n\n   #### 说明 3\n",
+                        1)
     old = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
     if old not in text:
         raise AssertionError("C9 J-096 judgment field not found")
