@@ -566,10 +566,11 @@ def _embedded_card_sections(path, lang):
     ordinary prose.
     """
     text = read(path)
-    headings = list(re.finditer(r"^#{1,6} [^\n]*$", text, re.M))
+    headings = list(re.finditer(r"^ {0,3}#{1,6} [^\n]*$", text, re.M))
     for index, match in enumerate(headings):
         heading_text = match.group(0)
-        heading_level = len(heading_text.split(" ", 1)[0])
+        heading_match = re.match(r"^ {0,3}(#+)", heading_text)
+        heading_level = len(heading_match.group(1))
         # A formal card may contain explanatory subheadings. End its block at
         # the next heading of the same or a higher level, not at an arbitrary
         # nested heading that would otherwise split the reader-visible copy.
@@ -3230,6 +3231,21 @@ def _break_embedded_english_fullwidth_colon(root):
     return "%s: full-width English field separator diverged" % path
 
 
+def _break_embedded_indented_heading(root):
+    """Indent a formal card heading while diverging one reader-visible field."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    heading = "### 判断卡片 1：J-096"
+    if heading not in text:
+        raise AssertionError("C9 J-096 embedded card not found")
+    text = text.replace(heading, "  " + heading, 1)
+    old = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
+    if old not in text:
+        raise AssertionError("C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, old + "（缩进标题负例）", 1))
+    return "%s: indented J-096 heading hides a divergent field" % path
+
+
 def _break_embedded_indented_list_field(root):
     """Keep a divergent field reader-visible in an indented Markdown list."""
     path = _chain_doc(root, "zh", "C9")
@@ -3416,6 +3432,7 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
     (u"nested heading hides embedded card", "chain-card-parity", _break_embedded_nested_heading),
     (u"English full-width field separator diverges", "chain-card-parity", _break_embedded_english_fullwidth_colon),
+    (u"indented heading hides embedded card", "chain-card-parity", _break_embedded_indented_heading),
     (u"indented-list embedded field diverges", "chain-card-parity", _break_embedded_indented_list_field),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
@@ -3443,6 +3460,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"embedded chain card copy diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"nested heading hides embedded card": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English full-width field separator diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"indented heading hides embedded card": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"indented-list embedded field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
