@@ -482,7 +482,7 @@ def blind_review_id_violations(body):
     for offset, line in enumerate(body.splitlines(), 1):
         if not any(label in line for label in labels):
             continue
-        identifiers = re.findall(r"(?<![A-Za-z0-9])R[A-Za-z0-9]*-[A-Za-z0-9]+", line)
+        identifiers = re.findall(r"(?<![A-Za-z0-9])R[A-Za-z0-9]*-[A-Za-z0-9-]+", line)
         for identifier in identifiers:
             if not allowed.match(identifier):
                 violations.append((offset, line.strip()))
@@ -3069,6 +3069,20 @@ def _break_invalid_blind_review_prefix(root):
     return "%s:%d injected invalid R3-65" % (path, line)
 
 
+def _break_blind_review_suffix(root):
+    path = _card_path(root, "zh", "J-001")
+    text = _read_file(path)
+    match = re.search(r"^.*隔离盲判复审.*$", text, re.M)
+    if not match:
+        raise AssertionError("J-001 carries no isolated blind-review line")
+    changed = re.sub(r"R[12]-\d{2,3}", "R1-65-foo", match.group(0), count=1)
+    if changed == match.group(0):
+        raise AssertionError("J-001 isolated blind-review line carries no R1/R2 id")
+    _write_file(path, text[:match.start()] + changed + text[match.end():])
+    line = text.count("\n", 0, match.start()) + 1
+    return "%s:%d injected invalid R1-65-foo" % (path, line)
+
+
 def _break_u_missing(root):
     path = _chain_doc(root, "zh", "C4"); text = _read_file(path)
     new = re.sub(r"^\*\*未使用的透镜\*\*：.*$\n?", "", text, count=1, flags=re.M)
@@ -3843,6 +3857,8 @@ NEGATIVE_CASES = [
      _break_naked_blind_review_id),
     (u"isolated blind-review card uses an invalid prefix", "blind-review-id",
      _break_invalid_blind_review_prefix),
+    (u"isolated blind-review card uses a suffixed id", "blind-review-id",
+     _break_blind_review_suffix),
     (u"new card missing audience scale", "audience-scale",
      _break_new_card_without_audience_scale),
     (u"audience scale embedded inside diffusion review", "audience-scale",
