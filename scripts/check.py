@@ -568,12 +568,19 @@ def _embedded_card_sections(path, lang):
     text = read(path)
     headings = list(re.finditer(r"^#{1,6} [^\n]*$", text, re.M))
     for index, match in enumerate(headings):
-        end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
-        section_end = re.search(r"^## ", text[match.end():end], re.M)
-        if section_end:
-            end = match.end() + section_end.start()
+        heading_text = match.group(0)
+        heading_level = len(heading_text.split(" ", 1)[0])
+        # A formal card may contain explanatory subheadings. End its block at
+        # the next heading of the same or a higher level, not at an arbitrary
+        # nested heading that would otherwise split the reader-visible copy.
+        end = len(text)
+        for following in headings[index + 1:]:
+            following_level = len(following.group(0).split(" ", 1)[0])
+            if following_level <= heading_level:
+                end = following.start()
+                break
         section = text[match.start():end]
-        heading = visible(match.group(0))
+        heading = visible(heading_text)
         # Only a heading that advertises a judgment-card block is formal. A
         # normal prose section can contain bullets such as ``证伪条件`` or
         # ``领先指标`` without becoming an embedded copy; the card-id/missing-id
@@ -622,7 +629,9 @@ def _summary_link_target(section, lang, jid):
 
 def _field_occurrences(body, lang, field):
     """Return all reader-visible occurrences of one canonical card field."""
-    separator = r"\s*[:：]" if lang == "zh" else r"\s*:"
+    body = unicodedata.normalize(
+        "NFKC", "".join(c for c in body if unicodedata.category(c) != "Cf"))
+    separator = r"\s*[:：]"
     pattern = r"^- \*\*([^*\n]+)\*\*%s\s*(.*)$" % separator
     return [visible(value).strip() for label, value in re.findall(pattern, body, re.M)
             if visible(label).strip() == field]
@@ -3195,6 +3204,32 @@ def _break_embedded_en_missing_copy(root):
     return "%s: English J-096 embedded copy removed" % path
 
 
+def _break_embedded_nested_heading(root):
+    """Insert a nested heading before a divergent field in a card copy."""
+    path = _chain_doc(root, "zh", "C9")
+    text = _read_file(path)
+    heading = "### 判断卡片 1：J-096"
+    if heading not in text:
+        raise AssertionError("C9 J-096 embedded card not found")
+    text = text.replace(heading, heading + "\n\n#### 说明\n", 1)
+    old = "- **一句话判断**：2027–2035 年，老龄化与家庭缩小会使部分照护"
+    if old not in text:
+        raise AssertionError("C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, old + "（嵌套标题负例）", 1))
+    return "%s: nested heading hides a divergent J-096 field" % path
+
+
+def _break_embedded_english_fullwidth_colon(root):
+    """Use a full-width field separator in a divergent English copy."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    old = "- **One-sentence judgment**: From 2027–2035"
+    if old not in text:
+        raise AssertionError("English C9 J-096 judgment field not found")
+    _write_file(path, text.replace(old, "- **One-sentence judgment**：From 2027–2035 (full-width separator negative)", 1))
+    return "%s: full-width English field separator diverged" % path
+
+
 def _break_level_two_embedded_field(root):
     """Change the J-109 summary under its real level-two card heading."""
     path = _chain_doc(root, "zh", "C15")
@@ -3368,6 +3403,8 @@ def _break_navigation_duplicate_layer(root):
 PARITY_NEGATIVE_CASES = [
     (u"embedded audience field diverges", "chain-card-parity", _break_embedded_audience_field),
     (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
+    (u"nested heading hides embedded card", "chain-card-parity", _break_embedded_nested_heading),
+    (u"English full-width field separator diverges", "chain-card-parity", _break_embedded_english_fullwidth_colon),
     (u"level-two embedded card diverges", "chain-card-parity", _break_level_two_embedded_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
     (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
@@ -3392,6 +3429,8 @@ PARITY_NEGATIVE_CASES = [
 PARITY_NEGATIVE_MARKERS = {
     u"embedded audience field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded chain card copy diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"nested heading hides embedded card": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"English full-width field separator diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"level-two embedded card diverges": ("docs/zh/chains/150-households-three-clocks.md", "J-109"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
