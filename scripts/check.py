@@ -566,7 +566,7 @@ def _embedded_card_sections(path, lang):
     ordinary prose.
     """
     text = read(path)
-    headings = list(re.finditer(r"^### [^\n]*$", text, re.M))
+    headings = list(re.finditer(r"^#{3,6} [^\n]*$", text, re.M))
     for index, match in enumerate(headings):
         end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
         section_end = re.search(r"^## ", text[match.end():end], re.M)
@@ -638,6 +638,7 @@ def check_chain_card_parity(registry, per_lang_cards):
     looks like a card block but matches neither form fails hard.
     """
     counts = {}
+    inventories = {}
     for lang in LANGS:
         seen = set()
         paths = sorted(p for rows in registry[lang].values() for p in rows
@@ -655,6 +656,8 @@ def check_chain_card_parity(registry, per_lang_cards):
                       (lang, path, line, jid, ledger_path or "(missing)",
                        ledger_line or "?"))
                 counts[lang] = counts.get(lang, 0) + 1
+                inventories.setdefault(lang, set()).add((
+                    path[len("docs/%s/" % lang):], jid))
                 location = "%s:%d %s" % (path, line, jid or "(missing card id)")
                 if ledger_body is None or not ledger_path:
                     if jid is None:
@@ -713,6 +716,12 @@ def check_chain_card_parity(registry, per_lang_cards):
                          "%s summary link %s#%s does not target %s#%s" %
                          (location, resolved, anchor, ledger_path, expected_anchor))
         print("embedded card copies (%s): %d" % (lang, counts.get(lang, 0)))
+    zh_only = inventories.get("zh", set()) - inventories.get("en", set())
+    en_only = inventories.get("en", set()) - inventories.get("zh", set())
+    if zh_only or en_only:
+        fail("chain-card-parity",
+             "bilingual embedded-card inventory differs: zh-only=%s en-only=%s" %
+             (sorted(zh_only), sorted(en_only)))
     return counts
 
 
@@ -3164,6 +3173,18 @@ def _break_embedded_en_field(root):
     return "%s: J-096 one-sentence judgment diverged (English only)" % path
 
 
+def _break_embedded_en_missing_copy(root):
+    """Remove the English C9 J-096 block while leaving the Chinese copy intact."""
+    path = _chain_doc(root, "en", "C9")
+    text = _read_file(path)
+    pattern = r"^### Judgment card 1: J-096.*?(?=^### |^## |\Z)"
+    new, count = re.subn(pattern, "", text, count=1, flags=re.M | re.S)
+    if count != 1:
+        raise AssertionError("English C9 J-096 embedded card not found")
+    _write_file(path, new)
+    return "%s: English J-096 embedded copy removed" % path
+
+
 def _break_embedded_unknown_card(root):
     """Rename a formal embedded heading to an unregistered judgment id."""
     path = _chain_doc(root, "zh", "C9")
@@ -3327,6 +3348,7 @@ PARITY_NEGATIVE_CASES = [
     (u"embedded audience field diverges", "chain-card-parity", _break_embedded_audience_field),
     (u"embedded chain card copy diverges", "chain-card-parity", _break_embedded_chain_field),
     (u"English-only embedded copy diverges", "chain-card-parity", _break_embedded_en_field),
+    (u"English embedded copy is missing", "chain-card-parity", _break_embedded_en_missing_copy),
     (u"embedded card heading uses unknown id", "chain-card-parity", _break_embedded_unknown_card),
     (u"embedded card heading has an invalid suffix", "chain-card-parity", _break_embedded_card_id_suffix),
     (u"embedded card heading has an invalid dotted suffix", "chain-card-parity", _break_embedded_card_id_punctuation),
@@ -3349,6 +3371,7 @@ PARITY_NEGATIVE_MARKERS = {
     u"embedded audience field diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded chain card copy diverges": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"English-only embedded copy diverges": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"English embedded copy is missing": ("docs/en/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
     u"embedded card heading uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"embedded card heading has an invalid suffix": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"embedded card heading has an invalid dotted suffix": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
