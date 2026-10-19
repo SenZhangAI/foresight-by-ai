@@ -39,7 +39,7 @@ CONFIDENCE_FIELD = {"zh": u"\u7f6e\u4fe1\u5ea6", "en": "Confidence"}
 AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
 SUMMARY_LABEL = {"zh": u"摘要", "en": "Summary"}
 FULL_CARD_LABEL = {"zh": u"完整卡", "en": "Full card"}
-SUMMARY_INTRO = {"zh": u"完整卡见", "en": "See the Full card"}
+SUMMARY_TEXT = {"zh": u"完整卡见完整卡", "en": "See the Full card"}
 # J-001..J-086 predate the audience-scale requirement. They stay readable
 # during migration, but every later card must carry the field. Freezing the
 # boundary by identifier rather than by today's file contents means deleting a
@@ -605,7 +605,7 @@ def _summary_link_target(section, lang, jid):
 
 def _field_occurrences(body, lang, field):
     """Return all reader-visible occurrences of one canonical card field."""
-    separator = r"[:：]" if lang == "zh" else r":"
+    separator = r"\s*[:：]" if lang == "zh" else r"\s*:"
     pattern = r"^- \*\*([^*\n]+)\*\*%s\s*(.*)$" % separator
     return [visible(value).strip() for label, value in re.findall(pattern, body, re.M)
             if visible(label).strip() == field]
@@ -679,10 +679,10 @@ def check_chain_card_parity(registry, per_lang_cards):
                     section, re.M))
                 summary_values = _field_occurrences(section, lang, SUMMARY_LABEL[lang])
                 if (not summary_marker or len(summary_values) != 1 or
-                        SUMMARY_INTRO[lang] not in summary_values[0]):
+                        summary_values[0] != SUMMARY_TEXT[lang]):
                     fail("chain-card-parity",
-                         "%s summary must explicitly say %r" %
-                         (location, SUMMARY_INTRO[lang]))
+                         "%s summary must be exactly %r" %
+                         (location, SUMMARY_TEXT[lang]))
                     continue
                 link = _summary_link_target(section, lang, jid)
                 present_fields = [field for field, values in field_values.items()
@@ -3041,6 +3041,25 @@ def _break_summary_content_disguise(root):
     return "%s: summary prose contradicts the required full-card handoff" % path
 
 
+def _break_summary_appended_disguise(root):
+    """Append a conflicting reader-visible sentence after an otherwise valid summary."""
+    path = _replace_embedded_summary(root, "zh")
+    text = _read_file(path)
+    text = re.sub(r"(^- \*\*摘要\*\*[:：][^\n]*)",
+                  r"\1；本页判断与台账相反", text, count=1, flags=re.M)
+    _write_file(path, text)
+    return "%s: valid summary link carries appended divergent prose" % path
+
+
+def _break_summary_spaced_field(root):
+    """Add a canonical field with visible whitespace before its colon."""
+    path = _replace_embedded_summary(root, "zh")
+    text = _read_file(path).replace(
+        "\n\n- **摘要**", "\n\n- **一句话判断** ：本页采用另一判断\n- **摘要**", 1)
+    _write_file(path, text)
+    return "%s: canonical field has whitespace before its colon" % path
+
+
 def _break_english_chain_punctuation(root):
     path = _chain_doc(root, "en", "C11")
     text = _read_file(path)
@@ -3290,6 +3309,8 @@ PARITY_NEGATIVE_CASES = [
     (u"summary card uses unknown id", "chain-card-parity", _break_summary_unknown_id),
     (u"summary card loses its id", "chain-card-parity", _break_summary_missing_id),
     (u"summary card prose is misleading", "chain-card-parity", _break_summary_content_disguise),
+    (u"summary card appends divergent prose", "chain-card-parity", _break_summary_appended_disguise),
+    (u"summary card has a spaced canonical field", "chain-card-parity", _break_summary_spaced_field),
     (u"summary card crosses language labels", "chain-card-parity", _break_summary_wrong_language),
     (u"English chain uses Chinese semicolon", "english-punctuation", _break_english_chain_punctuation),
     (u"ledger card diverges from embedded copy", "chain-card-parity", _break_embedded_ledger_field),
@@ -3308,6 +3329,8 @@ PARITY_NEGATIVE_MARKERS = {
     u"summary card uses unknown id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-999"),
     u"summary card loses its id": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "missing card id"),
     u"summary card prose is misleading": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"summary card appends divergent prose": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
+    u"summary card has a spaced canonical field": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
 }
 
 NEGATIVE_CASES = [
