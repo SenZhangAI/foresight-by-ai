@@ -40,6 +40,14 @@ AUDIENCE_FIELD = {"zh": u"\u53d7\u4f17\u89c4\u6a21", "en": "Audience scale"}
 SUMMARY_LABEL = {"zh": u"摘要", "en": "Summary"}
 FULL_CARD_LABEL = {"zh": u"完整卡", "en": "Full card"}
 SUMMARY_TEXT = {"zh": u"完整卡见台账", "en": "See the Full card in the ledger"}
+# Embedded-card counts and field comparisons use reader-visible text after the
+# same Markdown/HTML normalization performed by ``visible()``. Keep this
+# wording in the public report, not only in a code comment: a reader must know
+# what the inventory proves and what it does not.
+EMBEDDED_PARITY_BASIS = (
+    "basis: exact reader-visible text after visible() normalization "
+    "(逐字口径，经 visible() 规范化后)"
+)
 # J-001..J-086 predate the audience-scale requirement. They stay readable
 # during migration, but every later card must carry the field. Freezing the
 # boundary by identifier rather than by today's file contents means deleting a
@@ -752,9 +760,9 @@ def check_chain_card_parity(registry, per_lang_cards):
                 ledger_body = per_lang_cards[lang].get(jid)
                 ledger_path, ledger_line = (_ledger_card_location(lang, jid)
                                             if jid is not None else (None, None))
-                print("embedded %s %s:%d %s -> %s:%s" %
+                print("embedded %s %s:%d %s -> %s:%s [%s]" %
                       (lang, path, line, jid, ledger_path or "(missing)",
-                       ledger_line or "?"))
+                       ledger_line or "?", EMBEDDED_PARITY_BASIS))
                 counts[lang] = counts.get(lang, 0) + 1
                 inventories.setdefault(lang, set()).add((
                     path[len("docs/%s/" % lang):], jid))
@@ -858,7 +866,8 @@ def check_chain_card_parity(registry, per_lang_cards):
                     fail("chain-card-parity",
                          "%s summary link %s#%s does not target %s#%s" %
                          (location, resolved, anchor, ledger_path, expected_anchor))
-        print("embedded card copies (%s): %d" % (lang, counts.get(lang, 0)))
+        print("embedded card copies (%s; %s): %d" %
+              (lang, EMBEDDED_PARITY_BASIS, counts.get(lang, 0)))
     zh_only = inventories.get("zh", set()) - inventories.get("en", set())
     en_only = inventories.get("en", set()) - inventories.get("zh", set())
     if zh_only or en_only:
@@ -4010,8 +4019,14 @@ CONFIDENCE_ACCEPTED = [
 
 
 def _embedded_counts(output):
-    """Read the parity inventory emitted by a checker run."""
-    pairs = re.findall(r"embedded card copies \((zh|en)\): (\d+)", output)
+    """Read the parity inventory emitted by a checker run.
+
+    Requiring the public basis label here makes the self-test fail if a future
+    edit keeps the numbers but drops their reader-visible meaning.
+    """
+    pattern = (r"embedded card copies \((zh|en); " +
+               re.escape(EMBEDDED_PARITY_BASIS) + r"\): (\d+)")
+    pairs = re.findall(pattern, output)
     return tuple((lang, int(count)) for lang, count in pairs)
 
 
@@ -4041,6 +4056,13 @@ def self_test():
             return 1
         print("baseline: embedded-card inventory %r\n" %
               (baseline_embedded_counts,))
+        if EMBEDDED_PARITY_BASIS not in out:
+            print("baseline: embedded-card report has no public comparison basis\n")
+            return 1
+        if _embedded_counts(out.replace(EMBEDDED_PARITY_BASIS, "")):
+            print("regression: embedded counts remain parseable after their "
+                  "comparison basis is removed\n")
+            return 1
 
         def fresh():
             work = os.path.join(base, "case-%d" % next(counter))
