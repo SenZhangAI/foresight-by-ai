@@ -2,14 +2,16 @@
 
 > **中英双语投影规则：** 本文件与[英文对应文件](legacy-ledger-migration.en.md)是同一份历史审计清单的两个公开投影，使用相同的 J-NNN 编号并在同一次提交中同步维护；任何一方都不因语言而拥有更高的事实权威。当前判断字段的文件层级事实源仍是稳定编号的双语台账文件，而不是其中某一种语言；中英文出现差异时，应在同一次提交中修复为等价投影。
 >
-> **Closed set / 闭集**：J-001–J-095。历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`；当前卡位于 `docs/{zh,en}/ledger/`。本文件是逐卡双语审计清单，不替代台账。
+> **Canonical closed-set contract / 机器校验闭集：** 本轮迁移的可执行契约是 [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json)：只对 J-001–J-086 逐卡、逐字段记录双语当前值、固定 Git 历史值、文件/行锚点及 `KNOWN`/`UNKNOWN` 状态。历史值由 `aa01c7c6531cb769a284c8e36cd4573f298497bd` 的 `git show` 重读；`python3 scripts/check.py` 会验证锚点、双语状态一致性、UNKNOWN 的边界理由与当前值摘要，并在 `--self-test` 中攻击这些边界。下方 J-001–J-095 长表保留为完整公开审计叙事；它不是闭集契约的替代物。
+>
+> **Closed set / 闭集**：J-001–J-086（canonical migration contract）。本页仍展示 J-001–J-095 的历史审计叙事；历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`，而机器契约固定使用上述 `aa01c7c6531cb769a284c8e36cd4573f298497bd`，两者用途不同，不得混称。当前卡位于 `docs/{zh,en}/ledger/`。
 
 ## Scope and reading rules / 范围与阅读规则
 
 - 历史快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^` 的中英文总台账各含目标 95 张卡；每张卡在下方有文件/行锚点。
 - 当前分片每张 J-001–J-095 卡均链接回本清单；当前卡中的新证据、收窄或状态变化不倒填进历史值。
-- **Unknown / unverified**：历史正文没有的字段明确写未知/未验证，不从当前继任卡推回。当前卡新增的独立「受众规模」字段，仅从该卡已经存在的普及闸复核／Diffusion-gate review 中重建，并明确标注「重建」；这不把重建值伪装成历史原始字段或独立统计。
-- 历史独立受众规模字段为 0/86；历史 schema 把规模放在普及闸复核内，因此单独字段记为未知而不臆造。
+- **未知／未验证边界**：历史正文没有的字段明确写未知／未验证，不从当前继任卡推回。canonical manifest 对 J-001–J-086 的每个字段分别记录 `KNOWN` 或 `UNKNOWN` 与理由；受众规模审计没有取得同时覆盖身份、动作／分母、时间、频次与来源的独立证据，因此当前卡也明确标为规范化 `UNKNOWN`，而不是用普及闸复核中的构造式上限伪造量级或能力分类。
+- canonical manifest 中历史独立受众规模字段为 0/86；历史 schema 把规模放在普及闸复核内，因此单独字段记为 `UNKNOWN`，而不臆造。
 - **[证据层级]**：本清单是历史卡迁移审计，不是 `CALIBRATION`、相对 `holdout` 或未来真实样本外结果。若读者要复核已交付的历史案例，政治案例见[政治校准证据包](politics-calibration.md)，商业案例见[商业预测校准证据包](business-forecast-calibration-2026-09.md)；两包都明确记录预测与结果的来源定位、观察窗口、指标口径和缺失项。已知结果后纳入的案例只能用于校准规则边界；没有先冻结总体、T 前材料、分配与同输入基线的一次揭晓，不得称为相对 holdout；未来真实样本外证据只在预登记判断卡到期后产生。本清单不把当前卡的结果倒填进历史快照。
 - **GitHub 可达性实测（2026-10-18，固定公开提交）：** 实测对象固定为已公开提交 `0c5bf915221dd3831384af76de9009faacbe4a2f`，不动态跟随 `main`。中文 raw URL 返回 HTTP 200、566,236 bytes；英文 raw URL 返回 HTTP 200、341,815 bytes；各自与该固定提交的 `git show "$sha:$path"` 字节比较均一致。GitHub Contents API 的渲染 HTML：中文 1,012,686 bytes、386 个标题、390 个 `user-content-*` 锚点；英文 656,854 bytes、291 个标题、295 个 `user-content-*` 锚点。`id="user-content-j-001"` 与 `id="user-content-j-095"` 在两种语言的 Contents HTML 中均各 1 次。两种语言均预期没有 Markdown 表格，实测 `<table>`、`<thead>`、闭合 `<th>` 均为 0。两种语言的 blob URL 也均返回 HTTP 200；本轮 SSR 外壳对两种文件均标出 `richTextTruncated:true`，直接 grep `user-content-` 得中文 0、英文 7，不能把这个前缀计数当成 DOM 锚点证据；对应 JSON 路由均标出 `richTextTruncated:false`，锚点证据仍以 Contents 渲染 HTML 的固定 `id` 计数为准。渲染 HTML 中出现 `This file is too large to display` 等字样，是因为本证据页**自己引用了这些字样作为反例**，不能用字符串缺失判定降级；本次采用完整 `<article class="markdown-body">`、标题总数和 J-001/J-095 锚点作为结构证据，未把未测的移动端视觉体验写成通过。
 - **可重建取证命令：** `sha=0c5bf915221dd3831384af76de9009faacbe4a2f`; `for lang in zh en; do suffix=; [ "$lang" = en ] && suffix=.en; path=docs/evidence/legacy-ledger-migration${suffix}.md; curl -sS -o /tmp/legacy-$lang-raw.md -w "$lang raw HTTP %{http_code} bytes %{size_download}\n" "https://raw.githubusercontent.com/SenZhangAI/foresight-by-ai/$sha/$path"; gh api "repos/SenZhangAI/foresight-by-ai/contents/$path?ref=$sha" -H 'Accept: application/vnd.github.html' > /tmp/legacy-$lang-render.html; curl -sSL -o /tmp/legacy-$lang-blob.html -w "$lang blob HTTP %{http_code} bytes %{size_download}\n" "https://github.com/SenZhangAI/foresight-by-ai/blob/$sha/$path"; cmp -s /tmp/legacy-$lang-raw.md <(git show "$sha:$path"); done`; 然后用闭合标签正则 `r'<th\b[^>]*>.*?</th>'`、`r'<tr\b'`、`r'<h[1-6]\b'` 清点，并分别检查 `id="user-content-j-001"`／`id="user-content-j-095"`。命令的证据对象钉在固定提交，避免后续 `main` 漂移；它仍不证明语义等价、历史事实正确或移动端版面体验。
@@ -29,9 +31,9 @@
 
 ## Coverage summary / 覆盖摘要
 
-- 历史卡：中文 95 + 英文 95；当前配对卡：中文 95 + 英文 95。
-- 历史字段（提出日期、一句话命题、普及闸复核、透镜、推理链、时间窗、证伪条件、领先指标、置信度、depends-on、最强反方、与共识、外部对照来源、出处、下次检查日、状态）：两种语言均 95/95。
-- 独立 Audience scale / 受众规模：J-001–J-086 的历史独立字段两种语言均为 0/86（历史 schema 将规模放在普及闸复核内）；当前 J-001–J-095 配对卡均 95/95，其中 J-001–J-086 的新增独立字段标为从既有普及闸复核重建，J-087–J-095 保留其已有独立字段。历史未知值没有被当前值倒填。
+- 历史卡：中文 95 + 英文 95；当前配对卡：中文 95 + 英文 95。canonical manifest 的闭集为 J-001–J-086，各语言各 86 张。
+- canonical manifest 的历史字段（提出日期、一句话命题、普及闸复核、透镜、推理链、时间窗、证伪条件、领先指标、置信度、depends-on、最强反方、与共识、外部对照来源、出处、下次检查日、状态）均逐卡记录固定 SHA 的值与锚点；两种语言状态必须一致。
+- **独立受众规模／Audience scale**：J-001–J-086 的历史独立字段与当前配对卡两种语言均为 `UNKNOWN`（各 0/86）。迁移审计未取得同时覆盖身份、动作／分母、时间、频次与来源的独立证据；未知值不得从当前卡或普及闸复核的构造式上限倒填，且不得携带量级或能力分类词。J-087–J-095 的完整公开审计仍见下方叙事。
 
 ## Per-card inventory / 逐卡清单
 

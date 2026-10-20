@@ -19,6 +19,8 @@ No dependencies beyond the standard library. The checks read the tree only;
 
 import io
 import itertools
+import hashlib
+import json
 import os
 import re
 import shutil
@@ -28,6 +30,7 @@ import tempfile
 import unicodedata
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SOURCE_REPO = REPO
 LANGS = ("zh", "en")
 # The dependency graph uses a full-width arrow in Chinese and ASCII in English.
 GRAPH_ARROW = {"zh": u"\u2190", "en": "<-"}
@@ -54,6 +57,15 @@ EMBEDDED_PARITY_RERUN = "rerun: python3 scripts/check.py"
 # boundary by identifier rather than by today's file contents means deleting a
 # legacy card cannot silently redefine what counts as "new".
 LEGACY_AUDIENCE_SCALE_MAX = 86
+LEGACY_MANIFEST = "docs/evidence/legacy-ledger-migration-manifest.json"
+LEGACY_BASELINE_SHA = "aa01c7c6531cb769a284c8e36cd4573f298497bd"
+LEGACY_CURRENT_DIGEST = "028a8cc252d03475c9a752935ca73e79c0d0acc9c97ccc69f07a0a3a8e3f8d67"
+LEGACY_IDS = tuple("J-%03d" % n for n in range(1, LEGACY_AUDIENCE_SCALE_MAX + 1))
+LEGACY_FIELD_KEYS = (
+    "proposed_date", "judgment", "audience_scale", "diffusion_gate", "lens",
+    "reasoning_chain", "time_window", "falsifier", "leading_indicator",
+    "confidence", "depends_on", "opposing_mechanism", "consensus",
+    "comparison_source", "source", "next_review", "status")
 # The WHOLE field value is read, up to end of line. Truncating it at the first
 # `。` / `.` / `(` / `（` — which is what this used to do — meant only a prefix
 # was ever compared, so `中（偏高）` and `Medium (leaning high).` passed while
@@ -75,6 +87,22 @@ CARD_FIELDS = {
            "Strongest opposing mechanism", "Against consensus",
            "External comparison source", "Source", "Next review", "Status"],
 }
+LEGACY_FIELD_LABELS = {
+    "zh": dict(zip(LEGACY_FIELD_KEYS,
+                   [u"提出日期", u"一句话判断", u"受众规模", u"普及闸复核", u"透镜",
+                    u"推理链", u"时间窗", u"证伪条件", u"领先指标", u"置信度",
+                    u"depends-on", u"最强反方", u"与共识", u"外部对照来源", u"出处",
+                    u"下次检查日", u"状态"])),
+    "en": dict(zip(LEGACY_FIELD_KEYS,
+                   ["Proposed date", "One-sentence judgment", "Audience scale", "Diffusion-gate review", "Lens",
+                    "Reasoning chain", "Time window", "Falsifier", "Leading indicator", "Confidence",
+                    "depends-on", "Strongest opposing mechanism", "Against consensus", "External comparison source", "Source",
+                    "Next review", "Status"])),
+}
+LEGACY_UNKNOWN_MARKER = {
+    "zh": u"UNKNOWN（历史快照无独立字段）",
+    "en": "UNKNOWN (no standalone field in the historical snapshot)",
+}
 
 failures = []
 warnings = []
@@ -92,15 +120,202 @@ def read(path):
     return io.open(os.path.join(REPO, path), encoding="utf-8").read()
 
 
-def slug(title):
-    """Reproduce GitHub's heading-anchor rule.
+def _git_show_text(path, sha):
+    """Read a pinned file from the repository, with a self-test fallback."""
+    for root in (REPO, SOURCE_REPO):
+        try:
+            return subprocess.check_output(
+                ["git", "-C", root, "show", "%s:%s" % (sha, path)],
+                stderr=subprocess.STDOUT).decode("utf-8")
+        except (OSError, subprocess.CalledProcessError):
+            continue
+    return None
 
-    Lowercase, drop everything that is not alphanumeric / hyphen / underscore
-    (CJK is alphanumeric and survives), turn spaces into hyphens. Runs of
-    hyphens are NOT collapsed: `J-001 - Title` yields `j-001---title`, and a
-    checker that collapses them reports hundreds of false positives.
+
+def _legacy_blocks(text):
+    matches = list(re.finditer(r"^### (J-\d{3})\b[^\n]*.*?(?=^### J-|\Z)",
+                               text, re.M | re.S))
+    return {m.group(1): (m.start(), m.group(0)) for m in matches}
+
+
+def _legacy_line(text, line):
+    lines = text.splitlines()
+    return lines[line - 1] if isinstance(line, int) and 1 <= line <= len(lines) else None
+
+
+def _legacy_status_value(body, lang, label):
+    """Read the raw migration value, retaining Markdown for exact anchoring."""
+    pattern = re.compile(r"^\s*-\s*\*\*" + re.escape(label) + r"\*\*[:：]\s*(.*)$", re.M)
+    values = [match.group(1).strip() for match in pattern.finditer(body)]
+    return values[0] if len(values) == 1 else None
+
+
+def _legacy_unknown_is_safe(lang, field):
+    if field.get("status") != "UNKNOWN":
+        return False
+    if field.get("value") not in (None, ""):
+        return False
+    reason = field.get("reason")
+    if not isinstance(reason, str) or not reason.strip():
+        return False
+    marker = ("no standalone" if lang == "en" else u"无独立字段")
+    if ((lang == "en" and marker not in reason.lower()) or
+            (lang != "en" and marker not in reason)):
+        return False
+    forbidden = (r"(?:hundred-thousand|million|tens-of-millions|hundred-millions|billion)-scale"
+                 if lang == "en" else u"(?:十万|百万|千万|十亿|亿量级)")
+    if re.search(forbidden, reason, re.I):
+        return False
+    lowered = reason.lower().replace("’", "'")
+    if ("raises existing professionals' ceiling" in lowered or
+            "lets people who could not do it do it now" in lowered or
+            u"提高既有专业者上限" in reason or
+            u"让原本不会的人也能做" in reason):
+        return False
+    return True
+
+
+def check_legacy_migration(cards):
+    """Validate the closed legacy set against a pinned Git baseline and manifest.
+
+    The manifest is a reviewable inventory, not an authority that can rewrite its
+    own history: every historical KNOWN value is read again with ``git show``.
+    Current values are checked against both cards and a digest kept in the
+    manifest, so a card and manifest cannot silently be edited together.
     """
-    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", title.strip())  # links -> text
+    path = os.path.join(REPO, LEGACY_MANIFEST)
+    try:
+        manifest = json.loads(io.open(path, encoding="utf-8").read())
+    except (OSError, ValueError) as exc:
+        fail("legacy-migration", "%s: cannot read canonical manifest: %s" % (LEGACY_MANIFEST, exc))
+        return
+    if manifest.get("baseline_sha") != LEGACY_BASELINE_SHA:
+        fail("legacy-migration", "manifest baseline_sha is not the pinned migration baseline")
+    if manifest.get("closed_ids") != list(LEGACY_IDS):
+        fail("legacy-migration", "manifest closed_ids must be exactly J-001--J-086")
+    if manifest.get("current_digest") != LEGACY_CURRENT_DIGEST:
+        fail("legacy-migration", "manifest current_digest is not the pinned migration digest")
+    if manifest.get("canonical_fields") != list(LEGACY_FIELD_KEYS):
+        fail("legacy-migration", "manifest canonical_fields do not match the field contract")
+    rows = manifest.get("cards")
+    if not isinstance(rows, list) or {row.get("id") for row in rows if isinstance(row, dict)} != set(LEGACY_IDS):
+        fail("legacy-migration", "manifest cards do not cover exactly J-001--J-086")
+        return
+    historical_text = {}
+    historical_cards = {}
+    for lang in LANGS:
+        historical_text[lang] = _git_show_text("docs/%s/90-ledger.md" % lang,
+                                               LEGACY_BASELINE_SHA)
+        if historical_text[lang] is None:
+            fail("legacy-migration", "%s: git show cannot read pinned historical baseline" % lang)
+        else:
+            historical_cards[lang] = _legacy_blocks(historical_text[lang])
+            if set(LEGACY_IDS) - set(historical_cards[lang]):
+                fail("legacy-migration", "%s: pinned baseline is missing legacy card(s)" % lang)
+    digest_rows = []
+    for row in rows:
+        jid = row.get("id")
+        languages = row.get("languages") if isinstance(row, dict) else None
+        if not isinstance(languages, dict):
+            fail("legacy-migration", "%s: missing language entries" % jid)
+            continue
+        statuses = {"historical": {}, "current": {}}
+        for lang in LANGS:
+            card = languages.get(lang)
+            if not isinstance(card, dict) or not card.get("file") or not isinstance(card.get("fields"), dict):
+                fail("legacy-migration", "%s %s: malformed card manifest entry" % (lang, jid))
+                continue
+            body = cards.get(lang, {}).get(jid)
+            if body is None:
+                fail("legacy-migration", "%s %s: closed-set card is missing from current ledger" % (lang, jid))
+                continue
+            current_text = None
+            current_path = card.get("file")
+            try:
+                current_text = read(current_path)
+            except (OSError, IOError):
+                fail("legacy-migration", "%s %s: current source file is missing: %s" % (lang, jid, current_path))
+            heading = card.get("heading") or {}
+            heading_line = _legacy_line(current_text, heading.get("line")) if current_text is not None else None
+            if not heading_line or not re.match(r"^### %s\b" % re.escape(jid), heading_line):
+                fail("legacy-migration", "%s %s: current heading anchor is stale" % (lang, jid))
+            h_source_text = historical_text.get(lang)
+            h_block = historical_cards.get(lang, {}).get(jid, (None, ""))[1]
+            fields = card.get("fields")
+            if set(fields) != set(LEGACY_FIELD_KEYS):
+                fail("legacy-migration", "%s %s: manifest fields do not match canonical contract" % (lang, jid))
+                continue
+            for key in LEGACY_FIELD_KEYS:
+                spec = fields[key]
+                label = LEGACY_FIELD_LABELS[lang][key]
+                historical = spec.get("historical") if isinstance(spec, dict) else None
+                current = spec.get("current") if isinstance(spec, dict) else None
+                if not isinstance(historical, dict) or not isinstance(current, dict):
+                    fail("legacy-migration", "%s %s %s: missing historical/current record" % (lang, jid, key))
+                    continue
+                statuses["historical"][key] = historical.get("status")
+                statuses["current"][key] = current.get("status")
+                if historical.get("status") == "UNKNOWN":
+                    if not _legacy_unknown_is_safe(lang, historical):
+                        fail("legacy-migration", "%s %s %s: unsafe UNKNOWN record" % (lang, jid, key))
+                    actual_h = _legacy_status_value(h_block, lang, label)
+                    if actual_h is not None:
+                        fail("legacy-migration", "%s %s %s: UNKNOWN field exists in pinned baseline" % (lang, jid, key))
+                elif historical.get("status") == "KNOWN":
+                    actual_h = _legacy_status_value(h_block, lang, label)
+                    if actual_h is None or actual_h != historical.get("value"):
+                        fail("legacy-migration", "%s %s %s: historical value differs from git show baseline" % (lang, jid, key))
+                else:
+                    fail("legacy-migration", "%s %s %s: historical status must be KNOWN or UNKNOWN" % (lang, jid, key))
+                h_source = historical.get("source") or {}
+                if h_source.get("sha") != LEGACY_BASELINE_SHA or h_source.get("path") != "docs/%s/90-ledger.md" % lang:
+                    fail("legacy-migration", "%s %s %s: historical source is not pinned to the fixed baseline" % (lang, jid, key))
+                h_line = _legacy_line(h_source_text, h_source.get("line")) if h_source_text is not None else None
+                if historical.get("status") == "KNOWN":
+                    if not h_line or label not in h_line or historical.get("value") not in h_line:
+                        fail("legacy-migration", "%s %s %s: historical source anchor is stale" % (lang, jid, key))
+                elif not h_line or not re.match(r"^### %s\b" % re.escape(jid), h_line):
+                    fail("legacy-migration", "%s %s %s: UNKNOWN source anchor must point at the card heading" % (lang, jid, key))
+                if current.get("status") == "KNOWN":
+                    actual_c = _legacy_status_value(body, lang, label)
+                    if actual_c is None or actual_c != current.get("value"):
+                        fail("legacy-migration", "%s %s %s: current value differs from card" % (lang, jid, key))
+                    source = current.get("source") or {}
+                    line = _legacy_line(current_text, source.get("line")) if current_text is not None else None
+                    if not line or label not in line or current.get("value") not in line:
+                        fail("legacy-migration", "%s %s %s: current source anchor is stale" % (lang, jid, key))
+                elif current.get("status") == "UNKNOWN":
+                    actual_c = _legacy_status_value(body, lang, label)
+                    if key == "audience_scale" and actual_c == current.get("value") and audience_scale_is_unknown(actual_c, lang):
+                        source = current.get("source") or {}
+                        line = _legacy_line(current_text, source.get("line")) if current_text is not None else None
+                        if not line or label not in line or current.get("value") not in line:
+                            fail("legacy-migration", "%s %s %s: current UNKNOWN source anchor is stale" % (lang, jid, key))
+                    else:
+                        if not _legacy_unknown_is_safe(lang, current):
+                            fail("legacy-migration", "%s %s %s: unsafe current UNKNOWN record" % (lang, jid, key))
+                        if actual_c is not None:
+                            fail("legacy-migration", "%s %s %s: current UNKNOWN field exists on card" % (lang, jid, key))
+                else:
+                    fail("legacy-migration", "%s %s %s: current status must be KNOWN or UNKNOWN" % (lang, jid, key))
+                digest_rows.append([jid, lang, key, current.get("status"), current.get("value")])
+            if lang == "en":
+                prior = languages.get("zh", {}).get("fields", {})
+                for key in LEGACY_FIELD_KEYS:
+                    zh = prior.get(key, {})
+                    en = fields.get(key, {})
+                    for axis in ("historical", "current"):
+                        if zh.get(axis, {}).get("status") != en.get(axis, {}).get("status"):
+                            fail("legacy-migration", "%s %s %s: zh/en %s status differs" % (jid, lang, key, axis))
+    expected_digest = hashlib.sha256(json.dumps(digest_rows, ensure_ascii=False,
+                                                separators=(",", ":")).encode("utf-8")).hexdigest()
+    if manifest.get("current_digest") != expected_digest:
+        fail("legacy-migration", "manifest current_digest does not match current migration values")
+
+
+def slug(title):
+    """Reproduce GitHub's heading-anchor rule."""
+    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", title.strip())
     t = re.sub(r"[`*_]", "", t).lower()
     return "".join("-" if c == " " else c
                    for c in t if c == " " or c.isalnum() or c in "-_")
@@ -456,6 +671,16 @@ def audience_scale_value(body, lang):
     return m.group(1).strip() if m else None
 
 
+def audience_scale_is_unknown(value, lang):
+    if not value or not value.startswith("UNKNOWN"):
+        return False
+    required = ([u"身份", u"动作", u"分母", u"时间", u"频次", u"来源"]
+                if lang == "zh" else
+                ["identity", "action", "denominator", "time", "frequency", "source"])
+    lowered = value.lower()
+    return all(token.lower() in lowered for token in required)
+
+
 def audience_scale_is_structured(value, lang):
     """Mechanical floor: magnitude plus ceiling/enablement classification."""
     if not value:
@@ -506,7 +731,6 @@ def check_ledger(lang):
     if not cards:
         fail("ledger", "%s: no judgment cards found" % lang)
         return cards
-    legacy_audience_missing = []
     for jid in sorted(cards):
         body = cards[jid]
         card_path, card_line = _ledger_card_location(lang, jid)
@@ -522,12 +746,11 @@ def check_ledger(lang):
         audience = AUDIENCE_FIELD[lang]
         audience_value = audience_scale_value(body, lang)
         if audience_value is None:
-            number = int(jid.split("-")[1])
-            detail = "%s %s missing standalone %s field" % (lang, jid, audience)
-            if number <= LEGACY_AUDIENCE_SCALE_MAX:
-                legacy_audience_missing.append(jid)
-            else:
-                fail("audience-scale", detail)
+            fail("audience-scale", "%s %s missing standalone %s field" % (lang, jid, audience))
+        elif audience_value.startswith("UNKNOWN"):
+            if not audience_scale_is_unknown(audience_value, lang):
+                fail("audience-scale", "%s %s: UNKNOWN %s must name identity, action/denominator, time, frequency, and source" %
+                     (lang, jid, audience))
         elif not audience_scale_is_structured(audience_value, lang):
             fail("audience-scale", "%s %s: %s must state an allowed magnitude "
                  "and ceiling-versus-enablement classification" %
@@ -571,11 +794,6 @@ def check_ledger(lang):
         if declared != overview.get(jid, set()):
             fail("dep-overview", "%s %s: card %s vs overview %s"
                  % (lang, jid, sorted(declared), sorted(overview.get(jid, set()))))
-    if legacy_audience_missing:
-        warn("audience-scale", "%s: %d legacy card(s) through J-%03d still "
-             "lack %s; new cards fail hard" %
-             (lang, len(legacy_audience_missing), LEGACY_AUDIENCE_SCALE_MAX,
-              AUDIENCE_FIELD[lang]))
     check_comparison(lang, cards, overview_consensus)
     return cards
 
@@ -1919,6 +2137,7 @@ def run_checks():
     links = check_links(files)
     check_table_rows(files)
     cards = {lang: check_ledger(lang) for lang in LANGS}
+    check_legacy_migration(cards)
     check_parity(cards)
     chains = check_chain_registry()
     registry = {lang: parse_registry(lang)[0] for lang in LANGS}
@@ -3847,7 +4066,116 @@ PARITY_NEGATIVE_MARKERS = {
     u"summary card lacks its field marker": ("docs/zh/chains/90-aging-care-and-institutional-substitution.md", "J-096"),
 }
 
+
+def _break_legacy_baseline_sha(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    data["baseline_sha"] = "0" * 40
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"manifest baseline_sha changed"
+
+
+def _break_legacy_historical_value(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    data["cards"][0]["languages"]["zh"]["fields"]["judgment"]["historical"]["value"] += u"（篡改）"
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-001 historical judgment changed without changing Git history"
+
+
+def _break_legacy_bilingual_status(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    field = data["cards"][0]["languages"]["en"]["fields"]["audience_scale"]["historical"]
+    field.update({"status": "KNOWN", "value": "million-scale", "reason": "fabricated"})
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-001 English historical audience status differs from Chinese"
+
+
+def _break_legacy_unknown_fabrication(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    field = data["cards"][0]["languages"]["zh"]["fields"]["audience_scale"]["historical"]
+    field["reason"] = u"历史快照无独立字段；推定百万量级，提高既有专业者上限。"
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"UNKNOWN reason fabricates magnitude and mode"
+
+
+def _break_legacy_paired_current_edit(root):
+    manifest_path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(manifest_path))
+    card_path = _card_path(root, "zh", "J-001")
+    text = _read_file(card_path)
+    old = data["cards"][0]["languages"]["zh"]["fields"]["judgment"]["current"]["value"]
+    new = old + u"（静默漂移）"
+    text = text.replace(u"- **一句话判断**：" + old, u"- **一句话判断**：" + new, 1)
+    data["cards"][0]["languages"]["zh"]["fields"]["judgment"]["current"]["value"] = new
+    rows = []
+    for row in data["cards"]:
+        for lang in ("zh", "en"):
+            for key in LEGACY_FIELD_KEYS:
+                value = row["languages"][lang]["fields"][key]["current"]
+                rows.append([row["id"], lang, key, value.get("status"), value.get("value")])
+    data["current_digest"] = hashlib.sha256(json.dumps(rows, ensure_ascii=False,
+                                                         separators=(",", ":")).encode("utf-8")).hexdigest()
+    _write_file(card_path, text)
+    _write_file(manifest_path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"card and manifest value changed together without re-authoring the digest"
+
+
+def _break_legacy_missing_card(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    data["cards"] = data["cards"][1:]
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-001 removed from the closed manifest"
+
+
+def _break_legacy_stale_anchor(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    data["cards"][0]["languages"]["zh"]["fields"]["judgment"]["current"]["source"]["line"] = 1
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-001 current judgment source line points at the file title"
+
+
+def _break_legacy_extra_id(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    extra = json.loads(json.dumps(data["cards"][0]))
+    extra["id"] = "J-999"
+    data["cards"].append(extra)
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-999 added outside the closed set"
+
+
+def _break_legacy_known_missing_field(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    del data["cards"][0]["languages"]["zh"]["fields"]["judgment"]
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"KNOWN judgment field removed from J-001 manifest"
+
+
+def _break_legacy_unknown_missing_reason(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    data["cards"][0]["languages"]["zh"]["fields"]["audience_scale"]["historical"]["reason"] = ""
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"UNKNOWN historical reason removed"
+
+
 NEGATIVE_CASES = [
+    (u"legacy manifest baseline SHA drifts", "legacy-migration", _break_legacy_baseline_sha),
+    (u"legacy historical value is rewritten", "legacy-migration", _break_legacy_historical_value),
+    (u"legacy bilingual status differs", "legacy-migration", _break_legacy_bilingual_status),
+    (u"legacy UNKNOWN fabricates audience data", "legacy-migration", _break_legacy_unknown_fabrication),
+    (u"legacy card and manifest drift together", "legacy-migration", _break_legacy_paired_current_edit),
+    (u"legacy closed set loses one card", "legacy-migration", _break_legacy_missing_card),
+    (u"legacy manifest source anchor goes stale", "legacy-migration", _break_legacy_stale_anchor),
+    (u"legacy manifest has an extra id", "legacy-migration", _break_legacy_extra_id),
+    (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
+    (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
