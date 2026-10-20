@@ -674,11 +674,20 @@ def audience_scale_value(body, lang):
 def audience_scale_is_unknown(value, lang):
     if not value or not value.startswith("UNKNOWN"):
         return False
+    forbidden = (r"(?:hundred-thousand|million|tens-of-millions|hundred-millions|billion)-scale"
+                 if lang == "en" else u"(?:十万|百万|千万|十亿|亿量级)")
+    if re.search(forbidden, value, re.I):
+        return False
+    lowered = value.lower().replace("’", "'")
+    if ("raises existing professionals' ceiling" in lowered or
+            "lets people who could not do it do it now" in lowered or
+            u"提高既有专业者上限" in value or
+            u"让原本不会的人也能做" in value):
+        return False
     required = ([u"身份", u"动作", u"分母", u"时间", u"频次", u"来源"]
                 if lang == "zh" else
                 ["identity", "action", "denominator", "time", "frequency", "source"])
-    lowered = value.lower()
-    return all(token.lower() in lowered for token in required)
+    return all(token.lower() in value.lower() for token in required)
 
 
 def audience_scale_is_structured(value, lang):
@@ -4123,6 +4132,29 @@ def _break_legacy_paired_current_edit(root):
     return u"card and manifest value changed together without re-authoring the digest"
 
 
+def _break_legacy_current_unknown_fabrication(root):
+    manifest_path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(manifest_path))
+    field = data["cards"][0]["languages"]["zh"]["fields"]["audience_scale"]["current"]
+    old = field["value"]
+    new = old + u"；百万量级，提高既有专业者上限。"
+    card_path = _card_path(root, "zh", "J-001")
+    text = _read_file(card_path)
+    text = text.replace(u"- **受众规模**：" + old, u"- **受众规模**：" + new, 1)
+    field["value"] = new
+    rows = []
+    for row in data["cards"]:
+        for lang in ("zh", "en"):
+            for key in LEGACY_FIELD_KEYS:
+                value = row["languages"][lang]["fields"][key]["current"]
+                rows.append([row["id"], lang, key, value.get("status"), value.get("value")])
+    data["current_digest"] = hashlib.sha256(json.dumps(rows, ensure_ascii=False,
+                                                         separators=(",", ":")).encode("utf-8")).hexdigest()
+    _write_file(card_path, text)
+    _write_file(manifest_path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"current UNKNOWN audience carries magnitude and capability classification"
+
+
 def _break_legacy_missing_card(root):
     path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(path))
@@ -4176,6 +4208,7 @@ NEGATIVE_CASES = [
     (u"legacy manifest has an extra id", "legacy-migration", _break_legacy_extra_id),
     (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
     (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
+    (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
