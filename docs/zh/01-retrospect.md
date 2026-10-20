@@ -407,6 +407,12 @@
 
 三案均终局为 `UNKNOWN/UNVERIFIED`，不是合格 `CALIBRATION`：X-33 缺少同一材料中“2000-07 是否已首飞”的明确结果分母；X-34 缺少同窗官方结果、取消日期和 powered-flight 定义；Freedom 的预测对象与 ISS 结果对象之间缺少项目谱系与指标映射。它们各自列出了最强替代解释与同来源邻近指标的排除理由，不能用“项目后来结束”“组件后来发射”或二手叙述填洞。因此科技域合格数仍为 **0**，三域合计仍为 **6/12**；本轮没有新增判断、没有推翻任何普及闸，也没有升级为准确率或 holdout 证据。
 
+### 10.6 四个常见科技失准叙事的字段复核（2026-10）
+
+[四案科技校准证据页](../evidence/technology-calibration-2026-10.md)重新检查了核电、卡特时期太阳能、日本第五代计算机和 1990 年代虚拟现实。四案都留下了可定位的历史材料，但都没有同时闭合判定时点 `T` 前的原始预测、明确目标、同一结果指标、同一分母和固定观察窗，因此全部编码为 `UNKNOWN/UNVERIFIED`，不得写成四个已证伪的科技预测，也不得计入科技域合格 `CALIBRATION` 对。
+
+这次复核保留了一个可用的更窄结论：**项目完成、单点示范、单品取消、技术类别和社会级采用是不同分析对象。** 核电材料混用了成本系统边界；白宫太阳能材料是政治示范装置而非全国采用率；第五代计算机的项目目标不能由“没有大众商品”替代；Sega VR 的未发布不能代替 VR 品类分母。它们支持“来源存在不等于结果可配对”的记录纪律，却不支持“科技预测通常失败”这一新规则。四案的详细来源、缺口和下一步核验动作见证据页；科技域合格数仍为 **0**，三域合计仍为 **6/12**。
+
 ---
 
 ## 十一、本文引用的史实出处与可信度分级
@@ -432,6 +438,7 @@
 - **EXT-58**：Congressional Research Service, [*Daylight Saving Time: Background and Legislation*](https://www.congress.gov/crs-product/R45208)；1974-01-06 紧急全年夏令时生效，后提前回滚并于 1974-10-27 恢复标准时制。它支持政策撤回时间线，不单独证明公众为何反对。
 - **EXT-59**：Reserve Bank of India, [Annual Report 2017–18, Chapter V](https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1232)；确认 2016 年撤销 specified banknotes 造成银行体系过剩流动性。该页不含精确返还比例，因此本轮不以此编码废钞政策成败。
 - **EXT-67**：[商业预测失准校准证据包](../evidence/business-forecast-calibration-2026-09.md)；Webvan 与 eToys 的 SEC 预测／结果原件，以及附录 Iridium 的融资契约门槛材料，逐字摘录及 SHA-256 见包内；支持收入、亏损、订户门槛的数值校准，不支持五道普及闸的准确率或单一机制因果
+- **EXT-68**：[四案科技校准证据页](../evidence/technology-calibration-2026-10.md)；IAEA、核反应堆成本研究、Smithsonian、IPSJ／AIST、Video Game History Foundation 与 Computer History Museum 的来源及字段缺口逐案登记；支持「预测对象、项目对象、技术类别与社会采用不能互换」的记录纪律，不支持四个确定失准结论
 
 **中（百科／权威媒体／多源一致）**
 
