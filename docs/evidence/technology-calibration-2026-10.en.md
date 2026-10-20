@@ -31,7 +31,21 @@ The shared problem is not “there is no material that looks like an outcome.”
 | Japan's Fifth Generation Computer | IPSJ Computer Museum; AIST/ICOT ten-year project report | “The 1982–1992 project was supposed to produce fifth-generation intelligent computers, but it did not” | Measurable “fifth generation” performance and social-adoption denominator; project goal to commercial outcome mapping | `UNKNOWN/UNVERIFIED` |
 | 1990s virtual reality | Sega VR release plan and cancellation record; the period's promotional material still needs to be frozen item by item | “VR was going mainstream in the 1990s, but it did not” | Enumerated original forecast set, `T`, population denominator, experience / shipment / adoption threshold; a product cannot stand for a category | `UNKNOWN/UNVERIFIED` |
 
-**Conclusion that can be written now:** the four cases support the recording discipline that technical feasibility, project completion, a single demonstration, a single-product launch, and society-level diffusion are different variables. They do not support “four technology forecasts have been falsified.” The evidential strength is `CALIBRATION` material for method boundaries, not four qualified outcome pairs.
+### 2.1 Unified per-case field table
+
+The table writes “unknown” and “not yet obtained” explicitly so the prose cards cannot be mistaken for completed pairs. `—` is not zero and is not a negative outcome; it means that this round has no auditable same-basis field.
+
+| Case | Forecast date / `T` | Observation window | Forecast metric / unit / denominator | Outcome material and outcome | Missing fields | Evidence strength |
+|---|---|---|---|---|---|---|
+| Nuclear power cost / diffusion | `UNKNOWN`; a cost discussion is located, but no original forecast is frozen | `UNKNOWN` | Cost metric, currency basis, system boundary, region, and denominator remain open | A cost study exists, but is not paired to a particular original forecast object and unit | Original forecast text; same-basis metric, unit, region, window, and denominator | `UNKNOWN/UNVERIFIED`; authoritative background, not a qualified pair |
+| Carter-era solar | `UNKNOWN`; the 1979 installation date is a project date, not an identified society-level forecast `T` | `UNKNOWN` | White House solar-hot-water demonstration; society-level metric and denominator undefined | Installation in 1979 and removal in 1986; not a national adoption outcome | Forecast-to-demonstration link; technology boundary (hot water / PV); society denominator and window | `UNKNOWN/UNVERIFIED`; museum and historical-institution records |
+| Japan's Fifth Generation Computer | `UNKNOWN`; the 1982 project start is not a unified society-level forecast `T` | `UNKNOWN` | The project concerned parallel inference, but measurable thresholds and product denominator are not frozen | 1992 project summary and prototype material; not a mass-product adoption outcome | Measurable performance; target problem classes; product / user denominator; outcome mapping | `UNKNOWN/UNVERIFIED`; professional-society and project-summary sources |
+| 1990s virtual reality | `UNKNOWN`; Sega VR's schedule cannot represent a category-wide forecast `T` | `UNKNOWN` | Experience, price, shipment, or adoption threshold not frozen | Sega VR was not released publicly; a product-level outcome only | Original forecast census; target population; category denominator; metric and window | `UNKNOWN/UNVERIFIED`; preservation record, not a category pair |
+
+**How to read the table:** all four cases have a local fact on the outcome side, but no row has `T`, a common metric, a denominator, and an observation window together. They can calibrate the method's boundary for refusing premature judgment; they cannot be called `CALIBRATION` outcome pairs.
+
+**Conclusion that can be written now:** the four cases support the recording discipline that technical feasibility, project completion, a single demonstration, a single-product launch, and society-level diffusion are different variables. They do not support “four technology forecasts have been falsified.” They are `UNKNOWN/UNVERIFIED` material used to narrow calibration rules, not four qualified `CALIBRATION` outcome pairs.
+
 
 ## 3. Case cards
 
