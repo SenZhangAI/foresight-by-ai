@@ -158,12 +158,15 @@ def _unknown_forbidden_magnitude(lang):
     spelling), because a bare ``million`` still fabricates a magnitude.
     """
     if lang == "en":
-        return (r"(?<![A-Za-z])(?:multi[- ]?(?:million|billion|trillion)|"
-                r"hundreds?[- ]of[- ]millions?|tens?[- ]of[- ]millions?|"
-                r"hundred[- ]thousand|thousands?|millions?|billions?|"
-                r"trillions?)(?![A-Za-z])|"
+        return (r"(?<![A-Za-z])(?:multi[- ]?(?:million|billion|trillion)s?|"
+                r"hundreds?[- ]of[- ](?:thousands?|millions?)|"
+                r"tens?[- ]of[- ]millions?|hundred[- ]thousands?|"
+                r"thousands?|millions?|billions?|trillions?)(?![A-Za-z])|"
                 r"(?<![A-Za-z0-9])\d+(?:\.\d+)?\s*[kKmMbBtT](?![A-Za-z0-9])")
-    return u"(?:十万|百万|千万|十亿|亿|万)(?:量级|级|规模)?"
+    return (u"(?:十万|百万|千万|十亿|亿|万)(?:量级|级|规模)?|"
+            u"(?:数十|数百|数千|数万|数百万|数千万|数亿|百余万|"
+            u"千万级|百万级|亿级)|"
+            u"(?<![0-9A-Za-z])\d+(?:\.\d+)?\s*[kKmMbBtT万亿](?![0-9A-Za-z])")
 
 
 def _legacy_unknown_is_safe(lang, field):
@@ -212,8 +215,9 @@ def check_legacy_migration(cards):
     if manifest.get("canonical_fields") != list(LEGACY_FIELD_KEYS):
         fail("legacy-migration", "manifest canonical_fields do not match the field contract")
     rows = manifest.get("cards")
-    if not isinstance(rows, list) or {row.get("id") for row in rows if isinstance(row, dict)} != set(LEGACY_IDS):
-        fail("legacy-migration", "manifest cards do not cover exactly J-001--J-086")
+    if (not isinstance(rows, list) or len(rows) != len(LEGACY_IDS) or
+            [row.get("id") for row in rows if isinstance(row, dict)] != list(LEGACY_IDS)):
+        fail("legacy-migration", "manifest cards do not cover exactly J-001--J-086 once each")
         return
     historical_text = {}
     historical_cards = {}
@@ -4200,6 +4204,14 @@ def _break_legacy_current_unknown_english_plural_magnitude(root):
     return _break_legacy_current_unknown_english_variant(root, "millions")
 
 
+def _break_legacy_current_unknown_english_multi_magnitude(root):
+    return _break_legacy_current_unknown_english_variant(root, "multi millions")
+
+
+def _break_legacy_current_unknown_english_abbreviated_magnitude(root):
+    return _break_legacy_current_unknown_english_variant(root, "1.2k")
+
+
 def _break_legacy_missing_card(root):
     path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(path))
@@ -4224,6 +4236,15 @@ def _break_legacy_extra_id(root):
     data["cards"].append(extra)
     _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     return u"J-999 added outside the closed set"
+
+
+def _break_legacy_duplicate_card(root):
+    path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(path))
+    duplicate = json.loads(json.dumps(data["cards"][0]))
+    data["cards"].append(duplicate)
+    _write_file(path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"J-001 duplicated in the closed manifest"
 
 
 def _break_legacy_known_missing_field(root):
@@ -4251,6 +4272,7 @@ NEGATIVE_CASES = [
     (u"legacy closed set loses one card", "legacy-migration", _break_legacy_missing_card),
     (u"legacy manifest source anchor goes stale", "legacy-migration", _break_legacy_stale_anchor),
     (u"legacy manifest has an extra id", "legacy-migration", _break_legacy_extra_id),
+    (u"legacy manifest duplicates an id", "legacy-migration", _break_legacy_duplicate_card),
     (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
     (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
     (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
@@ -4258,6 +4280,10 @@ NEGATIVE_CASES = [
      _break_legacy_current_unknown_english_magnitude),
     (u"legacy current English UNKNOWN carries a plural magnitude", "audience-scale",
      _break_legacy_current_unknown_english_plural_magnitude),
+    (u"legacy current English UNKNOWN carries a multi-word magnitude", "audience-scale",
+     _break_legacy_current_unknown_english_multi_magnitude),
+    (u"legacy current English UNKNOWN carries a compact magnitude", "audience-scale",
+     _break_legacy_current_unknown_english_abbreviated_magnitude),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
