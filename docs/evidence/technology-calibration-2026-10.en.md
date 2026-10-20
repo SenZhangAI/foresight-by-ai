@@ -96,6 +96,7 @@ The table writes “unknown” and “not yet obtained” explicitly so the pros
 3. **One metric must run from `T` through the outcome.** Cost, price, capacity, shipments, performance, project milestones, and adoption rates have different denominators; a convenient matching metric may not be selected after the fact.
 4. **These four cases add no lens.** They do not satisfy the rule-calibration threshold of at least two successes, two failures, and the ability to say no; the page narrows evidence coding rather than proposing “technology forecasts usually fail.”
 5. **The technology-domain qualified count does not change.** As of this record all four cases are `UNKNOWN/UNVERIFIED`; they do not upgrade the technology domain from zero qualified pairs to four, and they do not change the existing whole-repository `6/12` basis.
+6. **This page is not a full independent re-review and does not trigger one by itself.** This round adds no lens, scoring rule, diffusion gate, or future judgment-card verdict. If a later round closes any case as `MISS` / `PASS`, or changes a rule on its basis, it must first meet methodology §1.3's complete-scope freeze, de-labelling repair, isolated-packet, and per-language field-check prerequisites. Until then, this page must not be treated as a full re-review or evidence that the method is valid.
 
 ## 5. Sources and confidence
 
