@@ -150,6 +150,20 @@ def _legacy_status_value(body, lang, label):
     return values[0] if len(values) == 1 else None
 
 
+def _unknown_forbidden_magnitude(lang):
+    """Return magnitude words that invalidate an UNKNOWN audience value.
+
+    UNKNOWN is an evidence-status claim, not a bucket with an unstructured
+    estimate. Match the words themselves (not only the canonical ``-scale``
+    spelling), because a bare ``million`` still fabricates a magnitude.
+    """
+    if lang == "en":
+        return (r"(?<![A-Za-z])(?:hundred(?:[- ]thousand)?|thousand|"
+                r"million|billion|trillion|tens?[- ]of[- ]millions?|"
+                r"hundred[- ]millions?)(?![A-Za-z])")
+    return u"(?:十万|百万|千万|十亿|亿|万)(?:量级|级|规模)?"
+
+
 def _legacy_unknown_is_safe(lang, field):
     if field.get("status") != "UNKNOWN":
         return False
@@ -162,9 +176,7 @@ def _legacy_unknown_is_safe(lang, field):
     if ((lang == "en" and marker not in reason.lower()) or
             (lang != "en" and marker not in reason)):
         return False
-    forbidden = (r"(?:hundred-thousand|million|tens-of-millions|hundred-millions|billion)-scale"
-                 if lang == "en" else u"(?:十万|百万|千万|十亿|亿量级)")
-    if re.search(forbidden, reason, re.I):
+    if re.search(_unknown_forbidden_magnitude(lang), reason, re.I):
         return False
     lowered = reason.lower().replace("’", "'")
     if ("raises existing professionals' ceiling" in lowered or
@@ -674,9 +686,7 @@ def audience_scale_value(body, lang):
 def audience_scale_is_unknown(value, lang):
     if not value or not value.startswith("UNKNOWN"):
         return False
-    forbidden = (r"(?:hundred-thousand|million|tens-of-millions|hundred-millions|billion)-scale"
-                 if lang == "en" else u"(?:十万|百万|千万|十亿|亿量级)")
-    if re.search(forbidden, value, re.I):
+    if re.search(_unknown_forbidden_magnitude(lang), value, re.I):
         return False
     lowered = value.lower().replace("’", "'")
     if ("raises existing professionals' ceiling" in lowered or
@@ -4155,6 +4165,31 @@ def _break_legacy_current_unknown_fabrication(root):
     return u"current UNKNOWN audience carries magnitude and capability classification"
 
 
+def _break_legacy_current_unknown_english_magnitude(root):
+    """Put a bare English magnitude in an UNKNOWN value and keep the digest aligned."""
+    manifest_path = os.path.join(root, LEGACY_MANIFEST)
+    data = json.loads(_read_file(manifest_path))
+    field = data["cards"][0]["languages"]["en"]["fields"]["audience_scale"]["current"]
+    old = field["value"]
+    new = old + "; million"
+    card_path = _card_path(root, "en", "J-001")
+    text = _read_file(card_path)
+    text = text.replace("- **Audience scale**: " + old,
+                        "- **Audience scale**: " + new, 1)
+    field["value"] = new
+    rows = []
+    for row in data["cards"]:
+        for lang in ("zh", "en"):
+            for key in LEGACY_FIELD_KEYS:
+                value = row["languages"][lang]["fields"][key]["current"]
+                rows.append([row["id"], lang, key, value.get("status"), value.get("value")])
+    data["current_digest"] = hashlib.sha256(json.dumps(
+        rows, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
+    _write_file(card_path, text)
+    _write_file(manifest_path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    return u"English current UNKNOWN carries a bare million magnitude"
+
+
 def _break_legacy_missing_card(root):
     path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(path))
@@ -4209,6 +4244,8 @@ NEGATIVE_CASES = [
     (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
     (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
     (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
+    (u"legacy current English UNKNOWN carries a bare magnitude", "audience-scale",
+     _break_legacy_current_unknown_english_magnitude),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
