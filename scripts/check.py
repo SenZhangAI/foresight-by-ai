@@ -158,9 +158,11 @@ def _unknown_forbidden_magnitude(lang):
     spelling), because a bare ``million`` still fabricates a magnitude.
     """
     if lang == "en":
-        return (r"(?<![A-Za-z])(?:hundred(?:[- ]thousand)?|thousand|"
-                r"million|billion|trillion|tens?[- ]of[- ]millions?|"
-                r"hundred[- ]millions?)(?![A-Za-z])")
+        return (r"(?<![A-Za-z])(?:multi[- ]?(?:million|billion|trillion)|"
+                r"hundreds?[- ]of[- ]millions?|tens?[- ]of[- ]millions?|"
+                r"hundred[- ]thousand|thousands?|millions?|billions?|"
+                r"trillions?)(?![A-Za-z])|"
+                r"(?<![A-Za-z0-9])\d+(?:\.\d+)?\s*[kKmMbBtT](?![A-Za-z0-9])")
     return u"(?:十万|百万|千万|十亿|亿|万)(?:量级|级|规模)?"
 
 
@@ -4165,13 +4167,13 @@ def _break_legacy_current_unknown_fabrication(root):
     return u"current UNKNOWN audience carries magnitude and capability classification"
 
 
-def _break_legacy_current_unknown_english_magnitude(root):
-    """Put a bare English magnitude in an UNKNOWN value and keep the digest aligned."""
+def _break_legacy_current_unknown_english_variant(root, magnitude):
+    """Put an English magnitude variant in UNKNOWN and keep the digest aligned."""
     manifest_path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(manifest_path))
     field = data["cards"][0]["languages"]["en"]["fields"]["audience_scale"]["current"]
     old = field["value"]
-    new = old + "; million"
+    new = old + "; " + magnitude
     card_path = _card_path(root, "en", "J-001")
     text = _read_file(card_path)
     text = text.replace("- **Audience scale**: " + old,
@@ -4187,7 +4189,15 @@ def _break_legacy_current_unknown_english_magnitude(root):
         rows, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
     _write_file(card_path, text)
     _write_file(manifest_path, json.dumps(data, ensure_ascii=False, indent=2) + "\n")
-    return u"English current UNKNOWN carries a bare million magnitude"
+    return u"English current UNKNOWN carries %s" % magnitude
+
+
+def _break_legacy_current_unknown_english_magnitude(root):
+    return _break_legacy_current_unknown_english_variant(root, "million")
+
+
+def _break_legacy_current_unknown_english_plural_magnitude(root):
+    return _break_legacy_current_unknown_english_variant(root, "millions")
 
 
 def _break_legacy_missing_card(root):
@@ -4246,6 +4256,8 @@ NEGATIVE_CASES = [
     (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
     (u"legacy current English UNKNOWN carries a bare magnitude", "audience-scale",
      _break_legacy_current_unknown_english_magnitude),
+    (u"legacy current English UNKNOWN carries a plural magnitude", "audience-scale",
+     _break_legacy_current_unknown_english_plural_magnitude),
     (u"chain Mermaid cites a non-existent card", "chain-mermaid",
      _break_chain_unknown_card_edge),
     (u"bilingual chain Mermaid skeleton diverges", "chain-mermaid",
