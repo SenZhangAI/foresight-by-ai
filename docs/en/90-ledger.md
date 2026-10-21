@@ -1321,9 +1321,9 @@ python3 scripts/check.py
 
 It covers the machine-checkable half of the list below. Exit code 0 means
 pass; otherwise it prints each failure. On the ledger side: internal links and
-heading anchors, required card fields, the standalone Audience scale field on
-new cards (J-001–J-086 warn during migration; a later identifier fails if the
-field is missing), duplicate J identifiers inside either ledger, the confidence
+heading anchors, required card fields, a standalone Audience scale field on
+**every card** (legacy cards without independent evidence must write `UNKNOWN`,
+not receive a compatibility warning), duplicate J identifiers inside either ledger, the confidence
 whitelist, dependency edges agreeing in all three places, and bilingual parity
 — where "parity" means exactly three things, that the two trees hold the **same
 filenames**, the **same judgment-card identifiers**, and the **same number of

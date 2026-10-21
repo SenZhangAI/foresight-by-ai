@@ -52,10 +52,9 @@ EMBEDDED_PARITY_BASIS = (
     "逐字口径（经 visible() 规范化后）"
 )
 EMBEDDED_PARITY_RERUN = "rerun: python3 scripts/check.py"
-# J-001..J-086 predate the audience-scale requirement. They stay readable
-# during migration, but every later card must carry the field. Freezing the
-# boundary by identifier rather than by today's file contents means deleting a
-# legacy card cannot silently redefine what counts as "new".
+# J-001..J-086 are now covered by the standalone audience-scale contract.
+# Their historical values remain frozen separately so the migration audit can
+# distinguish missing evidence (UNKNOWN) from a rewritten historical claim.
 LEGACY_AUDIENCE_SCALE_MAX = 86
 LEGACY_MANIFEST = "docs/evidence/legacy-ledger-migration-manifest.json"
 LEGACY_BASELINE_SHA = "aa01c7c6531cb769a284c8e36cd4573f298497bd"
@@ -4167,6 +4166,15 @@ def _break_legacy_duplicate_current_unknown_field(root):
     return u"zh J-001 duplicates its current UNKNOWN audience field"
 
 
+def _break_legacy_duplicate_current_unknown_field_en(root):
+    card_path = _card_path(root, "en", "J-001")
+    text = _read_file(card_path)
+    line = next(row for row in text.splitlines() if row.startswith("- **Audience scale**:"))
+    text = text.replace(line, line + "\n" + line, 1)
+    _write_file(card_path, text)
+    return u"en J-001 duplicates its current UNKNOWN audience field"
+
+
 def _break_legacy_current_unknown_fabrication(root):
     manifest_path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(manifest_path))
@@ -4297,6 +4305,8 @@ NEGATIVE_CASES = [
     (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
     (u"legacy current UNKNOWN field is duplicated", "legacy-migration",
      _break_legacy_duplicate_current_unknown_field),
+    (u"legacy current English UNKNOWN field is duplicated", "legacy-migration",
+     _break_legacy_duplicate_current_unknown_field_en),
     (u"legacy current English UNKNOWN carries a bare magnitude", "audience-scale",
      _break_legacy_current_unknown_english_magnitude),
     (u"legacy current English UNKNOWN carries a plural magnitude", "audience-scale",
