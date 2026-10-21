@@ -4653,12 +4653,20 @@ def _embedded_counts(output):
     return tuple((lang, int(count)) for lang, count in pairs)
 
 
+def _negative_case_passed(code, output, tag):
+    """A timed-out fixture is incomplete, never a successful negative case."""
+    return (code not in (0, 124) and "[%s]" % tag in output and
+            "[self-test-timeout]" not in output)
+
+
 def self_test(full=False):
     base = tempfile.mkdtemp(prefix="ledger-check-self-test-")
     counter = itertools.count()
     passed, failed = 0, 0
 
     def report(ok, title, detail):
+        if "exit 124" in detail:
+            detail = "INCOMPLETE (timeout): " + detail
         print("  %-4s %-44s %s" % ("PASS" if ok else "FAIL", title, detail))
 
     try:
@@ -4684,7 +4692,7 @@ def self_test(full=False):
                 work = fresh_migration()
                 detail = mutate(work)
                 code, out = _run_checker(work, focused=True, skip_provenance_git=True)
-                ok = code != 0 and ("[%s]" % tag) in out
+                ok = _negative_case_passed(code, out, tag)
                 passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
                 report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
             print("\nmigration self-test: %d passed, %d failed" % (passed, failed))
@@ -4720,7 +4728,7 @@ def self_test(full=False):
             expected_marker = PARITY_NEGATIVE_MARKERS.get(title)
             marker_ok = (expected_marker is None or
                          all(part in out for part in expected_marker))
-            ok = code != 0 and ("[%s]" % tag) in out and marker_ok
+            ok = _negative_case_passed(code, out, tag) and marker_ok
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
 
@@ -4729,7 +4737,7 @@ def self_test(full=False):
             work = fresh()
             detail = mutate(work)
             code, out = _run_checker(work)
-            ok = code != 0 and ("[%s]" % tag) in out and marker in out
+            ok = _negative_case_passed(code, out, tag) and marker in out
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, title, u"exit %d, expected [%s] + %s — %s" %
                    (code, tag, marker, detail))
@@ -4747,7 +4755,7 @@ def self_test(full=False):
             work = fresh()
             _set_confidence(lang, value)(work)
             code, out = _run_checker(work)
-            ok = code != 0 and "[confidence]" in out
+            ok = _negative_case_passed(code, out, "confidence")
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
             report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
 
