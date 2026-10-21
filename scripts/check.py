@@ -143,10 +143,14 @@ def _legacy_line(text, line):
     return lines[line - 1] if isinstance(line, int) and 1 <= line <= len(lines) else None
 
 
-def _legacy_status_value(body, lang, label):
-    """Read the raw migration value, retaining Markdown for exact anchoring."""
+def _legacy_status_values(body, lang, label):
+    """Read every raw migration value, retaining Markdown for exact anchoring."""
     pattern = re.compile(r"^\s*-\s*\*\*" + re.escape(label) + r"\*\*[:：]\s*(.*)$", re.M)
-    values = [match.group(1).strip() for match in pattern.finditer(body)]
+    return [match.group(1).strip() for match in pattern.finditer(body)]
+
+
+def _legacy_status_value(body, lang, label):
+    values = _legacy_status_values(body, lang, label)
     return values[0] if len(values) == 1 else None
 
 
@@ -294,8 +298,12 @@ def check_legacy_migration(cards):
                         fail("legacy-migration", "%s %s %s: historical source anchor is stale" % (lang, jid, key))
                 elif not h_line or not re.match(r"^### %s\b" % re.escape(jid), h_line):
                     fail("legacy-migration", "%s %s %s: UNKNOWN source anchor must point at the card heading" % (lang, jid, key))
+                actual_values = _legacy_status_values(body, lang, label)
+                if len(actual_values) > 1:
+                    fail("legacy-migration", "%s %s %s: current card repeats canonical field" %
+                         (lang, jid, key))
                 if current.get("status") == "KNOWN":
-                    actual_c = _legacy_status_value(body, lang, label)
+                    actual_c = actual_values[0] if len(actual_values) == 1 else None
                     if actual_c is None or actual_c != current.get("value"):
                         fail("legacy-migration", "%s %s %s: current value differs from card" % (lang, jid, key))
                     source = current.get("source") or {}
@@ -303,8 +311,10 @@ def check_legacy_migration(cards):
                     if not line or label not in line or current.get("value") not in line:
                         fail("legacy-migration", "%s %s %s: current source anchor is stale" % (lang, jid, key))
                 elif current.get("status") == "UNKNOWN":
-                    actual_c = _legacy_status_value(body, lang, label)
-                    if key == "audience_scale" and actual_c == current.get("value") and audience_scale_is_unknown(actual_c, lang):
+                    actual_c = actual_values[0] if len(actual_values) == 1 else None
+                    if len(actual_values) > 1:
+                        pass
+                    elif key == "audience_scale" and actual_c == current.get("value") and audience_scale_is_unknown(actual_c, lang):
                         source = current.get("source") or {}
                         line = _legacy_line(current_text, source.get("line")) if current_text is not None else None
                         if not line or label not in line or current.get("value") not in line:
@@ -4148,6 +4158,15 @@ def _break_legacy_paired_current_edit(root):
     return u"card and manifest value changed together without re-authoring the digest"
 
 
+def _break_legacy_duplicate_current_unknown_field(root):
+    card_path = _card_path(root, "zh", "J-001")
+    text = _read_file(card_path)
+    line = next(row for row in text.splitlines() if row.startswith(u"- **受众规模**："))
+    text = text.replace(line, line + "\n" + line, 1)
+    _write_file(card_path, text)
+    return u"zh J-001 duplicates its current UNKNOWN audience field"
+
+
 def _break_legacy_current_unknown_fabrication(root):
     manifest_path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(manifest_path))
@@ -4276,6 +4295,8 @@ NEGATIVE_CASES = [
     (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
     (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
     (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
+    (u"legacy current UNKNOWN field is duplicated", "legacy-migration",
+     _break_legacy_duplicate_current_unknown_field),
     (u"legacy current English UNKNOWN carries a bare magnitude", "audience-scale",
      _break_legacy_current_unknown_english_magnitude),
     (u"legacy current English UNKNOWN carries a plural magnitude", "audience-scale",
