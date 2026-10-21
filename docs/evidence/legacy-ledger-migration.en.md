@@ -2,7 +2,7 @@
 
 > **Bilingual projection rule.** This file and its [Chinese counterpart](legacy-ledger-migration.md) are two public projections of the same historical audit inventory. They share the same J-NNN identifiers and must be updated in the same commit; neither language has higher factual authority. The file-level source of truth for current judgment fields remains the stable-numbered bilingual ledger files, not either language. Any Chinese–English mismatch is a synchronization defect to repair in the same commit.
 >
-> **Canonical closed-set contract:** The executable migration contract for this round is [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json). It records, for J-001–J-086 only and for both languages, every current value, fixed-Git historical value, file/line anchor, and `KNOWN`/`UNKNOWN` status with a reason. Historical values are re-read from `git show` at `aa01c7c6531cb769a284c8e36cd4573f298497bd`; `python3 scripts/check.py` validates anchors, bilingual status parity, the UNKNOWN boundary, and the current-value digest, while `--self-test` attacks those boundaries. The J-001–J-095 inventory below remains the complete public audit narrative; it is not a substitute for the closed-set contract.
+> **Canonical closed-set contract:** The executable migration contract for this round is [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json). It records, for J-001–J-086 only and for both languages, every current value, fixed-Git historical value, file/line anchor, and `KNOWN`/`UNKNOWN` status with a reason. Historical values are re-read from `git show` at `aa01c7c6531cb769a284c8e36cd4573f298497bd`; `python3 scripts/check.py` validates anchors, bilingual status parity, the UNKNOWN boundary, and the current-value digest; default `python3 scripts/check.py --self-test` runs and fully reports the migration-closure negative suite, while `--self-test --full` runs the complete repository fuzz suite. The J-001–J-095 inventory below remains the complete public audit narrative; it is not a substitute for the closed-set contract.
 >
 > **Closed set:** J-001–J-086 for the canonical migration contract. This page still presents the J-001–J-095 historical audit narrative; its narrative source is the pre-sharding snapshot `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`, while the machine contract is pinned to the `aa01c7c6531cb769a284c8e36cd4573f298497bd` snapshot above. Those sources serve different purposes and must not be conflated. Current cards are in `docs/{zh,en}/ledger/`.
 
@@ -28,6 +28,17 @@
 - **Local current main**: `ae218cd3081c327e467284aa4c9d17692d00ea6f` at the publication-verification snapshot (`git rev-parse HEAD`). This page then creates a new evidence-page commit, so this SHA is an explicit pre-update snapshot and is not presented as the page’s own new commit.
 - **Public remote**: at that verification snapshot, both `git ls-remote origin refs/heads/main` and the GitHub API returned `ae218cd3081c327e467284aa4c9d17692d00ea6f`. The public `main` therefore carried the local target commits, with `0329027…` as an ancestor. The stale local tracking ref `e35e921…` is not public-state evidence. After this page update lands, re-read the public head with the commands below; do not treat this snapshot SHA as the SHA of later commits.
 - These are three separate claims: which change was delivered, where local `main` pointed at that verification snapshot, and what public readers could reach at that verification snapshot. The final state after this page update is established by fresh outputs from `git rev-parse HEAD`, `git ls-remote origin refs/heads/main`, and the GitHub API. The GitHub rendering measurements in this page remain pinned to `0c5bf915221dd3831384af76de9009faacbe4a2f`; they establish only that fixed commit’s rendering boundary, not unmeasured mobile visual usability or historical semantic correctness.
+
+## Provenance / 迁移谱系
+
+以下是可由 `git show <sha> -- <file>` 重建的跨提交迁移谱系；它明确说明迁移不是由单一提交完成。机器校验要求这些行与 canonical manifest 一致。
+
+- `db26cfd4c91b176298a8e32656273e2692c9d4c1` — establish the closed-set migration manifest and paired J-001--J-086 cards; files: `docs/evidence/legacy-ledger-migration-manifest.json`, `docs/zh/ledger/*.md`, `docs/en/ledger/*.md`, `scripts/check.py`, `scripts/generate_legacy_manifest.py`
+- `81338a3f042991213d8bf26dbc13459313f298d1` — enforce UNKNOWN audience boundaries; files: `scripts/check.py`
+- `e2d602295f3476e2593979d8df134bd878687fa4` — close English UNKNOWN magnitude variants; files: `scripts/check.py`
+- `d76fcb0234ea9bfd5c7c5b7c78f179223626bfed` — harden legacy UNKNOWN and manifest boundaries; files: `scripts/check.py`
+- `f2eadd109ca9db427868d9b96299e72bd01609ea` — close audience migration and duplicate-field gaps; files: `README.md`, `README.en.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `scripts/check.py`
+- `0924d6c356a4313ffb16c63d9cd0adb4a9bdec65` — remove the final legacy warning contract; files: `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `scripts/check.py`
 
 ## Coverage summary
 

@@ -3,6 +3,60 @@
   "purpose": "Canonical bilingual migration inventory for the closed legacy set J-001--J-086.",
   "baseline_sha": "aa01c7c6531cb769a284c8e36cd4573f298497bd",
   "baseline_source": "git show <baseline_sha>:docs/{zh,en}/90-ledger.md",
+  "provenance": [
+    {
+      "sha": "db26cfd4c91b176298a8e32656273e2692c9d4c1",
+      "role": "establish the closed-set migration manifest and paired J-001--J-086 cards",
+      "files": [
+        "docs/evidence/legacy-ledger-migration-manifest.json",
+        "docs/zh/ledger/*.md",
+        "docs/en/ledger/*.md",
+        "scripts/check.py",
+        "scripts/generate_legacy_manifest.py"
+      ]
+    },
+    {
+      "sha": "81338a3f042991213d8bf26dbc13459313f298d1",
+      "role": "enforce UNKNOWN audience boundaries",
+      "files": [
+        "scripts/check.py"
+      ]
+    },
+    {
+      "sha": "e2d602295f3476e2593979d8df134bd878687fa4",
+      "role": "close English UNKNOWN magnitude variants",
+      "files": [
+        "scripts/check.py"
+      ]
+    },
+    {
+      "sha": "d76fcb0234ea9bfd5c7c5b7c78f179223626bfed",
+      "role": "harden legacy UNKNOWN and manifest boundaries",
+      "files": [
+        "scripts/check.py"
+      ]
+    },
+    {
+      "sha": "f2eadd109ca9db427868d9b96299e72bd01609ea",
+      "role": "close audience migration and duplicate-field gaps",
+      "files": [
+        "README.md",
+        "README.en.md",
+        "docs/zh/90-ledger.md",
+        "docs/en/90-ledger.md",
+        "scripts/check.py"
+      ]
+    },
+    {
+      "sha": "0924d6c356a4313ffb16c63d9cd0adb4a9bdec65",
+      "role": "remove the final legacy warning contract",
+      "files": [
+        "docs/zh/90-ledger.md",
+        "docs/en/90-ledger.md",
+        "scripts/check.py"
+      ]
+    }
+  ],
   "closed_ids": [
     "J-001",
     "J-002",

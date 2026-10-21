@@ -2,7 +2,7 @@
 
 > **中英双语投影规则：** 本文件与[英文对应文件](legacy-ledger-migration.en.md)是同一份历史审计清单的两个公开投影，使用相同的 J-NNN 编号并在同一次提交中同步维护；任何一方都不因语言而拥有更高的事实权威。当前判断字段的文件层级事实源仍是稳定编号的双语台账文件，而不是其中某一种语言；中英文出现差异时，应在同一次提交中修复为等价投影。
 >
-> **Canonical closed-set contract / 机器校验闭集：** 本轮迁移的可执行契约是 [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json)：只对 J-001–J-086 逐卡、逐字段记录双语当前值、固定 Git 历史值、文件/行锚点及 `KNOWN`/`UNKNOWN` 状态。历史值由 `aa01c7c6531cb769a284c8e36cd4573f298497bd` 的 `git show` 重读；`python3 scripts/check.py` 会验证锚点、双语状态一致性、UNKNOWN 的边界理由与当前值摘要，并在 `--self-test` 中攻击这些边界。下方 J-001–J-095 长表保留为完整公开审计叙事；它不是闭集契约的替代物。
+> **Canonical closed-set contract / 机器校验闭集：** 本轮迁移的可执行契约是 [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json)：只对 J-001–J-086 逐卡、逐字段记录双语当前值、固定 Git 历史值、文件/行锚点及 `KNOWN`/`UNKNOWN` 状态。历史值由 `aa01c7c6531cb769a284c8e36cd4573f298497bd` 的 `git show` 重读；`python3 scripts/check.py` 会验证锚点、双语状态一致性、UNKNOWN 的边界理由与当前值摘要；默认 `python3 scripts/check.py --self-test` 运行并完整报告迁移闭集的负例，`--self-test --full` 才运行全仓库 fuzz 负例。下方 J-001–J-095 长表保留为完整公开审计叙事；它不是闭集契约的替代物。
 >
 > **Closed set / 闭集**：J-001–J-086（canonical migration contract）。本页仍展示 J-001–J-095 的历史审计叙事；历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`，而机器契约固定使用上述 `aa01c7c6531cb769a284c8e36cd4573f298497bd`，两者用途不同，不得混称。当前卡位于 `docs/{zh,en}/ledger/`。
 
@@ -28,6 +28,17 @@
 - **本地当前主线 / Local current main**：本轮发布复核时为 `ae218cd3081c327e467284aa4c9d17692d00ea6f`（`git rev-parse HEAD`）。本页随后会产生一个新的证据页提交，因此该 SHA 是本页更新前的可核验快照，不冒充本页自身的新提交。
 - **公开远端 / Public remote**：该复核时点 `git ls-remote origin refs/heads/main` 与 GitHub API 均返回 `ae218cd3081c327e467284aa4c9d17692d00ea6f`；因此公开 `main` 承载本地目标提交，且 `0329027…` 是其祖先。此前本地跟踪引用曾停在 `e35e921…`，不作为公开状态证据。页内更新提交之后，公开头会按下方命令重新读取，不能把这个快照 SHA 当成后续提交的 SHA。
 - 这三层分别回答「哪次改动交付」「本地在该复核时点指向哪里」「公开读者在该复核时点指向哪里」。本页更新后的最终状态以 `git rev-parse HEAD`、`git ls-remote origin refs/heads/main` 和 GitHub API 三者重新输出为准；本页的 GitHub 渲染测量仍固定在 `0c5bf915221dd3831384af76de9009faacbe4a2f`；它证明的是该固定提交的渲染边界，不把未测的移动端视觉体验或历史语义正确性扩大为已验证。
+
+## Provenance / 迁移谱系
+
+以下是可由 `git show <sha> -- <file>` 重建的跨提交迁移谱系；它明确说明迁移不是由单一提交完成。机器校验要求这些行与 canonical manifest 一致。
+
+- `db26cfd4c91b176298a8e32656273e2692c9d4c1` — establish the closed-set migration manifest and paired J-001--J-086 cards; files: `docs/evidence/legacy-ledger-migration-manifest.json`, `docs/zh/ledger/*.md`, `docs/en/ledger/*.md`, `scripts/check.py`, `scripts/generate_legacy_manifest.py`
+- `81338a3f042991213d8bf26dbc13459313f298d1` — enforce UNKNOWN audience boundaries; files: `scripts/check.py`
+- `e2d602295f3476e2593979d8df134bd878687fa4` — close English UNKNOWN magnitude variants; files: `scripts/check.py`
+- `d76fcb0234ea9bfd5c7c5b7c78f179223626bfed` — harden legacy UNKNOWN and manifest boundaries; files: `scripts/check.py`
+- `f2eadd109ca9db427868d9b96299e72bd01609ea` — close audience migration and duplicate-field gaps; files: `README.md`, `README.en.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `scripts/check.py`
+- `0924d6c356a4313ffb16c63d9cd0adb4a9bdec65` — remove the final legacy warning contract; files: `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `scripts/check.py`
 
 ## Coverage summary / 覆盖摘要
 

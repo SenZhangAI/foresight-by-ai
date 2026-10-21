@@ -18,6 +18,7 @@ No dependencies beyond the standard library. The checks read the tree only;
 """
 
 import io
+import fnmatch
 import itertools
 import hashlib
 import json
@@ -59,6 +60,45 @@ LEGACY_AUDIENCE_SCALE_MAX = 86
 LEGACY_MANIFEST = "docs/evidence/legacy-ledger-migration-manifest.json"
 LEGACY_BASELINE_SHA = "aa01c7c6531cb769a284c8e36cd4573f298497bd"
 LEGACY_CURRENT_DIGEST = "028a8cc252d03475c9a752935ca73e79c0d0acc9c97ccc69f07a0a3a8e3f8d67"
+LEGACY_PROVENANCE = [
+    {
+        "sha": "db26cfd4c91b176298a8e32656273e2692c9d4c1",
+        "role": "establish the closed-set migration manifest and paired J-001--J-086 cards",
+        "files": [
+            "docs/evidence/legacy-ledger-migration-manifest.json",
+            "docs/zh/ledger/*.md",
+            "docs/en/ledger/*.md",
+            "scripts/check.py",
+            "scripts/generate_legacy_manifest.py",
+        ],
+    },
+    {
+        "sha": "81338a3f042991213d8bf26dbc13459313f298d1",
+        "role": "enforce UNKNOWN audience boundaries",
+        "files": ["scripts/check.py"],
+    },
+    {
+        "sha": "e2d602295f3476e2593979d8df134bd878687fa4",
+        "role": "close English UNKNOWN magnitude variants",
+        "files": ["scripts/check.py"],
+    },
+    {
+        "sha": "d76fcb0234ea9bfd5c7c5b7c78f179223626bfed",
+        "role": "harden legacy UNKNOWN and manifest boundaries",
+        "files": ["scripts/check.py"],
+    },
+    {
+        "sha": "f2eadd109ca9db427868d9b96299e72bd01609ea",
+        "role": "close audience migration and duplicate-field gaps",
+        "files": ["README.md", "README.en.md", "docs/zh/90-ledger.md", "docs/en/90-ledger.md", "scripts/check.py"],
+    },
+    {
+        "sha": "0924d6c356a4313ffb16c63d9cd0adb4a9bdec65",
+        "role": "remove the final legacy warning contract",
+        "files": ["docs/zh/90-ledger.md", "docs/en/90-ledger.md", "scripts/check.py"],
+    },
+]
+LEGACY_PROVENANCE_MARKER = "## Provenance / 迁移谱系"
 LEGACY_IDS = tuple("J-%03d" % n for n in range(1, LEGACY_AUDIENCE_SCALE_MAX + 1))
 LEGACY_FIELD_KEYS = (
     "proposed_date", "judgment", "audience_scale", "diffusion_gate", "lens",
@@ -117,6 +157,19 @@ def warn(check, detail):
 
 def read(path):
     return io.open(os.path.join(REPO, path), encoding="utf-8").read()
+
+
+def _git_changed_paths(sha):
+    """Return paths changed by a pinned provenance commit."""
+    for root in (REPO, SOURCE_REPO):
+        try:
+            output = subprocess.check_output(
+                ["git", "-C", root, "show", "--format=", "--name-only", sha],
+                stderr=subprocess.STDOUT).decode("utf-8")
+            return {line.strip() for line in output.splitlines() if line.strip()}
+        except (OSError, subprocess.CalledProcessError):
+            continue
+    return None
 
 
 def _git_show_text(path, sha):
@@ -195,6 +248,41 @@ def _legacy_unknown_is_safe(lang, field):
     return True
 
 
+def _legacy_provenance_line(event):
+    return "- `%s` — %s; files: %s" % (
+        event["sha"], event["role"], ", ".join("`%s`" % path for path in event["files"]))
+
+
+def check_legacy_provenance(manifest):
+    """Keep the public evidence page tied to a fixed, rebuildable Git trail."""
+    if manifest.get("provenance") != LEGACY_PROVENANCE:
+        fail("legacy-migration", "manifest provenance does not match the fixed cross-commit trail")
+    for event in LEGACY_PROVENANCE:
+        changed = _git_changed_paths(event["sha"])
+        if changed is None:
+            fail("legacy-migration", "provenance commit does not exist: %s" % event["sha"])
+            continue
+        for pattern in event["files"]:
+            if not any(fnmatch.fnmatch(path, pattern) for path in changed):
+                fail("legacy-migration", "%s does not change a declared provenance path %s" %
+                     (event["sha"], pattern))
+    for lang in LANGS:
+        suffix = "" if lang == "zh" else ".en"
+        path = "docs/evidence/legacy-ledger-migration%s.md" % suffix
+        try:
+            text = read(path)
+        except (OSError, IOError):
+            fail("legacy-migration", "%s: provenance evidence page is missing" % path)
+            continue
+        if LEGACY_PROVENANCE_MARKER not in text:
+            fail("legacy-migration", "%s: provenance section is missing" % path)
+        for event in LEGACY_PROVENANCE:
+            line = _legacy_provenance_line(event)
+            if line not in text:
+                fail("legacy-migration", "%s: provenance line for %s is missing or altered" %
+                     (path, event["sha"]))
+
+
 def check_legacy_migration(cards):
     """Validate the closed legacy set against a pinned Git baseline and manifest.
 
@@ -209,6 +297,7 @@ def check_legacy_migration(cards):
     except (OSError, ValueError) as exc:
         fail("legacy-migration", "%s: cannot read canonical manifest: %s" % (LEGACY_MANIFEST, exc))
         return
+    check_legacy_provenance(manifest)
     if manifest.get("baseline_sha") != LEGACY_BASELINE_SHA:
         fail("legacy-migration", "manifest baseline_sha is not the pinned migration baseline")
     if manifest.get("closed_ids") != list(LEGACY_IDS):
@@ -2165,6 +2254,19 @@ def check_chain_lens_cards():
             original = [line for line in text.splitlines() if CHAIN_U_LABEL[lang] in line]
             print("  U-original: %s" % (original[0] if original else "(implicit empty for cardless chain)"))
 
+def run_migration_check():
+    """Run only the closed-set migration contract for the bounded self-test."""
+    cards = {lang: check_ledger(lang) for lang in LANGS}
+    check_legacy_migration(cards)
+    if failures:
+        print("\nFAILED (%d):" % len(failures))
+        for check, detail in failures:
+            print("  [%s] %s" % (check, detail))
+        return 1
+    print("migration contract checks pass")
+    return 0
+
+
 def run_checks():
     files = markdown_files()
     check_public_internal_ids(files)
@@ -2238,9 +2340,12 @@ def _copy_checkable_tree(dst):
     return dst
 
 
-def _run_checker(root):
+def _run_checker(root, focused=False):
+    args = [sys.executable, os.path.abspath(__file__), "--repo", root]
+    if focused:
+        args.append("--migration-check")
     proc = subprocess.Popen(
-        [sys.executable, os.path.abspath(__file__), "--repo", root],
+        args,
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     out, _ = proc.communicate()
     return proc.returncode, out.decode("utf-8", "replace")
@@ -4239,6 +4344,16 @@ def _break_legacy_current_unknown_english_abbreviated_magnitude(root):
     return _break_legacy_current_unknown_english_variant(root, "1.2k")
 
 
+def _break_legacy_provenance(root):
+    path = os.path.join(root, "docs", "evidence", "legacy-ledger-migration.md")
+    text = _read_file(path)
+    needle = "db26cfd4c91b176298a8e32656273e2692c9d4c1"
+    if needle not in text:
+        raise AssertionError("migration evidence has no provenance SHA")
+    _write_file(path, text.replace(needle, "0000000000000000000000000000000000000000", 1))
+    return u"Chinese migration evidence changes the first provenance SHA"
+
+
 def _break_legacy_missing_card(root):
     path = os.path.join(root, LEGACY_MANIFEST)
     data = json.loads(_read_file(path))
@@ -4446,6 +4561,17 @@ NEGATIVE_CASES = [
      _break_duplicate_card),
 ]
 
+# The default self-test is the migration acceptance suite. It is deliberately
+# bounded: the historical all-checks fuzz suite remains available with
+# `--self-test --full`, while this suite completes within the quality-command
+# budget and reports every migration boundary it exercises.
+MIGRATION_NEGATIVE_CASES = [
+    (u"legacy provenance is rewritten", "legacy-migration", _break_legacy_provenance),
+] + [
+    case for case in NEGATIVE_CASES
+    if case[0].startswith("legacy ")
+]
+
 # Edits that must NOT be reported: the checker has to stay usable.
 POSITIVE_CASES = [
     (u"prose below the last card belongs to no card", _text_after_last_card),
@@ -4499,7 +4625,7 @@ def _embedded_counts(output):
     return tuple((lang, int(count)) for lang, count in pairs)
 
 
-def self_test():
+def self_test(full=False):
     base = tempfile.mkdtemp(prefix="ledger-check-self-test-")
     counter = itertools.count()
     passed, failed = 0, 0
@@ -4509,13 +4635,32 @@ def self_test():
 
     try:
         pristine = _copy_checkable_tree(os.path.join(base, "pristine"))
-        code, out = _run_checker(pristine)
+        code, out = _run_checker(pristine, focused=not full)
         if code != 0:
             print("baseline: the unbroken copy already fails (exit %d), so the "
                   "negative cases below would prove nothing. Fix the tree "
                   "first.\n" % code)
             print(out)
             return 1
+        if not full:
+            print("baseline: migration contract exits 0\n")
+
+            def fresh_migration():
+                work = os.path.join(base, "migration-case-%d" % next(counter))
+                shutil.copytree(pristine, work)
+                return work
+
+            print("migration negative cases (every case must exit non-zero and "
+                  "name the migration check):")
+            for title, tag, mutate in MIGRATION_NEGATIVE_CASES:
+                work = fresh_migration()
+                detail = mutate(work)
+                code, out = _run_checker(work, focused=True)
+                ok = code != 0 and ("[%s]" % tag) in out
+                passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+                report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
+            print("\nmigration self-test: %d passed, %d failed" % (passed, failed))
+            return 1 if failed else 0
         print("baseline: unbroken copy exits 0\n")
         baseline_embedded_counts = _embedded_counts(out)
         if (len(baseline_embedded_counts) != 2 or
@@ -4602,25 +4747,30 @@ def self_test():
         shutil.rmtree(base, ignore_errors=True)
 
 
-USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test]
+USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test [--full] | --migration-check]
 
   (no argument)  check this repository
   --repo DIR     check the tree rooted at DIR instead
-  --self-test    break a temporary copy of the tree one way at a time and
-                 assert every breakage is caught by the right check, plus the
-                 edits that must NOT be reported (the repository is not
-                 touched). The count is printed; it is not fixed here, because
-                 a number in prose goes stale the moment a case is added."""
+  --migration-check  run only the closed-set J-001--J-086 migration contract
+  --self-test    run the bounded migration negative suite; add --full for the
+                 complete all-checks fuzz suite. The repository is not touched.
+"""
 
 
 def main(argv):
     global REPO
     args = list(argv)
     wants_self_test = False
+    wants_full_self_test = False
+    wants_migration_check = False
     while args:
         arg = args.pop(0)
         if arg == "--self-test":
             wants_self_test = True
+        elif arg == "--full":
+            wants_full_self_test = True
+        elif arg == "--migration-check":
+            wants_migration_check = True
         elif arg == "--repo":
             if not args:
                 print("--repo needs a directory\n%s" % USAGE)
@@ -4632,7 +4782,15 @@ def main(argv):
         else:
             print("unknown argument: %s\n%s" % (arg, USAGE))
             return 2
-    return self_test() if wants_self_test else run_checks()
+    if wants_full_self_test and not wants_self_test:
+        print("--full requires --self-test\n%s" % USAGE)
+        return 2
+    if wants_migration_check and (wants_self_test or wants_full_self_test):
+        print("--migration-check cannot be combined with --self-test\n%s" % USAGE)
+        return 2
+    if wants_migration_check:
+        return run_migration_check()
+    return self_test(full=wants_full_self_test) if wants_self_test else run_checks()
 
 
 if __name__ == "__main__":
