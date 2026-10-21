@@ -28,7 +28,11 @@ Physical exposure and infrastructure fragility → losses and insurance prices r
 
 **Question entrance:** How are commuting, care, and shopping trips jointly shaped by transit, road capacity, energy prices, and residential geography?
 
-**Coverage status:** This entrance is included in C16’s boundary and leading indicators, but has no independent judgment card yet. It is therefore landscape only: “travel will automatically switch to one mode” is not covered. The next step is comparable city data on mode, reliability, affordability, and care trips, linked to housing and climate exposure with the same household denominator.
+**Covered judgment:** [J-122](../ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode) turns transport from a question entrance into an independent judgment: from 2027 to 2035, reliability, affordability, residential density, and care responsibility are more likely to stratify household mobility than to make everyone automatically switch to one mode. It does not count existing embodied-intelligence cards as transport coverage.
+
+Residential geography and care responsibilities fix trips that must happen → road capacity, transit frequency, energy prices, and extreme weather jointly change reliability and cost → households with less time slack and greater care responsibility absorb waiting, transfers, and cancellations first → households combine modes and adjust activity radii rather than synchronously switching to one mode when a technology appears. Leading indicators are grouped reliability, total trip time, cost/income ratio, disruption, care-trip access, mode mix, and cancellations by income and care responsibility.
+
+**Boundary still open:** J-122 has no independent external comparison source yet; a common cross-city household denominator and long-run panels for reliability, affordability, and care trips remain missing. Transport therefore has a reachable judgment entry, not a complete forecast of urban transport or autonomous driving.
 
 ## Subdomains not yet covered and next gaps
 
@@ -36,10 +40,10 @@ Physical exposure and infrastructure fragility → losses and insurance prices r
 - **Public safety and crime:** Not yet covered. Next, harmonise reports, victimisation surveys, policing inputs, and justice outcomes, separating actual risk from reporting probability and institutional trust.
 - **Income, wealth distribution, and inequality:** moved to independent [C18 Income, Wealth, and Inequality](180-income-wealth-inequality.md), with [J-118](../ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) first testing how productivity differentiates claims, then whether taxation, housing, bargaining power, and public services diffuse gains; comparable long-run household distributional panels remain open.
 
-C16 therefore currently means “three independent question entrances, two with full cards and one landscape only; public safety and crime remain uncovered, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
+C16 therefore currently means “three independent question entrances, each with a judgment card, but cross-city evidence for climate and transport remains incomplete; public safety and crime remain uncovered, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
 
 ## Cards and evidence boundary
 
-- [J-112](../ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access) and [J-113](../ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption) are the current full judgments.
+- [J-112](../ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access), [J-113](../ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption), and [J-122](../ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode) are the current full judgments.
 - The audience scales on both cards are impact reaches, not verified society-scale repeated actions; confidence and falsifiers are in the cards.
 - External sources are registered as EXT-120 and EXT-121 in the bilingual ledger; they support mechanisms and comparisons only, and missing evidence is not upgraded into a definite forecast.

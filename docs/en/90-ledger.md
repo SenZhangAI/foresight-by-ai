@@ -38,7 +38,7 @@
 - [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
 - [28. C18 income, wealth, and inequality judgment card](#28-c18-income-wealth-and-inequality-judgment-card)
 - [30. C20 Boundaries Before Capability judgment cards](#30-c20-boundaries-before-capability-judgment-cards)
-- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md)
+- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md) · [J-122](ledger/122-122.md) · [J-122](ledger/122-122.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
@@ -102,7 +102,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 
 > This is the progressive entry for phone and narrow-screen readers. It does not use a wide table: every ID links directly to its corresponding full judgment card, whose existing contract retains the judgment, time window, falsifier, leading indicator, confidence, audience scale, status, and source/limitation fields. Use the complete wide table below when you need one-shot comparison or cell-by-cell audit; **the wide table below remains the complete audit entry**.
 
-### Browse by ID (J-001–J-121)
+### Browse by ID (J-001–J-122)
 
 - [J-001 · Unit reasoning cost keeps falling](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling)
 - [J-002 · “Selecting objectively high quality from abundant output” is not a durable scarcity, but merely a 2–4 year window](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window)
@@ -225,8 +225,9 @@ Copy the fields, not the example ID. The example does not enter the formal index
 - [J-119 · Risk recombines before public safety improves; no single technology produces safety automatically](ledger/117-119.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically)
 - [J-120 · Rights around data and model outputs will layer first; liability will remain attached to recoverable organizations](ledger/120-121.md#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations)
 - [J-121 · Cross-border institutions will zone around critical dependencies; global rules will not converge automatically](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
+- [J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
 
-> **Full judgment card链接说明:** All 121 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
+> **Full judgment card链接说明:** All 122 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
 
 ---
 ## 2. Registered-judgment overview
@@ -360,6 +361,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-119](#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically) | 2026-10-19 | From 2027–2035, visible street violence may fall or remain low while online fraud, identity theft, and organised property crime move or expand; overall safety depends on recovery, responsibility, and appeal improving together | 2027-01-01 to 2035-12-31 | Medium | — | [C19: Public Safety and Crime](chains/190-public-safety-and-crime.md) | not completed this round; the independent pass retains the mechanism that demography, opportunity structure, and governance jointly affect crime, without extrapolating lower street violence into lower crime of every type or online-fraud growth into inevitable global crime growth. | ACTIVE | 2029-12-31 |
 | [J-120](#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations) | 2026-10-22 | From 2027–2035, data access, training provenance, model-output licensing, and agent-incident liability are more likely to form layered, revocable, scenario-specific rights; consequential compensation and correction remain attached primarily to recoverable organizations, insurance, and contracts | 2027-01-01 to 2035-12-31 | Medium | J-055, J-098 | [C20: Boundaries Before Capability](chains/200-law-property-liability-and-geopolitics.md) | not completed this round; the independent pass agrees with accountability, audit, and human-oversight governance consensus, while cross-jurisdiction rules and incident denominators remain open. | ACTIVE | 2029-12-31 |
 | [J-121](#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically) | 2026-10-22 | From 2027–2035, states and large organizations are more likely to rewrite cross-border availability of data, compute, and critical infrastructure through licensing, export controls, procurement, standards, localization, and mutual recognition, producing zones with different interoperability | 2027-01-01 to 2035-12-31 | Medium | J-059, J-060, J-061, J-062 | [C20: Boundaries Before Capability](chains/200-law-property-liability-and-geopolitics.md) | not completed this round; it does not extrapolate current controls into permanent zoning, and tests the claim through enforceable licences, switching costs, and actual service availability. | ACTIVE | 2029-12-31 |
+| [J-122](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode) | 2026-10-22 | From 2027–2035, urban commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income and high-care-responsibility households first absorb waiting, transfers, and disruption rather than everyone automatically switching to one mode | 2027-01-01 to 2035-12-31 | Low | J-096, J-109, J-113 | [C16: Culture, Climate, and Everyday Carrying Capacity](chains/160-culture-climate-mobility.md) | not completed this round; it does not treat electrification, autonomous driving, or transit expansion as automatic universal mode switching, and cross-city household denominators and long-run panels remain open. | ACTIVE | 2029-12-31 |
 
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
@@ -375,7 +377,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-121; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-122; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -499,6 +501,7 @@ J-118 <- —
 J-119 <- —
 J-120 <- J-055, J-098
 J-121 <- J-059, J-060, J-061, J-062
+J-122 <- J-096, J-109, J-113
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -659,7 +662,7 @@ This table is also **the single list of social dimensions**. The status column h
 | Income, wealth distribution, and inequality | How do returns to skill, returns to capital, inheritance, tax systems, and redistribution determine the distribution of income and wealth; how do changes in that distribution pass into consumption, housing, education, and political choices? | Medium | Covered (C18: J-118 judges that productivity first differentiates claims, then bargaining power, public services, taxation, and broad asset ownership determine diffusion; comparable long-run distributional panels remain open) |
 | Climate and the environment | How do emissions, extreme weather, adaptation investment, insurance, and energy prices pass climate and environmental change into agriculture, housing, health, and migration; which groups bear the most? | Medium | Partially covered (C16: independent climate/environment problem entrance and J-113; grouped long-run series on exposure, insurance, adaptation investment, and travel disruption remain open) |
 | Public safety and crime | How do age structure, urbanization, economic opportunity, policing, and technical means change the kinds and rates of crime; what decides the relative weight of online fraud and offline crime? | Medium | Covered (C19: J-119 separates victimisation, reports, administrative records, perceived safety, and governance; cross-country victim denominators and recovery/appeal series remain open) |
-| Transport and everyday mobility | How do urban form, where housing sits, energy prices, and vehicle and road regimes determine how people travel each day and how far; how do changes in travel in turn rewrite the geography of housing and work? | Medium | Partially covered (C16: independent transport/everyday-mobility problem entrance, currently landscape only with no independent judgment card; next step is a common household denominator across mode, reliability, affordability, and care trips) |
+| Transport and everyday mobility | How do urban form, where housing sits, energy prices, and vehicle and road regimes determine how people travel each day and how far; how do changes in travel in turn rewrite the geography of housing and work? | Medium | Partially covered (C16: J-122 establishes a judgment about reliability, affordability, care responsibility, and household mobility stratification; common cross-city household denominators, long-run panels, and evidence for single-mode substitution remain open) |
 
 <details>
 <summary>Correction record, 2026-10-10: original wording of rewritten questions, renamed rows, regraded rows, and added rows</summary>
@@ -1767,3 +1770,8 @@ hand before publishing:
 
 - **Full card**: [Open the complete J-121 card](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
 - **One-sentence judgment**: From 2027–2035, states and large organizations are more likely first to rewrite cross-border availability of data, compute, and critical infrastructure through licensing, export controls, procurement, standards, localization, and mutual-recognition agreements, producing institutional zones with different interoperability, rather than automatically converging on one global rulebook; this is not a forecast of war or of one country’s inevitable victory.
+
+#### J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode
+
+- **Full card**: [Open the complete J-122 card](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
+- **One-sentence judgment**: From 2027 to 2035, in high-income cities with comparable data, commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income households and households making frequent care trips will first absorb waiting, transfer, and disruption costs, rather than everyone automatically switching to one transport mode.
