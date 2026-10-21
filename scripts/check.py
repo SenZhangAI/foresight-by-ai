@@ -4681,6 +4681,18 @@ def self_test(full=False):
         if not full:
             print("baseline: migration contract exits 0\n")
 
+            # Exercise the bounded-wait seam itself. A timeout is an incomplete
+            # result, never a passing negative case, even if partial diagnostics
+            # already contain the expected tag.
+            timeout_code, timeout_out = _run_checker(pristine, focused=True, timeout=0)
+            timeout_ok = (timeout_code == 124 and
+                          "[self-test-timeout]" in timeout_out and
+                          not _negative_case_passed(timeout_code, timeout_out,
+                                                    "legacy-migration"))
+            passed, failed = (passed + 1, failed) if timeout_ok else (passed, failed + 1)
+            report(timeout_ok, "self-test timeout is incomplete",
+                   "exit %d, expected INCOMPLETE (timeout)" % timeout_code)
+
             def fresh_migration():
                 work = os.path.join(base, "migration-case-%d" % next(counter))
                 shutil.copytree(pristine, work)
