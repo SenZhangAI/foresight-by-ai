@@ -2,7 +2,7 @@
 
 > **中英双语投影规则：** 本文件与[英文对应文件](legacy-ledger-migration.en.md)是同一份历史审计清单的两个公开投影，使用相同的 J-NNN 编号并在同一次提交中同步维护；任何一方都不因语言而拥有更高的事实权威。当前判断字段的文件层级事实源仍是稳定编号的双语台账文件，而不是其中某一种语言；中英文出现差异时，应在同一次提交中修复为等价投影。
 >
-> **Canonical closed-set contract / 机器校验闭集：** 本轮迁移的可执行契约是 [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json)：只对 J-001–J-086 逐卡、逐字段记录双语当前值、固定 Git 历史值、文件/行锚点及 `KNOWN`/`UNKNOWN` 状态。历史值由 `aa01c7c6531cb769a284c8e36cd4573f298497bd` 的 `git show` 重读；`python3 scripts/check.py` 会验证锚点、双语状态一致性、UNKNOWN 的边界理由与当前值摘要；默认 `python3 scripts/check.py --self-test` 运行并完整报告迁移闭集的负例，`--self-test --full` 才运行全仓库 fuzz 负例。下方 J-001–J-095 长表保留为完整公开审计叙事；它不是闭集契约的替代物。
+> **Canonical closed-set contract / 机器校验闭集：** 本轮迁移的可执行契约是 [`legacy-ledger-migration-manifest.json`](legacy-ledger-migration-manifest.json)：只对 J-001–J-086 逐卡、逐字段记录双语当前值、固定 Git 历史值、文件/行锚点及 `KNOWN`/`UNKNOWN` 状态。历史值由 `aa01c7c6531cb769a284c8e36cd4573f298497bd` 的 `git show` 重读；`python3 scripts/check.py` 会验证锚点、双语状态一致性、UNKNOWN 的边界理由与当前值摘要；默认 `python3 scripts/check.py --self-test` 运行并完整报告迁移闭集的负例（每个负例有界等待，超时会报告为未完成），`--self-test --full` 才运行全仓库 fuzz 负例。下方 J-001–J-095 长表保留为完整公开审计叙事；它不是闭集契约的替代物。
 >
 > **Closed set / 闭集**：J-001–J-086（canonical migration contract）。本页仍展示 J-001–J-095 的历史审计叙事；历史源为分片前 Git 快照 `1f99c832be8cbc82631beb7679d82994a2b7e0fb^`，而机器契约固定使用上述 `aa01c7c6531cb769a284c8e36cd4573f298497bd`，两者用途不同，不得混称。当前卡位于 `docs/{zh,en}/ledger/`。
 

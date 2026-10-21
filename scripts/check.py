@@ -159,6 +159,9 @@ def read(path):
     return io.open(os.path.join(REPO, path), encoding="utf-8").read()
 
 
+SKIP_PROVENANCE_GIT = False
+
+
 def _git_changed_paths(sha):
     """Return paths changed by a pinned provenance commit."""
     for root in (REPO, SOURCE_REPO):
@@ -258,6 +261,8 @@ def check_legacy_provenance(manifest):
     if manifest.get("provenance") != LEGACY_PROVENANCE:
         fail("legacy-migration", "manifest provenance does not match the fixed cross-commit trail")
     for event in LEGACY_PROVENANCE:
+        if SKIP_PROVENANCE_GIT:
+            continue
         changed = _git_changed_paths(event["sha"])
         if changed is None:
             fail("legacy-migration", "provenance commit does not exist: %s" % event["sha"])
@@ -2340,15 +2345,23 @@ def _copy_checkable_tree(dst):
     return dst
 
 
-def _run_checker(root, focused=False):
+def _run_checker(root, focused=False, timeout=30, skip_provenance_git=False):
     args = [sys.executable, os.path.abspath(__file__), "--repo", root]
     if focused:
         args.append("--migration-check")
+    if skip_provenance_git:
+        args.append("--skip-provenance-git")
     proc = subprocess.Popen(
         args,
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    out, _ = proc.communicate()
-    return proc.returncode, out.decode("utf-8", "replace")
+    try:
+        out, _ = proc.communicate(timeout=timeout)
+        return proc.returncode, out.decode("utf-8", "replace")
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        out, _ = proc.communicate()
+        return 124, out.decode("utf-8", "replace") + \
+            "\n[self-test-timeout] checker exceeded %ss\n" % timeout
 
 
 def _ledger(root, lang):
@@ -4567,9 +4580,24 @@ NEGATIVE_CASES = [
 # budget and reports every migration boundary it exercises.
 MIGRATION_NEGATIVE_CASES = [
     (u"legacy provenance is rewritten", "legacy-migration", _break_legacy_provenance),
-] + [
-    case for case in NEGATIVE_CASES
-    if case[0].startswith("legacy ")
+    (u"legacy manifest baseline SHA drifts", "legacy-migration", _break_legacy_baseline_sha),
+    (u"legacy historical value is rewritten", "legacy-migration", _break_legacy_historical_value),
+    (u"legacy bilingual status differs", "legacy-migration", _break_legacy_bilingual_status),
+    (u"legacy UNKNOWN fabricates audience data", "legacy-migration", _break_legacy_unknown_fabrication),
+    (u"legacy card and manifest drift together", "legacy-migration", _break_legacy_paired_current_edit),
+    (u"legacy closed set loses one card", "legacy-migration", _break_legacy_missing_card),
+    (u"legacy manifest source anchor goes stale", "legacy-migration", _break_legacy_stale_anchor),
+    (u"legacy manifest has an extra id", "legacy-migration", _break_legacy_extra_id),
+    (u"legacy manifest duplicates an id", "legacy-migration", _break_legacy_duplicate_card),
+    (u"legacy KNOWN field is missing", "legacy-migration", _break_legacy_known_missing_field),
+    (u"legacy UNKNOWN reason is missing", "legacy-migration", _break_legacy_unknown_missing_reason),
+    (u"legacy current UNKNOWN fabricates audience data", "audience-scale", _break_legacy_current_unknown_fabrication),
+    (u"legacy current UNKNOWN field is duplicated", "legacy-migration", _break_legacy_duplicate_current_unknown_field),
+    (u"legacy current English UNKNOWN field is duplicated", "legacy-migration", _break_legacy_duplicate_current_unknown_field_en),
+    (u"legacy current English UNKNOWN carries a bare magnitude", "audience-scale", _break_legacy_current_unknown_english_magnitude),
+    (u"legacy current English UNKNOWN carries a plural magnitude", "audience-scale", _break_legacy_current_unknown_english_plural_magnitude),
+    (u"legacy current English UNKNOWN carries a multi-word magnitude", "audience-scale", _break_legacy_current_unknown_english_multi_magnitude),
+    (u"legacy current English UNKNOWN carries a compact magnitude", "audience-scale", _break_legacy_current_unknown_english_abbreviated_magnitude),
 ]
 
 # Edits that must NOT be reported: the checker has to stay usable.
@@ -4655,7 +4683,7 @@ def self_test(full=False):
             for title, tag, mutate in MIGRATION_NEGATIVE_CASES:
                 work = fresh_migration()
                 detail = mutate(work)
-                code, out = _run_checker(work, focused=True)
+                code, out = _run_checker(work, focused=True, skip_provenance_git=True)
                 ok = code != 0 and ("[%s]" % tag) in out
                 passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
                 report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
@@ -4743,6 +4771,10 @@ def self_test(full=False):
 
         print("\nself-test: %d passed, %d failed" % (passed, failed))
         return 1 if failed else 0
+    except KeyboardInterrupt:
+        print("\nself-test: incomplete (interrupted after %d passed, %d failed)" %
+              (passed, failed))
+        return 124
     finally:
         shutil.rmtree(base, ignore_errors=True)
 
@@ -4758,7 +4790,7 @@ USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test [--full] | 
 
 
 def main(argv):
-    global REPO
+    global REPO, SKIP_PROVENANCE_GIT
     args = list(argv)
     wants_self_test = False
     wants_full_self_test = False
@@ -4771,6 +4803,8 @@ def main(argv):
             wants_full_self_test = True
         elif arg == "--migration-check":
             wants_migration_check = True
+        elif arg == "--skip-provenance-git":
+            SKIP_PROVENANCE_GIT = True
         elif arg == "--repo":
             if not args:
                 print("--repo needs a directory\n%s" % USAGE)
