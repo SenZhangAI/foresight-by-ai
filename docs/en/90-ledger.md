@@ -1714,10 +1714,11 @@ hand before publishing:
 
 ## 25. Judgment cards for C16: Culture, Climate, and Everyday Carrying Capacity
 
-> C16 has two full cards for culture/leisure and climate/environment; transport is landscape only, public safety and crime has moved to independent C19, and income/wealth distribution has moved to independent C18. See the [C16 chain](chains/160-culture-climate-mobility.md).
+> C16 has three full cards for culture/leisure, climate/environment, and transport; transport is an independent J-122 judgment. Public safety and crime has moved to independent C19, and income/wealth distribution has moved to independent C18. See the [C16 chain](chains/160-culture-climate-mobility.md).
 
 - [J-112](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
 - [J-113](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
+- [J-122](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
 
 
 ## 26. New C12 technology-sequencing judgment cards

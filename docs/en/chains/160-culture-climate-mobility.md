@@ -45,5 +45,5 @@ C16 therefore currently means “three independent question entrances, each with
 ## Cards and evidence boundary
 
 - [J-112](../ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access), [J-113](../ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption), and [J-122](../ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode) are the current full judgments.
-- The audience scales on both cards are impact reaches, not verified society-scale repeated actions; confidence and falsifiers are in the cards.
-- External sources are registered as EXT-120 and EXT-121 in the bilingual ledger; they support mechanisms and comparisons only, and missing evidence is not upgraded into a definite forecast.
+- The audience scales on all three cards are impact reaches, not verified society-scale repeated actions; confidence and falsifiers are in each card.
+- J-112 has external comparison EXT-120 (`PARTIAL`), and J-113 has EXT-121 (`COMPLETED`); J-122 has no independent external source and external comparison was not completed this round. Sources support mechanisms and comparisons only; missing evidence is not upgraded into a definite forecast.
