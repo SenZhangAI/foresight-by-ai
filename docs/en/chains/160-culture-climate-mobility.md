@@ -37,10 +37,10 @@ Residential geography and care responsibilities fix trips that must happen → r
 ## Subdomains not yet covered and next gaps
 
 - **Religion and belief**: moved to independent [C17 Religion and Belief](170-religion-and-belief.md), with [J-117](../ledger/117-119.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation) covering affiliation, practice, institutional carriers, and normative identity; comparable long-run series remain open.
-- **Public safety and crime:** Not yet covered. Next, harmonise reports, victimisation surveys, policing inputs, and justice outcomes, separating actual risk from reporting probability and institutional trust.
+- **Public safety and crime:** moved to the independent [C19 Public Safety and Crime](190-public-safety-and-crime.md), with [J-119](../ledger/117-119.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically) covering actual risk, reporting probability, and institutional response; comparable long-run cross-country series remain open.
 - **Income, wealth distribution, and inequality:** moved to independent [C18 Income, Wealth, and Inequality](180-income-wealth-inequality.md), with [J-118](../ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses) first testing how productivity differentiates claims, then whether taxation, housing, bargaining power, and public services diffuse gains; comparable long-run household distributional panels remain open.
 
-C16 therefore currently means “three independent question entrances, each with a judgment card, but cross-city evidence for climate and transport remains incomplete; public safety and crime remain uncovered, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
+C16 therefore currently means “three independent question entrances, each with a judgment card, but cross-city evidence for climate and transport remains incomplete; public safety and crime has moved to C19, while income and wealth distribution has moved to C18,” not a completed six-dimension forecast.
 
 ## Cards and evidence boundary
 
