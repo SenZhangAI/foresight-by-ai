@@ -159,9 +159,6 @@ def read(path):
     return io.open(os.path.join(REPO, path), encoding="utf-8").read()
 
 
-SKIP_PROVENANCE_GIT = False
-
-
 def _git_changed_paths(sha):
     """Return paths changed by a pinned provenance commit."""
     for root in (REPO, SOURCE_REPO):
@@ -261,8 +258,6 @@ def check_legacy_provenance(manifest):
     if manifest.get("provenance") != LEGACY_PROVENANCE:
         fail("legacy-migration", "manifest provenance does not match the fixed cross-commit trail")
     for event in LEGACY_PROVENANCE:
-        if SKIP_PROVENANCE_GIT:
-            continue
         changed = _git_changed_paths(event["sha"])
         if changed is None:
             fail("legacy-migration", "provenance commit does not exist: %s" % event["sha"])
@@ -2345,12 +2340,10 @@ def _copy_checkable_tree(dst):
     return dst
 
 
-def _run_checker(root, focused=False, timeout=30, skip_provenance_git=False):
+def _run_checker(root, focused=False, timeout=30):
     args = [sys.executable, os.path.abspath(__file__), "--repo", root]
     if focused:
         args.append("--migration-check")
-    if skip_provenance_git:
-        args.append("--skip-provenance-git")
     proc = subprocess.Popen(
         args,
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -4703,7 +4696,7 @@ def self_test(full=False):
             for title, tag, mutate in MIGRATION_NEGATIVE_CASES:
                 work = fresh_migration()
                 detail = mutate(work)
-                code, out = _run_checker(work, focused=True, skip_provenance_git=True)
+                code, out = _run_checker(work, focused=True)
                 ok = _negative_case_passed(code, out, tag)
                 passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
                 report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
@@ -4810,7 +4803,7 @@ USAGE = """usage: python3 scripts/check.py [--repo DIR] [--self-test [--full] | 
 
 
 def main(argv):
-    global REPO, SKIP_PROVENANCE_GIT
+    global REPO
     args = list(argv)
     wants_self_test = False
     wants_full_self_test = False
@@ -4823,8 +4816,6 @@ def main(argv):
             wants_full_self_test = True
         elif arg == "--migration-check":
             wants_migration_check = True
-        elif arg == "--skip-provenance-git":
-            SKIP_PROVENANCE_GIT = True
         elif arg == "--repo":
             if not args:
                 print("--repo needs a directory\n%s" % USAGE)
