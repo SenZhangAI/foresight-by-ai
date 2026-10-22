@@ -38,6 +38,7 @@
 - [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
 - [28. C18 income, wealth, and inequality judgment card](#28-c18-income-wealth-and-inequality-judgment-card)
 - [30. C20 Boundaries Before Capability judgment cards](#30-c20-boundaries-before-capability-judgment-cards)
+- [31. C21 The Migration of Social Relationships judgment card](#31-c21-the-migration-of-social-relationships-judgment-card)
 - [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md) · [J-122](ledger/122-122.md) · [J-123](ledger/123-123.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
@@ -1721,7 +1722,11 @@ hand before publishing:
 
 - [J-112](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
 - [J-113](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
-- [J-122](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
+
+#### J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode
+
+- **Full card**: [Open the complete J-122 card](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
+- **One-sentence judgment**: From 2027 to 2035, in high-income cities with comparable data, commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income households and households making frequent care trips will first absorb waiting, transfer, and disruption costs, rather than everyone automatically switching to one transport mode.
 
 
 ## 26. New C12 technology-sequencing judgment cards
@@ -1775,10 +1780,9 @@ hand before publishing:
 - **Full card**: [Open the complete J-121 card](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
 - **One-sentence judgment**: From 2027–2035, states and large organizations are more likely first to rewrite cross-border availability of data, compute, and critical infrastructure through licensing, export controls, procurement, standards, localization, and mutual-recognition agreements, producing institutional zones with different interoperability, rather than automatically converging on one global rulebook; this is not a forecast of war or of one country’s inevitable victory.
 
-#### J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode
+## 31. C21 The Migration of Social Relationships judgment card
 
-- **Full card**: [Open the complete J-122 card](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
-- **One-sentence judgment**: From 2027 to 2035, in high-income cities with comparable data, commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income households and households making frequent care trips will first absorb waiting, transfer, and disruption costs, rather than everyone automatically switching to one transport mode.
+> C21 starts from courtship, friendship, community, and intergenerational relationships beyond family care, not from AI or “abundance → scarcity” as the sole engine. J-123 is a landscape-only card; repeated actions, historical 2+2 calibration, cross-institution long-run outcomes, and exit/repair data after human–AI involvement remain open.
 
 #### J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)
 
