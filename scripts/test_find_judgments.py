@@ -93,8 +93,17 @@ class QueryToolTests(unittest.TestCase):
         self.assert_metadata_drift(
             self.repo / "docs" / "zh" / "ledger" / "122-122.md",
             "2027-01-01 至 2035-12-31",
-            "2027-01-01 至 2034-12-31",
+            "2027-01-01 至 2035-12-30",
         )
+
+    def test_duplicate_query_field_fails_explicitly(self) -> None:
+        path = self.repo / "docs" / "zh" / "ledger" / "123-123.md"
+        text = path.read_text(encoding="utf-8")
+        marker = "- **状态**：LANDSCAPE_ONLY"
+        self.assertEqual(text.count(marker), 1)
+        path.write_text(text.replace(marker, marker + "\n" + marker, 1), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "duplicate query field"):
+            self.module.build_records()
 
     def test_unsupported_status_fails_explicitly(self) -> None:
         path = self.repo / "docs" / "zh" / "ledger" / "123-123.md"

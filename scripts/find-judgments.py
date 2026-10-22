@@ -106,11 +106,14 @@ def iter_card_blocks(path: Path) -> Iterable[tuple[str, str, list[str], int]]:
 
 
 def parse_field(lines: list[str], label: str) -> str:
+    matches = []
     for line in lines:
         match = FIELD_LINE.match(line)
         if match and match.group(1).strip() == label:
-            return match.group(2).strip()
-    return ""
+            matches.append(match.group(2).strip())
+    if len(matches) > 1:
+        raise ValueError(f"duplicate query field {label!r}: {matches!r}")
+    return matches[0] if matches else ""
 
 
 def normalize_status(raw: str, lang: str) -> str:
@@ -179,8 +182,10 @@ def load_language(lang: str) -> dict[str, Card]:
 
 
 def time_window_signature(value: str) -> tuple[str, ...]:
-    """Compare bilingual windows by their explicit year/month endpoints."""
-    tokens = tuple(re.findall(r"\b\d{4}(?:[-/]\d{1,2})?\b", unicodedata.normalize("NFKC", value)))
+    """Compare bilingual windows by their explicit date or year endpoints."""
+    tokens = tuple(
+        re.findall(r"\b\d{4}(?:[-/]\d{1,2}(?:[-/]\d{1,2})?)?\b", unicodedata.normalize("NFKC", value))
+    )
     return tokens or (normalize_time_window(value),)
 
 
