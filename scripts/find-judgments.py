@@ -191,6 +191,7 @@ def time_window_signature(value: str) -> tuple[str, ...]:
 
 def normalize_time_window(value: str) -> str:
     value = unicodedata.normalize("NFKC", value).lower()
+    value = re.sub(r"\bto\b", "-", value)
     value = value.replace("–", "-").replace("—", "-").replace("至", "-")
     value = "".join(char for char in value if unicodedata.category(char)[0] not in {"P", "S"} or char == "-")
     return re.sub(r"\s+", "", value)
@@ -200,7 +201,10 @@ def time_window_matches(requested: str, actual: str) -> bool:
     requested_signature = time_window_signature(requested)
     actual_signature = time_window_signature(actual)
     if any(re.search(r"\b\d{4}", token) for token in requested_signature):
-        return all(token in actual_signature for token in requested_signature)
+        return all(
+            any(token == actual_token or actual_token.startswith(token + "-") for actual_token in actual_signature)
+            for token in requested_signature
+        )
     return normalize_time_window(requested) in normalize_time_window(actual)
 
 

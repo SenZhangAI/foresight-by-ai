@@ -143,6 +143,16 @@ class QueryToolTests(unittest.TestCase):
         self.assertIn("No judgments matched the query.", empty.stdout)
         self.assertNotIn("J-001", empty.stdout)
 
+        year = subprocess.run(
+            [sys.executable, str(SCRIPT), "--time-window", "2027"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertEqual(year.returncode, 0)
+        self.assertIn("Result count:", year.stdout)
+        self.assertNotIn("Traceback", year.stderr)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
