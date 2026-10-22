@@ -228,7 +228,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 - [J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
 - [J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)](ledger/123-123.md#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only)
 
-> **Full judgment card链接说明:** All 122 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
+> **Full judgment card links:** All 123 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
 
 ---
 ## 2. Registered-judgment overview
