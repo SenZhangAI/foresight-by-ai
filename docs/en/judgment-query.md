@@ -2,7 +2,7 @@
 
 [中文版](../zh/judgment-query.md)
 
-The repository's 119 judgment cards are not copied into a second static index. The bilingual cards under `docs/zh/ledger/` and `docs/en/ledger/` are the only inputs. On every invocation, the reproducible query tool parses both projections, requires the complete `J-001`–`J-119` set in each language, checks that normalized chains, status, confidence, and time-window endpoints agree, and applies the filters to that shared ID set. A missing card or bilingual metadata drift is an explicit structural error (exit code 2), not an incomplete result. This prevents a third maintained index from drifting away from the cards.
+The repository currently registers 123 judgment cards, not a second static index. The bilingual cards under `docs/zh/ledger/` and `docs/en/ledger/` are the only inputs. On every invocation, the reproducible query tool parses both projections, discovers the contiguous `J-001`–`J-NNN` range from the card headings (currently ending at `J-123`), requires the two languages to expose the same ID set, checks that normalized chains, status, confidence, and time-window endpoints agree, and applies filters to that shared set. A missing card, ID gap, or bilingual metadata drift is an explicit structural error (exit code 2), not an incomplete result. This prevents a third maintained index from drifting away from the cards.
 
 ## Usage
 
@@ -15,16 +15,19 @@ python3 scripts/find-judgments.py --chain C4 --status ACTIVE
 Composable filters:
 
 - `--chain C4`: a reasoning-chain identifier such as `C4` or `C12`;
-- `--status ACTIVE|HIT|FALSIFIED|REVISED`: the card status;
+- `--status ACTIVE|HIT|FALSIFIED|REVISED|LANDSCAPE_ONLY`: the card status; `LANDSCAPE_ONLY` is a landscape-only card and must not be treated as an actionable judgment or bet;
 - `--confidence HIGH|MEDIUM|LOW|LOW_LANDSCAPE`: the normalized confidence value;
 - `--time-window TEXT`: match the card's time-window field (case, whitespace, common dash differences, and bilingual `to`/`至` wording are normalized; explicit year/month endpoints are compared structurally);
 - `--format table|json`: a bilingual Markdown table by default, or machine-readable JSON.
 
-At least one filter is required. With no filter, the command fails explicitly instead of silently dumping the whole ledger. Unknown statuses, confidence values, or formats are rejected by the CLI. A valid combination with no matches prints `No judgments matched the query.` and preserves an empty result rather than falling back to the full register.
+At least one filter is required. With no filter, the command fails explicitly instead of silently dumping the whole ledger. Unknown statuses, confidence values, or formats are rejected by the CLI. A syntactically valid chain/status combination whose chain is not registered prints `No judgments matched the query.` and exits 0, preserving an empty result rather than falling back to the full register.
 
-The output includes normalized `status` and `confidence`, both languages' original metadata and time-window values, both one-sentence judgments, and a card link for each language. `--format json` also preserves each language's title, status, confidence, judgment, time window, and link for downstream tooling.
+The default table output includes normalized `status`, `confidence`, and time window, both one-sentence judgments, and a card link for each language. `--format json` additionally preserves each language's title, raw status, raw confidence, judgment, time window, and link for downstream tooling.
 
-## Reproducible example: current judgments in the C4 embodied-intelligence chain
+## Negative cases and failure boundaries
+
+Maintainers can run `python3 scripts/test_find_judgments.py` for the query tool's negative suite: deleting a card from one language reports a bilingual ID mismatch; changing the other language's `status`, `confidence`, or `time-window` reports metadata drift; and an unsupported status fails explicitly. Direct calls also reject unknown field values and unfiltered queries without printing the full register.
+
 
 Command:
 

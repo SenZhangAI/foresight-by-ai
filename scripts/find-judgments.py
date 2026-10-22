@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Query the bilingual judgment-card register without rebuilding a second index.
 
-The canonical input is the 119 card shards under ``docs/{zh,en}/ledger``.  The
+The canonical input is the card shards under ``docs/{zh,en}/ledger``.  The
 script parses both projections on every invocation, compares their J-NNN sets,
 and then applies the same normalized filters to the shared IDs.  It deliberately
 requires at least one filter: an accidental unfiltered invocation must not look
@@ -31,7 +31,7 @@ REPO = Path(__file__).resolve().parent.parent
 LANGS = ("zh", "en")
 CARD_HEADING = re.compile(r"^###\s+(J-\d{3})\s+·\s+(.+?)\s*$")
 FIELD_LINE = re.compile(r"^-\s+\*\*(.+?)\*\*\s*(?:：|:)\s*(.*)$")
-CHAIN_RE = re.compile(r"\bC\d{1,2}\b")
+CHAIN_RE = re.compile(r"\bC\d+\b")
 
 FIELD_NAMES = {
     "zh": {
@@ -49,14 +49,12 @@ FIELD_NAMES = {
         "judgment": "One-sentence judgment",
     },
 }
-STATUS_VALUES = {"ACTIVE", "HIT", "FALSIFIED", "REVISED"}
+STATUS_VALUES = {"ACTIVE", "HIT", "FALSIFIED", "REVISED", "LANDSCAPE_ONLY"}
 CONFIDENCE_VALUES = {"HIGH", "MEDIUM", "LOW", "LOW_LANDSCAPE"}
 CONFIDENCE_DISPLAY = {
     "zh": {"高": "HIGH", "中": "MEDIUM", "低": "LOW", "低（仅图景）": "LOW_LANDSCAPE"},
     "en": {"High": "HIGH", "Medium": "MEDIUM", "Low": "LOW", "Low (landscape only)": "LOW_LANDSCAPE"},
 }
-EXPECTED_IDS = {f"J-{number:03d}" for number in range(1, 120)}
-
 
 class RegisterError(ValueError):
     """The bilingual register violates the query tool's structural contract."""
@@ -116,7 +114,15 @@ def parse_field(lines: list[str], label: str) -> str:
 
 
 def normalize_status(raw: str, lang: str) -> str:
-    match = re.search(r"\b(ACTIVE|HIT|FALSIFIED|REVISED)\b", raw)
+    # Status notes are allowed after a valid token (for example, a parenthetical
+    # review note), but an unknown prefix/suffix must never be hidden by a
+    # substring match such as ``UNKNOWN (previously ACTIVE)``.
+    value = raw.strip()
+    match = re.fullmatch(
+        r"`?(LANDSCAPE_ONLY|ACTIVE|HIT|FALSIFIED|REVISED)`?"
+        r"\s*(?:[。.]|[（(][\s\S]*[）)][。.]?|[—-]{1,2}[\s\S]*)?",
+        value,
+    )
     if match:
         return match.group(1)
     raise ValueError(f"{lang}: cannot parse status: {raw!r}")
@@ -197,19 +203,27 @@ def card_link(card: Card) -> str:
     return f"{card.path}#{card.anchor}"
 
 
+def validate_register_ids(ids: set[str], lang: str) -> None:
+    """Reject malformed or gapped IDs without freezing a card-count constant."""
+    malformed = sorted(card_id for card_id in ids if not re.fullmatch(r"J-\d{3}", card_id))
+    if malformed:
+        raise RegisterError(f"invalid judgment IDs in {lang}: {malformed}")
+    if not ids:
+        raise RegisterError(f"empty judgment register in {lang}")
+    numbers = sorted(int(card_id[2:]) for card_id in ids)
+    expected = set(range(1, numbers[-1] + 1))
+    actual = set(numbers)
+    if actual != expected:
+        missing = [f"J-{number:03d}" for number in sorted(expected - actual)]
+        raise RegisterError(f"gapped judgment register in {lang}; missing={missing}")
+
+
 def build_records() -> list[dict]:
     projections = {lang: load_language(lang) for lang in LANGS}
-    zh_ids, en_ids = set(projections["zh"]), set(projections["en"])
-    if zh_ids != EXPECTED_IDS or en_ids != EXPECTED_IDS:
-        missing_zh = sorted(EXPECTED_IDS - zh_ids)
-        extra_zh = sorted(zh_ids - EXPECTED_IDS)
-        missing_en = sorted(EXPECTED_IDS - en_ids)
-        extra_en = sorted(en_ids - EXPECTED_IDS)
-        raise RegisterError(
-            "incomplete J-001–J-119 register; "
-            f"zh missing={missing_zh}, extra={extra_zh}; "
-            f"en missing={missing_en}, extra={extra_en}"
-        )
+    ids = {lang: set(cards) for lang, cards in projections.items()}
+    for lang, card_ids in ids.items():
+        validate_register_ids(card_ids, lang)
+    zh_ids, en_ids = ids["zh"], ids["en"]
     if zh_ids != en_ids:
         missing_zh = sorted(en_ids - zh_ids)
         missing_en = sorted(zh_ids - en_ids)
@@ -241,7 +255,7 @@ def build_records() -> list[dict]:
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Query the bilingual J-001–J-119 judgment-card register.")
+    parser = argparse.ArgumentParser(description="Query the bilingual judgment-card register discovered from the ledger shards.")
     parser.add_argument("--chain", metavar="C4", help="filter by chain identifier, e.g. C4")
     parser.add_argument("--status", choices=sorted(STATUS_VALUES), help="filter by card status")
     parser.add_argument("--confidence", choices=sorted(CONFIDENCE_VALUES), help="filter by normalized confidence")
@@ -250,7 +264,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     args = parser.parse_args(argv)
     if not any((args.chain, args.status, args.confidence, args.time_window)):
         parser.error("at least one filter is required; refusing an unfiltered full-register dump")
-    if args.chain and not re.fullmatch(r"C\d{1,2}", args.chain.upper()):
+    if args.chain and not re.fullmatch(r"C\d+", args.chain.upper()):
         parser.error("--chain must be a chain identifier such as C4 or C12")
     return args
 
