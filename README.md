@@ -148,7 +148,7 @@
 
 **发布验证边界**：当前已核验公开 `main` 的文件可取性与桌面 GitHub 渲染；GitHub 窄屏／移动端渲染尚未验证。因而桌面证据不能被解读为所有视口均已验证。
 
-本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 122 张判断卡片、20 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
+本入口不固定承诺判断卡总数：卡片会随研究、修订和迁移继续增长或调整。**当前快照为 123 张判断卡片、21 条独立推演链**；这不是永久承诺，下一次变更即可更新。需要查看当前规模时，请以[判断台账](docs/zh/90-ledger.md)及其分片导航中的当前快照为准；完整清单、逐卡状态、历史校准状态、来源边界和缺口只在台账与协议中维护。
 
 ### 全景覆盖矩阵（当前边界）
 
@@ -181,7 +181,7 @@
 | 法律、产权与责任 | 部分覆盖 | [C2 现实信号](docs/zh/chains/20-real-signals-become-contracts.md)；[C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[C20 边界先于能力](docs/zh/chains/200-law-property-liability-and-geopolitics.md)；[J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理)；[J-120（正式判断）与 J-121（仅图景）](docs/zh/ledger/120-121.md) | 数据所有权、模型产出许可、跨制度代理事故与责任制度的完整边界仍未闭合；C20 的跨法域规则与事故分母尚待登记 |
 | 人与人协作 | 部分覆盖 | [远期图景第 4 节](docs/zh/30-far.md#4-人与人协作从共同做步骤转向共同选择承诺)与 [4.1 节](docs/zh/30-far.md#41-换一个起点一次被迫的大实验之后协作停在了混合)；[J-104](docs/zh/ledger/103-110.md#j-104--居家有酬工作停在分众档千万级周频2023-年后进入平台期去留由雇主决定)（不以 AI 为前提，千万量级）；J-049–J-050 仍为「仅图景」，卡上写明缺什么 | 具体制度、组织案例与可观测重复行动；「共同承担不可逆承诺」尚无可数单位 |
 | 人与 AI 关系 | 部分覆盖 | [C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md)；[J-098](docs/zh/ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理)；[远期图景 3.1 节](docs/zh/30-far.md#31-换一个起点已经到了社会级的人与-ai-关系是问)与 [J-103](docs/zh/ledger/103-110.md#j-103--社会级的-ai-动作是问不是拍板亿级周频靠免费档撑住)（「问」已过闸一）；远期 J-047–J-048 仍为「仅图景」，卡上写明缺什么 | 授权、退出、有限主体地位的跨制度案例与长期产品数据 |
-| 社会关系演进 | 部分覆盖 | [远期图景第 7 节](docs/zh/30-far.md#7-社会关系以家庭照护为例先变的是谁来做而不是关系还在不在)；[J-096](docs/zh/ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)、[J-100](docs/zh/ledger/96-102.md#j-100--具身照护先重分配家庭角色而非消除家庭照护关系)（家庭照护角色，千万量级）、J-041；J-042 仍为「仅图景」，卡上写明缺什么 | 第 7 节只以家庭照护为例，婚恋、友谊、社区、代际等关系尚未覆盖；中、日、印等国的合格照护者周口径；「强关系数量不随通信成本下降而扩大」这条子规律尚无历史对照组 |
+| 社会关系演进 | 部分覆盖 | [C21 社会关系的迁移](docs/zh/chains/210-social-relationships-beyond-care.md)；[远期图景第 7 节](docs/zh/30-far.md#7-社会关系以家庭照护为例先变的是谁来做而不是关系还在不在)；[J-096](docs/zh/ledger/96-102.md#j-096--老龄化与家庭缩小把部分照护推向正式服务与协调层)、[J-100](docs/zh/ledger/96-102.md#j-100--具身照护先重分配家庭角色而非消除家庭照护关系)（家庭照护角色，千万量级）、J-041；J-042 仍为「仅图景」，卡上写明缺什么 | C21 新增婚恋、友谊、社区与代际关系的独立社会图景入口，但统一重复动作、历史 2+2 校准、跨制度长期结果以及人与 AI 介入后的退出／修复数据仍缺；不能用家庭照护一例代替其他关系 |
 | 算力的上游物料与气候耦合 | 部分覆盖 | [C8 材料与气候](docs/zh/chains/80-fab-materials-and-climate.md)；J-092–J-095 | 跨企业验证周期、多场址气候减产、保险与成本分摊序列 |
 | 技术能力出现次序的社会后果 | 已覆盖 | [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md)；J-087–J-091 | 跨国长期组织数据仍是证据缺口 |
 | 技术能力到达次序 | 已覆盖 | [C12 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)；[J-001](docs/zh/ledger/01-10.md#j-001--同等能力的单位推理成本继续下降)、J-006–J-016、[J-114–J-116](docs/zh/ledger/114-116.md) | 「哪类能力先到」在 L1–L9 中无透镜承载；能力到达不等于采用，采用与社会后果由 C7、C4 承接 |
@@ -204,9 +204,9 @@
 
 下表不作预测，只说明为什么这些维度属于全社会图景，以及现有正文在哪里仅有接触。它与上面的矩阵共同构成覆盖边界；状态、名称与顺序由 `scripts/check.py` 与台账 §六校验。
 
-本轮已为「公共安全与犯罪」建立 [C19 独立入口](docs/zh/chains/190-public-safety-and-crime.md)与 [J-119 判断卡](docs/zh/ledger/117-119.md#j-119--风险会先重组公共安全不会由单一技术自动改善)，并为法律、产权、责任与地缘制度建立 [C20 独立入口](docs/zh/chains/200-law-property-liability-and-geopolitics.md)与 [J-120（正式判断）与 J-121（仅图景）](docs/zh/ledger/120-121.md)。当前没有仍处于「尚未建立入口」状态的维度——这只表示下表所列的社会维度目前各自至少有一个可到达的入口，不表示全方位图景已经完成；上方矩阵中的「部分覆盖」和本节下一段列出的证据、国家与长期结局缺口仍然有效。下一轮若发现新缺口，再在这里登记。
+本轮已为「公共安全与犯罪」建立 [C19 独立入口](docs/zh/chains/190-public-safety-and-crime.md)与 [J-119 判断卡](docs/zh/ledger/117-119.md#j-119--风险会先重组公共安全不会由单一技术自动改善)，为法律、产权、责任与地缘制度建立 [C20 独立入口](docs/zh/chains/200-law-property-liability-and-geopolitics.md)与 [J-120（正式判断）与 J-121（仅图景）](docs/zh/ledger/120-121.md)，并为家庭照护之外的婚恋、友谊、社区与代际关系建立 [C21 独立社会图景入口](docs/zh/chains/210-social-relationships-beyond-care.md)。当前没有仍处于「尚未建立入口」状态的维度——这只表示下表所列的社会维度目前各自至少有一个可到达的入口，不表示全方位图景已经完成；上方矩阵中的「部分覆盖」和本节下一段列出的证据、国家与长期结局缺口仍然有效。下一轮若发现新缺口，再在这里登记。
 
-这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点；C13 已从财政与主权债务补入一条不以 AI 为前提的政治起点；C14 又补入选举结果与安全预算的窄入口，但只覆盖四国的制度响应，不等于战争、极化或所有国家的政治预测；C20 进一步把数据、模型产出、跨境代理事故与关键基础设施议价放入同一条制度链，但跨法域规则、实际事故和执行分母仍未闭合。数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
+这是一轮仍在扩展的公开档案，不声称「全方位图景」已经完成。C3、C4、C5、C6、C7、C8 已分别提供首轮覆盖；C11 已从代理制度、法律责任与撤回权补入一条非技术起点；C13 已从财政与主权债务补入一条不以 AI 为前提的政治起点；C14 又补入选举结果与安全预算的窄入口，但只覆盖四国的制度响应，不等于战争、极化或所有国家的政治预测；C20 进一步把数据、模型产出、跨境代理事故与关键基础设施议价放入同一条制度链，但跨法域规则、实际事故和执行分母仍未闭合。数据产权、模型产出许可、跨国长期组织数据、医疗长期结局、教育资格互认，以及芯片上游的跨企业验证周期、气候减产、保险和成本分摊仍有明确缺口。人与人协作仍主要依赖远期图景；人与 AI 关系已有制度化正文与 J-098，但跨制度案例和长期产品边界仍需继续补强。C21 现在把婚恋、友谊、社区与代际关系从家庭照护的单一例子中分离出来，但仍明确停在社会图景与研究缺口，未新增可用判断。所有缺口保留在台账中，不能因有一条链可读就当作证据闭合。
 
 </details>
 
@@ -233,7 +233,7 @@
 
 ### 阅读关系图（导航投影）
 
-下面的图是**局部关系示意／导航投影**：它只抽取少数推演链之间的推荐阅读关系，既不是完整的 C1–C20 链依赖图，也不表示图中未画出的链或边不存在。要查看完整的 [C1–C20 推演链登记](#推演链登记)，请以登记表为准；要追踪判断之间的完整因果依赖，请进入[判断台账的 `depends-on` 依赖链](docs/zh/90-ledger.md#三depends-on-依赖链)。
+下面的图是**局部关系示意／导航投影**：它只抽取少数推演链之间的推荐阅读关系，既不是完整的 C1–C21 链依赖图，也不表示图中未画出的链或边不存在。要查看完整的 [C1–C21 推演链登记](#推演链登记)，请以登记表为准；要追踪判断之间的完整因果依赖，请进入[判断台账的 `depends-on` 依赖链](docs/zh/90-ledger.md#三depends-on-依赖链)。
 
 ```mermaid
 flowchart LR
@@ -267,7 +267,7 @@ flowchart LR
 | [历史校准后的独立重新预测：当前状态](docs/zh/independent-reprediction-status.md) | [Independent Re-prediction After Historical Calibration: Current Status](docs/en/independent-reprediction-status.md) | 冻结输入、旧文档隔离、两轮重判及尚未证明的边界 |
 | [项目地图与能力声明](docs/zh/04-project-map.md) | [Project Map and Capability Declaration](docs/en/04-project-map.md) | 公开入口分工、当前边界与 `ship:` 结构占位的实际边界 |
 | [下一研究缺口优先级](docs/zh/06-research-gaps.md) | [Next Research-Gap Priorities](docs/en/06-research-gaps.md) | 部分覆盖维度的排序、下一项研究动作与不可越过的证据边界 |
-| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C20 二十条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压与 C14 选票与安全账本都是不以 AI 为前提的政治／制度链；C19 公共安全与犯罪分开受害、记录、安全感与治理责任）；编号与「什么算一条链」的判据只在登记表里 |
+| [推演链登记](#推演链登记) | [Chain registry](README.en.md#chain-registry) | C1–C21 二十一条并列推演链（含 C12 技术能力演进链：技术能力到达次序，不提前替社会下结论；C13 财政挤压与 C14 选票与安全账本都是不以 AI 为前提的政治／制度链；C19 公共安全与犯罪分开受害、记录、安全感与治理责任）；编号与「什么算一条链」的判据只在登记表里 |
 | [近期／中期／远期图景](docs/zh/10-near.md) · [中期](docs/zh/20-mid.md) · [远期](docs/zh/30-far.md) | [近期](docs/en/10-near.md) · [中期](docs/en/20-mid.md) · [远期](docs/en/30-far.md) | 横向全景故事与各自的判断链接 |
 | [商机候选](docs/zh/40-opportunities.md) | [Opportunity Candidates](docs/en/40-opportunities.md) | 候选与窗口清单 |
 | [判断台账](docs/zh/90-ledger.md) | [Judgment Ledger](docs/en/90-ledger.md) | 唯一事实源、状态、来源与缺口 |
@@ -284,10 +284,10 @@ flowchart LR
 - **具身世界、生命与技能**： [C4 具身智能](docs/zh/chains/40-embodied-intelligence.md) · [C5 生物与医疗](docs/zh/chains/50-biology-medicine.md) · [C6 教育与技能](docs/zh/chains/60-education-skill-formation.md)
 - **组织、材料与信任**： [C7 技术与社会后果](docs/zh/chains/70-capability-to-social-consequences.md) · [C8 材料与气候](docs/zh/chains/80-fab-materials-and-climate.md) · [C10 信任抵押化](docs/zh/chains/100-trust-collateralization.md)
 - **照护、授权与技术次序**： [C9 老龄化与制度化照护](docs/zh/chains/90-aging-care-and-institutional-substitution.md) · [C11 授权先于智能](docs/zh/chains/110-authority-before-intelligence.md) · [C12 技术能力演进链](docs/zh/chains/120-technology-capability-sequence.md)
-- **政治、家庭与公共生活**： [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [C14 选票与安全账本](docs/zh/chains/140-ballots-and-security-ledgers.md) · [C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md) · [C16 文化、环境与日常承载](docs/zh/chains/160-culture-climate-mobility.md) · [C17 宗教与信仰](docs/zh/chains/170-religion-and-belief.md) · [C18 收入、财富与不平等](docs/zh/chains/180-income-wealth-inequality.md) · [C19 公共安全与犯罪](docs/zh/chains/190-public-safety-and-crime.md) · [C20 边界先于能力](docs/zh/chains/200-law-property-liability-and-geopolitics.md)
+- **政治、家庭与公共生活**： [C13 财政挤压](docs/zh/chains/130-fiscal-squeeze-who-gets-cut.md) · [C14 选票与安全账本](docs/zh/chains/140-ballots-and-security-ledgers.md) · [C15 家庭的三只时钟](docs/zh/chains/150-households-three-clocks.md) · [C16 文化、环境与日常承载](docs/zh/chains/160-culture-climate-mobility.md) · [C17 宗教与信仰](docs/zh/chains/170-religion-and-belief.md) · [C18 收入、财富与不平等](docs/zh/chains/180-income-wealth-inequality.md) · [C19 公共安全与犯罪](docs/zh/chains/190-public-safety-and-crime.md) · [C20 边界先于能力](docs/zh/chains/200-law-property-liability-and-geopolitics.md) · [C21 社会关系的迁移](docs/zh/chains/210-social-relationships-beyond-care.md)
 
 <details>
-<summary>展开完整 C1–C20 登记表（适合宽屏比较）</summary>
+<summary>展开完整 C1–C21 登记表（适合宽屏比较）</summary>
 
 | 编号 | 主题 | 证据成熟度（当前边界） | 文件与证据说明 |
 |---|---|---|---|
@@ -311,6 +311,7 @@ flowchart LR
 | C18 | 收入、财富与不平等：生产率增长如何穿过取得权扩散到家庭 | **已写成但证据仍开放**：从生产率、资产所有权、继承、税制与公共服务的历史候选案例组起步；J-118 判断收益先分化取得权，再由制度决定扩散，四个宏观案例尚未完成可复核校准，跨国长期分位面板待补 | [中文](docs/zh/chains/180-income-wealth-inequality.md) · [English](docs/en/chains/180-income-wealth-inequality.md) · [J-118](docs/zh/ledger/117-119.md#j-118--生产率增长先分化取得权再决定收入是否扩散) |
 | C19 | 公共安全与犯罪：安全不会被单一技术自动生产 | **已写成但证据仍开放**：独立入口分开受害、报案、记录、安全感与治理；J-119 判断可见暴力与线上损失分化，跨国受害分母与追偿、申诉序列待补 | [中文](docs/zh/chains/190-public-safety-and-crime.md) · [English](docs/en/chains/190-public-safety-and-crime.md) · [J-119](docs/zh/ledger/117-119.md#j-119--风险会先重组公共安全不会由单一技术自动改善) |
 | C20 | 边界先于能力：法律、产权、责任与地缘制度如何决定谁能行动 | **已写成但证据仍开放**：独立入口把使用权、收益权、责任权与裁决权分开；J-120（正式判断）与 J-121（仅图景） 覆盖数据与模型产出、跨制度代理事故、关键基础设施与跨境制度分区，但跨法域规则、事故样本与实际执行分母仍待登记 | [中文](docs/zh/chains/200-law-property-liability-and-geopolitics.md) · [English](docs/en/chains/200-law-property-liability-and-geopolitics.md) · [J-120（正式判断）与 J-121（仅图景）](docs/zh/ledger/120-121.md) |
+| C21 | 社会关系的迁移：关系不会一起消失，时间、场所与责任会重排 | **社会图景与研究缺口**：新增婚恋、友谊、社区与代际关系入口，不新增正式判断卡；重复动作、历史 2+2 校准、跨制度长期结果及人与 AI 介入后的退出／修复数据仍缺 | [中文](docs/zh/chains/210-social-relationships-beyond-care.md) · [English](docs/en/chains/210-social-relationships-beyond-care.md) · [J-042、J-047–J-048（相邻但不重复）](docs/zh/ledger/41-50.md) |
 
 > 入口状态只回答“读者现在能看到什么证据边界”。历史校准、留存重审和未来到期复核是三件不同的事；当前仍不能把任何一条链的存在或 `python3 scripts/check.py` 通过写成预测方法已经验证。完整状态、证伪条件与缺口以[判断台账](docs/zh/90-ledger.md)和各链正文为准。
 

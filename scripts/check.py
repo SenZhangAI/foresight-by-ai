@@ -651,8 +651,8 @@ def check_browse_navigation(lang, root, cards, card_files):
             fail("ledger-nav", "%s %s complete-shard link is not reachable (%s; expected %s)"
                  % (lang, jid, targets, expected_target))
 
-    heading = (r"^### Browse by ID \(J-001[–-]J-122\)$" if lang == "en"
-               else r"^### 按编号浏览（J-001[–-]J-122）$")
+    heading = (r"^### Browse by ID \(J-001[–-]J-123\)$" if lang == "en"
+               else r"^### 按编号浏览（J-001[–-]J-123）$")
     start = re.search(heading, root, re.M)
     marker = (r"^> \*\*Full judgment card" if lang == "en"
               else r"^> \*\*完整判断卡链接说明")

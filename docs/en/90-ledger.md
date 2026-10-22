@@ -38,7 +38,7 @@
 - [27. C17 religion and belief judgment card](#27-c17-religion-and-belief-judgment-card)
 - [28. C18 income, wealth, and inequality judgment card](#28-c18-income-wealth-and-inequality-judgment-card)
 - [30. C20 Boundaries Before Capability judgment cards](#30-c20-boundaries-before-capability-judgment-cards)
-- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md) · [J-122](ledger/122-122.md)
+- [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md) · [J-122](ledger/122-122.md) · [J-123](ledger/123-123.md)
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 
@@ -102,7 +102,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 
 > This is the progressive entry for phone and narrow-screen readers. It does not use a wide table: every ID links directly to its corresponding full judgment card, whose existing contract retains the judgment, time window, falsifier, leading indicator, confidence, audience scale, status, and source/limitation fields. Use the complete wide table below when you need one-shot comparison or cell-by-cell audit; **the wide table below remains the complete audit entry**.
 
-### Browse by ID (J-001–J-122)
+### Browse by ID (J-001–J-123)
 
 - [J-001 · Unit reasoning cost keeps falling](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling)
 - [J-002 · “Selecting objectively high quality from abundant output” is not a durable scarcity, but merely a 2–4 year window](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window)
@@ -226,6 +226,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 - [J-120 · Rights around data and model outputs will layer first; liability will remain attached to recoverable organizations](ledger/120-121.md#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations)
 - [J-121 · Cross-border institutions will zone around critical dependencies; global rules will not converge automatically](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
 - [J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
+- [J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)](ledger/123-123.md#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only)
 
 > **Full judgment card链接说明:** All 122 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
 
@@ -362,12 +363,13 @@ Copy the fields, not the example ID. The example does not enter the formal index
 | [J-120](#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations) | 2026-10-22 | From 2027–2035, data access, training provenance, model-output licensing, and agent-incident liability are more likely to form layered, revocable, scenario-specific rights; consequential compensation and correction remain attached primarily to recoverable organizations, insurance, and contracts | 2027-01-01 to 2035-12-31 | Medium | J-055, J-098 | [C20: Boundaries Before Capability](chains/200-law-property-liability-and-geopolitics.md) | not completed this round; the independent pass agrees with accountability, audit, and human-oversight governance consensus, while cross-jurisdiction rules and incident denominators remain open. | ACTIVE | 2029-12-31 |
 | [J-121](#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically) | 2026-10-22 | From 2027–2035, states and large organizations are more likely to rewrite cross-border availability of data, compute, and critical infrastructure through licensing, export controls, procurement, standards, localization, and mutual recognition, producing zones with different interoperability | 2027-01-01 to 2035-12-31 | Low (landscape only) | J-059, J-060, J-061, J-062 | [C20: Boundaries Before Capability](chains/200-law-property-liability-and-geopolitics.md) | not completed this round; common-SLA and terminal-state registration remain open, so this entrance is not a reproducible judgment | LANDSCAPE_ONLY | 2029-12-31 |
 | [J-122](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode) | 2026-10-22 | From 2027–2035, urban commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income and high-care-responsibility households first absorb waiting, transfers, and disruption rather than everyone automatically switching to one mode | 2027-01-01 to 2035-12-31 | Low | J-096, J-109, J-113 | [C16: Culture, Climate, and Everyday Carrying Capacity](chains/160-culture-climate-mobility.md) | not completed this round; it does not treat electrification, autonomous driving, or transit expansion as automatic universal mode switching, and cross-city household denominators and long-run panels remain open. | ACTIVE | 2029-12-31 |
-
+| [J-123](#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only) | 2026-10-22 | Expanding remote contact will not automatically increase shared bearing (landscape only) | 2027-01-01 to 2035-12-31 | Low (landscape only) | — | [C21: The Migration of Social Relationships](chains/210-social-relationships-beyond-care.md) | not completed this round; this card is not a restatement of a mainstream forecast | ACTIVE | 2027-06-30 |
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 
 > **Narrow-screen note (measured 2026-10-18):** The overview table requires horizontal swiping on a narrow screen; at simulated article widths of 320–382 px, Chinese shows 3–4/10 columns completely and English 2–3/10, while the page itself does not overflow horizontally. A real phone frame and touch behaviour remain unmeasured. See the [GitHub rendering and narrow-screen measurement](../evidence/github-render-check-2026-10-18.en.md).
 ---
+
 
 ## 3. The `depends-on` graph
 
@@ -377,7 +379,7 @@ Use comma-separated formal IDs, for example: `depends-on: J-001, J-002`. A depen
 
 Every dependency edge is stored three times in this ledger: on the card’s `depends-on` field (authoritative), in the graph below, and in the depends-on column of the section-2 overview. When a card is added or any `depends-on` changes, update all three in the same commit. Adding a card without wiring it into the graph lets the “complete” view below silently omit the new judgment, which destroys its only purpose: enumerating every affected judgment when an upstream is falsified.
 
-Current dependency tree (complete view, covering J-001–J-122; each card’s `depends-on` is authoritative):
+Current dependency tree (complete view, covering J-001–J-123; each card’s `depends-on` is authoritative):
 
 ```text
 J-001 (root)
@@ -502,6 +504,7 @@ J-119 <- —
 J-120 <- J-055, J-098
 J-121 <- J-059, J-060, J-061, J-062
 J-122 <- J-096, J-109, J-113
+J-123 <- —
 ```
 
 ### What to do when an upstream judgment is falsified
@@ -652,7 +655,7 @@ This table is also **the single list of social dimensions**. The status column h
 | Human needs, meaning, and embodied presence | Which needs remain stable under supply change, and which preferences actually drift? | Medium | Covered (J-041–J-042; expansion remains) |
 | Upstream materials and climate coupling of compute | How do supplier concentration in materials and equipment, water and climate conditions, insurance, and utility costs constrain manufacturing; through which nodes do they reach chip output and local resource allocation? † | Medium | Partially covered (C8: J-092–J-095; comparable cross-firm qualification cycles, multi-site climate-related output loss, insurance terms, and utility-cost allocation remain open; current climate material supports only event/exposure and one point transmission, not a repeated trend. Corrected 2026-10-10: previously marked “Covered”, which disagreed with the README matrix's “Partially covered”; by the matrix's definition, the gap this row itself states is missing key longitudinal evidence, so both places now read partially covered) |
 | Population ageing and family care | Starting without AI, how do ageing, smaller families, and care institutions change who repeatedly cares for older people; does this actually become a hundred-million-person weekly action? | High | Partially covered (C9: J-096–J-097); deduplicated caregiver denominator, institutional deployment and retention, household incidents and maintenance cost remain open |
-| Evolution of social relationships | How do household size, living arrangements, working hours, and population movement change the way people sustain intimate relationships, friendships, and communities; which relationship forms reorganize, and which stay the same? | High | Partially covered (far-term landscape §7, with family care as its case; J-096, J-100 (family care roles, tens of millions), J-041; J-042 remains “landscape only”, and the card states what it lacks; courtship and marriage, friendship, community, and intergenerational relationships are not yet covered. Added 2026-10-10: this row previously appeared only in the README matrix) |
+| Evolution of social relationships | How do household size, living arrangements, working hours, and population movement change the way people sustain intimate relationships, friendships, and communities; which relationship forms reorganize, and which stay the same? | High | Partially covered (C21 adds an entrance for courtship, friendship, community, and intergenerational relationships; J-123 is landscape only; far-term landscape §7, J-096, and J-100 still carry family care, while J-041–J-042 and J-047–J-048 are adjacent cards; repeated actions, historical 2+2 calibration, cross-institution long-run outcomes, and exit/repair data after human–AI involvement remain open. Updated 2026-10-22: the entrance is now present, but the evidence gap remains) |
 | Order of technology-capability arrival | Historically, which technologies and kinds of work got cheaper and arrived first, and which of verifiability, capital, regulation, and physical constraints decided that; what is the current order of capabilities and their dependencies? | High | Covered (C12: J-001, J-006–J-016, all 12 occupational/organizational judgments; “which capability arrives first” is carried by no lens in L1–L9, and arrival is not adoption. Added 2026-10-10: this row previously appeared only in the README matrix) |
 | Culture, entertainment, and leisure | How do available leisure time, income, attention habits, and peer effects determine which forms of entertainment people spend their free time on; historically, what conditions carried a form (live streaming, for example) from niche to society scale? | Medium | Partially covered (C16: independent culture/leisure problem entrance and J-112; comparable long-run series for offline participation, streaming substitution, and city time use remain open) |
 | Religion and belief | How do education, urbanization, intergenerational transmission, and the need for community change religious affiliation and the intensity of practice; where has secularization happened, where has it not, and why? | Medium | Covered (C17: J-117 separates affiliation, practice, institutional carriers, and normative identity, judging differentiation and functional recombination before synchronous global decline; comparable long-run series on practice, transmission, and institutional functions remain open) |
@@ -1776,3 +1779,8 @@ hand before publishing:
 
 - **Full card**: [Open the complete J-122 card](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
 - **One-sentence judgment**: From 2027 to 2035, in high-income cities with comparable data, commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income households and households making frequent care trips will first absorb waiting, transfer, and disruption costs, rather than everyone automatically switching to one transport mode.
+
+#### J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)
+
+- [Full card](ledger/123-123.md#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only)
+- **One-sentence judgment**: By 2035, the reachable range of courtship, friendship, community, and intergenerational relationships may expand, while shared presence, reciprocal commitment, and conflict repair do not automatically increase at the same rate (landscape only).
