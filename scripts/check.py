@@ -606,6 +606,86 @@ def check_mermaid_projection(lang, root, cards):
                  % (lang, source, target))
 
 
+def check_browse_navigation(lang, root, cards, card_files):
+    """Keep both complete-card navigation surfaces one-to-one and reachable."""
+    shard_label = ("Complete judgment-card shards" if lang == "en"
+                   else u"完整判断卡片分片")
+    shard_line = next((line for line in root.splitlines()
+                       if line.startswith("- [" + shard_label)), None)
+    shard_links = (re.findall(r"\[([^\]]+)\]\(([^)]+)\)", shard_line)
+                   if shard_line else [])
+    id_targets = {}
+    malformed = []
+    for label, target in shard_links:
+        match = re.search(r"J-(\d{3})(?:[–-]J-(\d{3}))?", label)
+        if not match:
+            malformed.append(label)
+            continue
+        first = int(match.group(1))
+        last = int(match.group(2) or match.group(1))
+        if last < first:
+            malformed.append(label)
+            continue
+        for number in range(first, last + 1):
+            jid = "J-%03d" % number
+            id_targets.setdefault(jid, []).append(target)
+    if not shard_line:
+        fail("ledger-nav", "%s complete-shard navigation line is missing" % lang)
+    if malformed:
+        fail("ledger-nav", "%s complete-shard navigation has malformed ranges: %s"
+             % (lang, malformed))
+    expected = set(cards)
+    actual = set(id_targets)
+    if actual != expected:
+        fail("ledger-nav", "%s complete-shard navigation differs from cards (missing %s; extra %s)"
+             % (lang, sorted(expected - actual), sorted(actual - expected)))
+    duplicates = sorted(jid for jid, targets in id_targets.items() if len(targets) != 1)
+    if duplicates:
+        fail("ledger-nav", "%s complete-shard navigation duplicates entries: %s"
+             % (lang, duplicates))
+    for jid, targets in id_targets.items():
+        if jid not in card_files:
+            continue
+        expected_target = "ledger/" + os.path.basename(card_files[jid])
+        if targets != [expected_target]:
+            fail("ledger-nav", "%s %s complete-shard link is not reachable (%s; expected %s)"
+                 % (lang, jid, targets, expected_target))
+
+    heading = (r"^### Browse by ID \(J-001[–-]J-122\)$" if lang == "en"
+               else r"^### 按编号浏览（J-001[–-]J-122）$")
+    start = re.search(heading, root, re.M)
+    marker = (r"^> \*\*Full judgment card" if lang == "en"
+              else r"^> \*\*完整判断卡链接说明")
+    end = re.search(marker, root, re.M)
+    if not start or not end or end.start() <= start.end():
+        fail("ledger-nav", "%s complete-card navigation section is missing or malformed" % lang)
+        return
+    body = root[start.end():end.start()]
+    entries = list(re.finditer(r"^- \[(J-\d{3})[^\]]*\]\(([^)#]+)#([^\s)]+)\)$",
+                              body, re.M))
+    ids = [match.group(1) for match in entries]
+    expected = set(cards)
+    missing = sorted(expected - set(ids))
+    extra = sorted(set(ids) - expected)
+    duplicates = sorted(jid for jid in set(ids) if ids.count(jid) > 1)
+    if missing or extra:
+        fail("ledger-nav", "%s complete-card navigation differs from shards (missing %s; extra %s)"
+             % (lang, missing, extra))
+    if duplicates:
+        fail("ledger-nav", "%s duplicate complete-card navigation entries: %s"
+             % (lang, duplicates))
+    for match in entries:
+        jid, target, anchor = match.groups()
+        path = card_files.get(jid)
+        if not path:
+            continue
+        card_heading = re.search(r"^### %s([^\n]*)$" % re.escape(jid), cards[jid], re.M)
+        expected_anchor = slug(jid + card_heading.group(1)) if card_heading else None
+        if target != "ledger/" + os.path.basename(path) or anchor != expected_anchor:
+            fail("ledger-nav", "%s %s navigation link is not reachable (%s#%s; expected ledger/%s#%s)"
+                 % (lang, jid, target, anchor, os.path.basename(path), expected_anchor))
+
+
 def parse_ledger(lang):
     root = read(LEDGER_ROOT % lang)
     cards = {}
@@ -715,6 +795,7 @@ def parse_ledger(lang):
             continue
         overview_consensus.setdefault(m.group(1), cols[8])
     check_mermaid_projection(lang, root, cards)
+    check_browse_navigation(lang, root, cards, card_files)
     return cards, graph, overview, overview_consensus
 
 
@@ -2524,6 +2605,25 @@ def _break_duplicate_graph_row(root):
             raise AssertionError("%s graph has no J-095 row" % lang)
         _write_file(path, text[:m.end()] + m.group(0) + text[m.end():])
     return u"both dependency graphs duplicate J-095"
+
+
+def _break_duplicate_browse_navigation_lang(root, lang):
+    """Duplicate J-122 in one language's complete-shard navigation."""
+    path = os.path.join(root, "docs", lang, "90-ledger.md")
+    text = _read_file(path)
+    needle = " · [J-122](ledger/122-122.md)"
+    if text.count(needle) != 1:
+        raise AssertionError("fixture has no unique %s J-122 shard entry" % lang)
+    _write_file(path, text.replace(needle, needle + needle, 1))
+    return u"%s complete-shard navigation duplicates J-122" % lang
+
+
+def _break_duplicate_browse_navigation_zh(root):
+    return _break_duplicate_browse_navigation_lang(root, "zh")
+
+
+def _break_duplicate_browse_navigation_en(root):
+    return _break_duplicate_browse_navigation_lang(root, "en")
 
 
 def _break_root_dep_edge(root):
@@ -4465,6 +4565,10 @@ NEGATIVE_CASES = [
     (u"blank line splits the overview table", "table-rows",
      _break_split_overview_table),
     (u"dependency graph row duplicated", "graph-rows", _break_duplicate_graph_row),
+    (u"zh complete-card navigation entry duplicated", "ledger-nav",
+     _break_duplicate_browse_navigation_zh),
+    (u"en complete-card navigation entry duplicated", "ledger-nav",
+     _break_duplicate_browse_navigation_en),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
     (u"card exists in zh only", "bilingual-cards",
