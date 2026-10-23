@@ -133,6 +133,20 @@ class QueryToolTests(unittest.TestCase):
         self.assertNotEqual(unknown.returncode, 0)
         self.assertIn("invalid choice", unknown.stderr)
 
+        valid = subprocess.run(
+            [sys.executable, str(SCRIPT), "--chain", "C4", "--status", "ACTIVE"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertEqual(valid.returncode, 0)
+        self.assertIn("[J-073](docs/zh/ledger/71-80.md#j-073", valid.stdout)
+        self.assertIn("[J-073](docs/en/ledger/71-80.md#j-073", valid.stdout)
+        self.assertIn("| ACTIVE | MEDIUM | 2026–2040。 |", valid.stdout)
+        self.assertIn("只要 AI 只能动信息", valid.stdout)
+        self.assertIn("As long as AI can only move information", valid.stdout)
+        self.assertIn("Result count: 10", valid.stdout)
+
         empty = subprocess.run(
             [sys.executable, str(SCRIPT), "--chain", "C999", "--status", "ACTIVE"],
             cwd=ROOT,
