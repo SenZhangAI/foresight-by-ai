@@ -214,8 +214,20 @@ def check_page(lang, counts):
     section_end = r"^## 五、" if lang == "zh" else r"^## 5\."
     section_match = re.search(section_start + r"[\s\S]*?(?=" + section_end + r")", text, re.M)
     page_ids = re.findall(r"^\| \[(J-\d{3})\b", section_match.group(0), re.M) if section_match else []
-    expected_ids = CLOSED_IDS
+    raw_links = dict(re.findall(r"^\| \[(J-\d{3})[^\]]*\]\(([^)]+)\)",
+                              section_match.group(0), re.M)) if section_match else {}
     checks = []
+    page_links = {}
+    for jid, href in raw_links.items():
+        anchor_match = re.search(r"^([^#]+)#(j-\d{3})--", href)
+        if not anchor_match:
+            checks.append(("%s link" % jid, "a ledger href with a card anchor"))
+            page_links[jid] = (href, "invalid")
+        else:
+            page_links[jid] = (anchor_match.group(1), anchor_match.group(2).upper())
+            if anchor_match.group(2).upper() != jid:
+                checks.append(("%s link" % jid, "an anchor for the displayed card"))
+    expected_ids = CLOSED_IDS
     group_ids = []
     if Counter(counts["all_ids"]) != Counter(CLOSED_IDS):
         checks.append(("closed ledger set", "J-001 through J-123 exactly once"))
@@ -293,7 +305,7 @@ def check_page(lang, counts):
     for label, pattern in checks:
         if not re.search(pattern, text):
             failures.append((path, label, pattern))
-    return failures, group_ids
+    return failures, group_ids, page_links
 
 
 def main():
@@ -317,15 +329,20 @@ def main():
                   % (key, out["zh"][key], out["en"][key]))
             ok = False
     page_groups = {}
+    page_links = {}
     for lang in LANGS:
-        failures, groups = check_page(lang, out[lang])
+        failures, groups, links = check_page(lang, out[lang])
         page_groups[lang] = groups
+        page_links[lang] = links
         for path, label, pattern in failures:
             print("PAGE MISMATCH [%s] %s in %s: %s"
                   % (lang, label, path, pattern))
             ok = False
     if page_groups["zh"] != page_groups["en"]:
         print("PAGE MISMATCH: Chinese and English group membership differs")
+        ok = False
+    if page_links["zh"] != page_links["en"]:
+        print("PAGE MISMATCH: Chinese and English card links differ")
         ok = False
     if out["zh"]["broken"] or out["en"]["broken"]:
         ok = False

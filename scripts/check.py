@@ -3220,6 +3220,40 @@ def _break_social_register_missing_j123(root):
     return "J-123 removed from both social-scale group inventories"
 
 
+def _break_social_register_total_one_language(root):
+    """Break only the Chinese headline total; the other projection is intact."""
+    path = os.path.join(root, "docs", "zh", "91-social-scale-register.md")
+    text = _read_file(path)
+    needle, replacement = u"全库 123 张在册判断卡", u"全库 119 张在册判断卡"
+    if needle not in text:
+        raise AssertionError("zh social-scale total is not in the expected current form")
+    _write_file(path, text.replace(needle, replacement, 1))
+    return "only the Chinese social-scale page claims 119"
+
+
+def _break_social_register_missing_j123_one_language(root):
+    """Remove J-123 only from the Chinese public group inventory."""
+    path = os.path.join(root, "docs", "zh", "91-social-scale-register.md")
+    lines = _read_file(path).splitlines(True)
+    kept = [line for line in lines if not re.match(r"^\| \[J-123\b", line)]
+    if len(kept) == len(lines):
+        raise AssertionError("zh social-scale page has no J-123 row")
+    _write_file(path, "".join(kept))
+    return "J-123 removed only from the Chinese social-scale inventory"
+
+
+def _break_social_register_href(root):
+    """Keep the visible J-123 card but point its Chinese link at J-122."""
+    path = os.path.join(root, "docs", "zh", "91-social-scale-register.md")
+    text = _read_file(path)
+    old = "ledger/123-123.md#j-123--远程联系扩张不会自动增加共同承担仅图景"
+    new = "ledger/122-122.md#j-122--日常出行先按可靠性与照护责任分层而不是自动转向单一方式"
+    if old not in text:
+        raise AssertionError("zh J-123 link is not in the expected current form")
+    _write_file(path, text.replace(old, new, 1))
+    return "Chinese J-123 href points at J-122 while visible ID and totals stay unchanged"
+
+
 def _break_social_register_closed_set(root):
     """Delete one card and its public rows in both language projections."""
     for lang in LANGS:
@@ -4723,12 +4757,18 @@ NEGATIVE_CASES = [
      _break_navigation_invalid_layer),
     (u"social-scale page total drifts back to 119", "social-scale-register",
      _break_social_register_total),
+    (u"social-scale one-language total drifts back to 119", "social-scale-register",
+     _break_social_register_total_one_language),
     (u"social-scale page omits J-123", "social-scale-register",
      _break_social_register_missing_j123),
+    (u"social-scale one-language page omits J-123", "social-scale-register",
+     _break_social_register_missing_j123_one_language),
     (u"social-scale closed set loses a synchronized card", "social-scale-register",
      _break_social_register_closed_set),
     (u"social-scale late card moves groups while totals stay equal", "social-scale-register",
      _break_social_register_late_group),
+    (u"social-scale bilingual hrefs diverge", "social-scale-register",
+     _break_social_register_href),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",
