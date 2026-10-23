@@ -25,9 +25,9 @@ The [Technology Capability Sequence](120-technology-capability-sequence.md) answ
 
 ---
 
-## 2. Not a single-cause technology chain, but a confluence of five forces
+## 2. Not a single-cause technology chain: candidate sources are selected by the question
 
-This chain does not use the formula “the model gets stronger, therefore society must do X.” Every step checks all five candidate sources listed in [Methodology §1](../00-method.md) at once, and names in the code vocabulary of [Methodology §2](../00-method.md#2-toolbox-of-lenses) which lens carries each:
+This chain does not use the formula “the model gets stronger, therefore society must do X.” It selects and tests the candidate sources relevant to each step; **it does not mechanically apply all five sources to every step**. For each source actually used, the chain states its reason for selection and evidence boundary, then names in the code vocabulary of [Methodology §2](../00-method.md#2-toolbox-of-lenses) which lens carries the relevant mechanism:
 
 1. **Supply and demand** (the demand-side half of **L8 Human nature and demand**, **L2 Constraint migration**, **L3 Cost structure**): after costs fall, does demand saturate, expand, or move toward higher frequency and personalization?
 2. **Human behaviour** (**L8 Human nature and demand**, with **L9 Relational asymmetry** derived indirectly through L8): will people exchange convenience for more consumption while retaining demands for status, fairness, and appeal?
@@ -122,7 +122,7 @@ Formal judgment: [J-091 · Demand expansion and task savings occur together; net
 
 ```mermaid
 flowchart TD
-  SUPPLY["Supply and demand: does demand saturate, expand, or personalize after costs fall"] --> CONF["Confluence of five forces: technology is only a trigger and feasibility boundary"]
+  SUPPLY["Selected candidate source: supply and demand — does demand saturate, expand, or personalize after costs fall"] --> CONF["Selected sources: technology is only a trigger and feasibility boundary"]
   HUMAN["Human behaviour: convenience for consumption, but status, fairness, and appeal remain"] --> CONF
   HIST["History: general-purpose technology enters existing organizations first, complementary-asset redesign lags"] --> CONF
   TECH["Technology: order of cheap generation, tool use, long-task reliability, open-world evaluation"] --> CONF
@@ -144,7 +144,7 @@ flowchart TD
 
 > **How to read this diagram**: boxes are reasoning steps and arrows are the dependency order the prose argues; the diagram projects only the load-bearing steps and does not replace the prose — the evidence for each step sits in the surrounding sections and in the ledger cards.
 
-The five forces enter from the same starting line, and any one can block or redirect the outcome. Adoption results and accidents feed back into permission, diffusion gates, and demand. Technology opens feasibility; it does not sit upstream of organizations, institutions, supply and demand, or human behaviour.
+The selected sources enter from the same starting line, and any one that the step depends on can block or redirect the outcome. Adoption results and accidents feed back into permission, diffusion gates, and demand. Technology opens feasibility; it does not sit upstream of organizations, institutions, supply and demand, or human behaviour.
 
 These are not independent headlines. Together they form a reversible test. If organizations can capture durable autonomous value without redesigning workflows, J-087 fails. If junior entry does not contract relatively, J-088 fails. If autonomous authority expands without audit and appeal entering production, J-089 fails. If returns do not tilt toward complementary assets, J-090 fails. If unit costs fall but variety and frequency do not expand, the demand side of J-091 fails.
 
