@@ -19,12 +19,10 @@ The numerator has four conditions, all of which must hold:
 Both language projections are counted separately and compared: they are two
 projections of the same judgment, so a disagreement is a finding, not noise.
 
-This script never writes anything. It is deliberately NOT wired into
-`scripts/check.py`: it reports the count and checks the two public register pages,
-but it does not gate a commit.
+This script never writes anything. It checks both the card inventory and the two public register pages, and it is also called by `scripts/check.py` so a drift fails the aggregate check.
 
-Usage:  python3 scripts/count-social-scale.py [--verbose]
-Exit code: 0 when both languages agree, 1 when they do not or a card cannot
+Usage:  python3 scripts/count-social-scale.py [--repo DIR] [--verbose]
+Exit code: 0 when both languages agree and both pages match, 1 when they do not or a card cannot
 be parsed (an unparsable card is reported, never silently skipped).
 """
 
@@ -53,8 +51,8 @@ GATE1_PASS = {
 }
 
 GATE1_FAIL = {
-    "zh": re.compile(r"闸一[^。；]{0,24}?(\*\*不过\*\*|不过)"),
-    "en": re.compile(r"Gate 1\b[^.;]{0,30}?(\*\*FAIL\*\*|fails\b)"),
+    "zh": re.compile(r"(?:闸一[^。；]{0,24}?(\*\*不过\*\*|不过)|不能声称十亿级周频动作)"),
+    "en": re.compile(r"(?:Gate 1\b[^.;]{0,30}?(\*\*FAIL\*\*|fails\b)|not a claim of a billion weekly actions)"),
 }
 
 GATE1_NOT_APPLICABLE = {
@@ -275,7 +273,18 @@ def check_page(lang, counts):
 
 
 def main():
-    verbose = "--verbose" in sys.argv
+    global REPO
+    args = list(sys.argv[1:])
+    verbose = False
+    while args:
+        arg = args.pop(0)
+        if arg == "--verbose":
+            verbose = True
+        elif arg == "--repo" and args:
+            REPO = os.path.abspath(args.pop(0))
+        else:
+            print("unknown argument: %s" % arg)
+            return 2
     out = {lang: tally(lang, verbose) for lang in LANGS}
     ok = True
     for key in ("total", "fail", "not_applicable", "pass", "revoked", "landscape", "inactive", "usable"):

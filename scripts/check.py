@@ -2395,6 +2395,18 @@ def run_migration_check():
     return 0
 
 
+def check_social_scale_register():
+    """Run the bilingual society-scale inventory and page-parity checker."""
+    script = os.path.join(REPO, "scripts", "count-social-scale.py")
+    result = subprocess.run(
+        [sys.executable, script, "--repo", REPO],
+        cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        universal_newlines=True)
+    if result.returncode:
+        detail = result.stdout.strip() or "count-social-scale.py exited %d" % result.returncode
+        failures.append(("social-scale-register", detail))
+
+
 def run_checks():
     files = markdown_files()
     check_public_internal_ids(files)
@@ -2413,6 +2425,7 @@ def run_checks():
     check_chain_lens_cards()
     check_readme_counts(cards, len(chains))
     check_dimension_status()
+    check_social_scale_register()
 
     print("files checked      : %d" % len(files))
     print("internal links     : %d" % links)
@@ -2465,6 +2478,14 @@ def _copy_checkable_tree(dst):
     # runs, so the self-test would no longer prove the checker catches defects.
     if os.path.exists(os.path.join(REPO, "package.json")):
         shutil.copy2(os.path.join(REPO, "package.json"), os.path.join(dst, "package.json"))
+    # The aggregate check invokes this repository-local script; carry it into
+    # the pristine self-test copy so the positive baseline exercises the same
+    # boundary as a real checkout.
+    social_scale_script = os.path.join(REPO, "scripts", "count-social-scale.py")
+    if os.path.exists(social_scale_script):
+        os.makedirs(os.path.join(dst, "scripts"), exist_ok=True)
+        shutil.copy2(social_scale_script,
+                     os.path.join(dst, "scripts", "count-social-scale.py"))
     return dst
 
 
@@ -3172,6 +3193,31 @@ def _set_count(lang, anchor_kind, replacement):
                                             replacement, anchor)
 
     return mutate
+
+
+def _break_social_register_total(root):
+    """Break the current social-scale total in both public projections."""
+    for lang, needle, replacement in (
+            ("zh", u"全库 123 张在册判断卡", u"全库 119 张在册判断卡"),
+            ("en", "all 123 registered judgment cards", "all 119 registered judgment cards")):
+        path = os.path.join(root, "docs", lang, "91-social-scale-register.md")
+        text = _read_file(path)
+        if needle not in text:
+            raise AssertionError("%s social-scale total is not in the expected current form" % lang)
+        _write_file(path, text.replace(needle, replacement, 1))
+    return "both social-scale pages claim 119 instead of the current 123"
+
+
+def _break_social_register_missing_j123(root):
+    """Remove the J-123 row from both group inventories."""
+    for lang in LANGS:
+        path = os.path.join(root, "docs", lang, "91-social-scale-register.md")
+        lines = _read_file(path).splitlines(True)
+        kept = [line for line in lines if not re.match(r"^\| \[J-123\b", line)]
+        if len(kept) == len(lines):
+            raise AssertionError("%s social-scale page has no J-123 row" % lang)
+        _write_file(path, "".join(kept))
+    return "J-123 removed from both social-scale group inventories"
 
 
 def _break_count_site_removed(root):
@@ -4623,6 +4669,10 @@ NEGATIVE_CASES = [
      _break_navigation_duplicate_layer),
     (u"navigation map uses an invalid source layer", "navigation-mermaid",
      _break_navigation_invalid_layer),
+    (u"social-scale page total drifts back to 119", "social-scale-register",
+     _break_social_register_total),
+    (u"social-scale page omits J-123", "social-scale-register",
+     _break_social_register_missing_j123),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",
