@@ -10,7 +10,19 @@ This is a public, reader-facing sandbox for the future, and what it reasons abou
 - **For readers who want to audit the method first** → [five-minute entry](#a-five-minute-entry-calibrate-first-then-follow-a-reasoning-chain): start with historical calibration, evidence boundaries, and methodology before choosing a chain.
 - **Boundary first** → [what this archive can and cannot claim](#what-this-archive-can-and-cannot-claim): who decides it, what is still unmet, what the structural check proves, and which social dimensions the coverage matrix reaches — every boundary section is gathered there, none left at the foot of the page.
 
-## What the future roughly looks like
+## Coverage status at a glance: an entry is not completion
+
+This is the unified status summary for first-time readers. It is not a second ledger, and it does not turn the number of entries into a claim that the whole landscape is complete. One social dimension may have both a formal judgment and an evidence gap; follow the links back to the matrix, chain pages, and research-gap queue.
+
+| Status | What it means | Continue here |
+|---|---|---|
+| **Formal judgment** | At least one traceable `J-NNN` judgment card exists with a reasoning chain, time window, falsifier, leading indicator, confidence, and audience boundary; this does not mean the judgment has been validated by the future. | [Coverage matrix](#coverage-matrix-current-boundary) · [Judgment Ledger](docs/en/90-ledger.md) |
+| **Landscape only (`LANDSCAPE_ONLY`)** | A narrative or entry exists, but the evidence is not sufficient to use it as a formal judgment. It is retained to show the perspective and the proposition still to be tested, not as a silently deleted conclusion. | [The chain on collaboration and social relationships](docs/en/chains/210-social-relationships-beyond-care.md) · [Research-gap queue](docs/en/06-research-gaps.md) |
+| **Evidence gap** | An entry may already exist, but a denominator, cross-region comparison, long-run outcome, liability/cost allocation, or repeatable action has not been established. A neighbouring topic does not fill that gap. | [Next research-gap priorities](docs/en/06-research-gaps.md) · [“What remains open” in the matrix](#coverage-matrix-current-boundary) |
+| **Unverified boundary** | Structural checks and desktop rendering prove mechanical reachability only; they do not prove forecast accuracy, method validity, or every viewport. These limits remain part of the archive. | [Validation, results, and gaps](#current-validation-status-keep-protocol-results-and-gaps-separate) · [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) |
+
+The full dimension-by-dimension status remains in the [coverage matrix](#coverage-matrix-current-boundary). A row marked “Partially covered” therefore means neither “no entry” nor “evidence closed.”
+
 
 [Population ageing and smaller households](docs/en/chains/90-aging-care-and-institutional-substitution.md) push care toward formal services and coordination layers; [fiscal and sovereign-debt pressure](docs/en/chains/130-fiscal-squeeze-who-gets-cut.md) first rearranges budgets and intergenerational distribution. Meanwhile, [embodied capability](docs/en/chains/40-embodied-intelligence.md) brings automation into physical work but first re-bundles tasks rather than erasing occupations. As [generated supply becomes abundant](docs/en/ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling), private context, accountable commitments, and validated causality may become more valuable ([J-003](docs/en/ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form), [J-005](docs/en/ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality)). These are the directions the current cards sketch, not proven social inevitabilities.
 
