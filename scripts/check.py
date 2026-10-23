@@ -3220,6 +3220,58 @@ def _break_social_register_missing_j123(root):
     return "J-123 removed from both social-scale group inventories"
 
 
+def _break_social_register_closed_set(root):
+    """Delete one card and its public rows in both language projections."""
+    for lang in LANGS:
+        ledger = os.path.join(root, "docs", lang, "ledger", "123-123.md")
+        text = _read_file(ledger)
+        updated = re.sub(r"\n### J-123\b[\s\S]*\Z", "\n", text, count=1)
+        if updated == text:
+            raise AssertionError("%s ledger has no J-123 block" % lang)
+        _write_file(ledger, updated)
+        page = os.path.join(root, "docs", lang, "91-social-scale-register.md")
+        page_text = _read_file(page)
+        page_updated = re.sub(r"^\| \[J-123\b[^\n]*\n", "", page_text,
+                              count=1, flags=re.M)
+        if page_updated == page_text:
+            raise AssertionError("%s page has no J-123 row" % lang)
+        _write_file(page, page_updated)
+    return "J-123 deleted from both ledger shards and both register pages"
+
+
+def _break_social_register_late_group(root):
+    """Move J-120 into Group 4 while preserving totals and bilingual parity."""
+    specs = {
+        "zh": ("### 第四组 ·", "### 第五组 ·"),
+        "en": ("### Group 4 ·", "### Group 5 ·"),
+    }
+    for lang, (group4, group5) in specs.items():
+        path = os.path.join(root, "docs", lang, "91-social-scale-register.md")
+        lines = _read_file(path).splitlines(True)
+        row_index = next((i for i, line in enumerate(lines)
+                          if re.match(r"^\| \[J-120\b", line)), None)
+        if row_index is None:
+            raise AssertionError("%s page has no J-120 row" % lang)
+        row = lines.pop(row_index)
+        heading4 = next((i for i, line in enumerate(lines)
+                         if line.startswith(group4)), None)
+        if heading4 is None:
+            raise AssertionError("%s page has no Group 4 heading" % lang)
+        lines.insert(heading4 + 1, row)
+        text = "".join(lines)
+        if lang == "zh":
+            old4, old5 = "36 条", "49 条"
+            new4, new5 = "37 条", "48 条"
+        else:
+            old4, old5 = "the largest group, 36)", "(49)"
+            new4, new5 = "the largest group, 37)", "(48)"
+        if old4 not in text or old5 not in text:
+            raise AssertionError("%s page group counts are not in expected form" % lang)
+        text = text.replace(old4, new4, 1).replace(old5, new5, 1)
+        _write_file(path, text)
+    return "J-120 moved into Group 4 in both pages without changing totals"
+
+
 def _break_count_site_removed(root):
     """One language stops stating a count the other still states."""
     path = _readme(root, "zh")
@@ -4673,6 +4725,10 @@ NEGATIVE_CASES = [
      _break_social_register_total),
     (u"social-scale page omits J-123", "social-scale-register",
      _break_social_register_missing_j123),
+    (u"social-scale closed set loses a synchronized card", "social-scale-register",
+     _break_social_register_closed_set),
+    (u"social-scale late card moves groups while totals stay equal", "social-scale-register",
+     _break_social_register_late_group),
     (u"README/ledger dimension grade differs", "dimension-status",
      _break_dimension_status_ledger_grade),
     (u"ledger loses one no-entry dimension", "dimension-status",

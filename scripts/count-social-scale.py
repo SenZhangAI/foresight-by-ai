@@ -33,6 +33,18 @@ from collections import Counter
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ("zh", "en")
+CLOSED_IDS = ["J-%03d" % number for number in range(1, 124)]
+# The last four cards exercise two different source-field boundaries: J-120 to
+# J-122 are institutional/household impact surfaces whose Gate 1 field fails,
+# while J-123 records a scale-axis pass but remains landscape-only.  The public
+# page must keep those facts visible in their corresponding groups rather than
+# merely preserving a bilingual permutation.
+EXPECTED_GROUP_FOR_LATE_CARDS = {
+    "J-120": 5,
+    "J-121": 5,
+    "J-122": 5,
+    "J-123": 1,
+}
 
 # Compatibility shards: navigation stubs that re-point at the real card files.
 # They hold no card headings of their own; listing them keeps the count honest
@@ -202,9 +214,11 @@ def check_page(lang, counts):
     section_end = r"^## 五、" if lang == "zh" else r"^## 5\."
     section_match = re.search(section_start + r"[\s\S]*?(?=" + section_end + r")", text, re.M)
     page_ids = re.findall(r"^\| \[(J-\d{3})\b", section_match.group(0), re.M) if section_match else []
-    expected_ids = counts["all_ids"]
+    expected_ids = CLOSED_IDS
     checks = []
     group_ids = []
+    if Counter(counts["all_ids"]) != Counter(CLOSED_IDS):
+        checks.append(("closed ledger set", "J-001 through J-123 exactly once"))
     if not section_match:
         checks.append(("section 4", section_start))
     elif Counter(page_ids) != Counter(expected_ids):
@@ -239,6 +253,16 @@ def check_page(lang, counts):
             checks.append(("group 1 members", "the landscape-only PASS set"))
         if Counter(group2_ids) != Counter(expected_group2):
             checks.append(("group 2 members", "the revoked PASS set"))
+        # Keep the late additions tied to their ledger facts.  This is a
+        # deliberately small semantic cross-check: it catches a page that
+        # preserves totals and bilingual parity while moving one card to a
+        # plausible but wrong group.
+        for jid, expected_group in EXPECTED_GROUP_FOR_LATE_CARDS.items():
+            actual_groups = [index for index, ids in enumerate(group_ids)
+                             if jid in ids]
+            if actual_groups != [expected_group]:
+                checks.append(("%s group" % jid,
+                               "ledger-derived group %d" % expected_group))
     if lang == "zh":
         pass_members = "、".join("`%s`" % jid for jid in counts["pass_ids"])
         usable_members = "、".join("`%s`" % jid for jid in counts["usable_ids"])
