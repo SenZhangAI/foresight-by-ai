@@ -796,10 +796,45 @@ def parse_ledger(lang):
         overview_consensus.setdefault(m.group(1), cols[8])
     check_mermaid_projection(lang, root, cards)
     check_browse_navigation(lang, root, cards, card_files)
+    check_entry_scope_and_rendering_boundary(lang, root, cards)
     return cards, graph, overview, overview_consensus
 
 
-# A judgment may legitimately carry no external comparison yet, but then it must
+def check_entry_scope_and_rendering_boundary(lang, root, cards):
+    """Keep public entry counts and dated rendering evidence self-describing.
+
+    The complete-card navigation is structural evidence. The wide-table
+    measurement is a dated historical baseline, not a current GitHub phone
+    rendering verdict; these distinctions must remain visible to readers.
+    """
+    expected = len(cards)
+    if lang == "en":
+        current_scope = "All %d entries above" % expected
+        if current_scope not in root:
+            fail("ledger-nav", "%s ledger entry scope must state %r" % (lang, current_scope))
+        if "119 data rows" in root:
+            if not re.search(r"20\d{2}-\d{2}-\d{2}", root):
+                fail("rendering-evidence", "%s 119-row measurement has no date" % lang)
+            for phrase in ("historical rendering baseline",
+                           "not the current registration count",
+                           "a current GitHub rendering result"):
+                if phrase not in root:
+                    fail("rendering-evidence",
+                         "%s 119-row measurement is not marked as historical: missing %r"
+                         % (lang, phrase))
+    else:
+        current_scope = u"以上 %d 个入口" % expected
+        if current_scope not in root:
+            fail("ledger-nav", "%s 台账入口范围必须写明 %r" % (lang, current_scope))
+        if u"119 行数据" in root:
+            if not re.search(r"20\d{2}-\d{2}-\d{2}", root):
+                fail("rendering-evidence", "%s 119 行量测没有日期" % lang)
+            for phrase in (u"历史渲染基线", u"不是当前登记数量", u"不是当前 GitHub 渲染结果"):
+                if phrase not in root:
+                    fail("rendering-evidence",
+                         "%s 119 行量测未标为历史基线：缺少 %r" % (lang, phrase))
+
+
 # say so in BOTH places. The failure this catches is a card whose body records a
 # completed comparison while the overview table still reads "unknown" (or the
 # reverse) — two statements of the same fact drifting apart.
@@ -2620,6 +2655,35 @@ def _break_duplicate_browse_navigation_lang(root, lang):
 
 def _break_duplicate_browse_navigation_zh(root):
     return _break_duplicate_browse_navigation_lang(root, "zh")
+
+
+def _break_duplicate_browse_navigation_en(root):
+    return _break_duplicate_browse_navigation_lang(root, "en")
+
+
+def _break_stale_current_entry_count(root):
+    path = os.path.join(root, "docs", "en", "90-ledger.md")
+    text = _read_file(path)
+    needle = "All 123 entries above"
+    if needle not in text:
+        raise AssertionError("English ledger has no current entry count")
+    _write_file(path, text.replace(needle, "All 122 entries above", 1))
+    return "English ledger current entry count changed to stale 122"
+
+
+def _break_unmarked_historical_rendering(root):
+    for lang, old, new in (
+        ("en", "historical rendering baseline", "rendering baseline"),
+        ("zh", u"历史渲染基线", u"渲染基线"),
+    ):
+        path = os.path.join(root, "docs", lang, "90-ledger.md")
+        text = _read_file(path)
+        if old not in text:
+            raise AssertionError("%s ledger has no historical rendering marker" % lang)
+        _write_file(path, text.replace(old, new, 1))
+    return "bilingual 119-row rendering measurement loses its historical marker"
+
+
 
 
 def _break_duplicate_browse_navigation_en(root):
@@ -4569,6 +4633,10 @@ NEGATIVE_CASES = [
      _break_duplicate_browse_navigation_zh),
     (u"en complete-card navigation entry duplicated", "ledger-nav",
      _break_duplicate_browse_navigation_en),
+    (u"stale current entry count is rejected", "ledger-nav",
+     _break_stale_current_entry_count),
+    (u"unmarked historical rendering baseline is rejected", "rendering-evidence",
+     _break_unmarked_historical_rendering),
     (u"root card's dependency edge disagrees", "dep-graph",
      _break_root_dep_edge),
     (u"card exists in zh only", "bilingual-cards",
