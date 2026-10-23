@@ -809,30 +809,42 @@ def check_entry_scope_and_rendering_boundary(lang, root, cards):
     """
     expected = len(cards)
     if lang == "en":
-        current_scope = "All %d entries above" % expected
-        if current_scope not in root:
-            fail("ledger-nav", "%s ledger entry scope must state %r" % (lang, current_scope))
-        if "119 data rows" in root:
-            if not re.search(r"20\d{2}-\d{2}-\d{2}", root):
-                fail("rendering-evidence", "%s 119-row measurement has no date" % lang)
-            for phrase in ("historical rendering baseline",
-                           "not the current registration count",
-                           "a current GitHub rendering result"):
-                if phrase not in root:
+        claims = [int(raw) for raw in re.findall(r"\bAll\s+(\d+)\s+entries above\b", root)]
+        if not claims:
+            fail("ledger-nav", "%s ledger has no readable current entry count" % lang)
+        for claim in claims:
+            if claim != expected:
+                fail("ledger-nav", "%s ledger says %d current entries, expected %d"
+                     % (lang, claim, expected))
+        rendering_lines = [line for line in root.splitlines()
+                           if re.search(r"(?<!J-)119\s+(?:data\s+)?rows?\b", line)]
+        if rendering_lines:
+            for line in rendering_lines:
+                if (not re.search(r"20\d{2}-\d{2}-\d{2}", line)
+                        or "historical rendering baseline" not in line
+                        or "not the current registration count" not in line
+                        or "current GitHub rendering result" not in line):
                     fail("rendering-evidence",
-                         "%s 119-row measurement is not marked as historical: missing %r"
-                         % (lang, phrase))
+                         "%s 119-row measurement is not marked as a dated historical baseline"
+                         % lang)
     else:
-        current_scope = u"以上 %d 个入口" % expected
-        if current_scope not in root:
-            fail("ledger-nav", "%s 台账入口范围必须写明 %r" % (lang, current_scope))
-        if u"119 行数据" in root:
-            if not re.search(r"20\d{2}-\d{2}-\d{2}", root):
-                fail("rendering-evidence", "%s 119 行量测没有日期" % lang)
-            for phrase in (u"历史渲染基线", u"不是当前登记数量", u"不是当前 GitHub 渲染结果"):
-                if phrase not in root:
+        claims = [int(raw) for raw in re.findall(u"以上\\s*(\\d+)\\s*个入口", root)]
+        if not claims:
+            fail("ledger-nav", "%s 台账没有可读的当前入口数量" % lang)
+        for claim in claims:
+            if claim != expected:
+                fail("ledger-nav", "%s 台账写成当前 %d 个入口，应为 %d"
+                     % (lang, claim, expected))
+        rendering_lines = [line for line in root.splitlines()
+                           if re.search(u"(?<!J-)119\\s*行", line)]
+        if rendering_lines:
+            for line in rendering_lines:
+                if (not re.search(r"20\d{2}-\d{2}-\d{2}", line)
+                        or u"历史渲染基线" not in line
+                        or u"不是当前登记数量" not in line
+                        or u"当前 GitHub 渲染结果" not in line):
                     fail("rendering-evidence",
-                         "%s 119 行量测未标为历史基线：缺少 %r" % (lang, phrase))
+                         "%s 119 行量测未标为带日期的历史基线" % lang)
 
 
 # say so in BOTH places. The failure this catches is a card whose body records a
@@ -2667,20 +2679,17 @@ def _break_stale_current_entry_count(root):
     needle = "All 123 entries above"
     if needle not in text:
         raise AssertionError("English ledger has no current entry count")
-    _write_file(path, text.replace(needle, "All 122 entries above", 1))
-    return "English ledger current entry count changed to stale 122"
+    _write_file(path, text + "\n> All 122 entries above is an obsolete current-entry claim.\n")
+    return "English ledger retains a stale 122 current entry claim"
 
 
 def _break_unmarked_historical_rendering(root):
-    for lang, old, new in (
-        ("en", "historical rendering baseline", "rendering baseline"),
-        ("zh", u"历史渲染基线", u"渲染基线"),
+    for lang, line in (
+        ("en", "> The overview has 119 data rows in the current view.\n"),
+        ("zh", u"> 当前总览有 119 行数据。\n"),
     ):
         path = os.path.join(root, "docs", lang, "90-ledger.md")
-        text = _read_file(path)
-        if old not in text:
-            raise AssertionError("%s ledger has no historical rendering marker" % lang)
-        _write_file(path, text.replace(old, new, 1))
+        _write_file(path, _read_file(path) + "\n" + line)
     return "bilingual 119-row rendering measurement loses its historical marker"
 
 
