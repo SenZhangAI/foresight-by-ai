@@ -34,17 +34,10 @@ from collections import Counter
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ("zh", "en")
 CLOSED_IDS = ["J-%03d" % number for number in range(1, 124)]
-# The last four cards exercise two different source-field boundaries: J-120 to
-# J-122 are institutional/household impact surfaces whose Gate 1 field fails,
-# while J-123 records a scale-axis pass but remains landscape-only.  The public
-# page must keep those facts visible in their corresponding groups rather than
-# merely preserving a bilingual permutation.
-EXPECTED_GROUP_FOR_LATE_CARDS = {
-    "J-120": 5,
-    "J-121": 5,
-    "J-122": 5,
-    "J-123": 1,
-}
+# The last four cards exercise two different source-field boundaries. Their
+# register groups are derived below from the card's audience and diffusion
+# fields, not from a second list of expected groups.
+LATE_CARD_IDS = {"J-120", "J-121", "J-122", "J-123"}
 
 # Compatibility shards: navigation stubs that re-point at the real card files.
 # They hold no card headings of their own; listing them keeps the count honest
@@ -52,9 +45,10 @@ EXPECTED_GROUP_FOR_LATE_CARDS = {
 SHARD_DIR = "docs/%s/ledger"
 
 FIELD = {
-    "zh": {"gate": "普及闸复核", "conf": "置信度", "status": "状态"},
+    "zh": {"gate": "普及闸复核", "conf": "置信度", "status": "状态",
+           "audience": "受众规模"},
     "en": {"gate": "Diffusion-gate review", "conf": "Confidence",
-           "status": "Status"},
+           "status": "Status", "audience": "Audience scale"},
 }
 
 GATE1_PASS = {
@@ -136,11 +130,15 @@ def tally(lang, verbose):
     unparsable, passes, fails = [], [], []
     not_applicable = []
     revoked, landscape, inactive = [], [], []
+    late_facts = {}
     for jid in sorted(found):
         title, body, path = found[jid]
         gate = field(body, FIELD[lang]["gate"])
         conf = field(body, FIELD[lang]["conf"])
         status = field(body, FIELD[lang]["status"])
+        if jid in LATE_CARD_IDS:
+            late_facts[jid] = {"audience": field(body, FIELD[lang]["audience"]),
+                               "gate": gate, "confidence": conf, "status": status}
         if conf is None or status is None:
             unparsable.append((jid, path, "missing confidence or status field"))
             continue
@@ -204,7 +202,34 @@ def tally(lang, verbose):
             "pass_ids": passes, "usable_ids": usable,
             "revoked_ids": revoked, "landscape_ids": landscape,
             "inactive_ids": inactive, "all_ids": sorted(found),
+            "late_facts": late_facts,
             "broken": len(unparsable) + len(dupes)}
+
+
+def late_card_group(lang, jid, counts):
+    """Derive the register group for the four newest cards from card fields."""
+    facts = counts["late_facts"].get(jid, {})
+    audience = facts.get("audience") or ""
+    gate = facts.get("gate") or ""
+    confidence = facts.get("confidence")
+    status = (facts.get("status") or "").rstrip("。.!` ").strip()
+    if jid == "J-123":
+        if (audience.strip().startswith("UNKNOWN") and
+                GATE1_PASS[lang].search(gate) and
+                confidence in LANDSCAPE_ONLY_CONFIDENCE[lang] and
+                status != "ACTIVE"):
+            return 1
+        return None
+    normalized_audience = audience.replace("**", "")
+    impact_reach = (re.search(r"十亿量级(?:数据主体|居民|影响面)", audience) is not None
+                    if lang == "zh"
+                    else "billion-scale impact reach" in normalized_audience)
+    gate_fails = (GATE1_FAIL[lang].search(gate) is not None or
+                  ("闸一不过" in gate if lang == "zh"
+                   else re.search(r"Gate 1.*(?:FAIL|fails)", gate) is not None))
+    if gate_fails and impact_reach:
+        return 5
+    return None
 
 
 def check_page(lang, counts):
@@ -269,10 +294,14 @@ def check_page(lang, counts):
         # deliberately small semantic cross-check: it catches a page that
         # preserves totals and bilingual parity while moving one card to a
         # plausible but wrong group.
-        for jid, expected_group in EXPECTED_GROUP_FOR_LATE_CARDS.items():
+        for jid in sorted(LATE_CARD_IDS):
+            expected_group = late_card_group(lang, jid, counts)
             actual_groups = [index for index, ids in enumerate(group_ids)
                              if jid in ids]
-            if actual_groups != [expected_group]:
+            if expected_group is None:
+                checks.append(("%s ledger facts" % jid,
+                               "audience and diffusion fields supporting a register group"))
+            elif actual_groups != [expected_group]:
                 checks.append(("%s group" % jid,
                                "ledger-derived group %d" % expected_group))
     if lang == "zh":

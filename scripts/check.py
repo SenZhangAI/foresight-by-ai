@@ -3273,6 +3273,32 @@ def _break_social_register_closed_set(root):
     return "J-123 deleted from both ledger shards and both register pages"
 
 
+def _break_social_register_late_fact(root):
+    """Change J-120's audience-scale fact without changing the public page."""
+    replacements = {
+        "zh": ("十亿量级数据主体", "百万量级数据主体"),
+        "en": ("a billion-scale impact reach", "a million-scale impact reach"),
+    }
+    for lang, (old, new) in replacements.items():
+        path = os.path.join(root, "docs", lang, "ledger", "120-121.md")
+        text = _read_file(path)
+        if old not in text:
+            raise AssertionError("%s J-120 audience fact is not in expected form" % lang)
+        _write_file(path, text.replace(old, new, 1))
+    return "J-120 audience scale no longer supports its register group"
+
+
+def _break_social_register_j123_audience(root):
+    """Change J-123's UNKNOWN audience fact in both language ledgers."""
+    for lang, old, new in (
+            ("zh", "UNKNOWN（尚无同时覆盖", "十亿量级影响面（已填入但未核验"),
+            ("en", "UNKNOWN (no independent evidence", "billion-scale impact reach (unverified")):
+        path = os.path.join(root, "docs", lang, "ledger", "123-123.md")
+        text = _read_file(path)
+        if old not in text:
+            raise AssertionError("%s J-123 audience fact is not UNKNOWN" % lang)
+        _write_file(path, text.replace(old, new, 1))
+    return "J-123 audience scale changed from UNKNOWN in both ledgers"
 def _break_social_register_late_group(root):
     """Move J-120 into Group 4 while preserving totals and bilingual parity."""
     specs = {
@@ -4767,6 +4793,10 @@ NEGATIVE_CASES = [
      _break_social_register_closed_set),
     (u"social-scale late card moves groups while totals stay equal", "social-scale-register",
      _break_social_register_late_group),
+    (u"social-scale late card source facts drift", "social-scale-register",
+     _break_social_register_late_fact),
+    (u"social-scale J-123 audience fact drifts", "social-scale-register",
+     _break_social_register_j123_audience),
     (u"social-scale bilingual hrefs diverge", "social-scale-register",
      _break_social_register_href),
     (u"README/ledger dimension grade differs", "dimension-status",
