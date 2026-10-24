@@ -25,6 +25,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -2517,12 +2518,16 @@ def _run_checker(root, focused=False, timeout=30):
         args.append("--migration-check")
     proc = subprocess.Popen(
         args,
-        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        start_new_session=True)
     try:
         out, _ = proc.communicate(timeout=timeout)
         return proc.returncode, out.decode("utf-8", "replace")
     except subprocess.TimeoutExpired:
-        proc.kill()
+        try:
+            os.killpg(proc.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
         out, _ = proc.communicate()
         return 124, out.decode("utf-8", "replace") + \
             "\n[self-test-timeout] checker exceeded %ss\n" % timeout
@@ -5079,8 +5084,11 @@ def self_test(full=False):
         print("  %-4s %-44s %s" % ("PASS" if ok else "FAIL", title, detail))
 
     try:
+        full_case_timeout = 10
         pristine = _copy_checkable_tree(os.path.join(base, "pristine"))
-        code, out = _run_checker(pristine, focused=not full)
+        baseline_timeout = full_case_timeout if full else 30
+        code, out = _run_checker(pristine, focused=not full,
+                                 timeout=baseline_timeout)
         if code != 0:
             print("baseline: the unbroken copy already fails (exit %d), so the "
                   "negative cases below would prove nothing. Fix the tree "
@@ -5134,8 +5142,6 @@ def self_test(full=False):
             print("regression: embedded counts remain parseable after their "
                   "comparison basis is removed\n")
             return 1
-
-        full_case_timeout = 10
 
         def run_parallel(cases, evaluate):
             """Run independent fixture cases with a bounded worker pool.
