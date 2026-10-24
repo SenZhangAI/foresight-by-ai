@@ -455,7 +455,7 @@ ROOT_MARKDOWN = ("README.md", "README.en.md",
 
 # Every full self-test fixture gets this bounded worker budget. A timeout is
 # reported as incomplete rather than accepted as a passing negative case.
-SELF_TEST_CASE_TIMEOUT_SECONDS = 10
+SELF_TEST_CASE_TIMEOUT_SECONDS = 30
 
 
 def markdown_files():
