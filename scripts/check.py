@@ -29,6 +29,7 @@ import subprocess
 import sys
 import tempfile
 import unicodedata
+from concurrent.futures import ThreadPoolExecutor
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCE_REPO = REPO
@@ -5134,68 +5135,127 @@ def self_test(full=False):
                   "comparison basis is removed\n")
             return 1
 
-        def fresh():
-            work = os.path.join(base, "case-%d" % next(counter))
-            shutil.copytree(pristine, work)
-            return work
+        full_case_timeout = 10
 
-        print("negative cases (the checker must exit non-zero, "
-              "and name the right check):")
-        for title, tag, mutate in PARITY_NEGATIVE_CASES + NEGATIVE_CASES:
-            work = fresh()
+        def run_parallel(cases, evaluate):
+            """Run independent fixture cases with a bounded worker pool.
+
+            Every case owns a private tree and checker subprocess, so parallel
+            execution cannot share mutable checker state. Results are collected
+            in registration order to keep the self-test report deterministic.
+            """
+            def execute(case):
+                work = os.path.join(base, "case-%d" % next(counter))
+                try:
+                    shutil.copytree(pristine, work)
+                    return evaluate(case, work)
+                except Exception as exc:
+                    title = case[0] if isinstance(case, (tuple, list)) else repr(case)
+                    return (False, title,
+                            "worker exception: %s: %s" %
+                            (type(exc).__name__, exc))
+
+            workers = min(4, max(1, os.cpu_count() or 1))
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                return list(pool.map(execute, cases))
+
+        print("\nlegacy migration negative cases (the checker must exit non-zero, "
+              "and name the migration check):")
+        def migration_result(case, work):
+            title, tag, mutate = case
             detail = mutate(work)
-            code, out = _run_checker(work)
+            code, out = _run_checker(work, focused=True,
+                                     timeout=full_case_timeout)
+            ok = _negative_case_passed(code, out, tag)
+            return ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail)
+
+        for ok, title, detail in run_parallel(MIGRATION_NEGATIVE_CASES,
+                                               migration_result):
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, detail)
+
+        print("\nnegative cases (the checker must exit non-zero, "
+              "and name the right check):")
+        def negative_result(case, work):
+            title, tag, mutate = case
+            detail = mutate(work)
+            code, out = _run_checker(work, timeout=full_case_timeout)
             expected_marker = PARITY_NEGATIVE_MARKERS.get(title)
             marker_ok = (expected_marker is None or
                          all(part in out for part in expected_marker))
             ok = _negative_case_passed(code, out, tag) and marker_ok
+            return ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail)
+
+        for ok, title, detail in run_parallel(
+                PARITY_NEGATIVE_CASES + NEGATIVE_CASES, negative_result):
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, title, u"exit %d, expected [%s] — %s" % (code, tag, detail))
+            report(ok, title, detail)
 
         print("\nlens/card negative cases (each must name its chain/card location):")
-        for title, tag, mutate, marker in LENS_NEGATIVE_CASES:
-            work = fresh()
+        def lens_negative_result(case, work):
+            title, tag, mutate, marker = case
             detail = mutate(work)
-            code, out = _run_checker(work)
+            code, out = _run_checker(work, timeout=full_case_timeout)
             ok = _negative_case_passed(code, out, tag) and marker in out
+            return ok, title, u"exit %d, expected [%s] + %s — %s" % (
+                code, tag, marker, detail)
+
+        for ok, title, detail in run_parallel(LENS_NEGATIVE_CASES,
+                                               lens_negative_result):
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, title, u"exit %d, expected [%s] + %s — %s" %
-                   (code, tag, marker, detail))
+            report(ok, title, detail)
 
         print("\nlens/card edits that must NOT be reported:")
-        for title, mutate in LENS_POSITIVE_CASES:
-            work = fresh()
+        def lens_positive_result(case, work):
+            title, mutate = case
             detail = mutate(work)
-            code, out = _run_checker(work)
+            code, out = _run_checker(work, timeout=full_case_timeout)
             ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
-            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, title, u"exit %d — %s" % (code, detail))
+            return ok, title, u"exit %d — %s" % (code, detail)
 
-        for lang, value in CONFIDENCE_REJECTED:
-            work = fresh()
-            _set_confidence(lang, value)(work)
-            code, out = _run_checker(work)
-            ok = _negative_case_passed(code, out, "confidence")
+        for ok, title, detail in run_parallel(LENS_POSITIVE_CASES,
+                                               lens_positive_result):
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
+            report(ok, title, detail)
+
+        def confidence_negative_result(case, work):
+            lang, value = case
+            _set_confidence(lang, value)(work)
+            code, out = _run_checker(work, timeout=full_case_timeout)
+            title = u"%s card: %s" % (lang, value)
+            return (_negative_case_passed(code, out, "confidence"), title,
+                    u"exit %d" % code)
+
+        for ok, title, detail in run_parallel(CONFIDENCE_REJECTED,
+                                               confidence_negative_result):
+            passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
+            report(ok, title, detail)
 
         print("\nconfidence values that must be accepted:")
-        for lang, value in CONFIDENCE_ACCEPTED:
-            work = fresh()
+        def confidence_positive_result(case, work):
+            lang, value = case
             _set_confidence(lang, value)(work)
-            code, out = _run_checker(work)
-            ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
+            code, out = _run_checker(work, timeout=full_case_timeout)
+            title = u"%s card: %s" % (lang, value)
+            return (code == 0 and _embedded_counts(out) == baseline_embedded_counts,
+                    title, u"exit %d" % code)
+
+        for ok, title, detail in run_parallel(CONFIDENCE_ACCEPTED,
+                                               confidence_positive_result):
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, u"%s card: %s" % (lang, value), u"exit %d" % code)
+            report(ok, title, detail)
 
         print("\nedits that must NOT be reported:")
-        for title, mutate in POSITIVE_CASES:
-            work = fresh()
+        def positive_result(case, work):
+            title, mutate = case
             detail = mutate(work)
-            code, out = _run_checker(work)
+            code, out = _run_checker(work, timeout=full_case_timeout)
             ok = code == 0 and _embedded_counts(out) == baseline_embedded_counts
+            return ok, title, u"exit %d — %s" % (code, detail)
+
+        for ok, title, detail in run_parallel(POSITIVE_CASES, positive_result):
             passed, failed = (passed + 1, failed) if ok else (passed, failed + 1)
-            report(ok, title, u"exit %d — %s" % (code, detail))
+            report(ok, title, detail)
 
         print("\nself-test: %d passed, %d failed" % (passed, failed))
         return 1 if failed else 0
