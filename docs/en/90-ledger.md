@@ -100,137 +100,752 @@ Copy the fields, not the example ID. The example does not enter the formal index
 
 ---
 
-## Narrow-screen entry: open the full judgment card first
+## Narrow-screen entry: choose a judgment through summary cards
 
-> This is the progressive entry for phone and narrow-screen readers. It does not use a wide table: every ID links directly to its corresponding full judgment card, whose existing contract retains the judgment, time window, falsifier, leading indicator, confidence, audience scale, status, and source/limitation fields. Use the complete wide table below when you need one-shot comparison or cell-by-cell audit; **the wide table below remains the complete audit entry**.
+> This progressive summary-card entry is for phone and narrow-screen readers. Each card keeps the judgment ID, conclusion summary, time window, confidence, and a link to the full card in the natural reading flow, so a reader can choose a judgment without horizontal scrolling and then open its reasoning chain, falsifier, leading indicator, and remaining fields. Use the complete wide table below for one-shot comparison or cell-by-cell audit; **the wide table remains the complete audit entry**.
 
 ### Browse by ID (J-001–J-123)
 
-- [J-001 · Unit reasoning cost keeps falling](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling)
-- [J-002 · “Selecting objectively high quality from abundant output” is not a durable scarcity, but merely a 2–4 year window](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window)
-- [J-003 · The genuinely durable scarcity is ownership of “private context about you” and its usable form](ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form)
-- [J-004 · As AI shifts from “generating content” to “executing actions,” the scarce item is infrastructure that “makes actions reversible”](ledger/01-10.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible)
-- [J-005 · After generation becomes abundant, value concentrates in three kinds of non-recombinable input: raw signals, accountable commitments, and validated causality](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality)
-- [J-006 · Reasoning throughput precedes long-horizon autonomy](ledger/01-10.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy)
-- [J-007 · Resumable context precedes reliable long-term memory](ledger/01-10.md#j-007--resumable-context-precedes-reliable-long-term-memory)
-- [J-008 · Sourced long-term memory becomes a prerequisite for reliable collaboration](ledger/01-10.md#j-008--sourced-long-term-memory-becomes-a-prerequisite-for-reliable-collaboration)
-- [J-009 · Continuous execution in constrained workflows matures first](ledger/01-10.md#j-009--continuous-execution-in-constrained-workflows-matures-first)
-- [J-010 · Long-horizon autonomy follows constrained continuous execution](ledger/01-10.md#j-010--long-horizon-autonomy-follows-constrained-continuous-execution)
-- [J-011 · Cross-media consistency precedes long-range coherence](ledger/11-20.md#j-011--cross-media-consistency-precedes-long-range-coherence)
-- [J-012 · Cross-time coherence depends on state and evaluation](ledger/11-20.md#j-012--cross-time-coherence-depends-on-state-and-evaluation)
-- [J-013 · Checkable tool calls precede open-environment action](ledger/11-20.md#j-013--checkable-tool-calls-precede-open-environment-action)
-- [J-014 · Rehearsable environments follow single-tool integration](ledger/11-20.md#j-014--rehearsable-environments-follow-single-tool-integration)
-- [J-015 · Formal verification precedes open-world evaluation](ledger/11-20.md#j-015--formal-verification-precedes-open-world-evaluation)
-- [J-016 · Open-world evaluation is the final gate for expanding autonomy](ledger/11-20.md#j-016--open-world-evaluation-is-the-final-gate-for-expanding-autonomy)
-- [J-017 · AI mediation expands weak-tie coordination faster than strong relationships](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships)
-- [J-018 · Parallel reasoning before long-horizon autonomy](ledger/11-20.md#j-018--parallel-reasoning-before-long-horizon-autonomy)
-- [J-019 · Token saving is a window](ledger/11-20.md#j-019--token-saving-is-a-window)
-- [J-020 · Reproducible content keeps falling in price](ledger/11-20.md#j-020--reproducible-content-keeps-falling-in-price)
-- [J-021 · First-hand field signals earn a premium first](ledger/21-30.md#j-021--first-hand-field-signals-earn-a-premium-first)
-- [J-022 · Forgable signals drive credential upgrades](ledger/21-30.md#j-022--forgable-signals-drive-credential-upgrades)
-- [J-023 · Attention shifts toward fulfilled commitments](ledger/21-30.md#j-023--attention-shifts-toward-fulfilled-commitments)
-- [J-024 · Credentials re-layer (landscape only)](ledger/21-30.md#j-024--credentials-re-layer-landscape-only)
-- [J-025 · Small-team output rises](ledger/21-30.md#j-025--small-team-output-rises)
-- [J-026 · Responsibility boundaries remain](ledger/21-30.md#j-026--responsibility-boundaries-remain)
-- [J-027 · Rented compute spreads capability](ledger/21-30.md#j-027--rented-compute-spreads-capability)
-- [J-028 · Access becomes a bargaining node (landscape only)](ledger/21-30.md#j-028--access-becomes-a-bargaining-node-landscape-only)
-- [J-029 · Demand-side anchors persist](ledger/21-30.md#j-029--demand-side-anchors-persist)
-- [J-030 · AI mediates coordination, not shared experience (landscape only)](ledger/21-30.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only)
-- [J-031 · Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution](ledger/31-40.md#j-031--pausable-replayable-rollback-capable-action-environments-become-admission-conditions-for-long-horizon-ai-execution)
-- [J-032 · Authorization review and exception escalation become scarcer than execution steps](ledger/31-40.md#j-032--authorization-review-and-exception-escalation-become-scarcer-than-execution-steps)
-- [J-033 · Verifiable records of real interventions become more valuable than explanation itself](ledger/31-40.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself)
-- [J-034 · Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials](ledger/31-40.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials)
-- [J-035 · Responsibility collateral enters the transaction structure for consequential AI output](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output)
-- [J-036 · Long-term fulfillment records allocate attention better than one-off natural expression](ledger/31-40.md#j-036--long-term-fulfillment-records-allocate-attention-better-than-one-off-natural-expression)
-- [J-037 · Comparable small teams produce more verifiable output](ledger/31-40.md#j-037--comparable-small-teams-produce-more-verifiable-output)
-- [J-038 · Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps](ledger/31-40.md#j-038--authorization-exception-escalation-and-responsibility-roles-do-not-shrink-as-fast-as-execution-steps)
-- [J-039 · Rented models become abundant, while energy, data, and channel control create access rents](ledger/31-40.md#j-039--rented-models-become-abundant-while-energy-data-and-channel-control-create-access-rents)
-- [J-040 · Balance sheets able to absorb AI accidents become a separate scarcity](ledger/31-40.md#j-040--balance-sheets-able-to-absorb-ai-accidents-become-a-separate-scarcity)
-- [J-041 · AI first expands the coordination radius of weak ties](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties)
-- [J-042 · Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)
-- [J-043 · High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)](ledger/41-50.md#j-043--high-value-agent-execution-may-shift-to-boundary-grants-rather-than-step-by-step-operation-landscape-only)
-- [J-044 · Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)](ledger/41-50.md#j-044--liability-positions-able-to-absorb-accidents-become-the-load-bearing-wall-of-agent-infrastructure-landscape-only)
-- [J-045 · As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)](ledger/41-50.md#j-045--as-synthetic-expression-becomes-abundant-unarranged-observation-of-reality-becomes-scarce-landscape-only)
-- [J-046 · High-liability settings retain a premium for field causal records (landscape only)](ledger/41-50.md#j-046--high-liability-settings-retain-a-premium-for-field-causal-records-landscape-only)
-- [J-047 · Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)](ledger/41-50.md#j-047--copyable-ai-relationships-expand-companionship-supply-while-non-copyable-reciprocity-becomes-scarce-landscape-only)
-- [J-048 · Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)](ledger/41-50.md#j-048--authorization-exit-and-subject-boundaries-in-humanai-relationships-become-normative-issues-landscape-only)
-- [J-049 · As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)](ledger/41-50.md#j-049--as-ai-coordination-becomes-abundant-jointly-bearing-irreversible-commitments-becomes-scarce-landscape-only)
-- [J-050 · The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)](ledger/41-50.md#j-050--the-value-of-human-collaboration-shifts-from-doing-steps-together-to-choosing-commitments-together-landscape-only)
-- [J-051 · Abundant advice does not automatically disperse real action rights (landscape only)](ledger/51-60.md#j-051--abundant-advice-does-not-automatically-disperse-real-action-rights-landscape-only)
-- [J-052 · Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)](ledger/51-60.md#j-052--energy-real-world-data-authorization-and-compensation-form-far-term-institutional-access-points-landscape-only)
-- [J-053 · As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)](ledger/51-60.md#j-053--as-generatable-goods-become-abundant-what-one-personally-bore-may-become-a-signal-of-meaning-landscape-only)
-- [J-054 · Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)](ledger/51-60.md#j-054--non-delegable-time-bodily-risk-and-long-commitments-remain-demand-side-scarcities-landscape-only)
-- [J-055 · Real-world signals earn a premium as contract assets in high-liability tasks](ledger/51-60.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks)
-- [J-056 · The binding constraint on compute expansion moves from chip supply to power delivery and interconnection permits](ledger/51-60.md#j-056--the-binding-constraint-on-compute-expansion-moves-from-chip-supply-to-power-delivery-and-interconnection-permits)
-- [J-057 · What gets priced is not energy but certainty of delivery date](ledger/51-60.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date)
-- [J-058 · AI load splits into latency-sensitive and schedulable halves, and the schedulable half becomes a grid flexibility resource](ledger/51-60.md#j-058--ai-load-splits-into-latency-sensitive-and-schedulable-halves-and-the-schedulable-half-becomes-a-grid-flexibility-resource)
-- [J-059 · The handle of compute control moves from hardware export to the use side](ledger/51-60.md#j-059--the-handle-of-compute-control-moves-from-hardware-export-to-the-use-side)
-- [J-060 · Energy-rich hosts trade sites for compute and gain rent rather than capability sovereignty (landscape only)](ledger/51-60.md#j-060--energy-rich-hosts-trade-sites-for-compute-and-gain-rent-rather-than-capability-sovereignty-landscape-only)
-- [J-061 · Local externalities of data centres become explicit and social licence becomes a real siting constraint](ledger/61-70.md#j-061--local-externalities-of-data-centres-become-explicit-and-social-licence-becomes-a-real-siting-constraint)
-- [J-062 · Heavy assets are taxable while the value layer is mobile, so local shares stay structurally low (landscape only)](ledger/61-70.md#j-062--heavy-assets-are-taxable-while-the-value-layer-is-mobile-so-local-shares-stay-structurally-low-landscape-only)
-- [J-063 · The geography of compute is decided by interconnection queues and permitting speed, not by electricity price](ledger/61-70.md#j-063--the-geography-of-compute-is-decided-by-interconnection-queues-and-permitting-speed-not-by-electricity-price)
-- [J-064 · If efficiency gains keep outpacing load growth, the constraint in this chain dissolves in the long run (landscape only)](ledger/61-70.md#j-064--if-efficiency-gains-keep-outpacing-load-growth-the-constraint-in-this-chain-dissolves-in-the-long-run-landscape-only)
-- [J-065 · Once AI executes across ownership boundaries, the scarce item is not rollback software but the right to reverse](ledger/61-70.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse)
-- [J-066 · The five gates are necessary, not sufficient](ledger/61-70.md#j-066--the-five-gates-are-necessary-not-sufficient)
-- [J-067 · The audience ceiling of a capability is the headcount and frequency of the activity it serves](ledger/61-70.md#j-067--the-audience-ceiling-of-a-capability-is-the-headcount-and-frequency-of-the-activity-it-serves)
-- [J-068 · What diffuses replaces an activity already happening, not something added on top](ledger/61-70.md#j-068--what-diffuses-replaces-an-activity-already-happening-not-something-added-on-top)
-- [J-069 · Infrastructure that serves only one capability does not get built](ledger/61-70.md#j-069--infrastructure-that-serves-only-one-capability-does-not-get-built)
-- [J-070 · When many parties must change together, change needs enforceable and observable authority, a single subsidizing party, or a local closed loop](ledger/61-70.md#j-070--when-many-parties-must-change-together-change-needs-enforceable-and-observable-authority-a-single-subsidizing-party-or-a-local-closed-loop)
-- [J-071 · Recurring net burden, not gross friction, sets the voluntary-adoption ceiling](ledger/71-80.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling)
-- [J-072 · Choosing one from dozens of generated candidates is an occupational judgment, not a society-level trend](ledger/71-80.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend)
-- [J-073 · Embodied intelligence is the necessary complement for AI to reach the physical-labour population, not a sufficient condition for diffusion](ledger/71-80.md#j-073--embodied-intelligence-is-the-necessary-complement-for-ai-to-reach-the-physical-labour-population-not-a-sufficient-condition-for-diffusion)
-- [J-074 · Contact transfer in care crosses inside institutions first, and homes reach no society-level diffusion inside this window](ledger/71-80.md#j-074--contact-transfer-in-care-crosses-inside-institutions-first-and-homes-reach-no-society-level-diffusion-inside-this-window)
-- [J-075 · Warehousing's bottleneck has moved from moving to grasping: unstructured picking arrives first and door-to-door delivery does not hold inside this window](ledger/71-80.md#j-075--warehousings-bottleneck-has-moved-from-moving-to-grasping-unstructured-picking-arrives-first-and-door-to-door-delivery-does-not-hold-inside-this-window)
-- [J-076 · Manufacturing's one real scaling passed through Gate 4's local closed loop; flexible assembly and high-mix low-volume are still outside the gate](ledger/71-80.md#j-076--manufacturings-one-real-scaling-passed-through-gate-4s-local-closed-loop-flexible-assembly-and-high-mix-low-volume-are-still-outside-the-gate)
-- [J-077 · In agriculture what crossed is milking, not harvesting: seasonality and fragmentation hold cost per task above labour](ledger/71-80.md#j-077--in-agriculture-what-crossed-is-milking-not-harvesting-seasonality-and-fragmentation-hold-cost-per-task-above-labour)
-- [J-078 · Construction and domestic work are blocked by the one-off site and somebody else's home: inside this window they arrive only as single-operation equipment and single-task slices](ledger/71-80.md#j-078--construction-and-domestic-work-are-blocked-by-the-one-off-site-and-somebody-elses-home-inside-this-window-they-arrive-only-as-single-operation-equipment-and-single-task-slices)
-- [J-079 · Biomedical candidate generation and clinical-grade causal proof diverge](ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge)
-- [J-080 · Low-liability medical workflows diffuse before autonomous care without professional review](ledger/71-80.md#j-080--low-liability-medical-workflows-diffuse-before-autonomous-care-without-professional-review)
-- [J-081 · More drug candidates do not proportionally shorten human trial time](ledger/81-90.md#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time)
-- [J-082 · Once explanation is abundant, medical scarcity moves to authorized intervention and continuity of care (landscape only)](ledger/81-90.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only)
-- [J-083 · Personalized explanation becomes abundant before verifiable mastery](ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery)
-- [J-084 · AI tutoring enters teacher and institutional workflows before replacing schools](ledger/81-90.md#j-084--ai-tutoring-enters-teacher-and-institutional-workflows-before-replacing-schools)
-- [J-085 · Take-home artifact signals weaken while controlled performance and process evidence gain weight](ledger/81-90.md#j-085--take-home-artifact-signals-weaken-while-controlled-performance-and-process-evidence-gain-weight)
-- [J-086 · The explanation gap narrows while practice and verification gaps may widen (landscape only)](ledger/81-90.md#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only)
-- [J-087 · Human–machine supervisory units become mainstream before staffless organizations](ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations)
-- [J-088 · Junior production seats shrink before occupations as a whole; apprenticeship carriers become the new bottleneck](ledger/81-90.md#j-088--junior-production-seats-shrink-before-occupations-as-a-whole-apprenticeship-carriers-become-the-new-bottleneck)
-- [J-089 · Permission, audit, and appeal control planes become production infrastructure before broad autonomous authority](ledger/81-90.md#j-089--permission-audit-and-appeal-control-planes-become-production-infrastructure-before-broad-autonomous-authority)
-- [J-090 · Productivity gains first concentrate with scarce complementary-asset owners; competition and institutions decide whether they spread](ledger/81-90.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread)
-- [J-091 · Demand expansion and task savings occur together; net employment cannot be inferred from the capability curve alone](ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone)
-- [J-092 · Semiconductor resilience spending shifts from raw stockpiles to pre-qualified conversion paths](ledger/91-95.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths)
-- [J-093 · Advanced-fab siting is priced as a bundle of firm power, water quality, and discharge capacity](ledger/91-95.md#j-093--advanced-fab-siting-is-priced-as-a-bundle-of-firm-power-water-quality-and-discharge-capacity)
-- [J-094 · Semiconductor climate risk is priced through qualified-output loss, not hazard maps alone](ledger/91-95.md#j-094--semiconductor-climate-risk-is-priced-through-qualified-output-loss-not-hazard-maps-alone)
-- [J-095 · Fab-resilience costs become explicit bargaining over who pays and who is curtailed first](ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first)
-- [J-096 · Ageing and smaller households move part of care toward formal and coordination layers](ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)
-- [J-097 · Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag](ledger/96-102.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
-- [J-098 · Authority before intelligence: consequential settings form revocable tiered agency first](ledger/96-102.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first)
-- [J-099 · Embodied automation re-bundles occupational tasks before it eliminates occupations](ledger/96-102.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations)
-- [J-100 · Embodied care reallocates family roles before it removes care relationships](ledger/96-102.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships)
-- [J-101 · Embodied adoption clusters where a carrying bundle exists, widening regional differences](ledger/96-102.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences)
-- [J-102 · Embodied productivity gains concentrate first in complementary assets and liability carriers](ledger/96-102.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers)
-- [J-103 · The society-scale AI action is asking, not deciding; hundred-million weekly reach rests on the free tier](ledger/103-110.md#j-103--the-society-scale-ai-action-is-asking-not-deciding-hundred-million-weekly-reach-rests-on-the-free-tier)
-- [J-104 · Paid work from home stops at the D tier: tens of millions weekly, a plateau since 2023, and the employer decides](ledger/103-110.md#j-104--paid-work-from-home-stops-at-the-d-tier-tens-of-millions-weekly-a-plateau-since-2023-and-the-employer-decides)
-- [J-105 · Under fiscal squeeze, current recipients' nominal pensions are the hardest to cut; the knife falls first on those not yet drawing](ledger/103-110.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing)
-- [J-106 · Aid gives way to defence: the budget with no domestic periodic recipients is squeezed out first](ledger/103-110.md#j-106--aid-gives-way-to-defence-the-budget-with-no-domestic-periodic-recipients-is-squeezed-out-first)
-- [J-107 · Paid weekly work at 65+ stops at the D tier: tens of millions, short of a hundred million](ledger/103-110.md#j-107--paid-weekly-work-at-65-stops-at-the-d-tier-tens-of-millions-short-of-a-hundred-million)
-- [J-108 · Security commitments become budgets and industrial policy first; electoral-rule change is not the first response](ledger/103-110.md#j-108--security-commitments-become-budgets-and-industrial-policy-first-electoral-rule-change-is-not-the-first-response)
-- [J-109 · Housing costs will keep delaying household formation into later life and fewer affordable places](ledger/109-111.md#j-109--housing-costs-will-keep-delaying-household-formation-into-later-life-and-fewer-affordable-places)
-- [J-110 · Migration is a labour-and-care shock absorber, not a reversal of population ageing](ledger/109-111.md#j-110--migration-is-a-labour-and-care-shock-absorber-not-a-reversal-of-population-ageing)
-- [J-111 · Fertility policy is more likely to change timing and gaps than restore replacement fertility across the OECD](ledger/109-111.md#j-111--fertility-policy-is-more-likely-to-change-timing-and-gaps-than-restore-replacement-fertility-across-the-oecd)
-- [J-112 · Leisure culture consumption is constrained by time budgets and access](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
-- [J-113 · Climate shocks first widen inequality through insurance, adaptation, and travel disruption](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
-- [J-114 · Calibrated single-task embodied systems precede open-world general robots](ledger/114-116.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots)
-- [J-115 · Modular generation and short-duration storage precede dispatchable long-duration systems](ledger/114-116.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems)
-- [J-116 · Chip expansion is first constrained by yield and validated conversion paths, then by nominal capacity](ledger/114-116.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity)
-- [J-117 · Religion differentiates and recombines before it synchronously declines with modernisation](ledger/117-119.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation)
-- [J-118 · Productivity growth first differentiates claims, then determines whether income diffuses](ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses)
-- [J-119 · Risk recombines before public safety improves; no single technology produces safety automatically](ledger/117-119.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically)
-- [J-120 · Rights around data and model outputs will layer first; liability will remain attached to recoverable organizations](ledger/120-121.md#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations)
-- [J-121 · Cross-border institutions will zone around critical dependencies; global rules will not converge automatically](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
-- [J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
-- [J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)](ledger/123-123.md#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only)
+<!-- narrow-entry: summary-cards; full ledger remains below -->
+- **J-001 · Unit reasoning cost keeps falling**
+  - **One-sentence judgment**: The unit cost of reasoning at equal capability falls another order of magnitude by the end of 2029.
+  - **Time window**: 2026-01 to 2029-12.
+  - **Confidence**: High
+  - **Full card**: [Open J-001](ledger/01-10.md#j-001--unit-reasoning-cost-keeps-falling)
 
-> **Full judgment card links:** All 123 entries above land directly on complete cards in the ledger/ shards, not on anchors in the wide table.
+- **J-002 · “Selecting objectively high quality from abundant output” is not a durable scarcity, but merely a 2–4 year window**
+  - **One-sentence judgment**: Selecting objectively high quality from abundant output is not a durable scarcity; it is merely a 2–4 year window.
+  - **Time window**: The window will be basically closed by the end of 2029
+  - **Confidence**: Medium
+  - **Full card**: [Open J-002](ledger/01-10.md#j-002--selecting-objectively-high-quality-from-abundant-output-is-not-a-durable-scarcity-but-merely-a-24-year-window)
+
+- **J-003 · The genuinely durable scarcity is ownership of “private context about you” and its usable form**
+  - **One-sentence judgment**: The genuinely durable scarcity is ownership of private context about you and its usable form.
+  - **Time window**: Demand becomes visible from 2027 and will not disappear before 2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-003](ledger/01-10.md#j-003--the-genuinely-durable-scarcity-is-ownership-of-private-context-about-you-and-its-usable-form)
+
+- **J-004 · As AI shifts from “generating content” to “executing actions,” the scarce item is infrastructure that “makes actions reversible”**
+  - **One-sentence judgment**: As AI shifts from generating content to executing actions, the scarce item is infrastructure that makes actions reversible.
+  - **Time window**: Demand becomes explicit from 2027 and becomes standard before 2032
+  - **Confidence**: Medium
+  - **Full card**: [Open J-004](ledger/01-10.md#j-004--as-ai-shifts-from-generating-content-to-executing-actions-the-scarce-item-is-infrastructure-that-makes-actions-reversible)
+
+- **J-005 · After generation becomes abundant, value concentrates in three kinds of non-recombinable input: raw signals, accountable commitments, and validated causality**
+  - **One-sentence judgment**: After generation becomes abundant, value concentrates in three kinds of non-recombinable input: raw signals, accountable commitments, and validated causality.
+  - **Time window**: Clearly visible in pricing during 2029–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-005](ledger/01-10.md#j-005--after-generation-becomes-abundant-value-concentrates-in-three-kinds-of-non-recombinable-input-raw-signals-accountable-commitments-and-validated-causality)
+
+- **J-006 · Reasoning throughput precedes long-horizon autonomy**
+  - **One-sentence judgment**: By 2028, the number of parallel reasoning paths affordable per task will rise substantially, making generate–compare–revise workflows common before long-horizon autonomous execution.
+  - **Time window**: 2026–2028.
+  - **Confidence**: High
+  - **Full card**: [Open J-006](ledger/01-10.md#j-006--reasoning-throughput-precedes-long-horizon-autonomy)
+
+- **J-007 · Resumable context precedes reliable long-term memory**
+  - **One-sentence judgment**: From 2026 to 2029, task-level retrieval context will become a common base for multi-session collaboration before sourced, revisable long-term memory matures.
+  - **Time window**: 2026–2029.
+  - **Confidence**: High
+  - **Full card**: [Open J-007](ledger/01-10.md#j-007--resumable-context-precedes-reliable-long-term-memory)
+
+- **J-008 · Sourced long-term memory becomes a prerequisite for reliable collaboration**
+  - **One-sentence judgment**: From 2028 to 2031, long-term memory with sources, dates, and confidence boundaries will become necessary for high-value continuous collaboration rather than a chat-product extra.
+  - **Time window**: 2028–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-008](ledger/01-10.md#j-008--sourced-long-term-memory-becomes-a-prerequisite-for-reliable-collaboration)
+
+- **J-009 · Continuous execution in constrained workflows matures first**
+  - **One-sentence judgment**: From 2027 to 2030, constrained workflows with checkable inputs and outputs and limited permissions will achieve stable continuous execution before open-world autonomy matures.
+  - **Time window**: 2027–2030.
+  - **Confidence**: High
+  - **Full card**: [Open J-009](ledger/01-10.md#j-009--continuous-execution-in-constrained-workflows-matures-first)
+
+- **J-010 · Long-horizon autonomy follows constrained continuous execution**
+  - **One-sentence judgment**: From 2029 to 2033, autonomous execution across longer horizons with fewer human confirmations will reach acceptable reliability in some high-value settings.
+  - **Time window**: 2029–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-010](ledger/01-10.md#j-010--long-horizon-autonomy-follows-constrained-continuous-execution)
+
+- **J-011 · Cross-media consistency precedes long-range coherence**
+  - **One-sentence judgment**: From 2027 to 2030, local consistency of entities and formats across text, images, and audio will become reusable before causal coherence across long time spans.
+  - **Time window**: 2027–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-011](ledger/11-20.md#j-011--cross-media-consistency-precedes-long-range-coherence)
+
+- **J-012 · Cross-time coherence depends on state and evaluation**
+  - **One-sentence judgment**: From 2029 to 2034, cross-time coherence in long stories, persistent interactive environments, and multi-round design will reach production quality only after state memory and repeated evaluation mature.
+  - **Time window**: 2029–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-012](ledger/11-20.md#j-012--cross-time-coherence-depends-on-state-and-evaluation)
+
+- **J-013 · Checkable tool calls precede open-environment action**
+  - **One-sentence judgment**: From 2027 to 2030, tool calls with parameters, preconditions, permissions, and structured results will spread before systems expand into continuous action in complex environments.
+  - **Time window**: 2027–2030.
+  - **Confidence**: High
+  - **Full card**: [Open J-013](ledger/11-20.md#j-013--checkable-tool-calls-precede-open-environment-action)
+
+- **J-014 · Rehearsable environments follow single-tool integration**
+  - **One-sentence judgment**: From 2028 to 2032, environments combining snapshots, shadow execution, permission boundaries, and rollback points will arrive after single-tool integration but before high-value autonomous action becomes common.
+  - **Time window**: 2028–2032.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-014](ledger/11-20.md#j-014--rehearsable-environments-follow-single-tool-integration)
+
+- **J-015 · Formal verification precedes open-world evaluation**
+  - **One-sentence judgment**: From 2026 to 2029, tests, schemas, static checks, and counterexample search will be absorbed by generation systems before independent evaluation of real-world outcomes matures.
+  - **Time window**: 2026–2029.
+  - **Confidence**: High
+  - **Full card**: [Open J-015](ledger/11-20.md#j-015--formal-verification-precedes-open-world-evaluation)
+
+- **J-016 · Open-world evaluation is the final gate for expanding autonomy**
+  - **One-sentence judgment**: From 2029 to 2035, independent observation, causal intervention, and continuous monitoring will become the final technical gate for widening the authorization of long-horizon autonomous action.
+  - **Time window**: 2029–2035.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-016](ledger/11-20.md#j-016--open-world-evaluation-is-the-final-gate-for-expanding-autonomy)
+
+- **J-017 · AI mediation expands weak-tie coordination faster than strong relationships**
+  - **One-sentence judgment**: From 2027 to 2033, AI mediation will expand weak-tie coordination faster than strong relationships, without expanding the number of relationships in which a person can remain present over time.
+  - **Time window**: 2027–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-017](ledger/11-20.md#j-017--ai-mediation-expands-weak-tie-coordination-faster-than-strong-relationships)
+
+- **J-018 · Parallel reasoning before long-horizon autonomy**
+  - **One-sentence judgment**: By 2028, generate–compare–revise becomes the default workflow before long-horizon autonomy.
+  - **Time window**: 2026–2028.
+  - **Confidence**: High
+  - **Full card**: [Open J-018](ledger/11-20.md#j-018--parallel-reasoning-before-long-horizon-autonomy)
+
+- **J-019 · Token saving is a window**
+  - **One-sentence judgment**: From 2026–2028, stronger models and cheaper repeated attempts compress the value of saving tokens; it is a window, not durable scarcity.
+  - **Time window**: 2026–2028.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-019](ledger/11-20.md#j-019--token-saving-is-a-window)
+
+- **J-020 · Reproducible content keeps falling in price**
+  - **One-sentence judgment**: By 2028, reproducible content keeps falling in marginal price as objective selection becomes part of generation.
+  - **Time window**: 2026–2028.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-020](ledger/11-20.md#j-020--reproducible-content-keeps-falling-in-price)
+
+- **J-021 · First-hand field signals earn a premium first**
+  - **One-sentence judgment**: From 2026–2029, unrecorded field observations and traceable sources earn a premium earlier than second-hand expression.
+  - **Time window**: 2026–2029.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-021](ledger/21-30.md#j-021--first-hand-field-signals-earn-a-premium-first)
+
+- **J-022 · Forgable signals drive credential upgrades**
+  - **One-sentence judgment**: From 2026–2029, more forgable personalized signals push important decisions toward costlier identity, fulfillment, and liability credentials.
+  - **Time window**: 2026–2029.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-022](ledger/21-30.md#j-022--forgable-signals-drive-credential-upgrades)
+
+- **J-023 · Attention shifts toward fulfilled commitments**
+  - **One-sentence judgment**: From 2027–2030, important attention allocation shifts from expression quality toward relationship continuity and fulfilled commitments.
+  - **Time window**: 2027–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-023](ledger/21-30.md#j-023--attention-shifts-toward-fulfilled-commitments)
+
+- **J-024 · Credentials re-layer (landscape only)**
+  - **One-sentence judgment**: From 2027–2032, credentials may re-layer around fulfillment, liability, and presence, but the institutional form is uncertain.
+  - **Time window**: 2027–2032.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-024](ledger/21-30.md#j-024--credentials-re-layer-landscape-only)
+
+- **J-025 · Small-team output rises**
+  - **One-sentence judgment**: From 2027–2030, small teams complete more verifiable output with fewer steps.
+  - **Time window**: 2027–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-025](ledger/21-30.md#j-025--small-team-output-rises)
+
+- **J-026 · Responsibility boundaries remain**
+  - **One-sentence judgment**: From 2027–2032, responsibility boundaries do not disappear at the same rate as knowledge-work steps.
+  - **Time window**: 2027–2032.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-026](ledger/21-30.md#j-026--responsibility-boundaries-remain)
+
+- **J-027 · Rented compute spreads capability**
+  - **One-sentence judgment**: From 2026–2029, rented compute spreads access to AI capability for small organizations without distributing gains evenly.
+  - **Time window**: 2026–2029.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-027](ledger/21-30.md#j-027--rented-compute-spreads-capability)
+
+- **J-028 · Access becomes a bargaining node (landscape only)**
+  - **One-sentence judgment**: From 2027–2032, proprietary data, distribution, and liability capacity may become more important bargaining nodes than models.
+  - **Time window**: 2027–2032.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-028](ledger/21-30.md#j-028--access-becomes-a-bargaining-node-landscape-only)
+
+- **J-029 · Demand-side anchors persist**
+  - **One-sentence judgment**: From 2026–2030, status, certainty, embodied presence, and responsibility remain demand-side anchors despite richer expression and choice.
+  - **Time window**: 2026–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-029](ledger/21-30.md#j-029--demand-side-anchors-persist)
+
+- **J-030 · AI mediates coordination, not shared experience (landscape only)**
+  - **One-sentence judgment**: From 2027–2032, AI mediates context synchronization and relationship coordination but not experiences requiring embodied presence and shared consequences.
+  - **Time window**: 2027–2032.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-030](ledger/21-30.md#j-030--ai-mediates-coordination-not-shared-experience-landscape-only)
+
+- **J-031 · Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution**
+  - **One-sentence judgment**: Pausable, replayable, rollback-capable action environments become admission conditions for long-horizon AI execution
+  - **Time window**: 2026–2032
+  - **Confidence**: Medium
+  - **Full card**: [Open J-031](ledger/31-40.md#j-031--pausable-replayable-rollback-capable-action-environments-become-admission-conditions-for-long-horizon-ai-execution)
+
+- **J-032 · Authorization review and exception escalation become scarcer than execution steps**
+  - **One-sentence judgment**: Authorization review and exception escalation become scarcer than execution steps
+  - **Time window**: 2027–2032
+  - **Confidence**: Medium
+  - **Full card**: [Open J-032](ledger/31-40.md#j-032--authorization-review-and-exception-escalation-become-scarcer-than-execution-steps)
+
+- **J-033 · Verifiable records of real interventions become more valuable than explanation itself**
+  - **One-sentence judgment**: Verifiable records of real interventions become more valuable than explanation itself
+  - **Time window**: 2029–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-033](ledger/31-40.md#j-033--verifiable-records-of-real-interventions-become-more-valuable-than-explanation-itself)
+
+- **J-034 · Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials**
+  - **One-sentence judgment**: Synthetic evidence is accepted first in low-liability contexts; high-liability contexts still require real trials
+  - **Time window**: 2028–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-034](ledger/31-40.md#j-034--synthetic-evidence-is-accepted-first-in-low-liability-contexts-high-liability-contexts-still-require-real-trials)
+
+- **J-035 · Responsibility collateral enters the transaction structure for consequential AI output**
+  - **One-sentence judgment**: Responsibility collateral enters the transaction structure for consequential AI output
+  - **Time window**: 2028–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-035](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output)
+
+- **J-036 · Long-term fulfillment records allocate attention better than one-off natural expression**
+  - **One-sentence judgment**: Long-term fulfillment records allocate attention better than one-off natural expression
+  - **Time window**: 2027–2032
+  - **Confidence**: Medium
+  - **Full card**: [Open J-036](ledger/31-40.md#j-036--long-term-fulfillment-records-allocate-attention-better-than-one-off-natural-expression)
+
+- **J-037 · Comparable small teams produce more verifiable output**
+  - **One-sentence judgment**: Comparable small teams produce more verifiable output
+  - **Time window**: 2027–2031
+  - **Confidence**: Medium
+  - **Full card**: [Open J-037](ledger/31-40.md#j-037--comparable-small-teams-produce-more-verifiable-output)
+
+- **J-038 · Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps**
+  - **One-sentence judgment**: Authorization, exception escalation, and responsibility roles do not shrink as fast as execution steps
+  - **Time window**: 2027–2032
+  - **Confidence**: Medium
+  - **Full card**: [Open J-038](ledger/31-40.md#j-038--authorization-exception-escalation-and-responsibility-roles-do-not-shrink-as-fast-as-execution-steps)
+
+- **J-039 · Rented models become abundant, while energy, data, and channel control create access rents**
+  - **One-sentence judgment**: Rented models become abundant, while energy, data, and channel control create access rents
+  - **Time window**: 2027–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-039](ledger/31-40.md#j-039--rented-models-become-abundant-while-energy-data-and-channel-control-create-access-rents)
+
+- **J-040 · Balance sheets able to absorb AI accidents become a separate scarcity**
+  - **One-sentence judgment**: Balance sheets able to absorb AI accidents become a separate scarcity
+  - **Time window**: 2028–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-040](ledger/31-40.md#j-040--balance-sheets-able-to-absorb-ai-accidents-become-a-separate-scarcity)
+
+- **J-041 · AI first expands the coordination radius of weak ties**
+  - **One-sentence judgment**: AI first expands the coordination radius of weak ties
+  - **Time window**: 2027–2033
+  - **Confidence**: Medium
+  - **Full card**: [Open J-041](ledger/41-50.md#j-041--ai-first-expands-the-coordination-radius-of-weak-ties)
+
+- **J-042 · Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)**
+  - **One-sentence judgment**: Shared experience and embodied presence remain the capacity ceiling for strong ties (landscape only)
+  - **Time window**: 2027–2033
+  - **Confidence**: Low
+  - **Full card**: [Open J-042](ledger/41-50.md#j-042--shared-experience-and-embodied-presence-remain-the-capacity-ceiling-for-strong-ties-landscape-only)
+
+- **J-043 · High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only)**
+  - **One-sentence judgment**: High-value agent execution may shift to boundary grants rather than step-by-step operation (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-043](ledger/41-50.md#j-043--high-value-agent-execution-may-shift-to-boundary-grants-rather-than-step-by-step-operation-landscape-only)
+
+- **J-044 · Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only)**
+  - **One-sentence judgment**: Liability positions able to absorb accidents become the load-bearing wall of agent infrastructure (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-044](ledger/41-50.md#j-044--liability-positions-able-to-absorb-accidents-become-the-load-bearing-wall-of-agent-infrastructure-landscape-only)
+
+- **J-045 · As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only)**
+  - **One-sentence judgment**: As synthetic expression becomes abundant, unarranged observation of reality becomes scarce (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-045](ledger/41-50.md#j-045--as-synthetic-expression-becomes-abundant-unarranged-observation-of-reality-becomes-scarce-landscape-only)
+
+- **J-046 · High-liability settings retain a premium for field causal records (landscape only)**
+  - **One-sentence judgment**: High-liability settings retain a premium for field causal records (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-046](ledger/41-50.md#j-046--high-liability-settings-retain-a-premium-for-field-causal-records-landscape-only)
+
+- **J-047 · Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only)**
+  - **One-sentence judgment**: Copyable AI relationships expand companionship supply, while non-copyable reciprocity becomes scarce (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-047](ledger/41-50.md#j-047--copyable-ai-relationships-expand-companionship-supply-while-non-copyable-reciprocity-becomes-scarce-landscape-only)
+
+- **J-048 · Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only)**
+  - **One-sentence judgment**: Authorization, exit, and subject boundaries in human–AI relationships become normative issues (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-048](ledger/41-50.md#j-048--authorization-exit-and-subject-boundaries-in-humanai-relationships-become-normative-issues-landscape-only)
+
+- **J-049 · As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only)**
+  - **One-sentence judgment**: As AI coordination becomes abundant, jointly bearing irreversible commitments becomes scarce (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-049](ledger/41-50.md#j-049--as-ai-coordination-becomes-abundant-jointly-bearing-irreversible-commitments-becomes-scarce-landscape-only)
+
+- **J-050 · The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only)**
+  - **One-sentence judgment**: The value of human collaboration shifts from doing steps together to choosing commitments together (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-050](ledger/41-50.md#j-050--the-value-of-human-collaboration-shifts-from-doing-steps-together-to-choosing-commitments-together-landscape-only)
+
+- **J-051 · Abundant advice does not automatically disperse real action rights (landscape only)**
+  - **One-sentence judgment**: Abundant advice does not automatically disperse real action rights (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-051](ledger/51-60.md#j-051--abundant-advice-does-not-automatically-disperse-real-action-rights-landscape-only)
+
+- **J-052 · Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only)**
+  - **One-sentence judgment**: Energy, real-world data, authorization, and compensation form far-term institutional access points (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-052](ledger/51-60.md#j-052--energy-real-world-data-authorization-and-compensation-form-far-term-institutional-access-points-landscape-only)
+
+- **J-053 · As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)**
+  - **One-sentence judgment**: As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-053](ledger/51-60.md#j-053--as-generatable-goods-become-abundant-what-one-personally-bore-may-become-a-signal-of-meaning-landscape-only)
+
+- **J-054 · Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)**
+  - **One-sentence judgment**: Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-054](ledger/51-60.md#j-054--non-delegable-time-bodily-risk-and-long-commitments-remain-demand-side-scarcities-landscape-only)
+
+- **J-055 · Real-world signals earn a premium as contract assets in high-liability tasks**
+  - **One-sentence judgment**: In high-liability tasks, real-world signals with provenance, permission, calibration, and liability chains are more likely than data files alone to earn a structural premium.
+  - **Time window**: 2029–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-055](ledger/51-60.md#j-055--real-world-signals-earn-a-premium-as-contract-assets-in-high-liability-tasks)
+
+- **J-056 · The binding constraint on compute expansion moves from chip supply to power delivery and interconnection permits**
+  - **One-sentence judgment**: Within this window the binding constraint on compute expansion moves from chip supply to power delivery and interconnection permitting.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-056](ledger/51-60.md#j-056--the-binding-constraint-on-compute-expansion-moves-from-chip-supply-to-power-delivery-and-interconnection-permits)
+
+- **J-057 · What gets priced is not energy but certainty of delivery date**
+  - **One-sentence judgment**: In compute-related power transactions, what is mainly priced is not energy but the certainty of being live on the promised date.
+  - **Time window**: 2027–2032.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-057](ledger/51-60.md#j-057--what-gets-priced-is-not-energy-but-certainty-of-delivery-date)
+
+- **J-058 · AI load splits into latency-sensitive and schedulable halves, and the schedulable half becomes a grid flexibility resource**
+  - **One-sentence judgment**: AI load splits into latency-sensitive and schedulable halves, and the schedulable half becomes a flexibility resource the grid pays for rather than merely a burden.
+  - **Time window**: 2027–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-058](ledger/51-60.md#j-058--ai-load-splits-into-latency-sensitive-and-schedulable-halves-and-the-schedulable-half-becomes-a-grid-flexibility-resource)
+
+- **J-059 · The handle of compute control moves from hardware export to the use side**
+  - **One-sentence judgment**: Once rental architectures let capability cross borders while hardware stays put, the handle of compute control moves from hardware export to use-side control of parties, purposes, and site authorization.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-059](ledger/51-60.md#j-059--the-handle-of-compute-control-moves-from-hardware-export-to-the-use-side)
+
+- **J-060 · Energy-rich hosts trade sites for compute and gain rent rather than capability sovereignty (landscape only)**
+  - **One-sentence judgment**: Host states with surplus energy and fast permitting trade sites and power for compute investment and obtain rent, employment, and tax revenue rather than any right of disposal over the capability itself (landscape only).
+  - **Time window**: 2028–2035.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-060](ledger/51-60.md#j-060--energy-rich-hosts-trade-sites-for-compute-and-gain-rent-rather-than-capability-sovereignty-landscape-only)
+
+- **J-061 · Local externalities of data centres become explicit and social licence becomes a real siting constraint**
+  - **One-sentence judgment**: The local externalities of data centres become explicit, turning social licence from an implicit premise into a real cost line in siting.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-061](ledger/61-70.md#j-061--local-externalities-of-data-centres-become-explicit-and-social-licence-becomes-a-real-siting-constraint)
+
+- **J-062 · Heavy assets are taxable while the value layer is mobile, so local shares stay structurally low (landscape only)**
+  - **One-sentence judgment**: What can be taxed is the immovable heavy asset while what earns the profit is the instantly mobile value layer, so the share captured locally stays structurally low (landscape only).
+  - **Time window**: 2028–2035.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-062](ledger/61-70.md#j-062--heavy-assets-are-taxable-while-the-value-layer-is-mobile-so-local-shares-stay-structurally-low-landscape-only)
+
+- **J-063 · The geography of compute is decided by interconnection queues and permitting speed, not by electricity price**
+  - **One-sentence judgment**: Until grid expansion catches up, the geography of compute is explained mainly by interconnection queues and permitting speed rather than by electricity price.
+  - **Time window**: 2026–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-063](ledger/61-70.md#j-063--the-geography-of-compute-is-decided-by-interconnection-queues-and-permitting-speed-not-by-electricity-price)
+
+- **J-064 · If efficiency gains keep outpacing load growth, the constraint in this chain dissolves in the long run (landscape only)**
+  - **One-sentence judgment**: If energy per unit of service keeps falling faster than load grows, and schedulable load can migrate freely across regions, this chain's power and permitting constraint dissolves on its own in the long run (landscape only).
+  - **Time window**: 2033–2040.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-064](ledger/61-70.md#j-064--if-efficiency-gains-keep-outpacing-load-growth-the-constraint-in-this-chain-dissolves-in-the-long-run-landscape-only)
+
+- **J-065 · Once AI executes across ownership boundaries, the scarce item is not rollback software but the right to reverse**
+  - **One-sentence judgment**: What is scarce is not sandbox and rollback software but the right to pull state back out of the counterparty’s ledger.
+  - **Time window**: 2027–2033, as demand becomes explicit with the volume of cross-party agent execution
+  - **Confidence**: Medium
+  - **Full card**: [Open J-065](ledger/61-70.md#j-065--once-ai-executes-across-ownership-boundaries-the-scarce-item-is-not-rollback-software-but-the-right-to-reverse)
+
+- **J-066 · The five gates are necessary, not sufficient**
+  - **One-sentence judgment**: If a capability fails any one of the five diffusion gates it will not become the way a whole society does things; passing all five only means it qualifies to compete, and guarantees nothing.
+  - **Time window**: 2026-01 to 2036-12 (the period over which this rule is applied and tested).
+  - **Confidence**: Medium
+  - **Full card**: [Open J-066](ledger/61-70.md#j-066--the-five-gates-are-necessary-not-sufficient)
+
+- **J-067 · The audience ceiling of a capability is the headcount and frequency of the activity it serves**
+  - **One-sentence judgment**: The upper bound on how many people a capability can affect is set by how many people perform the activity it serves and how often they perform it, not by the ceiling of the technology.
+  - **Time window**: 2026-01 to 2036-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-067](ledger/61-70.md#j-067--the-audience-ceiling-of-a-capability-is-the-headcount-and-frequency-of-the-activity-it-serves)
+
+- **J-068 · What diffuses replaces an activity already happening, not something added on top**
+  - **One-sentence judgment**: Capabilities that diffuse all replace one concrete activity the user already performs today; anything that replaces nothing and merely adds one more thing is capped at hobbyists.
+  - **Time window**: 2026-01 to 2036-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-068](ledger/61-70.md#j-068--what-diffuses-replaces-an-activity-already-happening-not-something-added-on-top)
+
+- **J-069 · Infrastructure that serves only one capability does not get built**
+  - **One-sentence judgment**: If the new infrastructure a capability requires has no second use and no independent revenue source, that infrastructure either does not get built, or the capability must wait until someone else builds it for other reasons.
+  - **Time window**: 2026-01 to 2036-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-069](ledger/61-70.md#j-069--infrastructure-that-serves-only-one-capability-does-not-get-built)
+
+- **J-070 · When many parties must change together, change needs enforceable and observable authority, a single subsidizing party, or a local closed loop**
+  - **One-sentence judgment**: If adoption requires many parties to change at once, change moves beyond pilots only when one of three holds: a party that can both compel and observe compliance, a single party able to subsidize everyone's start-up cost at once, or a local closed loop that need not wait for the whole society.
+  - **Time window**: 2026-01 to 2036-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-070](ledger/61-70.md#j-070--when-many-parties-must-change-together-change-needs-enforceable-and-observable-authority-a-single-subsidizing-party-or-a-local-closed-loop)
+
+- **J-071 · Recurring net burden, not gross friction, sets the voluntary-adoption ceiling**
+  - **One-sentence judgment**: Voluntary adoption must compare **recurring net burden relative to the real incumbent**: added bodily, social, learning, and monetary burden minus saved waiting, price, time, and process cost. Only a positive, material burden that accumulates with frequency pushes the ceiling far below the activity population.
+  - **Time window**: 2026-01 to 2036-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-071](ledger/71-80.md#j-071--recurring-net-burden-not-gross-friction-sets-the-voluntary-adoption-ceiling)
+
+- **J-072 · Choosing one from dozens of generated candidates is an occupational judgment, not a society-level trend**
+  - **One-sentence judgment**: The activity "faced with a batch of already-generated candidates, pick one and own the outcome" is performed by a global population in the millions at weekly frequency, so any scarcity derived from it is an occupational judgment and must not be written in a society-level voice.
+  - **Time window**: 2026-01 to 2031-12.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-072](ledger/71-80.md#j-072--choosing-one-from-dozens-of-generated-candidates-is-an-occupational-judgment-not-a-society-level-trend)
+
+- **J-073 · Embodied intelligence is the necessary complement for AI to reach the physical-labour population, not a sufficient condition for diffusion**
+  - **One-sentence judgment**: As long as AI can only move information, Gate 1 holds its audience ceiling down to "the share of people whose work surface is a screen"; being able to move mass, be present on site, and touch a human body is the **necessary complement** that changes that denominator, but changing the denominator only opens Gate 1 — Gates 2 through 5 do not open automatically as model capability improves, so embodiment is **not** a sufficient condition for society-level diffusion.
+  - **Time window**: 2026–2040.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-073](ledger/71-80.md#j-073--embodied-intelligence-is-the-necessary-complement-for-ai-to-reach-the-physical-labour-population-not-a-sufficient-condition-for-diffusion)
+
+- **J-074 · Contact transfer in care crosses inside institutions first, and homes reach no society-level diffusion inside this window**
+  - **One-sentence judgment**: Care is the square with the most certain demand, but what blocks it is not "can it lift" — it is "the person is alive throughout" plus the cost paid afresh on every single use; contact bed-to-chair transfer becomes standard institutional equipment no earlier than 2032–2038, and first in the handful of countries with the highest labour costs and heaviest nursing-injury compensation exposure, while home settings reach no society-level diffusion inside this window (to 2040).
+  - **Time window**: 2026–2038.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-074](ledger/71-80.md#j-074--contact-transfer-in-care-crosses-inside-institutions-first-and-homes-reach-no-society-level-diffusion-inside-this-window)
+
+- **J-075 · Warehousing's bottleneck has moved from moving to grasping: unstructured picking arrives first and door-to-door delivery does not hold inside this window**
+  - **One-sentence judgment**: Warehousing is where embodied intelligence pencils out first (goods feel no pain, the building belongs to one legal entity, the floor is flat), and what is actually stuck is the cost of the failure tail in unstructured picking; scaled single-item picking in controlled large warehouses sits conservatively at 2028–2033, while door-to-door last-mile delivery does not hold inside this window because it trips Gate 3 and Gate 4 at once.
+  - **Time window**: 2026–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-075](ledger/71-80.md#j-075--warehousings-bottleneck-has-moved-from-moving-to-grasping-unstructured-picking-arrives-first-and-door-to-door-delivery-does-not-hold-inside-this-window)
+
+- **J-076 · Manufacturing's one real scaling passed through Gate 4's local closed loop; flexible assembly and high-mix low-volume are still outside the gate**
+  - **One-sentence judgment**: Manufacturing is the only scene where "robots already scaled" can be cited directly, but that scaling passed through Gate 4's clause (c), the local closed loop, and happened only inside one set of boundary conditions — repetitive motions, rigid workpieces, calibratable positions, fixed takt; flexible assembly becoming routine on high-volume lines sits conservatively at 2028–2034, and high-mix low-volume small and mid-sized manufacturers hold inside this window only locally, in the few industrial clusters with dense integrator ecosystems, which is not society-level diffusion.
+  - **Time window**: 2026–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-076](ledger/71-80.md#j-076--manufacturings-one-real-scaling-passed-through-gate-4s-local-closed-loop-flexible-assembly-and-high-mix-low-volume-are-still-outside-the-gate)
+
+- **J-077 · In agriculture what crossed is milking, not harvesting: seasonality and fragmentation hold cost per task above labour**
+  - **One-sentence judgment**: Automatic milking is already standard equipment on mid-to-large dairy farms in high-wage countries because the action repeats daily, the location is fixed, the animal walks into the machine by itself, the output is measurable and failure is contained; selective harvesting stays at local pilots on single crops inside this window and does not become a mainstream practice before 2030, because seasonality crushes the denominator while fragmentation inflates the adaptation cost.
+  - **Time window**: 2026–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-077](ledger/71-80.md#j-077--in-agriculture-what-crossed-is-milking-not-harvesting-seasonality-and-fragmentation-hold-cost-per-task-above-labour)
+
+- **J-078 · Construction and domestic work are blocked by the one-off site and somebody else's home: inside this window they arrive only as single-operation equipment and single-task slices**
+  - **One-sentence judgment**: Construction and domestic work share the hardest property — the work environment is different every time and does not belong to whoever is working in it; through 2040 on-site construction robots remain single-operation equipment and do not substitute for the site process as a whole, open-ended household tasks reach no society-level diffusion, and home embodiment continues as single-task slices (vacuuming, dishwashing, mowing).
+  - **Time window**: 2026–2040.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-078](ledger/71-80.md#j-078--construction-and-domestic-work-are-blocked-by-the-one-off-site-and-somebody-elses-home-inside-this-window-they-arrive-only-as-single-operation-equipment-and-single-task-slices)
+
+- **J-079 · Biomedical candidate generation and clinical-grade causal proof diverge**
+  - **One-sentence judgment**: From 2026 to 2034, biomedical candidate generation and ranking get much cheaper, while clinical-grade causal proof does not accelerate proportionally.
+  - **Time window**: 2026–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-079](ledger/71-80.md#j-079--biomedical-candidate-generation-and-clinical-grade-causal-proof-diverge)
+
+- **J-080 · Low-liability medical workflows diffuse before autonomous care without professional review**
+  - **One-sentence judgment**: From 2026 to 2031, summarization, coding, scheduling, and review-based decision support become routine before autonomous diagnosis and treatment without professional review.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-080](ledger/71-80.md#j-080--low-liability-medical-workflows-diffuse-before-autonomous-care-without-professional-review)
+
+- **J-081 · More drug candidates do not proportionally shorten human trial time**
+  - **One-sentence judgment**: By 2034, AI increases drug candidates reaching laboratories, but candidate growth does not translate proportionally into approvals.
+  - **Time window**: 2026–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-081](ledger/81-90.md#j-081--more-drug-candidates-do-not-proportionally-shorten-human-trial-time)
+
+- **J-082 · Once explanation is abundant, medical scarcity moves to authorized intervention and continuity of care (landscape only)**
+  - **One-sentence judgment**: From 2027 to 2034, the bottleneck in chronic disease, ageing, and primary care moves from standard explanation to authorized intervention, continuous observation, and exception escalation.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-082](ledger/81-90.md#j-082--once-explanation-is-abundant-medical-scarcity-moves-to-authorized-intervention-and-continuity-of-care-landscape-only)
+
+- **J-083 · Personalized explanation becomes abundant before verifiable mastery**
+  - **One-sentence judgment**: From 2026 to 2030, personalized explanations, examples, and immediate feedback become routine, but verifiable mastery does not grow proportionally.
+  - **Time window**: 2026–2030.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-083](ledger/81-90.md#j-083--personalized-explanation-becomes-abundant-before-verifiable-mastery)
+
+- **J-084 · AI tutoring enters teacher and institutional workflows before replacing schools**
+  - **One-sentence judgment**: From 2026 to 2031, AI tutoring diffuses first through teacher assignment, curriculum alignment, and institutional supervision rather than large-scale school replacement.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-084](ledger/81-90.md#j-084--ai-tutoring-enters-teacher-and-institutional-workflows-before-replacing-schools)
+
+- **J-085 · Take-home artifact signals weaken while controlled performance and process evidence gain weight**
+  - **One-sentence judgment**: From 2027 to 2034, high-stakes admissions and hiring reduce the weight of take-home artifacts without process verification and increase controlled performance and process evidence.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-085](ledger/81-90.md#j-085--take-home-artifact-signals-weaken-while-controlled-performance-and-process-evidence-gain-weight)
+
+- **J-086 · The explanation gap narrows while practice and verification gaps may widen (landscape only)**
+  - **One-sentence judgment**: From 2027 to 2034, AI narrows access gaps in explanation, but without carrier institutions skill and opportunity gaps may fail to fall or may widen.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-086](ledger/81-90.md#j-086--the-explanation-gap-narrows-while-practice-and-verification-gaps-may-widen-landscape-only)
+
+- **J-087 · Human–machine supervisory units become mainstream before staffless organizations**
+  - **One-sentence judgment**: From 2026 to 2031, organizations adopting generation and tool use first split work into machine-default execution, human exception handling, and accountable boundary setting rather than broadly becoming staffless.
+  - **Time window**: 2026–2031.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-087](ledger/81-90.md#j-087--humanmachine-supervisory-units-become-mainstream-before-staffless-organizations)
+
+- **J-088 · Junior production seats shrink before occupations as a whole; apprenticeship carriers become the new bottleneck**
+  - **One-sentence judgment**: From 2027 to 2034, in generation-intensive occupations junior production seats and routine hours shrink relatively before total occupational headcount, making supervised practice a skill-formation bottleneck.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-088](ledger/81-90.md#j-088--junior-production-seats-shrink-before-occupations-as-a-whole-apprenticeship-carriers-become-the-new-bottleneck)
+
+- **J-089 · Permission, audit, and appeal control planes become production infrastructure before broad autonomous authority**
+  - **One-sentence judgment**: From 2026 to 2032, identity, permission, logging, pause, audit, and appeal enter core production systems before tool-using AI broadly receives high-liability autonomous authority.
+  - **Time window**: 2026–2032.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-089](ledger/81-90.md#j-089--permission-audit-and-appeal-control-planes-become-production-infrastructure-before-broad-autonomous-authority)
+
+- **J-090 · Productivity gains first concentrate with scarce complementary-asset owners; competition and institutions decide whether they spread**
+  - **One-sentence judgment**: From 2027 to 2035, early productivity gains after general-model prices fall flow first to parties owning customers, proprietary workflow data, licences, channels, liability-bearing capital, compute, or power rather than spreading automatically with technical access.
+  - **Time window**: 2027–2035.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-090](ledger/81-90.md#j-090--productivity-gains-first-concentrate-with-scarce-complementary-asset-owners-competition-and-institutions-decide-whether-they-spread)
+
+- **J-091 · Demand expansion and task savings occur together; net employment cannot be inferred from the capability curve alone**
+  - **One-sentence judgment**: From 2027 to 2035, AI-intensive industries see both lower labour hours per unit and expansion in variety, frequency, or customer segments; demand elasticity and non-automated hard constraints jointly determine net employment.
+  - **Time window**: 2027–2035.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-091](ledger/91-95.md#j-091--demand-expansion-and-task-savings-occur-together-net-employment-cannot-be-inferred-from-the-capability-curve-alone)
+
+- **J-092 · Semiconductor resilience spending shifts from raw stockpiles to pre-qualified conversion paths**
+  - **One-sentence judgment**: From 2026 to 2032, resilience investment for advanced semiconductors shifts from larger raw-material and finished-goods inventories toward pre-qualified alternate refining, electronic-grade conversion, tool service, recipes, and process-transfer paths.
+  - **Time window**: 2026–2032.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-092](ledger/91-95.md#j-092--semiconductor-resilience-spending-shifts-from-raw-stockpiles-to-pre-qualified-conversion-paths)
+
+- **J-093 · Advanced-fab siting is priced as a bundle of firm power, water quality, and discharge capacity**
+  - **One-sentence judgment**: From 2026 to 2033, advanced-fab siting and public support increasingly price firm power, power quality, inlet-water quality, reuse, discharge, and climate adaptation as a bundle rather than comparing land, tax, and average utility prices separately.
+  - **Time window**: 2026–2033.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-093](ledger/91-95.md#j-093--advanced-fab-siting-is-priced-as-a-bundle-of-firm-power-water-quality-and-discharge-capacity)
+
+- **J-094 · Semiconductor climate risk is priced through qualified-output loss, not hazard maps alone**
+  - **One-sentence judgment**: From 2027 to 2034, semiconductor procurement, insurance, finance, and siting will systematically price climate risk, but the testable transmission unit is not the number of facilities in hazard zones: it is at least one multi-site qualified-output loss, longer alternate-path qualification, or related supplier interruption that inventory or qualified alternate paths cannot absorb; if the window ends without that transmission but pricing has changed based only on hazard maps or disclosure regulation, the judgment is falsified.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-094](ledger/91-95.md#j-094--semiconductor-climate-risk-is-priced-through-qualified-output-loss-not-hazard-maps-alone)
+
+- **J-095 · Fab-resilience costs become explicit bargaining over who pays and who is curtailed first**
+  - **One-sentence judgment**: From 2027 to 2034, major fab projects increasingly specify in approvals, subsidies, and utility contracts who funds dedicated water, power, and adaptation assets and whether fabs, residents, or other industry are curtailed first during scarcity.
+  - **Time window**: 2027–2034.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-095](ledger/91-95.md#j-095--fab-resilience-costs-become-explicit-bargaining-over-who-pays-and-who-is-curtailed-first)
+
+- **J-096 · Ageing and smaller households move part of care toward formal and coordination layers**
+  - **One-sentence judgment**: From 2027–2035, ageing and smaller households will move part of care from invisible family obligations toward formal services, insurance/public payment, and cross-institution coordination; this will not mean that hands-on family care exits.
+  - **Time window**: 2027–2035.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-096](ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers)
+
+- **J-097 · Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag**
+  - **One-sentence judgment**: From 2027–2038, contact transfer, exception observation, and standardised care assistance are more likely to form stable routines first in institutions and controlled home-care services; general-purpose robots in open-ended homes will not constitute social-scale diffusion in this window.
+  - **Time window**: 2027–2038.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-097](ledger/96-102.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag)
+
+- **J-098 · Authority before intelligence: consequential settings form revocable tiered agency first**
+  - **One-sentence judgment**: From 2027–2035, human–AI relationships in consequential settings are more likely to stabilise first as tiered agency attached to the liability of a person, organisation, or public institution. Authorisation, revocation, logs, and appeals become visible interfaces before AI is broadly recognised as an independent liable subject.
+  - **Time window**: 2027–2035.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-098](ledger/96-102.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first)
+
+- **J-099 · Embodied automation re-bundles occupational tasks before it eliminates occupations**
+  - **One-sentence judgment**: From 2027–2035, embodied systems are more likely to remove repetitive, hand-off-able task segments in warehousing, manufacturing, agriculture, and care, then re-bundle exception handling, relationship work, and responsibility sign-off; capability curves alone will not eliminate whole occupations at the same time.
+  - **Time window**: 2027–2035.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-099](ledger/96-102.md#j-099--embodied-automation-re-bundles-occupational-tasks-before-it-eliminates-occupations)
+
+- **J-100 · Embodied care reallocates family roles before it removes care relationships**
+  - **One-sentence judgment**: From 2027–2038, if embodied care assistance stabilises, it will first shift some family members’ hands-on work toward authorisation, coordination, payment, and exception decisions rather than removing family care relationships as a whole.
+  - **Time window**: 2027–2038.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-100](ledger/96-102.md#j-100--embodied-care-reallocates-family-roles-before-it-removes-care-relationships)
+
+- **J-101 · Embodied adoption clusters where a carrying bundle exists, widening regional differences**
+  - **One-sentence judgment**: From 2028–2038, embodied systems are more likely to form dense adoption first in regions with structured space, reliable energy, maintenance networks, insurance, and predictable liability institutions; this can create regional capability and income differences without proving global polarisation.
+  - **Time window**: 2028–2038.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-101](ledger/96-102.md#j-101--embodied-adoption-clusters-where-a-carrying-bundle-exists-widening-regional-differences)
+
+- **J-102 · Embodied productivity gains concentrate first in complementary assets and liability carriers**
+  - **One-sentence judgment**: From 2028–2038, embodied productivity gains are more likely to flow first to complementary assets and liability carriers controlling worksites, order access, finance, insurance, and maintenance, with competition, wage bargaining, and public institutions deciding whether they spread.
+  - **Time window**: 2028–2038.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-102](ledger/96-102.md#j-102--embodied-productivity-gains-concentrate-first-in-complementary-assets-and-liability-carriers)
+
+- **J-103 · The society-scale AI action is asking, not deciding; hundred-million weekly reach rests on the free tier**
+  - **One-sentence judgment**: As of 2026-10-10, “on one’s own initiative, asking a general-purpose AI chat assistant a question or handing it a task” has reached the S tier (a single service self-reports more than 900 million weekly active users; the lower bound is self-reported and unaudited); as long as the free tier exists, it stays above a hundred million people weekly through 2029-10-10; while “handing a purchase or booking to an AI to place and pay for” does not reach a hundred million people weekly in the same window — what has reached society scale is asking and handing off low-stakes tasks, not deciding for people and not paying for them.
+  - **Time window**: 2026-10-10 to 2029-10-10.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-103](ledger/103-110.md#j-103--the-society-scale-ai-action-is-asking-not-deciding-hundred-million-weekly-reach-rests-on-the-free-tier)
+
+- **J-104 · Paid work from home stops at the D tier: tens of millions weekly, a plateau since 2023, and the employer decides**
+  - **One-sentence judgment**: As of 2026-10-10, “doing at least part of one’s paid work at one’s own home in the reference week” reaches only the D tier (segment diffusion) under the definitions frozen in advance: the qualifying components of the US, the UK and New Zealand sum to about 48 million (all broad definition; about 66 million with the EU added, whose base was not obtained), short of hundred-million weekly reach, and the action is done by more than half of people at work only within standard breakdowns such as the US computer and mathematical, and business and financial operations, occupation groups; through 2029-10-10 it stays on a plateau — the telework rate among US people at work neither expands above 25% nor falls back below 19%; whether people work at home is decided mainly by the employer, not by the person.
+  - **Time window**: 2026-10-10 to 2029-10-10.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-104](ledger/103-110.md#j-104--paid-work-from-home-stops-at-the-d-tier-tens-of-millions-weekly-a-plateau-since-2023-and-the-employer-decides)
+
+- **J-105 · Under fiscal squeeze, current recipients' nominal pensions are the hardest to cut; the knife falls first on those not yet drawing**
+  - **One-sentence judgment**: From 2026-10-10 to 2034-12-31, no G7 country that can still borrow on the market and is not in a creditor assistance programme passes new legislation that lowers the nominal amount of the median current recipient's basic public pension; the US Old-Age and Survivors Insurance (OASI) trust fund is projected to be depleted in the fourth quarter of 2032, this gap will not be resolved in a way that leaves people already drawing with less than the amount due under law, and at least half of the long-term benefit-side savings of any fix come from people who have not yet started drawing at the time of enactment.
+  - **Time window**: 2026-10-10 to 2034-12-31.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-105](ledger/103-110.md#j-105--under-fiscal-squeeze-current-recipients-nominal-pensions-are-the-hardest-to-cut-the-knife-falls-first-on-those-not-yet-drawing)
+
+- **J-106 · Aid gives way to defence: the budget with no domestic periodic recipients is squeezed out first**
+  - **One-sentence judgment**: Checked against 2028 data published in 2029, official development assistance (ODA) as a share of gross national income in the UK, France and Germany is in each case still below its own 2023 level (0.58%, 0.50%, 0.79%), and core defence spending as a share of GDP is in each case still above its own 2023 level (NATO 2026 edition: 2.22%, 1.88%, 1.60%); the ODA shares of the UK and Italy are both no higher than 0.35% — the budget with no domestic periodic recipients is squeezed out first, and it does not swing back within the window.
+  - **Time window**: 2026-10-10 to 2029-12-31.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-106](ledger/103-110.md#j-106--aid-gives-way-to-defence-the-budget-with-no-domestic-periodic-recipients-is-squeezed-out-first)
+
+- **J-107 · Paid weekly work at 65+ stops at the D tier: tens of millions, short of a hundred million**
+  - **One-sentence judgment**: As of 2026-10-10, “aged 65 or over and working at least one hour for pay in the reference week” reaches only the D tier (segment diffusion) under the definitions frozen in advance: the components of the seven countries that can be counted sum to about 51.64 million before unpaid family helpers are subtracted, which is an upper bound on the qualifying sum; the subtraction the freeze requires was not carried out this round, and the lower bound derived from Japan and South Korea is about 10.29 million, so the qualifying sum lies in the tens of millions, short of hundred-million weekly reach (the EU, China, Brazil, Indonesia and Mexico count as 0 under the rules); through 2030-10-10, the sum for the same seven-country panel rises but stays below 100 million, and the employment rate of Japan's 65–69 group, on the published figure, stays at 50% or above.
+  - **Time window**: 2026-10-10 to 2030-10-10.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-107](ledger/103-110.md#j-107--paid-weekly-work-at-65-stops-at-the-d-tier-tens-of-millions-short-of-a-hundred-million)
+
+- **J-108 · Security commitments become budgets and industrial policy first; electoral-rule change is not the first response**
+  - **One-sentence judgment**: From 2026-10-16 to 2031-12-31, record for each of the United Kingdom, France, Germany, and Italy its first qualifying security trigger in the window: a national government or legislature publishes an official security/defence document explicitly naming a new external threat or a new alliance defence commitment, or an official record documents an external armed event; a generic NATO annual document is not a country’s trigger. For each country with a qualifying trigger, compare only two pre-registered response classes within 365 days of the trigger’s public date: (A) an annual defence appropriation, procurement, or industrial-policy document; (B) an electoral-rule or constitutional power-distribution law whose security rationale is explicit. Other security executive orders, information controls, or emergency laws are logged separately and are not silently treated as A or B. If at least three countries have triggers, at least three of them will have A as the first A/B response, not B. If fewer than three countries have a qualifying trigger by 31 December 2031, this card is undecidable; the absence of triggers is not counted as a hit.
+  - **Time window**: 2026-10-16 to 2031-12-31.
+  - **Confidence**: Medium
+  - **Full card**: [Open J-108](ledger/103-110.md#j-108--security-commitments-become-budgets-and-industrial-policy-first-electoral-rule-change-is-not-the-first-response)
+
+- **J-109 · Housing costs will keep delaying household formation into later life and fewer affordable places**
+  - **One-sentence judgment**: From 2026 to 2032, housing-cost pressure in the high-income OECD member-country urban sample will continue to delay first independent residence, cohabitation/marriage, and first births, concentrating family formation in fewer affordable places; housing, childcare, and transport policy can buffer the mechanism but will not return every household to the previous generation’s floor area and geography.
+  - **Time window**: 2026-01-01 to 2032-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-109](ledger/109-111.md#j-109--housing-costs-will-keep-delaying-household-formation-into-later-life-and-fewer-affordable-places)
+
+- **J-110 · Migration is a labour-and-care shock absorber, not a reversal of population ageing**
+  - **One-sentence judgment**: From 2026 to 2032, major OECD receiving countries will continue using permanent and temporary migration to ease labour and care shortages; migration can improve local ratios of working-age people to service demand but cannot restore the old age structure within one generation, and the receiving place’s constraints will move toward housing, credential recognition, language, schools, job quality, and political integration.
+  - **Time window**: 2026-01-01 to 2032-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-110](ledger/109-111.md#j-110--migration-is-a-labour-and-care-shock-absorber-not-a-reversal-of-population-ageing)
+
+- **J-111 · Fertility policy is more likely to change timing and gaps than restore replacement fertility across the OECD**
+  - **One-sentence judgment**: By 2035, total fertility rates will remain below 2.1 in most OECD countries; the more plausible policy result is to reduce postponement caused by housing, childcare, and work conflicts and to make some countries higher than comparable countries without complementary policy, rather than return the OECD as a whole to replacement fertility.
+  - **Time window**: 2026-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-111](ledger/109-111.md#j-111--fertility-policy-is-more-likely-to-change-timing-and-gaps-than-restore-replacement-fertility-across-the-oecd)
+
+- **J-112 · Leisure culture consumption is constrained by time budgets and access**
+  - **One-sentence judgment**: From 2027 to 2032, in high-income cities with comparable data, middle-income adults’ offline cultural participation will remain constrained by fragmented leisure, ticket prices, and access time, while pausable streaming/short-form video substitutes for some everyday entertainment slots; this is directional, not a claim about a platform or national winner.
+  - **Time window**: 2027-01-01 to 2032-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-112](ledger/112-113.md#j-112--leisure-culture-consumption-is-constrained-by-time-budgets-and-access)
+
+- **J-113 · Climate shocks first widen inequality through insurance, adaptation, and travel disruption**
+  - **One-sentence judgment**: From 2027 to 2035, households and local governments in highly exposed places are more likely to bear environmental shocks first through insurance gaps, inadequate adaptation investment, and travel disruption, with greater risks to discretionary consumption and housing stability among low-income households and fiscally weak places; particular disasters and magnitudes are not certain forecasts.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-113](ledger/112-113.md#j-113--climate-shocks-first-widen-inequality-through-insurance-adaptation-and-travel-disruption)
+
+- **J-114 · Calibrated single-task embodied systems precede open-world general robots**
+  - **One-sentence judgment**: From 2027 to 2035, embodied systems are more likely to stabilize first as calibrated single-task loops in workcells, warehouses, institutions, and controlled services, then expand into multi-task robots for open homes, construction sites, and care; one successful demonstration is not a retained, society-scale service.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-114](ledger/114-116.md#j-114--calibrated-single-task-embodied-systems-precede-open-world-general-robots)
+
+- **J-115 · Modular generation and short-duration storage precede dispatchable long-duration systems**
+  - **One-sentence judgment**: From 2027 to 2035, in new power projects, standardized renewable generation plus short-duration electrochemical storage is more likely to form a repeatable local combination first; long-duration storage, nuclear, or other dispatchable low-carbon systems reaching comparable stable scale still require longer interconnection, permitting, financing, and operating-validation cycles.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-115](ledger/114-116.md#j-115--modular-generation-and-short-duration-storage-precede-dispatchable-long-duration-systems)
+
+- **J-116 · Chip expansion is first constrained by yield and validated conversion paths, then by nominal capacity**
+  - **One-sentence judgment**: From 2027 to 2035, expansion of advanced chips and critical materials is more likely to be constrained first by jointly validated electronic-grade conversion, equipment service, process yield, water, and climate-resilience paths than by the number of announced fabs; only validated substitution paths and stable yield turn nominal capacity into deliverable output.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-116](ledger/114-116.md#j-116--chip-expansion-is-first-constrained-by-yield-and-validated-conversion-paths-then-by-nominal-capacity)
+
+- **J-117 · Religion differentiates and recombines before it synchronously declines with modernisation**
+  - **One-sentence judgment**: From 2027 to 2035, education, urbanisation, and abundant online content will not make religious affiliation and practice decline synchronously worldwide; in multi-country samples with comparable repeated surveys, intergenerational transmission, ritual frequency, migration networks, and community supply are more likely to differentiate and recombine first, while lower formal affiliation will not proportionally eliminate religion’s identity, mutual-aid, and normative functions.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-117](ledger/117-119.md#j-117--religion-differentiates-and-recombines-before-it-synchronously-declines-with-modernisation)
+
+- **J-118 · Productivity growth first differentiates claims, then determines whether income diffuses**
+  - **One-sentence judgment**: From 2027 to 2035, in economies affected by high-productivity technologies, increased productivity or output will not automatically become sustainable income and wealth growth for most households; where housing, capital, and complementary-asset supply is constrained, gains are more likely first to appear in asset returns, rents on scarce positions, and returns to complementary skills, while bottom-household disposable capacity catches up only where bargaining power, public services, taxation, or broad asset ownership expand alongside productivity.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-118](ledger/117-119.md#j-118--productivity-growth-first-differentiates-claims-then-determines-whether-income-diffuses)
+
+- **J-119 · Risk recombines before public safety improves; no single technology produces safety automatically**
+  - **One-sentence judgment**: From 2027 to 2035, visible street violence may fall or remain low in some high-income cities, while online fraud, identity theft, and organised property crime are more likely to move or expand across groups and platforms; overall public safety will depend on reporting, recovery, cross-institution responsibility, and lawful appeal improving together, not on one policing or AI technology.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-119](ledger/117-119.md#j-119--risk-recombines-before-public-safety-improves-no-single-technology-produces-safety-automatically)
+
+- **J-120 · Rights around data and model outputs will layer first; liability will remain attached to recoverable organizations**
+  - **One-sentence judgment**: From 2027–2035, rights around data access, training provenance, model-output licensing, and agent-incident liability are more likely to become layered, revocable, and scenario-specific than to become one universal “data ownership” or an independent AI liability subject; compensation and correction in consequential settings will remain primarily attached to recoverable organizations, insurance, and contractual networks.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Medium
+  - **Full card**: [Open J-120](ledger/120-121.md#j-120--rights-around-data-and-model-outputs-will-layer-first-liability-will-remain-attached-to-recoverable-organizations)
+
+- **J-121 · Cross-border institutions will zone around critical dependencies; global rules will not converge automatically**
+  - **One-sentence judgment**: From 2027–2035, states and large organizations are more likely first to rewrite cross-border availability of data, compute, and critical infrastructure through licensing, export controls, procurement, standards, localization, and mutual-recognition agreements, producing institutional zones with different interoperability, rather than automatically converging on one global rulebook; this is not a forecast of war or of one country’s inevitable victory.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-121](ledger/120-121.md#j-121--cross-border-institutions-will-zone-around-critical-dependencies-global-rules-will-not-converge-automatically)
+
+- **J-122 · Everyday mobility stratifies first by reliability and care responsibility, not by automatic switching to one mode**
+  - **One-sentence judgment**: From 2027 to 2035, in high-income cities with comparable data, commuting, care, and shopping trips are more likely to stratify by reliability, affordability, residential density, and care responsibility; lower-income households and households making frequent care trips will first absorb waiting, transfer, and disruption costs, rather than everyone automatically switching to one transport mode.
+  - **Time window**: 2027-01-01 to 2035-12-31
+  - **Confidence**: Low
+  - **Full card**: [Open J-122](ledger/122-122.md#j-122--everyday-mobility-stratifies-first-by-reliability-and-care-responsibility-not-by-automatic-switching-to-one-mode)
+
+- **J-123 · Expanding remote contact will not automatically increase shared bearing (landscape only)**
+  - **One-sentence judgment**: By 2035, the reachable range of courtship, friendship, community, and intergenerational relationships may expand, while shared presence, reciprocal commitment, and conflict repair do not automatically increase at the same rate (landscape only).
+  - **Time window**: 2027–2035.
+  - **Confidence**: Low (landscape only)
+  - **Full card**: [Open J-123](ledger/123-123.md#j-123--expanding-remote-contact-will-not-automatically-increase-shared-bearing-landscape-only)
+
+> **Full judgment card links:** All 123 entries above (summary cards) link directly to complete cards in `ledger/` shards rather than to anchors in the wide table.
 
 ---
 ## 2. Registered-judgment overview

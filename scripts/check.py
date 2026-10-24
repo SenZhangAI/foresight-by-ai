@@ -661,9 +661,31 @@ def check_browse_navigation(lang, root, cards, card_files):
         fail("ledger-nav", "%s complete-card navigation section is missing or malformed" % lang)
         return
     body = root[start.end():end.start()]
-    entries = list(re.finditer(r"^- \[(J-\d{3})[^\]]*\]\(([^)#]+)#([^\s)]+)\)$",
-                              body, re.M))
-    ids = [match.group(1) for match in entries]
+    # The narrow entry is intentionally a stack of summary cards rather than a
+    # Markdown table.  Keep the audit link one-per-card, and enforce the four
+    # reader-facing fields so the responsive path cannot silently regress to an
+    # ID-only list.
+    card_starts = list(re.finditer(r"^- \*\*(J-\d{3}) · [^\n]+\*$", body, re.M))
+    entries = []
+    labels = (("One-sentence judgment", "Time window", "Confidence", "Full card")
+              if lang == "en" else ("一句话判断", "时间窗", "置信度", "完整卡"))
+    for index, card_start in enumerate(card_starts):
+        card_end = (card_starts[index + 1].start()
+                    if index + 1 < len(card_starts) else len(body))
+        card_body = body[card_start.start():card_end]
+        jid = card_start.group(1)
+        links = list(re.finditer(r"\]\(([^)#]+)#([^\s)]+)\)", card_body))
+        if len(links) != 1:
+            fail("ledger-nav", "%s %s summary card must contain exactly one full-card link (found %d)"
+                 % (lang, jid, len(links)))
+            continue
+        for label in labels:
+            occurrences = re.findall(r"^\s+- \*\*" + re.escape(label) + r"\*\*[:：]", card_body, re.M)
+            if len(occurrences) != 1:
+                fail("ledger-nav", "%s %s summary card must contain one %s field (found %d)"
+                     % (lang, jid, label, len(occurrences)))
+        entries.append((jid, links[0].group(1), links[0].group(2)))
+    ids = [entry[0] for entry in entries]
     expected = set(cards)
     missing = sorted(expected - set(ids))
     extra = sorted(set(ids) - expected)
@@ -674,8 +696,7 @@ def check_browse_navigation(lang, root, cards, card_files):
     if duplicates:
         fail("ledger-nav", "%s duplicate complete-card navigation entries: %s"
              % (lang, duplicates))
-    for match in entries:
-        jid, target, anchor = match.groups()
+    for jid, target, anchor in entries:
         path = card_files.get(jid)
         if not path:
             continue
