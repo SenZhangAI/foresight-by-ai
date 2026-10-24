@@ -453,6 +453,10 @@ def is_markdown(name):
 ROOT_MARKDOWN = ("README.md", "README.en.md",
                  "CONTRIBUTING.md", "CONTRIBUTING.en.md")
 
+# Every full self-test fixture gets this bounded worker budget. A timeout is
+# reported as incomplete rather than accepted as a passing negative case.
+SELF_TEST_CASE_TIMEOUT_SECONDS = 10
+
 
 def markdown_files():
     """Every markdown file whose links are checked.
@@ -5084,7 +5088,7 @@ def self_test(full=False):
         print("  %-4s %-44s %s" % ("PASS" if ok else "FAIL", title, detail))
 
     try:
-        full_case_timeout = 10
+        full_case_timeout = SELF_TEST_CASE_TIMEOUT_SECONDS
         pristine = _copy_checkable_tree(os.path.join(base, "pristine"))
         baseline_timeout = full_case_timeout if full else 30
         code, out = _run_checker(pristine, focused=not full,
