@@ -45,6 +45,19 @@ This is a progressive reading path. You do not have to accept a forecast before 
 
 Read this step first so that the pages below are read as bounded reasoning rather than as forecasts whose fluency proves accuracy.
 
+### From historical calibration to independent re-prediction: the public evidence path
+
+Read these in order to keep “the method is written down” separate from “the forecasts have been validated”:
+
+| Step | Entry | Current status (not interchangeable) |
+|---|---|---|
+| 1. Historical retrospect | [Retrospect](docs/en/01-retrospect.md) | **Partial calibration completed**: successes and failures have been used to filter rules; this does not produce future accuracy. |
+| 2. Method validation | [Historical Pseudo-Out-of-Sample Validation Protocol](docs/en/02-historical-validation-protocol.md) | **Protocol public; historical holdout not run**: freezing, retention, baselines, and leakage boundaries are specified, but no pseudo-out-of-sample hit rate is reportable. |
+| 3. Isolated re-prediction | [Independent re-prediction status](docs/en/independent-reprediction-status.md) · [Isolated blind re-review report](docs/evidence/blind-review-reaudit-2026-10-09.en.md) | **Two procedural rounds completed, reproducibility only**: the same-model setup, audience-field leak, and missing run records still block an independent-correctness claim. |
+| 4. Genuine out-of-sample result | [Ledger review log](docs/en/90-ledger.md#8-review-log) | **Unverified**: no future card has both reached its observation window and been registered with a `GENUINE_FUTURE_OOS` result, so accuracy cannot be reported. |
+
+The same four-link set is reproduced in the [independent re-prediction status page](docs/en/independent-reprediction-status.md). A passing `python3 scripts/check.py` or `npm run check` proves only the structural and link contract; it cannot substitute for the evidence in steps 2–4.
+
 ### 2. Choose a reasoning chain: enter the future through a concrete question
 
 The chains are grouped by the real-world question a reader may want to follow. Each row only says where to enter and what the chain currently supports; the linked prose and ledger remain authoritative for evidence levels and limits.

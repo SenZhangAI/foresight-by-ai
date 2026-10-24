@@ -12,6 +12,19 @@ After historical calibration, the project followed the stated sequence for revie
 
 This is the public reader's status entrance. It creates no new future judgment and does not replace the [Judgment Ledger](90-ledger.md), the [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md), or the [isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md). It is a navigation page for the current evidence state, not a certificate that upgrades the historical review into a future out-of-sample forecast.
 
+## From historical calibration to independent re-prediction: four status steps
+
+These four steps use the same link set and order as the bilingual README. Each current status is separate evidence; a structural green light at a later step cannot replace an earlier one:
+
+| Step | Entry | Current status |
+|---|---|---|
+| 1. Historical retrospect | [Retrospect](01-retrospect.md) | **Partial calibration completed**: cases explain known outcomes, expose counterexamples, and narrow rules; they do not produce future accuracy. |
+| 2. Method validation | [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md) | **Protocol public; historical holdout not run**: freezing, retention, baselines, and leakage boundaries are specified; no pseudo-out-of-sample hit rate is reportable. |
+| 3. Isolated re-prediction | [This independent re-prediction status](independent-reprediction-status.md) · [Isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md) | **Two procedural rounds completed, reproducibility only**: the leak, same-model, and run-record limits described below remain. |
+| 4. Genuine out-of-sample result | [Ledger review log](90-ledger.md#8-review-log) | **Unverified**: no future card has both reached its observation window and been registered with a `GENUINE_FUTURE_OOS` result, so accuracy cannot be reported. |
+
+A passing `python3 scripts/check.py` or `npm run check` proves only the structural and link contract; it does not prove method validity, forecast correctness, or a genuine out-of-sample result. For the full reading path, return to the [same four-step entrance in the English README](../../README.en.md).
+
 ## Read four statuses separately
 
 | Status | Currently verifiable fact | What it must not be read as |
