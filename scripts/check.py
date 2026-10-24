@@ -3242,6 +3242,28 @@ def _break_social_register_missing_j123_one_language(root):
     return "J-123 removed only from the Chinese social-scale inventory"
 
 
+def _break_social_register_total_one_language_en(root):
+    """Break only the English headline total; the other projection is intact."""
+    path = os.path.join(root, "docs", "en", "91-social-scale-register.md")
+    text = _read_file(path)
+    needle, replacement = "all 123 registered judgment cards", "all 119 registered judgment cards"
+    if needle not in text:
+        raise AssertionError("en social-scale total is not in the expected current form")
+    _write_file(path, text.replace(needle, replacement, 1))
+    return "only the English social-scale page claims 119"
+
+
+def _break_social_register_missing_j123_one_language_en(root):
+    """Remove J-123 only from the English public group inventory."""
+    path = os.path.join(root, "docs", "en", "91-social-scale-register.md")
+    lines = _read_file(path).splitlines(True)
+    kept = [line for line in lines if not re.match(r"^\| \[J-123\b", line)]
+    if len(kept) == len(lines):
+        raise AssertionError("en social-scale page has no J-123 row")
+    _write_file(path, "".join(kept))
+    return "J-123 removed only from the English social-scale inventory"
+
+
 def _break_social_register_href(root):
     """Keep the visible J-123 card but point its Chinese link at J-122."""
     path = os.path.join(root, "docs", "zh", "91-social-scale-register.md")
@@ -3269,8 +3291,19 @@ def _break_social_register_closed_set(root):
                               count=1, flags=re.M)
         if page_updated == page_text:
             raise AssertionError("%s page has no J-123 row" % lang)
-        _write_file(page, page_updated)
-    return "J-123 deleted from both ledger shards and both register pages"
+        page_text = page_updated
+        if lang == "zh":
+            for old, new in (("全库 123 张在册判断卡", "全库 122 张在册判断卡"),
+                             ("全库 123 张卡", "全库 122 张卡"),
+                             ("4 条", "3 条")):
+                page_text = page_text.replace(old, new, 1)
+        else:
+            for old, new in (("all 123 registered judgment cards", "all 122 registered judgment cards"),
+                             ("all 123 cards", "all 122 cards"),
+                             ("(4)", "(3)")):
+                page_text = page_text.replace(old, new, 1)
+        _write_file(page, page_text)
+    return "J-123 deleted from both ledger shards and both register pages; pages now claim 122"
 
 
 def _break_social_register_late_fact(root):
@@ -4785,10 +4818,14 @@ NEGATIVE_CASES = [
      _break_social_register_total),
     (u"social-scale one-language total drifts back to 119", "social-scale-register",
      _break_social_register_total_one_language),
+    (u"social-scale English-only total drifts back to 119", "social-scale-register",
+     _break_social_register_total_one_language_en),
     (u"social-scale page omits J-123", "social-scale-register",
      _break_social_register_missing_j123),
     (u"social-scale one-language page omits J-123", "social-scale-register",
      _break_social_register_missing_j123_one_language),
+    (u"social-scale English-only page omits J-123", "social-scale-register",
+     _break_social_register_missing_j123_one_language_en),
     (u"social-scale closed set loses a synchronized card", "social-scale-register",
      _break_social_register_closed_set),
     (u"social-scale late card moves groups while totals stay equal", "social-scale-register",
