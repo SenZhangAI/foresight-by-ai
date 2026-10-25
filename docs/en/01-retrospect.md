@@ -13,7 +13,7 @@
 
 In April 1964 a queue formed at the Bell Labs pavilion at the New York World's Fair. Visitors took turns sitting in a small booth and talking, through a screen, to a stranger far away in California—**and they could see the other person's face**. That same month, Bell also completed a transcontinental video call between New York and Anaheim.
 
-This was not a prototype. On 1 July 1970 the Picturephone entered commercial service in Pittsburgh, and expanded to Chicago the following year. AT&T's 1969 annual report set down a target: by 1980, perhaps one million sets would be in use and Picturephone service might be a billion-dollar business.
+This was not a prototype. On 1 July 1970 the Picturephone entered commercial service in Pittsburgh, and expanded to Chicago the following year. ETHW reports that AT&T's 1969 annual report set down a target: by 1980, perhaps one million sets would be in use and Picturephone service might be a billion-dollar business; **the AT&T annual report itself has not been obtained in this project's slice**.
 
 **The outcome-side material confirms only early local facts**: Pittsburgh peaked at 32 sets in 1972, while Chicago peaked at 453 in early 1973; the two city peaks together were fewer than 500. Cutting the monthly rent from $160 to $75 did not make this early commercial service diffuse. A few years later the service was quietly shut down ([ETHW](https://ethw.org/Picturephone), [Wikipedia](https://en.wikipedia.org/wiki/Picturephone)).
 
