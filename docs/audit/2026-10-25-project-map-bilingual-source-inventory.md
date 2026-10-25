@@ -11,9 +11,9 @@ This inventory scans every fact unit in the seven architecture project-map cards
 ### Lane definitions / 状态 lane
 
 - `bilingual-paired`: reserved for a fact whose cited paths are existing files, whose Chinese/English projections are paired, and whose semantic equivalence has been independently checked. This run performed no independent semantic-equivalence pass, so no fact is promoted into this lane.
-- `single-language-exception`: cited paths exist but the source is intentionally repository-wide/single-language (for example a script, manifest, contributor guide, or a directory classification).
+- `single-language-exception`: all cited paths are existing files but the source is intentionally repository-wide/single-language (for example a script, manifest, contributor guide, or a generic observation file).
 - `unresolved`: no literal source path, a missing/directory path, a mechanical pair without an independent semantic-equivalence check, or any other evidence gap.
-- `killed-candidate`: only for candidates rejected during kill; killed rows do not count as covered facts. This run records no silently dropped candidates.
+- `killed-candidate`: a candidate row rejected during kill (directory or missing path); it is removed from surviving candidates, while its parent fact remains in `unresolved` when needed. Candidate kills are counted separately from fact lanes.
 
 ## 1. Harvest / 全量 harvest
 
@@ -32,7 +32,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 
 ## 2. Kill register / 逐候选反驳
 
-每个事实的每一个来源候选都在这里有独立 candidate_id。双语配对按一对实际文件拆行；没有双语配对的单文件、目录、缺失路径或 `none` 也保留为候选边界，避免把 fact-level 汇总冒充逐候选反驳。反驳问题是路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言实际文件，或是否能由卡片说明有意单语。没有候选被静默丢弃；本轮 `killed-candidate` 数为 0。语义等价是 acceptance 所要求的独立门槛：本轮只完成路径和候选边界 kill，未完成该门槛，因此所有机械双语配对候选仍以 `unresolved` 计。
+每个事实的每一个来源候选都在这里有独立 candidate_id。双语配对按一对实际文件拆行；没有双语配对的单文件、目录、缺失路径或 `none` 也保留为候选边界，避免把 fact-level 汇总冒充逐候选反驳。反驳问题是路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言实际文件，或是否能由卡片说明有意单语。没有候选被静默丢弃；目录/缺失候选会在下方明确标为 `killed-candidate`。语义等价是 acceptance 所要求的独立门槛：本轮只完成路径和候选边界 kill，未完成该门槛，因此所有机械双语配对候选仍以 `unresolved` 计。
 
 | candidate_id | fact_id | candidate source(s) | kill attempt | result | lane after kill |
 |---|---|---|---|---|---|
@@ -43,13 +43,13 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M21-WHO-01-S02` | `M21-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-WHEN-01-P01` | `M21-WHEN-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-WHERE-01-P01` | `M21-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S02` | `M21-WHERE-01` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S03` | `M21-WHERE-01` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S04` | `M21-WHERE-01` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S05` | `M21-WHERE-01` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S06` | `M21-WHERE-01` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S07` | `M21-WHERE-01` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-S08` | `M21-WHERE-01` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S02` | `M21-WHERE-01` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S03` | `M21-WHERE-01` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S04` | `M21-WHERE-01` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S05` | `M21-WHERE-01` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S06` | `M21-WHERE-01` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S07` | `M21-WHERE-01` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M21-WHERE-01-S08` | `M21-WHERE-01` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M21-WHERE-01-S09` | `M21-WHERE-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-WHERE-01-S10` | `M21-WHERE-01` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-HOW-01-P01` | `M21-HOW-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
@@ -71,7 +71,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M21-LIT-09-S01` | `M21-LIT-09` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-LIT-10-S01` | `M21-LIT-10` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-LIT-11-S01` | `M21-LIT-11` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
-| `CAND-M21-LIT-12-S01` | `M21-LIT-12` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-12-S01` | `M21-LIT-12` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M21-LIT-13-NONE` | `M21-LIT-13` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHAT-01-NONE` | `M22-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHO-01-S01` | `M22-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
@@ -81,24 +81,24 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M22-WHERE-01-P03` | `M22-WHERE-01` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHERE-01-P04` | `M22-WHERE-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHERE-01-P05` | `M22-WHERE-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-S06` | `M22-WHERE-01` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-S06` | `M22-WHERE-01` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M22-HOW-01-NONE` | `M22-HOW-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHY-01-NONE` | `M22-WHY-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-GAP-01-NONE` | `M22-GAP-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-GAP-02-P01` | `M22-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-GAP-02-P02` | `M22-GAP-02` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-LIT-01-P01` | `M22-LIT-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-LIT-02-P01` | `M22-LIT-02` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-LIT-03-P01` | `M22-LIT-03` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-LIT-04-P01` | `M22-LIT-04` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-LIT-05-P01` | `M22-LIT-05` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-GAP-02-P01` | `M22-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-GAP-02-P02` | `M22-GAP-02` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-01-P01` | `M22-LIT-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-02-P01` | `M22-LIT-02` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-03-P01` | `M22-LIT-03` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-04-P01` | `M22-LIT-04` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-05-P01` | `M22-LIT-05` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-LIT-06-S01` | `M22-LIT-06` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M22-LIT-07-S01` | `M22-LIT-07` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
-| `CAND-M22-SOU-01-P01` | `M22-SOU-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-SOU-01-P02` | `M22-SOU-01` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-SOU-01-P03` | `M22-SOU-01` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-SOU-01-P04` | `M22-SOU-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
-| `CAND-M22-SOU-01-P05` | `M22-SOU-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-P01` | `M22-SOU-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P02` | `M22-SOU-01` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P03` | `M22-SOU-01` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P04` | `M22-SOU-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P05` | `M22-SOU-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-SOU-01-S06` | `M22-SOU-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M23-WHAT-01-P01` | `M23-WHAT-01` | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-WHAT-01-P02` | `M23-WHAT-01` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
@@ -119,8 +119,8 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M23-WHY-01-P02` | `M23-WHY-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-GAP-01-P01` | `M23-GAP-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` ↔ `docs/evidence/technology-order-calibration-2026-10-16.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-GAP-02-P01` | `M23-GAP-02` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-GAP-03-S01` | `M23-GAP-03` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M23-GAP-03-S02` | `M23-GAP-03` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M23-GAP-03-S01` | `M23-GAP-03` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M23-GAP-03-S02` | `M23-GAP-03` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M24-WHAT-01-P01` | `M24-WHAT-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHAT-01-P02` | `M24-WHAT-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHAT-01-P03` | `M24-WHAT-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
@@ -133,10 +133,10 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M24-WHERE-03-P01` | `M24-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHERE-04-P01` | `M24-WHERE-04` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHERE-05-P01` | `M24-WHERE-05` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-06-S01` | `M24-WHERE-06` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-06-S02` | `M24-WHERE-06` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-06-S03` | `M24-WHERE-06` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-06-S04` | `M24-WHERE-06` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-06-S01` | `M24-WHERE-06` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M24-WHERE-06-S02` | `M24-WHERE-06` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M24-WHERE-06-S03` | `M24-WHERE-06` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M24-WHERE-06-S04` | `M24-WHERE-06` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M24-HOW-01-P01` | `M24-HOW-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-HOW-01-P02` | `M24-HOW-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHY-01-P01` | `M24-WHY-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
@@ -173,23 +173,23 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M25-GAP-03-P01` | `M25-GAP-03` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M25-GAP-04-P01` | `M25-GAP-04` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M25-GAP-04-P02` | `M25-GAP-04` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-05-S01` | `M25-GAP-05` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-05-S02` | `M25-GAP-05` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-05-S01` | `M25-GAP-05` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M25-GAP-05-S02` | `M25-GAP-05` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHAT-01-NONE` | `M26-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHAT-02-P01` | `M26-WHAT-02` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHAT-02-P02` | `M26-WHAT-02` | `docs/zh/91-social-scale-register.md` ↔ `docs/en/91-social-scale-register.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHAT-02-S03` | `M26-WHAT-02` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M26-WHAT-02-S04` | `M26-WHAT-02` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-02-S03` | `M26-WHAT-02` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M26-WHAT-02-S04` | `M26-WHAT-02` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHO-01-P01` | `M26-WHO-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHO-01-S02` | `M26-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHEN-01-P01` | `M26-WHEN-01` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHEN-01-P02` | `M26-WHEN-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHERE-01-P01` | `M26-WHERE-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHERE-02-P01` | `M26-WHERE-02` | `docs/zh/91-social-scale-register.md` ↔ `docs/en/91-social-scale-register.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHERE-03-S01` | `M26-WHERE-03` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M26-WHERE-03-S02` | `M26-WHERE-03` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-03-S01` | `M26-WHERE-03` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M26-WHERE-03-S02` | `M26-WHERE-03` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHERE-04-P01` | `M26-WHERE-04` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHERE-05-S01` | `M26-WHERE-05` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-05-S01` | `M26-WHERE-05` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHERE-06-S01` | `M26-WHERE-06` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHERE-07-S01` | `M26-WHERE-07` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHERE-08-S01` | `M26-WHERE-08` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
@@ -201,8 +201,8 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M26-GAP-01-S01` | `M26-GAP-01` | `docs/en/90-ledger.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-GAP-01-S02` | `M26-GAP-01` | `docs/evidence/github-public-render-verification-2026-10-19.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-GAP-01-S03` | `M26-GAP-01` | `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
-| `CAND-M26-GAP-02-S01` | `M26-GAP-02` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M26-GAP-02-S02` | `M26-GAP-02` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-GAP-02-S01` | `M26-GAP-02` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M26-GAP-02-S02` | `M26-GAP-02` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-WHAT-01-NONE` | `M27-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHAT-02-P01` | `M27-WHAT-02` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHAT-02-P02` | `M27-WHAT-02` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
@@ -213,8 +213,8 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M27-WHEN-01-S02` | `M27-WHEN-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-WHERE-01-P01` | `M27-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHERE-02-P01` | `M27-WHERE-02` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHERE-03-S01` | `M27-WHERE-03` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M27-WHERE-03-S02` | `M27-WHERE-03` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-WHERE-03-S01` | `M27-WHERE-03` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M27-WHERE-03-S02` | `M27-WHERE-03` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-WHERE-04-S01` | `M27-WHERE-04` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-WHERE-05-S01` | `M27-WHERE-05` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-WHERE-06-S01` | `M27-WHERE-06` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
@@ -223,12 +223,44 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M27-WHY-01-P01` | `M27-WHY-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHY-01-P02` | `M27-WHY-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-GAP-01-P01` | `M27-GAP-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
-| `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-GAP-01-S02` | `M27-GAP-01` | `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
+| `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 
 ### Killed candidates / 被杀候选
 
-**None.** Every harvested fact and every candidate is retained in a lane or explicitly unresolved; no candidate was removed during kill.
+**28 candidate rows killed.** Killed rows are removed from the surviving candidate set; their parent facts remain in the fact table so evidence gaps cannot disappear.
+
+| candidate_id | fact_id | killed source | kill reason |
+|---|---|---|---|
+| `CAND-M21-WHERE-01-S02` | `M21-WHERE-01` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S03` | `M21-WHERE-01` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S04` | `M21-WHERE-01` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S05` | `M21-WHERE-01` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S06` | `M21-WHERE-01` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S07` | `M21-WHERE-01` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-WHERE-01-S08` | `M21-WHERE-01` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M21-LIT-12-S01` | `M21-LIT-12` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M22-WHERE-01-S06` | `M22-WHERE-01` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M23-GAP-03-S01` | `M23-GAP-03` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M23-GAP-03-S02` | `M23-GAP-03` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M24-WHERE-06-S01` | `M24-WHERE-06` | `docs/zh/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M24-WHERE-06-S02` | `M24-WHERE-06` | `docs/en/chains/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M24-WHERE-06-S03` | `M24-WHERE-06` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M24-WHERE-06-S04` | `M24-WHERE-06` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M25-GAP-05-S01` | `M25-GAP-05` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M25-GAP-05-S02` | `M25-GAP-05` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-WHAT-02-S03` | `M26-WHAT-02` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-WHAT-02-S04` | `M26-WHAT-02` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-WHERE-03-S01` | `M26-WHERE-03` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-WHERE-03-S02` | `M26-WHERE-03` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-WHERE-05-S01` | `M26-WHERE-05` | `docs/evidence/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-GAP-02-S01` | `M26-GAP-02` | `docs/zh/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M26-GAP-02-S02` | `M26-GAP-02` | `docs/en/ledger/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M27-WHERE-03-S01` | `M27-WHERE-03` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M27-WHERE-03-S02` | `M27-WHERE-03` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
+| `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `docs/en/` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
 
 ## 3. Fact lanes / 逐事实 lane
 
@@ -237,7 +269,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M21 | `M21-WHAT-01` | What | The project publishes a bilingual public future-sandbox archive: a reader entry point, method and historical retrospective, reasoning chains spanning technical, physical, institutional, economic, and social domains, near/mid/far reading containers, opportunity candidates, J-NNN judgment ledgers, evidence/calibration records, and research gaps. The README describes the project as a whole-society landscape rather than a software product and names both physical and information worlds. Sources: `README.md`, `README.en.md`, `docs/zh/04-project-map.md`, `docs/en/04-project-map.md`, `docs/zh/06-research-gaps.md`, `docs/en/06-research-gaps.md`. | `README.md`<br>`README.en.md`<br>`docs/zh/04-project-map.md`<br>`docs/en/04-project-map.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file<br>file<br>file | `unresolved` |
 | M21 | `M21-WHO-01` | Who | The public materials are authored and refreshed by the project’s execution hands within the founding scope; the Understanding model is single-written by strategic; human readers and maintainers can follow source judgments, evidence, gaps, and falsification conditions to challenge the archive. The authority boundary and contribution route are stated in `README.md`, `README.en.md`, and `CONTRIBUTING.md`; `CONTRIBUTING.md` is a single-language contributor document, not a missing bilingual projection. | `README.md`<br>`README.en.md`<br>`CONTRIBUTING.md` | file<br>file<br>file | `unresolved` |
 | M21 | `M21-WHEN-01` | When | The archive evolves when a method rule is calibrated or revised, a chain/judgment/dependency changes, a bilingual projection or public navigation changes, or a new evidence/gap record changes what can honestly be claimed. The current source set explicitly separates historical calibration, independent re-prediction, future out-of-sample results, and structural checks in `README.md` and `README.en.md`; the latest source audit is recorded above. | `README.md`<br>`README.en.md` | file<br>file | `unresolved` |
-| M21 | `M21-WHERE-01` | Where | The public layer is rooted at `README.md` and `README.en.md`; bilingual content lives in `docs/zh/` and `docs/en/`; chains live under `docs/zh/chains/` and `docs/en/chains/`; ledgers live under `docs/zh/ledger/` and `docs/en/ledger/` plus aggregate pages; evidence lives in `docs/evidence/`; mechanical boundaries are implemented by `scripts/check.py` and the capability shape by `package.json`. These are directory boundaries, not file pointers. File-level pointers used by this map are listed below. | `README.md`<br>`README.en.md`<br>`docs/zh/`<br>`docs/en/`<br>`docs/zh/chains/`<br>`docs/en/chains/`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/evidence/`<br>`scripts/check.py`<br>`package.json` | file<br>file<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>file<br>file | `single-language-exception` |
+| M21 | `M21-WHERE-01` | Where | The public layer is rooted at `README.md` and `README.en.md`; bilingual content lives in `docs/zh/` and `docs/en/`; chains live under `docs/zh/chains/` and `docs/en/chains/`; ledgers live under `docs/zh/ledger/` and `docs/en/ledger/` plus aggregate pages; evidence lives in `docs/evidence/`; mechanical boundaries are implemented by `scripts/check.py` and the capability shape by `package.json`. These are directory boundaries, not file pointers. File-level pointers used by this map are listed below. | `README.md`<br>`README.en.md`<br>`docs/zh/`<br>`docs/en/`<br>`docs/zh/chains/`<br>`docs/en/chains/`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/evidence/`<br>`scripts/check.py`<br>`package.json` | file<br>file<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>file<br>file | `unresolved` |
 | M21 | `M21-HOW-01` | How | Historical material is used for calibration and rule attack before future projection; chain pages connect causes to J-NNN judgments, the ledgers carry fields/dependencies/status, opportunity pages apply a durability gate, and research-gap pages preserve unsupported areas. `README.md` explicitly says `python3 scripts/check.py`/`npm run check` prove structural and link contracts only, not predictive quality; `docs/zh/00-method.md` and `docs/en/00-method.md` define the judgment fields and opportunity gate; `scripts/check.py` implements mechanical checks; `docs/evidence/technology-calibration-2026-10.md` and `docs/evidence/technology-calibration-2026-10.en.md` preserve the same technology-calibration cases and `UNKNOWN/UNVERIFIED` status instead of manufacturing a score. | `README.md`<br>`scripts/check.py`<br>`docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file<br>file<br>file<br>file<br>file | `unresolved` |
 | M21 | `M21-WHY-01` | Why | The archive serves unfamiliar readers who want an immersive, traceable and challengeable view of whole-society change without reducing the future to an AI-only axis or to commercial opportunities. Its death-modes are explicit in the sources: mistaking structure for truth, silently losing evidence gaps, turning social consequences into products, treating the optional abundance→scarcity lens as the sole explanation, or claiming predictive accuracy before genuine future out-of-sample evidence exists. Literal path pairing improves auditability but does not upgrade those epistemic claims. | `none` | none | `unresolved` |
 | M21 | `M21-GAP-01` | Gaps | `docs/zh/06-research-gaps.md` and `docs/en/06-research-gaps.md` retain partial whole-panorama coverage and open denominators/long-term/cross-jurisdiction evidence; the map does not infer completion from the existence of entrances. | `docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file | `unresolved` |
@@ -259,7 +291,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M22 | `M22-WHAT-01` | What | Five candidate starting points, L1–L9 lenses, judgment fields, `CALIBRATION` / relative test / `GENUINE_FUTURE_OOS` / `UNKNOWN/UNVERIFIED` classifications, five diffusion gates, and the opportunity durability gate. The historical evidence set also includes a cross-domain misfit slice that records four cases while keeping P-03/P-05 outside any accuracy denominator. | `none` | none | `unresolved` |
 | M22 | `M22-WHO-01` | Who | `core`/`worker` execute the public method and evidence work; `strategic` maintains the knowledge model; authors register judgments; readers can challenge them. `CONTRIBUTING.md` is a single-language contributor document. | `CONTRIBUTING.md` | file | `single-language-exception` |
 | M22 | `M22-WHEN-01` | When | Refresh when a rule, counterexample, evidence grade, gate, or lens changes, and route corrections back into the public body. The latest source set records both four technology cases and the completed cross-domain misfit slice without converting either into a predictive-accuracy score. | `none` | none | `unresolved` |
-| M22 | `M22-WHERE-01` | Where | Method and history: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/01-retrospect.md`, `docs/en/01-retrospect.md`, `docs/zh/02-historical-validation-protocol.md`, `docs/en/02-historical-validation-protocol.md`. Evidence: `docs/evidence/technology-calibration-2026-10.md`, `docs/evidence/technology-calibration-2026-10.en.md`, `docs/evidence/historical-misfit-calibration-2026-10.md`, `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `docs/evidence/` is a directory classification only. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`docs/evidence/` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>directory | `single-language-exception` |
+| M22 | `M22-WHERE-01` | Where | Method and history: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/01-retrospect.md`, `docs/en/01-retrospect.md`, `docs/zh/02-historical-validation-protocol.md`, `docs/en/02-historical-validation-protocol.md`. Evidence: `docs/evidence/technology-calibration-2026-10.md`, `docs/evidence/technology-calibration-2026-10.en.md`, `docs/evidence/historical-misfit-calibration-2026-10.md`, `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `docs/evidence/` is a directory classification only. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`docs/evidence/` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>directory | `unresolved` |
 | M22 | `M22-HOW-01` | How | Reason independently before external comparison; a new rule must have at least two successful and two failed historical cases and be able to reject some cases; separate capability arrival, adoption, and social consequences; the checker verifies structural integrity but not predictive validity. Historical evidence is allowed to stop at `UNKNOWN/UNVERIFIED` when a reconstructable denominator or observation window is missing. The misfit slice uses contemporaneous prediction records and explicit observation windows to distinguish calibration from genuine future out-of-sample evidence. | `none` | none | `unresolved` |
 | M22 | `M22-WHY-01` | Why | Keep the forecasting rules judgeable and falsifiable, preventing retrospective explanation or a green structure check from masquerading as predictive power. Literal bilingual path pairing improves reproducibility of the evidence trail, but does not increase the evidence grade. | `none` | none | `unresolved` |
 | M22 | `M22-GAP-01` | Gaps | No qualifying `GENUINE_FUTURE_OOS` evidence exists in the current project record. The four technology cases and the cross-domain slice expand the traceable evidence boundary, but P-03/P-05 remain `UNKNOWN/UNVERIFIED`; these materials do not establish accuracy or change the diffusion/opportunity gate. | `none` | none | `unresolved` |
@@ -311,7 +343,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M25 | `M25-GAP-04` | Gaps | Candidate status does not prove the underlying judgment, forecast accuracy, or society-wide market scale; the optional abundance→scarcity lens is not a mandatory gate outside its stated use. Sources: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file<br>file<br>file | `unresolved` |
 | M25 | `M25-GAP-05` | Gaps | The audit treats `docs/zh/ledger/` and `docs/en/ledger/` as directories only; each file-level pointer above is independently named and must exist before it is used as a source. | `docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory | `unresolved` |
 | M26 | `M26-WHAT-01` | What | 登记编号、双语判断卡、推理链、时间窗、证伪条件、领先指标、置信度、受众规模、依赖、状态、机会索引、到期与迁移证据。 | `none` | none | `unresolved` |
-| M26 | `M26-WHAT-02` | What | Sources: `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `docs/zh/ledger/`, `docs/en/ledger/`, `docs/zh/91-social-scale-register.md`, `docs/en/91-social-scale-register.md`. | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/zh/91-social-scale-register.md`<br>`docs/en/91-social-scale-register.md` | file<br>file<br>directory<br>directory<br>file<br>file | `single-language-exception` |
+| M26 | `M26-WHAT-02` | What | Sources: `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `docs/zh/ledger/`, `docs/en/ledger/`, `docs/zh/91-social-scale-register.md`, `docs/en/91-social-scale-register.md`. | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/zh/91-social-scale-register.md`<br>`docs/en/91-social-scale-register.md` | file<br>file<br>directory<br>directory<br>file<br>file | `unresolved` |
 | M26 | `M26-WHO-01` | Who | core 写卡与证据，strategic 维护知识模型，读者沿 `depends-on` 审计；双语是同一判断的两个投影。来源：`CONTRIBUTING.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`。 | `CONTRIBUTING.md`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file | `unresolved` |
 | M26 | `M26-WHEN-01` | When | 判断、依赖、证据新增或修订，到期/证伪、迁移、导航计数或链登记漂移时更新。来源：`docs/zh/03-evolution.md`, `docs/en/03-evolution.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`。 | `docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `unresolved` |
 | M26 | `M26-WHERE-01` | Where | aggregate ledger: `docs/zh/90-ledger.md`; `docs/en/90-ledger.md` | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `unresolved` |
@@ -339,27 +371,27 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M27 | `M27-WHERE-06` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
 | M27 | `M27-HOW-01` | How | 中文与英文承载同一判断的两个投影；同一提交同步更新，稳定 J-NNN 编号与双语链接保持配对。机械检查可验证链接与配对，不能证明逐段语义等价或公开渲染体验。来源：`scripts/check.py`、`docs/zh/03-evolution.md`、`docs/en/03-evolution.md`。 | `scripts/check.py`<br>`docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md` | file<br>file<br>file | `unresolved` |
 | M27 | `M27-WHY-01` | Why | 公开仓库既要可追踪也要对人类读者清晰、沉浸且有吸引力；双语不得产生权威层级或悄然分叉。来源：`README.md`、`README.en.md`、`docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`。 | `README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file | `unresolved` |
-| M27 | `M27-GAP-01` | Gaps | 英文台账 J-122 重复入口与完整导航唯一性仍未由检查器覆盖；对应台账事实源为 `docs/zh/90-ledger.md` 与 `docs/en/90-ledger.md`，相关记录为单语 `.knowledge` observation；公开 GitHub 渲染、移动端可读性及逐段语义等价仍需单独复核。 | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `unresolved` |
+| M27 | `M27-GAP-01` | Gaps | 英文台账 J-122 重复入口与完整导航唯一性仍未由检查器覆盖；对应台账事实源为 `docs/zh/90-ledger.md` 与 `docs/en/90-ledger.md`，相关记录为单语 `.knowledge` observation；公开 GitHub 渲染、移动端可读性及逐段语义等价仍需单独复核。 | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md`<br>`.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | file<br>file<br>file | `unresolved` |
 | M27 | `M27-GAP-02` | Gaps | The audit keeps `docs/zh/` and `docs/en/` as directories, not file paths, and preserves single-language scripts, manifests, contributor instructions, evidence files, and `.knowledge` observations as such. It does not treat a directory, command, line number, `UNKNOWN/UNVERIFIED`, or abstract brace path as a missing or invented file. | `docs/zh/`<br>`docs/en/` | directory<br>directory | `unresolved` |
 
 ## 4. Coverage / 覆盖核对
 
 Coverage counts include every harvested fact. `killed-candidate` is shown separately and never added to covered counts. A lane count means the fact has an auditable source classification, not that its source claim is true.
 
-| map_id | section | total facts | bilingual-paired | single-language-exception | unresolved | killed-candidate |
+| map_id | section | total facts | bilingual-paired | single-language-exception | unresolved | killed candidate rows |
 |---|---|---:|---:|---:|---:|---:|
 | M21 | What | 1 | 0 | 0 | 1 | 0 |
 | M21 | Who | 1 | 0 | 0 | 1 | 0 |
 | M21 | When | 1 | 0 | 0 | 1 | 0 |
-| M21 | Where | 1 | 0 | 1 | 0 | 0 |
+| M21 | Where | 1 | 0 | 0 | 1 | 7 |
 | M21 | How | 1 | 0 | 0 | 1 | 0 |
 | M21 | Why | 1 | 0 | 0 | 1 | 0 |
 | M21 | Gaps | 3 | 0 | 0 | 3 | 0 |
-| M21 | Literal source pointers | 13 | 0 | 3 | 10 | 0 |
+| M21 | Literal source pointers | 13 | 0 | 3 | 10 | 1 |
 | M22 | What | 1 | 0 | 0 | 1 | 0 |
 | M22 | Who | 1 | 0 | 1 | 0 | 0 |
 | M22 | When | 1 | 0 | 0 | 1 | 0 |
-| M22 | Where | 1 | 0 | 1 | 0 | 0 |
+| M22 | Where | 1 | 0 | 0 | 1 | 1 |
 | M22 | How | 1 | 0 | 0 | 1 | 0 |
 | M22 | Why | 1 | 0 | 0 | 1 | 0 |
 | M22 | Gaps | 2 | 0 | 0 | 2 | 0 |
@@ -371,11 +403,11 @@ Coverage counts include every harvested fact. `killed-candidate` is shown separa
 | M23 | Where | 6 | 0 | 1 | 5 | 0 |
 | M23 | How | 1 | 0 | 0 | 1 | 0 |
 | M23 | Why | 1 | 0 | 0 | 1 | 0 |
-| M23 | Gaps | 3 | 0 | 0 | 3 | 0 |
+| M23 | Gaps | 3 | 0 | 0 | 3 | 2 |
 | M24 | What | 1 | 0 | 0 | 1 | 0 |
 | M24 | Who | 1 | 0 | 0 | 1 | 0 |
 | M24 | When | 1 | 0 | 0 | 1 | 0 |
-| M24 | Where | 6 | 0 | 0 | 6 | 0 |
+| M24 | Where | 6 | 0 | 0 | 6 | 4 |
 | M24 | How | 1 | 0 | 0 | 1 | 0 |
 | M24 | Why | 1 | 0 | 0 | 1 | 0 |
 | M24 | Gaps | 2 | 0 | 0 | 2 | 0 |
@@ -385,26 +417,26 @@ Coverage counts include every harvested fact. `killed-candidate` is shown separa
 | M25 | Where | 1 | 0 | 0 | 1 | 0 |
 | M25 | How | 1 | 0 | 0 | 1 | 0 |
 | M25 | Why | 1 | 0 | 0 | 1 | 0 |
-| M25 | Gaps | 5 | 0 | 0 | 5 | 0 |
-| M26 | What | 2 | 0 | 1 | 1 | 0 |
+| M25 | Gaps | 5 | 0 | 0 | 5 | 2 |
+| M26 | What | 2 | 0 | 0 | 2 | 2 |
 | M26 | Who | 1 | 0 | 0 | 1 | 0 |
 | M26 | When | 1 | 0 | 0 | 1 | 0 |
-| M26 | Where | 8 | 0 | 3 | 5 | 0 |
+| M26 | Where | 8 | 0 | 3 | 5 | 3 |
 | M26 | How | 2 | 0 | 0 | 2 | 0 |
 | M26 | Why | 1 | 0 | 0 | 1 | 0 |
-| M26 | Gaps | 2 | 0 | 1 | 1 | 0 |
+| M26 | Gaps | 2 | 0 | 1 | 1 | 2 |
 | M27 | What | 2 | 0 | 0 | 2 | 0 |
 | M27 | Who | 1 | 0 | 0 | 1 | 0 |
 | M27 | When | 1 | 0 | 0 | 1 | 0 |
-| M27 | Where | 6 | 0 | 3 | 3 | 0 |
+| M27 | Where | 6 | 0 | 3 | 3 | 2 |
 | M27 | How | 1 | 0 | 0 | 1 | 0 |
 | M27 | Why | 1 | 0 | 0 | 1 | 0 |
-| M27 | Gaps | 2 | 0 | 0 | 2 | 0 |
-| **TOTAL** | all sections | **107** | **0** | **17** | **90** | **0** |
+| M27 | Gaps | 2 | 0 | 0 | 2 | 2 |
+| **TOTAL** | all sections | **107** | **0** | **14** | **93** | **28** |
 
 ### Scanned domains and holes / 已扫描域与缺口
 
-- Scanned: maps M21–M27; every authored required section was parsed, including pointer/status inventories. No map or required section was skipped.
+- Scanned: maps M21–M27; every authored required section was parsed, including pointer/status inventories. The seven source cards were read directly from hidden `.knowledge/21`–`.knowledge/27`; default gitignored `Glob` output is not a completeness test. No map or required section was skipped.
 - The cards contain directory classifications (`docs/zh/`, `docs/en/`, `docs/evidence/`, ledger directories), commands, `UNKNOWN/UNVERIFIED`, and knowledge observations. These are retained as `directory`, `file`, or `missing` evidence rather than invented as bilingual files.
 - `unresolved` is an honest evidence lane, not a failure to count. It includes facts without a literal file source or with an unavailable/missing source path; no such fact is silently promoted.
 - A source card can assert semantic equivalence while this inventory only establishes path-level pairing. Semantic equivalence and public rendering remain outside this audit.
@@ -413,7 +445,7 @@ Coverage counts include every harvested fact. `killed-candidate` is shown separa
 
 ### Path existence recheck / 路径存在性
 
-The table above records the path kind observed during harvest (`file`, `directory`, or `missing`) for every cited candidate. Directory paths are never represented as files. The audit file itself is not used as evidence for the seven source cards.
+The table above records the path kind observed during harvest (`file`, `directory`, `missing`, or `none` when no literal path was available) for every cited candidate. Directory paths are never represented as files, and `none` is not a path. The audit file itself is not used as evidence for the seven source cards.
 
 ### Existing project check / 项目既有检查
 
