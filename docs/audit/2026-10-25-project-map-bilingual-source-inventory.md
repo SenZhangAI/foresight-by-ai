@@ -10,7 +10,7 @@ This inventory scans every fact unit in the seven architecture project-map cards
 
 ### Lane definitions / 状态 lane
 
-- `bilingual-paired`: reserved for a fact whose cited paths are existing files, whose Chinese/English projections are paired, and whose semantic equivalence has been independently checked. This run performed no independent semantic-equivalence pass, so no fact is promoted into this lane.
+- `bilingual-paired`: reserved for a fact whose cited paths are existing files, whose Chinese/English projections are paired, and whose semantic equivalence has been independently checked. This run performed a bounded semantic-refutation pass for every surviving `file/file` candidate pair (see §2A), but it did not prove equivalence; no fact is promoted into this lane.
 - `single-language-exception`: all cited paths are existing files but the source is intentionally repository-wide/single-language (for example a script, manifest, contributor guide, or a generic observation file).
 - `unresolved`: no literal source path, a missing/directory path, a mechanical pair without an independent semantic-equivalence check, or any other evidence gap.
 - `killed-candidate`: a candidate row rejected during kill (directory or missing path); it is removed from surviving candidates, while its parent fact remains in `unresolved` when needed. Candidate kills are counted separately from fact lanes.
@@ -32,18 +32,18 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 
 ## 2. Kill register / 逐候选反驳
 
-每个事实的每一个来源候选都在这里有独立 candidate_id。双语配对按一对实际文件拆行；没有双语配对的单文件、目录、缺失路径或 `none` 也保留为候选边界，避免把 fact-level 汇总冒充逐候选反驳。反驳问题是路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言实际文件，或是否能由卡片说明有意单语。没有候选被静默丢弃；目录/缺失候选会在下方明确标为 `killed-candidate`。语义等价是 acceptance 所要求的独立门槛：本轮只完成路径和候选边界 kill，未完成该门槛，因此所有机械双语配对候选仍以 `unresolved` 计。
+每个事实的每一个来源候选都在这里有独立 candidate_id。双语配对按一对实际文件拆行；没有双语配对的单文件、目录、缺失路径或 `none` 也保留为候选边界，避免把 fact-level 汇总冒充逐候选反驳。反驳问题先检查路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言实际文件，或是否能由卡片说明有意单语；对每一条 surviving `file/file` 候选，再按精确的 zh/en path 与 fact_id 进入 §2A 的语义反驳登记。没有候选被静默丢弃；目录/缺失候选会在下方明确标为 `killed-candidate`。语义反驳若未找到具体中英冲突，只能让候选 `survives`，不能把事实升级为 `bilingual-paired`；语义等价仍需逐段独立证明，因此事实 lane 仍可为 `unresolved`。
 
 | candidate_id | fact_id | zh_path | en_path | other_or_none | path kind | kill attempt | result | lane after kill |
 |---|---|---|---|---|---|---|---|---|
-| `CAND-M21-WHAT-01-P01` | `M21-WHAT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHAT-01-P02` | `M21-WHAT-01` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHAT-01-P03` | `M21-WHAT-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHO-01-P01` | `M21-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHAT-01-P01` | `M21-WHAT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHAT-01-P02` | `M21-WHAT-01` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHAT-01-P03` | `M21-WHAT-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHO-01-P01` | `M21-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-WHO-01-S02` | `M21-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-WHO-01-U03` | `M21-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHEN-01-P01` | `M21-WHEN-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-WHERE-01-P01` | `M21-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHEN-01-P01` | `M21-WHEN-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-P01` | `M21-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-WHERE-01-S02` | `M21-WHERE-01` | `docs/zh/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M21-WHERE-01-S03` | `M21-WHERE-01` | `none` | `docs/en/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M21-WHERE-01-S04` | `M21-WHERE-01` | `docs/zh/chains/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
@@ -53,23 +53,23 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M21-WHERE-01-S08` | `M21-WHERE-01` | `docs/evidence/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M21-WHERE-01-S09` | `M21-WHERE-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-WHERE-01-S10` | `M21-WHERE-01` | `none` | `none` | `package.json` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
-| `CAND-M21-HOW-01-P01` | `M21-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-HOW-01-P02` | `M21-HOW-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-HOW-01-P01` | `M21-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-HOW-01-P02` | `M21-HOW-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-HOW-01-S03` | `M21-HOW-01` | `README.md` | `none` | `none` | `file` | 尝试寻找对应中英文件；全仓对应文件 `README.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-HOW-01-S04` | `M21-HOW-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M21-HOW-01-U05` | `M21-HOW-01` | `none` | `README.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `README.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-WHY-01-NONE` | `M21-WHY-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-GAP-01-P01` | `M21-GAP-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-GAP-02-P01` | `M21-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-GAP-03-P01` | `M21-GAP-03` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-01-P01` | `M21-LIT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-02-P01` | `M21-LIT-02` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-03-P01` | `M21-LIT-03` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-04-P01` | `M21-LIT-04` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-05-P01` | `M21-LIT-05` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-06-P01` | `M21-LIT-06` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-07-P01` | `M21-LIT-07` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M21-LIT-08-P01` | `M21-LIT-08` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-GAP-01-P01` | `M21-GAP-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-GAP-02-P01` | `M21-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-GAP-03-P01` | `M21-GAP-03` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-01-P01` | `M21-LIT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-02-P01` | `M21-LIT-02` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-03-P01` | `M21-LIT-03` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-04-P01` | `M21-LIT-04` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-05-P01` | `M21-LIT-05` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-06-P01` | `M21-LIT-06` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-07-P01` | `M21-LIT-07` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-08-P01` | `M21-LIT-08` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-LIT-09-S01` | `M21-LIT-09` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-LIT-09-U02` | `M21-LIT-09` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
 | `CAND-M21-LIT-10-S01` | `M21-LIT-10` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
@@ -80,131 +80,131 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M22-WHO-01-S01` | `M22-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHO-01-U02` | `M22-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHEN-01-NONE` | `M22-WHEN-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-P01` | `M22-WHERE-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-P02` | `M22-WHERE-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-P03` | `M22-WHERE-01` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-P04` | `M22-WHERE-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-WHERE-01-P05` | `M22-WHERE-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P01` | `M22-WHERE-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P02` | `M22-WHERE-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P03` | `M22-WHERE-01` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P04` | `M22-WHERE-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P05` | `M22-WHERE-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHERE-01-S06` | `M22-WHERE-01` | `docs/evidence/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M22-HOW-01-NONE` | `M22-HOW-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-WHY-01-NONE` | `M22-WHY-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-GAP-01-NONE` | `M22-GAP-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-GAP-02-P01` | `M22-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-GAP-02-P02` | `M22-GAP-02` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-LIT-01-P01` | `M22-LIT-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-LIT-02-P01` | `M22-LIT-02` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-LIT-03-P01` | `M22-LIT-03` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-LIT-04-P01` | `M22-LIT-04` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-LIT-05-P01` | `M22-LIT-05` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-GAP-02-P01` | `M22-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-GAP-02-P02` | `M22-GAP-02` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-01-P01` | `M22-LIT-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-02-P01` | `M22-LIT-02` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-03-P01` | `M22-LIT-03` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-04-P01` | `M22-LIT-04` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-LIT-05-P01` | `M22-LIT-05` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-LIT-06-S01` | `M22-LIT-06` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M22-LIT-07-S01` | `M22-LIT-07` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-LIT-07-U02` | `M22-LIT-07` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-SOU-01-P01` | `M22-SOU-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-SOU-01-P02` | `M22-SOU-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-SOU-01-P03` | `M22-SOU-01` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-SOU-01-P04` | `M22-SOU-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M22-SOU-01-P05` | `M22-SOU-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P01` | `M22-SOU-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P02` | `M22-SOU-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P03` | `M22-SOU-01` | `docs/zh/02-historical-validation-protocol.md` | `docs/en/02-historical-validation-protocol.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P04` | `M22-SOU-01` | `docs/evidence/technology-calibration-2026-10.md` | `docs/evidence/technology-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-SOU-01-P05` | `M22-SOU-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` | `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M22-SOU-01-S06` | `M22-SOU-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
-| `CAND-M23-WHAT-01-P01` | `M23-WHAT-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHAT-01-P02` | `M23-WHAT-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHO-01-P01` | `M23-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHAT-01-P01` | `M23-WHAT-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHAT-01-P02` | `M23-WHAT-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHO-01-P01` | `M23-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-WHO-01-S02` | `M23-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-WHO-01-U03` | `M23-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHEN-01-P01` | `M23-WHEN-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHEN-01-P02` | `M23-WHEN-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHERE-01-P01` | `M23-WHERE-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHERE-02-P01` | `M23-WHERE-02` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHERE-03-P01` | `M23-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHERE-04-P01` | `M23-WHERE-04` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHERE-05-P01` | `M23-WHERE-05` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHEN-01-P01` | `M23-WHEN-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHEN-01-P02` | `M23-WHEN-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHERE-01-P01` | `M23-WHERE-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHERE-02-P01` | `M23-WHERE-02` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHERE-03-P01` | `M23-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHERE-04-P01` | `M23-WHERE-04` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHERE-05-P01` | `M23-WHERE-05` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-WHERE-06-S01` | `M23-WHERE-06` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M23-WHERE-06-S02` | `M23-WHERE-06` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-WHERE-06-U03` | `M23-WHERE-06` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-HOW-01-P01` | `M23-HOW-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-HOW-01-P02` | `M23-HOW-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHY-01-P01` | `M23-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-WHY-01-P02` | `M23-WHY-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-GAP-01-P01` | `M23-GAP-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M23-GAP-02-P01` | `M23-GAP-02` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-HOW-01-P01` | `M23-HOW-01` | `docs/zh/chains/120-technology-capability-sequence.md` | `docs/en/chains/120-technology-capability-sequence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-HOW-01-P02` | `M23-HOW-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHY-01-P01` | `M23-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-WHY-01-P02` | `M23-WHY-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-GAP-01-P01` | `M23-GAP-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` | `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M23-GAP-02-P01` | `M23-GAP-02` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M23-GAP-03-S01` | `M23-GAP-03` | `docs/zh/chains/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M23-GAP-03-S02` | `M23-GAP-03` | `none` | `docs/en/chains/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
-| `CAND-M24-WHAT-01-P01` | `M24-WHAT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHAT-01-P02` | `M24-WHAT-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHAT-01-P03` | `M24-WHAT-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHO-01-P01` | `M24-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHAT-01-P01` | `M24-WHAT-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHAT-01-P02` | `M24-WHAT-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHAT-01-P03` | `M24-WHAT-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHO-01-P01` | `M24-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHO-01-S02` | `M24-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHO-01-U03` | `M24-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHEN-01-P01` | `M24-WHEN-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHEN-01-P02` | `M24-WHEN-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-01-P01` | `M24-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-02-P01` | `M24-WHERE-02` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-03-P01` | `M24-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-04-P01` | `M24-WHERE-04` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHERE-05-P01` | `M24-WHERE-05` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHEN-01-P01` | `M24-WHEN-01` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHEN-01-P02` | `M24-WHEN-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-01-P01` | `M24-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-02-P01` | `M24-WHERE-02` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-03-P01` | `M24-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-04-P01` | `M24-WHERE-04` | `docs/zh/01-retrospect.md` | `docs/en/01-retrospect.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-05-P01` | `M24-WHERE-05` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-WHERE-06-S01` | `M24-WHERE-06` | `docs/zh/chains/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M24-WHERE-06-S02` | `M24-WHERE-06` | `none` | `docs/en/chains/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M24-WHERE-06-S03` | `M24-WHERE-06` | `docs/zh/ledger/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M24-WHERE-06-S04` | `M24-WHERE-06` | `none` | `docs/en/ledger/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
-| `CAND-M24-HOW-01-P01` | `M24-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-HOW-01-P02` | `M24-HOW-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHY-01-P01` | `M24-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-WHY-01-P02` | `M24-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M24-GAP-01-P01` | `M24-GAP-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-HOW-01-P01` | `M24-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-HOW-01-P02` | `M24-HOW-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHY-01-P01` | `M24-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-WHY-01-P02` | `M24-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M24-GAP-01-P01` | `M24-GAP-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M24-GAP-02-NONE` | `M24-GAP-02` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHAT-01-P01` | `M25-WHAT-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHO-01-P01` | `M25-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHO-01-P02` | `M25-WHO-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHO-01-P03` | `M25-WHO-01` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHEN-01-P01` | `M25-WHEN-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHEN-01-P02` | `M25-WHEN-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P01` | `M25-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P02` | `M25-WHERE-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P03` | `M25-WHERE-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P04` | `M25-WHERE-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P05` | `M25-WHERE-01` | `docs/zh/ledger/01-10.md` | `docs/en/ledger/01-10.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P06` | `M25-WHERE-01` | `docs/zh/ledger/31-40.md` | `docs/en/ledger/31-40.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P07` | `M25-WHERE-01` | `docs/zh/ledger/51-60.md` | `docs/en/ledger/51-60.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P08` | `M25-WHERE-01` | `docs/zh/ledger/61-70.md` | `docs/en/ledger/61-70.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P09` | `M25-WHERE-01` | `docs/zh/ledger/71-80.md` | `docs/en/ledger/71-80.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P10` | `M25-WHERE-01` | `docs/zh/ledger/96-102.md` | `docs/en/ledger/96-102.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P11` | `M25-WHERE-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P12` | `M25-WHERE-01` | `docs/zh/ledger/117-119.md` | `docs/en/ledger/117-119.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P13` | `M25-WHERE-01` | `docs/zh/ledger/120-121.md` | `docs/en/ledger/120-121.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHERE-01-P14` | `M25-WHERE-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-HOW-01-P01` | `M25-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-HOW-01-P02` | `M25-HOW-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHAT-01-P01` | `M25-WHAT-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHO-01-P01` | `M25-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHO-01-P02` | `M25-WHO-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHO-01-P03` | `M25-WHO-01` | `docs/zh/04-project-map.md` | `docs/en/04-project-map.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHEN-01-P01` | `M25-WHEN-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHEN-01-P02` | `M25-WHEN-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P01` | `M25-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P02` | `M25-WHERE-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P03` | `M25-WHERE-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P04` | `M25-WHERE-01` | `docs/zh/chains/40-embodied-intelligence.md` | `docs/en/chains/40-embodied-intelligence.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P05` | `M25-WHERE-01` | `docs/zh/ledger/01-10.md` | `docs/en/ledger/01-10.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P06` | `M25-WHERE-01` | `docs/zh/ledger/31-40.md` | `docs/en/ledger/31-40.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P07` | `M25-WHERE-01` | `docs/zh/ledger/51-60.md` | `docs/en/ledger/51-60.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P08` | `M25-WHERE-01` | `docs/zh/ledger/61-70.md` | `docs/en/ledger/61-70.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P09` | `M25-WHERE-01` | `docs/zh/ledger/71-80.md` | `docs/en/ledger/71-80.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P10` | `M25-WHERE-01` | `docs/zh/ledger/96-102.md` | `docs/en/ledger/96-102.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P11` | `M25-WHERE-01` | `docs/zh/ledger/114-116.md` | `docs/en/ledger/114-116.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P12` | `M25-WHERE-01` | `docs/zh/ledger/117-119.md` | `docs/en/ledger/117-119.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P13` | `M25-WHERE-01` | `docs/zh/ledger/120-121.md` | `docs/en/ledger/120-121.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHERE-01-P14` | `M25-WHERE-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-HOW-01-P01` | `M25-HOW-01` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-HOW-01-P02` | `M25-HOW-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M25-HOW-01-S03` | `M25-HOW-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
-| `CAND-M25-WHY-01-P01` | `M25-WHY-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-WHY-01-P02` | `M25-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-01-P01` | `M25-GAP-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-02-P01` | `M25-GAP-02` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-03-P01` | `M25-GAP-03` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-04-P01` | `M25-GAP-04` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M25-GAP-04-P02` | `M25-GAP-04` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHY-01-P01` | `M25-WHY-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHY-01-P02` | `M25-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-01-P01` | `M25-GAP-01` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-02-P01` | `M25-GAP-02` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-03-P01` | `M25-GAP-03` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-04-P01` | `M25-GAP-04` | `docs/zh/00-method.md` | `docs/en/00-method.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-04-P02` | `M25-GAP-04` | `docs/zh/40-opportunities.md` | `docs/en/40-opportunities.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M25-GAP-05-S01` | `M25-GAP-05` | `docs/zh/ledger/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M25-GAP-05-S02` | `M25-GAP-05` | `none` | `docs/en/ledger/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHAT-01-NONE` | `M26-WHAT-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHAT-02-P01` | `M26-WHAT-02` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHAT-02-P02` | `M26-WHAT-02` | `docs/zh/91-social-scale-register.md` | `docs/en/91-social-scale-register.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-02-P01` | `M26-WHAT-02` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-02-P02` | `M26-WHAT-02` | `docs/zh/91-social-scale-register.md` | `docs/en/91-social-scale-register.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHAT-02-S03` | `M26-WHAT-02` | `docs/zh/ledger/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHAT-02-S04` | `M26-WHAT-02` | `none` | `docs/en/ledger/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
-| `CAND-M26-WHO-01-P01` | `M26-WHO-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHO-01-P01` | `M26-WHO-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHO-01-S02` | `M26-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHO-01-U03` | `M26-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHEN-01-P01` | `M26-WHEN-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHEN-01-P02` | `M26-WHEN-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHERE-01-P01` | `M26-WHERE-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-WHERE-02-P01` | `M26-WHERE-02` | `docs/zh/91-social-scale-register.md` | `docs/en/91-social-scale-register.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHEN-01-P01` | `M26-WHEN-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHEN-01-P02` | `M26-WHEN-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-01-P01` | `M26-WHERE-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-02-P01` | `M26-WHERE-02` | `docs/zh/91-social-scale-register.md` | `docs/en/91-social-scale-register.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHERE-03-S01` | `M26-WHERE-03` | `docs/zh/ledger/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHERE-03-S02` | `M26-WHERE-03` | `none` | `docs/en/ledger/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
-| `CAND-M26-WHERE-04-P01` | `M26-WHERE-04` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-04-P01` | `M26-WHERE-04` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHERE-05-S01` | `M26-WHERE-05` | `docs/evidence/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-WHERE-06-S01` | `M26-WHERE-06` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHERE-07-S01` | `M26-WHERE-07` | `none` | `none` | `package.json` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHERE-08-S01` | `M26-WHERE-08` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-WHERE-08-U02` | `M26-WHERE-08` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-HOW-01-NONE` | `M26-HOW-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M26-HOW-02-P01` | `M26-HOW-02` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-HOW-02-P01` | `M26-HOW-02` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M26-HOW-02-S02` | `M26-HOW-02` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-HOW-02-S03` | `M26-HOW-02` | `none` | `none` | `package.json` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M26-WHY-01-NONE` | `M26-WHY-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
@@ -215,28 +215,28 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M26-GAP-02-S01` | `M26-GAP-02` | `docs/zh/ledger/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M26-GAP-02-S02` | `M26-GAP-02` | `none` | `docs/en/ledger/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-WHAT-01-NONE` | `M27-WHAT-01` | `none` | `none` | `none` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，zh/en/other 均为 `none`，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHAT-02-P01` | `M27-WHAT-02` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHAT-02-P02` | `M27-WHAT-02` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHAT-02-P01` | `M27-WHAT-02` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHAT-02-P02` | `M27-WHAT-02` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHAT-02-S03` | `M27-WHAT-02` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHAT-02-U04` | `M27-WHAT-02` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHO-01-P01` | `M27-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHO-01-P01` | `M27-WHO-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHO-01-S02` | `M27-WHO-01` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHO-01-U03` | `M27-WHO-01` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHEN-01-P01` | `M27-WHEN-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHEN-01-P01` | `M27-WHEN-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHEN-01-S02` | `M27-WHEN-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
-| `CAND-M27-WHERE-01-P01` | `M27-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHERE-02-P01` | `M27-WHERE-02` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHERE-01-P01` | `M27-WHERE-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHERE-02-P01` | `M27-WHERE-02` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHERE-03-S01` | `M27-WHERE-03` | `docs/zh/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-WHERE-03-S02` | `M27-WHERE-03` | `none` | `docs/en/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-WHERE-04-S01` | `M27-WHERE-04` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-WHERE-05-S01` | `M27-WHERE-05` | `none` | `none` | `package.json` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-WHERE-06-S01` | `M27-WHERE-06` | `none` | `none` | `CONTRIBUTING.md` | `file` | 尝试寻找对应中英文件；全仓对应文件 `CONTRIBUTING.en.md` 存在但未被该 fact 的 cited source set 列出，故 en/zh 显式为 `none`；不能把它称为确为单语，事实保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-WHERE-06-U02` | `M27-WHERE-06` | `none` | `CONTRIBUTING.en.md` | `none` | `file (uncited counterpart)` | 全仓对应文件 `CONTRIBUTING.en.md` 存在，但 map 的 cited source set 未引用它；将其作为独立 uncited-counterpart candidate 记录，事实保持 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-HOW-01-P01` | `M27-HOW-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-HOW-01-P01` | `M27-HOW-01` | `docs/zh/03-evolution.md` | `docs/en/03-evolution.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-HOW-01-S02` | `M27-HOW-01` | `none` | `none` | `scripts/check.py` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
-| `CAND-M27-WHY-01-P01` | `M27-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-WHY-01-P02` | `M27-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
-| `CAND-M27-GAP-01-P01` | `M27-GAP-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，但本轮没有独立语义等价审查，故不能升级为 bilingual-paired，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHY-01-P01` | `M27-WHY-01` | `README.md` | `README.en.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHY-01-P02` | `M27-WHY-01` | `docs/zh/06-research-gaps.md` | `docs/en/06-research-gaps.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-GAP-01-P01` | `M27-GAP-01` | `docs/zh/90-ledger.md` | `docs/en/90-ledger.md` | `none` | `file/file` | 两端均为实际文件且机械配对成立；路径反驳失败，§2A 对该精确 zh/en path 与 fact_id 做了语义反驳尝试，未发现具体中英冲突，故候选 survives；但未证明逐段语义等价，事实仍保留为 unresolved。 | **survives** | `unresolved` |
 | `CAND-M27-GAP-01-S02` | `M27-GAP-01` | `none` | `none` | `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | `file` | 尝试寻找对应中英文件；没有发现全仓对应投影，故 en/zh 显式为 `none`；文件存在，保留为单语/辅助来源候选并记录边界。 | **survives** | `single-language-exception` |
 | `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
 | `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `none` | `docs/en/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 | **killed** | `killed-candidate` |
@@ -276,7 +276,119 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | `none` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
 | `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `none` | `docs/en/` | `none` | `directory` | kill 证明该候选只是目录而非文件级来源；从 surviving candidate 集合移除，事实本身仍由其他证据决定是否 unresolved。 |
 
-## 3. Fact lanes / 逐事实 lane
+## 2A. Semantic refutation register / 语义反驳登记
+
+路径检查不是语义证明。为满足逐候选 kill 纪律，本轮对每一条 surviving `file/file` candidate 按其精确 `zh_path + en_path + fact_id` 做了有界语义反驳：检查对应文件的标题与段落结构、该事实涉及的编号/日期/数字/状态、条件词与范围限定、证据类别、排除项及 artifact 所引用的事实范围，并尝试构造一个会改变该事实的中英冲突。下表的 `refutation result=not found` 只表示本次攻击未找到可定位反例；它不证明逐段语义等价，所以这些候选仍 `survives`，事实 lane 仍可为 `unresolved`。每个 `pair_id` 覆盖表中所有具有同一精确 path pair 与所列 fact_id 的 candidate_id；因此 116 条 surviving `file/file` candidate 均有登记，不把一次文件级观察冒充逐事实等价证明。
+
+| pair_id | exact file pair | covered fact_id(s) | semantic boundary attacked | refutation result | residual boundary |
+|---|---|---|---|---|---|
+| S01 | `README.md` ↔ `README.en.md` | M21-WHAT-01, M21-WHO-01, M21-WHEN-01, M21-WHERE-01, M21-GAP-03, M21-LIT-01, M23-WHO-01, M23-WHERE-05, M23-WHY-01, M24-WHAT-01, M24-WHO-01, M24-WHERE-01, M24-WHY-01, M25-WHO-01, M25-WHERE-01, M27-WHAT-02, M27-WHO-01, M27-WHERE-01, M27-WHY-01 | 标题、覆盖矩阵、项目边界、时间锚点、目录、状态表与引用事实范围 | not found | 摘要/导航/否定句仍需逐句等价证明 |
+| S02 | `docs/zh/04-project-map.md` ↔ `docs/en/04-project-map.md` | M21-LIT-02, M21-WHAT-01, M25-WHO-01 | 地图标题、链/模块分组、事实矩阵、链接与排除范围 | not found | 摘要、模块边界、依赖关系未逐句证明 |
+| S03 | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | M21-GAP-01, M21-LIT-03, M21-WHAT-01, M24-GAP-01, M24-WHAT-01, M24-WHERE-02, M24-WHY-01, M25-WHERE-01, M25-WHY-01, M27-WHY-01 | P0/P1 gap、J 编号、UNKNOWN/INCOMPLETE 状态、证据缺口与不得外推限制 | not found | 条件语句“缺什么/不能推出什么”未逐句证明 |
+| S04 | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | M21-HOW-01, M21-LIT-04, M22-LIT-01, M22-SOU-01, M22-WHERE-01, M24-HOW-01, M25-GAP-04, M25-HOW-01, M25-WHEN-01, M25-WHERE-01 | 证据类别、OOS/holdout、五道闸、透镜、计数口径与历史规则 | not found | 规范性条件与“不能支持”范围未逐句证明 |
+| S05 | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | M21-GAP-02, M21-HOW-01, M21-LIT-07, M22-GAP-02, M22-LIT-04, M22-SOU-01, M22-WHERE-01 | 核能、Carter 太阳能、第五代计算机、1990s VR、UNKNOWN/UNVERIFIED 与不得升级限制 | not found | 案例字段与方法限制未逐字段证明 |
+| S06 | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | M21-LIT-05, M22-LIT-02, M22-SOU-01, M22-WHERE-01, M24-WHEN-01, M24-WHERE-04 | 五道闸、日期、J-103/J-104、0/1 计数与 ABSTAIN 边界 | not found | 反方、适用范围与例外未逐句证明 |
+| S07 | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | M21-LIT-06, M23-WHERE-03, M23-WHY-01, M24-HOW-01, M24-WHAT-01, M24-WHERE-03, M25-WHERE-01 | 具身能力/部署/采用边界、J 卡引用与规模闸限制 | not found | 论证关系、领先指标与反方机制未逐句证明 |
+| S08 | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | M21-LIT-08, M24-WHEN-01, M24-WHERE-05, M26-HOW-02, M26-WHAT-02, M26-WHEN-01, M26-WHERE-01, M26-WHO-01, M27-GAP-01 | J 卡 ID、判断/时间窗/置信度/状态、盲判日志、检查日与检查日志 | not found | 2,300+ 行逐字段限定未完全证明 |
+| S09 | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | M22-LIT-03, M22-SOU-01, M22-WHERE-01 | 成功/失败案例、预注册、窗口、分母与 holdout 约束 | not found | 操作条件与例外未逐句证明 |
+| S10 | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | M22-GAP-02, M22-LIT-05, M22-SOU-01, M22-WHERE-01 | misfit 案例、校准状态、证据类别、窗口与不得升级限制 | not found | 反事实、失败边界与校准用途未逐句证明 |
+| S11 | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | M23-HOW-01, M23-WHAT-01, M23-WHEN-01, M23-WHERE-01 | 12 张卡、L2/L6、Gate 1、depends-on 与能力到达≠社会采用 | not found | 论证顺序与透镜边界未逐句证明 |
+| S12 | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | M23-GAP-02, M23-HOW-01, M23-WHAT-01, M23-WHERE-02, M25-WHERE-01 | J-114–J-116 的时间窗、地区/社会数量、2035 阈值与证伪条件 | not found | 多重“且/或/同时”关系未形式化证明 |
+| S13 | `docs/evidence/technology-order-calibration-2026-10-16.md` ↔ `docs/evidence/technology-order-calibration-2026-10-16.en.md` | M23-GAP-01, M23-WHEN-01, M23-WHERE-04 | 技术顺序、时间锚点、能力/采用区分与校准边界 | not found | 顺序、窗口、可验证的限定未逐句证明 |
+| S14 | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | M25-GAP-01, M25-GAP-02, M25-GAP-03, M25-GAP-04, M25-HOW-01, M25-WHAT-01, M25-WHEN-01, M25-WHERE-01, M25-WHO-01, M25-WHY-01 | O-001–O-006、付费者、时间窗、撤回信号、社会级限制与非市场报价声明 | not found | 条件性机会边界未逐句证明 |
+| S15 | `docs/zh/ledger/01-10.md` ↔ `docs/en/ledger/01-10.md` | M25-WHERE-01 | J-001–J-010 的标题、数字、时间窗、状态、盲判与来源 | not found | 反方、领先指标、证伪条件未逐句证明 |
+| S16 | `docs/zh/ledger/31-40.md` ↔ `docs/en/ledger/31-40.md` | M25-WHERE-01 | J-031–J-040 的时间窗、规模、透镜/依赖与状态 | not found | 判断/反方/领先指标的限定未逐句证明 |
+| S17 | `docs/zh/ledger/51-60.md` ↔ `docs/en/ledger/51-60.md` | M25-WHERE-01 | J-051–J-060 的法域/制度、状态、来源与检查日 | not found | 主体、范围与不可外推限制未逐字段证明 |
+| S18 | `docs/zh/ledger/61-70.md` ↔ `docs/en/ledger/61-70.md` | M25-WHERE-01 | J-061–J-070 的社会规模、Gate、校准/盲判与证伪条件 | not found | 规则卡/趋势卡/仅图景卡的状态词未逐句证明 |
+| S19 | `docs/zh/ledger/71-80.md` ↔ `docs/en/ledger/71-80.md` | M25-WHERE-01 | J-071–J-080 的 Gate 5、净负担、采用与社会规模 | not found | 净负担和 incumbent 比较的并列条件未逐句证明 |
+| S20 | `docs/zh/ledger/96-102.md` ↔ `docs/en/ledger/96-102.md` | M25-WHERE-01 | J-096–J-102 的照护、具身部署、维修/保险/停机、样本与状态 | not found | “现在可做什么”与领先指标未逐条证明 |
+| S21 | `docs/zh/ledger/117-119.md` ↔ `docs/en/ledger/117-119.md` | M25-WHERE-01 | 地区/社会数量、调查轮次、2035/20% 阈值与安全/社会指标 | not found | 多重“且/或/同时”条件未形式化证明 |
+| S22 | `docs/zh/ledger/120-121.md` ↔ `docs/en/ledger/120-121.md` | M25-WHERE-01 | 跨境数据/算力/基础设施、法域、12 个月窗口、排除项与 2035 截止 | not found | 许可、责任、数据流、可用率、切换成本未逐项证明 |
+| S23 | `docs/zh/91-social-scale-register.md` ↔ `docs/en/91-social-scale-register.md` | M26-WHAT-02, M26-WHERE-02 | 规模门槛、J-103/J-104、0→1、J-072 分母区分、Gate 与冻结记录 | not found | 表格补记与“本页不新增判断”范围未逐句证明 |
+| S24 | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | M26-WHEN-01, M26-WHERE-04, M27-HOW-01, M27-WHAT-02, M27-WHEN-01, M27-WHERE-02 | 演化时间线、证据类别、Gate 5 收窄、案例、L10、撤回链与版本锚点 | not found | 操作定义、例外范围与撤回理由未逐句证明 |
+
+**语义登记结论：** 24 个唯一文件配对、116 条 surviving `file/file` candidate 均经历了上述反驳尝试；本轮没有构造出明确语义反例，因此没有新增 semantic kill。由于“未找到反例”不等于“证明等价”，事实 lane 仍为 `bilingual-paired=0`、`unresolved` 保留所有未独立证明的事实。
+
+## 2B. Scan manifest / 扫描清单
+
+为避免“列出所有扫描文件”只成为一句自述，本节列出本轮实际输入与候选路径存在性/类型检查的完整 literal path universe。输入 map cards 是隐藏 `.knowledge` 文件；candidate universe 是从 204 条 candidate rows 去重得到的 61 个 literal paths（目录也列出，但不当作文件）。`none` 没有路径，不进入清单。
+
+**Map inputs (7):**
+
+- `.knowledge/21-architecture-project-map-bbf2b915.md`
+- `.knowledge/22-architecture-project-map-bbf2b915.md`
+- `.knowledge/23-architecture-project-map-bbf2b915.md`
+- `.knowledge/24-architecture-project-map-bbf2b915.md`
+- `.knowledge/25-architecture-project-map-bbf2b915.md`
+- `.knowledge/26-architecture-project-map-bbf2b915.md`
+- `.knowledge/27-architecture-project-map-bbf2b915.md`
+
+**Candidate literal paths (61, sorted):**
+
+```text
+.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md
+CONTRIBUTING.en.md
+CONTRIBUTING.md
+README.en.md
+README.md
+docs/en/
+docs/en/00-method.md
+docs/en/01-retrospect.md
+docs/en/02-historical-validation-protocol.md
+docs/en/03-evolution.md
+docs/en/04-project-map.md
+docs/en/06-research-gaps.md
+docs/en/40-opportunities.md
+docs/en/90-ledger.md
+docs/en/91-social-scale-register.md
+docs/en/chains/
+docs/en/chains/120-technology-capability-sequence.md
+docs/en/chains/40-embodied-intelligence.md
+docs/en/ledger/
+docs/en/ledger/01-10.md
+docs/en/ledger/114-116.md
+docs/en/ledger/117-119.md
+docs/en/ledger/120-121.md
+docs/en/ledger/31-40.md
+docs/en/ledger/51-60.md
+docs/en/ledger/61-70.md
+docs/en/ledger/71-80.md
+docs/en/ledger/96-102.md
+docs/evidence/
+docs/evidence/github-public-render-verification-2026-10-19.md
+docs/evidence/historical-misfit-calibration-2026-10.en.md
+docs/evidence/historical-misfit-calibration-2026-10.md
+docs/evidence/technology-calibration-2026-10.en.md
+docs/evidence/technology-calibration-2026-10.md
+docs/evidence/technology-order-calibration-2026-10-16.en.md
+docs/evidence/technology-order-calibration-2026-10-16.md
+docs/zh/
+docs/zh/00-method.md
+docs/zh/01-retrospect.md
+docs/zh/02-historical-validation-protocol.md
+docs/zh/03-evolution.md
+docs/zh/04-project-map.md
+docs/zh/06-research-gaps.md
+docs/zh/40-opportunities.md
+docs/zh/90-ledger.md
+docs/zh/91-social-scale-register.md
+docs/zh/chains/
+docs/zh/chains/120-technology-capability-sequence.md
+docs/zh/chains/40-embodied-intelligence.md
+docs/zh/ledger/
+docs/zh/ledger/01-10.md
+docs/zh/ledger/114-116.md
+docs/zh/ledger/117-119.md
+docs/zh/ledger/120-121.md
+docs/zh/ledger/31-40.md
+docs/zh/ledger/51-60.md
+docs/zh/ledger/61-70.md
+docs/zh/ledger/71-80.md
+docs/zh/ledger/96-102.md
+package.json
+scripts/check.py
+```
+
 
 | map_id | fact_id | section | fact (source text / normalized) | cited source paths (all candidates) | path kinds | lane |
 |---|---|---|---|---|---|---|
