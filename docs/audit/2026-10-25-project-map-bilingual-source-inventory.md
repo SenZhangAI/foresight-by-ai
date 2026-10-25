@@ -32,121 +32,203 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 
 ## 2. Kill register / 逐候选反驳
 
-每个 harvested fact 都进入 kill pass。反驳问题是：引用的路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言的实际文件、或卡片自身是否说明这是有意的单语来源。若反驳未能证明候选错误，候选保留并进入唯一 lane。没有候选被静默丢弃；本轮 `killed-candidate` 数为 0。
+每个事实的每一个来源候选都在这里有独立 candidate_id。双语配对按一对实际文件拆行；没有双语配对的单文件、目录、缺失路径或 `none` 也保留为候选边界，避免把 fact-level 汇总冒充逐候选反驳。反驳问题是路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言实际文件，或是否能由卡片说明有意单语。没有候选被静默丢弃；本轮 `killed-candidate` 数为 0。
 
-| fact_id | kill attempt | result | lane after kill |
-|---|---|---|---|
-| `M21-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M21-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-GAP-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-06` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-07` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-08` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M21-LIT-09` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M21-LIT-10` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M21-LIT-11` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M21-LIT-12` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M21-LIT-13` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-WHO-01` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M22-WHEN-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-HOW-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-GAP-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M22-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M22-LIT-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M22-LIT-07` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M22-SOU-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M23-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M23-GAP-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M24-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHERE-06` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M24-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M24-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M25-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-GAP-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-GAP-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M25-GAP-05` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-WHAT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHERE-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHERE-05` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M26-WHERE-07` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M26-WHERE-08` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M26-HOW-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-HOW-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M26-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-GAP-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M26-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M27-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M27-WHAT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHERE-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
-| `M27-WHERE-04` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M27-WHERE-05` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M27-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
-| `M27-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
-| `M27-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| candidate_id | fact_id | candidate source(s) | kill attempt | result | lane after kill |
+|---|---|---|---|---|---|
+| `CAND-M21-WHAT-01-P01` | `M21-WHAT-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHAT-01-P02` | `M21-WHAT-01` | `docs/zh/04-project-map.md` ↔ `docs/en/04-project-map.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHAT-01-P03` | `M21-WHAT-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHO-01-P01` | `M21-WHO-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHO-01-S02` | `M21-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-WHEN-01-P01` | `M21-WHEN-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHERE-01-P01` | `M21-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-WHERE-01-S02` | `M21-WHERE-01` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S03` | `M21-WHERE-01` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S04` | `M21-WHERE-01` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S05` | `M21-WHERE-01` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S06` | `M21-WHERE-01` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S07` | `M21-WHERE-01` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S08` | `M21-WHERE-01` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-WHERE-01-S09` | `M21-WHERE-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-WHERE-01-S10` | `M21-WHERE-01` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-HOW-01-P01` | `M21-HOW-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-HOW-01-P02` | `M21-HOW-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-HOW-01-S03` | `M21-HOW-01` | `README.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-HOW-01-S04` | `M21-HOW-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-WHY-01-NONE` | `M21-WHY-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M21-GAP-01-P01` | `M21-GAP-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-GAP-02-P01` | `M21-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-GAP-03-P01` | `M21-GAP-03` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-01-P01` | `M21-LIT-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-02-P01` | `M21-LIT-02` | `docs/zh/04-project-map.md` ↔ `docs/en/04-project-map.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-03-P01` | `M21-LIT-03` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-04-P01` | `M21-LIT-04` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-05-P01` | `M21-LIT-05` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-06-P01` | `M21-LIT-06` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-07-P01` | `M21-LIT-07` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-08-P01` | `M21-LIT-08` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M21-LIT-09-S01` | `M21-LIT-09` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-LIT-10-S01` | `M21-LIT-10` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-LIT-11-S01` | `M21-LIT-11` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M21-LIT-12-S01` | `M21-LIT-12` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M21-LIT-13-NONE` | `M21-LIT-13` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHAT-01-NONE` | `M22-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHO-01-S01` | `M22-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M22-WHEN-01-NONE` | `M22-WHEN-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHERE-01-P01` | `M22-WHERE-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-WHERE-01-P02` | `M22-WHERE-01` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-WHERE-01-P03` | `M22-WHERE-01` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-WHERE-01-P04` | `M22-WHERE-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-WHERE-01-P05` | `M22-WHERE-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-WHERE-01-S06` | `M22-WHERE-01` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M22-HOW-01-NONE` | `M22-HOW-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-WHY-01-NONE` | `M22-WHY-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-GAP-01-NONE` | `M22-GAP-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M22-GAP-02-P01` | `M22-GAP-02` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-GAP-02-P02` | `M22-GAP-02` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-01-P01` | `M22-LIT-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-02-P01` | `M22-LIT-02` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-03-P01` | `M22-LIT-03` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-04-P01` | `M22-LIT-04` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-05-P01` | `M22-LIT-05` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-LIT-06-S01` | `M22-LIT-06` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M22-LIT-07-S01` | `M22-LIT-07` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M22-SOU-01-P01` | `M22-SOU-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-P02` | `M22-SOU-01` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-P03` | `M22-SOU-01` | `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-P04` | `M22-SOU-01` | `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-P05` | `M22-SOU-01` | `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M22-SOU-01-S06` | `M22-SOU-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M23-WHAT-01-P01` | `M23-WHAT-01` | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHAT-01-P02` | `M23-WHAT-01` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHO-01-P01` | `M23-WHO-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHO-01-S02` | `M23-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M23-WHEN-01-P01` | `M23-WHEN-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` ↔ `docs/evidence/technology-order-calibration-2026-10-16.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHEN-01-P02` | `M23-WHEN-01` | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-01-P01` | `M23-WHERE-01` | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-02-P01` | `M23-WHERE-02` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-03-P01` | `M23-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-04-P01` | `M23-WHERE-04` | `docs/evidence/technology-order-calibration-2026-10-16.md` ↔ `docs/evidence/technology-order-calibration-2026-10-16.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-05-P01` | `M23-WHERE-05` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHERE-06-S01` | `M23-WHERE-06` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M23-WHERE-06-S02` | `M23-WHERE-06` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M23-HOW-01-P01` | `M23-HOW-01` | `docs/zh/chains/120-technology-capability-sequence.md` ↔ `docs/en/chains/120-technology-capability-sequence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-HOW-01-P02` | `M23-HOW-01` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHY-01-P01` | `M23-WHY-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-WHY-01-P02` | `M23-WHY-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-GAP-01-P01` | `M23-GAP-01` | `docs/evidence/technology-order-calibration-2026-10-16.md` ↔ `docs/evidence/technology-order-calibration-2026-10-16.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-GAP-02-P01` | `M23-GAP-02` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M23-GAP-03-S01` | `M23-GAP-03` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M23-GAP-03-S02` | `M23-GAP-03` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-WHAT-01-P01` | `M24-WHAT-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHAT-01-P02` | `M24-WHAT-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHAT-01-P03` | `M24-WHAT-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHO-01-P01` | `M24-WHO-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHO-01-S02` | `M24-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M24-WHEN-01-P01` | `M24-WHEN-01` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHEN-01-P02` | `M24-WHEN-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-01-P01` | `M24-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-02-P01` | `M24-WHERE-02` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-03-P01` | `M24-WHERE-03` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-04-P01` | `M24-WHERE-04` | `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-05-P01` | `M24-WHERE-05` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHERE-06-S01` | `M24-WHERE-06` | `docs/zh/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-06-S02` | `M24-WHERE-06` | `docs/en/chains/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-06-S03` | `M24-WHERE-06` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-WHERE-06-S04` | `M24-WHERE-06` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M24-HOW-01-P01` | `M24-HOW-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-HOW-01-P02` | `M24-HOW-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHY-01-P01` | `M24-WHY-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-WHY-01-P02` | `M24-WHY-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-GAP-01-P01` | `M24-GAP-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M24-GAP-02-NONE` | `M24-GAP-02` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M25-WHAT-01-P01` | `M25-WHAT-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHO-01-P01` | `M25-WHO-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHO-01-P02` | `M25-WHO-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHO-01-P03` | `M25-WHO-01` | `docs/zh/04-project-map.md` ↔ `docs/en/04-project-map.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHEN-01-P01` | `M25-WHEN-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHEN-01-P02` | `M25-WHEN-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P01` | `M25-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P02` | `M25-WHERE-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P03` | `M25-WHERE-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P04` | `M25-WHERE-01` | `docs/zh/chains/40-embodied-intelligence.md` ↔ `docs/en/chains/40-embodied-intelligence.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P05` | `M25-WHERE-01` | `docs/zh/ledger/01-10.md` ↔ `docs/en/ledger/01-10.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P06` | `M25-WHERE-01` | `docs/zh/ledger/31-40.md` ↔ `docs/en/ledger/31-40.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P07` | `M25-WHERE-01` | `docs/zh/ledger/51-60.md` ↔ `docs/en/ledger/51-60.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P08` | `M25-WHERE-01` | `docs/zh/ledger/61-70.md` ↔ `docs/en/ledger/61-70.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P09` | `M25-WHERE-01` | `docs/zh/ledger/71-80.md` ↔ `docs/en/ledger/71-80.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P10` | `M25-WHERE-01` | `docs/zh/ledger/96-102.md` ↔ `docs/en/ledger/96-102.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P11` | `M25-WHERE-01` | `docs/zh/ledger/114-116.md` ↔ `docs/en/ledger/114-116.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P12` | `M25-WHERE-01` | `docs/zh/ledger/117-119.md` ↔ `docs/en/ledger/117-119.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P13` | `M25-WHERE-01` | `docs/zh/ledger/120-121.md` ↔ `docs/en/ledger/120-121.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHERE-01-P14` | `M25-WHERE-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-HOW-01-P01` | `M25-HOW-01` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-HOW-01-P02` | `M25-HOW-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-HOW-01-S03` | `M25-HOW-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M25-WHY-01-P01` | `M25-WHY-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-WHY-01-P02` | `M25-WHY-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-01-P01` | `M25-GAP-01` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-02-P01` | `M25-GAP-02` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-03-P01` | `M25-GAP-03` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-04-P01` | `M25-GAP-04` | `docs/zh/00-method.md` ↔ `docs/en/00-method.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-04-P02` | `M25-GAP-04` | `docs/zh/40-opportunities.md` ↔ `docs/en/40-opportunities.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M25-GAP-05-S01` | `M25-GAP-05` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M25-GAP-05-S02` | `M25-GAP-05` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-01-NONE` | `M26-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-02-P01` | `M26-WHAT-02` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHAT-02-P02` | `M26-WHAT-02` | `docs/zh/91-social-scale-register.md` ↔ `docs/en/91-social-scale-register.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHAT-02-S03` | `M26-WHAT-02` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHAT-02-S04` | `M26-WHAT-02` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHO-01-P01` | `M26-WHO-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHO-01-S02` | `M26-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-WHEN-01-P01` | `M26-WHEN-01` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHEN-01-P02` | `M26-WHEN-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHERE-01-P01` | `M26-WHERE-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHERE-02-P01` | `M26-WHERE-02` | `docs/zh/91-social-scale-register.md` ↔ `docs/en/91-social-scale-register.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHERE-03-S01` | `M26-WHERE-03` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-03-S02` | `M26-WHERE-03` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-04-P01` | `M26-WHERE-04` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-WHERE-05-S01` | `M26-WHERE-05` | `docs/evidence/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-WHERE-06-S01` | `M26-WHERE-06` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-WHERE-07-S01` | `M26-WHERE-07` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-WHERE-08-S01` | `M26-WHERE-08` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-HOW-01-NONE` | `M26-HOW-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-HOW-02-P01` | `M26-HOW-02` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M26-HOW-02-S02` | `M26-HOW-02` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-HOW-02-S03` | `M26-HOW-02` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-WHY-01-NONE` | `M26-WHY-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-GAP-01-S01` | `M26-GAP-01` | `docs/en/90-ledger.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-GAP-01-S02` | `M26-GAP-01` | `docs/evidence/github-public-render-verification-2026-10-19.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M26-GAP-01-S03` | `M26-GAP-01` | `knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | 尝试读取候选路径；路径不存在，故无法建立来源配对，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M26-GAP-02-S01` | `M26-GAP-02` | `docs/zh/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M26-GAP-02-S02` | `M26-GAP-02` | `docs/en/ledger/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-WHAT-01-NONE` | `M27-WHAT-01` | `none` | 尝试寻找 literal file path；事实没有可取得的文件级来源，保留为 unresolved。 | **survives** | `unresolved` |
+| `CAND-M27-WHAT-02-P01` | `M27-WHAT-02` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHAT-02-P02` | `M27-WHAT-02` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHAT-02-S03` | `M27-WHAT-02` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHO-01-P01` | `M27-WHO-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHO-01-S02` | `M27-WHO-01` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHEN-01-P01` | `M27-WHEN-01` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHEN-01-S02` | `M27-WHEN-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHERE-01-P01` | `M27-WHERE-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHERE-02-P01` | `M27-WHERE-02` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHERE-03-S01` | `M27-WHERE-03` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-WHERE-03-S02` | `M27-WHERE-03` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-WHERE-04-S01` | `M27-WHERE-04` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHERE-05-S01` | `M27-WHERE-05` | `package.json` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHERE-06-S01` | `M27-WHERE-06` | `CONTRIBUTING.md` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-HOW-01-P01` | `M27-HOW-01` | `docs/zh/03-evolution.md` ↔ `docs/en/03-evolution.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-HOW-01-S02` | `M27-HOW-01` | `scripts/check.py` | 尝试寻找对应中英文件；该候选没有对应投影，但文件存在，保留为单语/辅助来源候选并记录其边界。 | **survives** | `single-language-exception` |
+| `CAND-M27-WHY-01-P01` | `M27-WHY-01` | `README.md` ↔ `README.en.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-WHY-01-P02` | `M27-WHY-01` | `docs/zh/06-research-gaps.md` ↔ `docs/en/06-research-gaps.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-GAP-01-P01` | `M27-GAP-01` | `docs/zh/90-ledger.md` ↔ `docs/en/90-ledger.md` | 两端均为实际文件；尝试以缺失文件、错误对应或仅有目录反驳，路径存在且配对关系成立，反驳失败。 | **survives** | `bilingual-paired` |
+| `CAND-M27-GAP-02-S01` | `M27-GAP-02` | `docs/zh/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
+| `CAND-M27-GAP-02-S02` | `M27-GAP-02` | `docs/en/` | 尝试把目录当作文件来源；该反驳成立不了文件级来源，保留为 unresolved，未升级为配对。 | **survives** | `unresolved` |
 
 ### Killed candidates / 被杀候选
 
-**None.** Every harvested fact is retained in a lane or explicitly unresolved; no candidate was removed during kill.
+**None.** Every harvested fact and every candidate is retained in a lane or explicitly unresolved; no candidate was removed during kill.
 
 ## 3. Fact lanes / 逐事实 lane
 
@@ -331,7 +413,7 @@ Coverage counts include every harvested fact. `killed-candidate` is shown separa
 
 ### Path existence recheck / 路径存在性
 
-The table above records the path kind observed during harvest (`file`, `directory`, or `missing`) for every cited candidate. Directory paths are never represented as files. The audit file itself is not used as evidence for the seven source cards.
+The table above records the path kind observed during harvest (`file`, `directory`, `missing`, or `none` when no literal path was available) for every cited candidate. Directory paths are never represented as files, and `none` is not a path. The audit file itself is not used as evidence for the seven source cards.
 
 ### Existing project check / 项目既有检查
 
@@ -340,7 +422,7 @@ This turn ran `npm run check` (which invokes `python3 scripts/check.py && python
 ### Self-imposed constraints — say the word and any of these is dropped
 
 - `[self-imposed]` Fact unit = one paragraph, bullet, or pointer-table row; this makes the seven-card corpus countable without pretending that a paragraph proves a single proposition.
-- `[self-imposed]` The four lanes are mutually exclusive and every harvested fact must appear exactly once; this prevents unresolved evidence from disappearing into a green pairing count.
+- `[self-imposed]` The four lanes are mutually exclusive and every harvested fact must appear exactly once; candidate rows are finer-grained evidence and may include supporting single-source or directory candidates without changing the fact lane.
 - `[self-imposed]` Kill is path/source-boundary falsification, not an independent semantic translation review; semantic equivalence is explicitly left unverified.
 - `[self-imposed]` One closing commit contains this artifact and no unrelated working-tree changes.
 
