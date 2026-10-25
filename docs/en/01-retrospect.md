@@ -13,9 +13,11 @@
 
 In April 1964 a queue formed at the Bell Labs pavilion at the New York World's Fair. Visitors took turns sitting in a small booth and talking, through a screen, to a stranger far away in California—**and they could see the other person's face**. That same month, Bell also completed a transcontinental video call between New York and Anaheim.
 
-This was not a prototype. On 1 July 1970 the Picturephone entered commercial service in Pittsburgh, and expanded to Chicago the following year. AT&T's 1969 annual report put the forecast in writing: by 1980, one million sets, a billion-dollar business.
+This was not a prototype. On 1 July 1970 the Picturephone entered commercial service in Pittsburgh, and expanded to Chicago the following year. AT&T's 1969 annual report set down a target: by 1980, perhaps one million sets would be in use and Picturephone service might be a billion-dollar business.
 
-What actually happened: Pittsburgh peaked at 32 sets, Chicago at 453. **Fewer than 500 in total.** Cutting the monthly rent from $160 to $75 did not help either. A few years later the service was quietly shut down ([ETHW](https://ethw.org/Picturephone), [Wikipedia](https://en.wikipedia.org/wiki/Picturephone)).
+**The outcome-side material confirms only early local facts**: Pittsburgh peaked at 32 sets in 1972, while Chicago peaked at 453 in early 1973; the two city peaks together were fewer than 500. Cutting the monthly rent from $160 to $75 did not make this early commercial service diffuse. A few years later the service was quietly shut down ([ETHW](https://ethw.org/Picturephone), [Wikipedia](https://en.wikipedia.org/wiki/Picturephone)).
+
+**The evidence boundary belongs here first.** These materials are well suited to the claim that technical availability is not the same as social diffusion, but two city peaks in different years cannot be treated as a same-basis outcome for the 1980 “one million sets” target, and device counts cannot substitute for the “billion-dollar business” revenue measure. The 1969–1970 targets, outcome dates, denominators, and missing original annual-report / press-release artifacts are recorded field by field in the [Picturephone forecast–outcome evidence slice](../evidence/picturephone-forecast-outcome-slice-2026-10-26.en.md); the current code is `UNKNOWN/UNVERIFIED`, not a definite technology-forecast `MISS`.
 
 Fifty-six years later, in March 2020, the same thing—**talking to someone while looking at their face**—was learned by hundreds of millions of people in three months. Zoom's daily meeting participants went from 10 million in December 2019 to 300 million in April 2020, a thirtyfold rise ([Zoom, official](https://www.zoom.com/en/blog/reflecting-looking-ahead/)).
 
