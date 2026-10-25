@@ -413,6 +413,19 @@ The [four-case technology calibration evidence page](../evidence/technology-cali
 
 The narrower conclusion that survives is useful: **project completion, a single demonstration, a cancelled product, a technology category, and society-level adoption are different analytical objects.** Nuclear material mixes cost-system boundaries; the White House solar material is a political demonstration rather than a national adoption rate; the Fifth Generation Computer project's goals cannot be replaced by “no mass-market product”; and Sega VR's non-release cannot supply the denominator for the VR category. The cases support the recording discipline that a source is not a pairable outcome, but they do not support a new rule that “technology forecasts usually fail.” The evidence page carries the detailed sources, gaps, and next verification actions; the technology-domain qualified count remains **0**, and the three-domain total remains **6/12**.
 
+### 10.7 Narrow slice: institutional outcomes, nationwide outcomes, and counterfactual metrics
+
+The [historical misfit boundary slice](../evidence/historical-misfit-calibration-2026-10.en.md) extracts four cases already registered in the politics packet to attack one field boundary: **the forecast object must match the outcome object, metric, denominator, and observation window.** P-01 and P-02 were assembled after their outcomes were known and are labelled `CALIBRATION`; P-03 and P-05 retain an incomplete outcome side or counterfactual baseline and remain `UNKNOWN/UNVERIFIED`. This is not a new sample set, a holdout, or a full re-review.
+
+| Case | What can be determined now | What must not be substituted | Status |
+|---|---|---|---|
+| P-01 Brexit referendum | YouGov ranked Remain as more likely to win and Leave won; the same referendum question permits a winner-direction miss | It cannot be expanded into a miss on post-Brexit GDP, trade, or institutional consequences | `CALIBRATION` |
+| P-02 2017 UK general election | “Increased Conservative majority” and “no party won an overall Commons majority” are the same institutional-outcome metric and can be judged as a miss | 42.3% / 40.0% vote shares cannot replace a Commons majority, and this does not imply the vote-share forecast was also wrong | `CALIBRATION` |
+| P-03 nationwide takeover after the Afghanistan withdrawal | The forecast copy is preserved, but the outcome original, excerpt, and nationwide denominator are not closed | Entering the capital or partial control cannot replace nationwide takeover | `UNKNOWN/UNVERIFIED` |
+| P-05 post-Brexit GDP counterfactual shock | The forecast is a two-year level difference relative to a Remain baseline, while the available outcome is actual annual growth | An actual-growth series cannot patch a counterfactual series merely because both concern GDP | `UNKNOWN/UNVERIFIED` |
+
+The material supports only three recording rules: separate direction on the same question from consequences; separate institutional thresholds from adjacent continuous indicators; and do not treat the same topic as the same metric. It supports no overall political-forecast accuracy, new lens, diffusion-gate change, or future judgment. The P-03 and P-05 gaps are part of the delivery and do not enter a miss or accuracy denominator; P-01 and P-02 must not be counted again as new repository cases. The Chinese and English evidence pages share the original packet's fixed case IDs, source locations, and statuses; see the [Chinese slice](../evidence/historical-misfit-calibration-2026-10.md).
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is
