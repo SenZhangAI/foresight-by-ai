@@ -357,7 +357,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M26 | `M26-HOW-01` | How | J-NNN 与双语配对缝合正文和事实源；`depends-on` 保持前件。当前 `npm run check` 通过并报告 172/5823/123/21，`--self-test --full` 报告 203/0；这些仅是机械证据，且这些 counts are values read from the recorded check, not a timeless guarantee. | `none` | none | `unresolved` |
 | M26 | `M26-HOW-02` | How | Sources: `scripts/check.py`, `package.json`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`. | `scripts/check.py`<br>`package.json`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `unresolved` |
 | M26 | `M26-WHY-01` | Why | 防止编号、链接、依赖和迁移漂移，并持续区分结构、语义、样本外准确率。双语 literal paths make the source trail reproducible; they do not prove semantic equivalence or predictive validity. | `none` | none | `unresolved` |
-| M26 | `M26-GAP-01` | Gaps | 真实未来样本外准确率、逐段语义等价、公开渲染与导航唯一性仍未闭合；J-122 英文台账存在重复入口迹象。来源：`docs/en/90-ledger.md`, `docs/evidence/github-public-render-verification-2026-10-19.md`, `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md`。 | `docs/en/90-ledger.md`<br>`docs/evidence/github-public-render-verification-2026-10-19.md`<br>`.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | file<br>file<br>file | `single-language-exception` |
+| M26 | `M26-GAP-01` | Gaps | 真实未来样本外准确率、逐段语义等价、公开渲染与导航唯一性仍未闭合；J-122 英文台账存在重复入口迹象。来源：`docs/en/90-ledger.md`, `docs/evidence/github-public-render-verification-2026-10-19.md`, `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md`。 | `docs/en/90-ledger.md`<br>`docs/evidence/github-public-render-verification-2026-10-19.md`<br>`.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | file<br>file<br>file | `unresolved` |
 | M26 | `M26-GAP-02` | Gaps | The audit distinguishes `docs/zh/ledger/` and `docs/en/ledger/` as directories from the aggregate files above, and does not treat `UNKNOWN/UNVERIFIED`, commands, or line-number fragments as repository paths. | `docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory | `unresolved` |
 | M27 | `M27-WHAT-01` | What | 中英双版的一致性、术语对照、文档目录与推演链导航、commit 规范（记录改了哪条判断及依据的新证据）以及同一次 commit 内双语同步的检查。 | `none` | none | `unresolved` |
 | M27 | `M27-WHAT-02` | What | Sources: `README.md`, `README.en.md`, `docs/zh/03-evolution.md`, `docs/en/03-evolution.md`, `CONTRIBUTING.md`. | `README.md`<br>`README.en.md`<br>`docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md`<br>`CONTRIBUTING.md` | file<br>file<br>file<br>file<br>file | `unresolved` |
@@ -424,7 +424,7 @@ Coverage counts include every harvested fact. Candidate totals, surviving candid
 | M26 | Where | 8 | 0 | 3 | 5 | 9 | 6 | 3 |
 | M26 | How | 2 | 0 | 0 | 2 | 4 | 4 | 0 |
 | M26 | Why | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
-| M26 | Gaps | 2 | 0 | 1 | 1 | 5 | 3 | 2 |
+| M26 | Gaps | 2 | 0 | 0 | 2 | 5 | 3 | 2 |
 | M27 | What | 2 | 0 | 0 | 2 | 4 | 4 | 0 |
 | M27 | Who | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | When | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
@@ -432,7 +432,7 @@ Coverage counts include every harvested fact. Candidate totals, surviving candid
 | M27 | How | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | Why | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | Gaps | 2 | 0 | 0 | 2 | 4 | 2 | 2 |
-| **TOTAL** | all sections | **107** | **0** | **14** | **93** | **190** | **162** | **28** |
+| **TOTAL** | all sections | **107** | **0** | **13** | **94** | **190** | **162** | **28** |
 
 ### Scanned domains and holes / 已扫描域与缺口
 
