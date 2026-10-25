@@ -1,0 +1,354 @@
+# 项目地图逐事实双语来源审计 / Project-map bilingual source inventory
+
+> 审计日期 / As of: 2026-10-25  | 语料 / Corpus: `.knowledge/21–27-architecture-project-map-bbf2b915.md`
+
+## Purpose / 目的
+
+本 inventory 对七张 architecture project-map 卡的 `What/Who/When/Where/How/Why/Gaps`、`Literal source pointers`、`Sources and bilingual status` 逐事实扫描。它只审计来源结构、路径存在性与双语配对边界，不把这些机械结果解释为预测质量、方法有效性、逐段语义等价或社会判断正确性。
+
+This inventory scans every fact unit in the seven architecture project-map cards, including all named sections and source inventories. It audits source structure, literal path existence, and bilingual pairing only; it does not establish forecast quality, method effectiveness, semantic equivalence, or correctness of social judgments.
+
+### Lane definitions / 状态 lane
+
+- `bilingual-paired`: all cited file paths exist, and the fact cites both Chinese and English projections (or `README.md` + `README.en.md`).
+- `single-language-exception`: cited paths exist but the source is intentionally repository-wide/single-language (for example a script, manifest, contributor guide, or a directory classification).
+- `unresolved`: no literal source path, a missing path, a directory-only/unknown claim that cannot be established as a file-level source, or no defensible bilingual pairing.
+- `killed-candidate`: only for candidates rejected during kill; killed rows do not count as covered facts. This run records no silently dropped candidates.
+
+## 1. Harvest / 全量 harvest
+
+Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a required section is one fact unit. The source text is retained below verbatim or with only whitespace normalization; no candidate was filtered before the kill pass.
+
+| map_id | source card | facts harvested | sections covered |
+|---|---|---:|---|
+| M21 | `.knowledge/21-architecture-project-map-bbf2b915.md` | 22 | What=1, Who=1, When=1, Where=1, How=1, Why=1, Gaps=3, Literal source pointers=13 |
+| M22 | `.knowledge/22-architecture-project-map-bbf2b915.md` | 16 | What=1, Who=1, When=1, Where=1, How=1, Why=1, Gaps=2, Literal source pointers=7, Sources and bilingual status=1 |
+| M23 | `.knowledge/23-architecture-project-map-bbf2b915.md` | 14 | What=1, Who=1, When=1, Where=6, How=1, Why=1, Gaps=3 |
+| M24 | `.knowledge/24-architecture-project-map-bbf2b915.md` | 13 | What=1, Who=1, When=1, Where=6, How=1, Why=1, Gaps=2 |
+| M25 | `.knowledge/25-architecture-project-map-bbf2b915.md` | 11 | What=1, Who=1, When=1, Where=1, How=1, Why=1, Gaps=5 |
+| M26 | `.knowledge/26-architecture-project-map-bbf2b915.md` | 17 | What=2, Who=1, When=1, Where=8, How=2, Why=1, Gaps=2 |
+| M27 | `.knowledge/27-architecture-project-map-bbf2b915.md` | 14 | What=2, Who=1, When=1, Where=6, How=1, Why=1, Gaps=2 |
+| **TOTAL** | seven cards | **107** | all required sections present where authored |
+
+## 2. Kill register / 逐候选反驳
+
+每个 harvested fact 都进入 kill pass。反驳问题是：引用的路径是否不存在、是否只是目录/命令/状态词、是否缺少另一语言的实际文件、或卡片自身是否说明这是有意的单语来源。若反驳未能证明候选错误，候选保留并进入唯一 lane。没有候选被静默丢弃；本轮 `killed-candidate` 数为 0。
+
+| fact_id | kill attempt | result | lane after kill |
+|---|---|---|---|
+| `M21-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M21-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-GAP-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-06` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-07` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-08` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M21-LIT-09` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M21-LIT-10` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M21-LIT-11` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M21-LIT-12` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M21-LIT-13` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-WHO-01` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M22-WHEN-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-HOW-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-GAP-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M22-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M22-LIT-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M22-LIT-07` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M22-SOU-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M23-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M23-GAP-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M24-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-05` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHERE-06` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M24-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M24-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M25-WHAT-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-GAP-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-GAP-03` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-GAP-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M25-GAP-05` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-WHAT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHERE-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-WHERE-04` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHERE-05` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M26-WHERE-07` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M26-WHERE-08` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M26-HOW-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-HOW-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M26-WHY-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-GAP-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M26-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M27-WHAT-01` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M27-WHAT-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHO-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHEN-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHERE-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHERE-02` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHERE-03` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+| `M27-WHERE-04` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M27-WHERE-05` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M27-WHERE-06` | 尝试以缺少中英对应文件反驳；卡片把该项标为脚本、manifest、贡献说明或目录分类，实际文件/目录存在，单语性质是来源边界而非漏配，反驳失败。 | **survives** | `single-language-exception` |
+| `M27-HOW-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-WHY-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-GAP-01` | 尝试以路径不存在或缺少对应语言文件反驳；所有列出的文件存在且中英投影均有实际文件，反驳失败。 | **survives** | `bilingual-paired` |
+| `M27-GAP-02` | 尝试以存在性和双语对应关系反驳；没有足够的实际文件级证据完成配对，故不能把它升级为已覆盖，反驳未能杀掉候选。 | **survives** | `unresolved` |
+
+### Killed candidates / 被杀候选
+
+**None.** Every harvested fact is retained in a lane or explicitly unresolved; no candidate was removed during kill.
+
+## 3. Fact lanes / 逐事实 lane
+
+| map_id | fact_id | section | fact (source text / normalized) | cited source paths (all candidates) | path kinds | lane |
+|---|---|---|---|---|---|---|
+| M21 | `M21-WHAT-01` | What | The project publishes a bilingual public future-sandbox archive: a reader entry point, method and historical retrospective, reasoning chains spanning technical, physical, institutional, economic, and social domains, near/mid/far reading containers, opportunity candidates, J-NNN judgment ledgers, evidence/calibration records, and research gaps. The README describes the project as a whole-society landscape rather than a software product and names both physical and information worlds. Sources: `README.md`, `README.en.md`, `docs/zh/04-project-map.md`, `docs/en/04-project-map.md`, `docs/zh/06-research-gaps.md`, `docs/en/06-research-gaps.md`. | `README.md`<br>`README.en.md`<br>`docs/zh/04-project-map.md`<br>`docs/en/04-project-map.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M21 | `M21-WHO-01` | Who | The public materials are authored and refreshed by the project’s execution hands within the founding scope; the Understanding model is single-written by strategic; human readers and maintainers can follow source judgments, evidence, gaps, and falsification conditions to challenge the archive. The authority boundary and contribution route are stated in `README.md`, `README.en.md`, and `CONTRIBUTING.md`; `CONTRIBUTING.md` is a single-language contributor document, not a missing bilingual projection. | `README.md`<br>`README.en.md`<br>`CONTRIBUTING.md` | file<br>file<br>file | `bilingual-paired` |
+| M21 | `M21-WHEN-01` | When | The archive evolves when a method rule is calibrated or revised, a chain/judgment/dependency changes, a bilingual projection or public navigation changes, or a new evidence/gap record changes what can honestly be claimed. The current source set explicitly separates historical calibration, independent re-prediction, future out-of-sample results, and structural checks in `README.md` and `README.en.md`; the latest source audit is recorded above. | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-WHERE-01` | Where | The public layer is rooted at `README.md` and `README.en.md`; bilingual content lives in `docs/zh/` and `docs/en/`; chains live under `docs/zh/chains/` and `docs/en/chains/`; ledgers live under `docs/zh/ledger/` and `docs/en/ledger/` plus aggregate pages; evidence lives in `docs/evidence/`; mechanical boundaries are implemented by `scripts/check.py` and the capability shape by `package.json`. These are directory boundaries, not file pointers. File-level pointers used by this map are listed below. | `README.md`<br>`README.en.md`<br>`docs/zh/`<br>`docs/en/`<br>`docs/zh/chains/`<br>`docs/en/chains/`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/evidence/`<br>`scripts/check.py`<br>`package.json` | file<br>file<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>directory<br>file<br>file | `bilingual-paired` |
+| M21 | `M21-HOW-01` | How | Historical material is used for calibration and rule attack before future projection; chain pages connect causes to J-NNN judgments, the ledgers carry fields/dependencies/status, opportunity pages apply a durability gate, and research-gap pages preserve unsupported areas. `README.md` explicitly says `python3 scripts/check.py`/`npm run check` prove structural and link contracts only, not predictive quality; `docs/zh/00-method.md` and `docs/en/00-method.md` define the judgment fields and opportunity gate; `scripts/check.py` implements mechanical checks; `docs/evidence/technology-calibration-2026-10.md` and `docs/evidence/technology-calibration-2026-10.en.md` preserve the same technology-calibration cases and `UNKNOWN/UNVERIFIED` status instead of manufacturing a score. | `README.md`<br>`scripts/check.py`<br>`docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M21 | `M21-WHY-01` | Why | The archive serves unfamiliar readers who want an immersive, traceable and challengeable view of whole-society change without reducing the future to an AI-only axis or to commercial opportunities. Its death-modes are explicit in the sources: mistaking structure for truth, silently losing evidence gaps, turning social consequences into products, treating the optional abundance→scarcity lens as the sole explanation, or claiming predictive accuracy before genuine future out-of-sample evidence exists. Literal path pairing improves auditability but does not upgrade those epistemic claims. | `none` | none | `unresolved` |
+| M21 | `M21-GAP-01` | Gaps | `docs/zh/06-research-gaps.md` and `docs/en/06-research-gaps.md` retain partial whole-panorama coverage and open denominators/long-term/cross-jurisdiction evidence; the map does not infer completion from the existence of entrances. | `docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-GAP-02` | Gaps | `docs/evidence/technology-calibration-2026-10.md` and `docs/evidence/technology-calibration-2026-10.en.md` are the Chinese and English projections of the same technology-calibration evidence; their `UNKNOWN/UNVERIFIED` cases do not establish predictive accuracy. | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-GAP-03` | Gaps | `README.md` and `README.en.md` record that structural checks cannot prove forecast accuracy, method effectiveness, or complete rendering/accessibility coverage. | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-01` | Literal source pointers | public entry / `README.md` / `README.en.md` | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-02` | Literal source pointers | project map / `docs/zh/04-project-map.md` / `docs/en/04-project-map.md` | `docs/zh/04-project-map.md`<br>`docs/en/04-project-map.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-03` | Literal source pointers | research gaps / `docs/zh/06-research-gaps.md` / `docs/en/06-research-gaps.md` | `docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-04` | Literal source pointers | method / `docs/zh/00-method.md` / `docs/en/00-method.md` | `docs/zh/00-method.md`<br>`docs/en/00-method.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-05` | Literal source pointers | historical retrospect / `docs/zh/01-retrospect.md` / `docs/en/01-retrospect.md` | `docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-06` | Literal source pointers | embodied-intelligence chain / `docs/zh/chains/40-embodied-intelligence.md` / `docs/en/chains/40-embodied-intelligence.md` | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-07` | Literal source pointers | technology calibration evidence / `docs/evidence/technology-calibration-2026-10.md` / `docs/evidence/technology-calibration-2026-10.en.md` | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-08` | Literal source pointers | aggregate judgment ledger / `docs/zh/90-ledger.md` / `docs/en/90-ledger.md` | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `bilingual-paired` |
+| M21 | `M21-LIT-09` | Literal source pointers | contributor instructions / `CONTRIBUTING.md` / single-language repository document | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M21 | `M21-LIT-10` | Literal source pointers | mechanical checker / `scripts/check.py` / single-language repository script | `scripts/check.py` | file | `single-language-exception` |
+| M21 | `M21-LIT-11` | Literal source pointers | capability declaration / `package.json` / single-language repository manifest | `package.json` | file | `single-language-exception` |
+| M21 | `M21-LIT-12` | Literal source pointers | evidence directory / `docs/evidence/` / directory classification only, not a file path | `docs/evidence/` | directory | `unresolved` |
+| M21 | `M21-LIT-13` | Literal source pointers | The audit distinguishes files from directories and preserves genuinely single-language sources; `UNKNOWN/UNVERIFIED`, commands, line numbers, and abstract brace paths are not treated as repository paths. | `none` | none | `unresolved` |
+| M22 | `M22-WHAT-01` | What | Five candidate starting points, L1–L9 lenses, judgment fields, `CALIBRATION` / relative test / `GENUINE_FUTURE_OOS` / `UNKNOWN/UNVERIFIED` classifications, five diffusion gates, and the opportunity durability gate. The historical evidence set also includes a cross-domain misfit slice that records four cases while keeping P-03/P-05 outside any accuracy denominator. | `none` | none | `unresolved` |
+| M22 | `M22-WHO-01` | Who | `core`/`worker` execute the public method and evidence work; `strategic` maintains the knowledge model; authors register judgments; readers can challenge them. `CONTRIBUTING.md` is a single-language contributor document. | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M22 | `M22-WHEN-01` | When | Refresh when a rule, counterexample, evidence grade, gate, or lens changes, and route corrections back into the public body. The latest source set records both four technology cases and the completed cross-domain misfit slice without converting either into a predictive-accuracy score. | `none` | none | `unresolved` |
+| M22 | `M22-WHERE-01` | Where | Method and history: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/01-retrospect.md`, `docs/en/01-retrospect.md`, `docs/zh/02-historical-validation-protocol.md`, `docs/en/02-historical-validation-protocol.md`. Evidence: `docs/evidence/technology-calibration-2026-10.md`, `docs/evidence/technology-calibration-2026-10.en.md`, `docs/evidence/historical-misfit-calibration-2026-10.md`, `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `docs/evidence/` is a directory classification only. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`docs/evidence/` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>directory | `bilingual-paired` |
+| M22 | `M22-HOW-01` | How | Reason independently before external comparison; a new rule must have at least two successful and two failed historical cases and be able to reject some cases; separate capability arrival, adoption, and social consequences; the checker verifies structural integrity but not predictive validity. Historical evidence is allowed to stop at `UNKNOWN/UNVERIFIED` when a reconstructable denominator or observation window is missing. The misfit slice uses contemporaneous prediction records and explicit observation windows to distinguish calibration from genuine future out-of-sample evidence. | `none` | none | `unresolved` |
+| M22 | `M22-WHY-01` | Why | Keep the forecasting rules judgeable and falsifiable, preventing retrospective explanation or a green structure check from masquerading as predictive power. Literal bilingual path pairing improves reproducibility of the evidence trail, but does not increase the evidence grade. | `none` | none | `unresolved` |
+| M22 | `M22-GAP-01` | Gaps | No qualifying `GENUINE_FUTURE_OOS` evidence exists in the current project record. The four technology cases and the cross-domain slice expand the traceable evidence boundary, but P-03/P-05 remain `UNKNOWN/UNVERIFIED`; these materials do not establish accuracy or change the diffusion/opportunity gate. | `none` | none | `unresolved` |
+| M22 | `M22-GAP-02` | Gaps | Source: `docs/evidence/technology-calibration-2026-10.md`, `docs/evidence/technology-calibration-2026-10.en.md`, `docs/evidence/historical-misfit-calibration-2026-10.md`, `docs/evidence/historical-misfit-calibration-2026-10.en.md`. | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-01` | Literal source pointers | method: `docs/zh/00-method.md`; `docs/en/00-method.md` | `docs/zh/00-method.md`<br>`docs/en/00-method.md` | file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-02` | Literal source pointers | historical retrospect: `docs/zh/01-retrospect.md`; `docs/en/01-retrospect.md` | `docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md` | file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-03` | Literal source pointers | historical validation protocol: `docs/zh/02-historical-validation-protocol.md`; `docs/en/02-historical-validation-protocol.md` | `docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md` | file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-04` | Literal source pointers | technology calibration: `docs/evidence/technology-calibration-2026-10.md`; `docs/evidence/technology-calibration-2026-10.en.md` | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-05` | Literal source pointers | historical misfit calibration: `docs/evidence/historical-misfit-calibration-2026-10.md`; `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md` | file<br>file | `bilingual-paired` |
+| M22 | `M22-LIT-06` | Literal source pointers | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
+| M22 | `M22-LIT-07` | Literal source pointers | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M22 | `M22-SOU-01` | Sources and bilingual status | `docs/zh/00-method.md` ↔ `docs/en/00-method.md`; `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md`; `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md`; `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md`; and `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `scripts/check.py` is a single-language repository script, not a missing English source. These are file paths; no brace-form or directory shorthand is authoritative. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`scripts/check.py` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-WHAT-01` | What | C12 的 AI 子链、具身系统/能源储能/芯片材料/生命科学扩展，以及 J-114–J-116。能力到达与采用/社会普及保持区分。来源：`docs/zh/chains/120-technology-capability-sequence.md`、`docs/en/chains/120-technology-capability-sequence.md`、`docs/zh/ledger/114-116.md`、`docs/en/ledger/114-116.md`。 | `docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md`<br>`docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-WHO-01` | Who | core 维护公开链卡；strategic 维护地图；C3/C4/C7 等链作为消费者，读者审计。来源：`README.md`、`README.en.md`、`CONTRIBUTING.md`。 | `README.md`<br>`README.en.md`<br>`CONTRIBUTING.md` | file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-WHEN-01` | When | 能力依赖、时间窗、状态、双语投影变化，上游依赖修订或历史排序校准变化时刷新。来源：`docs/evidence/technology-order-calibration-2026-10-16.md`、`docs/evidence/technology-order-calibration-2026-10-16.en.md`、`docs/zh/chains/120-technology-capability-sequence.md`、`docs/en/chains/120-technology-capability-sequence.md`。 | `docs/evidence/technology-order-calibration-2026-10-16.md`<br>`docs/evidence/technology-order-calibration-2026-10-16.en.md`<br>`docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-01` | Where | sequence chain: `docs/zh/chains/120-technology-capability-sequence.md`; `docs/en/chains/120-technology-capability-sequence.md` | `docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-02` | Where | J-114–J-116 ledger: `docs/zh/ledger/114-116.md`; `docs/en/ledger/114-116.md` | `docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-03` | Where | embodied-intelligence chain: `docs/zh/chains/40-embodied-intelligence.md`; `docs/en/chains/40-embodied-intelligence.md` | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-04` | Where | technology-order calibration: `docs/evidence/technology-order-calibration-2026-10-16.md`; `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `docs/evidence/technology-order-calibration-2026-10-16.md`<br>`docs/evidence/technology-order-calibration-2026-10-16.en.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-05` | Where | public entry: `README.md`; `README.en.md` | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-WHERE-06` | Where | checker and contributor instructions: `scripts/check.py`; `CONTRIBUTING.md` (single-language files) | `scripts/check.py`<br>`CONTRIBUTING.md` | file<br>file | `single-language-exception` |
+| M23 | `M23-HOW-01` | How | 用“先到→成为可能→下一道门”叙事回链卡片；J-114–J-116 分开受控单任务/开放环境、短时/长时储能、替代路径/稳定良率；机械检查不证明排序正确。来源：`docs/zh/chains/120-technology-capability-sequence.md`、`docs/en/chains/120-technology-capability-sequence.md`、`docs/zh/ledger/114-116.md`、`docs/en/ledger/114-116.md`。 | `docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md`<br>`docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-WHY-01` | Why | 解释技术前件但阻止把 AI 成本下降当社会唯一发动机；采用、制度、资本和社会后果回到其他链。来源：`docs/zh/chains/40-embodied-intelligence.md`、`docs/en/chains/40-embodied-intelligence.md`、`README.md`、`README.en.md`。 | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md`<br>`README.md`<br>`README.en.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M23 | `M23-GAP-01` | Gaps | 2026-10-16 技术排序校准未通过严格 R-T2，暂无可升级的历史规则。来源：`docs/evidence/technology-order-calibration-2026-10-16.md`、`docs/evidence/technology-order-calibration-2026-10-16.en.md`。 | `docs/evidence/technology-order-calibration-2026-10-16.md`<br>`docs/evidence/technology-order-calibration-2026-10-16.en.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-GAP-02` | Gaps | 生命科学段暂无独立判断卡；J-114–J-116 不能外推为社会级普及。来源：`docs/zh/ledger/114-116.md`、`docs/en/ledger/114-116.md`。 | `docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file | `bilingual-paired` |
+| M23 | `M23-GAP-03` | Gaps | The audit treats `docs/zh/chains/` and `docs/en/chains/` as directories, not as file paths; it does not turn a directory or an unknown status into evidence of a missing file. | `docs/zh/chains/`<br>`docs/en/chains/` | directory<br>directory | `unresolved` |
+| M24 | `M24-WHAT-01` | What | 按推演链（纵向）与近/中/远时间层（横向）展开全方位社会图景，覆盖政治、权力与地缘，人口与劳动力，分配与资本，能源/气候/物理约束，具身与物理劳动（照护、制造、农业、物流、建筑），信息/注意力/信任，组织/就业，人与人协作、社会关系、人与 AI 的关系，文化与意义。来源：`README.md`、`README.en.md`、`docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`、`docs/zh/chains/40-embodied-intelligence.md`、`docs/en/chains/40-embodied-intelligence.md`。 | `README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md`<br>`docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M24 | `M24-WHO-01` | Who | core/worker 执行公开链与卡片，strategic 维护地图，读者沿判断与证据反驳。来源：`CONTRIBUTING.md`、`README.md`、`README.en.md`。 | `CONTRIBUTING.md`<br>`README.md`<br>`README.en.md` | file<br>file<br>file | `bilingual-paired` |
+| M24 | `M24-WHEN-01` | When | 推演链、判断卡、维度覆盖、证据边界或全景缺口发生变化时刷新；近/中/远是阅读层，不是严格预测时间表。来源：`docs/zh/01-retrospect.md`、`docs/en/01-retrospect.md`、`docs/zh/90-ledger.md`、`docs/en/90-ledger.md`。 | `docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-01` | Where | public entry: `README.md`; `README.en.md` | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-02` | Where | research gaps: `docs/zh/06-research-gaps.md`; `docs/en/06-research-gaps.md` | `docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-03` | Where | embodied-intelligence chain: `docs/zh/chains/40-embodied-intelligence.md`; `docs/en/chains/40-embodied-intelligence.md` | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-04` | Where | retrospective: `docs/zh/01-retrospect.md`; `docs/en/01-retrospect.md` | `docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-05` | Where | aggregate ledger: `docs/zh/90-ledger.md`; `docs/en/90-ledger.md` | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-WHERE-06` | Where | chain and ledger directories: `docs/zh/chains/`, `docs/en/chains/`, `docs/zh/ledger/`, `docs/en/ledger/` (directory classifications only) | `docs/zh/chains/`<br>`docs/en/chains/`<br>`docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory<br>directory<br>directory | `unresolved` |
+| M24 | `M24-HOW-01` | How | 历史→推演链→具体现象→J-NNN 判断卡→机会或结构性后果，并保留显式缺口；AI/技术能力只是并列力量之一，不是唯一发动机。来源：`docs/zh/00-method.md`、`docs/en/00-method.md`、`docs/zh/chains/40-embodied-intelligence.md`、`docs/en/chains/40-embodied-intelligence.md`。 | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M24 | `M24-WHY-01` | Why | 把物理世界与信息世界、商业机会与协作/关系/权力/制度/意义放在同一全景中，避免 AI 单轴和商机视角裁窄使命。来源：`README.md`、`README.en.md`、`docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`。 | `README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M24 | `M24-GAP-01` | Gaps | 法律/产权完整边界、照护分母、气候/保险/成本分摊、协作与人与 AI 长期数据仍未闭合；见 `docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`。机械结构通过不等于全景证据或预测准确率闭合。 | `docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file | `bilingual-paired` |
+| M24 | `M24-GAP-02` | Gaps | The audit keeps the near/mid/far labels as reading containers, not a claim of strict chronological ordering, and does not convert the directory paths above into file-level evidence. | `none` | none | `unresolved` |
+| M25 | `M25-WHAT-01` | What | This domain maintains the bilingual opportunity register. It records chain-by-chain dispositions for C4–C21, formal candidates O-001/O-002/O-003/O-004/O-006, O-005 as a screening direction rather than a formal candidate, a Window List for copyable or likely-to-be-internalized outlets, and explicit no-candidate rows that preserve social consequences. Candidate entries carry the scarce item, payer, amount anchor, timing, strongest counterargument, withdrawal signal, indicators, source judgments, audience scope, and hard constraint. Source: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file | `bilingual-paired` |
+| M25 | `M25-WHO-01` | Who | The opportunity pages are maintained by the project’s execution workflow and read by public readers, founders, and researchers looking for testable value hypotheses; their inputs remain the chain pages and J-NNN ledger, while strategic alone writes the corresponding project-map knowledge card. The page explicitly says candidate status is not endorsement of the underlying chain and that chain pages remain authoritative. Sources: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`, `docs/zh/04-project-map.md`, `docs/en/04-project-map.md`, `README.md`, `README.en.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md`<br>`docs/zh/04-project-map.md`<br>`docs/en/04-project-map.md`<br>`README.md`<br>`README.en.md` | file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-WHEN-01` | When | Refresh this domain when a source judgment or chain disposition changes, the durability gate or hard-constraint classification changes, a candidate/window/no-candidate status changes, payer or amount evidence changes, or bilingual navigation/evidence boundaries change. The opportunity page records its C4–C21 update date and the O-002 narrowing history; the method page defines the gate that triggers re-screening. Sources: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`, `docs/zh/00-method.md`, `docs/en/00-method.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md`<br>`docs/zh/00-method.md`<br>`docs/en/00-method.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-WHERE-01` | Where | Public opportunity pages: `docs/zh/40-opportunities.md`; `docs/en/40-opportunities.md`. Method gate: `docs/zh/00-method.md`; `docs/en/00-method.md`. Source chains: `docs/zh/chains/40-embodied-intelligence.md`; `docs/en/chains/40-embodied-intelligence.md`. Source judgments: `docs/zh/ledger/01-10.md`; `docs/en/ledger/01-10.md`; `docs/zh/ledger/31-40.md`; `docs/en/ledger/31-40.md`; `docs/zh/ledger/51-60.md`; `docs/en/ledger/51-60.md`; `docs/zh/ledger/61-70.md`; `docs/en/ledger/61-70.md`; `docs/zh/ledger/71-80.md`; `docs/en/ledger/71-80.md`; `docs/zh/ledger/96-102.md`; `docs/en/ledger/96-102.md`; `docs/zh/ledger/114-116.md`; `docs/en/ledger/114-116.md`; `docs/zh/ledger/117-119.md`; `docs/en/ledger/117-119.md`; `docs/zh/ledger/120-121.md`; `docs/en/ledger/120-121.md`. Public navigation: `README.md`; `README.en.md`. Research gaps: `docs/zh/06-research-gaps.md`; `docs/en/06-research-gaps.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md`<br>`docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md`<br>`docs/zh/ledger/01-10.md`<br>`docs/en/ledger/01-10.md`<br>`docs/zh/ledger/31-40.md`<br>`docs/en/ledger/31-40.md`<br>`docs/zh/ledger/51-60.md`<br>`docs/en/ledger/51-60.md`<br>`docs/zh/ledger/61-70.md`<br>`docs/en/ledger/61-70.md`<br>`docs/zh/ledger/71-80.md`<br>`docs/en/ledger/71-80.md`<br>`docs/zh/ledger/96-102.md`<br>`docs/en/ledger/96-102.md`<br>`docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md`<br>`docs/zh/ledger/117-119.md`<br>`docs/en/ledger/117-119.md`<br>`docs/zh/ledger/120-121.md`<br>`docs/en/ledger/120-121.md`<br>`README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-HOW-01` | How | The domain first asks whether a scarcity is erased by the same force that made the original abundance, then requires a named hard constraint plus a payer and amount anchor. Passing items enter formal candidates; payer-bearing but copyable or likely-to-be-bundled items enter the Window List; items without a defensible paid layer remain no-candidate while structural consequences stay in the chains. The page states that mechanical checks can verify links/structure but cannot establish willingness to pay, market size, legal durability, or prediction accuracy. Sources: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`, `scripts/check.py`. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md`<br>`scripts/check.py` | file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-WHY-01` | Why | This is a deliberately narrow commercial exit from a wider social forecast. It protects the parent mission by refusing to turn care, education, power, inequality, religion, household pressure, or social relationships into products merely to fill a list. The current candidates are testable hypotheses, not validated markets: physical presence, bodily risk, property boundaries, legal/liability responsibility, or other hard constraints may resist copying, but external evidence must still test procurement, renewal, internalization, and legal durability. Sources: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`, `docs/zh/06-research-gaps.md`, `docs/en/06-research-gaps.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-GAP-01` | Gaps | Payment willingness, cost sharing, renewal/retention, independent procurement evidence, and market scale for O-001–O-006 remain incomplete; amount anchors are estimates, not market quotes. Source: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file | `bilingual-paired` |
+| M25 | `M25-GAP-02` | Gaps | Cross-jurisdiction liability, ownership, licensing, and institutional internalization may erase apparent moats; withdrawal signals remain future tests. Sources: `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file | `bilingual-paired` |
+| M25 | `M25-GAP-03` | Gaps | O-005 remains a screening direction; C5–C9, C11–C18 and C21 currently have no candidate, while C19/C20 are windows. Source: the C4–C21 disposition tables in `docs/zh/40-opportunities.md` and `docs/en/40-opportunities.md`. | `docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file | `bilingual-paired` |
+| M25 | `M25-GAP-04` | Gaps | Candidate status does not prove the underlying judgment, forecast accuracy, or society-wide market scale; the optional abundance→scarcity lens is not a mandatory gate outside its stated use. Sources: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/40-opportunities.md`, `docs/en/40-opportunities.md`. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/40-opportunities.md`<br>`docs/en/40-opportunities.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M25 | `M25-GAP-05` | Gaps | The audit treats `docs/zh/ledger/` and `docs/en/ledger/` as directories only; each file-level pointer above is independently named and must exist before it is used as a source. | `docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory | `unresolved` |
+| M26 | `M26-WHAT-01` | What | 登记编号、双语判断卡、推理链、时间窗、证伪条件、领先指标、置信度、受众规模、依赖、状态、机会索引、到期与迁移证据。 | `none` | none | `unresolved` |
+| M26 | `M26-WHAT-02` | What | Sources: `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`, `docs/zh/ledger/`, `docs/en/ledger/`, `docs/zh/91-social-scale-register.md`, `docs/en/91-social-scale-register.md`. | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md`<br>`docs/zh/ledger/`<br>`docs/en/ledger/`<br>`docs/zh/91-social-scale-register.md`<br>`docs/en/91-social-scale-register.md` | file<br>file<br>directory<br>directory<br>file<br>file | `bilingual-paired` |
+| M26 | `M26-WHO-01` | Who | core 写卡与证据，strategic 维护知识模型，读者沿 `depends-on` 审计；双语是同一判断的两个投影。来源：`CONTRIBUTING.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`。 | `CONTRIBUTING.md`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file | `bilingual-paired` |
+| M26 | `M26-WHEN-01` | When | 判断、依赖、证据新增或修订，到期/证伪、迁移、导航计数或链登记漂移时更新。来源：`docs/zh/03-evolution.md`, `docs/en/03-evolution.md`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`。 | `docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M26 | `M26-WHERE-01` | Where | aggregate ledger: `docs/zh/90-ledger.md`; `docs/en/90-ledger.md` | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `bilingual-paired` |
+| M26 | `M26-WHERE-02` | Where | social-scale register: `docs/zh/91-social-scale-register.md`; `docs/en/91-social-scale-register.md` | `docs/zh/91-social-scale-register.md`<br>`docs/en/91-social-scale-register.md` | file<br>file | `bilingual-paired` |
+| M26 | `M26-WHERE-03` | Where | ledger shards: `docs/zh/ledger/`; `docs/en/ledger/` (directories) | `docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory | `unresolved` |
+| M26 | `M26-WHERE-04` | Where | evolution: `docs/zh/03-evolution.md`; `docs/en/03-evolution.md` | `docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md` | file<br>file | `bilingual-paired` |
+| M26 | `M26-WHERE-05` | Where | evidence: `docs/evidence/` (directory; individual evidence files are named in their own cards) | `docs/evidence/` | directory | `unresolved` |
+| M26 | `M26-WHERE-06` | Where | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
+| M26 | `M26-WHERE-07` | Where | package manifest: `package.json` (single-language) | `package.json` | file | `single-language-exception` |
+| M26 | `M26-WHERE-08` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M26 | `M26-HOW-01` | How | J-NNN 与双语配对缝合正文和事实源；`depends-on` 保持前件。当前 `npm run check` 通过并报告 172/5823/123/21，`--self-test --full` 报告 203/0；这些仅是机械证据，且这些 counts are values read from the recorded check, not a timeless guarantee. | `none` | none | `unresolved` |
+| M26 | `M26-HOW-02` | How | Sources: `scripts/check.py`, `package.json`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`. | `scripts/check.py`<br>`package.json`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M26 | `M26-WHY-01` | Why | 防止编号、链接、依赖和迁移漂移，并持续区分结构、语义、样本外准确率。双语 literal paths make the source trail reproducible; they do not prove semantic equivalence or predictive validity. | `none` | none | `unresolved` |
+| M26 | `M26-GAP-01` | Gaps | 真实未来样本外准确率、逐段语义等价、公开渲染与导航唯一性仍未闭合；J-122 英文台账存在重复入口迹象。来源：`docs/en/90-ledger.md`, `docs/evidence/github-public-render-verification-2026-10-19.md`, `.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md`。 | `docs/en/90-ledger.md`<br>`docs/evidence/github-public-render-verification-2026-10-19.md`<br>`knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | file<br>file<br>missing | `unresolved` |
+| M26 | `M26-GAP-02` | Gaps | The audit distinguishes `docs/zh/ledger/` and `docs/en/ledger/` as directories from the aggregate files above, and does not treat `UNKNOWN/UNVERIFIED`, commands, or line-number fragments as repository paths. | `docs/zh/ledger/`<br>`docs/en/ledger/` | directory<br>directory | `unresolved` |
+| M27 | `M27-WHAT-01` | What | 中英双版的一致性、术语对照、文档目录与推演链导航、commit 规范（记录改了哪条判断及依据的新证据）以及同一次 commit 内双语同步的检查。 | `none` | none | `unresolved` |
+| M27 | `M27-WHAT-02` | What | Sources: `README.md`, `README.en.md`, `docs/zh/03-evolution.md`, `docs/en/03-evolution.md`, `CONTRIBUTING.md`. | `README.md`<br>`README.en.md`<br>`docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md`<br>`CONTRIBUTING.md` | file<br>file<br>file<br>file<br>file | `bilingual-paired` |
+| M27 | `M27-WHO-01` | Who | core/worker 维护双语公开材料，strategic 维护理解模型，读者检查中英两套投影是否均可达且语义一致。来源：`CONTRIBUTING.md`、`README.md`、`README.en.md`。 | `CONTRIBUTING.md`<br>`README.md`<br>`README.en.md` | file<br>file<br>file | `bilingual-paired` |
+| M27 | `M27-WHEN-01` | When | 新增、修订或迁移判断卡/推演链，术语变化，导航变化，质量检查或公开发布变化时刷新。来源：`docs/zh/03-evolution.md`、`docs/en/03-evolution.md`、`scripts/check.py`。 | `docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md`<br>`scripts/check.py` | file<br>file<br>file | `bilingual-paired` |
+| M27 | `M27-WHERE-01` | Where | public entry: `README.md`; `README.en.md` | `README.md`<br>`README.en.md` | file<br>file | `bilingual-paired` |
+| M27 | `M27-WHERE-02` | Where | evolution: `docs/zh/03-evolution.md`; `docs/en/03-evolution.md` | `docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md` | file<br>file | `bilingual-paired` |
+| M27 | `M27-WHERE-03` | Where | Chinese and English document trees: `docs/zh/`; `docs/en/` (directories) | `docs/zh/`<br>`docs/en/` | directory<br>directory | `unresolved` |
+| M27 | `M27-WHERE-04` | Where | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
+| M27 | `M27-WHERE-05` | Where | package manifest: `package.json` (single-language) | `package.json` | file | `single-language-exception` |
+| M27 | `M27-WHERE-06` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M27 | `M27-HOW-01` | How | 中文与英文承载同一判断的两个投影；同一提交同步更新，稳定 J-NNN 编号与双语链接保持配对。机械检查可验证链接与配对，不能证明逐段语义等价或公开渲染体验。来源：`scripts/check.py`、`docs/zh/03-evolution.md`、`docs/en/03-evolution.md`。 | `scripts/check.py`<br>`docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md` | file<br>file<br>file | `bilingual-paired` |
+| M27 | `M27-WHY-01` | Why | 公开仓库既要可追踪也要对人类读者清晰、沉浸且有吸引力；双语不得产生权威层级或悄然分叉。来源：`README.md`、`README.en.md`、`docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`。 | `README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file | `bilingual-paired` |
+| M27 | `M27-GAP-01` | Gaps | 英文台账 J-122 重复入口与完整导航唯一性仍未由检查器覆盖；对应台账事实源为 `docs/zh/90-ledger.md` 与 `docs/en/90-ledger.md`，相关记录为单语 `.knowledge` observation；公开 GitHub 渲染、移动端可读性及逐段语义等价仍需单独复核。 | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `bilingual-paired` |
+| M27 | `M27-GAP-02` | Gaps | The audit keeps `docs/zh/` and `docs/en/` as directories, not file paths, and preserves single-language scripts, manifests, contributor instructions, evidence files, and `.knowledge` observations as such. It does not treat a directory, command, line number, `UNKNOWN/UNVERIFIED`, or abstract brace path as a missing or invented file. | `docs/zh/`<br>`docs/en/` | directory<br>directory | `unresolved` |
+
+## 4. Coverage / 覆盖核对
+
+Coverage counts include every harvested fact. `killed-candidate` is shown separately and never added to covered counts. A lane count means the fact has an auditable source classification, not that its source claim is true.
+
+| map_id | section | total facts | bilingual-paired | single-language-exception | unresolved | killed-candidate |
+|---|---|---:|---:|---:|---:|---:|
+| M21 | What | 1 | 1 | 0 | 0 | 0 |
+| M21 | Who | 1 | 1 | 0 | 0 | 0 |
+| M21 | When | 1 | 1 | 0 | 0 | 0 |
+| M21 | Where | 1 | 1 | 0 | 0 | 0 |
+| M21 | How | 1 | 1 | 0 | 0 | 0 |
+| M21 | Why | 1 | 0 | 0 | 1 | 0 |
+| M21 | Gaps | 3 | 3 | 0 | 0 | 0 |
+| M21 | Literal source pointers | 13 | 8 | 3 | 2 | 0 |
+| M22 | What | 1 | 0 | 0 | 1 | 0 |
+| M22 | Who | 1 | 0 | 1 | 0 | 0 |
+| M22 | When | 1 | 0 | 0 | 1 | 0 |
+| M22 | Where | 1 | 1 | 0 | 0 | 0 |
+| M22 | How | 1 | 0 | 0 | 1 | 0 |
+| M22 | Why | 1 | 0 | 0 | 1 | 0 |
+| M22 | Gaps | 2 | 1 | 0 | 1 | 0 |
+| M22 | Literal source pointers | 7 | 5 | 2 | 0 | 0 |
+| M22 | Sources and bilingual status | 1 | 1 | 0 | 0 | 0 |
+| M23 | What | 1 | 1 | 0 | 0 | 0 |
+| M23 | Who | 1 | 1 | 0 | 0 | 0 |
+| M23 | When | 1 | 1 | 0 | 0 | 0 |
+| M23 | Where | 6 | 5 | 1 | 0 | 0 |
+| M23 | How | 1 | 1 | 0 | 0 | 0 |
+| M23 | Why | 1 | 1 | 0 | 0 | 0 |
+| M23 | Gaps | 3 | 2 | 0 | 1 | 0 |
+| M24 | What | 1 | 1 | 0 | 0 | 0 |
+| M24 | Who | 1 | 1 | 0 | 0 | 0 |
+| M24 | When | 1 | 1 | 0 | 0 | 0 |
+| M24 | Where | 6 | 5 | 0 | 1 | 0 |
+| M24 | How | 1 | 1 | 0 | 0 | 0 |
+| M24 | Why | 1 | 1 | 0 | 0 | 0 |
+| M24 | Gaps | 2 | 1 | 0 | 1 | 0 |
+| M25 | What | 1 | 1 | 0 | 0 | 0 |
+| M25 | Who | 1 | 1 | 0 | 0 | 0 |
+| M25 | When | 1 | 1 | 0 | 0 | 0 |
+| M25 | Where | 1 | 1 | 0 | 0 | 0 |
+| M25 | How | 1 | 1 | 0 | 0 | 0 |
+| M25 | Why | 1 | 1 | 0 | 0 | 0 |
+| M25 | Gaps | 5 | 4 | 0 | 1 | 0 |
+| M26 | What | 2 | 1 | 0 | 1 | 0 |
+| M26 | Who | 1 | 1 | 0 | 0 | 0 |
+| M26 | When | 1 | 1 | 0 | 0 | 0 |
+| M26 | Where | 8 | 3 | 3 | 2 | 0 |
+| M26 | How | 2 | 1 | 0 | 1 | 0 |
+| M26 | Why | 1 | 0 | 0 | 1 | 0 |
+| M26 | Gaps | 2 | 0 | 0 | 2 | 0 |
+| M27 | What | 2 | 1 | 0 | 1 | 0 |
+| M27 | Who | 1 | 1 | 0 | 0 | 0 |
+| M27 | When | 1 | 1 | 0 | 0 | 0 |
+| M27 | Where | 6 | 2 | 3 | 1 | 0 |
+| M27 | How | 1 | 1 | 0 | 0 | 0 |
+| M27 | Why | 1 | 1 | 0 | 0 | 0 |
+| M27 | Gaps | 2 | 1 | 0 | 1 | 0 |
+| **TOTAL** | all sections | **107** | **72** | **13** | **22** | **0** |
+
+### Scanned domains and holes / 已扫描域与缺口
+
+- Scanned: maps M21–M27; every authored required section was parsed, including pointer/status inventories. No map or required section was skipped.
+- The cards contain directory classifications (`docs/zh/`, `docs/en/`, `docs/evidence/`, ledger directories), commands, `UNKNOWN/UNVERIFIED`, and knowledge observations. These are retained as `directory`, `file`, or `missing` evidence rather than invented as bilingual files.
+- `unresolved` is an honest evidence lane, not a failure to count. It includes facts without a literal file source or with an unavailable/missing source path; no such fact is silently promoted.
+- A source card can assert semantic equivalence while this inventory only establishes path-level pairing. Semantic equivalence and public rendering remain outside this audit.
+
+## 5. Deliver / 交付复核
+
+### Path existence recheck / 路径存在性
+
+The table above records the path kind observed during harvest (`file`, `directory`, or `missing`) for every cited candidate. Directory paths are never represented as files. The audit file itself is not used as evidence for the seven source cards.
+
+### Existing project check / 项目既有检查
+
+This turn ran `npm run check` (which invokes `python3 scripts/check.py && python3 scripts/test_find_judgments.py`) and it exited 0. The observed structural readout was `files checked: 175`, `internal links: 5859`, `judgment cards: zh 123 / en 123`, `chains registered: 21`; the CLI test suite ran 8 tests and all passed. These are current mechanical/link-contract results only: they do not prove forecast quality, method validity, semantic equivalence, or social judgment correctness.
+
+### Self-imposed constraints — say the word and any of these is dropped
+
+- `[self-imposed]` Fact unit = one paragraph, bullet, or pointer-table row; this makes the seven-card corpus countable without pretending that a paragraph proves a single proposition.
+- `[self-imposed]` The four lanes are mutually exclusive and every harvested fact must appear exactly once; this prevents unresolved evidence from disappearing into a green pairing count.
+- `[self-imposed]` Kill is path/source-boundary falsification, not an independent semantic translation review; semantic equivalence is explicitly left unverified.
+- `[self-imposed]` One closing commit contains this artifact and no unrelated working-tree changes.
+
+## Reproduction / 重现
+
+```text
+find .knowledge -maxdepth 1 -name "2[1-7]-architecture-project-map-*.md"
+npm run check
+```
+
+The artifact’s durable claim is limited to the enumerated source paths, lane assignments, kill record, and coverage counts above.
