@@ -283,13 +283,13 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M21 | `M21-LIT-06` | Literal source pointers | embodied-intelligence chain / `docs/zh/chains/40-embodied-intelligence.md` / `docs/en/chains/40-embodied-intelligence.md` | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file | `unresolved` |
 | M21 | `M21-LIT-07` | Literal source pointers | technology calibration evidence / `docs/evidence/technology-calibration-2026-10.md` / `docs/evidence/technology-calibration-2026-10.en.md` | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file | `unresolved` |
 | M21 | `M21-LIT-08` | Literal source pointers | aggregate judgment ledger / `docs/zh/90-ledger.md` / `docs/en/90-ledger.md` | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file | `unresolved` |
-| M21 | `M21-LIT-09` | Literal source pointers | contributor instructions / `CONTRIBUTING.md` / single-language repository document | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M21 | `M21-LIT-09` | Literal source pointers | contributor instructions / `CONTRIBUTING.md` / single-language repository document | `CONTRIBUTING.md` | file | `unresolved` |
 | M21 | `M21-LIT-10` | Literal source pointers | mechanical checker / `scripts/check.py` / single-language repository script | `scripts/check.py` | file | `single-language-exception` |
 | M21 | `M21-LIT-11` | Literal source pointers | capability declaration / `package.json` / single-language repository manifest | `package.json` | file | `single-language-exception` |
 | M21 | `M21-LIT-12` | Literal source pointers | evidence directory / `docs/evidence/` / directory classification only, not a file path | `docs/evidence/` | directory | `unresolved` |
 | M21 | `M21-LIT-13` | Literal source pointers | The audit distinguishes files from directories and preserves genuinely single-language sources; `UNKNOWN/UNVERIFIED`, commands, line numbers, and abstract brace paths are not treated as repository paths. | `none` | none | `unresolved` |
 | M22 | `M22-WHAT-01` | What | Five candidate starting points, L1–L9 lenses, judgment fields, `CALIBRATION` / relative test / `GENUINE_FUTURE_OOS` / `UNKNOWN/UNVERIFIED` classifications, five diffusion gates, and the opportunity durability gate. The historical evidence set also includes a cross-domain misfit slice that records four cases while keeping P-03/P-05 outside any accuracy denominator. | `none` | none | `unresolved` |
-| M22 | `M22-WHO-01` | Who | `core`/`worker` execute the public method and evidence work; `strategic` maintains the knowledge model; authors register judgments; readers can challenge them. `CONTRIBUTING.md` is a single-language contributor document. | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M22 | `M22-WHO-01` | Who | `core`/`worker` execute the public method and evidence work; `strategic` maintains the knowledge model; authors register judgments; readers can challenge them. `CONTRIBUTING.md` is a single-language contributor document. | `CONTRIBUTING.md` | file | `unresolved` |
 | M22 | `M22-WHEN-01` | When | Refresh when a rule, counterexample, evidence grade, gate, or lens changes, and route corrections back into the public body. The latest source set records both four technology cases and the completed cross-domain misfit slice without converting either into a predictive-accuracy score. | `none` | none | `unresolved` |
 | M22 | `M22-WHERE-01` | Where | Method and history: `docs/zh/00-method.md`, `docs/en/00-method.md`, `docs/zh/01-retrospect.md`, `docs/en/01-retrospect.md`, `docs/zh/02-historical-validation-protocol.md`, `docs/en/02-historical-validation-protocol.md`. Evidence: `docs/evidence/technology-calibration-2026-10.md`, `docs/evidence/technology-calibration-2026-10.en.md`, `docs/evidence/historical-misfit-calibration-2026-10.md`, `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `docs/evidence/` is a directory classification only. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`docs/evidence/` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>directory | `unresolved` |
 | M22 | `M22-HOW-01` | How | Reason independently before external comparison; a new rule must have at least two successful and two failed historical cases and be able to reject some cases; separate capability arrival, adoption, and social consequences; the checker verifies structural integrity but not predictive validity. Historical evidence is allowed to stop at `UNKNOWN/UNVERIFIED` when a reconstructable denominator or observation window is missing. The misfit slice uses contemporaneous prediction records and explicit observation windows to distinguish calibration from genuine future out-of-sample evidence. | `none` | none | `unresolved` |
@@ -302,7 +302,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M22 | `M22-LIT-04` | Literal source pointers | technology calibration: `docs/evidence/technology-calibration-2026-10.md`; `docs/evidence/technology-calibration-2026-10.en.md` | `docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md` | file<br>file | `unresolved` |
 | M22 | `M22-LIT-05` | Literal source pointers | historical misfit calibration: `docs/evidence/historical-misfit-calibration-2026-10.md`; `docs/evidence/historical-misfit-calibration-2026-10.en.md` | `docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md` | file<br>file | `unresolved` |
 | M22 | `M22-LIT-06` | Literal source pointers | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
-| M22 | `M22-LIT-07` | Literal source pointers | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M22 | `M22-LIT-07` | Literal source pointers | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `unresolved` |
 | M22 | `M22-SOU-01` | Sources and bilingual status | `docs/zh/00-method.md` ↔ `docs/en/00-method.md`; `docs/zh/01-retrospect.md` ↔ `docs/en/01-retrospect.md`; `docs/zh/02-historical-validation-protocol.md` ↔ `docs/en/02-historical-validation-protocol.md`; `docs/evidence/technology-calibration-2026-10.md` ↔ `docs/evidence/technology-calibration-2026-10.en.md`; and `docs/evidence/historical-misfit-calibration-2026-10.md` ↔ `docs/evidence/historical-misfit-calibration-2026-10.en.md`. `scripts/check.py` is a single-language repository script, not a missing English source. These are file paths; no brace-form or directory shorthand is authoritative. | `docs/zh/00-method.md`<br>`docs/en/00-method.md`<br>`docs/zh/01-retrospect.md`<br>`docs/en/01-retrospect.md`<br>`docs/zh/02-historical-validation-protocol.md`<br>`docs/en/02-historical-validation-protocol.md`<br>`docs/evidence/technology-calibration-2026-10.md`<br>`docs/evidence/technology-calibration-2026-10.en.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.md`<br>`docs/evidence/historical-misfit-calibration-2026-10.en.md`<br>`scripts/check.py` | file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file<br>file | `unresolved` |
 | M23 | `M23-WHAT-01` | What | C12 的 AI 子链、具身系统/能源储能/芯片材料/生命科学扩展，以及 J-114–J-116。能力到达与采用/社会普及保持区分。来源：`docs/zh/chains/120-technology-capability-sequence.md`、`docs/en/chains/120-technology-capability-sequence.md`、`docs/zh/ledger/114-116.md`、`docs/en/ledger/114-116.md`。 | `docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md`<br>`docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file<br>file<br>file | `unresolved` |
 | M23 | `M23-WHO-01` | Who | core 维护公开链卡；strategic 维护地图；C3/C4/C7 等链作为消费者，读者审计。来源：`README.md`、`README.en.md`、`CONTRIBUTING.md`。 | `README.md`<br>`README.en.md`<br>`CONTRIBUTING.md` | file<br>file<br>file | `unresolved` |
@@ -312,7 +312,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M23 | `M23-WHERE-03` | Where | embodied-intelligence chain: `docs/zh/chains/40-embodied-intelligence.md`; `docs/en/chains/40-embodied-intelligence.md` | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md` | file<br>file | `unresolved` |
 | M23 | `M23-WHERE-04` | Where | technology-order calibration: `docs/evidence/technology-order-calibration-2026-10-16.md`; `docs/evidence/technology-order-calibration-2026-10-16.en.md` | `docs/evidence/technology-order-calibration-2026-10-16.md`<br>`docs/evidence/technology-order-calibration-2026-10-16.en.md` | file<br>file | `unresolved` |
 | M23 | `M23-WHERE-05` | Where | public entry: `README.md`; `README.en.md` | `README.md`<br>`README.en.md` | file<br>file | `unresolved` |
-| M23 | `M23-WHERE-06` | Where | checker and contributor instructions: `scripts/check.py`; `CONTRIBUTING.md` (single-language files) | `scripts/check.py`<br>`CONTRIBUTING.md` | file<br>file | `single-language-exception` |
+| M23 | `M23-WHERE-06` | Where | checker and contributor instructions: `scripts/check.py`; `CONTRIBUTING.md` (single-language files) | `scripts/check.py`<br>`CONTRIBUTING.md` | file<br>file | `unresolved` |
 | M23 | `M23-HOW-01` | How | 用“先到→成为可能→下一道门”叙事回链卡片；J-114–J-116 分开受控单任务/开放环境、短时/长时储能、替代路径/稳定良率；机械检查不证明排序正确。来源：`docs/zh/chains/120-technology-capability-sequence.md`、`docs/en/chains/120-technology-capability-sequence.md`、`docs/zh/ledger/114-116.md`、`docs/en/ledger/114-116.md`。 | `docs/zh/chains/120-technology-capability-sequence.md`<br>`docs/en/chains/120-technology-capability-sequence.md`<br>`docs/zh/ledger/114-116.md`<br>`docs/en/ledger/114-116.md` | file<br>file<br>file<br>file | `unresolved` |
 | M23 | `M23-WHY-01` | Why | 解释技术前件但阻止把 AI 成本下降当社会唯一发动机；采用、制度、资本和社会后果回到其他链。来源：`docs/zh/chains/40-embodied-intelligence.md`、`docs/en/chains/40-embodied-intelligence.md`、`README.md`、`README.en.md`。 | `docs/zh/chains/40-embodied-intelligence.md`<br>`docs/en/chains/40-embodied-intelligence.md`<br>`README.md`<br>`README.en.md` | file<br>file<br>file<br>file | `unresolved` |
 | M23 | `M23-GAP-01` | Gaps | 2026-10-16 技术排序校准未通过严格 R-T2，暂无可升级的历史规则。来源：`docs/evidence/technology-order-calibration-2026-10-16.md`、`docs/evidence/technology-order-calibration-2026-10-16.en.md`。 | `docs/evidence/technology-order-calibration-2026-10-16.md`<br>`docs/evidence/technology-order-calibration-2026-10-16.en.md` | file<br>file | `unresolved` |
@@ -353,7 +353,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M26 | `M26-WHERE-05` | Where | evidence: `docs/evidence/` (directory; individual evidence files are named in their own cards) | `docs/evidence/` | directory | `unresolved` |
 | M26 | `M26-WHERE-06` | Where | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
 | M26 | `M26-WHERE-07` | Where | package manifest: `package.json` (single-language) | `package.json` | file | `single-language-exception` |
-| M26 | `M26-WHERE-08` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M26 | `M26-WHERE-08` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `unresolved` |
 | M26 | `M26-HOW-01` | How | J-NNN 与双语配对缝合正文和事实源；`depends-on` 保持前件。当前 `npm run check` 通过并报告 172/5823/123/21，`--self-test --full` 报告 203/0；这些仅是机械证据，且这些 counts are values read from the recorded check, not a timeless guarantee. | `none` | none | `unresolved` |
 | M26 | `M26-HOW-02` | How | Sources: `scripts/check.py`, `package.json`, `docs/zh/90-ledger.md`, `docs/en/90-ledger.md`. | `scripts/check.py`<br>`package.json`<br>`docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md` | file<br>file<br>file<br>file | `unresolved` |
 | M26 | `M26-WHY-01` | Why | 防止编号、链接、依赖和迁移漂移，并持续区分结构、语义、样本外准确率。双语 literal paths make the source trail reproducible; they do not prove semantic equivalence or predictive validity. | `none` | none | `unresolved` |
@@ -368,7 +368,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 | M27 | `M27-WHERE-03` | Where | Chinese and English document trees: `docs/zh/`; `docs/en/` (directories) | `docs/zh/`<br>`docs/en/` | directory<br>directory | `unresolved` |
 | M27 | `M27-WHERE-04` | Where | checker: `scripts/check.py` (single-language) | `scripts/check.py` | file | `single-language-exception` |
 | M27 | `M27-WHERE-05` | Where | package manifest: `package.json` (single-language) | `package.json` | file | `single-language-exception` |
-| M27 | `M27-WHERE-06` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `single-language-exception` |
+| M27 | `M27-WHERE-06` | Where | contributor instructions: `CONTRIBUTING.md` (single-language) | `CONTRIBUTING.md` | file | `unresolved` |
 | M27 | `M27-HOW-01` | How | 中文与英文承载同一判断的两个投影；同一提交同步更新，稳定 J-NNN 编号与双语链接保持配对。机械检查可验证链接与配对，不能证明逐段语义等价或公开渲染体验。来源：`scripts/check.py`、`docs/zh/03-evolution.md`、`docs/en/03-evolution.md`。 | `scripts/check.py`<br>`docs/zh/03-evolution.md`<br>`docs/en/03-evolution.md` | file<br>file<br>file | `unresolved` |
 | M27 | `M27-WHY-01` | Why | 公开仓库既要可追踪也要对人类读者清晰、沉浸且有吸引力；双语不得产生权威层级或悄然分叉。来源：`README.md`、`README.en.md`、`docs/zh/06-research-gaps.md`、`docs/en/06-research-gaps.md`。 | `README.md`<br>`README.en.md`<br>`docs/zh/06-research-gaps.md`<br>`docs/en/06-research-gaps.md` | file<br>file<br>file<br>file | `unresolved` |
 | M27 | `M27-GAP-01` | Gaps | 英文台账 J-122 重复入口与完整导航唯一性仍未由检查器覆盖；对应台账事实源为 `docs/zh/90-ledger.md` 与 `docs/en/90-ledger.md`，相关记录为单语 `.knowledge` observation；公开 GitHub 渲染、移动端可读性及逐段语义等价仍需单独复核。 | `docs/zh/90-ledger.md`<br>`docs/en/90-ledger.md`<br>`.knowledge/27-observation-英文台账导航重复-j-122-暴露双语入-65244af5.md` | file<br>file<br>file | `unresolved` |
@@ -379,7 +379,7 @@ Harvest unit rule: one paragraph, bullet, or literal-pointer table row under a r
 Coverage counts include every harvested fact. Candidate totals, surviving candidate rows, and killed candidate rows are shown separately; killed rows never count as covered facts. A lane count means the fact has an auditable source classification, not that its source claim is true.
 
 | map_id | section | total facts | bilingual-paired | single-language-exception | unresolved | candidate rows | surviving candidate rows | killed candidate rows |
-|---|---|---:|---:|---:|---:|---:|
+|---|---|---:|---:|---:|---:|---:|---:|---:|
 | M21 | What | 1 | 0 | 0 | 1 | 3 | 3 | 0 |
 | M21 | Who | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M21 | When | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
@@ -387,20 +387,20 @@ Coverage counts include every harvested fact. Candidate totals, surviving candid
 | M21 | How | 1 | 0 | 0 | 1 | 4 | 4 | 0 |
 | M21 | Why | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M21 | Gaps | 3 | 0 | 0 | 3 | 3 | 3 | 0 |
-| M21 | Literal source pointers | 13 | 0 | 3 | 10 | 13 | 12 | 1 |
+| M21 | Literal source pointers | 13 | 0 | 2 | 11 | 13 | 12 | 1 |
 | M22 | What | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
-| M22 | Who | 1 | 0 | 1 | 0 | 1 | 1 | 0 |
+| M22 | Who | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M22 | When | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M22 | Where | 1 | 0 | 0 | 1 | 6 | 5 | 1 |
 | M22 | How | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M22 | Why | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M22 | Gaps | 2 | 0 | 0 | 2 | 3 | 3 | 0 |
-| M22 | Literal source pointers | 7 | 0 | 2 | 5 | 7 | 7 | 0 |
+| M22 | Literal source pointers | 7 | 0 | 1 | 6 | 7 | 7 | 0 |
 | M22 | Sources and bilingual status | 1 | 0 | 0 | 1 | 6 | 6 | 0 |
 | M23 | What | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M23 | Who | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M23 | When | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
-| M23 | Where | 6 | 0 | 1 | 5 | 7 | 7 | 0 |
+| M23 | Where | 6 | 0 | 0 | 6 | 7 | 7 | 0 |
 | M23 | How | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M23 | Why | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M23 | Gaps | 3 | 0 | 0 | 3 | 4 | 2 | 2 |
@@ -421,18 +421,18 @@ Coverage counts include every harvested fact. Candidate totals, surviving candid
 | M26 | What | 2 | 0 | 0 | 2 | 5 | 3 | 2 |
 | M26 | Who | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M26 | When | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
-| M26 | Where | 8 | 0 | 3 | 5 | 9 | 6 | 3 |
+| M26 | Where | 8 | 0 | 2 | 6 | 9 | 6 | 3 |
 | M26 | How | 2 | 0 | 0 | 2 | 4 | 4 | 0 |
 | M26 | Why | 1 | 0 | 0 | 1 | 1 | 1 | 0 |
 | M26 | Gaps | 2 | 0 | 0 | 2 | 5 | 3 | 2 |
 | M27 | What | 2 | 0 | 0 | 2 | 4 | 4 | 0 |
 | M27 | Who | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | When | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
-| M27 | Where | 6 | 0 | 3 | 3 | 7 | 5 | 2 |
+| M27 | Where | 6 | 0 | 2 | 4 | 7 | 5 | 2 |
 | M27 | How | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | Why | 1 | 0 | 0 | 1 | 2 | 2 | 0 |
 | M27 | Gaps | 2 | 0 | 0 | 2 | 4 | 2 | 2 |
-| **TOTAL** | all sections | **107** | **0** | **13** | **94** | **190** | **162** | **28** |
+| **TOTAL** | all sections | **107** | **0** | **7** | **100** | **190** | **162** | **28** |
 
 ### Scanned domains and holes / 已扫描域与缺口
 
