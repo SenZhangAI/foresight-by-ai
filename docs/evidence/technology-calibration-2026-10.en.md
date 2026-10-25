@@ -71,7 +71,7 @@ The table writes “unknown” and “not yet obtained” explicitly so the pros
 
 ### 3.3 Fifth Generation Computer: a research programme's goal cannot be rewritten as a social-product promise
 
-**Locatable material.** The Institute for Processing Society (IPSJ) Computer Museum records ICOT as the central organisation for the Fifth Generation Computer Project and describes prototypes of parallel inference computers. The AIST/ICOT ten-year project report says the project began in 1982, used parallel processing and inference processing based on logic programming, and summarised its results in 1992 (see the [source table](#5-sources-and-confidence)).
+**Locatable material.** The Information Processing Society of Japan (IPSJ) Computer Museum records ICOT as the central organisation for the Fifth Generation Computer Project and describes prototypes of parallel inference computers. The AIST/ICOT ten-year project report says the project began in 1982, used parallel processing and inference processing based on logic programming, and summarised its results in 1992 (see the [source table](#5-sources-and-confidence)).
 
 **Why this cannot be coded `MISS`.** “Fifth generation” may refer to a research programme's technical goal, a national industrial-policy aspiration, a logic-programming paradigm, or a later media rewrite that promised human-like general intelligent computers in the 1990s. These are not one forecast object. A project completing its research cycle without producing a mass-market product does not by itself show that its technical target was missed; prototype papers or tools do not show society-wide diffusion either.
 
