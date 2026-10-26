@@ -173,7 +173,7 @@ Cross-chain handoff uses **card identifiers rather than implicit narrative**: a 
 
 > Here, “starting points” means candidate sources a particular chain actually selects; it does not make the five sources the project-wide preset ground, nor require every chain to mechanically use all five.
 
-(The heading keeps “L1–L9” so existing links stay stable; L10 was added on 2026-10-10 and is retained below as historical record, but was withdrawn from the toolbox the same day and is not part of the reverse lookup.)
+(The heading keeps “L1–L9” so existing links stay stable; L10, added on 2026-10-10, is retained only as historical record and is not part of the current toolbox or reverse lookup. It was withdrawn after a counterexample on the same day; the related historical text is flagged in place in the table and evidence record.)
 
 §1 lists five candidate sources and this section lists nine current lenses (and the withdrawn L10), but the mapping from the former to the latter was never written down anywhere. A reader could therefore look up “which lenses does this chain use” but not “which candidate sources from supply and demand, human nature, history, technology, and social regularities does it actually adopt” — and “the five sources are selected by the question, with none preset as the master axis and every use traceable” is this project's methodological discipline. The table below turns that correspondence into something a reader can check cell by cell, rather than a preamble that can only be believed.
 
