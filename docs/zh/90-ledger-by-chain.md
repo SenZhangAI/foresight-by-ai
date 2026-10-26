@@ -103,7 +103,7 @@
 ### C10 · 信任抵押化 · [打开链页](chains/100-trust-collateralization.md)
 - [J-035](ledger/31-40.md#j-035--责任抵押进入重要-ai-输出的交易结构) — 责任抵押进入重要 AI 输出的交易结构
 
-
+### C11 · 授权先于智能 · [打开链页](chains/110-authority-before-intelligence.md)
 - [J-098](ledger/96-102.md#j-098--授权先于智能高责任场景先形成可撤回的分级代理) — 授权先于智能：高责任场景先形成可撤回的分级代理
 
 ### C13 · 财政挤压 · [打开链页](chains/130-fiscal-squeeze-who-gets-cut.md)
