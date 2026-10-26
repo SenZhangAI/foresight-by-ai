@@ -100,7 +100,10 @@ Back to the [full judgment ledger](90-ledger.md)
 - [J-096](ledger/96-102.md#j-096--ageing-and-smaller-households-move-part-of-care-toward-formal-and-coordination-layers) — Ageing and smaller households move part of care toward formal and coordination layers
 - [J-097](ledger/96-102.md#j-097--care-assistance-stabilises-first-in-institutions-and-controlled-services-open-home-general-purpose-robots-lag) — Care assistance stabilises first in institutions and controlled services; open-home general-purpose robots lag
 
-### C11 · Authority before intelligence · [Open chain page](chains/110-authority-before-intelligence.md)
+### C10 · Trust collateralization · [Open chain page](chains/100-trust-collateralization.md)
+- [J-035](ledger/31-40.md#j-035--responsibility-collateral-enters-the-transaction-structure-for-consequential-ai-output) — Liability collateral enters the transaction structure of consequential AI outputs
+
+
 - [J-098](ledger/96-102.md#j-098--authority-before-intelligence-consequential-settings-form-revocable-tiered-agency-first) — Authority before intelligence: consequential settings form revocable tiered agency first
 
 ### C13 · Fiscal squeeze · [Open chain page](chains/130-fiscal-squeeze-who-gets-cut.md)
