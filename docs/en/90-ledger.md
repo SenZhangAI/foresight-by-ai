@@ -4,6 +4,8 @@
 
 > The single register and governance entry point for all project judgments. Narrative documents cite `J-NNN`; complete judgment cards live in stable-numbered `ledger/` shards, while this file keeps the overview, dependency graph, review views, sources, and compatibility anchors.
 > This ledger records how judgments are proposed, linked, revised, and reviewed. A falsified judgment is never deleted.
+>
+> **Narrow-screen first:** If you want to enter judgments one by one through a reasoning chain or topic rather than face the wide table first, start with [Enter judgments by reasoning chain](90-ledger-by-chain.md). It is navigation only; complete fields remain in this page's overview and the `ledger/` shards.
 
 ---
 
