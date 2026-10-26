@@ -428,6 +428,18 @@ The [historical misfit boundary slice](../evidence/historical-misfit-calibration
 
 The material supports only three recording rules: separate direction on the same question from consequences; separate institutional thresholds from adjacent continuous indicators; and do not treat the same topic as the same metric. It supports no overall political-forecast accuracy, new lens, diffusion-gate change, or future judgment. The P-03 and P-05 gaps are part of the delivery and do not enter a miss or accuracy denominator; P-01 and P-02 must not be counted again as new repository cases. The Chinese and English evidence pages share the original packet's fixed case IDs, source locations, and statuses; see the [Chinese slice](../evidence/historical-misfit-calibration-2026-10.md).
 
+### 10.8 Cross-domain expansion slice: budget, market-index, and major-engineering profit forecasts (2026-10-26)
+
+The [cross-domain forecast–outcome expansion evidence page](../evidence/cross-domain-forecast-outcome-expansion-2026-10-26.en.md) adds three reconstructable materials: federal Y2K IT-remediation cost, the *Dow 36,000* market-index target, and the Concorde operating-loss / profitability forecast discussion. All three remain `UNKNOWN/UNVERIFIED`, not new qualified `CALIBRATION` cases: Y2K lacks a same-basis final cost and post-event failure outcome, the Dow catalog page lacks a timing window, and the Concorde debate confirms a forecast discussion without numeric forecast, fiscal period, or outcome table.
+
+| Case | Material closed so far | What cannot be judged now | Boundary narrowed |
+|---|---|---|---|
+| Federal Y2K cost | The 1999-04-28 GAO report gives a cumulative estimate for 24 major agencies rising from `$2.3bn` in 1997 to about `$7.5bn` in 1999, and distinguishes reported costs, estimates, and emergency appropriations | “No global catastrophe” cannot replace final cost; appropriations, obligations, expenditures, and avoided losses cannot be merged | Preventive spending scale is not the scale of the loss prevented |
+| Dow 36,000 | Internet Archive locates the authors, editions, and title target; FRED can supply daily DJIA closes | The book’s timing, target definition, and outcome rule are not recovered; a later high cannot be selected as an on-time hit | Reaching a point is not reaching it by a frozen deadline, and points are not total return |
+| Concorde | The 3 April 1974 Hansard confirms a British Airways operating-loss / profitability forecast discussion | No amount, fiscal period, passenger/load assumptions, or same-basis outcome is present; later retirement cannot establish a commercial forecast miss | Forecast existence is not forecast judgeability; operating profit, lifecycle return, and industrial spillover must be separate |
+
+The common conclusion is not that “cross-domain forecasts usually fail,” but that **different objects cannot share one outcome label**: public budgets, financial indices, and major-engineering profitability each need their own metric, unit, denominator, and window. These cases do not change the repository-wide `CALIBRATION` count (still 6), support accuracy or method-validation claims, or alter the five diffusion gates. If later closed, they can only enter `CALIBRATION` because this page was assembled after outcomes or later history were visible.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is
