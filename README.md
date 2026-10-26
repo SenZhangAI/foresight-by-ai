@@ -45,6 +45,7 @@
 - [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)：查看案例、角色、基线如何冻结，以及历史材料不能证明什么。
 - [历史校准后的独立重新预测：当前状态](docs/zh/independent-reprediction-status.md)：在进入未来推演前，核对冻结输入、旧文档隔离、两轮重判与当前结果的边界；页面也提供英文对应入口。
 - [推演方法论](docs/zh/00-method.md)：查看判断字段、并列依据、可选透镜和机会筛选闸。
+- [真实未来样本外结果登记](docs/evidence/future-oos-results-register.md)：查看冻结字段、到期判定与结果证据的公开回流入口；当前为空，明确标为 `UNKNOWN/UNVERIFIED`。
 - [判断演化记录](docs/zh/03-evolution.md)：查看规则收窄、判断修订，以及隔离重审两轮的执行记录与仍未闭合或受限的边界（运行时间、第二轮输出的时间顺序、受众字段泄漏，以及同模型复现性的限制）。
 - [下一研究缺口优先级](docs/zh/06-research-gaps.md)：查看部分覆盖维度的公开排序、下一研究动作与证据边界。
 
@@ -57,7 +58,7 @@
 1. **历史回顾** — [历史回顾](docs/zh/01-retrospect.md)。**已完成部分校准**：用成功与失败案例筛选规则；不产生未来准确率。
 2. **方法验证** — [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)。**协议已公开，历史 holdout 尚未运行**：冻结、留存、基线和泄漏边界已规定，但没有可报告的伪样本外命中率。
 3. **隔离式重新推演** — [独立重新预测状态页](docs/zh/independent-reprediction-status.md) · [隔离盲判复审报告](docs/evidence/blind-review-reaudit-2026-10-09.md)。**流程已执行两轮，但只支持可复现性**：同模型、受众字段泄漏和运行记录缺口仍阻止“独立正确性”结论。
-4. **真实样本外结果** — [台账检查日志](docs/zh/90-ledger.md#八检查日志)。**未验证**：当前没有已到期并完成结果登记的 `GENUINE_FUTURE_OOS` 卡，不能报告准确率。
+4. **真实样本外结果** — [真实未来样本外结果登记](docs/evidence/future-oos-results-register.md) · [台账检查日志](docs/zh/90-ledger.md#八检查日志)。**`UNKNOWN/UNVERIFIED`**：当前没有已到期并完成结果登记的 `GENUINE_FUTURE_OOS` 卡，不能报告准确率。
 
 这四步的链接集合也在[独立重新预测状态页](docs/zh/independent-reprediction-status.md)中按同一顺序复现。`python3 scripts/check.py` 或 `npm run check` 通过时，只能证明结构与链接合同；它们不能替代第 2–4 步的证据。
 
