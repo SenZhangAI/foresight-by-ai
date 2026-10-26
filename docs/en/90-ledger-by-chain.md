@@ -183,7 +183,7 @@ Back to the [full judgment ledger](90-ledger.md)
 - [J-053](ledger/51-60.md#j-053--as-generatable-goods-become-abundant-what-one-personally-bore-may-become-a-signal-of-meaning-landscape-only) — As generatable goods become abundant, what one personally bore may become a signal of meaning (landscape only)
 - [J-054](ledger/51-60.md#j-054--non-delegable-time-bodily-risk-and-long-commitments-remain-demand-side-scarcities-landscape-only) — Non-delegable time, bodily risk, and long commitments remain demand-side scarcities (landscape only)
 
-### Verdict and check log · [Open evidence log](../evidence/non-ai-social-action-verdict-2026-10-10.md)
+### Verdict and check log · [Open evidence log](../evidence/non-ai-social-action-verdict-2026-10-10.en.md)
 - [J-104](ledger/103-110.md#j-104--paid-work-from-home-stops-at-the-d-tier-tens-of-millions-weekly-a-plateau-since-2023-and-the-employer-decides) — Paid work from home stops at the D tier: tens of millions weekly, a plateau since 2023, and the employer decides
 
 ---
