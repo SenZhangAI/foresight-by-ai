@@ -344,7 +344,7 @@ Enter the chains by theme (best for narrow screens):
 
 ## License
 
-Original text, diagrams, and foresight material in this repository are released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). You may copy, translate, adapt, and use them commercially, provided that you retain attribution, link to the license, and indicate changes. Third-party quotations, external sources, and their original materials are not automatically covered by this license; follow their respective license or source requirements.
+Original text, diagrams, and foresight material in this repository are released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). You may copy, translate, adapt, and use them commercially, provided that you retain attribution, link to the license, and indicate changes. The Python tools in `scripts/` are not covered by CC BY; they are released under the [MIT License](LICENSE-MIT). You may copy, modify, and redistribute those scripts, provided that you preserve the MIT license and copyright notice. Third-party quotations, external sources, and their original materials are not automatically covered by either license; follow their respective license or source requirements.
 
 ## Git and maintenance discipline
 

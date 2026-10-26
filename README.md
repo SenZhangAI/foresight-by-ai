@@ -346,7 +346,7 @@ flowchart LR
 
 ## 许可证
 
-本仓库中的原创文字、图示与推演材料以 [Creative Commons Attribution 4.0 International（CC BY 4.0）](LICENSE) 发布。你可以复制、翻译、改编和商用，但必须保留署名、许可证链接，并说明你做过的修改。第三方引用、外部来源及其原始材料不当然包含在本许可中，请按各自许可或来源要求使用。
+本仓库中的原创文字、图示与推演材料以 [Creative Commons Attribution 4.0 International（CC BY 4.0）](LICENSE) 发布。你可以复制、翻译、改编和商用，但必须保留署名、许可证链接，并说明你做过的修改。仓库内 `scripts/` 目录中的 Python 工具代码不属于 CC BY 许可范围，而是以 [MIT License](LICENSE-MIT) 发布；你可以复制、修改和重新分发这些脚本，但须保留 MIT 许可与版权声明。第三方引用、外部来源及其原始材料不当然包含在上述许可中，请按各自许可或来源要求使用。
 
 ## Git 与维护纪律
 
