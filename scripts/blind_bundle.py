@@ -131,7 +131,8 @@ PRIOR_REVIEW_TOKENS = (
 SOURCE_ID_RE = re.compile(r"\bEXT-\d+\b", re.IGNORECASE)
 NUMBERED_CONSTRAINT_RE = re.compile(
     r"\bGates?\s+\d+(?:\s*(?:and|through|to|,|-)\s*\d+)*\b|"
-    r"\bthe\s+(?:first|second|third|fourth|fifth)\s+constraint\b",
+    r"\bthe\s+(?:first|second|third|fourth|fifth)\s+constraint\b|"
+    r"(?:第一|第二|第三|第四|第五)道约束",
     re.IGNORECASE,
 )
 LANGUAGES = ("zh", "en")
@@ -349,11 +350,11 @@ def strip_prior_review_text(value: str) -> str:
         "Gate 4": "the fourth constraint",
         "Gate 5": "the fifth constraint",
         "Gates 2 through 5": "the later constraints",
-        "闸一": "第一道约束",
-        "闸二": "第二道约束",
-        "闸三": "第三道约束",
-        "闸四": "第四道约束",
-        "闸五": "第五道约束",
+        "闸一": "一道约束",
+        "闸二": "一道约束",
+        "闸三": "一道约束",
+        "闸四": "一道约束",
+        "闸五": "一道约束",
     }
     for old, new in replacements.items():
         value = value.replace(old, new)
