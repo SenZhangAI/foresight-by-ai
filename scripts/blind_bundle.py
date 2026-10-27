@@ -128,6 +128,7 @@ PRIOR_REVIEW_TOKENS = (
     "the audit did not obtain independent evidence", "unknown", "corrected 2026-10-10",
     "更正", "previously said", "此前写", "which that count contradicts", "与该计数矛盾",
     "Current-scale review", "现时规模复核", "carried by no lens", "无承载",
+    "formerly the veto direction", "原 否决向", "复核时最新版次",
     "prior review", "current review", "adoption gate", "diffusion gate",
     "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5", "L8", "L10", "M2",
 )
