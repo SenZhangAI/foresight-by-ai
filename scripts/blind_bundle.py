@@ -121,9 +121,11 @@ DEPENDENCY_TOKENS = ("depends-on", "depends on", "depends_on", "依赖于", "上
 PRIOR_REVIEW_TOKENS = (
     "提高既有专业者上限", "让原本不会的人也能做", "让原本不会者",
     "能力类型", "能力分类", "普及闸", "现有复核", "已有复核", "当前复核", "本轮复核",
-    "基于现有复核", "the preceding judgment", "raises existing professionals",
-    "lets people who could not", "enables people who previously could not",
-    "capability type", "capability classification", "existing review",
+    "基于现有复核", "迁移审计", "构造式上限", "不得从复核中反投影", "未取得同时覆盖",
+    "the preceding judgment", "raises existing professionals", "lets people who could not",
+    "enables people who previously could not", "capability type", "capability classification",
+    "migration audit", "constructed ceiling", "back-projected",
+    "the audit did not obtain independent evidence", "unknown",
     "prior review", "current review", "adoption gate", "diffusion gate",
     "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5",
 )
