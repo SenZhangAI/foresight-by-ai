@@ -134,10 +134,11 @@ PRIOR_REVIEW_TOKENS = (
 )
 
 PRIOR_REVIEW_PAREN_RE = re.compile(
-    r"\([^()]{0,800}(?:corrected\s+2026-10-10|previously\s+said|"
+    r"(?:\([^()]{0,800}|（[^（）]{0,800})(?:corrected\s+2026-10-10|previously\s+said|"
     r"which\s+that\s+count\s+contradicts|see\s+M2|"
     r"formerly\s+the\s+veto\s+direction|原\s*否决向|"
-    r"2026-10-10\s*更正|此前写|与该计数矛盾|见不以 AI 为前提)[^()]{0,800}\)",
+    r"2026-10-10\s*更正|此前写|与该计数矛盾|见不以 AI 为前提)"
+    r"(?:[^()]{0,800}\)|[^（）]{0,800}）)",
     re.IGNORECASE,
 )
 
