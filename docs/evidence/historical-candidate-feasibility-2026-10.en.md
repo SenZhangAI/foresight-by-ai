@@ -10,12 +10,12 @@
 
 Each candidate is recorded separately for its pre-outcome material and date/information cutoff `T`, target or decision date, observation window, outcome metric/unit/denominator, stable forecast and outcome source locations, independent reconstructability, missing fields, and evidence level.
 
-The [historical pseudo-out-of-sample protocol](../zh/02-historical-validation-protocol.md) §§0–2 applies: if the forecast object, outcome object, metric, unit, denominator, observation window, or source location cannot be closed, the case cannot enter the frozen candidate pool. It remains `UNKNOWN/UNVERIFIED` or is explicitly excluded. A result-known case cannot be renamed a holdout.
+The [historical pseudo-out-of-sample protocol](../en/02-historical-validation-protocol.md) §§0–2 applies; a [Chinese counterpart](../zh/02-historical-validation-protocol.md) is available. If the forecast object, outcome object, metric, unit, denominator, observation window, or source location cannot be closed, the case cannot enter the frozen candidate pool. It remains `UNKNOWN/UNVERIFIED` or is explicitly excluded. A result-known case cannot be renamed a holdout.
 
 | Level | Meaning here |
 |---|---|
 | `UNKNOWN/UNVERIFIED` | A forecast and/or outcome lead was found, but at least one load-bearing field cannot yet be independently reconstructed; it is not counted as qualified calibration. |
-| `EXCLUDED` | The kill pass shows that the item is not a freezeable forecast–outcome unit for this batch: it duplicates an existing archive, lacks a dated target/outcome object, or requires a non-equivalent metric substitution. |
+| `EXCLUDED` | The kill pass shows that the item is not a scorable forecast unit for this batch: it is a policy commitment rather than a probabilistic forecast, or it is a status metric without a future target date. |
 | `CALIBRATION` | No new case in this batch. A case may receive this label only after same-metric primary-source reconstruction; it can never become out-of-sample evidence. |
 
 ## 2. Candidate inventory
