@@ -446,6 +446,16 @@ The [historical forecast–outcome candidate feasibility register](../evidence/h
 
 The kill pass leaves **22 `UNKNOWN/UNVERIFIED` items and 2 `EXCLUDED` items, with 0 newly frozen candidates**. `T-APOLLO-1961` is excluded because the source is a policy commitment rather than the probabilistic forecast unit used by this batch; `B-WEWORK-RUNRATE-2019` is excluded because it is a status metric without a future target date. The 22 retained items each have at least one unresolved load-bearing field: the original forecast or its date, target date, observation window, same-metric outcome, unit, denominator, or stable source locator. An attractive narrative, a later revision, a shutdown, a project milestone, or a passing structure check cannot fill any of those gaps.
 
+**Per-case status index (no `CALIBRATION` case in this batch):** The table below keeps readers from inferring an individual evidence level from the aggregate count. The exact missing fields, falsification attempt, and minimum closure action remain in the register under the same `case_id`.
+
+| Domain | `UNKNOWN/UNVERIFIED` (each case) | `EXCLUDED` (each case) |
+|---|---|---|
+| Technology / technology governance | `Y2K-FEDERAL-COST-1999`, `CONCORDE-BA-PROFIT-1974`, `T-HGP-1990`, `T-EV-EVERYWHERE-2012`, `T-UGV-2000`, `T-BROADBAND-2010`, `T-MOORE-1965` | `T-APOLLO-1961` |
+| Politics / public policy | `P-2015-UK-GE`, `P-2014-SCOTLAND`, `P-2012-US-ELECTION`, `P-YUGOSLAVIA-1990`, `P-ACA-COVERAGE-2010`, `P-OMB-FY2001` | — |
+| Business / financial markets | `DOW-36000-1999`, `B-NETFLIX-2011-Q3`, `B-TESLA-2016-BUILD`, `B-TESLA-2016-DELIVERIES`, `B-PELOTON-SUBSCRIPTIONS-FY2022`, `B-PELOTON-REVENUE-FY2022`, `B-MOVIEPASS-2018`, `B-BEYONDMEAT-2019`, `B-QUIBI-FIRST-YEAR` | `B-WEWORK-RUNRATE-2019` |
+
+> The “status” in this index is an evidence level, not a verdict on whether the underlying forecast succeeded: `UNKNOWN/UNVERIFIED` is not `MISS`, and `EXCLUDED` is not failure.
+
 | Result of the candidate audit | What it supports | What it does not support |
 |---|---|---|
 | 22 `UNKNOWN/UNVERIFIED` | A public, case-by-case list of missing fields and the next verification action; a sharper boundary between a source lead and an independently reconstructable pair | A definite miss, a calibration denominator, a technology/politics/business accuracy rate, or a new diffusion rule |

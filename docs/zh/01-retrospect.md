@@ -446,6 +446,16 @@
 
 kill pass 之后留下 **22 条 `UNKNOWN/UNVERIFIED` 与 2 条 `EXCLUDED`，新增冻结数为 0**。`T-APOLLO-1961` 被排除，是因为来源是政策承诺，不是本批使用的概率预测单元；`B-WEWORK-RUNRATE-2019` 被排除，是因为它是没有未来目标日期的状态指标。其余 22 条每一条都至少缺一个承重字段：原始预测或日期、目标日期、观察窗、同指标结果、单位、分母或稳定来源定位。吸引人的叙事、后续修订、停运、项目里程碑或通过结构检查，都不能填补这些缺口。
 
+**逐案状态索引（本批没有 `CALIBRATION`）：** 下表让读者不必从总数反推单案等级；每个 `case_id` 的具体缺项、反证动作和最小闭合动作仍以[清单](../evidence/historical-candidate-feasibility-2026-10.md)中同一 `case_id` 的条目为准。
+
+| 领域 | `UNKNOWN/UNVERIFIED`（逐案） | `EXCLUDED`（逐案） |
+|---|---|---|
+| 科技／科技治理 | `Y2K-FEDERAL-COST-1999`、`CONCORDE-BA-PROFIT-1974`、`T-HGP-1990`、`T-EV-EVERYWHERE-2012`、`T-UGV-2000`、`T-BROADBAND-2010`、`T-MOORE-1965` | `T-APOLLO-1961` |
+| 政治／公共政策 | `P-2015-UK-GE`、`P-2014-SCOTLAND`、`P-2012-US-ELECTION`、`P-YUGOSLAVIA-1990`、`P-ACA-COVERAGE-2010`、`P-OMB-FY2001` | — |
+| 商业／金融市场 | `DOW-36000-1999`、`B-NETFLIX-2011-Q3`、`B-TESLA-2016-BUILD`、`B-TESLA-2016-DELIVERIES`、`B-PELOTON-SUBSCRIPTIONS-FY2022`、`B-PELOTON-REVENUE-FY2022`、`B-MOVIEPASS-2018`、`B-BEYONDMEAT-2019`、`B-QUIBI-FIRST-YEAR` | `B-WEWORK-RUNRATE-2019` |
+
+> 此索引中的“状态”是证据等级，不是对底层预测成败的裁决：`UNKNOWN/UNVERIFIED` 不是 `MISS`，`EXCLUDED` 也不是失败。
+
 | 候选审计结果 | 它支持什么 | 它不支持什么 |
 |---|---|---|
 | 22 条 `UNKNOWN/UNVERIFIED` | 按案例公开缺失字段与下一步核验动作；更清楚地区分来源线索与可独立重建的配对材料 | 确定的失准、校准分母、科技／政治／商业准确率或新普及规则 |
