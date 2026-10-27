@@ -6,14 +6,14 @@
 
 ### 冻结指纹
 
-- 输入源 commit：`0317c0adaecc4c725caeb6b9fd35b9e2109679ce`
+- 输入源 commit：`a4e865129894aac144ec441555e5e5f78fb7cddb`
 - manifest：[`manifest-2026-10-28-isolated.json`](blind-review/manifest-2026-10-28-isolated.json)
-- manifest SHA-256：`f942a6d40f4113243905180a8df4e53995d5f0557a9f3431609c95e3931b5482`
+- manifest SHA-256：`11b30a00d1ca18abf0c0db16d871b0b14d960d323841cb12b95ebd9c70b1c7e4`
 - bundle：[`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
-- bundle SHA-256：`7135af58447d31d35e500ad3c79f341ee83e63d82f5c1edd73e272d0bd2c3291`
+- bundle SHA-256：`3f7bc49266a3d05271df777c2712b4b36ed71df7421d25319624ed07cbd8495b`
 - 证据 JSON：[`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
-- seed SHA-256（seed 本身不入仓库）：`60f654795f233f69ab4e3db4df46dd10de6c014b582d0b497fc7b9b50ecd0cda`
-- 密封映射 SHA-256（映射保存在仓库外，不随 bundle 发布）：`cbb0d439050ab43fb06f1c5116fbbe30f1876e7adaf1950b7ba546ca8f6e6177`
+- seed SHA-256（seed 本身不入仓库）：`47e4d341a9bb452cc3ce9289bb0c9e6b8752866440e8804d2f93acb57913d770`
+- 密封映射 SHA-256（映射保存在仓库外，不随 bundle 发布）：`15b80a74b05b3bf36792f98ce642e912e8c761cf0de2a1788da4f3707b0b6020`
 - 纳入：121 张中英成对判断卡；`R-01`–`R-121`
 - 候选总数：218；排除：97
 - 保留字段（中英同义）：`judgment`、`audience`、`reasoning_chain`、`time_window`、`falsifier`、`leading_indicator`
@@ -40,14 +40,14 @@ This file freezes the **input to a future isolated re-review**. It does not say 
 
 ### Frozen fingerprints
 
-- Source commit: `0317c0adaecc4c725caeb6b9fd35b9e2109679ce`
+- Source commit: `a4e865129894aac144ec441555e5e5f78fb7cddb`
 - Manifest: [`manifest-2026-10-28-isolated.json`](blind-review/manifest-2026-10-28-isolated.json)
-- Manifest SHA-256: `f942a6d40f4113243905180a8df4e53995d5f0557a9f3431609c95e3931b5482`
+- Manifest SHA-256: `11b30a00d1ca18abf0c0db16d871b0b14d960d323841cb12b95ebd9c70b1c7e4`
 - Bundle: [`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
-- Bundle SHA-256: `7135af58447d31d35e500ad3c79f341ee83e63d82f5c1edd73e272d0bd2c3291`
+- Bundle SHA-256: `3f7bc49266a3d05271df777c2712b4b36ed71df7421d25319624ed07cbd8495b`
 - Evidence JSON: [`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
-- Seed SHA-256 (the seed itself is not committed): `60f654795f233f69ab4e3db4df46dd10de6c014b582d0b497fc7b9b50ecd0cda`
-- Sealed mapping SHA-256 (stored outside the repository): `cbb0d439050ab43fb06f1c5116fbbe30f1876e7adaf1950b7ba546ca8f6e6177`
+- Seed SHA-256 (the seed itself is not committed): `47e4d341a9bb452cc3ce9289bb0c9e6b8752866440e8804d2f93acb57913d770`
+- Sealed mapping SHA-256 (stored outside the repository): `15b80a74b05b3bf36792f98ce642e912e8c761cf0de2a1788da4f3707b0b6020`
 - Included: 121 bilingual card pairs, numbered locally as `R-01`–`R-121`
 - Candidate total: 218; excluded: 97
 - Retained fields: `judgment`, `audience`, `reasoning_chain`, `time_window`, `falsifier`, `leading_indicator`
