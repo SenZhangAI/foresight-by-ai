@@ -4,7 +4,7 @@
 
 > **范围与结论。** 本页承接历史先行方向，审计下一批跨科技、政治与商业的历史预测—结果候选。它是候选可行性清单，不是回测、不是 holdout，也不是方法有效性证明。所有候选都是结果已知后发现；即使日后补齐，也最多进入 `CALIBRATION`，不能进入 `CONTAMINATED_RELATIVE_HOLDOUT` 或 `GENUINE_FUTURE_OOS`。
 >
-> **本批结论：** 宽搜得到 20 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。18 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因其主张不是带目标日期的预测—结果配对或与现有档案重复而排除。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
+> **本批结论：** 宽搜得到 23 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。21 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因其主张不是带目标日期的预测—结果配对或与现有档案重复而排除。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
 
 ## 1. 记录协议与字段
 
@@ -32,6 +32,9 @@
 
 | case_id | 领域 | 一线预测／结果主张 | T 与目标／观察窗 | 指标与分母 | 原始来源定位 | kill pass 后状态 | 关键缺项或排除理由 |
 |---|---|---|---|---|---|---|---|
+| `Y2K-FEDERAL-COST-1999` | 科技治理／公共部门 | GAO 1999 报告给出 24 个联邦机构 Y2K 累计成本估计约 $7.5bn；最终成本／故障结果尚未同口径闭合 | T：1999-04-28；目标／观察窗需以最终成本或故障指标另定 | 预防成本、实际支出与故障数不能互换；分母为 24 个机构 | [GAO AIMD-99-154](https://www.govinfo.gov/content/pkg/GAOREPORTS-AIMD-99-154/html/GAOREPORTS-AIMD-99-154.htm)；结果材料见[跨域扩展](cross-domain-forecast-outcome-expansion-2026-10-26.md) | `UNKNOWN/UNVERIFIED` | 报告明确多数仍是估计；缺 24 机构最终实际支出／义务和统一观察窗，不能用“没有灾难”替代成本结果 |
+| `DOW-36000-1999` | 商业／金融市场 | Glassman/Hassett 书名提出 DJIA 36,000 点，但目标年份和条件未恢复 | T：1999 原版／2000 版本；目标日期未知；观察窗未冻结 | DJIA 每日收盘点位；不能换成总回报、股息或通胀调整财富 | [Internet Archive](https://archive.org/details/dow36000newstrat00jame)；[FRED DJIA](https://fred.stlouisfed.org/series/DJIA/) | `UNKNOWN/UNVERIFIED` | 书名不是完整预测原件；缺正文时间条件、目标定义和结果规则，不能事后挑高点判定 |
+| `CONCORDE-BA-PROFIT-1974` | 科技商业化／大型工程 | 1974 Hansard 确认当时存在 Concorde 运营亏损／盈利影响 forecast，但没有数值预测 | T：1974-04-03 议事录；目标财年／观察窗未知 | 年度／累计盈利或亏损；金额、财年、客流分母均缺 | [House of Lords Hansard](https://api.parliament.uk/historic-hansard/lords/1974/apr/03/concorde-project-and-loss-forecasts)；结果线索见[跨域扩展](cross-domain-forecast-outcome-expansion-2026-10-26.md) | `UNKNOWN/UNVERIFIED` | 缺原始数值、同口径财报和观察窗；不能因后来停飞就判商业预测失败 |
 | `T-HGP-1990` | 科技 | HGP 计划约 2005 年完成；后来 2003 年宣布完成 | T：1990 计划；目标约 2005（另有 1998 修订为 2003）；观察至 2003 | 参考序列完成；约 30 亿碱基；质量／覆盖阈值未定 | 计划：[First Five-Year Plan](https://www.genome.gov/sites/default/files/media/files/2021-02/1990_First_Five_Year_Plan.pdf)；结果：[DOE timeline](https://doe-humangenomeproject.ornl.gov/human-genome-project-timeline/)、[NIH overview](https://www.genome.gov/human-genome-project) | `UNKNOWN/UNVERIFIED` | 1990 原计划的最终验收日期、覆盖／质量阈值及与 2003 结果的同口径映射未闭合；1998 修订不能替代 1990 版本 |
 | `T-APOLLO-1961` | 科技 | Kennedy 要求在 1960 年代结束前载人登月并安全返回；Apollo 11 在 1969 完成 | T：1961-05-25；目标：1969-12-31 前；观察至 1969-07-24 | 是否登月、是否安全返回；“安全”无预先量化阈值 | 预测：[Kennedy speech](https://www.presidency.ucsb.edu/documents/special-message-the-congress-urgent-national-needs)；结果：[NASA Apollo 11](https://www.nasa.gov/mission/apollo-11/) | `EXCLUDED` | 它是国家政策目标／承诺而非本批要比较的概率 forecast；若未来研究政策目标，应另设“承诺兑现”单元，不把它混入预测方法样本 |
 | `T-EV-EVERYWHERE-2012` | 科技 | DOE 目标到 2022 年电池包约 125 美元/kWh；DOE 2022 估算为 139 美元/kWh | T：2012 倡议／2014 blueprint；目标：2022；观察：2022 成本估计 | pack $/kWh；目标与结果均需币值、模型产量和 pack/cell 边界一致 | 预测：[DOE blueprint](https://www.energy.gov/sites/default/files/2014/02/f8/eveverywhere_blueprint.pdf)；结果：[DOE 2022 estimate](https://www.energy.gov/eere/vehicles/articles/fotw-1308-august-14-2023-electric-vehicle-battery-pack-costs-2022-are-87-lower) | `UNKNOWN/UNVERIFIED` | 目标与结果的币值年、估计模型、年产 100,000 假设和实际市场价格边界未闭合；不能直接写成“125 对 139”的失准 |
@@ -59,6 +62,9 @@
 
 | case_id | 反证动作 | 结果 |
 |---|---|---|
+| `Y2K-FEDERAL-COST-1999` | 用 GAO 估计的累计成本对比“没有全球灾难”或应急拨款 | 反证成功：预防成本、拨款和故障结果不是同一指标；留 UNKNOWN |
+| `DOW-36000-1999` | 用 FRED 后来触及的点位代替原书未恢复的时间条件 | 反证成功：没有目标窗不能判按期命中或失准；留 UNKNOWN |
+| `CONCORDE-BA-PROFIT-1974` | 用后来停飞或“项目昂贵”替代缺失的数值预测和财报 | 反证成功：停飞不是盈利结果；留 UNKNOWN |
 | `T-HGP-1990` | 用 1998 修订目标和 2003 宣布完成反向替代 1990 原计划，并检查覆盖／质量阈值是否同口径 | 未能杀掉“存在候选”的事实；但杀掉“可直接判定 1990 目标已命中”的说法，留 UNKNOWN |
 | `T-APOLLO-1961` | 检查原文是否是概率预测及“安全返回”是否可量化 | 杀掉本批 forecast 单元资格；排除，保留为可能的政策承诺研究对象 |
 | `T-EV-EVERYWHERE-2012` | 尝试用 DOE 2022 的模型估计直接对比 blueprint 的 $125 | 发现币值、pack/cell、产量假设未闭合；不能判 miss，留 UNKNOWN |
@@ -107,7 +113,7 @@
 
 | 领域／材料族 | 本轮扫描内容 | 结果 | 未扫描或剩余缺口 |
 |---|---|---|---|
-| 科技史 | `technology-calibration*`、`historical-calibration*`、`picturephone*`、`cross-domain*`、科技相关 chains 与 NASA／DOE／FCC／GAO／Kennedy／Moore 来源指针 | 6 个新疑似候选；1 个排除，5 个 UNKNOWN；无新增冻结 | 未逐项下载所有 PDF／原始页，尤其 Moore、UGV、HGP 的页码与结果分母待闭合；ITER、SunShot、IPv4 耗尽仅作零产出线索 |
+| 科技史 | `technology-calibration*`、`historical-calibration*`、`picturephone*`、`cross-domain*`、科技相关 chains 与 NASA／DOE／FCC／GAO／Kennedy／Moore 来源指针 | 8 个新疑似候选（含 Y2K 与 Concorde）；1 个排除，7 个 UNKNOWN；无新增冻结 | 未逐项下载所有 PDF／原始页，尤其 Moore、UGV、HGP 的页码与结果分母待闭合；ITER、SunShot、IPv4 耗尽仅作零产出线索 |
 | 政治／公共政策 | `politics-calibration*`、`historical-misfit*`、`historical-calibration*`、跨域页、政治／地缘 chains；2015 UK、2014 Scotland、2012 US、Yugoslavia、ACA、OMB 指针 | 6 个新疑似候选；无新增冻结；全为 UNKNOWN | 政治原件的逐页下载与官方结果复核未完成；YouGov／Commons Library／Electoral Commission 等部分页面需后续保存 |
 | 商业 | `business-forecast-calibration*`、`business-regularity*`、`cross-domain*`、`picturephone*`、SEC／公司披露指针 | 8 个新疑似候选；1 个排除，7 个 UNKNOWN；无新增冻结 | Netflix 图形 guidance、Tesla 修订链、Peloton 收入、MoviePass／Quibi 私营公司结果仍待原件闭合；Groupon、Blue Apron、Snap、Roku、Sirius XM、Ford EV 搜索未形成数字对 |
 | 既有档案与方法边界 | `02-historical-validation-protocol.md`、已有 calibration 与 blind-review 证据 | 重复项被识别并未计数；分类边界沿用 | 本页不是全面重审，不触碰既有 holdout／独立重审状态 |
@@ -116,7 +122,7 @@
 
 ## 6. 本批形成的校准材料吗？
 
-**没有。** 本批形成的是候选可行性审计材料：宽搜产生 20 个疑似候选，kill pass 阻止不完整配对进入冻结池，最终新增冻结数为 0。它收紧了下一轮应保存的字段和偷换边界，但没有形成可计入的 `CALIBRATION` 配对，更不形成 `CONTAMINATED_RELATIVE_HOLDOUT`、`GENUINE_FUTURE_OOS`、准确率或方法验证。
+**没有。** 本批形成的是候选可行性审计材料：宽搜产生 23 个疑似候选，kill pass 阻止不完整配对进入冻结池，最终新增冻结数为 0。它收紧了下一轮应保存的字段和偷换边界，但没有形成可计入的 `CALIBRATION` 配对，更不形成 `CONTAMINATED_RELATIVE_HOLDOUT`、`GENUINE_FUTURE_OOS`、准确率或方法验证。
 
 ## 7. 自我约束台账
 
