@@ -1,0 +1,96 @@
+{
+  "round": "supplement-2026-10-27-rerun-v2",
+  "source_commit": "30876ab9cbbdff898d82697e392f06042542d9a0",
+  "bundle_sha256": "03883801b67235b94f32fbdc6ede5e5784a2ffe19362cd1e05824ec13ece9f40",
+  "batch_started_at_utc": "2026-10-27T05:42:40Z",
+  "protocol_prompt_version": "five-gate definitions inline; probe-before-verdict required; evidence-insufficient => ABSTAIN; any VETO => VETO; all PASS => PASS",
+  "execution": "Each object below is the complete JSON returned by a fresh-context read-only subagent after receiving exactly one R record. The subagent tool does not expose a model/version identifier; that limitation is explicit and the batch is not treated as a model-comparison or pseudo-out-of-sample accuracy result.",
+  "records": [
+    {
+      "r_id": "R-01",
+      "card_id": "J-107",
+      "returned": {
+        "probe_before_verdict": {"identity_guess": "参照周内年满65岁、为获得报酬至少工作1小时的每周工作行动", "outcome_guess": "D", "confidence": "high"},
+        "gate_verdict": {
+          "gate_1": {"verdict": "PASS", "reason": "R-01明确了动作：65岁以上者在参照周内为报酬至少工作1小时；频次是每周；合格重复执行者约为1,029万至5,164万，属千万量级；记录还说明该行动主要由已经在工作的人推迟退出，既不主要提高既有专业者上限，也不主要让原本不能做的人现在能够做。"},
+          "gate_2": {"verdict": "ABSTAIN", "reason": "R-01只说明部分65岁以上劳动者因收入在旧领取年龄后中断而继续工作，但没有明确指出这一行动替代了哪个具体的旧动作。"},
+          "gate_3": {"verdict": "ABSTAIN", "reason": "R-01提到公共养老金领取年龄、各国统计序列和相关政策，但没有同时给出该行动所依赖的专用基础设施、明确出资者，以及基础设施的第二用途或独立收入来源。"},
+          "gate_4": {"verdict": "ABSTAIN", "reason": "R-01涉及各国推迟公共养老金领取年龄、政策继续生效以及劳动者继续工作，但没有证明主体必须同时改变，也没有明确单方强制者或局部闭环。"},
+          "gate_5": {"verdict": "ABSTAIN", "reason": "R-01没有量化相对T时incumbent的每次使用净负担，也没有给出新增代价与节省项的比较或可执行强制者。"},
+          "overall": {"verdict": "ABSTAIN", "reason": "闸一有记录支持；闸二至闸五缺关键证据，且没有VETO。"}
+        },
+        "missing_evidence": ["被替代的具体旧动作", "专用基础设施、出资者和第二用途", "单方强制或局部闭环", "每次使用净负担量化", "可执行强制者"]
+      }
+    },
+    {
+      "r_id": "R-02",
+      "card_id": "J-103",
+      "returned": {
+        "probe_before_verdict": {"identity_guess": "通用 AI 对话助手中的主动提问或交办低后果任务", "outcome_guess": "S", "confidence": "high"},
+        "gate_verdict": {
+          "gate_1": {"verdict": "PASS", "reason": "动作是个人主动向通用AI对话助手提问或交办；重复频次至少每7天一次；单一服务自报去重周活超过9亿，超过1亿S档门槛。"},
+          "gate_2": {"verdict": "PASS", "reason": "一次提问替代一次搜索或一次向他人求助写作。"},
+          "gate_3": {"verdict": "PASS", "reason": "通过早已普及的手机和浏览器提供服务；免费档由订阅、企业和API收入交叉补贴。"},
+          "gate_4": {"verdict": "PASS", "reason": "免费档进入已有手机和浏览器，采用不需要其他主体同时改变，用户可在单一服务内完成低后果任务。"},
+          "gate_5": {"verdict": "ABSTAIN", "reason": "记录没有按每次使用比较新增身体、社会、学习和金钱代价与节省的等待、价格、时间、流程成本，也没有明确可执行强制者。"},
+          "overall": "ABSTAIN"
+        },
+        "missing_evidence": ["逐次incumbent成本对照", "逐次新增代价与节省项", "低后果提问的可执行强制者", "独立周频去重审计"]
+      }
+    },
+    {
+      "r_id": "R-03",
+      "card_id": "J-106",
+      "returned": {
+        "probe_before_verdict": {"identity_guess": "欧洲四国政府与议会在国防预算压力下压缩官方发展援助（ODA）的预算行为预测", "outcome_guess": "D", "confidence": "low"},
+        "gate_verdict": {
+          "gate_1": {"verdict": "ABSTAIN", "reason": "对象是四国政府与议会的预算行为，但没有明确可重复执行的单次动作、统一频次、参与者数量级或专业者/新人属性。"},
+          "gate_2": {"verdict": "PASS", "reason": "被替代的旧动作可识别为维持或增加面向受援国的ODA预算分配。"},
+          "gate_3": {"verdict": "ABSTAIN", "reason": "提到国防预算、北约路径和预算拨款，但没有专用基础设施、具体出资者及第二用途/独立收入结构。"},
+          "gate_4": {"verdict": "ABSTAIN", "reason": "没有证明哪些主体需同时改变、哪些主体可单方强制或存在局部闭环。"},
+          "gate_5": {"verdict": "ABSTAIN", "reason": "没有相对T时incumbent的每次使用净负担分解，也没有可执行强制者。"},
+          "overall": "ABSTAIN"
+        },
+        "missing_evidence": ["单次动作、频次、执行者数量级", "具体被替代预算动作", "专用基础设施与收入结构", "主体协同或单方强制证据", "每次使用净负担与强制者"]
+      }
+    },
+    {
+      "r_id": "R-04",
+      "card_id": "J-105",
+      "returned": {
+        "probe_before_verdict": {"identity_guess": "R-04：养老金现领取者名义福利削减的立法与预算行为预测", "outcome_guess": "UNKNOWN", "confidence": "medium"},
+        "gate_verdict": {
+          "gate_1": {"verdict": "ABSTAIN", "reason": "动作是七国政府或立法机构通过新立法使中位现领取者基本公共养老金名义月额下降，但没有可比较动作频次、目标人数数量级或专业者/新人属性。"},
+          "gate_2": {"verdict": "ABSTAIN", "reason": "列举了替代方式但没有指定一个明确被替代的旧动作。"},
+          "gate_3": {"verdict": "ABSTAIN", "reason": "涉及公共养老金、预算和OASI信托基金，但没有专用基础设施、具体出资者、第二用途或独立收入来源的完整记录。"},
+          "gate_4": {"verdict": "ABSTAIN", "reason": "没有明确方案是否需要多主体同时改变、能否由单一主体强制或是否已有局部闭环。"},
+          "gate_5": {"verdict": "ABSTAIN", "reason": "没有相对T时incumbent的每次使用净负担分解或可执行强制路径。"},
+          "overall": "ABSTAIN"
+        },
+        "missing_evidence": ["可计数动作和频次", "具体被替代旧动作", "专用基础设施与收入结构", "主体协同/单方强制", "每次使用净负担与强制主体"]
+      }
+    },
+    {
+      "r_id": "R-05",
+      "card_id": "J-104",
+      "returned": {
+        "probe_before_verdict": {"identity_guess": "R-05：参照周内至少一部分有酬工作在本人家中完成的混合办公/远程工作", "outcome_guess": "D", "confidence": "high"},
+        "gate_verdict": {
+          "gate_1": {"verdict": "VETO", "reason": "参照周内完成至少一部分有酬工作；实际重复执行者约4,800万，补入欧盟约6,600万，属千万级而非亿级。"},
+          "gate_2": {"verdict": "PASS", "reason": "旧动作是通勤到雇主场所并在办公室或其他工作场所完成有酬工作，新动作是在家完成同一有酬工作的一部分。"},
+          "gate_3": {"verdict": "PASS", "reason": "家庭宽带和个人设备早已因其他理由普及，具有第二用途。"},
+          "gate_4": {"verdict": "VETO", "reason": "在家与否主要由雇主决定，需要雇主同意，不能由劳动者单方强制；必须有劳动者与雇主配合。"},
+          "gate_5": {"verdict": "ABSTAIN", "reason": "约8%加薪的概括证据不足以按每次使用拆分新增身体、社会、学习、金钱代价与节省项，无法完成净负担比较。"},
+          "overall": "VETO"
+        },
+        "missing_evidence": ["每次使用新增代价与节省项", "净负担安排的可执行强制者", "明确区分规模VETO与证据缺口"]
+      }
+    }
+  ],
+  "classification": {
+    "R0": 0,
+    "R1": 2,
+    "R2": 3,
+    "reason": "按协议，R2 由揭晓前高置信结局猜测或明确识别触发；三条记录为高置信结局或高置信识别，因此本五卡批次降级为协议调试/校准材料，禁止称为伪样本外或预测准确率。"
+  }
+}
