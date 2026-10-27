@@ -37,7 +37,7 @@ No record currently satisfies all three conditions—frozen before the outcome w
 
 | Judgment ID | Freeze time / information cutoff | Forecast content (zh / en) | Observation window (start / end) | Maturity date | Maturity rule | Outcome reveal time | Leading indicator (unit / denominator) | Audience scale and behavioural denominator | Outcome evidence (source / excerpt / access date) | Evidence unit / denominator | Evidence version / hash | Result status | Evidence class |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| — | — | — | — | — | — | — | — | — | — | — | — | — | — | `UNKNOWN/UNVERIFIED` | No completed `GENUINE_FUTURE_OOS` record |
+| — | — | — | — | — | — | — | — | — | — | — | — | `UNKNOWN/UNVERIFIED` | No completed `GENUINE_FUTURE_OOS` record |
 
 ## Review discipline
 
