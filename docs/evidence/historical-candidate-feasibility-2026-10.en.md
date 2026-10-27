@@ -1,0 +1,128 @@
+# Historical Forecast–Outcome Candidate Feasibility Register (2026-10)
+
+[中文版本](historical-candidate-feasibility-2026-10.md)
+
+> **Scope and conclusion.** This register audits the next batch of historical forecast–outcome candidates across technology, politics, and business. It is a candidate-feasibility record, not a backtest, holdout, or proof of method validity. Every candidate was found after its outcome was known; even if later completed, it could be `CALIBRATION` only, never `CONTAMINATED_RELATIVE_HOLDOUT` or `GENUINE_FUTURE_OOS`.
+>
+> **Batch result:** 20 suspected candidates were harvested. After a per-candidate falsification pass, no new case met the fields needed for independent reconstruction and could be frozen as a qualified candidate. Eighteen remain as `UNKNOWN/UNVERIFIED` reserve items; two are excluded because the claim is not a dated forecast–outcome unit or duplicates an existing archive. This batch adds no `CALIBRATION` case and makes no claim about accuracy, `GENUINE_FUTURE_OOS`, or method validation.
+
+## 1. Protocol and required fields
+
+Each candidate is recorded separately for its pre-outcome material and date/information cutoff `T`, target or decision date, observation window, outcome metric/unit/denominator, stable forecast and outcome source locations, independent reconstructability, missing fields, and evidence level.
+
+The [historical pseudo-out-of-sample protocol](../zh/02-historical-validation-protocol.md) §§0–2 applies: if the forecast object, outcome object, metric, unit, denominator, observation window, or source location cannot be closed, the case cannot enter the frozen candidate pool. It remains `UNKNOWN/UNVERIFIED` or is explicitly excluded. A result-known case cannot be renamed a holdout.
+
+| Level | Meaning here |
+|---|---|
+| `UNKNOWN/UNVERIFIED` | A forecast and/or outcome lead was found, but at least one load-bearing field cannot yet be independently reconstructed; it is not counted as qualified calibration. |
+| `EXCLUDED` | The kill pass shows that the item is not a freezeable forecast–outcome unit for this batch: it duplicates an existing archive, lacks a dated target/outcome object, or requires a non-equivalent metric substitution. |
+| `CALIBRATION` | No new case in this batch. A case may receive this label only after same-metric primary-source reconstruction; it can never become out-of-sample evidence. |
+
+## 2. Candidate inventory
+
+| case_id | Domain | Forecast/outcome claim | T and target/window | Metric and denominator | Source locations | Post-kill status | Main gap or exclusion |
+|---|---|---|---|---|---|---|---|
+| `T-HGP-1990` | Technology | HGP planning targeted completion around 2005; completion was announced in 2003 | T: 1990 plan; target about 2005 (1998 revision says 2003); window through 2003 | Reference sequence completion; about 3bn bases; quality/coverage threshold unresolved | [1990 plan](https://www.genome.gov/sites/default/files/media/files/2021-02/1990_First_Five_Year_Plan.pdf); [DOE timeline](https://doe-humangenomeproject.ornl.gov/human-genome-project-timeline/); [NIH overview](https://www.genome.gov/human-genome-project) | `UNKNOWN/UNVERIFIED` | 1990 acceptance date, coverage/quality threshold, and mapping to the 2003 result are not closed; the 1998 revision cannot replace the 1990 version |
+| `T-APOLLO-1961` | Technology | Kennedy called for a crewed lunar landing and safe return before the 1960s ended; Apollo 11 completed the mission in 1969 | T: 1961-05-25; target before 1969-12-31; window through 1969-07-24 | Landing and safe return; “safe” has no pre-specified quantitative threshold | [Kennedy speech](https://www.presidency.ucsb.edu/documents/special-message-the-congress-urgent-national-needs); [NASA Apollo 11](https://www.nasa.gov/mission/apollo-11/) | `EXCLUDED` | A national policy commitment rather than the forecast unit used in this batch; study separately as promise fulfilment, not as a probability forecast |
+| `T-EV-EVERYWHERE-2012` | Technology | DOE targeted about $125/kWh pack cost by 2022; DOE's 2022 estimate was $139/kWh | T: 2012 initiative/2014 blueprint; target 2022; 2022 estimate as outcome | Pack $/kWh; currency year, model production, and pack/cell boundary must match | [DOE blueprint](https://www.energy.gov/sites/default/files/2014/02/f8/eveverywhere_blueprint.pdf); [DOE 2022 estimate](https://www.energy.gov/eere/vehicles/articles/fotw-1308-august-14-2023-electric-vehicle-battery-pack-costs-2022-are-87-lower) | `UNKNOWN/UNVERIFIED` | Currency year, model, 100,000-pack production assumption, and market-price boundary are not closed; do not write “125 versus 139” as a miss |
+| `T-UGV-2000` | Technology/policy | A legal goal targeted one-third unmanned operational ground combat vehicles by 2015; GAO later said the goal was not met | T: about 2000-10-01; target 2015; window through GAO-15-342 | Unmanned operational vehicles / all operational ground combat vehicles; numerator, denominator, and autonomy boundary unresolved | [P.L. 106-398](https://www.govinfo.gov/content/pkg/PLAW-106publ398/pdf/PLAW-106publ398.pdf); [GAO-15-342](https://www.gao.gov/products/gao-15-342) | `UNKNOWN/UNVERIFIED` | GAO page and 2015 numerator/denominator are not recovered; whether a statutory “goal” is scored as a forecast is unresolved |
+| `T-BROADBAND-2010` | Technology/infrastructure | FCC targeted at least 100m homes with affordable actual 100/50 Mbps access by 2020 | T: around 2010-03-16; target 2020; window through the 2020 report | Homes, actual speed, and affordability; outcome reporting primarily uses 25/3 Mbps population coverage | [FCC plan](https://www.fcc.gov/sites/default/files/national-broadband-plan.pdf); [2020 report](https://www.fcc.gov/reports-research/reports/broadband-progress-reports/2020-broadband-deployment-report) | `UNKNOWN/UNVERIFIED` | No same-metric 100m-home/100-50/affordability outcome is available; population vs homes and advertised vs actual cannot substitute |
+| `T-MOORE-1965` | Technology | Moore forecast roughly 65,000 components in minimum-cost integrated circuits by 1975 | T: 1965-04-19; target 1975; window through 1975 review/chip data | Minimum-cost complexity; components and transistors are not yet equivalent denominators | [1965 article](https://www.worldradiohistory.com/Archive-Electronics/60s/65/Electronics-1965-04-19.pdf); [1975 DOI](https://doi.org/10.1109/IEDM.1975.189170); [Intel history](https://www.intel.com/content/www/us/en/history/museum-gordon-moore-law.html) | `UNKNOWN/UNVERIFIED` | Original pages were not verified in this pass; minimum-cost class and components/transistors equivalence are unresolved; one 8080 cannot represent the population |
+| `P-2015-UK-GE` | Politics | Final polls put Conservatives/Labour near parity or slight leads; Conservatives won a single-party majority | T: 2015-05-04–07; target 2015-05-07; window through official result | National vote share/first place/seats must be separate | [YouGov PDF](https://cdn.yougov.com/cumulus_uploads/document/prq13gslk4/FINALCALL_GB_May2015_WedPM_W.pdf); [Survation PDF](https://survation.com/wp-content/uploads/2015/05/Final-Phone-Poll-2.pdf); [Populus archive](https://web.archive.org/web/20150514004946/http://www.populus.co.uk/wp-content/uploads/OmOnline_Vote_Final_BPC.pdf); [Commons Library](https://commonslibrary.parliament.uk/research-briefings/cbp-7186/) | `UNKNOWN/UNVERIFIED` | Official result was not saved after the source returned 403; poll denominator, seat-vs-share target, and ICM values are unresolved |
+| `P-2014-SCOTLAND` | Politics | Final polls showed No ahead; official result was No 55.3%, Yes 44.7% | T: 2014-09-15–18; target 2014-09-18; window through official result | Yes/No valid-vote shares and direction; undecided handling must be frozen | [YouGov](https://yougov.co.uk/news/2014/09/18/yougov-referendum-prediction/); [Survation PDF](https://survation.com/wp-content/uploads/2014/09/24-hour-scottish-referendum-poll.pdf); [Ipsos archive](https://web.archive.org/web/20140924042744/http://www.ipsos-mori.com/Assets/Docs/Polls/scotland-referendum-18-september-tables.pdf) | `UNKNOWN/UNVERIFIED` | Official result source, survey denominator, and undecided rule are not closed; distinguish it from existing `P-01` by case type |
+| `P-2012-US-ELECTION` | Politics | Gallup final poll gave Romney 50%, Obama 49%; Obama won the popular vote | T: 2012-11-01–04; target 2012-11-06; window through certification | Likely-voter poll versus national valid vote share/first place; do not switch to Electoral College | [Gallup](http://www.gallup.com/poll/158519/romney-obama-gallup-final-election-survey.aspx); FEC/National Archives result source not recovered | `UNKNOWN/UNVERIFIED` | Certified primary result, Gallup mode (two-party or all-candidate), and denominator are unresolved |
+| `P-YUGOSLAVIA-1990` | Politics/geopolitics | A CIA NIE may have made a contemporaneous judgement about Yugoslav stability/disintegration | T: probably 1990, exact date unknown; target/window/threshold unknown | Continued federation, republic independence, or recognition needs one defined metric | NIE 15-90 original not obtained; outcome leads [UN members](https://www.un.org/en/members/index.shtml#serbia), [UNSC Resolution 721](https://www.nato.int/ifor/un/u911127a.htm) | `UNKNOWN/UNVERIFIED` | Core forecast source, claim, window, and denominator are all missing; do not call it a CIA failure |
+| `P-ACA-COVERAGE-2010` | Politics/public policy | CBO projected ACA exchange/Medicaid/uninsured coverage; CMS later published enrollment | T: 2010-03-18–20; possible targets 2014–16; window must follow the original table | Exchange, Medicaid, and uninsured counts cannot be mixed with CMS effectuated enrollment | [CBO HR 4872](http://www.cbo.gov/ftpdocs/113xx/doc11355/hr4872.pdf); [CBO update](https://www.cbo.gov/publication/43472); [CMS snapshot](https://www.cms.gov/Newsroom/MediaReleaseDatabase/Fact-sheets/2016-Fact-sheets-items/2016-03-11.html) | `UNKNOWN/UNVERIFIED` | CBO table values, target year, definitions, and same-metric CMS result are not recovered; later CBO cannot replace the original forecast |
+| `P-OMB-FY2001` | Politics/fiscal policy | FY2001 budget material may have projected about $2.019tn receipts; actual receipts/surplus were lower | T: 2000 budget; target 2001-09-30; window through fiscal-year outcome | Unified-budget receipts/outlays/surplus; basis and revision version unresolved | [OMB Budget 2001](https://www.gpo.gov/fdsys/pkg/BUDGET-2001-BUD/pdf/BUDGET-2001-BUD.pdf); [OMB historical tables](https://www.gpo.gov/fdsys/pkg/BUDGET-2016-TAB/pdf/BUDGET-2016-TAB.pdf) | `UNKNOWN/UNVERIFIED` | Original table/page, full forecast values, and budget basis are not closed |
+| `B-NETFLIX-2011-Q3` | Business | Netflix issued Q3 subscriber guidance, revised it after pricing changes, and ended Q3 around 23.79m unique US subscribers | T: 2011-07-25 initial / 2011-09-15 revision; target 2011-09-30; outcome 2011-10-24 | Total Unique US Subscribers; DVD/streaming subscriptions cannot be added | [July 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511196126/dex991.htm); [September revision](https://www.sec.gov/Archives/edgar/data/1065280/000119312511248698/d231910dex991.htm); [October 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511278716/d246709dex991.htm) | `UNKNOWN/UNVERIFIED` | Guidance values are in graphics and were not transcribed; versions and unique/subscription denominators must be fixed |
+| `B-TESLA-2016-BUILD` | Business/technology commercialization | Tesla advanced a 500,000-unit build plan to 2018; 2018 production was 254,530 | T: 2016-05-04; target 2018-12-31; outcome 2019-02-19 | Annual total production; not deliveries, reservations, or Model 3 only | [2016 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm); [2018 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/tsla-10k_20181231.htm) | `UNKNOWN/UNVERIFIED` | Whether “build plan” means a target, annual production, or run-rate is unresolved |
+| `B-TESLA-2016-DELIVERIES` | Business | Tesla guided 80,000–90,000 Model S/X deliveries in 2016; year-end result needs pairing | T: 2016-05-04; target 2016-12-31; outcome 2017-01-03/10-K | Global deliveries of the two models; not production | [2016 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm); [2017 8-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017000024/tsla-8k_20170103.htm); [2016 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017003118/tsla-10k_20161231.htm) | `UNKNOWN/UNVERIFIED` | Final official delivery number was not transcribed, and all in-year revisions were not collected |
+| `B-PELOTON-FY2022` | Business | Peloton guided FY2022 ending subscriptions to 3.35–3.45m and revenue to $4.4–4.8bn; ending subscriptions were about 2.966m | T: 2021-11-04; target 2022-06-30; outcome 2022-08-25 | Ending subscriptions and FY revenue must be separate cases | [Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm); [Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | Revenue outcome was not transcribed; “updated” guidance has a later revision chain |
+| `B-MOVIEPASS-2018` | Business | MoviePass projected over 5m paying subscribers by end-2018; same-metric year-end outcome not found | T: 2018-06-13; target 2018-12-31; window about 201 days | Year-end paying subscribers; not peak, downloads, or shutdown | [Business Wire](https://www.businesswire.com/news/home/20180613005595/en/MoviePass%E2%84%A2-Surpasses-3-Million-Paying-Subscribers); Helios SEC filings (stable year-end source not locked) | `UNKNOWN/UNVERIFIED` | Paid-subscriber definition may have changed; same-metric primary outcome is missing |
+| `B-BEYONDMEAT-2019` | Business | Beyond Meat updated 2019 net-revenue guidance to $265–275m; the 10-K has annual net revenues | T: probable Q3 2019 release; target 2019-12-31; window about two months | Same-year net revenue; not gross profit or sell-through | Forecast filing accession not locked; [2019 10-K](https://www.sec.gov/Archives/edgar/data/1655210/000162828020003841/bynd201910k.htm) | `UNKNOWN/UNVERIFIED` | Forecast filing, date, and final number are not recovered; guidance versions are not frozen |
+| `B-WEWORK-RUNRATE-2019` | Business | WeWork S-1 reported run-rate revenue/backlog without a future target date | T: 2019-08-14; target/window missing | Run-rate/backlog is not GAAP annual revenue | [S-1 index](https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/0001193125-19-220499-index.htm); [2021 S-1](https://www.sec.gov/Archives/edgar/data/1813756/000119312521326238/d148532ds1.htm) | `EXCLUDED` | Kill pass confirms a contemporaneous status metric, not a dated forecast; backlog cannot be substituted for revenue |
+| `B-QUIBI-FIRST-YEAR` | Business | Quibi was said to forecast about 7m paid subscribers in its first year; service closed after about six months | T: probably 2019, exact date missing; first-year target/window missing | Paid subscribers; not downloads, trials, or shutdown | Original investor deck not obtained; outcome lead [CNBC](https://www.cnbc.com/2020/10/22/quibi-co-founders-katzenberg-whitman-explain-what-went-wrong.html) | `UNKNOWN/UNVERIFIED` | Original deck, date, and same-metric official outcome are missing; shutdown is not a subscriber result |
+
+## 3. Per-candidate kill pass
+
+“Kill” here means trying to show that a candidate cannot enter the freeze pool as an independently reconstructable case. It does not call an unknown candidate a forecast failure.
+
+| case_id | Falsification attempt | Result |
+|---|---|---|
+| `T-HGP-1990` | Substitute the 1998 revision and 2003 announcement for the 1990 plan and test whether thresholds match | The candidate lead survives, but the claim that the 1990 target is directly judged is killed; retain UNKNOWN |
+| `T-APOLLO-1961` | Test whether the text is a probabilistic forecast with a measurable “safe return” threshold | Forecast-unit eligibility for this batch is killed; exclude and preserve as a possible policy-commitment study |
+| `T-EV-EVERYWHERE-2012` | Compare the DOE 2022 model estimate directly to the $125 blueprint target | Currency, pack/cell, and production assumptions are not closed; no miss can be called; retain UNKNOWN |
+| `T-UGV-2000` | Use GAO’s “not met” narrative as the 2015 numerator/denominator | The substitution fails; retain UNKNOWN |
+| `T-BROADBAND-2010` | Use the FCC 25/3 Mbps population metric for the 100/50 Mbps household target | Object, speed, and denominator differ; retain UNKNOWN |
+| `T-MOORE-1965` | Use one 8080 transistor count or a 1975 review for the minimum-cost components population | Definitions/population differ; retain UNKNOWN |
+| `P-2015-UK-GE` | Substitute national vote share for the House majority outcome | Institutional outcome and vote share differ; retain UNKNOWN |
+| `P-2014-SCOTLAND` | Substitute search summaries and known 55.3/44.7 numbers for an official outcome source, poll denominator, and undecided rule | Independent reconstruction fails; retain UNKNOWN |
+| `P-2012-US-ELECTION` | Substitute Electoral College or an uncertified summary for the Gallup popular-vote target | Metric substitution fails; retain UNKNOWN |
+| `P-YUGOSLAVIA-1990` | Infer CIA forecast content from post-event encyclopedic history | No primary forecast or threshold; retain UNKNOWN |
+| `P-ACA-COVERAGE-2010` | Use a later CBO retrospective or CMS effectuated enrollment to fill the 2010 CBO table | Later estimate and outcome definition cannot replace the T-before forecast; retain UNKNOWN |
+| `P-OMB-FY2001` | Infer the full budget forecast from historical actual receipts/surplus | Original budget table and basis are missing; retain UNKNOWN |
+| `B-NETFLIX-2011-Q3` | Infer July/September guidance values from the 23.79m outcome | Key forecast values are missing and versions cannot be selected after the fact; retain UNKNOWN |
+| `B-TESLA-2016-BUILD` | Treat “500,000 build plan” as a 2018 full-year production forecast | Run-rate/full-year and plan/forecast meaning are unresolved; retain UNKNOWN |
+| `B-TESLA-2016-DELIVERIES` | Use the common “about 76,000” account instead of an official final delivery number and revision chain | Official same-metric result is not located; retain UNKNOWN |
+| `B-PELOTON-FY2022` | Compare 2.966m directly with the 2021-11 guidance while ignoring later revisions | Version chain and revenue result are incomplete; retain UNKNOWN |
+| `B-MOVIEPASS-2018` | Use shutdown, peak 3m, or media accounts for year-end paid subscribers | Event and peak are not the same outcome; retain UNKNOWN |
+| `B-BEYONDMEAT-2019` | Infer the unlocated Q3 guidance from the 10-K annual revenue | Forecast source and versions are incomplete; retain UNKNOWN |
+| `B-WEWORK-RUNRATE-2019` | Treat run-rate/backlog as a future annual revenue forecast | No target date and non-GAAP metric; exclude |
+| `B-QUIBI-FIRST-YEAR` | Use shutdown or media subscriber accounts for first-year paid subscribers | Original forecast and same-metric outcome are missing; retain UNKNOWN |
+
+## 4. Freeze boundary
+
+### 4.1 No new candidate is frozen
+
+A freezeable candidate must be reconstructable by a third party without relying on the author’s memory: forecast source/date, T-before value or range, target date, outcome source, same metric/unit/denominator, uniform observation window, and stable locators must all be present. Each item in this batch lacks at least one field, so the number frozen is **0**.
+
+This does not mean that historical forecasts did not fail or that the method is invalid. It means this harvest did not yet produce an independently reconstructable addition. Existing archive cases such as `P-04`, `B-WEBVAN`, and `B-ETOYS` were not recounted.
+
+### 4.2 Minimum closure actions
+
+- `T-HGP-1990`: obtain 1990 page/acceptance threshold and primary completion record; treat the 1998 revision as a separate version.
+- `T-EV-EVERYWHERE-2012`: fix currency year, pack/cell boundary, production model, and estimate boundary.
+- `T-UGV-2000`: read GAO pages and recover 2015 numerator, denominator, and operational/autonomy definitions.
+- `T-BROADBAND-2010`: find a 2020 outcome with the original household, 100/50, actual-speed, and affordability definitions; otherwise keep UNKNOWN.
+- `T-MOORE-1965`: preserve the 1965 pages and a 1975 population measurement with the same definition; do not use one chip.
+- Election/referendum cases: preserve official outcome sources, poll denominators, and undecided rules; separate vote share from institutional outcome.
+- `P-YUGOSLAVIA-1990`: obtain the NIE and exact claim/window; otherwise exclude rather than fill the gap with post-event history.
+- `P-ACA-COVERAGE-2010`: recover the 2010 CBO table values, definitions, and target years, then pair with same-metric CMS results.
+- `P-OMB-FY2001`: read the original OMB table and fix budget basis, revisions, and annual outcome.
+- Business cases: preserve the T-before guidance values and versions, then obtain same-metric official outcomes; plans, run-rates, and shutdowns cannot substitute for forecasts.
+
+## 5. Coverage map
+
+| Domain/material family | Scanned | Result | Remaining hole |
+|---|---|---|---|
+| Technology | `technology-calibration*`, `historical-calibration*`, `picturephone*`, `cross-domain*`, technology chains, and NASA/DOE/FCC/GAO/Kennedy/Moore source leads | Six new suspected candidates; one excluded and five UNKNOWN; zero frozen | PDFs/pages, especially Moore, UGV, and HGP, still need primary-page and denominator closure; ITER, SunShot, and IPv4 exhaustion produced only zero-yield leads |
+| Politics/public policy | `politics-calibration*`, `historical-misfit*`, `historical-calibration*`, cross-domain page, politics/geopolitics chains, and six new political leads | Six suspected candidates; zero frozen; all UNKNOWN | Page-by-page primary-source capture and official outcome review remain; some YouGov, Commons Library, and Electoral Commission pages need preservation |
+| Business | `business-forecast-calibration*`, `business-regularity*`, `cross-domain*`, `picturephone*`, SEC/company disclosure leads | Eight suspected candidates; one excluded and seven UNKNOWN; zero frozen | Netflix graphics, Tesla revision chain, Peloton revenue, MoviePass/Quibi private-company outcomes remain open; Groupon, Blue Apron, Snap, Roku, Sirius XM, and Ford EV searches produced no pair |
+| Existing archive and method boundary | Protocol, existing calibration, and blind-review evidence | Duplicates were identified and not recounted; classification boundary retained | This is not a full re-review and does not alter existing holdout/independent-review status |
+
+All three specified domains received an independent harvest leg. Zero-yield areas are named rather than silently presented as fully searched.
+
+## 6. Did this batch produce calibration material?
+
+**No.** It produced a candidate-feasibility audit: 20 suspected candidates were harvested, and the kill pass prevented incomplete pairs from entering the freeze pool. New frozen candidates: 0. The result tightens the fields and substitution boundaries for the next round; it does not produce a `CALIBRATION` pair, `CONTAMINATED_RELATIVE_HOLDOUT`, `GENUINE_FUTURE_OOS`, an accuracy estimate, or method validation.
+
+## 7. Self-imposed constraints
+
+These constraints were added by the executor to make reconstructability explicit; they are not attributed to the user:
+
+- `[self-imposed]` Freeze only when forecast source, outcome source, same metric/unit/denominator, observation window, and stable locators are independently reconstructable — to prevent story counts from replacing evidence closure.
+- `[self-imposed]` Separate plans, policy goals, run-rates, backlogs, shutdown events, and probabilistic forecasts — because their commitment strength and outcome objects differ.
+- `[self-imposed]` Freeze every forecast revision as its own version and do not select the most convenient revision after the outcome — to prevent retrospective timing selection.
+- `[self-imposed]` Keep suspected candidates during harvest and apply the evidence gate in the kill pass — because this is an enumeration task and missed candidates cannot be recovered later.
+
+If any constraint is relaxed, the next round must name which self-imposed constraint was removed and why; this register does not lower the bar to manufacture a count.
+
+## 8. Source and review links
+
+Candidate-level sources appear in the inventory above. Method boundaries are in:
+
+- [Historical pseudo-out-of-sample protocol](../zh/02-historical-validation-protocol.md)
+- [Historical retrospective](../zh/01-retrospect.md)
+- [Next-batch historical forecast–outcome record](historical-calibration-next-batch-2026-10-02.md)
+- [Cross-domain forecast–outcome expansion](cross-domain-forecast-outcome-expansion-2026-10-26.md)
+- [Technology calibration addendum](technology-calibration-addendum-2026-10.md)
