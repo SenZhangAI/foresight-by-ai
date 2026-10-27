@@ -440,6 +440,22 @@ The [cross-domain forecast–outcome expansion evidence page](../evidence/cross-
 
 The common conclusion is not that “cross-domain forecasts usually fail,” but that **different objects cannot share one outcome label**: public budgets, financial indices, and major-engineering profitability each need their own metric, unit, denominator, and window. These cases do not change the repository-wide `CALIBRATION` count (still 6), support accuracy or method-validation claims, or alter the five diffusion gates. If later closed, they can only enter `CALIBRATION` because this page was assembled after outcomes or later history were visible.
 
+### 10.9 Candidate-feasibility audit (2026-10-27): a wider harvest still yields no new calibration pair
+
+The [historical forecast–outcome candidate feasibility register](../evidence/historical-candidate-feasibility-2026-10.en.md) audits a new cross-domain harvest: 8 technology / technology-governance candidates, 6 politics / public-policy candidates, and 10 business / financial-market candidates. This is a feasibility audit, not a backtest, holdout, or method-validation result. Every item was found after its outcome or later history was visible, so even a case closed in a later round could be `CALIBRATION` only; it could never become `CONTAMINATED_RELATIVE_HOLDOUT` or `GENUINE_FUTURE_OOS`.
+
+The kill pass leaves **22 `UNKNOWN/UNVERIFIED` items and 2 `EXCLUDED` items, with 0 newly frozen candidates**. `T-APOLLO-1961` is excluded because the source is a policy commitment rather than the probabilistic forecast unit used by this batch; `B-WEWORK-RUNRATE-2019` is excluded because it is a status metric without a future target date. The 22 retained items each have at least one unresolved load-bearing field: the original forecast or its date, target date, observation window, same-metric outcome, unit, denominator, or stable source locator. An attractive narrative, a later revision, a shutdown, a project milestone, or a passing structure check cannot fill any of those gaps.
+
+| Result of the candidate audit | What it supports | What it does not support |
+|---|---|---|
+| 22 `UNKNOWN/UNVERIFIED` | A public, case-by-case list of missing fields and the next verification action; a sharper boundary between a source lead and an independently reconstructable pair | A definite miss, a calibration denominator, a technology/politics/business accuracy rate, or a new diffusion rule |
+| 2 `EXCLUDED` | Explicit reasons why a policy promise or undated status metric is not scorable in this batch; the cases remain traceable rather than silently discarded | A claim that the underlying policy or company outcome was a forecast failure |
+| 0 frozen additions | Evidence that this harvest did not lower the reconstruction bar to manufacture a sample | Evidence that historical forecasts did not fail, or that the method is valid |
+
+This audit therefore **does not change the repository-wide six-pair `CALIBRATION` archive** and does not add a technology pair. It also leaves `CONTAMINATED_RELATIVE_HOLDOUT` and `GENUINE_FUTURE_OOS` at zero. In particular, a relative holdout assembled from material selected after outcomes were known would remain contaminated: even if the same-input baseline were outperformed, shared training memory and case fingerprints would permit only a relative-discrimination claim, never absolute predictive accuracy. No protocol text, candidate count, `npm run check`, or `ship:structure-placeholder` result can substitute for the frozen population, T-before packet, same-input baseline, scoring rule, and one-shot reveal required by the historical validation protocol.
+
+The surviving conclusion is a method boundary, not a forecast: future historical candidates must be classified one by one, and the project must say **CALIBRATION**, **UNKNOWN/UNVERIFIED**, or **EXCLUDED** before using the material. The complete inventory, kill attempts, source locations, missing fields, and next closure actions remain in the linked register; this section does not promote any of its 24 leads into a definite miss or a society-level judgment.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is

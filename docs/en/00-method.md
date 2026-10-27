@@ -100,6 +100,19 @@ Accordingly, future `CALIBRATION` records must retain, item by item: the forecas
 
 This round returns the boundary of reconstructible historical material to the methodology; it produces no new future forecast and cannot determine the overall cross-domain predictive power of the five candidate sources; evidence of future ability must still come from preregistered judgment cards reviewed after their windows mature.
 
+### 1.4.2 Candidate-feasibility audit of 2026-10-27
+
+The [historical forecast–outcome candidate feasibility register](../evidence/historical-candidate-feasibility-2026-10.en.md) is the next evidence boundary to flow back into this method. It covers 24 suspected candidates—8 technology / technology-governance, 6 politics / public policy, and 10 business / financial-market cases—found after outcomes or later history were visible. The register's kill pass leaves 22 `UNKNOWN/UNVERIFIED`, 2 `EXCLUDED`, and **0 newly frozen cases**. `T-APOLLO-1961` is a policy commitment rather than the probabilistic forecast unit used in this batch; `B-WEWORK-RUNRATE-2019` is a status metric without a future target date. The remaining items lack at least one load-bearing field needed for independent reconstruction.
+
+This result changes the method's recording boundary, not its predictive claim:
+
+- A source lead is not a pair. The original forecast/date, target date, observation window, same-metric outcome, unit, denominator, and stable locator must be closed before a case enters the frozen pool.
+- `UNKNOWN/UNVERIFIED` is a terminally honest state for this round, not a temporary `MISS`; later revisions, shutdowns, milestones, adjacent metrics, second-hand numbers, and attractive narratives cannot fill a missing field.
+- `EXCLUDED` is explicit traceability, not evidence that the underlying policy or business outcome failed as a forecast.
+- The repository-wide qualified `CALIBRATION` archive remains six pairs, with no added technology pair. The batch adds no accuracy denominator and no new rule.
+
+The same boundary applies to relative testing. A result-known candidate set cannot become a clean holdout merely because a protocol, baseline, or structure check is described. Even a properly executed relative holdout under shared training leakage could support only relative discrimination against the same-input baseline; it could not establish absolute accuracy. `npm run check` and `ship:structure-placeholder` are structural / release checks, not method-validity evidence. The full case inventory, falsification attempts, and missing-field register remain in the linked evidence file; this method page must not promote any of the 24 leads into a definite miss, `CALIBRATION`, `CONTAMINATED_RELATIVE_HOLDOUT`, or `GENUINE_FUTURE_OOS` without satisfying that class's own timing and reconstruction requirements.
+
 ### 1.5 New evidence of 2026-10-09 and the boundary of each piece
 
 §1.4 records the state of the material as of 2026-10-02 and is preserved unchanged. Two further bodies of material landed on 2026-10-09. What they change is still **recording and usage discipline**, not the validity of the method.
