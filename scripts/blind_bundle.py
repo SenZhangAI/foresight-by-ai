@@ -125,9 +125,18 @@ PRIOR_REVIEW_TOKENS = (
     "the preceding judgment", "raises existing professionals", "lets people who could not",
     "enables people who previously could not", "capability type", "capability classification",
     "migration audit", "constructed ceiling", "back-projected",
-    "the audit did not obtain independent evidence", "unknown",
+    "the audit did not obtain independent evidence", "unknown", "corrected 2026-10-10",
+    "更正", "previously said", "此前写", "which that count contradicts", "与该计数矛盾",
+    "Current-scale review", "现时规模复核", "carried by no lens", "无承载",
     "prior review", "current review", "adoption gate", "diffusion gate",
-    "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5",
+    "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5", "L8", "L10", "M2",
+)
+
+PRIOR_REVIEW_PAREN_RE = re.compile(
+    r"\([^()]{0,800}(?:corrected\s+2026-10-10|previously\s+said|"
+    r"which\s+that\s+count\s+contradicts|see\s+M2|"
+    r"2026-10-10\s*更正|此前写|与该计数矛盾|见不以 AI 为前提)[^()]{0,800}\)",
+    re.IGNORECASE,
 )
 
 SOURCE_ID_RE = re.compile(r"\bEXT-\d+\b", re.IGNORECASE)
@@ -360,6 +369,9 @@ def strip_prior_review_text(value: str) -> str:
     }
     for old, new in replacements.items():
         value = value.replace(old, new)
+    value = PRIOR_REVIEW_PAREN_RE.sub("", value)
+    value = re.sub(r"(?<![A-Za-z])(?:L|M)\d{1,2}(?!\d)", "", value,
+                   flags=re.IGNORECASE)
     value = NUMBERED_CONSTRAINT_RE.sub("a constraint", value)
     folded_tokens = tuple(fold(token).lower() for token in PRIOR_REVIEW_TOKENS)
     parts = re.split(r"(?<=[。！？.!?；;])\s*", value)
