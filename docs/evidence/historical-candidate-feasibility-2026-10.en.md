@@ -4,7 +4,7 @@
 
 > **Scope and conclusion.** This register audits the next batch of historical forecast–outcome candidates across technology, politics, and business. It is a candidate-feasibility record, not a backtest, holdout, or proof of method validity. Every candidate was found after its outcome was known; even if later completed, it could be `CALIBRATION` only, never `CONTAMINATED_RELATIVE_HOLDOUT` or `GENUINE_FUTURE_OOS`.
 >
-> **Batch result:** 24 suspected candidates were harvested. After a per-candidate falsification pass, no new case met the fields needed for independent reconstruction and could be frozen as a qualified candidate. Twenty-two remain as `UNKNOWN/UNVERIFIED` reserve items; two are excluded because they are not dated forecast units for this batch. This batch adds no `CALIBRATION` case and makes no claim about accuracy, `GENUINE_FUTURE_OOS`, or method validation.
+> **Batch result:** 24 suspected candidates were harvested. After a per-candidate falsification pass, no new case met the fields needed for independent reconstruction and could be frozen as a qualified candidate. Twenty-two remain as `UNKNOWN/UNVERIFIED` reserve items; two are excluded because they are not scorable forecast units for this batch (`T-APOLLO-1961` is a policy commitment rather than a probabilistic forecast; `B-WEWORK-RUNRATE-2019` is a status metric without a future target date). This batch adds no `CALIBRATION` case and makes no claim about accuracy, `GENUINE_FUTURE_OOS`, or method validation.
 
 ## 1. Protocol and required fields
 
@@ -147,8 +147,8 @@ If any constraint is relaxed, the next round must name which self-imposed constr
 
 Candidate-level sources appear in the inventory above. Method boundaries are in:
 
-- [历史伪样本外验证协议（中文方法原文）](../zh/02-historical-validation-protocol.md)
-- [历史回顾（中文方法原文）](../zh/01-retrospect.md)
+- [历史伪样本外验证协议（English method document）](../en/02-historical-validation-protocol.md) · [中文原文](../zh/02-historical-validation-protocol.md)
+- [历史回顾（English retrospective）](../en/01-retrospect.md) · [中文原文](../zh/01-retrospect.md)
 - [Next-batch historical forecast–outcome record](historical-calibration-next-batch-2026-10-02.en.md)
 - [Cross-domain forecast–outcome expansion](cross-domain-forecast-outcome-expansion-2026-10-26.en.md)
 - [Technology calibration addendum](technology-calibration-addendum-2026-10.en.md)

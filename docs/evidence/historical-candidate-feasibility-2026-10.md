@@ -4,7 +4,7 @@
 
 > **范围与结论。** 本页承接历史先行方向，审计下一批跨科技、政治与商业的历史预测—结果候选。它是候选可行性清单，不是回测、不是 holdout，也不是方法有效性证明。所有候选都是结果已知后发现；即使日后补齐，也最多进入 `CALIBRATION`，不能进入 `CONTAMINATED_RELATIVE_HOLDOUT` 或 `GENUINE_FUTURE_OOS`。
 >
-> **本批结论：** 宽搜得到 24 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。22 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因其不是本批的带目标日期 forecast 单元而排除。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
+> **本批结论：** 宽搜得到 24 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。22 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因不属于本批可评分的 forecast 单元而排除（`T-APOLLO-1961` 是政策承诺而非概率 forecast；`B-WEWORK-RUNRATE-2019` 是没有未来目标日期的状态指标）。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
 
 ## 1. 记录协议与字段
 
