@@ -35,9 +35,9 @@ Review takes place after the observation window closes and places the frozen for
 
 No record currently satisfies all three conditions—frozen before the outcome was observed, observation window closed, and outcome evidence disclosed—so the table remains empty. New records must use the same field order; historical calibration cases and structure checks must not be entered here.
 
-| Judgment ID | Freeze time / information cutoff | Forecast content (zh / en) | Observation window / maturity date | Leading indicator (unit / denominator) | Audience scale and behavioural denominator | Outcome evidence (source / excerpt / access date) | Result status | Evidence class |
-|---|---|---|---|---|---|---|---|---|
-| — | — | — | — | — | — | — | `UNKNOWN/UNVERIFIED` | No completed `GENUINE_FUTURE_OOS` record |
+| Judgment ID | Freeze time / information cutoff | Forecast content (zh / en) | Observation window (start / end) | Maturity date | Maturity rule | Outcome reveal time | Leading indicator (unit / denominator) | Audience scale and behavioural denominator | Outcome evidence (source / excerpt / access date) | Evidence unit / denominator | Evidence version / hash | Result status | Evidence class |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| — | — | — | — | — | — | — | — | — | — | — | — | — | — | `UNKNOWN/UNVERIFIED` | No completed `GENUINE_FUTURE_OOS` record |
 
 ## Review discipline
 
