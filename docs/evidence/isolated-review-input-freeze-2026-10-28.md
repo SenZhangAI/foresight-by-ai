@@ -6,16 +6,16 @@
 
 ### 冻结指纹
 
-- 输入源 commit：`0ff06afafca1982552880f1850f24f91be96280f`（清理器变更所在提交）
+- 输入源 commit：`018977bce046743036602ea99f63ea2dc18f2ef8`（清理器变更所在提交）
 - manifest：[`manifest-2026-10-28-isolated.json`](blind-review/manifest-2026-10-28-isolated.json)
-- manifest SHA-256：`0b1bf75507b3a1a48fb8671c00a599c3ac7ec04454820350ef4c7a7afe22005a`
+- manifest SHA-256：`0814d828c4694ecb8e7417f7ef8600eb2cebcc27a779f8ff2660584a819233a1`
 - bundle：[`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
-- bundle SHA-256：`0687b6d53e0cc3791f94f1dbd977688a99cfc16581d3adebb76de0c9ca7f92fe`
+- bundle SHA-256：`aaf60a038b487087f55db0c807427bfc3b4acc0cd8f7387e2218304f966d7f31`
 - 证据 JSON：[`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
-- seed SHA-256（seed 本身不入仓库）：`5c47eac33d81ef0a3faa1d343b569655d48f72b9957ca46bb189009facb8b9b6`
-- 密封映射 SHA-256（映射保存在仓库外，不随 bundle 发布）：`c6651b9b11db8060aa0e5dfa86e8c73874e2d81389286e058391e666e51778e5`
-- 纳入：36 张中英成对判断卡；`R-01`–`R-36`
-- 候选总数：218；排除：182
+- seed SHA-256（seed 本身不入仓库）：`266195e5d9223267726d6eedc3a3d561c3e4540448ca90590dd928e5cd1dc98a`
+- 密封映射 SHA-256（映射保存在仓库外，不随 bundle 发布）：`bbd380d401266eb0e20940b535e4dd52059a74e4c13ab6b9ba4e52f8c045f136`
+- 纳入：35 张中英成对判断卡；`R-01`–`R-35`
+- 候选总数：218；排除：183
 - 保留字段（中英同义）：`judgment`、`audience`、`reasoning_chain`、`time_window`、`falsifier`、`leading_indicator`
 - 去除内容：旧卡片编号、标题回溯线索、来源路径、状态／置信度／外部对照元数据、依赖关系、普及闸及其旧结论标签、编号约束标签与 `EXT-NN` 来源编号；判断字段本身保留，以便重审者能判断原主张。
 
@@ -24,7 +24,7 @@
 纳入规则和逐项文件哈希以 manifest 为准：当前台账中同时存在中英文版本、六个必填字段在去标签及旧复核标签清理后仍可读的卡片。排除项只有两桶：
 
 1. `docs/evidence/legacy-ledger-migration.md` 中的 95 条历史迁移快照：它们重复当前判断，不构成第二套判断全集。
-2. 87 张当前台账卡片：去除旧复核元结论后，至少一个必填字段（manifest 逐卡列出，首个为 `audience`）不再有可读内容，无法交给 reviewer 判断；这些卡没有被静默丢弃，逐卡原因已写入 manifest。
+2. 88 张当前台账卡片：去除旧复核元结论后，至少一个必填字段（manifest 逐卡列出，首个为 `audience`）不再有可读内容，无法交给 reviewer 判断；这些卡没有被静默丢弃，逐卡原因已写入 manifest。
 
 卡片集合、双语路径、源文件哈希、纳入理由与排除桶均被冻结；后续改变必须另起 manifest 和 commit，不能覆盖本指纹。
 
@@ -40,16 +40,16 @@ This file freezes the **input to a future isolated re-review**. It does not say 
 
 ### Frozen fingerprints
 
-- Source commit: `0ff06afafca1982552880f1850f24f91be96280f` (the commit containing the cleaner change)
+- Source commit: `018977bce046743036602ea99f63ea2dc18f2ef8` (the commit containing the cleaner change)
 - Manifest: [`manifest-2026-10-28-isolated.json`](blind-review/manifest-2026-10-28-isolated.json)
-- Manifest SHA-256: `0b1bf75507b3a1a48fb8671c00a599c3ac7ec04454820350ef4c7a7afe22005a`
+- Manifest SHA-256: `0814d828c4694ecb8e7417f7ef8600eb2cebcc27a779f8ff2660584a819233a1`
 - Bundle: [`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
-- Bundle SHA-256: `0687b6d53e0cc3791f94f1dbd977688a99cfc16581d3adebb76de0c9ca7f92fe`
+- Bundle SHA-256: `aaf60a038b487087f55db0c807427bfc3b4acc0cd8f7387e2218304f966d7f31`
 - Evidence JSON: [`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
-- Seed SHA-256 (the seed itself is not committed): `5c47eac33d81ef0a3faa1d343b569655d48f72b9957ca46bb189009facb8b9b6`
-- Sealed mapping SHA-256 (stored outside the repository): `c6651b9b11db8060aa0e5dfa86e8c73874e2d81389286e058391e666e51778e5`
-- Included: 36 bilingual card pairs, numbered locally as `R-01`–`R-36`
-- Candidate total: 218; excluded: 182
+- Seed SHA-256 (the seed itself is not committed): `266195e5d9223267726d6eedc3a3d561c3e4540448ca90590dd928e5cd1dc98a`
+- Sealed mapping SHA-256 (stored outside the repository): `bbd380d401266eb0e20940b535e4dd52059a74e4c13ab6b9ba4e52f8c045f136`
+- Included: 35 bilingual card pairs, numbered locally as `R-01`–`R-35`
+- Candidate total: 218; excluded: 183
 - Retained fields: `judgment`, `audience`, `reasoning_chain`, `time_window`, `falsifier`, `leading_indicator`
 - Removed: legacy identifiers, title/source traceback clues, paths, status/confidence/external-comparison metadata, dependency references, diffusion-gate labels and conclusions, numbered constraint labels, and `EXT-NN` source identifiers. The judgment field itself remains so the reviewer can assess the original claim.
 
@@ -58,7 +58,7 @@ This file freezes the **input to a future isolated re-review**. It does not say 
 The manifest is authoritative for the inclusion rule and every bilingual source hash: include a current card only when both language projections retain readable content in all six required fields after de-labelling and removal of prior-review vocabulary. There are two exclusion buckets:
 
 1. 95 historical migration snapshots from `docs/evidence/legacy-ledger-migration.md`, which duplicate current cards and are not a second judgment set.
-2. 87 current ledger cards whose required fields no longer have readable content after prior-review metadata is removed (the manifest lists each card and its first missing field, beginning with `audience`); they are explicitly excluded rather than silently dropped.
+2. 88 current ledger cards whose required fields no longer have readable content after prior-review metadata is removed (the manifest lists each card and its first missing field, beginning with `audience`); they are explicitly excluded rather than silently dropped.
 
 The card set, bilingual paths, source hashes, inclusion reasons, and exclusion buckets are frozen. Any later change requires a new manifest and commit rather than overwriting this fingerprint.
 
