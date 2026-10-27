@@ -114,6 +114,20 @@ METADATA_TOKENS = (
 GATE_TOKENS = ("普及闸", "adoption gate", "diffusion-gate", "diffusion gate", "闸复核")
 DEPENDENCY_TOKENS = ("depends-on", "depends on", "depends_on", "依赖于", "上游判断")
 
+# The current ledger also embeds conclusions from the previous diffusion-gate
+# pass inside otherwise useful retained fields.  A fresh re-review must not be
+# handed those labels or the source of those labels.  This list is deliberately
+# narrow: it removes review vocabulary, not the judgment itself.
+PRIOR_REVIEW_TOKENS = (
+    "提高既有专业者上限", "让原本不会的人也能做", "让原本不会者",
+    "能力类型", "能力分类", "普及闸", "现有复核", "已有复核", "当前复核", "本轮复核",
+    "基于现有复核", "the preceding judgment", "raises existing professionals",
+    "lets people who could not", "enables people who previously could not",
+    "capability type", "capability classification", "existing review",
+    "prior review", "current review", "adoption gate", "diffusion gate",
+    "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5",
+)
+
 LANGUAGES = ("zh", "en")
 
 # Two traceback shapes the merged token scan is structurally unable to see, so
@@ -312,7 +326,43 @@ def de_label_value(value: str) -> str:
     return text.strip(" ,，;；:：、")
 
 
-def extract_fields(section: str, card_id: str, redact_values: bool = True) -> Dict[str, str]:
+def strip_prior_review_text(value: str) -> str:
+    """Remove prior gate labels from a non-judgment retained field.
+
+    The old review may be mentioned as a sentence or semicolon-delimited clause.
+    Dropping the whole containing clause is safer than leaving a partially edited
+    conclusion for a fresh reviewer to mistake for source evidence.
+    """
+    replacements = {
+        "the preceding judgment": "an upstream condition",
+        "前一判断": "上游条件",
+        "上一个判断": "上游条件",
+        "Gate 1": "the first constraint",
+        "Gate 2": "the second constraint",
+        "Gate 3": "the third constraint",
+        "Gate 4": "the fourth constraint",
+        "Gate 5": "the fifth constraint",
+        "Gates 2 through 5": "the later constraints",
+        "闸一": "第一道约束",
+        "闸二": "第二道约束",
+        "闸三": "第三道约束",
+        "闸四": "第四道约束",
+        "闸五": "第五道约束",
+    }
+    for old, new in replacements.items():
+        value = value.replace(old, new)
+    folded_tokens = tuple(fold(token).lower() for token in PRIOR_REVIEW_TOKENS)
+    parts = re.split(r"(?<=[。！？.!?；;])\s*", value)
+    kept = [part for part in parts
+            if not any(token in fold(part).lower() for token in folded_tokens)]
+    cleaned = re.sub(r"\s+", " ", " ".join(kept))
+    cleaned = re.sub(r"([,，;；:：])\s*([,，;；:：])+", r"\1", cleaned)
+    cleaned = re.sub(r"([,，;；:：])\s*(?=[。.!?])", "", cleaned)
+    return cleaned.strip(" ,，;；:：、")
+
+
+def extract_fields(section: str, card_id: str, redact_values: bool = True,
+                  strip_prior_conclusions: bool = False) -> Dict[str, str]:
     """Keep only explicitly allowed bullet fields.
 
     Parsing bullet by bullet (rather than deleting forbidden substrings) is what
@@ -328,7 +378,13 @@ def extract_fields(section: str, card_id: str, redact_values: bool = True) -> Di
     def flush() -> None:
         if current and buffer:
             cleaned = clean_value(" ".join(buffer))
-            fields[current] = de_label_value(cleaned) if redact_values else cleaned
+            if redact_values:
+                cleaned = de_label_value(cleaned)
+            cleaned = re.sub(r"([,，;；:：])\s*([,，;；:：])+", r"\1", cleaned)
+            if strip_prior_conclusions:
+                cleaned = strip_prior_review_text(cleaned)
+            if cleaned:
+                fields[current] = cleaned
 
     for line in lines[1:]:
         stripped = line.strip()
@@ -347,6 +403,8 @@ def extract_fields(section: str, card_id: str, redact_values: bool = True) -> Di
     missing = sorted(k for k in REQUIRED_KEYS if not fields.get(k))
     if missing:
         fail("%s: missing required fields after de-labelling: %s" % (card_id, ", ".join(missing)))
+    if strip_prior_conclusions:
+        return {k: fields[k] for k in REQUIRED_KEYS}
     return {k: v for k, v in sorted(fields.items()) if v}
 
 
@@ -686,6 +744,7 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
             mapping_out: Optional[Path] = None,
             disabled_checks: Optional[Set[str]] = None,
             redact_values: bool = True,
+            strip_prior_conclusions: bool = False,
             test_fault: Optional[str] = None) -> Dict[str, Any]:
     if not isinstance(seed, str) or not seed.strip():
         fail("seed must be a non-empty string")
@@ -734,8 +793,10 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
             own_by_cid.setdefault(cid, []).extend(own)
             titles.extend(own)
         paths.extend([card["zh_path"], card["en_path"]])
-        zh_fields = extract_fields(zh_section, cid, redact_values=redact_values)
-        en_fields = extract_fields(en_section, cid, redact_values=redact_values)
+        zh_fields = extract_fields(zh_section, cid, redact_values=redact_values,
+                                   strip_prior_conclusions=strip_prior_conclusions)
+        en_fields = extract_fields(en_section, cid, redact_values=redact_values,
+                                   strip_prior_conclusions=strip_prior_conclusions)
         zh_count += 1 if zh_fields else 0
         en_count += 1 if en_fields else 0
         records.append({"cid": cid, "zh": zh_fields, "en": en_fields})
@@ -823,13 +884,17 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
         },
         "coverage": manifest["coverage"],
         "renumbering": "R-NN assigned after a seed-keyed content shuffle",
+        "prior_conclusions_stripped": strip_prior_conclusions,
+        "retained_fields": list(REQUIRED_KEYS) if strip_prior_conclusions else list(RETAINED_KEYS),
         "mapping_in_bundle": False,
         "mapping_readable_by_generator": False,
         "runtime": runtime_environment(),
         "output_file": BUNDLE_FILENAME,
     }
     if verify_determinism:
-        result["determinism"] = verify_reproducibility(repo, manifest_path, seed, bundle_bytes)
+        result["determinism"] = verify_reproducibility(
+            repo, manifest_path, seed, bundle_bytes,
+            strip_prior_conclusions=strip_prior_conclusions)
     else:
         # Without --verify-determinism nothing was recomputed, so `same_bytes`
         # must stay unanswered rather than default to true: an evidence pack is
@@ -877,7 +942,8 @@ def write_mapping(repo: Path, mapping_out: Path, ordered: List[Dict[str, Any]],
 
 
 def verify_reproducibility(repo: Path, manifest_path: Path, seed: str,
-                           expected: bytes) -> Dict[str, Any]:
+                           expected: bytes,
+                           strip_prior_conclusions: bool = False) -> Dict[str, Any]:
     """Two independent temp dirs, a plain checkout, and `git archive HEAD`.
 
     The archive leg matters because it is a different checkout shape: it catches
@@ -891,7 +957,8 @@ def verify_reproducibility(repo: Path, manifest_path: Path, seed: str,
         mcopy.write_bytes(manifest_path.read_bytes())
         hashes = []
         for name in ("run-one", "run-two"):
-            out = prepare(repo, mcopy, root / name, seed)
+            out = prepare(repo, mcopy, root / name, seed,
+                          strip_prior_conclusions=strip_prior_conclusions)
             hashes.append(out["bundle_sha256"])
         one = (root / "run-one" / BUNDLE_FILENAME).read_bytes()
         two = (root / "run-two" / BUNDLE_FILENAME).read_bytes()
@@ -902,10 +969,12 @@ def verify_reproducibility(repo: Path, manifest_path: Path, seed: str,
         reordered["cards"] = list(reversed(manifest["cards"]))
         rpath = root / "manifest-reordered.json"
         rpath.write_bytes(canonical_json(reordered))
-        prepare(repo, rpath, root / "run-reordered", seed)
+        prepare(repo, rpath, root / "run-reordered", seed,
+                strip_prior_conclusions=strip_prior_conclusions)
         order_independent = (root / "run-reordered" / BUNDLE_FILENAME).read_bytes() == expected
 
-        other = prepare(repo, mcopy, root / "run-other-seed", seed + "-different")
+        other = prepare(repo, mcopy, root / "run-other-seed", seed + "-different",
+                        strip_prior_conclusions=strip_prior_conclusions)
         seed_changes_order = other["bundle_sha256"] != sha256_bytes(expected) or len(manifest["cards"]) == 1
 
         archive_same: Optional[bool] = None
@@ -919,7 +988,8 @@ def verify_reproducibility(repo: Path, manifest_path: Path, seed: str,
                 extracted = root / "head"
                 extracted.mkdir()
                 subprocess.run(["tar", "-xf", str(tar_path), "-C", str(extracted)], check=True)
-                prepare(extracted, mcopy, root / "run-archive", seed)
+                prepare(extracted, mcopy, root / "run-archive", seed,
+                        strip_prior_conclusions=strip_prior_conclusions)
                 archive_same = (root / "run-archive" / BUNDLE_FILENAME).read_bytes() == expected
         return {
             "independent_runs": 2,
@@ -1453,6 +1523,8 @@ def main(argv: List[str]) -> int:
                         help="absolute path OUTSIDE the repository for the sealed mapping")
     parser.add_argument("--seed")
     parser.add_argument("--verify-determinism", action="store_true")
+    parser.add_argument("--strip-prior-conclusions", action="store_true",
+                        help="remove prior diffusion-review labels and retain only the six required fields")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args(argv)
 
@@ -1475,6 +1547,7 @@ def main(argv: List[str]) -> int:
             anchor(args.evidence),
             args.verify_determinism,
             args.mapping_out,
+            strip_prior_conclusions=args.strip_prior_conclusions,
         )
         print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2))
         return 0

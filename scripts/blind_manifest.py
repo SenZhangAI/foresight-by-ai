@@ -58,7 +58,8 @@ def collect_cards(repo: Path, language: str) -> Dict[str, str]:
 
 
 def claim_survives(repo: Path, cid: str, zh_rel: str, en_rel: str,
-                   titles: List[str], paths: List[str]) -> Tuple[bool, str]:
+                   titles: List[str], paths: List[str],
+                   strip_prior_conclusions: bool = False) -> Tuple[bool, str]:
     """Apply the generator's own extraction + redaction, then test the rule.
 
     `titles`/`paths` are built from EVERY candidate card, not just the ones that
@@ -77,7 +78,8 @@ def claim_survives(repo: Path, cid: str, zh_rel: str, en_rel: str,
         text = (repo / rel).read_text(encoding="utf-8")
         try:
             section = bb.card_section(text, cid)
-            record[language] = bb.extract_fields(section, cid)
+            record[language] = bb.extract_fields(
+                section, cid, strip_prior_conclusions=strip_prior_conclusions)
         except bb.Refused as exc:
             return False, str(exc).replace(cid, "the card")
         own.extend(bb.heading_titles(section))
@@ -94,6 +96,8 @@ def main(argv: List[str]) -> int:
     parser = argparse.ArgumentParser(description="Freeze the blind-review input manifest.")
     parser.add_argument("--repo", type=Path, default=Path.cwd())
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--strip-prior-conclusions", action="store_true",
+                        help="freeze the clean six-field input for an isolated re-review")
     args = parser.parse_args(argv)
     repo = args.repo.resolve()
 
@@ -113,7 +117,9 @@ def main(argv: List[str]) -> int:
     cards: List[Dict[str, Any]] = []
     claim_lost: List[Tuple[str, str]] = []
     for cid in paired:
-        ok, reason = claim_survives(repo, cid, zh[cid], en[cid], titles, paths)
+        ok, reason = claim_survives(
+            repo, cid, zh[cid], en[cid], titles, paths,
+            strip_prior_conclusions=args.strip_prior_conclusions)
         if not ok:
             claim_lost.append((cid, reason))
             continue
@@ -156,20 +162,29 @@ def main(argv: List[str]) -> int:
     head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
                           stdout=subprocess.PIPE, check=True).stdout.decode().strip()
     excluded = sum(item["count"] for item in exclusions)
+    inclusion_rule = (
+        "Include every current ledger card for which both the Chinese and English "
+        "card contain all six required retained fields — judgment, audience, "
+        "reasoning chain, time window, falsifier, leading indicator — AND still "
+        "carry readable content in each of them after de-labelling. De-labelling "
+        "strips every card's heading title out of every field, with one narrow "
+        "exemption: a card's OWN title is kept inside its own claim field, because "
+        "many cards repeat their judgment as their title and deleting it there "
+        "would leave no claim. Another card's title in a claim field is still a "
+        "reverse-lookup key and is still refused. Exclude migration snapshots "
+        "because they duplicate current judgments."
+    )
+    if args.strip_prior_conclusions:
+        inclusion_rule += (
+            " For this isolation freeze, prior diffusion-review vocabulary and "
+            "conclusion labels are removed from every non-judgment retained field; "
+            "only the six required fields are emitted, and a card is excluded if "
+            "that cleaning leaves any required field unreadable."
+        )
     manifest = {
         "schema_version": bb.SCHEMA_VERSION,
         "source_commit": head,
-        "inclusion_rule": (
-            "Include every current ledger card for which both the Chinese and English "
-            "card contain all six required retained fields — judgment, audience, "
-            "reasoning chain, time window, falsifier, leading indicator — AND still "
-            "carry readable content in each of them after de-labelling. De-labelling "
-            "strips every card's heading title out of every field, with one narrow "
-            "exemption: a card's OWN title is kept inside its own claim field, because "
-            "many cards repeat their judgment as their title and deleting it there "
-            "would leave no claim. Another card's title in a claim field is still a "
-            "reverse-lookup key and is still refused. Exclude migration snapshots "
-            "because they duplicate current judgments."),
+        "inclusion_rule": inclusion_rule,
         "exclusions": exclusions,
         "coverage": {"candidate_total": len(cards) + excluded,
                      "included": len(cards), "excluded": excluded},
