@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "round": "supplement-2026-10-27",
+  "protocol": "docs/zh/02-historical-validation-protocol.md §5",
+  "source_commit": "30876ab9cbbdff898d82697e392f06042542d9a0",
+  "manifest_sha256": "see SHA256SUMS",
+  "bundle_sha256": "03883801b67235b94f32fbdc6ede5e5784a2ffe19362cd1e05824ec13ece9f40",
+  "scope": "Exactly J-103–J-107. The other 118 current cards are explicitly outside this supplement and are not silently counted as reviewed.",
+  "isolation": "Five fresh-context read-only reviewers each received only one de-labeled R record from bundle.json. They were instructed not to read the repository or coordinate. Their recognition field is preserved as returned; it does not identify a J-card.",
+  "results": [
+    {
+      "card_id": "J-103",
+      "r_id": "R-02",
+      "record_sha256": "eea7df10f5115cbf5ca8652a4055c6372b723ec8c6bf9550fa9977c463fe19c",
+      "recognized": true,
+      "gates": {
+        "gate1": {"verdict": "PASS", "reason": "The recorded action is asking a general-purpose AI or handing it a low-consequence task; one service self-reports more than 900 million weekly users, above the 100-million S-tier threshold. Delegated ordering/payment is explicitly a separate boundary claim."},
+        "gate2": {"verdict": "PASS", "reason": "The record identifies the replaced incumbent actions as web search, asking another person, and requesting writing help."},
+        "gate3": {"verdict": "PASS", "reason": "Existing phones and browsers carry the user side; provider subscription, enterprise, and API revenue carry inference."},
+        "gate4": {"verdict": "PASS", "reason": "Low-consequence asking/hand-off is unilateral; the record keeps authorisation, revocation, and liability as the unmet boundary for delegated payment."},
+        "gate5": {"verdict": "PASS", "reason": "Voluntary repeat use is already observed at T and the free tier is supported by cross-subsidy, while capital pullback is retained as an explicit opposing mechanism."}
+      },
+      "verdict": "PASS",
+      "rationale": "The reviewer retained the distinction between society-scale asking/low-stakes hand-off and delegated payment. No gate was vetoed and no decisive input was absent; provider self-report remains an evidence limitation, not a hidden accuracy claim.",
+      "missing_evidence": ["Independent audit or survey-based denominator for the provider-reported weekly users", "Public weekly de-duplicated delegated-payment count", "The requested 30-request product sample was not part of the frozen record"]
+    },
+    {
+      "card_id": "J-104",
+      "r_id": "R-05",
+      "record_sha256": "0ccb30894330898e29d10bdf2c5602ca721429380d061b33370e8ec065598bde",
+      "recognized": true,
+      "gates": {
+        "gate1": {"verdict": "VETO", "reason": "The record puts qualifying weekly actors at about 48 million, or about 66 million with an uncounted EU base, below the 100-million threshold."},
+        "gate2": {"verdict": "PASS", "reason": "Working at home replaces part of office work and commuting, with the incumbent action named explicitly."},
+        "gate3": {"verdict": "PASS", "reason": "Home broadband and personal devices already exist, and the 2020 shutdown supplied a large-scale employer test."},
+        "gate4": {"verdict": "PASS", "reason": "The employer is the decision-maker; attendance rules and their enforcement are observable constraints."},
+        "gate5": {"verdict": "PASS", "reason": "The record reports voluntary repeat use and an estimated wage-equivalent benefit, while preserving employer tightening and labour-shortage paths as opposing mechanisms."}
+      },
+      "verdict": "VETO",
+      "rationale": "The independent reviewer reached the same necessary-condition veto on scale but did not treat it as a forecast-accuracy result.",
+      "missing_evidence": ["Future 19–25% plateau data", "The ten-employer sample and office-use records", "EU employment base", "Measured disability-related scale"]
+    },
+    {
+      "card_id": "J-105",
+      "r_id": "R-04",
+      "record_sha256": "37331909da7feafbc7501bbbc97524dedc59b0db901e7b76366b015b6c6cbe66",
+      "recognized": true,
+      "gates": {
+        "gate1": {"verdict": "VETO", "reason": "The record describes a constructed hundred-millions impact but does not verify a countable action or a denominator for the institutional judgment; the direct actors are seven governments and legislatures."},
+        "gate2": {"verdict": "PASS", "reason": "It names concrete alternative budget routes: future-age changes, formula changes, freezes, taxation, delayed adjustments, and crisis cuts."},
+        "gate3": {"verdict": "PASS", "reason": "Interest, ageing, defence, market financing, sovereign yields, and OASI exhaustion are recorded as fiscal constraints and observable supports."},
+        "gate4": {"verdict": "PASS", "reason": "Governments, legislatures, and Congress are explicit decision-makers with identifiable legislative and budget channels."},
+        "gate5": {"verdict": "ABSTAIN", "reason": "The future window is not yet observed, and the record does not establish that fiscal pressure and the claimed benefit-side split persist through the whole window."}
+      },
+      "verdict": "VETO",
+      "rationale": "The reviewer preserved the card's institutional nature but applied the five-gate protocol only as a necessary-condition screen; scale vetoes the action-style gate, while future persistence remains unverified. This is not a claim that the pension forecast is false.",
+      "missing_evidence": ["Verified country-by-country denominators", "Evidence that the institutional judgment meets an action-scale threshold", "Observed fiscal persistence through 2034", "Official post-OASI payment and scoring results"]
+    },
+    {
+      "card_id": "J-106",
+      "r_id": "R-03",
+      "record_sha256": "5cd7116825b1e3c4c9107e6997995b240e176c01c63cc803e484c1f3307f8fa1",
+      "recognized": true,
+      "gates": {
+        "gate1": {"verdict": "VETO", "reason": "The record calls the affected population constructed hundred-millions-scale but explicitly leaves head counts unverified; the direct actors are four governments and parliaments, not a countable repeated personal action."},
+        "gate2": {"verdict": "ABSTAIN", "reason": "Private foundations, multilateral loans, recipient-government funds, and reclassification are named, but project-level substitution and actual replacement rates are not evidenced."},
+        "gate3": {"verdict": "PASS", "reason": "Annual budgets, ODA and defence appropriations, OECD data, and NATO paths provide institutional carrying capacity."},
+        "gate4": {"verdict": "PASS", "reason": "Governments and parliaments are identified as the decision-makers for the budget substitution."},
+        "gate5": {"verdict": "ABSTAIN", "reason": "ODA share and defence-share direction are recorded, but the record does not establish sustained net resource loss to recipients or exclude reclassification effects."}
+      },
+      "verdict": "VETO",
+      "rationale": "The reviewer independently found the scale veto and preserved the distinction between budget ratios and recipient-side net resources. The result is a protocol screen, not genuine future out-of-sample evidence.",
+      "missing_evidence": ["Verified affected-population denominator", "Project-level substitution outcomes", "A consistent measure separating ODA cuts from reclassification", "Recipient-side sustained net-resource change"]
+    },
+    {
+      "card_id": "J-107",
+      "r_id": "R-01",
+      "record_sha256": "931de55ff8458b6683c260c774c9c862f8a1a7205c8aef752f6aba18a6bafc37",
+      "recognized": true,
+      "gates": {
+        "gate1": {"verdict": "VETO", "reason": "The frozen qualifying sum is bounded between about 10.29 million and 51.64 million, in the tens of millions and below the 100-million threshold."},
+        "gate2": {"verdict": "ABSTAIN", "reason": "The record says the action lets already-working people delay exit but does not establish a clean incumbent replacement or separate fiscal-pressure effect from population ageing."},
+        "gate3": {"verdict": "PASS", "reason": "The frozen reference-week paid-work measure and country components provide a direct countable action and existing labour-market carrying conditions."},
+        "gate4": {"verdict": "PASS", "reason": "The record identifies legislated pension-age changes as public decisions that can affect the measured action."},
+        "gate5": {"verdict": "ABSTAIN", "reason": "Long-run net burden of continued work, income, benefit, health, and workload effects is not directly measured."}
+      },
+      "verdict": "VETO",
+      "rationale": "The reviewer found the recorded D-tier scale boundary and retained the explicit coverage and unpaid-family-worker gaps. The result is not evidence that the forward forecast has been tested.",
+      "missing_evidence": ["Actual unpaid-family-worker subtraction", "Comparable coverage from China/EU and other excluded countries", "Causal separation of ageing from fiscal pressure", "Long-run net burden of continued work"]
+    }
+  ],
+  "boundary": "This supplement records independent necessary-condition screening of the five previously uncovered cards. It must not be described as forecast accuracy, genuine future out-of-sample evidence, or proof of the judgments. Future claims remain governed by each card's time window, falsifiers, leading indicators, and scheduled review."
+}
