@@ -115,7 +115,7 @@
 |---|---|---|---|
 | 科技史 | `technology-calibration*`、`historical-calibration*`、`picturephone*`、`cross-domain*`、科技相关 chains 与 NASA／DOE／FCC／GAO／Kennedy／Moore 来源指针 | 8 个新疑似候选（含 Y2K 与 Concorde）；1 个排除，7 个 UNKNOWN；无新增冻结 | 未逐项下载所有 PDF／原始页，尤其 Moore、UGV、HGP 的页码与结果分母待闭合；ITER、SunShot、IPv4 耗尽仅作零产出线索 |
 | 政治／公共政策 | `politics-calibration*`、`historical-misfit*`、`historical-calibration*`、跨域页、政治／地缘 chains；2015 UK、2014 Scotland、2012 US、Yugoslavia、ACA、OMB 指针 | 6 个新疑似候选；无新增冻结；全为 UNKNOWN | 政治原件的逐页下载与官方结果复核未完成；YouGov／Commons Library／Electoral Commission 等部分页面需后续保存 |
-| 商业 | `business-forecast-calibration*`、`business-regularity*`、`cross-domain*`、`picturephone*`、SEC／公司披露指针 | 8 个新疑似候选；1 个排除，7 个 UNKNOWN；无新增冻结 | Netflix 图形 guidance、Tesla 修订链、Peloton 收入、MoviePass／Quibi 私营公司结果仍待原件闭合；Groupon、Blue Apron、Snap、Roku、Sirius XM、Ford EV 搜索未形成数字对 |
+| 商业 | `business-forecast-calibration*`、`business-regularity*`、`cross-domain*`、`picturephone*`、SEC／公司披露指针 | 9 个新疑似候选（含 Dow 36,000）；1 个排除，8 个 UNKNOWN；无新增冻结 | Netflix 图形 guidance、Tesla 修订链、Peloton 收入、MoviePass／Quibi 私营公司结果仍待原件闭合；Groupon、Blue Apron、Snap、Roku、Sirius XM、Ford EV 搜索未形成数字对 |
 | 既有档案与方法边界 | `02-historical-validation-protocol.md`、已有 calibration 与 blind-review 证据 | 重复项被识别并未计数；分类边界沿用 | 本页不是全面重审，不触碰既有 holdout／独立重审状态 |
 
 **覆盖结论：** 三个指定领域均有独立 harvest leg；没有静默遗漏一个指定领域。零产出搜索区已命名，不能被读者误读为已完成全面检索。
