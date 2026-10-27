@@ -128,6 +128,12 @@ PRIOR_REVIEW_TOKENS = (
     "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5",
 )
 
+SOURCE_ID_RE = re.compile(r"\bEXT-\d+\b", re.IGNORECASE)
+NUMBERED_CONSTRAINT_RE = re.compile(
+    r"\bGates?\s+\d+(?:\s*(?:and|through|to|,|-)\s*\d+)*\b|"
+    r"\bthe\s+(?:first|second|third|fourth|fifth)\s+constraint\b",
+    re.IGNORECASE,
+)
 LANGUAGES = ("zh", "en")
 
 # Two traceback shapes the merged token scan is structurally unable to see, so
@@ -351,10 +357,12 @@ def strip_prior_review_text(value: str) -> str:
     }
     for old, new in replacements.items():
         value = value.replace(old, new)
+    value = NUMBERED_CONSTRAINT_RE.sub("a constraint", value)
     folded_tokens = tuple(fold(token).lower() for token in PRIOR_REVIEW_TOKENS)
     parts = re.split(r"(?<=[。！？.!?；;])\s*", value)
     kept = [part for part in parts
-            if not any(token in fold(part).lower() for token in folded_tokens)]
+            if not SOURCE_ID_RE.search(part)
+            and not any(token in fold(part).lower() for token in folded_tokens)]
     cleaned = re.sub(r"\s+", " ", " ".join(kept))
     cleaned = re.sub(r"([,，;；:：])\s*([,，;；:：])+", r"\1", cleaned)
     cleaned = re.sub(r"([,，;；:：])\s*(?=[。.!?])", "", cleaned)
@@ -506,6 +514,16 @@ def record_problems(record: Dict[str, Any], titles: Iterable[str],
             hit("path", "original file path")
             break
     return problems
+
+
+def scan_clean_records(records: List[Dict[str, Any]]) -> None:
+    """Clean-mode boundary: no external source ids or numbered gate labels remain."""
+    for record in records:
+        text = canonical_json({k: v for k, v in record.items() if k != "id"}).decode("utf-8")
+        if SOURCE_ID_RE.search(text):
+            fail("%s retains an external source identifier after cleaning" % record["id"])
+        if NUMBERED_CONSTRAINT_RE.search(text):
+            fail("%s retains a numbered prior-review constraint after cleaning" % record["id"])
 
 
 def _foreign_title(record: Dict[str, Any], titles: Iterable[str],
@@ -841,6 +859,8 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, seed: str,
     enforce_cross_language(public, card_ids, disabled)
     enforce_mapping_reachability(public, ordered, disabled)
     scan_records(public, titles, paths, disabled, own_by_id)
+    if strip_prior_conclusions:
+        scan_clean_records(public)
 
     bundle_bytes = canonical_json({"schema_version": BUNDLE_SCHEMA_VERSION, "records": public})
     output_dir.mkdir(parents=True, exist_ok=True)
