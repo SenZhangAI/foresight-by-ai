@@ -4,7 +4,7 @@
 
 > **范围与结论。** 本页承接历史先行方向，审计下一批跨科技、政治与商业的历史预测—结果候选。它是候选可行性清单，不是回测、不是 holdout，也不是方法有效性证明。所有候选都是结果已知后发现；即使日后补齐，也最多进入 `CALIBRATION`，不能进入 `CONTAMINATED_RELATIVE_HOLDOUT` 或 `GENUINE_FUTURE_OOS`。
 >
-> **本批结论：** 宽搜得到 23 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。21 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因其主张不是带目标日期的预测—结果配对或与现有档案重复而排除。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
+> **本批结论：** 宽搜得到 24 个疑似候选；逐案反证后，没有新增案例满足“独立重建所需字段”而可冻结为合格候选。22 个保留为 `UNKNOWN/UNVERIFIED` 储备项，2 个因其不是本批的带目标日期 forecast 单元而排除。没有新增 `CALIBRATION`，也不声称预测准确率、`GENUINE_FUTURE_OOS` 或方法已验证。
 
 ## 1. 记录协议与字段
 
@@ -30,6 +30,14 @@
 
 ## 2. 候选总表
 
+### 按领域快速索引
+
+- **科技／科技治理（8）**：`Y2K-FEDERAL-COST-1999`、`CONCORDE-BA-PROFIT-1974`、`T-HGP-1990`、`T-APOLLO-1961`、`T-EV-EVERYWHERE-2012`、`T-UGV-2000`、`T-BROADBAND-2010`、`T-MOORE-1965`
+- **政治／公共政策（6）**：`P-2015-UK-GE`、`P-2014-SCOTLAND`、`P-2012-US-ELECTION`、`P-YUGOSLAVIA-1990`、`P-ACA-COVERAGE-2010`、`P-OMB-FY2001`
+- **商业／金融市场（10）**：`DOW-36000-1999`、`B-NETFLIX-2011-Q3`、`B-TESLA-2016-BUILD`、`B-TESLA-2016-DELIVERIES`、`B-PELOTON-SUBSCRIPTIONS-FY2022`、`B-PELOTON-REVENUE-FY2022`、`B-MOVIEPASS-2018`、`B-BEYONDMEAT-2019`、`B-WEWORK-RUNRATE-2019`、`B-QUIBI-FIRST-YEAR`
+
+总表与 §3 kill pass 使用完全相同的 `case_id`；阅读单案时可用 `case_id` 搜索两处，避免把不同指标或不同证据级别拼成一个案例。
+
 | case_id | 领域 | 一线预测／结果主张 | T 与目标／观察窗 | 指标与分母 | 原始来源定位 | kill pass 后状态 | 关键缺项或排除理由 |
 |---|---|---|---|---|---|---|---|
 | `Y2K-FEDERAL-COST-1999` | 科技治理／公共部门 | GAO 1999 报告给出 24 个联邦机构 Y2K 累计成本估计约 $7.5bn；最终成本／故障结果尚未同口径闭合 | T：1999-04-28；目标／观察窗需以最终成本或故障指标另定 | 预防成本、实际支出与故障数不能互换；分母为 24 个机构 | [GAO AIMD-99-154](https://www.govinfo.gov/content/pkg/GAOREPORTS-AIMD-99-154/html/GAOREPORTS-AIMD-99-154.htm)；结果材料见[跨域扩展](cross-domain-forecast-outcome-expansion-2026-10-26.md) | `UNKNOWN/UNVERIFIED` | 报告明确多数仍是估计；缺 24 机构最终实际支出／义务和统一观察窗，不能用“没有灾难”替代成本结果 |
@@ -50,12 +58,23 @@
 | `B-NETFLIX-2011-Q3` | 商业 | Netflix 对 Q3 美国订户作 guidance，调价后下修，季末 unique US subscribers 约 23.79m | T：2011-07-25 初版／2011-09-15 修订；目标：2011-09-30；结果 2011-10-24 | Total Unique US Subscribers；DVD/streaming subscriptions 不可相加 | 预测：[July 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511196126/dex991.htm)、[Sept revision](https://www.sec.gov/Archives/edgar/data/1065280/000119312511248698/d231910dex991.htm)；结果：[Oct 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511278716/d246709dex991.htm) | `UNKNOWN/UNVERIFIED` | guidance 关键数字在图形中未转录；必须按版本冻结，且 unique 与 subscriptions 分母不同 |
 | `B-TESLA-2016-BUILD` | 商业／科技商业化 | Tesla 把 500,000 辆总产量 build plan 提前至 2018；2018 production 254,530 | T：2016-05-04；目标：2018-12-31；结果 2019-02-19 | annual total production；不可换成交付、预订或 Model 3 | 预测：[2016 Q1 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm)；结果：[2018 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/tsla-10k_20181231.htm) | `UNKNOWN/UNVERIFIED` | “build plan”是计划还是 forecast，以及是否指年产 run-rate 而非全年产量，原文语义需先闭合 |
 | `B-TESLA-2016-DELIVERIES` | 商业 | Tesla guidance 2016 年交付 80,000–90,000 辆 Model S/X；年末结果待配对 | T：2016-05-04；目标：2016-12-31；观察至 2017-01-03／10-K | 两车型全球 deliveries；不得换 production | 预测：[2016 Q1 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm)；结果：[2017 8-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017000024/tsla-8k_20170103.htm)、[2016 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017003118/tsla-10k_20161231.htm) | `UNKNOWN/UNVERIFIED` | 本轮未转录官方最终交付数字，且未搜集年内所有下修／重申版本 |
-| `B-PELOTON-FY2022` | 商业 | Peloton 预计 FY2022 末订户 3.35–3.45m、全年收入 $4.4–4.8bn；年末订户约 2.966m | T：2021-11-04；目标：2022-06-30；结果 2022-08-25 | ending subscriptions 与 FY revenue 必须拆成两案 | 预测：[Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm)；结果：[Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | 收入结果未转录；“updated” guidance 后还有修订版本，不能择最后版本而不建版本链 |
+| `B-PELOTON-SUBSCRIPTIONS-FY2022` | 商业 | Peloton 预计 FY2022 末订户 3.35–3.45m；年末订户约 2.966m | T：2021-11-04；目标：2022-06-30；结果 2022-08-25 | ending subscriptions；不能与收入指标合并 | 预测：[Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm)；结果：[Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | “updated” guidance 后还有修订版本，不能择最后版本而不建版本链 |
+| `B-PELOTON-REVENUE-FY2022` | 商业 | Peloton 预计 FY2022 全年收入 $4.4–4.8bn；同口径全年结果尚未转录 | T：2021-11-04；目标：2022-06-30；结果 2022-08-25 | FY revenue；不能与 ending subscriptions 合并 | 预测：[Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm)；结果：[Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | 收入结果未转录，且 guidance 修订链未闭合 |
 | `B-MOVIEPASS-2018` | 商业 | MoviePass 预计 2018 年末超过 5m 付费订户；同口径年末结果未找到 | T：2018-06-13；目标：2018-12-31；观察约 201 天 | year-end paying subscribers；不能用峰值、下载或停运替代 | 预测：[Business Wire](https://www.businesswire.com/news/home/20180613005595/en/MoviePass%E2%84%A2-Surpasses-3-Million-Paying-Subscribers)；结果：Helios SEC filings（稳定年末同口径 URL 本轮未锁定） | `UNKNOWN/UNVERIFIED` | 付费订户定义在套餐变更／暂停服务后可能变化，缺同口径结果原件 |
 | `B-BEYONDMEAT-2019` | 商业 | Beyond Meat 年内更新 2019 net revenue guidance $265–275m；10-K 有全年 net revenues | T：疑似 2019 Q3 release；目标：2019-12-31；观察约两个月 | same-year net revenue；不能换 gross profit 或 sell-through | 预测：SEC filings index（附件 accession 尚未锁定）；结果：[2019 10-K](https://www.sec.gov/Archives/edgar/data/1655210/000162828020003841/bynd201910k.htm) | `UNKNOWN/UNVERIFIED` | 预测原件 accession、发布日期和最终数字尚未恢复；所有 guidance 版本未冻结 |
 | `B-WEWORK-RUNRATE-2019` | 商业 | WeWork S-1 给出 run-rate revenue/backlog，但未给未来目标日期 | T：2019-08-14；目标日期缺失；观察窗缺失 | run-rate/backlog 不是 GAAP 年度 revenue | 预测／披露：[S-1 index](https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/0001193125-19-220499-index.htm)；后续：[2021 S-1](https://www.sec.gov/Archives/edgar/data/1813756/000119312521326238/d148532ds1.htm) | `EXCLUDED` | kill pass 证实这是当时状态指标而非带目标日期的 forecast；不能把 backlog 偷换成收入预测 |
 | `B-QUIBI-FIRST-YEAR` | 商业 | 疑似 Quibi 预测首年约 7m 付费订户；服务约六个月后关闭 | T：疑似 2019，具体日缺失；目标：首年日期缺失；观察窗未定义 | paid subscribers；不能用 downloads/trials/停运替代 | 预测 investor deck 原件未取得；结果线索：[CNBC](https://www.cnbc.com/2020/10/22/quibi-co-founders-katzenberg-whitman-explain-what-went-wrong.html) | `UNKNOWN/UNVERIFIED` | 原始 deck、日期、同口径官方订户结果均缺；停运不是订户结果 |
 
+### 2.1 逐案可重建性索引
+
+为避免让读者从状态和缺项反推，本索引把可重建性单独作为字段记录：
+
+| case_id 集合 | 独立可重建性 | 证据等级与解释 |
+|---|---|---|
+| `Y2K-FEDERAL-COST-1999`、`DOW-36000-1999`、`CONCORDE-BA-PROFIT-1974`、`T-HGP-1990`、`T-EV-EVERYWHERE-2012`、`T-UGV-2000`、`T-BROADBAND-2010`、`T-MOORE-1965`、`P-2015-UK-GE`、`P-2014-SCOTLAND`、`P-2012-US-ELECTION`、`P-YUGOSLAVIA-1990`、`P-ACA-COVERAGE-2010`、`P-OMB-FY2001`、`B-NETFLIX-2011-Q3`、`B-TESLA-2016-BUILD`、`B-TESLA-2016-DELIVERIES`、`B-PELOTON-SUBSCRIPTIONS-FY2022`、`B-PELOTON-REVENUE-FY2022`、`B-MOVIEPASS-2018`、`B-BEYONDMEAT-2019`、`B-QUIBI-FIRST-YEAR` | 否（至少一个承重字段未闭合） | `UNKNOWN/UNVERIFIED`；保留为储备项，不进入冻结或 calibration 分母。 |
+| `T-APOLLO-1961`、`B-WEWORK-RUNRATE-2019` | 不适用（不是本批可评分 forecast 单元） | `EXCLUDED`；保留排除理由，不进入冻结或 calibration 分母。 |
+
+该索引不把“有预测线索”误写成“可重建”：本批独立可重建且可冻结的数量为 0。
 ## 3. 逐案 kill pass
 
 本节的“kill”不是把未知案例判为预测失败，而是尝试证明候选不能作为可重建案例进入冻结池。每行保留一个可追溯理由；未能杀掉但字段不足的候选留在 `UNKNOWN/UNVERIFIED`。
@@ -80,7 +99,8 @@
 | `B-NETFLIX-2011-Q3` | 尝试从结果 23.79m 反推 7 月或 9 月 guidance 图形中的数字 | 反证成功：关键预测数值未恢复，且两个版本不能择一；留 UNKNOWN |
 | `B-TESLA-2016-BUILD` | 尝试把“500,000 build plan”直接当作 2018 年全年 production forecast | 反证成功：run-rate/全年与计划/预测性质未闭合；留 UNKNOWN |
 | `B-TESLA-2016-DELIVERIES` | 尝试用常见“约 76,000”叙述代替官方最终 deliveries 与修订链 | 反证成功：未定位同口径官方数字；留 UNKNOWN |
-| `B-PELOTON-FY2022` | 尝试用年末 2.966m 直接对比 2021-11 guidance，忽略中途 updated guidance | 反证成功：版本链和收入结果缺失；留 UNKNOWN |
+| `B-PELOTON-SUBSCRIPTIONS-FY2022` | 用年末 2.966m 直接对比 2021-11 guidance，忽略中途 updated guidance | 版本链未闭合，不能判定；留 UNKNOWN |
+| `B-PELOTON-REVENUE-FY2022` | 用订户结果或媒体收入数字替代同口径 FY revenue 结果 | 指标偷换且结果未转录；留 UNKNOWN |
 | `B-MOVIEPASS-2018` | 尝试用服务停运、峰值 3m 或媒体叙述替代年末 paid subscribers | 反证成功：事件和峰值不是同口径结果；留 UNKNOWN |
 | `B-BEYONDMEAT-2019` | 尝试用 10-K 年收入倒推未定位的 Q3 guidance | 反证成功：预测原件与版本尚未闭合；留 UNKNOWN |
 | `B-WEWORK-RUNRATE-2019` | 尝试把 run-rate/backlog 作为未来年度收入预测 | 反证成功：没有目标日期，且指标不是 GAAP 年收入；排除 |
@@ -115,14 +135,14 @@
 |---|---|---|---|
 | 科技史 | `technology-calibration*`、`historical-calibration*`、`picturephone*`、`cross-domain*`、科技相关 chains 与 NASA／DOE／FCC／GAO／Kennedy／Moore 来源指针 | 8 个新疑似候选（含 Y2K 与 Concorde）；1 个排除，7 个 UNKNOWN；无新增冻结 | 未逐项下载所有 PDF／原始页，尤其 Moore、UGV、HGP 的页码与结果分母待闭合；ITER、SunShot、IPv4 耗尽仅作零产出线索 |
 | 政治／公共政策 | `politics-calibration*`、`historical-misfit*`、`historical-calibration*`、跨域页、政治／地缘 chains；2015 UK、2014 Scotland、2012 US、Yugoslavia、ACA、OMB 指针 | 6 个新疑似候选；无新增冻结；全为 UNKNOWN | 政治原件的逐页下载与官方结果复核未完成；YouGov／Commons Library／Electoral Commission 等部分页面需后续保存 |
-| 商业 | `business-forecast-calibration*`、`business-regularity*`、`cross-domain*`、`picturephone*`、SEC／公司披露指针 | 9 个新疑似候选（含 Dow 36,000）；1 个排除，8 个 UNKNOWN；无新增冻结 | Netflix 图形 guidance、Tesla 修订链、Peloton 收入、MoviePass／Quibi 私营公司结果仍待原件闭合；Groupon、Blue Apron、Snap、Roku、Sirius XM、Ford EV 搜索未形成数字对 |
+| 商业 | `business-forecast-calibration*`、`business-regularity*`、`cross-domain*`、`picturephone*`、SEC／公司披露指针 | 10 个新疑似候选（含 Dow 36,000；Peloton 按指标拆为两案）；1 个排除，9 个 UNKNOWN；无新增冻结 | Netflix 图形 guidance、Tesla 修订链、Peloton 收入、MoviePass／Quibi 私营公司结果仍待原件闭合；Groupon、Blue Apron、Snap、Roku、Sirius XM、Ford EV 搜索未形成数字对 |
 | 既有档案与方法边界 | `02-historical-validation-protocol.md`、已有 calibration 与 blind-review 证据 | 重复项被识别并未计数；分类边界沿用 | 本页不是全面重审，不触碰既有 holdout／独立重审状态 |
 
 **覆盖结论：** 三个指定领域均有独立 harvest leg；没有静默遗漏一个指定领域。零产出搜索区已命名，不能被读者误读为已完成全面检索。
 
 ## 6. 本批形成的校准材料吗？
 
-**没有。** 本批形成的是候选可行性审计材料：宽搜产生 23 个疑似候选，kill pass 阻止不完整配对进入冻结池，最终新增冻结数为 0。它收紧了下一轮应保存的字段和偷换边界，但没有形成可计入的 `CALIBRATION` 配对，更不形成 `CONTAMINATED_RELATIVE_HOLDOUT`、`GENUINE_FUTURE_OOS`、准确率或方法验证。
+**没有。** 本批形成的是候选可行性审计材料：宽搜产生 24 个疑似候选，kill pass 阻止不完整配对进入冻结池，最终新增冻结数为 0。它收紧了下一轮应保存的字段和偷换边界，但没有形成可计入的 `CALIBRATION` 配对，更不形成 `CONTAMINATED_RELATIVE_HOLDOUT`、`GENUINE_FUTURE_OOS`、准确率或方法验证。
 
 ## 7. 自我约束台账
 

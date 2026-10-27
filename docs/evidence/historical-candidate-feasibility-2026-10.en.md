@@ -4,7 +4,7 @@
 
 > **Scope and conclusion.** This register audits the next batch of historical forecast–outcome candidates across technology, politics, and business. It is a candidate-feasibility record, not a backtest, holdout, or proof of method validity. Every candidate was found after its outcome was known; even if later completed, it could be `CALIBRATION` only, never `CONTAMINATED_RELATIVE_HOLDOUT` or `GENUINE_FUTURE_OOS`.
 >
-> **Batch result:** 23 suspected candidates were harvested. After a per-candidate falsification pass, no new case met the fields needed for independent reconstruction and could be frozen as a qualified candidate. Twenty-one remain as `UNKNOWN/UNVERIFIED` reserve items; two are excluded because the claim is not a dated forecast–outcome unit or duplicates an existing archive. This batch adds no `CALIBRATION` case and makes no claim about accuracy, `GENUINE_FUTURE_OOS`, or method validation.
+> **Batch result:** 24 suspected candidates were harvested. After a per-candidate falsification pass, no new case met the fields needed for independent reconstruction and could be frozen as a qualified candidate. Twenty-two remain as `UNKNOWN/UNVERIFIED` reserve items; two are excluded because they are not dated forecast units for this batch. This batch adds no `CALIBRATION` case and makes no claim about accuracy, `GENUINE_FUTURE_OOS`, or method validation.
 
 ## 1. Protocol and required fields
 
@@ -19,6 +19,14 @@ The [historical pseudo-out-of-sample protocol](../zh/02-historical-validation-pr
 | `CALIBRATION` | No new case in this batch. A case may receive this label only after same-metric primary-source reconstruction; it can never become out-of-sample evidence. |
 
 ## 2. Candidate inventory
+
+### Quick domain index
+
+- **Technology / technology governance (8)**: `Y2K-FEDERAL-COST-1999`, `CONCORDE-BA-PROFIT-1974`, `T-HGP-1990`, `T-APOLLO-1961`, `T-EV-EVERYWHERE-2012`, `T-UGV-2000`, `T-BROADBAND-2010`, `T-MOORE-1965`
+- **Politics / public policy (6)**: `P-2015-UK-GE`, `P-2014-SCOTLAND`, `P-2012-US-ELECTION`, `P-YUGOSLAVIA-1990`, `P-ACA-COVERAGE-2010`, `P-OMB-FY2001`
+- **Business / financial markets (10)**: `DOW-36000-1999`, `B-NETFLIX-2011-Q3`, `B-TESLA-2016-BUILD`, `B-TESLA-2016-DELIVERIES`, `B-PELOTON-SUBSCRIPTIONS-FY2022`, `B-PELOTON-REVENUE-FY2022`, `B-MOVIEPASS-2018`, `B-BEYONDMEAT-2019`, `B-WEWORK-RUNRATE-2019`, `B-QUIBI-FIRST-YEAR`
+
+The inventory and §3 kill pass use exactly the same `case_id` values. For a single case, search its `case_id` in both places rather than combining different metrics or evidence levels.
 
 | case_id | Domain | Forecast/outcome claim | T and target/window | Metric and denominator | Source locations | Post-kill status | Main gap or exclusion |
 |---|---|---|---|---|---|---|---|
@@ -40,12 +48,23 @@ The [historical pseudo-out-of-sample protocol](../zh/02-historical-validation-pr
 | `B-NETFLIX-2011-Q3` | Business | Netflix issued Q3 subscriber guidance, revised it after pricing changes, and ended Q3 around 23.79m unique US subscribers | T: 2011-07-25 initial / 2011-09-15 revision; target 2011-09-30; outcome 2011-10-24 | Total Unique US Subscribers; DVD/streaming subscriptions cannot be added | [July 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511196126/dex991.htm); [September revision](https://www.sec.gov/Archives/edgar/data/1065280/000119312511248698/d231910dex991.htm); [October 8-K](https://www.sec.gov/Archives/edgar/data/1065280/000119312511278716/d246709dex991.htm) | `UNKNOWN/UNVERIFIED` | Guidance values are in graphics and were not transcribed; versions and unique/subscription denominators must be fixed |
 | `B-TESLA-2016-BUILD` | Business/technology commercialization | Tesla advanced a 500,000-unit build plan to 2018; 2018 production was 254,530 | T: 2016-05-04; target 2018-12-31; outcome 2019-02-19 | Annual total production; not deliveries, reservations, or Model 3 only | [2016 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm); [2018 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/tsla-10k_20181231.htm) | `UNKNOWN/UNVERIFIED` | Whether “build plan” means a target, annual production, or run-rate is unresolved |
 | `B-TESLA-2016-DELIVERIES` | Business | Tesla guided 80,000–90,000 Model S/X deliveries in 2016; year-end result needs pairing | T: 2016-05-04; target 2016-12-31; outcome 2017-01-03/10-K | Global deliveries of the two models; not production | [2016 update](https://www.sec.gov/Archives/edgar/data/1318605/000119312516577582/d158845dex991.htm); [2017 8-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017000024/tsla-8k_20170103.htm); [2016 10-K](https://www.sec.gov/Archives/edgar/data/1318605/000156459017003118/tsla-10k_20161231.htm) | `UNKNOWN/UNVERIFIED` | Final official delivery number was not transcribed, and all in-year revisions were not collected |
-| `B-PELOTON-FY2022` | Business | Peloton guided FY2022 ending subscriptions to 3.35–3.45m and revenue to $4.4–4.8bn; ending subscriptions were about 2.966m | T: 2021-11-04; target 2022-06-30; outcome 2022-08-25 | Ending subscriptions and FY revenue must be separate cases | [Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm); [Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | Revenue outcome was not transcribed; “updated” guidance has a later revision chain |
+| `B-PELOTON-SUBSCRIPTIONS-FY2022` | Business | Peloton guided FY2022 ending subscriptions to 3.35–3.45m; ending subscriptions were about 2.966m | T: 2021-11-04; target 2022-06-30; outcome 2022-08-25 | Ending subscriptions; not combined with revenue | [Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm); [Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | Later updated guidance is not yet versioned; do not select the last revision |
+| `B-PELOTON-REVENUE-FY2022` | Business | Peloton guided FY2022 revenue to $4.4–4.8bn; same-metric annual outcome was not transcribed | T: 2021-11-04; target 2022-06-30; outcome 2022-08-25 | FY revenue; not combined with ending subscriptions | [Q1 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982521000320/shareholderletter2022q1.htm); [Q4 letter](https://www.sec.gov/Archives/edgar/data/1639825/000163982522000100/a4q2022shareholderletter.htm) | `UNKNOWN/UNVERIFIED` | Revenue outcome was not transcribed and the guidance revision chain is incomplete |
 | `B-MOVIEPASS-2018` | Business | MoviePass projected over 5m paying subscribers by end-2018; same-metric year-end outcome not found | T: 2018-06-13; target 2018-12-31; window about 201 days | Year-end paying subscribers; not peak, downloads, or shutdown | [Business Wire](https://www.businesswire.com/news/home/20180613005595/en/MoviePass%E2%84%A2-Surpasses-3-Million-Paying-Subscribers); Helios SEC filings (stable year-end source not locked) | `UNKNOWN/UNVERIFIED` | Paid-subscriber definition may have changed; same-metric primary outcome is missing |
 | `B-BEYONDMEAT-2019` | Business | Beyond Meat updated 2019 net-revenue guidance to $265–275m; the 10-K has annual net revenues | T: probable Q3 2019 release; target 2019-12-31; window about two months | Same-year net revenue; not gross profit or sell-through | Forecast filing accession not locked; [2019 10-K](https://www.sec.gov/Archives/edgar/data/1655210/000162828020003841/bynd201910k.htm) | `UNKNOWN/UNVERIFIED` | Forecast filing, date, and final number are not recovered; guidance versions are not frozen |
 | `B-WEWORK-RUNRATE-2019` | Business | WeWork S-1 reported run-rate revenue/backlog without a future target date | T: 2019-08-14; target/window missing | Run-rate/backlog is not GAAP annual revenue | [S-1 index](https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/0001193125-19-220499-index.htm); [2021 S-1](https://www.sec.gov/Archives/edgar/data/1813756/000119312521326238/d148532ds1.htm) | `EXCLUDED` | Kill pass confirms a contemporaneous status metric, not a dated forecast; backlog cannot be substituted for revenue |
 | `B-QUIBI-FIRST-YEAR` | Business | Quibi was said to forecast about 7m paid subscribers in its first year; service closed after about six months | T: probably 2019, exact date missing; first-year target/window missing | Paid subscribers; not downloads, trials, or shutdown | Original investor deck not obtained; outcome lead [CNBC](https://www.cnbc.com/2020/10/22/quibi-co-founders-katzenberg-whitman-explain-what-went-wrong.html) | `UNKNOWN/UNVERIFIED` | Original deck, date, and same-metric official outcome are missing; shutdown is not a subscriber result |
 
+### 2.1 Per-case reconstructability index
+
+To avoid making readers infer reconstructability from status and gaps, this index records it as a separate field:
+
+| case_id set | Independently reconstructable | Evidence level and explanation |
+|---|---|---|
+| `Y2K-FEDERAL-COST-1999`, `DOW-36000-1999`, `CONCORDE-BA-PROFIT-1974`, `T-HGP-1990`, `T-EV-EVERYWHERE-2012`, `T-UGV-2000`, `T-BROADBAND-2010`, `T-MOORE-1965`, `P-2015-UK-GE`, `P-2014-SCOTLAND`, `P-2012-US-ELECTION`, `P-YUGOSLAVIA-1990`, `P-ACA-COVERAGE-2010`, `P-OMB-FY2001`, `B-NETFLIX-2011-Q3`, `B-TESLA-2016-BUILD`, `B-TESLA-2016-DELIVERIES`, `B-PELOTON-SUBSCRIPTIONS-FY2022`, `B-PELOTON-REVENUE-FY2022`, `B-MOVIEPASS-2018`, `B-BEYONDMEAT-2019`, `B-QUIBI-FIRST-YEAR` | No (at least one load-bearing field is open) | `UNKNOWN/UNVERIFIED`; reserve items, excluded from the freeze and calibration denominators. |
+| `T-APOLLO-1961`, `B-WEWORK-RUNRATE-2019` | Not applicable (not a scorable forecast unit for this batch) | `EXCLUDED`; the exclusion reason is retained and the cases are excluded from freeze and calibration denominators. |
+
+The index does not turn “a forecast lead exists” into “reconstructable”: independently reconstructable and freezeable cases in this batch: 0.
 ## 3. Per-candidate kill pass
 
 “Kill” here means trying to show that a candidate cannot enter the freeze pool as an independently reconstructable case. It does not call an unknown candidate a forecast failure.
@@ -70,7 +89,8 @@ The [historical pseudo-out-of-sample protocol](../zh/02-historical-validation-pr
 | `B-NETFLIX-2011-Q3` | Infer July/September guidance values from the 23.79m outcome | Key forecast values are missing and versions cannot be selected after the fact; retain UNKNOWN |
 | `B-TESLA-2016-BUILD` | Treat “500,000 build plan” as a 2018 full-year production forecast | Run-rate/full-year and plan/forecast meaning are unresolved; retain UNKNOWN |
 | `B-TESLA-2016-DELIVERIES` | Use the common “about 76,000” account instead of an official final delivery number and revision chain | Official same-metric result is not located; retain UNKNOWN |
-| `B-PELOTON-FY2022` | Compare 2.966m directly with the 2021-11 guidance while ignoring later revisions | Version chain and revenue result are incomplete; retain UNKNOWN |
+| `B-PELOTON-SUBSCRIPTIONS-FY2022` | Compare 2.966m directly with 2021-11 guidance while ignoring later updated guidance | Version chain is incomplete; retain UNKNOWN |
+| `B-PELOTON-REVENUE-FY2022` | Substitute subscriber results or media revenue figures for same-metric FY revenue | Metric substitution and missing outcome; retain UNKNOWN |
 | `B-MOVIEPASS-2018` | Use shutdown, peak 3m, or media accounts for year-end paid subscribers | Event and peak are not the same outcome; retain UNKNOWN |
 | `B-BEYONDMEAT-2019` | Infer the unlocated Q3 guidance from the 10-K annual revenue | Forecast source and versions are incomplete; retain UNKNOWN |
 | `B-WEWORK-RUNRATE-2019` | Treat run-rate/backlog as a future annual revenue forecast | No target date and non-GAAP metric; exclude |
@@ -103,14 +123,14 @@ This does not mean that historical forecasts did not fail or that the method is 
 |---|---|---|---|
 | Technology | `technology-calibration*`, `historical-calibration*`, `picturephone*`, `cross-domain*`, technology chains, and NASA/DOE/FCC/GAO/Kennedy/Moore source leads | Eight new suspected candidates (including Y2K and Concorde); one excluded and seven UNKNOWN; zero frozen | PDFs/pages, especially Moore, UGV, and HGP, still need primary-page and denominator closure; ITER, SunShot, and IPv4 exhaustion produced only zero-yield leads |
 | Politics/public policy | `politics-calibration*`, `historical-misfit*`, `historical-calibration*`, cross-domain page, politics/geopolitics chains, and six new political leads | Six suspected candidates; zero frozen; all UNKNOWN | Page-by-page primary-source capture and official outcome review remain; some YouGov, Commons Library, and Electoral Commission pages need preservation |
-| Business | `business-forecast-calibration*`, `business-regularity*`, `cross-domain*`, `picturephone*`, SEC/company disclosure leads | Nine new suspected candidates (including Dow 36,000); one excluded and eight UNKNOWN; zero frozen | Netflix graphics, Tesla revision chain, Peloton revenue, MoviePass/Quibi private-company outcomes remain open; Groupon, Blue Apron, Snap, Roku, Sirius XM, and Ford EV searches produced no pair |
+| Business | `business-forecast-calibration*`, `business-regularity*`, `cross-domain*`, `picturephone*`, SEC/company disclosure leads | Ten new suspected candidates (including Dow 36,000; Peloton split into two metric-specific cases); one excluded and nine UNKNOWN; zero frozen | Netflix graphics, Tesla revision chain, Peloton revenue, MoviePass/Quibi private-company outcomes remain open; Groupon, Blue Apron, Snap, Roku, Sirius XM, and Ford EV searches produced no pair |
 | Existing archive and method boundary | Protocol, existing calibration, and blind-review evidence | Duplicates were identified and not recounted; classification boundary retained | This is not a full re-review and does not alter existing holdout/independent-review status |
 
 All three specified domains received an independent harvest leg. Zero-yield areas are named rather than silently presented as fully searched.
 
 ## 6. Did this batch produce calibration material?
 
-**No.** It produced a candidate-feasibility audit: 23 suspected candidates were harvested, and the kill pass prevented incomplete pairs from entering the freeze pool. New frozen candidates: 0. The result tightens the fields and substitution boundaries for the next round; it does not produce a `CALIBRATION` pair, `CONTAMINATED_RELATIVE_HOLDOUT`, `GENUINE_FUTURE_OOS`, an accuracy estimate, or method validation.
+**No.** It produced a candidate-feasibility audit: 24 suspected candidates were harvested, and the kill pass prevented incomplete pairs from entering the freeze pool. New frozen candidates: 0. The result tightens the fields and substitution boundaries for the next round; it does not produce a `CALIBRATION` pair, `CONTAMINATED_RELATIVE_HOLDOUT`, `GENUINE_FUTURE_OOS`, an accuracy estimate, or method validation.
 
 ## 7. Self-imposed constraints
 
@@ -127,8 +147,8 @@ If any constraint is relaxed, the next round must name which self-imposed constr
 
 Candidate-level sources appear in the inventory above. Method boundaries are in:
 
-- [Historical pseudo-out-of-sample protocol](../zh/02-historical-validation-protocol.md)
-- [Historical retrospective](../zh/01-retrospect.md)
-- [Next-batch historical forecast–outcome record](historical-calibration-next-batch-2026-10-02.md)
-- [Cross-domain forecast–outcome expansion](cross-domain-forecast-outcome-expansion-2026-10-26.md)
-- [Technology calibration addendum](technology-calibration-addendum-2026-10.md)
+- [历史伪样本外验证协议（中文方法原文）](../zh/02-historical-validation-protocol.md)
+- [历史回顾（中文方法原文）](../zh/01-retrospect.md)
+- [Next-batch historical forecast–outcome record](historical-calibration-next-batch-2026-10-02.en.md)
+- [Cross-domain forecast–outcome expansion](cross-domain-forecast-outcome-expansion-2026-10-26.en.md)
+- [Technology calibration addendum](technology-calibration-addendum-2026-10.en.md)
