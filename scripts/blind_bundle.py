@@ -55,7 +55,7 @@ STATUS_RE = re.compile(r"\b(?:ACTIVE|REVISED|ARCHIVED|SUPERSEDED|FALSIFIED|HIT|I
 CODE_RE = re.compile(r"```|~~~|<!--|^---\s*$", re.M)
 CEILING_RE = re.compile(
     r"\b(?:constructed|constructive)\b|\b(?:raises?|increases?)\b[^.;。！？!?]{0,160}\bceiling\b|"
-    r"\bceiling\b|构造式|上限",
+    r"\bceiling\b|构造式",
     re.IGNORECASE,
 )
 
