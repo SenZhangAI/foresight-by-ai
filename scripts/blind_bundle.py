@@ -393,6 +393,7 @@ def strip_prior_review_text(value: str) -> str:
     kept = [part for part in parts
             if not SOURCE_ID_RE.search(part)
             and not LEGACY_SCALE_RE.search(part)
+            and not CEILING_RE.search(part)
             and not SOURCE_TRACE_RE.search(part)
             and not any(token in fold(part).lower() for token in folded_tokens)]
     cleaned = re.sub(r"\s+", " ", " ".join(kept))
