@@ -277,7 +277,10 @@ def compare_semantic_fields(
             baseline_zh = getattr(baseline["zh"].get(card_id), field, None)
             baseline_en = getattr(baseline["en"].get(card_id), field, None)
             if baseline_zh is None or baseline_en is None:
-                continue
+                raise RegisterError(
+                    f"bilingual semantic baseline missing for {card_id}; "
+                    "refusing to compare an unbaselined card"
+                )
             zh_changed = current_zh != baseline_zh
             en_changed = current_en != baseline_en
             if zh_changed != en_changed:

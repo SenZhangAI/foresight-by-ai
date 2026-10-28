@@ -44,14 +44,15 @@ class QueryToolTests(unittest.TestCase):
     def tearDown(self) -> None:
         self.tempdir.cleanup()
 
-    def test_current_register_is_dynamic_and_accepts_landscape_only(self) -> None:
+    def test_current_register_requires_baseline_for_new_card(self) -> None:
         records = self.module.build_records()
         self.assertEqual(len(records), 123)
         self.assertEqual(records[-1]["id"], "J-123")
         self.assertEqual(next(record for record in records if record["id"] == "J-123")["status"], "LANDSCAPE_ONLY")
 
-        # Add a syntactically valid next card to both projections. A fixed
-        # J-001–J-123 implementation must not pass this assertion.
+        # A new bilingual card has no parent snapshot to compare against. The
+        # tool must refuse the query rather than silently skipping its semantic
+        # parity check; the next committed query run has a usable baseline.
         for lang in ("zh", "en"):
             source = self.repo / "docs" / lang / "ledger" / "123-123.md"
             target = self.repo / "docs" / lang / "ledger" / "124-124.md"
@@ -59,9 +60,11 @@ class QueryToolTests(unittest.TestCase):
                 source.read_text(encoding="utf-8").replace("J-123", "J-124"),
                 encoding="utf-8",
             )
-        expanded = self.module.build_records()
-        self.assertEqual(len(expanded), 124)
-        self.assertEqual(expanded[-1]["id"], "J-124")
+        with self.assertRaisesRegex(
+            self.module.RegisterError,
+            r"bilingual semantic baseline missing for J-124",
+        ):
+            self.module.build_records()
 
     def test_delete_one_language_card_fails_closed(self) -> None:
         (self.repo / "docs" / "en" / "ledger" / "123-123.md").unlink()
