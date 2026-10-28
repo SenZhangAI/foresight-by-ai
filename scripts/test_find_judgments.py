@@ -75,6 +75,21 @@ class QueryToolTests(unittest.TestCase):
         with self.assertRaisesRegex(self.module.RegisterError, "bilingual metadata mismatch"):
             self.module.build_records()
 
+    def test_semantic_judgment_drift_fails_closed(self) -> None:
+        path = self.repo / "docs" / "en" / "ledger" / "122-122.md"
+        text = path.read_text(encoding="utf-8")
+        marker = "- **One-sentence judgment**: "
+        self.assertIn(marker, text)
+        path.write_text(
+            text.replace(marker, marker + "UNRELATED SEMANTIC DRIFT: ", 1),
+            encoding="utf-8",
+        )
+        with self.assertRaisesRegex(
+            self.module.RegisterError,
+            r"bilingual semantic field drift for J-122; field=judgment; changed only in en",
+        ):
+            self.module.build_records()
+
     def test_status_drift_fails_closed(self) -> None:
         self.assert_metadata_drift(
             self.repo / "docs" / "zh" / "ledger" / "122-122.md",

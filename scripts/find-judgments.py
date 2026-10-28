@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 import unicodedata
 from dataclasses import dataclass
@@ -28,10 +29,16 @@ from pathlib import Path
 from typing import Iterable
 
 REPO = Path(__file__).resolve().parent.parent
+SOURCE_REPO = REPO
+BASELINE_REF = "HEAD^"
 LANGS = ("zh", "en")
 CARD_HEADING = re.compile(r"^###\s+(J-\d{3})\s+·\s+(.+?)\s*$")
 FIELD_LINE = re.compile(r"^-\s+\*\*(.+?)\*\*\s*(?:：|:)\s*(.*)$")
 CHAIN_RE = re.compile(r"\bC\d+\b")
+SEMANTIC_FIELDS = (
+    "title", "judgment", "reasoning_chain", "falsifier",
+    "leading_indicator", "opposing_mechanism",
+)
 
 FIELD_NAMES = {
     "zh": {
@@ -40,6 +47,10 @@ FIELD_NAMES = {
         "time_window": "时间窗",
         "source": "出处",
         "judgment": "一句话判断",
+        "reasoning_chain": "推理链",
+        "falsifier": "证伪条件",
+        "leading_indicator": "领先指标",
+        "opposing_mechanism": "最强反方",
     },
     "en": {
         "status": "Status",
@@ -47,6 +58,10 @@ FIELD_NAMES = {
         "time_window": "Time window",
         "source": "Source",
         "judgment": "One-sentence judgment",
+        "reasoning_chain": "Reasoning chain",
+        "falsifier": "Falsifier",
+        "leading_indicator": "Leading indicator",
+        "opposing_mechanism": "Strongest opposing mechanism",
     },
 }
 STATUS_VALUES = {"ACTIVE", "HIT", "FALSIFIED", "REVISED", "LANDSCAPE_ONLY"}
@@ -74,6 +89,10 @@ class Card:
     time_window: str
     chains: tuple[str, ...]
     judgment: str
+    reasoning_chain: str
+    falsifier: str
+    leading_indicator: str
+    opposing_mechanism: str
 
 
 def slugify_heading(text: str) -> str:
@@ -90,8 +109,8 @@ def slugify_heading(text: str) -> str:
     return "".join(out).strip("-")
 
 
-def iter_card_blocks(path: Path) -> Iterable[tuple[str, str, list[str], int]]:
-    lines = path.read_text(encoding="utf-8").splitlines()
+def iter_card_blocks_text(text: str) -> Iterable[tuple[str, str, list[str], int]]:
+    lines = text.splitlines()
     current: tuple[str, str, list[str], int] | None = None
     for number, line in enumerate(lines, start=1):
         match = CARD_HEADING.match(line)
@@ -103,6 +122,10 @@ def iter_card_blocks(path: Path) -> Iterable[tuple[str, str, list[str], int]]:
             current[2].append(line)
     if current is not None:
         yield current
+
+
+def iter_card_blocks(path: Path) -> Iterable[tuple[str, str, list[str], int]]:
+    yield from iter_card_blocks_text(path.read_text(encoding="utf-8"))
 
 
 def parse_field(lines: list[str], label: str) -> str:
@@ -146,12 +169,26 @@ def normalize_confidence(raw: str, lang: str) -> str:
     return value
 
 
-def load_language(lang: str) -> dict[str, Card]:
-    directory = REPO / "docs" / lang / "ledger"
+def load_language(lang: str, repo: Path | None = None, git_ref: str | None = None) -> dict[str, Card]:
+    root = repo or REPO
+    directory = root / "docs" / lang / "ledger"
     cards: dict[str, Card] = {}
     for path in sorted(directory.glob("*.md")):
-        relative = path.relative_to(REPO).as_posix()
-        for card_id, title, lines, _line in iter_card_blocks(path):
+        relative = path.relative_to(root).as_posix()
+        if git_ref is None:
+            text = path.read_text(encoding="utf-8")
+        else:
+            try:
+                text = subprocess.check_output(
+                    ["git", "-C", str(root), "show", f"{git_ref}:{relative}"],
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                )
+            except (OSError, subprocess.CalledProcessError) as error:
+                raise RegisterError(
+                    f"cannot read bilingual baseline {git_ref}:{relative}: {error}"
+                ) from error
+        for card_id, title, lines, _line in iter_card_blocks_text(text):
             if card_id in cards:
                 raise ValueError(f"duplicate {card_id} in {lang}: {relative}")
             names = FIELD_NAMES[lang]
@@ -161,9 +198,17 @@ def load_language(lang: str) -> dict[str, Card]:
             status = normalize_status(status_raw, lang)
             confidence = normalize_confidence(confidence_raw, lang)
             time_window = parse_field(lines, names["time_window"])
-            judgment = parse_field(lines, names["judgment"])
-            if not source or not time_window or not judgment:
-                raise ValueError(f"{relative}: {card_id} is missing a query field")
+            semantic = {
+                key: parse_field(lines, names[key])
+                for key in SEMANTIC_FIELDS
+                if key != "title"
+            }
+            if not source or not time_window or any(not semantic[key] for key in semantic):
+                missing = [key for key, value in semantic.items() if not value]
+                raise ValueError(
+                    f"{relative}: {card_id} is missing a query field"
+                    + (f" ({', '.join(missing)})" if missing else "")
+                )
             cards[card_id] = Card(
                 id=card_id,
                 title=title,
@@ -176,7 +221,11 @@ def load_language(lang: str) -> dict[str, Card]:
                 confidence_raw=confidence_raw,
                 time_window=time_window,
                 chains=tuple(sorted(set(CHAIN_RE.findall(source)), key=lambda item: int(item[1:]))),
-                judgment=judgment,
+                judgment=semantic["judgment"],
+                reasoning_chain=semantic["reasoning_chain"],
+                falsifier=semantic["falsifier"],
+                leading_indicator=semantic["leading_indicator"],
+                opposing_mechanism=semantic["opposing_mechanism"],
             )
     return cards
 
@@ -208,6 +257,55 @@ def time_window_matches(requested: str, actual: str) -> bool:
     return normalize_time_window(requested) in normalize_time_window(actual)
 
 
+def compare_semantic_fields(
+    current: dict[str, dict[str, Card]],
+    baseline: dict[str, dict[str, Card]],
+) -> None:
+    """Reject one-sided edits to bilingual meaning-bearing fields.
+
+    Chinese and English text cannot be compared byte-for-byte.  Instead, the
+    check compares the *change set* for every paired field against the last
+    committed bilingual snapshot: a title or argument changed on only one
+    side is semantic drift, while a deliberate bilingual edit changes both
+    projections together.  This also gives an actionable field name instead
+    of treating the issue as generic metadata drift.
+    """
+    for card_id in sorted(set(current["zh"]) & set(current["en"])):
+        for field in SEMANTIC_FIELDS:
+            current_zh = getattr(current["zh"][card_id], field)
+            current_en = getattr(current["en"][card_id], field)
+            baseline_zh = getattr(baseline["zh"].get(card_id), field, None)
+            baseline_en = getattr(baseline["en"].get(card_id), field, None)
+            if baseline_zh is None or baseline_en is None:
+                continue
+            zh_changed = current_zh != baseline_zh
+            en_changed = current_en != baseline_en
+            if zh_changed != en_changed:
+                changed_language = "zh" if zh_changed else "en"
+                raise RegisterError(
+                    f"bilingual semantic field drift for {card_id}; "
+                    f"field={field}; changed only in {changed_language}"
+                )
+
+
+def load_baseline() -> dict[str, dict[str, Card]]:
+    """Load the previous bilingual snapshot used for change-set parity.
+
+    Tests replace ``REPO`` with a temporary copy; in that case ``SOURCE_REPO``
+    remains the checked-out project and provides the same baseline.  If the
+    repository has no parent commit (or Git is unavailable), the structural
+    field-presence checks still run and this optional parity check is skipped.
+    """
+    root = SOURCE_REPO if REPO != SOURCE_REPO else REPO
+    try:
+        return {
+            lang: load_language(lang, repo=root, git_ref=BASELINE_REF)
+            for lang in LANGS
+        }
+    except (OSError, RegisterError, ValueError, UnicodeError):
+        return {lang: {} for lang in LANGS}
+
+
 def card_link(card: Card) -> str:
     return f"{card.path}#{card.anchor}"
 
@@ -237,6 +335,7 @@ def build_records() -> list[dict]:
         missing_zh = sorted(en_ids - zh_ids)
         missing_en = sorted(zh_ids - en_ids)
         raise RegisterError(f"bilingual ID mismatch; missing zh={missing_zh}, missing en={missing_en}")
+    compare_semantic_fields(projections, load_baseline())
     records: list[dict] = []
     for card_id in sorted(zh_ids, key=lambda item: int(item[2:])):
         zh, en = projections["zh"][card_id], projections["en"][card_id]
@@ -257,8 +356,30 @@ def build_records() -> list[dict]:
             "status": zh.status,
             "confidence": zh.confidence,
             "time_window": zh.time_window,
-            "zh": {"title": zh.title, "judgment": zh.judgment, "status": zh.status_raw, "confidence": zh.confidence_raw, "time_window": zh.time_window, "link": card_link(zh)},
-            "en": {"title": en.title, "judgment": en.judgment, "status": en.status_raw, "confidence": en.confidence_raw, "time_window": en.time_window, "link": card_link(en)},
+            "zh": {
+                "title": zh.title,
+                "judgment": zh.judgment,
+                "reasoning_chain": zh.reasoning_chain,
+                "falsifier": zh.falsifier,
+                "leading_indicator": zh.leading_indicator,
+                "opposing_mechanism": zh.opposing_mechanism,
+                "status": zh.status_raw,
+                "confidence": zh.confidence_raw,
+                "time_window": zh.time_window,
+                "link": card_link(zh),
+            },
+            "en": {
+                "title": en.title,
+                "judgment": en.judgment,
+                "reasoning_chain": en.reasoning_chain,
+                "falsifier": en.falsifier,
+                "leading_indicator": en.leading_indicator,
+                "opposing_mechanism": en.opposing_mechanism,
+                "status": en.status_raw,
+                "confidence": en.confidence_raw,
+                "time_window": en.time_window,
+                "link": card_link(en),
+            },
         })
     return records
 
