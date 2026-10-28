@@ -466,6 +466,18 @@ This audit therefore **does not change the repository-wide six-pair `CALIBRATION
 
 The surviving conclusion is a method boundary, not a forecast: future historical candidates must be classified one by one, and the project must say **CALIBRATION**, **UNKNOWN/UNVERIFIED**, or **EXCLUDED** before using the material. The complete inventory, kill attempts, source locations, missing fields, and next closure actions remain in the linked register; this section does not promote any of its 24 leads into a definite miss or a society-level judgment.
 
+### 10.10 2026-10-28 repaired-bundle re-review: an input-boundary result, not a forecast result
+
+The [independent re-review report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) consumes only the repaired frozen bundle (`SHA-256 b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`). It contains 29 bilingual records and reviews all 29: `R-01` through `R-29`. The report preserves the per-card index; every record has the same explicit status and disposition:
+
+| Per-card IDs | Status | Disposition | What the evidence says |
+|---|---|---|---|
+| `R-01`–`R-29` (29/29, each ID listed in the report) | `UNKNOWN/UNVERIFIED` | `retain-unverified-boundary` | Six retained fields and a Chinese/English pair are present, but the frozen input omits all five diffusion-gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample protocol; no gate result can be produced |
+
+The compact range above is an index of 29 individual records, not a claim that they were interchangeable aggregate samples. The run has **no exclusions inside the bundle**, but it also restores no old `J-NNN` identifiers or external mapping. Therefore the 29 records are the exact coverage of this result; every card outside `R-01`–`R-29` is outside the run, not a negative case and not silently reviewed. The missing method text is an input-boundary failure, not evidence that any underlying judgment passes, fails, is correct, or is falsified.
+
+This result changes no historical evidence class. It does not add a `CALIBRATION` pair, create a `CONTAMINATED_RELATIVE_HOLDOUT`, or create a `GENUINE_FUTURE_OOS`; it also cannot be reported as `PASS`, `VETO`, `ABSTAIN`, reproducibility, accuracy, or a hit rate. The complete gate-by-gate bases and missing-boundary text are preserved in the linked JSON. A future protocol-level run must freeze the exact gate instructions needed to judge while retaining the no-import rule, then disclose coverage and exclusions before reveal.
+
 ---
 
 ## 11. Sources for the history cited here, and how strong each one is

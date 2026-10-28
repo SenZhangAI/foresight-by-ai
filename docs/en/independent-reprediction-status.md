@@ -4,7 +4,7 @@
 
 [Back to README / document map](../../README.en.md)
 
-> **Bottom line first:** the isolated re-review has run twice, but it is not a forecasting system whose accuracy has been established. The public evidence lets readers distinguish the frozen input, procedural isolation, completed re-judgement, and still-open evidence boundaries. It does not support treating reproducibility as forecast correctness or claiming that the method has been validated.
+> **Bottom line first:** two historical rounds completed their prior per-card procedure, and a separate 2026-10-28 repaired-bundle run reviewed 29 frozen records. The latter is **input-incomplete**: all 29 are `UNKNOWN/UNVERIFIED`, so this is not a forecasting system whose accuracy has been established. The public evidence lets readers distinguish the frozen input, procedural execution, completed re-judgement, and still-open evidence boundaries. It does not support treating reproducibility, an input-boundary result, or structure checks as forecast correctness or claiming that the method has been validated.
 
 ## Why this page exists
 
@@ -20,7 +20,7 @@ These four steps use the same link set and order as the bilingual README. Each c
 |---|---|---|
 | 1. Historical retrospect | [Retrospect](01-retrospect.md) | **Partial calibration completed**: cases explain known outcomes, expose counterexamples, and narrow rules; they do not produce future accuracy. |
 | 2. Method validation | [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md) | **Protocol public; historical holdout not run**: freezing, retention, baselines, and leakage boundaries are specified; no pseudo-out-of-sample hit rate is reportable. |
-| 3. Isolated re-prediction | [This independent re-prediction status](independent-reprediction-status.md) · [Isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md) · [2026-10-27 five-card gate-screening record](../evidence/independent-reprediction-supplement-2026-10-27.en.md) | **Two historical rounds completed; the five-card supplement is retained but downgraded to protocol debugging because R2>50%**: it supports reproducibility and a missing-evidence inventory, not a claim that the five cards completed independent re-review. |
+| 3. Isolated re-prediction | [This independent re-prediction status](independent-reprediction-status.md) · [Isolated blind re-review report](../evidence/blind-review-reaudit-2026-10-09.en.md) · [2026-10-27 five-card gate-screening record](../evidence/independent-reprediction-supplement-2026-10-27.en.md) · [2026-10-28 repaired-bundle report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) | **Two historical rounds completed; the five-card supplement remains protocol debugging because R2>50%; the 2026-10-28 run reviewed 29/29 records but is input-incomplete**: all 29 are `UNKNOWN/UNVERIFIED`, with no gate result. These records support an auditable input-boundary finding, not independent correctness or a completed protocol-level re-review. |
 | 4. Genuine out-of-sample result | [Ledger review log](90-ledger.md#8-review-log) | **Unverified**: no future card has both reached its observation window and been registered with a `GENUINE_FUTURE_OOS` result, so accuracy cannot be reported. |
 
 A passing `python3 scripts/check.py` or `npm run check` proves only the structural and link contract; it does not prove method validity, forecast correctness, or a genuine out-of-sample result. For the full reading path, return to the [same four-step entrance in the English README](../../README.en.md).
@@ -57,7 +57,16 @@ This batch froze **exactly five cards, J-103–J-107**: source commit `30876ab9c
 
 The other 118 cards are explicitly excluded from this batch. They are neither marked “reviewed” nor turned into results by the exclusion. The raw outputs must not be written as forecast accuracy or `GENUINE_FUTURE_OOS`; a protocol-level independent re-review would require a new batch frozen before any of these records are revealed. Evidence labels and the conditions for the next step are in the [Historical Pseudo-Out-of-Sample Validation Protocol](02-historical-validation-protocol.md).
 
-## What cannot be claimed now
+## 2026-10-28 repaired-bundle run: 29 records, all input-incomplete
+
+The [public report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) and its [machine-readable record](../evidence/blind-review/independent-rereview-2026-10-28.json) consume only the repaired frozen bundle, SHA-256 `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`. The bundle contains exactly 29 bilingual records, and all 29 were reviewed: `R-01` through `R-29`. Each record has the six retained fields and a Chinese/English pair; no old `J-NNN` identifier, status, source label, or external method text was imported.
+
+| Per-card scope | Status for every listed record | Disposition | Evidence limit |
+|---|---|---|---|
+| `R-01`–`R-29` (29/29; the report lists each ID) | `UNKNOWN/UNVERIFIED` | `retain-unverified-boundary` | The frozen input lacks the five diffusion-gate definitions, applicability rules, thresholds, execution instructions, and out-of-sample protocol; no gate result can be produced without importing outside text |
+
+This is an explicit per-card result, not an aggregate pass/fail. The bundle has no exclusions within its 29 records. Conversely, records outside `R-01`–`R-29` are outside this run, not negative cases and not silently reviewed; because the bundle deliberately restores no external mapping, no claim about which current `J-NNN` cards are covered is allowed. The result therefore supports only an input-boundary failure and traceable retention. It does **not** produce `PASS`, `VETO`, `ABSTAIN`, reproducibility, falsification, accuracy, `CALIBRATION`, `CONTAMINATED_RELATIVE_HOLDOUT`, or `GENUINE_FUTURE_OOS` evidence. The complete per-card bases are in the linked report and JSON, not in an inferred aggregate count.
+
 
 - “The blind re-review passed, therefore the judgments are validated”;
 - treating `ABSTAIN` as a positive forecast or society-scale diffusion;
