@@ -59,7 +59,7 @@ The other 118 cards are explicitly excluded from this batch. They are neither ma
 
 ## 2026-10-28 repaired-bundle run: 29 records, all input-incomplete
 
-The [public report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) and its [machine-readable record](../evidence/blind-review/independent-rereview-2026-10-28.json) consume only the repaired frozen bundle, SHA-256 `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`. The bundle contains exactly 29 bilingual records, and all 29 were reviewed: `R-01` through `R-29`. Each record has the six retained fields and a Chinese/English pair; no old `J-NNN` identifier, status, source label, or external method text was imported.
+The [public report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) and its [machine-readable record](../evidence/blind-review/independent-rereview-2026-10-28.json) consume only the repaired frozen bundle, SHA-256 `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`. Its freeze provenance is `source_commit 01162c9fa6a483ef58471f4694a3e69d39f8bb35`, manifest SHA-256 `077493f7f582dfa3e9ffaad9336094c9c9b87c6278f6d1e5b063fa2289580545`, with 218 candidates, 29 included, and 189 excluded at the candidate-pool layer. Those 189 exclusions precede bundle construction; the 29 records in the bundle have no internal exclusions. The bundle contains exactly 29 bilingual records, and all 29 were reviewed: `R-01` through `R-29`. Each record has the six retained fields and a Chinese/English pair; no old `J-NNN` identifier, status, source label, or external method text was imported.
 
 | Per-card scope | Status for every listed record | Disposition | Evidence limit |
 |---|---|---|---|

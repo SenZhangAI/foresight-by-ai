@@ -59,7 +59,7 @@
 
 ## 2026-10-28 修复后 bundle 运行：29 条记录，全部因输入不完整而未知
 
-[公开报告](../evidence/blind-review/independent-rereview-2026-10-28.md)及其[机器可读记录](../evidence/blind-review/independent-rereview-2026-10-28.json)只消费修复后的冻结 bundle，SHA-256 为 `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`。bundle 恰好含 29 条双语记录，29 条全部获得审查：`R-01` 至 `R-29`。每条都有六个保留字段和中英配对；没有把旧 `J-NNN` 编号、状态、来源标签或外部方法文本带入重审。
+[公开报告](../evidence/blind-review/independent-rereview-2026-10-28.md)及其[机器可读记录](../evidence/blind-review/independent-rereview-2026-10-28.json)只消费修复后的冻结 bundle，SHA-256 为 `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`。其冻结 provenance 为 `source_commit 01162c9fa6a483ef58471f4694a3e69d39f8bb35`、manifest SHA-256 `077493f7f582dfa3e9ffaad9336094c9c9b87c6278f6d1e5b063fa2289580545`，候选池共有 218 条候选、纳入 29 条、排除 189 条。这 189 条在 bundle 构建前排除；bundle 内的 29 条记录没有内部排除项。bundle 恰好含 29 条双语记录，29 条全部获得审查：`R-01` 至 `R-29`。每条都有六个保留字段和中英配对；没有把旧 `J-NNN` 编号、状态、来源标签或外部方法文本带入重审。
 
 | 逐卡范围 | 所列每条记录的状态 | 处置 | 证据限制 |
 |---|---|---|---|

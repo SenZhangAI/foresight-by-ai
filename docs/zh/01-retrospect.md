@@ -469,7 +469,7 @@ kill pass 之后留下 **22 条 `UNKNOWN/UNVERIFIED` 与 2 条 `EXCLUDED`，新�
 
 ### 10.10 2026-10-28 修复后 bundle 重审：输入边界结果，不是预测结果
 
-[独立逐卡重审报告](../evidence/blind-review/independent-rereview-2026-10-28.md)只消费修复后的冻结 bundle（`SHA-256 b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`）。bundle 含 29 条双语记录，29 条全部获得审查：`R-01` 至 `R-29`。报告保留逐卡索引；每条记录都有相同的明确状态与处置：
+[独立逐卡重审报告](../evidence/blind-review/independent-rereview-2026-10-28.md)只消费修复后的冻结 bundle（`SHA-256 b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`）。冻结 provenance 为 `source_commit 01162c9fa6a483ef58471f4694a3e69d39f8bb35`、manifest SHA-256 `077493f7f582dfa3e9ffaad9336094c9c9b87c6278f6d1e5b063fa2289580545`，候选池覆盖 218 条候选／纳入 29 条／排除 189 条。这 189 条在 bundle 构建前即被排除，不是 bundle 内 29 条记录的排除项。bundle 含 29 条双语记录，29 条全部获得审查：`R-01` 至 `R-29`。报告保留逐卡索引；每条记录都有相同的明确状态与处置：
 
 | 逐卡编号 | 状态 | 处置 | 证据说明 |
 |---|---|---|---|

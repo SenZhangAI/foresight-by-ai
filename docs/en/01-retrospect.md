@@ -468,7 +468,7 @@ The surviving conclusion is a method boundary, not a forecast: future historical
 
 ### 10.10 2026-10-28 repaired-bundle re-review: an input-boundary result, not a forecast result
 
-The [independent re-review report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) consumes only the repaired frozen bundle (`SHA-256 b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`). It contains 29 bilingual records and reviews all 29: `R-01` through `R-29`. The report preserves the per-card index; every record has the same explicit status and disposition:
+The [independent re-review report](../evidence/blind-review/independent-rereview-2026-10-28.en.md) consumes only the repaired frozen bundle (`SHA-256 b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`). The freeze provenance is `source_commit 01162c9fa6a483ef58471f4694a3e69d39f8bb35`, manifest SHA-256 `077493f7f582dfa3e9ffaad9336094c9c9b87c6278f6d1e5b063fa2289580545`, and candidate-pool coverage of 218 candidates / 29 included / 189 excluded. The 189 are excluded before bundle construction; they are not exclusions among the 29 records inside the bundle. It contains 29 bilingual records and reviews all 29: `R-01` through `R-29`. The report preserves the per-card index; every record has the same explicit status and disposition:
 
 | Per-card IDs | Status | Disposition | What the evidence says |
 |---|---|---|---|
