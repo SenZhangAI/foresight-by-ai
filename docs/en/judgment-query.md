@@ -2,7 +2,7 @@
 
 [中文版](../zh/judgment-query.md)
 
-The repository currently registers 123 judgment cards, not a second static index. The bilingual cards under `docs/zh/ledger/` and `docs/en/ledger/` are the only inputs. On every invocation, the reproducible query tool parses both projections, discovers the contiguous `J-001`–`J-NNN` range from the card headings (currently ending at `J-123`), requires the two languages to expose the same ID set, checks that normalized chains, status, confidence, and time-window endpoints agree, and applies filters to that shared set. A missing card, ID gap, or bilingual metadata drift is an explicit structural error (exit code 2), not an incomplete result. This prevents a third maintained index from drifting away from the cards.
+The repository currently registers 123 judgment cards, not a second static index. The bilingual cards under `docs/zh/ledger/` and `docs/en/ledger/` are the only inputs. On every invocation, the reproducible query tool parses both projections, discovers the contiguous `J-001`–`J-NNN` range from the card headings (currently ending at `J-123`), requires the two languages to expose the same ID set, checks that normalized chains, status, confidence, and time-window endpoints agree, and uses the latest Git parent commit to check the bilingual change set for six meaning-bearing fields. A missing card, ID gap, bilingual metadata drift, or unreadable semantic baseline is an explicit structural error (exit code 2), not an incomplete result. This prevents a third maintained index from drifting away from the cards. The query requires a readable Git parent commit; on a GitHub ZIP, shallow clone, or parentless copy it fails closed rather than pretending to complete the semantic check.
 
 ## Usage
 
@@ -22,7 +22,7 @@ Composable filters:
 
 At least one filter is required. With no filter, the command fails explicitly instead of silently dumping the whole ledger. Unknown statuses, confidence values, or formats are rejected by the CLI. A syntactically valid chain/status combination whose chain is not registered prints `No judgments matched the query.` and exits 0, preserving an empty result rather than falling back to the full register.
 
-The default table output includes normalized `status`, `confidence`, and time window, both one-sentence judgments, and a card link for each language. `--format json` additionally preserves each language's title, raw status, raw confidence, judgment, time window, and link for downstream tooling.
+The default table output includes normalized `status`, `confidence`, and time window, both one-sentence judgments, and a card link for each language. `--format json` additionally preserves each language's title, judgment, reasoning chain, falsifier, leading indicator, strongest opposing mechanism, raw status, raw confidence, time window, and link for downstream tooling. The semantic check is change-set parity against the latest Git parent: it rejects a meaning-bearing field changed on only one side, but “both sides changed” is not proof that the current Chinese and English semantics are equivalent; synchronized bilingual edits still require human or independent review.
 
 ## Negative cases and failure boundaries
 

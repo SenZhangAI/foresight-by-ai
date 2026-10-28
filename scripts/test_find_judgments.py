@@ -90,6 +90,31 @@ class QueryToolTests(unittest.TestCase):
         ):
             self.module.build_records()
 
+    def test_each_semantic_field_drift_fails_closed(self) -> None:
+        path = self.repo / "docs" / "en" / "ledger" / "122-122.md"
+        original = path.read_text(encoding="utf-8")
+        for field in self.module.SEMANTIC_FIELDS:
+            if field == "title":
+                marker = "### J-122 · "
+                prefix = marker
+            else:
+                marker = f"- **{self.module.FIELD_NAMES['en'][field]}**: "
+                prefix = marker
+            with self.subTest(field=field):
+                self.assertIn(marker, original)
+                path.write_text(
+                    original.replace(prefix, prefix + "UNRELATED SEMANTIC DRIFT: ", 1),
+                    encoding="utf-8",
+                )
+                try:
+                    with self.assertRaisesRegex(
+                        self.module.RegisterError,
+                        rf"bilingual semantic field drift for J-122; field={field}; changed only in en",
+                    ):
+                        self.module.build_records()
+                finally:
+                    path.write_text(original, encoding="utf-8")
+
     def test_semantic_baseline_unavailable_fails_closed(self) -> None:
         self.module.SOURCE_REPO = self.repo
         self.module.BASELINE_REF = "missing-parent"
