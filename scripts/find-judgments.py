@@ -293,8 +293,9 @@ def load_baseline() -> dict[str, dict[str, Card]]:
 
     Tests replace ``REPO`` with a temporary copy; in that case ``SOURCE_REPO``
     remains the checked-out project and provides the same baseline.  If the
-    repository has no parent commit (or Git is unavailable), the structural
-    field-presence checks still run and this optional parity check is skipped.
+    repository has no parent commit (or Git is unavailable), the semantic
+    guarantee cannot be established, so this function fails closed instead of
+    silently reducing the check to field presence.
     """
     root = SOURCE_REPO if REPO != SOURCE_REPO else REPO
     try:
@@ -302,8 +303,10 @@ def load_baseline() -> dict[str, dict[str, Card]]:
             lang: load_language(lang, repo=root, git_ref=BASELINE_REF)
             for lang in LANGS
         }
-    except (OSError, RegisterError, ValueError, UnicodeError):
-        return {lang: {} for lang in LANGS}
+    except (OSError, RegisterError, ValueError, UnicodeError) as error:
+        raise RegisterError(
+            "bilingual semantic baseline unavailable; refusing to run semantic checks"
+        ) from error
 
 
 def card_link(card: Card) -> str:

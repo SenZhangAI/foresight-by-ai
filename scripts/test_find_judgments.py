@@ -90,6 +90,15 @@ class QueryToolTests(unittest.TestCase):
         ):
             self.module.build_records()
 
+    def test_semantic_baseline_unavailable_fails_closed(self) -> None:
+        self.module.SOURCE_REPO = self.repo
+        self.module.BASELINE_REF = "missing-parent"
+        with self.assertRaisesRegex(
+            self.module.RegisterError,
+            "bilingual semantic baseline unavailable",
+        ):
+            self.module.build_records()
+
     def test_status_drift_fails_closed(self) -> None:
         self.assert_metadata_drift(
             self.repo / "docs" / "zh" / "ledger" / "122-122.md",
