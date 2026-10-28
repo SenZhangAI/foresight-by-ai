@@ -13,6 +13,8 @@
 - bundle：[`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
 - bundle SHA-256：`b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`
 - 证据 JSON：[`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
+- source_commit 重建证据：[`source-rebuild-2026-10-28.json`](blind-review/source-rebuild-2026-10-28.json)，记录了从 `01162c9...` checkout 后逐字节 manifest、逐卡清单和 `exclusion_cards_sha256` 均匹配
+- `bundle-prepared` 的 `verification` 还记录了本轮 `python3 scripts/check.py`（190 文件、6354 内部链接、双语各 123 卡、21 链）和 blind bundle `SELF_TEST_PASSED`；这些是结构/隔离测试，不是方法有效性或预测准确率证明
 - seed SHA-256（seed 本身不入仓库）：`fee92edc96b339743a3b0f0e05794bc64e5e5fd5f02bd6a296cc34b975a363d`
 - 密封映射 SHA-256（映射保存在仓库外，不随 bundle 发布）：`c2c8e767ab40320beac5da44b65cf6de18272bd6aeb57163a2bd30d38810a1bd`
 - 纳入：29 张中英成对判断卡；`R-01`–`R-29`
@@ -48,6 +50,8 @@ This file freezes the **input to a future isolated re-review**. It does not say 
 - Bundle: [`bundle-2026-10-28-isolated.json`](blind-review/bundle-2026-10-28-isolated.json)
 - Bundle SHA-256: `b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6`
 - Evidence JSON: [`bundle-prepared-2026-10-28-isolated.json`](blind-review/bundle-prepared-2026-10-28-isolated.json)
+- Source-commit rebuild evidence: [`source-rebuild-2026-10-28.json`](blind-review/source-rebuild-2026-10-28.json), which records byte-identical manifest, per-card list, and `exclusion_cards_sha256` after checking out `01162c9...`
+- The `verification` object in `bundle-prepared` also records this round's `python3 scripts/check.py` (190 files, 6354 internal links, 123 cards per language, 21 chains) and blind-bundle `SELF_TEST_PASSED`; these are structural/isolation tests, not evidence of method validity or prediction accuracy.
 - Seed SHA-256 (the seed itself is not committed): `fee92edc96b339743a3b0f0e05794bc64e5e5fd5f02bd6a296cc34b975a363d6`
 - Sealed mapping SHA-256 (stored outside the repository): `c2c8e767ab40320beac5da44b65cf6de18272bd6aeb57163a2bd30d38810a1bd`
 - Included: 29 bilingual card pairs, numbered locally as `R-01`–`R-29`
