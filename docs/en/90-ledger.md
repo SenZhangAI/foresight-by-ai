@@ -7,6 +7,19 @@
 >
 > **Narrow-screen first:** If you want to enter judgments one by one through a reasoning chain or topic rather than face the wide table first, start with [Enter judgments by reasoning chain](90-ledger-by-chain.md). It is navigation only; complete fields remain in this page's overview and the `ledger/` shards.
 
+## One-layer entry: choose how to read
+
+You do not need to keep backing out of this long register. Each entry below takes the reader directly to the next step: chain reading, ID selection, field audit, complete shards, or legacy compatibility.
+
+| What you want to do | One-layer entry | What comes next |
+|---|---|---|
+| Follow one reasoning chain | [Enter judgments by reasoning chain](90-ledger-by-chain.md#chains-and-topics) | Grouped `J-NNN` links; each opens the corresponding full-card shard |
+| Choose a card by ID first | [Narrow-screen summary cards](90-ledger.md#narrow-screen-entry-choose-a-judgment-through-summary-cards) | Judgment, time window, confidence, and full-card link without horizontal scrolling |
+| Check whether a card has all fields | [Judgment-card fields](90-ledger.md#11-judgment-card-fields) | Boundaries for reasoning chain, time window, falsifier, leading indicator, audience scale, and more |
+| Perform a one-shot comparison audit | [Registered-judgment overview](90-ledger.md#2-registered-judgment-overview) | The complete register; field facts still live in stable-numbered shards |
+| Open the complete card shards | [Stable-number shard index](90-ledger.md#complete-judgment-card-shard-index) | Shard entry points for `J-001`–`J-123` |
+| Find a pre-migration legacy ID | [Compatibility entry](90-ledger.md#compatibility-entry) | Preserved legacy-ID entry points; no historical register is deleted |
+
 ---
 
 ## Contents / navigation
@@ -42,7 +55,12 @@
 - [29. C19 public safety and crime judgment card](#29-c19-public-safety-and-crime-judgment-card)
 - [30. C20 Boundaries Before Capability judgment cards](#30-c20-boundaries-before-capability-judgment-cards)
 - [31. C21 The Migration of Social Relationships judgment card](#31-c21-the-migration-of-social-relationships-judgment-card)
+### Complete judgment-card shard index
+
 - [Complete judgment-card shards J-001–J-010](ledger/01-10.md) · [J-011–J-020](ledger/11-20.md) · [J-021–J-030](ledger/21-30.md) · [J-031–J-040](ledger/31-40.md) · [J-041–J-050](ledger/41-50.md) · [J-051–J-060](ledger/51-60.md) · [J-061–J-070](ledger/61-70.md) · [J-071–J-080](ledger/71-80.md) · [J-081–J-090](ledger/81-90.md) · [J-091–J-095](ledger/91-95.md) · [J-096–J-102](ledger/96-102.md) · [J-103–J-108](ledger/103-110.md) · [J-109–J-111](ledger/109-111.md) · [J-112–J-113](ledger/112-113.md) · [J-114–J-116](ledger/114-116.md) · [J-117–J-119](ledger/117-119.md) · [J-120–J-121](ledger/120-121.md) · [J-122](ledger/122-122.md) · [J-123](ledger/123-123.md)
+
+### Compatibility entry
+
 - [Compatibility navigation: legacy J-091–J-102](ledger/91-100.md) · [Compatibility entry: legacy J-096–J-102](ledger/96-100.md)
 - [Society-scale register](91-social-scale-register.md): the pass-side surface — how many judgments clear Gate 1, and where each remaining candidate is stuck
 

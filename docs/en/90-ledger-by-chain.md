@@ -8,6 +8,16 @@
 
 Back to the [full judgment ledger](90-ledger.md)
 
+## One-layer entry
+
+- [Choose by chain](#chains-and-topics): every `J-NNN` below links directly to its stable-number shard and card anchor.
+- [Choose by ID](90-ledger.md#narrow-screen-entry-choose-a-judgment-through-summary-cards): see the judgment, time window, and confidence first, then open the full card.
+- [Check field definitions](90-ledger.md#1-how-to-use-this-ledger): review the normative boundaries for audience scale, reasoning chain, falsifier, and leading indicator.
+- [Audit the full register](90-ledger.md#2-registered-judgment-overview): return to the complete ledger when comparing all fields.
+- [Use legacy-ID compatibility](90-ledger.md#compatibility-entry): migration-era entry points remain available; navigation changes do not delete historical records.
+
+---
+
 ## Chains and topics
 
 ### Historical review: diffusion gates and action denominators · [Open chain page](01-retrospect.md)
