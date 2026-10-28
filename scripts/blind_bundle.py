@@ -53,6 +53,11 @@ PATH_RE = re.compile(r"(?:\.\.?/|(?:docs|chains|ledger|scripts|evidence)/)[^\s)>
 ID_RE = re.compile(r"J\s*[-_/]?\s*\d{3}", re.I)
 STATUS_RE = re.compile(r"\b(?:ACTIVE|REVISED|ARCHIVED|SUPERSEDED|FALSIFIED|HIT|INDETERMINATE)\b")
 CODE_RE = re.compile(r"```|~~~|<!--|^---\s*$", re.M)
+CEILING_RE = re.compile(
+    r"\b(?:constructed|constructive)\b|\b(?:raises?|increases?)\b[^.;。！？!?]{0,160}\bceiling\b|"
+    r"\bceiling\b|构造式|上限",
+    re.IGNORECASE,
+)
 
 # Cyrillic/Greek/fullwidth look-alikes and the dash family: a plain ASCII scan
 # would miss `Ј－００１`, which reads as the old identifier to a human.
