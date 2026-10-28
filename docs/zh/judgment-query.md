@@ -29,26 +29,15 @@ python3 scripts/find-judgments.py --chain C4 --status ACTIVE
 维护者可运行 `python3 scripts/test_find_judgments.py` 验证查询器的负例：删除一侧卡片会报双语编号不一致；改变另一侧的 `status`、`confidence` 或 `time-window` 会报元数据漂移；写入不支持的状态会明确失败。直接调用时，未知字段值和无过滤调用也会由 CLI 拒绝，且不会输出全库。
 
 
-命令：
+命令执行后会直接从当前双语卡片生成结果。下面只展示**输出格式示例**，不是当前仓库结果，也不应被当作固定的卡片清单；要查看当前结果，请运行上面的命令：
 
-```bash
-python3 scripts/find-judgments.py --chain C4 --status ACTIVE
+```text
+Query: chain=C4, status=ACTIVE
+ID | Chains | Status | Confidence | Time window | 中文 | English
+---|---|---|---|---|---|---
+J-NNN（双语卡片链接由脚本按当前路径生成） | C4 | ACTIVE | MEDIUM | <从卡片读取> | <中文判断> | <English judgment>
+Result count: <从当前卡片计算>
 ```
-
-在当前仓库内容上，结果集应为以下 10 个编号（脚本输出的 `Result count` 应为 `10`）：
-
-| 编号 | 状态 | 置信度 | 时间窗（中文卡原值） |
-|---|---|---|---|
-| J-073 | ACTIVE | MEDIUM | 2026–2040。 |
-| J-074 | ACTIVE | MEDIUM | 2026–2038。 |
-| J-075 | ACTIVE | MEDIUM | 2026–2033。 |
-| J-076 | ACTIVE | MEDIUM | 2026–2034。 |
-| J-077 | ACTIVE | MEDIUM | 2026–2030。 |
-| J-078 | ACTIVE | MEDIUM | 2026–2040。 |
-| J-099 | ACTIVE | MEDIUM | 2027–2035。 |
-| J-100 | ACTIVE | MEDIUM | 2027–2038。 |
-| J-101 | ACTIVE | MEDIUM | 2028–2038。 |
-| J-102 | ACTIVE | MEDIUM | 2028–2038。 |
 
 这不是手工维护的结果表：修改卡片后重新执行命令，结果集和字段值会从卡片内容重新计算。逐卡阅读请从 [C4 具身智能推演链](chains/40-embodied-intelligence.md) 进入，再打开脚本返回的双语卡片链接。
 

@@ -29,26 +29,15 @@ The default table output includes normalized `status`, `confidence`, and time wi
 Maintainers can run `python3 scripts/test_find_judgments.py` for the query tool's negative suite: deleting a card from one language reports a bilingual ID mismatch; changing the other language's `status`, `confidence`, or `time-window` reports metadata drift; and an unsupported status fails explicitly. Direct calls also reject unknown field values and unfiltered queries without printing the full register.
 
 
-Command:
+The command generates its result directly from the current bilingual cards. The block below is an **output-format example only**, not the current repository result and not a fixed card list; run the command above to inspect the current result:
 
-```bash
-python3 scripts/find-judgments.py --chain C4 --status ACTIVE
+```text
+Query: chain=C4, status=ACTIVE
+ID | Chains | Status | Confidence | Time window | 中文 | English
+---|---|---|---|---|---|---
+J-NNN (the script generates bilingual card links from current paths) | C4 | ACTIVE | MEDIUM | <read from card> | <Chinese judgment> | <English judgment>
+Result count: <computed from current cards>
 ```
-
-Against the current repository contents, the result set must contain these 10 IDs (the script's `Result count` must be `10`):
-
-| ID | Status | Confidence | Time window (Chinese card's raw value) |
-|---|---|---|---|
-| J-073 | ACTIVE | MEDIUM | 2026–2040。 |
-| J-074 | ACTIVE | MEDIUM | 2026–2038。 |
-| J-075 | ACTIVE | MEDIUM | 2026–2033。 |
-| J-076 | ACTIVE | MEDIUM | 2026–2034。 |
-| J-077 | ACTIVE | MEDIUM | 2026–2030。 |
-| J-078 | ACTIVE | MEDIUM | 2026–2040。 |
-| J-099 | ACTIVE | MEDIUM | 2027–2035。 |
-| J-100 | ACTIVE | MEDIUM | 2027–2038。 |
-| J-101 | ACTIVE | MEDIUM | 2028–2038。 |
-| J-102 | ACTIVE | MEDIUM | 2028–2038。 |
 
 This is not a hand-maintained result table: after a card changes, rerunning the command recomputes the result set and field values from the card text. For close reading, enter through the [C4 embodied-intelligence chain](chains/40-embodied-intelligence.md), then open the bilingual card links returned by the script.
 
