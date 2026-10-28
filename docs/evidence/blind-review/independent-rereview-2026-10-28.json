@@ -2,8 +2,8 @@
   "schema_version": 1,
   "round": "2026-10-28-isolated-rereview",
   "status": "INPUT-INCOMPLETE",
-  "claim_boundary": "This report consumes only the frozen bundle. Because the bundle omits the diffusion-gate definitions and review instructions, every gate and overall result is UNKNOWN/UNVERIFIED. No VETO, ABSTAIN, pass, reproducibility, forecast accuracy, or out-of-sample claim is made.",
-  "bundle_sha256": "9f75f0c5bf943ea626209c058c1a1658ada0181720ff5481e5215064ca27eb00",
+  "claim_boundary": "This report consumes only the repaired frozen bundle. Because the bundle omits the diffusion-gate definitions and review instructions, every gate and overall result is UNKNOWN/UNVERIFIED. No VETO, ABSTAIN, pass, reproducibility, forecast accuracy, or out-of-sample claim is made.",
+  "bundle_sha256": "b500a63a28e755479790b5680787ae86a47f2703685ffa56657b7ad7f4c177f6",
   "coverage": {
     "reviewed_count": 29,
     "reviewed_ids": [
@@ -53,7 +53,7 @@
   "records": [
     {
       "review_id": "R-01",
-      "scope_observation": "bounded urban cultural-participation outcome",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -78,14 +78,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-02",
-      "scope_observation": "institutional fab approval and utility contracting",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -110,14 +110,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-03",
-      "scope_observation": "regional embodied-system adoption condition",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -142,14 +142,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-04",
-      "scope_observation": "cross-jurisdiction institutional interoperability",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -174,14 +174,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-05",
-      "scope_observation": "high-consequence liability and rights institutions",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -206,14 +206,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-06",
-      "scope_observation": "OECD demographic outcome",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -238,14 +238,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-07",
-      "scope_observation": "urban housing and family-formation relationship",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -270,14 +270,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-08",
-      "scope_observation": "care-system reallocation",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -302,14 +302,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-09",
-      "scope_observation": "migration and receiving-system capacity",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -334,14 +334,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-10",
-      "scope_observation": "distributional and institutional outcome",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -366,14 +366,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-11",
-      "scope_observation": "occupational embodied task re-bundling",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -398,14 +398,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-12",
-      "scope_observation": "occupational/organizational productivity distribution",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -430,14 +430,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-13",
-      "scope_observation": "religious and secular institutional functions",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -462,14 +462,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-14",
-      "scope_observation": "workplace telework practice",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -494,14 +494,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-15",
-      "scope_observation": "advanced-fab siting and utility decisions",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -526,14 +526,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-16",
-      "scope_observation": "semiconductor climate-risk pricing",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -558,14 +558,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-17",
-      "scope_observation": "advanced-manufacturing substitution validation",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -590,14 +590,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-18",
-      "scope_observation": "embodied-system deployment ordering",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -622,14 +622,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-19",
-      "scope_observation": "consequential human-AI agency institutions",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -654,14 +654,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-20",
-      "scope_observation": "institutional and controlled care assistance",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -686,14 +686,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-21",
-      "scope_observation": "household/local adaptation and insurance exposure",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -718,14 +718,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-22",
-      "scope_observation": "power-system technology deployment sequence",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -750,14 +750,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-23",
-      "scope_observation": "urban mobility and care-trip stratification",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -782,14 +782,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-24",
-      "scope_observation": "crime and safety institutional response",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -814,14 +814,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-25",
-      "scope_observation": "government aid-budget allocation",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -846,14 +846,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-26",
-      "scope_observation": "G7 pension legislation and fiscal choice",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -878,14 +878,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-27",
-      "scope_observation": "organizational AI workflow design",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -910,14 +910,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-28",
-      "scope_observation": "government security and fiscal-policy ordering",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -942,14 +942,14 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     },
     {
       "review_id": "R-29",
-      "scope_observation": "care-robot/family-care role reallocation",
+      "scope_observation": "Frozen bilingual record with six retained fields; no external scope classification imported.",
       "gates": {
         "gate1": {
           "result": "UNKNOWN/UNVERIFIED",
@@ -974,8 +974,8 @@
       },
       "overall_verdict": "UNKNOWN/UNVERIFIED",
       "disposition": "retain-unverified-boundary",
-      "reason": "The frozen bundle does not contain the diffusion-gate definitions, applicability rules, thresholds, or run instructions. A gate result cannot therefore be inferred without importing outside method text; this is an input-boundary failure, not evidence that the judgment passes or fails.",
-      "missing_boundary": "Gate definitions and their applicability/thresholds are absent from the frozen six-field bundle; no per-gate conclusion, pass, veto, or accuracy claim is licensed.",
+      "reason": "The input record is retained for traceability, but the five diffusion-gate definitions and execution rules are absent from the frozen bundle; no gate outcome can be produced.",
+      "missing_boundary": "Gate definitions, applicability rules, thresholds, execution instructions, and any out-of-sample evaluation protocol are not part of the frozen input.",
       "input_fields_present": true,
       "zh_en_pair_present": true
     }
