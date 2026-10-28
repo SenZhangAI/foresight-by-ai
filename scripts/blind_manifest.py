@@ -133,35 +133,52 @@ def main(argv: List[str]) -> int:
                                "fields and keep a readable claim after de-labelling"),
         })
 
-    migration = len(MIGRATION_HEADING_RE.findall(
-        (repo / MIGRATION_SNAPSHOT).read_text(encoding="utf-8")))
+    migration_text = (repo / MIGRATION_SNAPSHOT).read_text(encoding="utf-8")
+    migration_ids = MIGRATION_HEADING_RE.findall(migration_text)
+    migration_cards = [{
+        "id": "legacy:" + cid,
+        "reason": "Historical migration snapshot duplicates the current ledger card and is not a second judgment set.",
+        "source": {"paths": [MIGRATION_SNAPSHOT], "heading": cid},
+    } for cid in migration_ids]
     exclusions: List[Dict[str, Any]] = [{
         "subject": "%s migration snapshots" % MIGRATION_SNAPSHOT,
         "reason": ("Historical migration snapshots duplicate the current ledger cards "
                    "and are not a second judgment set."),
-        "count": migration,
+        "count": len(migration_cards),
+        "cards": migration_cards,
     }]
     if claim_lost:
+        claim_lost_cards = [{
+            "id": cid,
+            "reason": reason,
+            "source": {"paths": [zh[cid], en[cid]], "heading": cid},
+        } for cid, reason in sorted(claim_lost)]
         exclusions.append({
-            "subject": "ledger cards with an unreadable required field after de-labelling: "
-                       + ", ".join(cid for cid, _ in sorted(claim_lost)),
+            "subject": "ledger cards with an unreadable required field after de-labelling",
             "reason": ("A required retained field carries no readable content once the "
                        "de-labelling runs, so there is nothing for a reviewer to judge "
-                       "in it. This is NOT the 'claim equals the heading title' case — "
-                       "that one is now shipped, with the card's own title kept inside "
-                       "its claim field. Per-card causes are on the freezer's stdout."),
-            "count": len(claim_lost),
+                       "in it. The per-card reason is recorded in each cards entry."),
+            "count": len(claim_lost_cards),
+            "cards": claim_lost_cards,
         })
     if unpaired:
+        unpaired_cards = [{
+            "id": cid,
+            "reason": "A card with no bilingual counterpart cannot be paired in the bundle.",
+            "source": {"paths": [zh[cid]] if cid in zh else [en[cid]], "heading": cid},
+        } for cid in unpaired]
         exclusions.append({
             "subject": "ledger cards present in only one language",
             "reason": "A card with no bilingual counterpart cannot be paired in the bundle.",
-            "count": len(unpaired),
+            "count": len(unpaired_cards),
+            "cards": unpaired_cards,
         })
 
     head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
                           stdout=subprocess.PIPE, check=True).stdout.decode().strip()
     excluded = sum(item["count"] for item in exclusions)
+    exclusion_cards = [card for item in exclusions for card in item["cards"]]
+    exclusion_cards_sha256 = bb.sha256_bytes(bb.canonical_json(exclusion_cards))
     inclusion_rule = (
         "Include every current ledger card for which both the Chinese and English "
         "card contain all six required retained fields — judgment, audience, "
@@ -186,6 +203,7 @@ def main(argv: List[str]) -> int:
         "source_commit": head,
         "inclusion_rule": inclusion_rule,
         "exclusions": exclusions,
+        "exclusion_cards_sha256": exclusion_cards_sha256,
         "coverage": {"candidate_total": len(cards) + excluded,
                      "included": len(cards), "excluded": excluded},
         "cards": cards,

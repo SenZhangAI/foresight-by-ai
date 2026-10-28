@@ -37,14 +37,18 @@ import unicodedata
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 BUNDLE_SCHEMA_VERSION = 1
 BUNDLE_FILENAME = "bundle.json"
 REQUIRED_MANIFEST_KEYS = {
-    "schema_version", "source_commit", "inclusion_rule", "exclusions", "coverage", "cards",
+    "schema_version", "source_commit", "inclusion_rule", "exclusions",
+    "exclusion_cards_sha256", "coverage", "cards",
 }
 CARD_KEYS = {"id", "zh_path", "en_path", "zh_sha256", "en_sha256", "include_reason"}
+EXCLUSION_CARD_KEYS = {"id", "reason", "source"}
+EXCLUSION_SOURCE_KEYS = {"paths", "heading"}
 CARD_ID_RE = re.compile(r"^J-\d{3}$")
+EXCLUSION_ID_RE = re.compile(r"^(?:legacy:)?J-\d{3}$")
 HEADING_RE = re.compile(r"^###\s+(J-\d{3})([^\n]*)$", re.M)
 FIELD_RE = re.compile(r"^-\s+\*\*([^*]+)\*\*\s*[:：]\s*(.*)$")
 LINK_RE = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
@@ -263,16 +267,46 @@ def validate_manifest(manifest: Dict[str, Any]) -> None:
     if not isinstance(exclusions, list):
         fail("exclusions must be a list")
     excluded_total = 0
+    excluded_ids: Set[str] = set()
+    exclusion_rows: List[Dict[str, Any]] = []
     for item in exclusions:
-        if not isinstance(item, dict) or set(item) != {"subject", "reason", "count"}:
-            fail("each exclusion must be {subject, reason, count}")
+        if not isinstance(item, dict) or set(item) != {"subject", "reason", "count", "cards"}:
+            fail("each exclusion must be {subject, reason, count, cards}")
         if not isinstance(item["subject"], str) or not item["subject"].strip():
             fail("exclusion subject must be non-empty")
         if not isinstance(item["reason"], str) or not item["reason"].strip():
             fail("exclusion reason must be non-empty")
+        if not isinstance(item["cards"], list) or not item["cards"]:
+            fail("each exclusion must carry a non-empty cards list")
+        if item["count"] != len(item["cards"]):
+            fail("exclusion count must equal its per-card list length")
+        for excluded in item["cards"]:
+            if not isinstance(excluded, dict) or set(excluded) != EXCLUSION_CARD_KEYS:
+                fail("each excluded card must be {id, reason, source}")
+            cid = excluded["id"]
+            if not isinstance(cid, str) or not EXCLUSION_ID_RE.fullmatch(cid):
+                fail("invalid excluded card id: %r" % (cid,))
+            if cid in excluded_ids:
+                fail("duplicate excluded card id: %s" % cid)
+            excluded_ids.add(cid)
+            if not isinstance(excluded["reason"], str) or not excluded["reason"].strip():
+                fail("%s: exclusion reason must be non-empty" % cid)
+            source = excluded["source"]
+            if not isinstance(source, dict) or set(source) != EXCLUSION_SOURCE_KEYS:
+                fail("%s: exclusion source must be {paths, heading}" % cid)
+            if source["heading"] != (cid.removeprefix("legacy:") if cid.startswith("legacy:") else cid):
+                fail("%s: exclusion source heading must identify the excluded card" % cid)
+            if (not isinstance(source["paths"], list) or not source["paths"] or
+                    any(not isinstance(path, str) or not path or path.startswith("/")
+                        for path in source["paths"])):
+                fail("%s: exclusion source paths must be non-empty relative strings" % cid)
         if not isinstance(item["count"], int) or isinstance(item["count"], bool) or item["count"] < 1:
             fail("exclusion count must be a positive integer")
         excluded_total += item["count"]
+        exclusion_rows.extend(item["cards"])
+    exclusion_digest = sha256_bytes(canonical_json(exclusion_rows))
+    if manifest["exclusion_cards_sha256"] != exclusion_digest:
+        fail("exclusion_cards_sha256 does not match the frozen per-card exclusion list")
     coverage = manifest["coverage"]
     if not isinstance(coverage, dict) or set(coverage) != {"candidate_total", "included", "excluded"}:
         fail("coverage must be {candidate_total, included, excluded}")
@@ -300,6 +334,8 @@ def validate_manifest(manifest: Dict[str, Any]) -> None:
         if cid in seen:
             fail("duplicate card id: %s" % cid)
         seen.add(cid)
+        if cid in excluded_ids:
+            fail("card id appears in both included and excluded sets: %s" % cid)
         if not isinstance(card["include_reason"], str) or not card["include_reason"].strip():
             fail("%s: include_reason must be non-empty" % cid)
         for key in ("zh_sha256", "en_sha256"):
@@ -1242,11 +1278,18 @@ def _fixture_manifest(repo: Path, files: Dict[str, Path]) -> Dict[str, Any]:
             "en_sha256": sha256_bytes(en.read_bytes()),
             "include_reason": "fixture card with all required retained fields",
         })
+    excluded_cards = [{
+        "id": "legacy:J-999",
+        "reason": "fixture excluded card lacks the bilingual retained fields",
+        "source": {"paths": ["docs/evidence/fixture-migration.md"], "heading": "J-999"},
+    }]
     return {
         "schema_version": SCHEMA_VERSION,
         "source_commit": "a" * 40,
         "inclusion_rule": "fixture: every card in the fixture tree",
-        "exclusions": [{"subject": "fixture excluded card", "reason": "missing audience field", "count": 1}],
+        "exclusions": [{"subject": "fixture excluded card", "reason": "missing audience field",
+                        "count": 1, "cards": excluded_cards}],
+        "exclusion_cards_sha256": sha256_bytes(canonical_json(excluded_cards)),
         "coverage": {"candidate_total": len(cards) + 1, "included": len(cards), "excluded": 1},
         "cards": cards,
     }
