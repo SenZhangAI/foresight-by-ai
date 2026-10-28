@@ -129,6 +129,7 @@ PRIOR_REVIEW_TOKENS = (
     "更正", "previously said", "此前写", "which that count contradicts", "与该计数矛盾",
     "Current-scale review", "现时规模复核", "carried by no lens", "无承载",
     "formerly the veto direction", "原 否决向", "复核时最新版次",
+    "free tier", "免费档", "necessary premise of the scale", "规模的必要前提",
     "prior review", "current review", "adoption gate", "diffusion gate",
     "Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5", "L8", "L10", "M2",
 )
@@ -143,6 +144,16 @@ PRIOR_REVIEW_PAREN_RE = re.compile(
     re.IGNORECASE,
 )
 
+LEGACY_SCALE_RE = re.compile(
+    r"\b[A-Z]\s*(?:[-–]\s*)?tier\b|\b(?:S|D|C)\s*档\b|"
+    r"\b(?:S|D|C)\s*判定\b|constraint\s+fails|一道约束不过",
+    re.IGNORECASE,
+)
+SOURCE_TRACE_RE = re.compile(
+    r"\b(?:BLS|SWAA|ONS)\b|\bTable\s+A-\d+\b|"
+    r"self-reported\s+and\s+unaudited|自报、未审计",
+    re.IGNORECASE,
+)
 SOURCE_ID_RE = re.compile(r"\bEXT-\d+\b", re.IGNORECASE)
 NUMBERED_CONSTRAINT_RE = re.compile(
     r"\bGates?\s+\d+(?:\s*(?:and|through|to|,|-)\s*\d+)*\b|"
@@ -381,6 +392,8 @@ def strip_prior_review_text(value: str) -> str:
     parts = re.split(r"(?<=[。！？.!?；;])\s*", value)
     kept = [part for part in parts
             if not SOURCE_ID_RE.search(part)
+            and not LEGACY_SCALE_RE.search(part)
+            and not SOURCE_TRACE_RE.search(part)
             and not any(token in fold(part).lower() for token in folded_tokens)]
     cleaned = re.sub(r"\s+", " ", " ".join(kept))
     cleaned = re.sub(r"([,，;；:：])\s*([,，;；:：])+", r"\1", cleaned)
