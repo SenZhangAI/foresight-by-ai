@@ -4,6 +4,7 @@
   "description": "Public future-society sandbox knowledge repository",
   "scripts": {
     "check": "python3 scripts/check.py && python3 scripts/test_find_judgments.py",
+    "test": "python3 scripts/test_blind_fidelity.py",
     "ship:structure-placeholder": "true"
   }
 }
