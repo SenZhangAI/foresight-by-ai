@@ -51,6 +51,28 @@ def main() -> None:
         (repo / "docs/en/ledger/02.md").write_bytes(card("J-002", "Must not be cleaned J-001").encode())
         (repo / "docs/zh/ledger/03.md").write_bytes(card("J-003", "不可清洗", link=True).encode())
         (repo / "docs/en/ledger/03.md").write_bytes(card("J-003", "Must not be cleaned", link=True).encode())
+        (repo / "docs/zh/ledger/04.md").write_bytes(card("J-004", "不可清洗 diffusion-gate: reviewed").encode())
+        (repo / "docs/en/ledger/04.md").write_bytes(card("J-004", "Must not be cleaned diffusion-gate: reviewed").encode())
+        zh_bad = card("J-005", "UTF-8 invalid").encode().replace("部署量".encode(), b"\xff")
+        en_bad = card("J-005", "UTF-8 invalid").encode().replace("部署量".encode(), b"\xff")
+        (repo / "docs/zh/ledger/05.md").write_bytes(zh_bad)
+        (repo / "docs/en/ledger/05.md").write_bytes(en_bad)
+        (repo / "docs/zh/ledger/06.md").write_bytes(card("J-006", "不可清洗 status: reviewed").encode())
+        (repo / "docs/en/ledger/06.md").write_bytes(card("J-006", "Must not be cleaned status: reviewed").encode())
+        zh_trace = card("J-007", "不可清洗").encode().replace("百万级读者".encode(), b"docs/evidence/example.md").replace("供给增加".encode(), b"#section")
+        en_trace = card("J-007", "Must not be cleaned").encode().replace("百万级读者".encode(), b"docs/evidence/example.md").replace("供给增加".encode(), b"#section")
+        (repo / "docs/zh/ledger/07.md").write_bytes(zh_trace)
+        (repo / "docs/en/ledger/07.md").write_bytes(en_trace)
+        (repo / "docs/zh/ledger/08.md").write_bytes(card("J-008", "不可清洗 [source](docs/evidence/example.md#section)").encode())
+        (repo / "docs/en/ledger/08.md").write_bytes(card("J-008", "Must not be cleaned [source](docs/evidence/example.md#section)").encode())
+        (repo / "docs/zh/ledger/09.md").write_bytes(card("J-009", "不可清洗 /private/source.md#section").encode())
+        (repo / "docs/en/ledger/09.md").write_bytes(card("J-009", "Must not be cleaned /private/source.md#section").encode())
+        (repo / "docs/zh/ledger/10.md").write_bytes(card("J-010", "不可清洗 reports/source.md").encode())
+        (repo / "docs/en/ledger/10.md").write_bytes(card("J-010", "Must not be cleaned reports/source.md").encode())
+        (repo / "docs/zh/ledger/11.md").write_bytes(card("J-011", "不可清洗 #a").encode())
+        (repo / "docs/en/ledger/11.md").write_bytes(card("J-011", "Must not be cleaned #a").encode())
+        (repo / "docs/zh/ledger/12.md").write_bytes(card("J-012", "不可清洗 example.com/source").encode())
+        (repo / "docs/en/ledger/12.md").write_bytes(card("J-012", "Must not be cleaned example.com/source").encode())
         run("git", "init", "-q", cwd=repo)
         run("git", "config", "user.email", "test@example.invalid", cwd=repo)
         run("git", "config", "user.name", "Test", cwd=repo)
@@ -58,11 +80,28 @@ def main() -> None:
         run("git", "commit", "-qm", "fixture", cwd=repo)
         source = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo, text=True).strip()
 
+        assert bf.main(["--repo", str(repo), "--source-commit", source, "--manifest-out", "docs/private-manifest.json"]) == 1
+        try:
+            bf.collect_manifest(repo, source[:12])
+        except bf.Refused:
+            pass
+        else:
+            raise AssertionError("abbreviated source commit was accepted")
+
         manifest = bf.collect_manifest(repo, source)
-        assert manifest["coverage"] == {"candidate_total": 3, "included": 1, "excluded": 2}
+        assert manifest["coverage"] == {"candidate_total": 12, "included": 1, "excluded": 11}
         assert "field_policy" in manifest and "allowed_transform" in manifest["field_policy"]
         exclusion_reasons = " ".join(item["reason"] for item in manifest["exclusions"][0]["cards"])
+        exclusion_fields = [field for item in manifest["exclusions"][0]["cards"] for field in item.get("fields", [])]
         assert "URL" in exclusion_reasons and "unmapped card identifier" in exclusion_reasons
+        assert "Markdown link" in exclusion_reasons
+        assert "source path" in exclusion_reasons
+        assert "heading anchor" in exclusion_reasons
+        assert "bare domain" in exclusion_reasons
+        assert "gate/review metadata" in exclusion_reasons
+        assert "status/review metadata" in exclusion_reasons
+        assert "not UTF-8" in exclusion_reasons
+        assert all(field["difference_verdict"] == "excluded_before_projection" for field in exclusion_fields)
         mp = repo / "manifest.json"
         mp.write_bytes(bf.canonical(manifest))
         out = Path(td) / "bundle"
@@ -135,12 +174,22 @@ def main() -> None:
         else:
             raise AssertionError("duplicate alias was accepted")
 
+        try:
+            bf.prepare(repo, mp, Path(td) / "inside-map-out", repo / "mapping.json")
+        except bf.Refused:
+            pass
+        else:
+            raise AssertionError("mapping inside repository was accepted")
+
         # Only the declared id alias is allowed: a whitespace or Unicode change
         # is not a permissible substitute.
         src = " J-001\r\nＡ".encode("utf-8")
         projected, _ = bf.field_projection({"source_bytes": src}, {"J-001": "R-001"})
         assert projected == " R-001\r\nＡ".encode("utf-8")
         assert projected != "R-001\nA".encode("utf-8")
+        embedded = b"J-0010 XJ-001 J-001"
+        projected_embedded, _ = bf.field_projection({"source_bytes": embedded}, {"J-001": "R-001"})
+        assert projected_embedded == b"J-0010 XJ-001 R-001"
 
     print("blind fidelity adversarial tests: PASS")
 
