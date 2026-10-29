@@ -114,14 +114,14 @@
 
 [历史预测—结果候选可行性清单](../evidence/historical-candidate-feasibility-2026-10.md)是本方法需要吸收的下一条证据边界。它覆盖 24 条在结果或后续历史已可见后发现的候选：科技／科技治理 8 条，政治／公共政策 6 条，商业／金融市场 10 条。kill pass 之后留下 22 条 `UNKNOWN/UNVERIFIED`、2 条 `EXCLUDED`，**新增冻结数为 0（2026-10-27 生成时的快照）**。`T-APOLLO-1961` 是政策承诺，不是本批使用的概率预测单元；`B-WEWORK-RUNRATE-2019` 是没有未来目标日期的状态指标。其余候选至少缺少一个独立重建所需的承重字段。
 
-这项结果改变的是记录边界，不是预测结论。等级不是汇总标签：清单按 `case_id` 逐案列出 `UNKNOWN/UNVERIFIED`、`EXCLUDED` 及缺项，且**截至 2026-10-27 快照没有新增 `CALIBRATION`**。2026-10-29 取得 NHGRI 同期 FAQ 后，`T-HGP-1990` 已迁移为[有界科技史校准切片](../evidence/2026-10-historical-calibration-slice.md)中的唯一 HGP 分析单元 `TECH-HGP-1990 = CALIBRATION`；旧行不再计入当前 UNKNOWN，也不与新行相加。除这一状态迁移外，读者应先看单案的证据等级与缺失字段，再决定它能支持哪一种方法结论；不能从领域数量、候选知名度或后续故事反推等级。
+这项结果改变的是记录边界，不是预测结论。等级不是汇总标签：清单按 `case_id` 逐案列出 `UNKNOWN/UNVERIFIED`、`EXCLUDED` 及缺项，且**截至 2026-10-27 快照没有新增 `CALIBRATION`**。2026-10-29，`T-HGP-1990` 作为唯一 HGP 分析单元迁移到[有界科技史校准切片](../evidence/2026-10-historical-calibration-slice.md)的 `TECH-HGP-1990 = UNKNOWN/UNVERIFIED`：期限可重建，但目标分母未证明与结果分母一致，预算也没有同币种完整对账。旧行不再作为第二个独立候选计数。除这一状态迁移外，读者应先看单案的证据等级与缺失字段，再决定它能支持哪一种方法结论；不能从领域数量、候选知名度或后续故事反推等级。
 
 - 来源线索不等于配对材料。原始预测／日期、目标日期、观察窗、同口径结果、单位、分母与稳定定位，全部闭合后才能进入冻结池。
 - `UNKNOWN/UNVERIFIED` 是本轮诚实的终局状态，不是暂时的 `MISS`；后续修订、停运、里程碑、相邻指标、二手数字和吸引人的叙事，都不能填补缺失字段。
 - `EXCLUDED` 是可追溯的明确分类，不是证明相关政策或商业结果预测失败的证据。
-- 前一轮仓库全量合格 `CALIBRATION` 档案仍为六对；本切片另登记 4 条事后 `CALIBRATION`，但不增加准确率分母，也不新增规则。
+- 前一轮仓库全量合格 `CALIBRATION` 档案仍为六对；本切片另登记 3 条事后 `CALIBRATION` 与 3 条 `UNKNOWN/UNVERIFIED`，但不增加准确率分母，也不新增规则。
 
-同一边界也适用于相对检验。结果已知后挑选出的候选集，不会因为写了协议、baseline 或通过结构检查就变成干净留出。即便严格执行了共同训练泄漏下的相对留出，最多也只能支持相对同输入 baseline 的区分度，不能证明绝对准确率。`npm run check` 与 `ship:structure-placeholder` 是结构／发布检查，不是方法有效性证据。完整逐案清单、falsification 尝试与缺失字段仍以链接证据页为准；在没有满足各自时间与重建条件前，**除已在 2026-10-29 明确迁移并标为 `TECH-HGP-1990 = CALIBRATION` 的 HGP 外**，本方法页不得把 24 条线索中的任何一条提升为确定失准、`CALIBRATION`、`CONTAMINATED_RELATIVE_HOLDOUT` 或 `GENUINE_FUTURE_OOS`。HGP 的迁移也只支持事后校准，不支持准确率或样本外结论。
+同一边界也适用于相对检验。结果已知后挑选出的候选集，不会因为写了协议、baseline 或通过结构检查就变成干净留出。即便严格执行了共同训练泄漏下的相对留出，最多也只能支持相对同输入 baseline 的区分度，不能证明绝对准确率。`npm run check` 与 `ship:structure-placeholder` 是结构／发布检查，不是方法有效性证据。完整逐案清单、falsification 尝试与缺失字段仍以链接证据页为准；在没有满足各自时间与重建条件前，本方法页不得把 24 条线索中的任何一条提升为确定失准、`CALIBRATION`、`CONTAMINATED_RELATIVE_HOLDOUT` 或 `GENUINE_FUTURE_OOS`。HGP 迁移后仍是 `UNKNOWN/UNVERIFIED`，不支持校准、准确率或样本外结论。
 
 ### 1.5 2026-10-09 新增证据与各自的边界
 

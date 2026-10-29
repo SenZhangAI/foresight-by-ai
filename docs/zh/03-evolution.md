@@ -46,7 +46,7 @@
 
 ## 2026-10 有界科技史证据切片：新增材料，不改旧分母
 
-本轮新增的[有界科技史校准切片](../evidence/2026-10-historical-calibration-slice.md)扫描了 6 个公开入口：NASA 2004 Vision 与 ISS 组装、NHGRI 人类基因组计划、DARPA Grand Challenge、ITU 2005 市场投影和 DOE SunShot。结果是 **4 条 `CALIBRATION`、2 条 `UNKNOWN/UNVERIFIED`**：HGP 的提前完成、ISS 的期限延误、2020 月球目标未达成、DARPA 2004 首届目标的 0 队完成，均只能作为事后校准；ITU 与 SunShot 因原始日期、指标、分母或同窗结果未同时闭合而保留未知。
+本轮新增的[有界科技史校准切片](../evidence/2026-10-historical-calibration-slice.md)扫描了 6 个公开入口：NASA 2004 Vision 与 ISS 组装、NHGRI 人类基因组计划、DARPA Grand Challenge、ITU 2005 市场投影和 DOE SunShot。结果是 **3 条 `CALIBRATION`、3 条 `UNKNOWN/UNVERIFIED`**：ISS 的期限延误、2020 月球目标未达成、DARPA 2004 首届目标的 0 队完成，均只能作为事后校准；HGP 因目标分母与结果分母未证明一致且预算没有同币种完整对账而保留未知；ITU 与 SunShot 也因原始日期、指标、分母或同窗结果未同时闭合而保留未知。
 
 这批材料**不回写前一段“三域档案 6/12、科技合格 0”历史快照的分母**，因为本切片采用的是项目目标／竞赛目标／行业投影的有界入口，并非协议 §1 所要求的完整技术注册名录候选池。它补的是科技证据边界，不是方法准确率：工程目标的完成、延期或竞赛胜负，不能直接升级成社会级扩散预测。详见切片中的覆盖地图、逐项 kill 记录和未扫描名录。
 

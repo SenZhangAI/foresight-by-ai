@@ -454,7 +454,7 @@ The kill pass leaves **22 `UNKNOWN/UNVERIFIED` items and 2 `EXCLUDED` items, wit
 | Politics / public policy | `P-2015-UK-GE`, `P-2014-SCOTLAND`, `P-2012-US-ELECTION`, `P-YUGOSLAVIA-1990`, `P-ACA-COVERAGE-2010`, `P-OMB-FY2001` | — |
 | Business / financial markets | `DOW-36000-1999`, `B-NETFLIX-2011-Q3`, `B-TESLA-2016-BUILD`, `B-TESLA-2016-DELIVERIES`, `B-PELOTON-SUBSCRIPTIONS-FY2022`, `B-PELOTON-REVENUE-FY2022`, `B-MOVIEPASS-2018`, `B-BEYONDMEAT-2019`, `B-QUIBI-FIRST-YEAR` | `B-WEWORK-RUNRATE-2019` |
 
-Current state backflow: `T-HGP-1990` migrated to `TECH-HGP-1990 = CALIBRATION` in the new slice and must not remain in the current `UNKNOWN/UNVERIFIED` count. The migrated current index is therefore **21 `UNKNOWN/UNVERIFIED`, 2 `EXCLUDED`, and 1 `CALIBRATION` (the HGP migration)**; the old table remains an audit snapshot and does not participate in the current denominator.
+Current state backflow: `T-HGP-1990` migrated to `TECH-HGP-1990 = UNKNOWN/UNVERIFIED` in the new slice. Its schedule is reconstructible, but the target denominator is not shown to match the reported outcome denominator and the budget lacks same-currency reconciliation. The migrated current index remains **22 `UNKNOWN/UNVERIFIED`, 2 `EXCLUDED`, and 0 `CALIBRATION` for this audit set**; the old table remains an audit snapshot and does not participate in the current denominator.
 
 
 | Result of the candidate audit | What it supports | What it does not support |
