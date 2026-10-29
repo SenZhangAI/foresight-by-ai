@@ -1006,7 +1006,7 @@ Copy the fields, not the example ID. The example does not enter the formal index
 
 The overview is a navigation aid. Every full card, strongest opposing mechanism, and evidence is registered in this ledger; source links return to the relevant narrative or technology chain, and IDs and statuses stay synchronized here. The overview’s “near / mid / far” labels are reading containers only; each card’s own time window is the judgment boundary, so overlap with or across a container is not a contradiction.
 
-> **Narrow-screen note (measured 2026-10-18):** The overview table requires horizontal swiping on a narrow screen; at simulated article widths of 320–382 px, Chinese shows 3–4/10 columns completely and English 2–3/10, while the page itself does not overflow horizontally. A real phone frame and touch behaviour remain unmeasured. See the [GitHub rendering and narrow-screen measurement](../evidence/github-render-check-2026-10-18.en.md).
+> **Historical narrow-screen measurement (2026-10-18, fixed commit `0c5bf915...`):** The overview table at that fixed snapshot required horizontal swiping on a narrow screen; at simulated article widths of 320–382 px, Chinese showed 3–4/10 columns completely and English 2–3/10, while the page itself did not overflow horizontally. A real phone frame and touch behaviour remain unmeasured. This is historical evidence for the old commit, not proof of the current ledger after later cards were added; current state requires a fresh measurement. See the [GitHub rendering and narrow-screen measurement (English source)](../evidence/github-render-check-2026-10-18.en.md).
 ---
 
 
