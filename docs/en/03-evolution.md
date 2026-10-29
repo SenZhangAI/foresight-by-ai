@@ -44,7 +44,18 @@ This synthesis uses the repository-wide qualified `CALIBRATION` archive scope: t
 
 All six cases were selected after outcomes were known and are `CALIBRATION`, not out-of-sample accuracy evidence; they may expose recording boundaries but cannot yield a method hit rate. The technology candidates remain explicit evidence gaps: only after their originals, metric, unit, observation window, and stable locations are supplied may they re-enter calibration. Retrospective narrative or a URL list cannot fill that gap.
 
-## J-043: status changed, confidence did not
+## 2026-10 bounded technology-history slice: new material, no retroactive denominator change
+
+The new [bounded technology-history calibration slice](../evidence/2026-10-historical-calibration-slice.md) scans six public entry points: NASA’s 2004 Vision and ISS assembly, the NHGRI Human Genome Project, DARPA’s Grand Challenge, the ITU 2005 market projection, and DOE SunShot. It yields **four `CALIBRATION` records and two `UNKNOWN/UNVERIFIED` records**: HGP’s early completion, the ISS deadline delay, the missed 2020 lunar target, and the 2004 DARPA target’s zero finishers are retrospective calibration only; ITU and SunShot remain unknown because the original date, metric, denominator, or same-window outcome is not jointly closed.
+
+This batch **does not rewrite the denominator in the preceding “three-domain archive 6/12, technology qualifying 0” historical snapshot**. The slice uses bounded programme targets, competition targets, and an industry projection, rather than the complete technology registries required by protocol §1. It therefore adds a technology evidence boundary, not method accuracy: completion, delay, or a competition result is not a society-scale diffusion forecast. The slice carries the coverage map, per-item kill records, and unscanned-registry holes.
+
+Three concrete method boundaries flow back:
+
+1. An original target and a same-metric outcome are separate gates; a credible institution or a plausible direction cannot fill missing dates, units, observation windows, or denominators.
+2. Deadline failure, capability demonstration, and social diffusion must remain separate codes; the delayed 2004 lunar target does not prove crewed spaceflight will fail, and the 2005 DARPA completion does not prove autonomous driving diffused.
+3. Technical arrival sequences must separate organized funding / competitions, institutional deadlines, infrastructure assembly, and social adoption; this slice produced neither `CONTAMINATED_RELATIVE_HOLDOUT` nor `GENUINE_FUTURE_OOS`.
+
 
 J-043’s history can be checked directly against the committed trees:
 
