@@ -43,16 +43,16 @@ all automated pre-publication checks pass
 CHECK_EXIT=0
 ```
 
-## Public rendering spot-check
+## Public rendering spot-check at the fixed verification snapshot
 
-The following **default-branch URLs** were fetched directly from GitHub. Each returned HTTP 200; the Mermaid marker count is a structural signal that GitHub returned rendered diagram content, not a claim about visual quality:
+The following **fixed-commit URLs** were fetched directly from GitHub at verification snapshot `d7362c77ca2f30398b78afec61b24f4a54f4d52b`. Each returned HTTP 200; the Mermaid marker count is a structural signal that GitHub returned rendered diagram content, not a claim about visual quality. This is historical evidence for that snapshot, not a current-state claim about a moving `main`.
 
-| Default `main` URL path | HTTP | Mermaid markers |
+| Fixed-commit URL path | HTTP | Mermaid markers |
 | --- | ---: | ---: |
-| [`README.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/main/README.md) | 200 | 1 |
-| [`README.en.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/main/README.en.md) | 200 | 1 |
-| [`docs/zh/chains/10-generation-becomes-free.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/main/docs/zh/chains/10-generation-becomes-free.md) (C1) | 200 | 1 |
-| [`docs/zh/chains/40-embodied-intelligence.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/main/docs/zh/chains/40-embodied-intelligence.md) (C4) | 200 | 2 |
-| [`docs/zh/chains/90-aging-care-and-institutional-substitution.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/main/docs/zh/chains/90-aging-care-and-institutional-substitution.md) (C9) | 200 | 2 |
+| [`README.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/d7362c77ca2f30398b78afec61b24f4a54f4d52b/README.md) | 200 | 1 |
+| [`README.en.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/d7362c77ca2f30398b78afec61b24f4a54f4d52b/README.en.md) | 200 | 1 |
+| [`docs/zh/chains/10-generation-becomes-free.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/d7362c77ca2f30398b78afec61b24f4a54f4d52b/docs/zh/chains/10-generation-becomes-free.md) (C1) | 200 | 1 |
+| [`docs/zh/chains/40-embodied-intelligence.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/d7362c77ca2f30398b78afec61b24f4a54f4d52b/docs/zh/chains/40-embodied-intelligence.md) (C4) | 200 | 2 |
+| [`docs/zh/chains/90-aging-care-and-institutional-substitution.md`](https://github.com/SenZhangAI/foresight-by-ai/blob/d7362c77ca2f30398b78afec61b24f4a54f4d52b/docs/zh/chains/90-aging-care-and-institutional-substitution.md) (C9) | 200 | 2 |
 
-Browser screenshots of GitHub Preview confirmed the README and the C1, C4, and C9 pages render their headings, prose, and Mermaid diagrams. The default-branch C9 URL was also opened and visually checked after the synchronization; the other pages' HTML marker counts were checked from their default-branch URLs. This does not cover mobile-width layout measurement, forecast accuracy, or the quality of the underlying evidence.
+Browser screenshots of GitHub Preview confirmed the README and the C1, C4, and C9 pages render their headings, prose, and Mermaid diagrams at that fixed verification snapshot. The C9 URL was also opened and visually checked at the snapshot; the other pages' HTML marker counts were checked from their fixed-commit URLs. This does not cover mobile-width layout measurement, forecast accuracy, or the quality of the underlying evidence.
