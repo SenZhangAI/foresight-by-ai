@@ -73,6 +73,14 @@ def main() -> None:
         (repo / "docs/en/ledger/11.md").write_bytes(card("J-011", "Must not be cleaned #a").encode())
         (repo / "docs/zh/ledger/12.md").write_bytes(card("J-012", "不可清洗 example.com/source").encode())
         (repo / "docs/en/ledger/12.md").write_bytes(card("J-012", "Must not be cleaned example.com/source").encode())
+        (repo / "docs/zh/ledger/13.md").write_bytes(card("J-013", "不可清洗 snapshot fa4e657").encode())
+        (repo / "docs/en/ledger/13.md").write_bytes(card("J-013", "Must not be cleaned snapshot fa4e657").encode())
+        (repo / "docs/zh/ledger/14.md").write_bytes(card("J-014", r"不可清洗 C:\\repo\\source.md").encode())
+        (repo / "docs/en/ledger/14.md").write_bytes(card("J-014", r"Must not be cleaned C:\\repo\\source.md").encode())
+        (repo / "docs/zh/ledger/15.md").write_bytes(card("J-015", "不可清洗 ./docs/source.md").encode())
+        (repo / "docs/en/ledger/15.md").write_bytes(card("J-015", "Must not be cleaned ./docs/source.md").encode())
+        (repo / "docs/zh/ledger/16.md").write_bytes(card("J-016", "不可清洗 ../docs/source.md").encode())
+        (repo / "docs/en/ledger/16.md").write_bytes(card("J-016", "Must not be cleaned ../docs/source.md").encode())
         run("git", "init", "-q", cwd=repo)
         run("git", "config", "user.email", "test@example.invalid", cwd=repo)
         run("git", "config", "user.name", "Test", cwd=repo)
@@ -89,11 +97,12 @@ def main() -> None:
             raise AssertionError("abbreviated source commit was accepted")
 
         manifest = bf.collect_manifest(repo, source)
-        assert manifest["coverage"] == {"candidate_total": 12, "included": 1, "excluded": 11}
+        assert manifest["coverage"] == {"candidate_total": 16, "included": 1, "excluded": 15}
         assert "field_policy" in manifest and "allowed_transform" in manifest["field_policy"]
         exclusion_reasons = " ".join(item["reason"] for item in manifest["exclusions"][0]["cards"])
         exclusion_fields = [field for item in manifest["exclusions"][0]["cards"] for field in item.get("fields", [])]
         assert "URL" in exclusion_reasons and "unmapped card identifier" in exclusion_reasons
+        assert "commit/source metadata" in exclusion_reasons
         assert "Markdown link" in exclusion_reasons
         assert "source path" in exclusion_reasons
         assert "heading anchor" in exclusion_reasons

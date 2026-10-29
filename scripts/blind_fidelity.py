@@ -43,10 +43,11 @@ FIELD_ORDER = ("judgment", "audience", "reasoning_chain", "time_window", "falsif
 CARD_RE = re.compile(rb"^###\s+(J-\d{3})(?:\s|$).*?(?=^###\s+J-\d{3}|^##\s|\Z)", re.M | re.S)
 FIELD_RE = re.compile(rb"^-\s+\*\*([^*]+)\*\*\s*(?:\x3a|\xef\xbc\x9a)", re.M)
 ID_RE = re.compile(rb"(?<![A-Za-z0-9])J-\d{3}(?![A-Za-z0-9])")
+COMMIT_RE = re.compile(rb"(?<![A-Za-z0-9])[0-9a-f]{7,40}(?![A-Za-z0-9])", re.I)
 URL_RE = re.compile(rb"(?:https?://|www\.)", re.I)
 BARE_DOMAIN_RE = re.compile(rb"\b(?:[a-z0-9-]+\.)+[a-z]{2,}(?:/[^\s)>]*)?", re.I)
 LINK_RE = re.compile(rb"!?\[[^\]]*\]\([^)]*\)")
-PATH_RE = re.compile(rb"(?:^|[\s(])/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+(?:\.[A-Za-z0-9_-]+)?(?:#[^\s)>]+)?|(?:^|[\s(])[A-Za-z0-9_-]+/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+(?:\.[A-Za-z0-9_-]+)?(?:#[^\s)>]+)?|(?:\b(?:docs|chains|ledger|scripts|evidence)/[^\s)>]+)", re.I)
+PATH_RE = re.compile(rb"(?:^|[\s(])(?:\.\.?[\\/]|[A-Za-z]:[\\/]|/|[A-Za-z0-9_-]+[\\/])[^\s)>]+|(?:\b(?:docs|chains|ledger|scripts|evidence)/[^\s)>]+)", re.I)
 ANCHOR_RE = re.compile(rb"#[^\s)>]+")
 GATE_RE = re.compile(rb"\b(?:gate|gating|diffusion-gate|review-gate)\b|\xe9\x97\xa8", re.I)
 STATUS_RE = re.compile(rb"\b(?:ACTIVE|REVISED|ARCHIVED|SUPERSEDED|FALSIFIED|HIT|INDETERMINATE)\b|\xe7\x8a\xb6\xe6\x80\x81|\xe7\xbd\xae\xe4\xbf\xa1\xe5\xba\xa6|confidence|status", re.I)
@@ -139,7 +140,7 @@ def clue(value: bytes, own_id: str, known_ids: Iterable[str]) -> Optional[str]:
     unknown_ids = sorted(set(m.group(0).decode() for m in ID_RE.finditer(text)))
     if unknown_ids:
         return "unmapped card identifier: " + ", ".join(unknown_ids)
-    checks = ((URL_RE, "URL"), (LINK_RE, "Markdown link"), (PATH_RE, "source path"), (BARE_DOMAIN_RE, "bare domain"),
+    checks = ((COMMIT_RE, "commit/source metadata"), (URL_RE, "URL"), (LINK_RE, "Markdown link"), (PATH_RE, "source path"), (BARE_DOMAIN_RE, "bare domain"),
               (ANCHOR_RE, "heading anchor"), (GATE_RE, "gate/review metadata"),
               (STATUS_RE, "status/review metadata"))
     for pattern, label in checks:

@@ -14,7 +14,7 @@
 - bundle：[`faithful-bundle-2026-10-29/bundle.json`](faithful-bundle-2026-10-29/bundle.json)
 - bundle SHA-256：`677d05e6090b73e9c7b4a13bf6ee8153a806c373f76f1da057d8fe2a78617d26`
 - 逐字段证据：[`faithful-bundle-2026-10-29/fidelity-evidence.json`](faithful-bundle-2026-10-29/fidelity-evidence.json)
-- 密封 `R-NNN → J-NNN` 映射保存在仓库外；映射 SHA-256：`a9e666def9996b2c699425c34a4d602937e0fa35943a30d9bc041017d8f757e6`；仓库不把映射交给盲审者
+- 密封 `R-NNN → J-NNN` 映射文件保存在仓库外；映射 SHA-256：`a9e666def9996b2c699425c34a4d602937e0fa35943a30d9bc041017d8f757e6`。仓库不直接交付该映射文件，但由于公开 bundle 同时提供 `source_commit` 与完整字段原文，能读取同一源仓库的审查者仍可能通过逐字段匹配重建映射；因此这里是“不交付映射文件”，不是信息论意义上的匿名隔离。
 
 可重建命令：
 
@@ -50,6 +50,6 @@ No NFKC, newline or whitespace normalization, link/source cleaning, label deleti
 - Bundle: [`faithful-bundle-2026-10-29/bundle.json`](faithful-bundle-2026-10-29/bundle.json)
 - Bundle SHA-256: `677d05e6090b73e9c7b4a13bf6ee8153a806c373f76f1da057d8fe2a78617d26`
 - Field evidence: [`faithful-bundle-2026-10-29/fidelity-evidence.json`](faithful-bundle-2026-10-29/fidelity-evidence.json)
-- The sealed `R-NNN → J-NNN` mapping is kept outside the repository; mapping SHA-256: `a9e666def9996b2c699425c34a4d602937e0fa35943a30d9bc041017d8f757e6`; the mapping is not given to the blind reviewer
+- The sealed `R-NNN → J-NNN` mapping file is kept outside the repository; mapping SHA-256: `a9e666def9996b2c699425c34a4d602937e0fa35943a30d9bc041017d8f757e6`. The repository does not directly deliver that file, but because the public bundle includes both `source_commit` and complete field text, a reviewer who can read the same source repository may still reconstruct the mapping by field matching; this is withholding the mapping artifact, not information-theoretic anonymity.
 
 Rebuild with the three commands shown in the Chinese section. When `source_commit` changes, freeze a new manifest; an old manifest must never silently read a new working tree. This package proves a reproducible input-field fidelity boundary only. It does not prove that a review ran, that the method is valid, or that predictions are accurate.
