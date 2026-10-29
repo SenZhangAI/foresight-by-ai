@@ -18,7 +18,7 @@
 
 - **迁移页 JSON 路由复核：** 为避免把 blob SSR 外壳误读成正文缺失，分别执行 `curl -sSL -H 'Accept: application/json' -H 'X-Requested-With: XMLHttpRequest' -H 'GitHub-Verified-Fetch: true' "https://github.com/SenZhangAI/foresight-by-ai/blob/$sha/$path" -o /tmp/legacy-$lang-json.html`。固定提交 `0c5bf915...` 的序列化响应中，中文与英文各出现一次 `"richTextTruncated":false`、没有 `"richTextTruncated":true`；这确认 JSON 路由已补回富文本，而不是把 blob 页 grep 的前缀计数当成锚点证据。
 
-- **本台账当前公开渲染与窄屏量测（2026-10-18，测量提交 `0c5bf915...`）：** 当前公开 `main` 的台账总览在 GitHub Contents 渲染 HTML 中仍是中英文各 117 行、10 列的真实表格；窄屏实验显示表格自身横向滚动而页面不发生横向溢出。完整命令、SSR `richTextTruncated` 假阴性、JSON 路由补拉锚点以及未验的真机边界见[GitHub 渲染与窄屏实测证据页](github-render-check-2026-10-18.md)。
+- **本台账当前公开渲染与窄屏量测（2026-10-18，测量提交 `0c5bf915...`）：** 当前公开 `main` 的台账总览在 GitHub Contents 渲染 HTML 中仍是中英文各 117 行、10 列的真实表格；窄屏实验显示表格自身横向滚动而页面不发生横向溢出。完整命令、SSR `richTextTruncated` 假阴性、JSON 路由补拉锚点以及未验的真机边界见[GitHub 渲染与窄屏实测证据页（英文原件）](github-render-check-2026-10-18.en.md)。
 - **后续科技史证据边界（2026-10-29）：** 本 J-001–J-095 迁移清单不是 6 案科技切片，也不改变其证据等级。[有界科技史校准切片](2026-10-historical-calibration-slice.md)记录 6 个独立 `TECH-*` 单元：3 条 `CALIBRATION`、3 条 `UNKNOWN/UNVERIFIED`。其中 `TECH-HGP-1990` 因估计基因目标分母未证明与结果侧 gene-containing-region 分母一致，且预算没有同币种完整对账，继续为 `UNKNOWN/UNVERIFIED`。该切片是结果已知后的事后材料，不是 holdout 或准确率估计，也不改写旧的六对／6/12 archive-qualified 分母；双语回流见[方法论](../zh/00-method.md)、[历史验证协议](../zh/02-historical-validation-protocol.md)与[历史回顾](../zh/01-retrospect.md)。
 
 ## Delivery state / 交付状态（2026-10-18）
