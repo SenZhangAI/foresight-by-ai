@@ -463,7 +463,7 @@ kill pass 之后留下 **22 条 `UNKNOWN/UNVERIFIED` 与 2 条 `EXCLUDED`，新�
 | 2 条 `EXCLUDED` | 明确说明政策承诺或无目标日期状态指标为何不能在本批评分；案例仍可追溯，而不是静默丢弃 | 声称相关政策或公司结果就是预测失败 |
 | 新增冻结 0 条 | 证明本轮没有降低重建门槛来制造样本 | 证明历史预测没有失败，或证明方法有效 |
 
-因此，本轮**不改变仓库旧 archive 的六对 `CALIBRATION` 档案（6/12 qualified-pair 口径）**；新增有界科技切片另有 4 条事后 `CALIBRATION` 与 2 条 `UNKNOWN/UNVERIFIED`，不并入旧 archive 的准确率分母，也不把 HGP 迁移项重复计算。`CONTAMINATED_RELATIVE_HOLDOUT` 与 `GENUINE_FUTURE_OOS` 仍为 0。尤其是，如果用结果已知后挑出的材料组装相对留出，它仍受共同泄漏污染：即便同输入 baseline 被超过，训练记忆与案例指纹也只允许得出「相对区分度」结论，不能得出绝对预测准确率。协议文字、候选数量、`npm run check` 或 `ship:structure-placeholder` 通过，都不能替代历史验证协议要求的冻结总体、T 前材料包、同输入 baseline、评分规则和一次性揭示。
+因此，本轮**不改变仓库旧 archive 的六对 `CALIBRATION` 档案（6/12 qualified-pair 口径）**；新增有界科技切片另有 3 条事后 `CALIBRATION` 与 3 条 `UNKNOWN/UNVERIFIED`，不并入旧 archive 的准确率分母，也不把 HGP 迁移项重复计算。`CONTAMINATED_RELATIVE_HOLDOUT` 与 `GENUINE_FUTURE_OOS` 仍为 0。尤其是，如果用结果已知后挑出的材料组装相对留出，它仍受共同泄漏污染：即便同输入 baseline 被超过，训练记忆与案例指纹也只允许得出「相对区分度」结论，不能得出绝对预测准确率。协议文字、候选数量、`npm run check` 或 `ship:structure-placeholder` 通过，都不能替代历史验证协议要求的冻结总体、T 前材料包、同输入 baseline、评分规则和一次性揭示。
 
 留下的是方法边界，不是预测结论：今后的历史候选必须逐案先标为 **CALIBRATION**、**UNKNOWN/UNVERIFIED** 或 **EXCLUDED**，再决定如何使用。完整清单、kill 尝试、来源位置、缺失字段与下一步闭合动作仍以链接清单为准；本节不把 24 条线索中的任何一条提升为确定失准或社会级判断。
 
