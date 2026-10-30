@@ -274,7 +274,7 @@ def public_exclusion_evidence(manifest: Dict[str, Any], manifest_sha256: str, pr
                     "exclusion_ref": "E-%03d" % ordinal,
                     "language": field["language"],
                     "field": field["field"],
-                    "reason": field["reason"],
+                    "reason": re.sub(r"J-\d{3}", "<opaque-id>", field["reason"]),
                     "source_sha256": field["source_sha256"],
                     "difference_verdict": field["difference_verdict"],
                 })

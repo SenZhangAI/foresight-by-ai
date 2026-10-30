@@ -133,6 +133,7 @@ def main() -> None:
         assert exclusions["field_count"] == len(exclusion_fields)
         assert all(item["difference_verdict"] == "excluded_before_projection" for item in exclusions["fields"])
         assert all("source_path" not in item and "field_locator" not in item for item in exclusions["fields"])
+        assert all("J-" not in item["reason"] for item in exclusions["fields"])
         assert bundle["source_commit"] == source
 
         # A dirty working-tree rewrite cannot affect a package pinned to the
