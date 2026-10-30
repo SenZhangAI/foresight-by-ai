@@ -7,6 +7,8 @@
 任何 NFKC、换行或空白归一化、链接／来源清洗、标签删除、状态／评审文字替换、未登记卡片 ID 的变换都不会发生：必填字段一旦需要这些操作，卡片进入 private manifest 的逐卡 exclusion ledger。`fidelity-evidence.json` 是不含映射的公开逐字段证据；公开 evidence 只发布 alias、language、field、source/emitted hash、替换计数和差异结论；不发布 source_id、路径、locator、label 或 `from` ID。它不是同一清洗流程的 hash 自证，因为私有重建步骤先从 Git 快照按 locator 读取原始字节，再逐字段做允许变换比较。
 
 - 冻结源提交：`ed8b0cb89a94113f20272443b85a8ec67de83775`
+- 生成器提交：`ed8b0cb89a94113f20272443b85a8ec67de83775`（`scripts/blind_fidelity.py`）
+- 生成器 SHA-256：`f5a7445d8d1ac85e95cac94f78216488a7cf2fa236059d2f31b269a8c9eb27ab`
 - manifest：[`manifest-2026-10-29-faithful.json`](manifest-2026-10-29-faithful.json)
 - manifest receipt SHA-256：`d5b93c9d2b51146e10bcf5ac41cbf4e63420d2b18370615d9be053741137698b`
 - private manifest SHA-256（仓库外）：`7c211fa4020e8d1559e22b3446303129822e0289d106f688e72b5629f0475418`
@@ -43,6 +45,8 @@ This round replaces “stable cleaned text” with a **source-field-fidelity fre
 No NFKC, newline or whitespace normalization, link/source cleaning, label deletion, status/review-text replacement, or implicit card-ID rewrite is performed. If a required field would need one of those operations, the card is placed in the private manifest’s per-card exclusion ledger. Public `fidelity-evidence.json` records, field by field, only opaque alias, language, field, source/emitted hashes, replacement counts, and the `exact_except_explicit_id_alias` verdict; each private excluded field records its language, field, reason, source path, locator, source hash, and `excluded_before_projection`. This is not a hash of two outputs from one cleaning pipeline: private reconstruction reads raw bytes from the Git snapshot at each locator and then applies only the permitted alias operation.
 
 - Frozen source commit: `ed8b0cb89a94113f20272443b85a8ec67de83775`
+- Generator commit: `ed8b0cb89a94113f20272443b85a8ec67de83775` (`scripts/blind_fidelity.py`)
+- Generator SHA-256: `f5a7445d8d1ac85e95cac94f78216488a7cf2fa236059d2f31b269a8c9eb27ab`
 - Manifest: [`manifest-2026-10-29-faithful.json`](manifest-2026-10-29-faithful.json)
 - Manifest receipt SHA-256: `d5b93c9d2b51146e10bcf5ac41cbf4e63420d2b18370615d9be053741137698b`
 - Private manifest SHA-256 (outside the repository): `7c211fa4020e8d1559e22b3446303129822e0289d106f688e72b5629f0475418`
