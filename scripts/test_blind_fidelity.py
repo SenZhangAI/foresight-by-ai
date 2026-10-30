@@ -126,6 +126,13 @@ def main() -> None:
         assert "Ａ" in fields["judgment"] and "e\u0301" in fields["judgment"]
         evidence = json.loads((out / "fidelity-evidence.json").read_text())
         assert all(item["difference_verdict"] == "exact_except_explicit_id_alias" for item in evidence["fields"])
+        assert evidence["generator_commit"]
+        assert len(evidence["generator_sha256"]) == 64
+        exclusions = json.loads((out / "exclusion-evidence.json").read_text())
+        assert exclusions["coverage"] == manifest["coverage"]
+        assert exclusions["field_count"] == len(exclusion_fields)
+        assert all(item["difference_verdict"] == "excluded_before_projection" for item in exclusions["fields"])
+        assert all("source_path" not in item and "field_locator" not in item for item in exclusions["fields"])
         assert bundle["source_commit"] == source
 
         # A dirty working-tree rewrite cannot affect a package pinned to the

@@ -241,7 +241,16 @@ def collect_manifest(repo: Path, source_commit: str) -> Dict[str, Any]:
     exclusions = [{"subject": "strict source-field fidelity exclusions", "reason": "A required source field is missing, not UTF-8, or carries a traceback clue that cannot be cleaned under the byte-fidelity rule.", "count": len(excluded), "cards": excluded}] if excluded else []
     return {"schema_version": SCHEMA_VERSION, "source_commit": source_commit, "source_snapshot": "git archive of source_commit; working tree is never read", "field_policy": {"included": list(FIELD_ORDER), "omitted_fields": "All fields outside the six required fields are excluded, not cleaned.", "allowed_transform": "Only exact byte replacement of the explicit card-id aliases in cards[].alias is allowed."}, "alias_policy": "Each source J-NNN in the frozen included set has one explicit R-NNN alias; no Unicode, newline, whitespace, link, label, or metadata transformation is permitted.", "coverage": {"candidate_total": len(ids), "included": len(cards), "excluded": len(excluded)}, "exclusions": exclusions, "cards": cards}
 
-def public_receipt(manifest: Dict[str, Any], manifest_sha256: str) -> Dict[str, Any]:
+def generator_provenance(repo: Path) -> Dict[str, str]:
+    script = Path(__file__).resolve()
+    generator_repo = script.parent.parent
+    return {
+        "generator_commit": git(generator_repo, "log", "-1", "--format=%H", "--", "scripts/blind_fidelity.py").decode().strip(),
+        "generator_sha256": sha(script.read_bytes()),
+    }
+
+
+def public_receipt(manifest: Dict[str, Any], manifest_sha256: str, provenance: Dict[str, str]) -> Dict[str, Any]:
     counts: Dict[str, int] = {}
     for group in manifest.get("exclusions", []):
         for card in group.get("cards", []):
@@ -251,7 +260,34 @@ def public_receipt(manifest: Dict[str, Any], manifest_sha256: str) -> Dict[str, 
                 if part:
                     category = part.split(" contains ", 1)[-1].split(":", 1)[0]
                     counts[category] = counts.get(category, 0) + 1
-    return {"schema_version": 1, "public_receipt": True, "source_commit": manifest["source_commit"], "private_manifest_sha256": manifest_sha256, "coverage": manifest["coverage"], "field_policy": manifest["field_policy"], "alias_policy": "The private manifest has an explicit one-to-one card-id alias map; this receipt intentionally contains no source IDs, aliases, paths, locators, labels, or mapping.", "exclusion_reason_counts": counts}
+    return {"schema_version": 1, "public_receipt": True, "source_commit": manifest["source_commit"], **provenance, "private_manifest_sha256": manifest_sha256, "coverage": manifest["coverage"], "field_policy": manifest["field_policy"], "alias_policy": "The private manifest has an explicit one-to-one card-id alias map; this receipt intentionally contains no source IDs, aliases, paths, locators, labels, or mapping.", "exclusion_reason_counts": counts}
+
+
+def public_exclusion_evidence(manifest: Dict[str, Any], manifest_sha256: str, provenance: Dict[str, str]) -> Dict[str, Any]:
+    fields = []
+    ordinal = 0
+    for group in manifest.get("exclusions", []):
+        for card in group.get("cards", []):
+            for field in card.get("fields", []):
+                ordinal += 1
+                fields.append({
+                    "exclusion_ref": "E-%03d" % ordinal,
+                    "language": field["language"],
+                    "field": field["field"],
+                    "reason": field["reason"],
+                    "source_sha256": field["source_sha256"],
+                    "difference_verdict": field["difference_verdict"],
+                })
+    return {
+        "schema_version": 1,
+        "source_commit": manifest["source_commit"],
+        **provenance,
+        "private_manifest_sha256": manifest_sha256,
+        "coverage": manifest["coverage"],
+        "field_count": len(fields),
+        "fields": fields,
+        "rule": "Each excluded field is listed with an opaque exclusion reference, language, required field, exclusion reason, source-field SHA-256, and exclusion verdict; source IDs, paths, labels, locators, and mapping remain withheld.",
+    }
 
 def validate_manifest(manifest: Dict[str, Any]) -> None:
     required = {"schema_version", "source_commit", "source_snapshot", "field_policy", "alias_policy", "coverage", "exclusions", "cards"}
@@ -304,6 +340,7 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, mapping_out: Path
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     validate_manifest(manifest)
     commit_exists(repo, manifest["source_commit"])
+    provenance = generator_provenance(repo)
     mapping_out = ensure_private_output(repo, mapping_out, "mapping-out")
     aliases = {c["id"]: c["alias"] for c in manifest["cards"]}
     records = []
@@ -388,9 +425,11 @@ def prepare(repo: Path, manifest_path: Path, output_dir: Path, mapping_out: Path
     public_fields = []
     for item in field_diffs:
         public_fields.append({"alias": item["alias"], "language": item["language"], "field": item["field"], "source_sha256": item["source_sha256"], "emitted_sha256": item["emitted_sha256"], "alias_replacement_counts": [change["count"] for change in item["alias_replacements"]], "difference_verdict": item["difference_verdict"]})
-    public_fidelity = {"schema_version": 1, "source_commit": manifest["source_commit"], "manifest_sha256": sha(manifest_path.read_bytes()), "bundle_sha256": sha(canonical(bundle)), "field_count": len(public_fields), "fields": public_fields, "rule": "Every public field is byte-identical to its private frozen locator except exact opaque card-id alias tokens; source IDs, paths, labels, locators, and mapping are withheld."}
+    public_fidelity = {"schema_version": 1, "source_commit": manifest["source_commit"], **provenance, "manifest_sha256": sha(manifest_path.read_bytes()), "bundle_sha256": sha(canonical(bundle)), "field_count": len(public_fields), "fields": public_fields, "rule": "Every public field is byte-identical to its private frozen locator except exact opaque card-id alias tokens; source IDs, paths, labels, locators, and mapping are withheld."}
     (output_dir / "fidelity-evidence.json").write_bytes(canonical(public_fidelity))
-    mapping_value = {"sealed": True, "source_commit": manifest["source_commit"], "bundle_sha256": sha(canonical(bundle)), "records": mapping}
+    exclusion_evidence = public_exclusion_evidence(manifest, sha(manifest_path.read_bytes()), provenance)
+    (output_dir / "exclusion-evidence.json").write_bytes(canonical(exclusion_evidence))
+    mapping_value = {"sealed": True, "source_commit": manifest["source_commit"], **provenance, "bundle_sha256": sha(canonical(bundle)), "records": mapping}
     mapping_out.parent.mkdir(parents=True, exist_ok=True)
     mapping_out.write_bytes(canonical(mapping_value))
     private_fidelity_path = mapping_out.with_name(mapping_out.stem + "-fidelity-private.json")
@@ -425,7 +464,7 @@ def main(argv: List[str]) -> int:
             private_bytes = private_path.read_bytes()
             private_manifest = json.loads(private_bytes)
             validate_manifest(private_manifest)
-            receipt = public_receipt(private_manifest, sha(private_bytes))
+            receipt = public_receipt(private_manifest, sha(private_bytes), generator_provenance(repo))
             out = args.receipt_out if args.receipt_out.is_absolute() else repo / args.receipt_out
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_bytes(canonical(receipt))
