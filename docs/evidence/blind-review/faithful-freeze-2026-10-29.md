@@ -16,6 +16,7 @@
 - bundle：[`faithful-bundle-2026-10-29/bundle.json`](faithful-bundle-2026-10-29/bundle.json)
 - bundle SHA-256：`bebd90e6cb53001f331da38e01aeac3ab634598143ae34df576b1d9f93427c81`
 - 逐字段证据：[`faithful-bundle-2026-10-29/fidelity-evidence.json`](faithful-bundle-2026-10-29/fidelity-evidence.json)
+- 逐字段证据 SHA-256：`7dd5c5d494a1911bac357b769ab1f7fdec3925434759415459c889fa9a4255b8`
 - 排除字段证据：[`faithful-bundle-2026-10-29/exclusion-evidence.json`](faithful-bundle-2026-10-29/exclusion-evidence.json)，SHA-256：`19e0c439b55414229316fa13c10c74abeda178fecbbebebb74ac798253210f5a`
 - 密封 `R-NNN → J-NNN` 映射文件保存在仓库外；映射 SHA-256：`428709c322f88cd3e83defb466b64195cbf8c3bef4e35ead82b7f91bdc0d3d54`。仓库不直接交付该映射文件，但由于公开 bundle 同时提供 `source_commit` 与完整字段原文，能读取同一源仓库的审查者仍可能通过逐字段匹配重建映射；因此这里是“不交付映射文件”，不是信息论意义上的匿名隔离。
 
@@ -55,6 +56,7 @@ No NFKC, newline or whitespace normalization, link/source cleaning, label deleti
 - Bundle: [`faithful-bundle-2026-10-29/bundle.json`](faithful-bundle-2026-10-29/bundle.json)
 - Bundle SHA-256: `bebd90e6cb53001f331da38e01aeac3ab634598143ae34df576b1d9f93427c81`
 - Field evidence: [`faithful-bundle-2026-10-29/fidelity-evidence.json`](faithful-bundle-2026-10-29/fidelity-evidence.json)
+- Field evidence SHA-256: `7dd5c5d494a1911bac357b769ab1f7fdec3925434759415459c889fa9a4255b8`
 - Excluded-field evidence: [`faithful-bundle-2026-10-29/exclusion-evidence.json`](faithful-bundle-2026-10-29/exclusion-evidence.json), SHA-256: `19e0c439b55414229316fa13c10c74abeda178fecbbebebb74ac798253210f5a`
 - The sealed `R-NNN → J-NNN` mapping file is kept outside the repository; mapping SHA-256: `428709c322f88cd3e83defb466b64195cbf8c3bef4e35ead82b7f91bdc0d3d54`. The repository does not directly deliver that file, but because the public bundle includes both `source_commit` and complete field text, a reviewer who can read the same source repository may still reconstruct the mapping by field matching; this is withholding the mapping artifact, not information-theoretic anonymity.
 
