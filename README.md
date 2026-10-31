@@ -57,7 +57,7 @@
 
 1. **历史回顾** — [历史回顾](docs/zh/01-retrospect.md)。**已完成部分校准**：用成功与失败案例筛选规则；不产生未来准确率。
 2. **方法验证** — [历史伪样本外验证协议](docs/zh/02-historical-validation-protocol.md)。**协议已公开，历史 holdout 尚未运行**：冻结、留存、基线和泄漏边界已规定，但没有可报告的伪样本外命中率。
-3. **隔离式重新推演** — [独立重新预测状态页](docs/zh/independent-reprediction-status.md) · [隔离盲判复审报告](docs/evidence/blind-review-reaudit-2026-10-09.md)。**流程已执行两轮，但只支持可复现性**：同模型、受众字段泄漏和运行记录缺口仍阻止“独立正确性”结论。
+3. **隔离式重新推演** — [独立重新预测状态页](docs/zh/independent-reprediction-status.md) · [隔离盲判复审报告](docs/evidence/blind-review-reaudit-2026-10-09.md) · **最新源字段保真冻结**：[冻结说明](docs/evidence/blind-review/faithful-freeze-2026-10-29.md) · [manifest receipt](docs/evidence/blind-review/manifest-2026-10-29-faithful.json) · [faithful bundle](docs/evidence/blind-review/faithful-bundle-2026-10-29/bundle.json) · [逐字段证据](docs/evidence/blind-review/faithful-bundle-2026-10-29/fidelity-evidence.json)。**流程已执行两轮，但只支持可复现性**：同模型、受众字段泄漏和运行记录缺口仍阻止“独立正确性”结论；最新冻结包只证明输入字段可按源提交重建，不证明盲审已运行、方法有效或预测准确。
 4. **真实样本外结果** — [真实未来样本外结果登记](docs/evidence/future-oos-results-register.md) · [台账检查日志](docs/zh/90-ledger.md#八检查日志)。**`UNKNOWN/UNVERIFIED`**：当前没有已到期并完成结果登记的 `GENUINE_FUTURE_OOS` 卡，不能报告准确率。
 
 这四步的链接集合也在[独立重新预测状态页](docs/zh/independent-reprediction-status.md)中按同一顺序复现。`python3 scripts/check.py` 或 `npm run check` 通过时，只能证明结构与链接合同；它们不能替代第 2–4 步的证据。
